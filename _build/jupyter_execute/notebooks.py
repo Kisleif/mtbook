@@ -46,10 +46,12 @@
 from matplotlib import rcParams, cycler
 import matplotlib.pyplot as plt
 import numpy as np
+import qrcode
 plt.ion()
+use_thebelab_button              : true  # If 'true', display a button to allow in-page running code cells with Thebelab
 
 
-# In[2]:
+# In[13]:
 
 
 # Fixing random state for reproducibility
@@ -74,3 +76,29 @@ ax.legend(custom_lines, ['Cold', 'Medium', 'Hot']);
 
 # There is a lot more that you can do with outputs (such as including interactive outputs)
 # with your book. For more information about this, see [the Jupyter Book documentation](https://jupyterbook.org)
+
+# :::{figure-md} markdown-fig
+# <img src="logo.png" alt="fishy" class="bg-primary mb-1" width="200px">
+# 
+# This is a caption in **Markdown**!
+# :::
+
+# [![Everything Is AWESOME](http://i.imgur.com/Ot5DWAW.png)](https://youtu.be/StTqXEQ2l-Y?t=35s "Everything Is AWESOME")
+
+# In[14]:
+
+
+plt.imshow(qrcode.make("https://youtu.be/StTqXEQ2l-Y?t=35s") , cmap = 'gray')
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+

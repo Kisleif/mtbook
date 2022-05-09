@@ -102,31 +102,6 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="Inhalt.html">
-   Vorlesungsskript zur Messtechnik
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Einleitung.html">
-   Grundlagen
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Kurvenanpassung.html">
-   Kurvenanpassung
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Messsignale.html">
-   Messsignale, Charakterisierung und  Analyse
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Messsysteme.html">
-   Stationäre Messsysteme
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="markdown.html">
    Markdown Files
   </a>
@@ -342,12 +317,21 @@ For example, here’s some sample Matplotlib code:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rcParams</span><span class="p">,</span> <span class="n">cycler</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">qrcode</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ion</span><span class="p">()</span>
+<span class="n">use_thebelab_button</span>              <span class="p">:</span> <span class="n">true</span>  <span class="c1"># If &#39;true&#39;, display a button to allow in-page running code cells with Thebelab</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.pyplot._IonContext at 0x7fc7c83add60&gt;
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">6</span><span class="n">d</span><span class="o">/</span><span class="mi">574</span><span class="n">ptfzx6v9_j7pylzkngrkm0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_79421</span><span class="o">/</span><span class="mf">1145255717.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">qrcode</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">plt</span><span class="o">.</span><span class="n">ion</span><span class="p">()</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">use_thebelab_button</span>              <span class="p">:</span> <span class="n">true</span>  <span class="c1"># If &#39;true&#39;, display a button to allow in-page running code cells with Thebelab</span>
+
+<span class="ne">NameError</span>: name &#39;true&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -381,6 +365,24 @@ For example, here’s some sample Matplotlib code:</p>
 </div>
 <p>There is a lot more that you can do with outputs (such as including interactive outputs)
 with your book. For more information about this, see <a class="reference external" href="https://jupyterbook.org">the Jupyter Book documentation</a></p>
+<div class="figure align-default" id="markdown-fig">
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/logo.png"><img alt="fishy" class="bg-primary mb-1" src="_images/logo.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">This is a caption in <strong>Markdown</strong>!</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+</div>
+<p><a class="reference external" href="https://youtu.be/StTqXEQ2l-Y?t=35s"><img alt="Everything Is AWESOME" src="http://i.imgur.com/Ot5DWAW.png" /></a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">qrcode</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="s2">&quot;https://youtu.be/StTqXEQ2l-Y?t=35s&quot;</span><span class="p">)</span> <span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fcac9e2f640&gt;
+</pre></div>
+</div>
+<img alt="_images/notebooks_6_1.png" src="_images/notebooks_6_1.png" />
+</div>
+</div>
 </div>
 </div>
 

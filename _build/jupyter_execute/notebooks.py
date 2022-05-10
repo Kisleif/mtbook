@@ -88,14 +88,13 @@ ax.legend(custom_lines, ['Cold', 'Medium', 'Hot']);
 # In[14]:
 
 
-plt.imshow(qrcode.make("https://youtu.be/StTqXEQ2l-Y?t=35s") , cmap = 'gray')
-
-
-# In[ ]:
 
 
 
+# <iframe width="560" height="315" src="https://www.youtube.com/embed/jZ952vChhuI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+# 
 
+# <iframe width="560" height="315" src="https://www.youtube.com/embed/jZ952vChhuI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 # In[ ]:
 

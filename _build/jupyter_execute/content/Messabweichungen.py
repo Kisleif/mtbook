@@ -32,40 +32,6 @@ from IPython.core.display import HTML
 # * **DIN 1319-4**: Auswertung von Messungen: Diese Norm wird in allgemeineren Fällen anstellen von DIN 1319-3 angewandt, z.B. wenn lineare Regressionen durchzuführen sind oder mehrere Messgrößen gemeinsam als Funktion anderer Größen auszuwerten sind. 
 # * **GUM**: Guide to the Expression of Uncertainty in Measurement
 
-# ## Inhalt
-# ***
-# 
-# 
-# ### [Einleitung](#Sec-Einleitung)
-# * [Quantenmechanische Grenzen](#SubSec-Quantenmechanische_Grenzen)
-# * [Technische Einflüsse](#SubSec-Technische_Einflüsse)
-# * [Überblick über Mess*fehler*](#SubSec-Überblick_über_Messfehler)
-# * [Schreibweise eines Messwertes mit Messabweichung](#SubSec-Schreibweise_eines_Messwertes_mit_Messabweichung)
-# * [Messgeräteangaben von Messabweichungen](#SubSec-Messgeräteangaben_von_Messabweichungen)
-# * [Bedeutung von Messunsicherheiten](#SubSec-Bedeutung_von_Messunsicherheiten)
-# 
-# ### [Systematische Messabweichungen](#Sec-Systematische_Messabweichungen)
-# * [Messgeräteabweichung](#SubSec-Messgeräteabweichung)
-# 
-# ### [Statistische Messabweichungen](#Sec-Statistische_Messabweichungen)
-# * [Normalverteilung und Gaußverteilung](#SubSec-Normalverteilung_Gaußverteilung)
-# * [Normierte Gaußverteilung](#SubSec-Normierte_Gaußverteilung)
-#     * [Beispiel: Wahrscheinlichkeit für Zutreffen eines Ereignisses mittels Gauß-Test](#SubSec-Beispiel_Normierte_Gaußverteilung)
-# * [Student- /t-Verteilung](#SubSec-Student-t_Verteilung)
-#     * [Beispiel: Student-t Verteilung](#SubSec-Beispiel_Student-t_Verteilung)
-# * [Zusammenfassung zufälliger Unsicherheiten](#SubSec-Zusammenfassung_zufälliger_Unsicherheiten)
-# 
-# ### [Fehlerfortpflanzung](#Sec-Fehlerfortpflanzung)
-# * [Einleitung](#SubSec-Einleitung)
-# * [Abweichung mit Vorzeichen (systematische Abweichung), unabhängige Variablen](#SubSec-abweichung_mit_vorzeichen)
-# * [Fehlerfortpflanzung bei korrelierten Unsicherheiten](#SubSec-Fehlerfortpflanzung_bei_korrelierten_Unsicherheiten)
-# * [Kovarianz und Korrelation](#SubSec-Kovarianz_und_Korrelation)
-#     * [Beispiel und grafische Darstellung von Kovarianz und Korrelation](#SubSec-covBeispiel)
-# 
-# ### [Zusammenfassung](#Sec-Zusammenfassung)
-# 
-# ***
-
 # ## Einleitung <a id="Sec-Einleitung"></a>
 # 
 # Früher hat man statt *Abweichung* noch den Begriff *Messfehler* verwendet. Man dachte, dass man mit genügend Aufwand, Sorgfalt und bestmöglicher Technologie den Fehler vollständig eliminieren können. Spätestens seit der Theorie der *Quantenphysik* ist uns allerdings bekannt, dass zufällige Einflüsse auf die beobachteten Messgrößen  unvermeidlich sind und auch nicht vorhergesagt werden können. Statt eines einzig *wahren* Wertes werden in der Quantenphysik Messgrößen durch deren Erwartungswerte vorhergesagt. Diesen Messgrößen liegt eine Wahrscheinlichkeitsdichte zu Grunde, dessen Varianz (bzw. Standardabweichung) nicht verschwindet! Somit werden für ein und dieselbe physikalische Messgröße verschiedene Ergebnisse angegeben, wobei jedes eine bestimmte Wahrscheinlichkeit aufweist, dass dieses Ergebnis eintritt.  

@@ -37,30 +37,6 @@ from lmfit import Model
 Image("pictures/interpol_approx.png", width=800)
 
 
-# ## Inhalt
-# ***
-# 
-# ### [Modellanpassung](#Sec-Modellanpassung)
-# * [Least-squares: Methode der kleinsten Quadrate](#SubSec-least_squares)
-# * [Bestimmtheitsmaß](#SubSec-Bestimmtheitsmaß)
-# * [Modellanpassung mit Unsicherheiten](#SubSec-Modellanpassung_unsicherheiten)
-# * [Lineare Modellanpassung](#SubSec-Lineare_Modellanpassung)
-# 
-# ### [Beispiel: Karussel (ohne Fehlerbalken)](#Sec-Beispiel)
-# * [Analytische Lineare Regression](#SubSec-Analytical_LinReg)
-# * [Lineare Regression mit Python: scipy](#SubSec-scipy_LinReg)
-# * [Lineare Regression mit Python: lmfit](#SubSec-lmfit_LinReg)
-# * [Bestimmung der Geschwindigkeit](#SubSec-geschwindigkeit)
-# * [Unsicherheit der Geschwindigkeit](#SubSec-u_geschwindigkeit)
-# * [Korrelationskoeffizient](#SubSec-Korrelationskoeffizient)
-# 
-# ### [Beispiel mit Fehlerbalken in den y-Messwerten](#Sec-Beispiel_Fehlerbalken)
-# * [Minimierungsproblem lösen: Ausprobieren](#SubSec-Ausprobieren)
-# * [Kurvenanpassung mit Python: scipy](#SubSec-scipy_bsp2)
-# * [Kurvenanpassung mit Python: lmfit](#SubSec-lmfit_bsp2)
-# 
-# ### [Zusammenfassung](#Sec-Zusammenfassung)
-
 # ***
 # ## Modellanpassung <a id="Sec-Modellanpassung"></a>
 # 

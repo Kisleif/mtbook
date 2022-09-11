@@ -28,8 +28,8 @@ print('Setup Complete')
 # In[2]:
 
 
-#link = 'https://data.giss.nasa.gov/gistemp/tabledata_v4/GLB.Ts+dSST.csv'
-link = "https://data.giss.nasa.gov/gistemp/graphs_v4/graph_data/Global_Mean_Estimates_based_on_Land_and_Ocean_Data/graph.csv"
+#link = "https://data.giss.nasa.gov/gistemp/graphs_v4/graph_data/Global_Mean_Estimates_based_on_Land_and_Ocean_Data/graph.csv"
+link = 'data/graph.csv'
 global_mean = pd.read_csv(link, header = 1) 
 
 
@@ -254,7 +254,7 @@ y_model = model[0]*x+model[1]
 print(f"Temperaturanstieg pro Jahr (von 1980 bis 2020): {model[0]:.3f}°C/Jahr")
 
 
-# In[22]:
+# In[21]:
 
 
 plt.style.use('default')
@@ -274,7 +274,7 @@ plt.grid();
 # 
 # Glätte die Daten aus Deutschland, die im letzten Abschnitt bereits bereinigt wurden. Hierfür sollen lediglich die *Abweichungen* der Jahresmitteltemperaturen betrachtet werden (also das, was eben berechnet wurde). Stelle  anschließend die Abweichungswerte zusammen mit den geglätteten Werten grafisch dar und beschrifte das Diagramm entsprechend. 
 
-# In[23]:
+# In[22]:
 
 
 {
@@ -288,7 +288,7 @@ GER_mean["Lowess(own)"] = lowess(GER_mean["Jahresmitteltemperaturabweichung [°C
 GER_mean
 
 
-# In[24]:
+# In[23]:
 
 
 {
@@ -312,7 +312,7 @@ plt.grid();
 # 
 # Unter diesem Link [https://data.giss.nasa.gov/gistemp/graphs_v4/graph_data/Temperature_Anomalies_over_Land_and_over_Ocean/graph.csv](https://data.giss.nasa.gov/gistemp/graphs_v4/graph_data/Temperature_Anomalies_over_Land_and_over_Ocean/graph.csv) findest du die Messdaten für die Erwärmung an Landoberfläche und an der Ozeanoberfläche. Lese die Daten in ein DataFrame `global_mean_sep` ein und stelle sie grafisch dar. Beschrifte das Diagramm entsprechend!
 
-# In[25]:
+# In[24]:
 
 
 {

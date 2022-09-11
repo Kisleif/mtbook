@@ -277,11 +277,6 @@ plt.grid();
 # In[22]:
 
 
-{
-    "tags": [
-        "hide-input",
-    ]
-}
 # Berechnung der geglätteten Daten und Speichern im DataFrame:
 from statsmodels.nonparametric.smoothers_lowess import lowess
 GER_mean["Lowess(own)"] = lowess(GER_mean["Jahresmitteltemperaturabweichung [°C]"],GER_mean["Jahr"], frac=1/14)[:,1]
@@ -291,11 +286,6 @@ GER_mean
 # In[23]:
 
 
-{
-    "tags": [
-        "hide-input",
-    ]
-}
 # Grafische Darstellung der Daten und Glättung aus Deutschland:
 plt.style.use('default')
 plt.figure(figsize=(10,5))
@@ -315,34 +305,20 @@ plt.grid();
 # In[24]:
 
 
-{
-    "tags": [
-        "hide-input",
-    ]
-}
-link = "https://data.giss.nasa.gov/gistemp/graphs_v4/graph_data/Temperature_Anomalies_over_Land_and_over_Ocean/graph.csv"
+#link = "https://data.giss.nasa.gov/gistemp/graphs_v4/graph_data/Temperature_Anomalies_over_Land_and_over_Ocean/graph.csv"
+link = 'data/graph_land_ocean.csv'
 global_mean_sep = pd.read_csv(link, header = 1) 
+
+
+# In[25]:
+
+
+global_mean_sep
 
 
 # In[26]:
 
 
-{
-    "tags": [
-        "hide-input",
-    ]
-}
-global_mean_sep
-
-
-# In[27]:
-
-
-{
-    "tags": [
-        "hide-input",
-    ]
-} 
 plt.style.use('default')
 plt.figure(figsize=(10,5))
 plt.rcParams['font.size'] = 14;
@@ -364,14 +340,9 @@ plt.grid();
 # - Deutschland: Land (Werte) <- DWD (Deutscher Wetterdienst)
 # - Deutschland: Land (geglättet) <- DWD (Deutscher Wetterdienst)
 
-# In[28]:
+# In[27]:
 
 
-{
-    "tags": [
-        "hide-input",
-    ]
-} 
 plt.style.use('default')
 plt.figure(figsize=(10,5))
 plt.rcParams['font.size'] = 14;
@@ -397,31 +368,21 @@ plt.grid();
 # Hierbei wurde scheinbar eine sehr starke Glättung der Messdaten verwendet.
 # Erhöhe also den Wert `frac` für die LOWESS Methode für beide Messsätze `global_mean`(NASA) und `GER_mean` (Deutscher Wetterdienst) und prüfe, ob wir in ähnliche Bereiche kommen. Gib ebenfalls den Temperaturanstieg über die letzten 40 Jahre an (mittels linearer Regression). 
 
-# In[29]:
+# In[28]:
 
 
-{
-    "tags": [
-        "hide-input",
-    ]
-} 
 # Glättung:
 from statsmodels.nonparametric.smoothers_lowess import lowess
 GER_mean["Lowess(own3)"] = lowess(GER_mean["Jahresmitteltemperaturabweichung [°C]"],GER_mean["Jahr"], frac=1/3)[:,1]
 GER_mean_Lowess_own3_mean_until_1910 = GER_mean.loc[GER_mean["Jahr"] <= 1910,"Lowess(own3)"].mean()
 GER_mean["Lowess(own3)"] = GER_mean["Lowess(own3)"] - GER_mean_Lowess_own3_mean_until_1910
 
-global_mean["Lowess(own)"] = lowess(global_mean["No_Smoothing"],global_mean["Year"], frac=1/3)[:,1]
+global_mean["Lowess(own3)"] = lowess(global_mean["No_Smoothing"],global_mean["Year"], frac=1/3)[:,1]
 
 
-# In[30]:
+# In[29]:
 
 
-{
-    "tags": [
-        "hide-input",
-    ]
-} 
 # Grafische Darstellung:
 plt.style.use('default')
 plt.figure(figsize=(10,5))
@@ -436,7 +397,7 @@ plt.legend();
 plt.grid();
 
 
-# In[ ]:
+# In[30]:
 
 
 x=GER_mean.loc[GER_mean["Jahr"] >= 1980,"Jahr"]

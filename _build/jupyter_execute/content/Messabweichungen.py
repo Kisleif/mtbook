@@ -1,10 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# ---
-# Zurück zur Übersicht | [Inhalt](00_Inhalt.ipynb)
-# 
-# ---
+# # Messabweichungen
 
 # In[1]:
 
@@ -16,8 +13,6 @@ import matplotlib.pyplot as plt
 from IPython.display import Image
 from IPython.core.display import HTML 
 
-
-# # Messabweichungen
 
 # Aufgabe der Messtechnik ist es physikalische Messgrößen quantitativ zu beobachten und ist somit wichtiger Bestandteil in der Physik. Eine *quantitative* Beschreibung bedeutet immer, dass eine Messgröße mit einem Zahlenwert, $y$, und einer Maßeinheit, $E$, ausgedrückt wird, wie wir es in der [Vorlesung 1 (Einleitung)](Einleitung.ipynb) kennen gelernt haben. Was sich beim Messen nicht umgehen lässt, und was der ein oder andere sicherlich schon im Praktikum beobachten konnte, ist, dass Beobachtungen immer statistischen (zufälligen) Schwankungen unterliegen. Dies führt dazu, dass sich das Messergebnis immer verändert. Genau diese Schwankungen, bzw. Abweichungen zum *wahren* Wert, sollen in diesem Kapitel erläutert werden. Außerdem werden Verfahren gezeigt, mittels welcher die Abweichung einer Messgröße abgeschätzt werden kann und muss. 
 # 

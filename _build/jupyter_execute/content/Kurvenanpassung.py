@@ -1,10 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# ---
-# Zurück zur Übersicht | [Inhalt](00_Inhalt.ipynb)
-# 
-# ---
+# # Kurvenanpassung
 
 # In[1]:
 
@@ -16,8 +13,6 @@ from IPython.display import Image
 from IPython.core.display import HTML 
 import scipy.optimize as optimization
 
-
-# # Kurvenanpassung
 
 # Bei der Kurvenanpassung handelt es sich um ein statistisches Analyseverfahren zur Feststellung funktionaler Beziehungen zwischen einer abhängigen und einer oder mehreren unabhängigen Variablen. Der Begriff **lineare Regression** ist weit verbreitet, doch dies ist nur der einfachste Fall eines Modells, nämlich der einer Geraden: $y = a \cdot x +b$. Grundsätzlich sollte man den Typ der Fit-Funktion $y = f(x)$ immer vorher festlegen und auch begründen können. Es ist keine wissenschaftlicher oder messtechnische Vorgehensweise alle möglichen Funktionen nur auf Verdacht *auszuprobieren* und sich für die besten entscheiden. Hierbei wäre es möglich, dass unbrauchbare Näherungen pder sogar falsche (unsinnige) und nicht-wissenschaftlicher Ergebnisinterpretationen auftreten könnten, was es zu vermeiden gilt. 
 # 

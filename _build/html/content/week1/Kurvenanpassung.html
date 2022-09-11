@@ -1,0 +1,1759 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kurvenanpassung &#8212; Metrology Lecture Book</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Messabweichungen" href="Messabweichungen.html" />
+    <link rel="prev" title="Welcome" href="../../intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/i_mt.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Metrology Lecture Book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Dieses Buch durchsuchen ..." aria-label="Dieses Buch durchsuchen ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Woche 1
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Kurvenanpassung
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Messabweichungen.html">
+   Messabweichungen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Datenanalyse.html">
+   Datenanalyse: Klimadaten der NASA
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navigation umschalten" aria-controls="site-navigation"
+                title="Navigation umschalten" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Laden Sie diese Seite herunter"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/content/week1/Kurvenanpassung.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Quelldatei herunterladen" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="In PDF drucken"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Kisleif/mtbook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Quell-Repository"><i
+                    class="fab fa-github"></i>Repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/Kisleif/mtbook/issues/new?title=Issue%20on%20page%20%2Fcontent/week1/Kurvenanpassung.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Öffnen Sie ein Problem"><i class="fas fa-lightbulb"></i>offenes Thema</button></a>
+        <a class="edit-button" href="https://github.com/Kisleif/mtbook/edit/gh-pages/content/week1/Kurvenanpassung.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Bearbeite diese Seite"><i class="fas fa-pencil-alt"></i>vorschlagen zu bearbeiten</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Vollbildmodus"
+        title="Vollbildmodus"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Kisleif/mtbook/gh-pages?urlpath=tree/content/week1/Kurvenanpassung.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Starten Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://github.com/Kisleif/mtbook/hub/user-redirect/git-pull?repo=https://github.com/Kisleif/mtbook&urlpath=tree/mtbook/content/week1/Kurvenanpassung.ipynb&branch=gh-pages"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Starten JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Starten Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Inhalt
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modellanpassung-a-id-sec-modellanpassung-a">
+   Modellanpassung
+   <a id="Sec-Modellanpassung">
+   </a>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#least-squares-methode-der-kleinsten-quadrate-a-id-subsec-least-squares-a">
+     Least-Squares: Methode der kleinsten Quadrate
+     <a id="SubSec-least_squares">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bestimmtheitsmasz-a-id-subsec-bestimmtheitsmasz-a">
+     Bestimmtheitsmaß
+     <a id="SubSec-Bestimmtheitsmaß">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modellanpassung-mit-unsicherheiten-a-id-subsec-modellanpassung-unsicherheiten-a">
+     Modellanpassung mit Unsicherheiten
+     <a id="SubSec-Modellanpassung_unsicherheiten">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lineare-modellanpassung-a-id-subsec-lineare-modellanpassung-a">
+     Lineare Modellanpassung
+     <a id="SubSec-Lineare_Modellanpassung">
+     </a>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#beispiel-karussel-a-id-sec-beispiel-a">
+   Beispiel: Karussel
+   <a id="Sec-Beispiel">
+   </a>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analytische-lineare-regression-a-id-subsec-analytical-linreg-a">
+     Analytische Lineare Regression
+     <a id="SubSec-Analytical_LinReg">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lineare-regression-mit-python-scipy-a-id-subsec-scipy-linreg-a">
+     Lineare Regression mit Python: scipy
+     <a id="SubSec-scipy_LinReg">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lineare-regression-mit-python-lmfit-a-id-subsec-lmfit-linreg-a">
+     Lineare Regression mit Python: lmfit
+     <a id="SubSec-lmfit_LinReg">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bestimmung-der-geschwindigkeit-a-id-subsec-geschwindigkeit-a">
+     Bestimmung der Geschwindigkeit
+     <a id="SubSec-geschwindigkeit">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#unsicherheit-der-geschwindigkeit-a-id-subsec-u-geschwindigkeit-a">
+     Unsicherheit der Geschwindigkeit
+     <a id="SubSec-u_geschwindigkeit">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#korrelationskoeffizient-a-id-subsec-korrelationskoeffizient-a">
+     Korrelationskoeffizient
+     <a id="SubSec-Korrelationskoeffizient">
+     </a>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#beispiel-mit-fehlerbalken-in-den-y-messwerten-a-id-sec-beispiel-fehlerbalken-a">
+   Beispiel mit Fehlerbalken in den y-Messwerten
+   <a id="Sec-Beispiel_Fehlerbalken">
+   </a>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#minimierungsproblem-losen-ausprobieren-a-id-subsec-ausprobieren-a">
+     Minimierungsproblem lösen: Ausprobieren
+     <a id="SubSec-Ausprobieren">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kurvenanpassung-mit-python-scipy-a-id-subsec-scipy-bsp2-a">
+     Kurvenanpassung mit Python: scipy
+     <a id="SubSec-scipy_bsp2">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kurvenanpassung-mit-python-lmfit-a-id-subsec-lmfit-bsp2-a">
+     Kurvenanpassung mit Python: lmfit
+     <a id="SubSec-lmfit_bsp2">
+     </a>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#zusammenfassung-a-id-sec-zusammenfassung-a">
+   Zusammenfassung
+   <a id="Sec-Zusammenfassung">
+   </a>
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Kurvenanpassung</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Inhalt </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modellanpassung-a-id-sec-modellanpassung-a">
+   Modellanpassung
+   <a id="Sec-Modellanpassung">
+   </a>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#least-squares-methode-der-kleinsten-quadrate-a-id-subsec-least-squares-a">
+     Least-Squares: Methode der kleinsten Quadrate
+     <a id="SubSec-least_squares">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bestimmtheitsmasz-a-id-subsec-bestimmtheitsmasz-a">
+     Bestimmtheitsmaß
+     <a id="SubSec-Bestimmtheitsmaß">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modellanpassung-mit-unsicherheiten-a-id-subsec-modellanpassung-unsicherheiten-a">
+     Modellanpassung mit Unsicherheiten
+     <a id="SubSec-Modellanpassung_unsicherheiten">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lineare-modellanpassung-a-id-subsec-lineare-modellanpassung-a">
+     Lineare Modellanpassung
+     <a id="SubSec-Lineare_Modellanpassung">
+     </a>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#beispiel-karussel-a-id-sec-beispiel-a">
+   Beispiel: Karussel
+   <a id="Sec-Beispiel">
+   </a>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analytische-lineare-regression-a-id-subsec-analytical-linreg-a">
+     Analytische Lineare Regression
+     <a id="SubSec-Analytical_LinReg">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lineare-regression-mit-python-scipy-a-id-subsec-scipy-linreg-a">
+     Lineare Regression mit Python: scipy
+     <a id="SubSec-scipy_LinReg">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lineare-regression-mit-python-lmfit-a-id-subsec-lmfit-linreg-a">
+     Lineare Regression mit Python: lmfit
+     <a id="SubSec-lmfit_LinReg">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bestimmung-der-geschwindigkeit-a-id-subsec-geschwindigkeit-a">
+     Bestimmung der Geschwindigkeit
+     <a id="SubSec-geschwindigkeit">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#unsicherheit-der-geschwindigkeit-a-id-subsec-u-geschwindigkeit-a">
+     Unsicherheit der Geschwindigkeit
+     <a id="SubSec-u_geschwindigkeit">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#korrelationskoeffizient-a-id-subsec-korrelationskoeffizient-a">
+     Korrelationskoeffizient
+     <a id="SubSec-Korrelationskoeffizient">
+     </a>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#beispiel-mit-fehlerbalken-in-den-y-messwerten-a-id-sec-beispiel-fehlerbalken-a">
+   Beispiel mit Fehlerbalken in den y-Messwerten
+   <a id="Sec-Beispiel_Fehlerbalken">
+   </a>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#minimierungsproblem-losen-ausprobieren-a-id-subsec-ausprobieren-a">
+     Minimierungsproblem lösen: Ausprobieren
+     <a id="SubSec-Ausprobieren">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kurvenanpassung-mit-python-scipy-a-id-subsec-scipy-bsp2-a">
+     Kurvenanpassung mit Python: scipy
+     <a id="SubSec-scipy_bsp2">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kurvenanpassung-mit-python-lmfit-a-id-subsec-lmfit-bsp2-a">
+     Kurvenanpassung mit Python: lmfit
+     <a id="SubSec-lmfit_bsp2">
+     </a>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#zusammenfassung-a-id-sec-zusammenfassung-a">
+   Zusammenfassung
+   <a id="Sec-Zusammenfassung">
+   </a>
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="kurvenanpassung">
+<h1>Kurvenanpassung<a class="headerlink" href="#kurvenanpassung" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Für diese Notebook benötigte Pakete:</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">HTML</span> 
+<span class="kn">import</span> <span class="nn">scipy.optimize</span> <span class="k">as</span> <span class="nn">optimization</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Bei der Kurvenanpassung handelt es sich um ein statistisches Analyseverfahren zur Feststellung funktionaler Beziehungen zwischen einer abhängigen und einer oder mehreren unabhängigen Variablen. Der Begriff <strong>lineare Regression</strong> ist weit verbreitet, doch dies ist nur der einfachste Fall eines Modells, nämlich der einer Geraden: <span class="math notranslate nohighlight">\(y = a \cdot x +b\)</span>. Grundsätzlich sollte man den Typ der Fit-Funktion <span class="math notranslate nohighlight">\(y = f(x)\)</span> immer vorher festlegen und auch begründen können. Es ist keine wissenschaftlicher oder messtechnische Vorgehensweise alle möglichen Funktionen nur auf Verdacht <em>auszuprobieren</em> und sich für die besten entscheiden. Hierbei wäre es möglich, dass unbrauchbare Näherungen pder sogar falsche (unsinnige) und nicht-wissenschaftlicher Ergebnisinterpretationen auftreten könnten, was es zu vermeiden gilt.</p>
+<p>Zusammengefasst suchen wir nun also ein bestimmtes Modell für ein bestimmtes Set an Daten und wollen die Modellparameter bestimmen. Dabei soll das Modell möglichst gut die Messdaten vorhersagen. Die Modellanpassung wird häufig über die Methode der kleinsten Quadrate verwendet, mit welcher sich fast alle Messdaten modellieren lassen (auch kompliziertere Situationen wie beispielsweise korrelierte Unsicherheiten).</p>
+<p>Hinweis zur Begrifflichkeit:</p>
+<ul class="simple">
+<li><p><strong>Regression</strong>: Untersuchung der <em>Korrelation</em> von Datenpunkten ohne Messfehler mit angenommenen Zusammenhang</p></li>
+<li><p><strong>Fit/Anpassung</strong>: wie die Regression, allerdings unter Berücksichtigung von Messfehlern.</p></li>
+<li><p><strong>Interpolation</strong>: Hierbei handelt es sich nicht um eine Regression bzw. Approximation. Anstelle eines funktionalen Zusammenhangs, der an die Messwerte angenähert wird, verwendert man Polynome hohen Grades, um eine analytische Kennlinie zu beschreiben, die <em>exakt</em> durch alle Messpunkte geht. Für eine große Anzahl von Messwerten wird die Interpolationsfunktion sehr schnell unhandlich.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;pictures/interpol_approx.png&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/display.py</span> in <span class="ni">_data_and_metadata</span><span class="nt">(self, always_both)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1299</span>         <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1300</span>             <span class="n">b64_data</span> <span class="o">=</span> <span class="n">b2a_base64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1301</span>         <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+
+<span class="ne">TypeError</span>: a bytes-like object is required, not &#39;str&#39;
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/formatters.py</span> in <span class="ni">__call__</span><span class="nt">(self, obj, include, exclude)</span>
+<span class="g g-Whitespace">    </span><span class="mi">968</span> 
+<span class="g g-Whitespace">    </span><span class="mi">969</span>             <span class="k">if</span> <span class="n">method</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">970</span>                 <span class="k">return</span> <span class="n">method</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="n">include</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="n">exclude</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">971</span>             <span class="k">return</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">972</span>         <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/display.py</span> in <span class="ni">_repr_mimebundle_</span><span class="nt">(self, include, exclude)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1288</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1289</span>             <span class="n">mimetype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mimetype</span>
+<span class="ne">-&gt; </span><span class="mi">1290</span>             <span class="n">data</span><span class="p">,</span> <span class="n">metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_and_metadata</span><span class="p">(</span><span class="n">always_both</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1291</span>             <span class="k">if</span> <span class="n">metadata</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1292</span>                 <span class="n">metadata</span> <span class="o">=</span> <span class="p">{</span><span class="n">mimetype</span><span class="p">:</span> <span class="n">metadata</span><span class="p">}</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/display.py</span> in <span class="ni">_data_and_metadata</span><span class="nt">(self, always_both)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1300</span>             <span class="n">b64_data</span> <span class="o">=</span> <span class="n">b2a_base64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1301</span>         <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1302</span>             <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1303</span>                 <span class="s2">&quot;No such file or directory: &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">))</span>
+<span class="g g-Whitespace">   </span><span class="mi">1304</span>         <span class="n">md</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="ne">FileNotFoundError</span>: No such file or directory: &#39;pictures/interpol_approx.png&#39;
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/display.py</span> in <span class="ni">_data_and_metadata</span><span class="nt">(self, always_both)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1299</span>         <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1300</span>             <span class="n">b64_data</span> <span class="o">=</span> <span class="n">b2a_base64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1301</span>         <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+
+<span class="ne">TypeError</span>: a bytes-like object is required, not &#39;str&#39;
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/formatters.py</span> in <span class="ni">__call__</span><span class="nt">(self, obj)</span>
+<span class="g g-Whitespace">    </span><span class="mi">343</span>             <span class="n">method</span> <span class="o">=</span> <span class="n">get_real_method</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_method</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">344</span>             <span class="k">if</span> <span class="n">method</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">345</span>                 <span class="k">return</span> <span class="n">method</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">346</span>             <span class="k">return</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">347</span>         <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/display.py</span> in <span class="ni">_repr_png_</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1318</span>     <span class="k">def</span> <span class="nf">_repr_png_</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1319</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">format</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_FMT_PNG</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1320</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_and_metadata</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1321</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1322</span>     <span class="k">def</span> <span class="nf">_repr_jpeg_</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/display.py</span> in <span class="ni">_data_and_metadata</span><span class="nt">(self, always_both)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1300</span>             <span class="n">b64_data</span> <span class="o">=</span> <span class="n">b2a_base64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1301</span>         <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1302</span>             <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1303</span>                 <span class="s2">&quot;No such file or directory: &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">))</span>
+<span class="g g-Whitespace">   </span><span class="mi">1304</span>         <span class="n">md</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="ne">FileNotFoundError</span>: No such file or directory: &#39;pictures/interpol_approx.png&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Image object&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="modellanpassung-a-id-sec-modellanpassung-a">
+<h2>Modellanpassung <a id="Sec-Modellanpassung"></a><a class="headerlink" href="#modellanpassung-a-id-sec-modellanpassung-a" title="Permalink to this headline">¶</a></h2>
+<p>Um ein Regressionsmodell zu berechnen, benötigen wir ein objektives Maß um die Zuverlässigkeit und Güte unsere Modellfunktion zu bestimmen. Dies nennt man auch das <strong>Bestimmtsheitsmaß</strong>, bzwl. auf englisch <strong>coefficient of determination</strong> oder <strong>goodness of fit</strong>. Dieses Maß</p>
+<ul class="simple">
+<li><p>bestimmt die Verkleinerung des Vorhersagefehlers der Ausgangsgröße <span class="math notranslate nohighlight">\(y\)</span></p></li>
+<li><p>definiert die Größe der Streuung von <span class="math notranslate nohighlight">\(y\)</span></p></li>
+<li><p>zeigt die Qualität der linearen Regression, aber nicht ob das Modell richtig ist</p></li>
+<li><p>sagt nichts über die statistische Signifikanz des ermittelten Zusammenhangs der einzelnen Regressoren aus (Signifikanztest notwendig)</p></li>
+</ul>
+<p>Als erstes soll überprüft werden, inwiefern die Funktion oder das Modell mit den Messdaten übereinstimmt. Ausgangspunkt ist also unsere Messreihe mit <span class="math notranslate nohighlight">\(N\)</span> Messpunkten <span class="math notranslate nohighlight">\((x_i, y_i)\)</span> und wir haben eine Funktion <span class="math notranslate nohighlight">\(f(x_i)\)</span> definiert, die die Messwerte <span class="math notranslate nohighlight">\(y_i\)</span> möglichst gut vorhersagen soll. In der unteren Grafik (geborgt von <a class="reference external" href="https://de.wikipedia.org/wiki/Methode_der_kleinsten_Quadrate">Wikipedia</a>), sind Messpunkte in blau und eine Modellfunktion in rot aufgezeichnet. Die Parameter der gesuchten Modellfunktion werden nun so bestimmt, dass die Modellfunktion möglichst wenig von den Messwerten abweicht, d.h. das Residuum</p>
+<div class="math notranslate nohighlight">
+\[\epsilon = \left( f(x_i) - y_i\right)\]</div>
+<p>soll möglichst klein werden.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;pictures/kleinste_quadrate.png&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/display.py</span> in <span class="ni">_data_and_metadata</span><span class="nt">(self, always_both)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1299</span>         <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1300</span>             <span class="n">b64_data</span> <span class="o">=</span> <span class="n">b2a_base64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1301</span>         <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+
+<span class="ne">TypeError</span>: a bytes-like object is required, not &#39;str&#39;
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/formatters.py</span> in <span class="ni">__call__</span><span class="nt">(self, obj, include, exclude)</span>
+<span class="g g-Whitespace">    </span><span class="mi">968</span> 
+<span class="g g-Whitespace">    </span><span class="mi">969</span>             <span class="k">if</span> <span class="n">method</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">970</span>                 <span class="k">return</span> <span class="n">method</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="n">include</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="n">exclude</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">971</span>             <span class="k">return</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">972</span>         <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/display.py</span> in <span class="ni">_repr_mimebundle_</span><span class="nt">(self, include, exclude)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1288</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1289</span>             <span class="n">mimetype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mimetype</span>
+<span class="ne">-&gt; </span><span class="mi">1290</span>             <span class="n">data</span><span class="p">,</span> <span class="n">metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_and_metadata</span><span class="p">(</span><span class="n">always_both</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1291</span>             <span class="k">if</span> <span class="n">metadata</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1292</span>                 <span class="n">metadata</span> <span class="o">=</span> <span class="p">{</span><span class="n">mimetype</span><span class="p">:</span> <span class="n">metadata</span><span class="p">}</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/display.py</span> in <span class="ni">_data_and_metadata</span><span class="nt">(self, always_both)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1300</span>             <span class="n">b64_data</span> <span class="o">=</span> <span class="n">b2a_base64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1301</span>         <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1302</span>             <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1303</span>                 <span class="s2">&quot;No such file or directory: &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">))</span>
+<span class="g g-Whitespace">   </span><span class="mi">1304</span>         <span class="n">md</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="ne">FileNotFoundError</span>: No such file or directory: &#39;pictures/kleinste_quadrate.png&#39;
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/display.py</span> in <span class="ni">_data_and_metadata</span><span class="nt">(self, always_both)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1299</span>         <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1300</span>             <span class="n">b64_data</span> <span class="o">=</span> <span class="n">b2a_base64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1301</span>         <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+
+<span class="ne">TypeError</span>: a bytes-like object is required, not &#39;str&#39;
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/formatters.py</span> in <span class="ni">__call__</span><span class="nt">(self, obj)</span>
+<span class="g g-Whitespace">    </span><span class="mi">343</span>             <span class="n">method</span> <span class="o">=</span> <span class="n">get_real_method</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_method</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">344</span>             <span class="k">if</span> <span class="n">method</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">345</span>                 <span class="k">return</span> <span class="n">method</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">346</span>             <span class="k">return</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">347</span>         <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/display.py</span> in <span class="ni">_repr_png_</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1318</span>     <span class="k">def</span> <span class="nf">_repr_png_</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1319</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">format</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_FMT_PNG</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1320</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_and_metadata</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1321</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1322</span>     <span class="k">def</span> <span class="nf">_repr_jpeg_</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/display.py</span> in <span class="ni">_data_and_metadata</span><span class="nt">(self, always_both)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1300</span>             <span class="n">b64_data</span> <span class="o">=</span> <span class="n">b2a_base64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1301</span>         <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1302</span>             <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1303</span>                 <span class="s2">&quot;No such file or directory: &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">))</span>
+<span class="g g-Whitespace">   </span><span class="mi">1304</span>         <span class="n">md</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="ne">FileNotFoundError</span>: No such file or directory: &#39;pictures/kleinste_quadrate.png&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Image object&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="least-squares-methode-der-kleinsten-quadrate-a-id-subsec-least-squares-a">
+<h3>Least-Squares: Methode der kleinsten Quadrate <a id="SubSec-least_squares"></a><a class="headerlink" href="#least-squares-methode-der-kleinsten-quadrate-a-id-subsec-least-squares-a" title="Permalink to this headline">¶</a></h3>
+<p>Laut Carl Friedrich Gauß kann also der Abstand der Funktionswerte zu den Messwerten wievolgt definiert werden:</p>
+<blockquote>
+<div><p>Methode der Gauß’schen Fehlerquadrate (Gütefunktion):
+$<span class="math notranslate nohighlight">\(Q := \sum_{i=1}^N \left( f(x_i) - y_i\right)^2 :=  \sum_{i=1}^N \epsilon_i^2 = \mathrm{min!}\)</span>$</p>
+</div></blockquote>
+<p>Die Gütefunktion, die gleichbedeutend mit den SQT ist, ist wieder so gewählt, dass sich Abweichungen aufgrund unterschiedliche Vorzeichen nicht aufheben können und dass größere Abweichungen stärker gewichtet werden (durch die Quadrierung). Die Modellfunktion <span class="math notranslate nohighlight">\(f(x)\)</span> wird bestimmt, indem das Minimierungsproblem gelöst wird. Dies kann entwedet analytisch geschehen (siehe <a class="reference external" href="#SubSec-Lineare_Modellanpassung">Lineare Modellanpassung</a>) oder man lässt sich die Regression mittels Software berechnen.</p>
+<p>Es handelt sich um ein <em>Minimierungsproblem</em> welches je nach Art der Modellfunktion unterschiedlich gelöst wird. Man sollte stets die Regressionsgerade zusammen mit den Datenpunkten in ein Diagramm zeichnen, um zu sehen, wie “gut” die Messdaten durch die Kurvenanpassung beschrieben werden.
+Je enger die Datenpunkte um die Regressionsgerade herum konzentriert sind, d. h. je kleiner also die Residuenquadrate sind, desto „besser“. Die Residuenquadrate sind meistens relativ klein, insbesondere dann, wenn die abhängige Variable sehr konstant ist. Das heißt man möchte eigentlich auch die Streuung der abhängigen Variablen mit ins Spiel bringen.
+Sowohl die Streuung der Messwerte zum Mittelwert, als auch die der geschätzten Werte, sollte in Relation zueinander gebracht werden. Das heißt wir definieren im Folgenden zwei Summen der Abweichungsquadrate. Die <strong>Summe der Abweichungsquadrate (Sum of Squares) SQT oder SST</strong> gibt die Streuung der Messwerte um ihren Mittelwert an. Das <em>mittlere</em> Abweichungsquadrat bestimmt deren Varianz.</p>
+<ul class="simple">
+<li><p>Die <strong>Summe der Quadrate der Erklärten Abweichungen (Sum of Squares Explained) SQE oder SSE</strong> gibt die Streuung der Schätzwerte <span class="math notranslate nohighlight">\(f(x_i)\)</span> des Fits um den Mittelwert <span class="math notranslate nohighlight">\(\bar f = \bar y\)</span> der gemessenen Messwerte an:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\mathrm{SQE} = \mathrm{SSE} = \sum_{i=1}^N (f(x_i) - \bar y)^2\]</div>
+<ul class="simple">
+<li><p>Die <strong>totale Quadratsumme (Summe der Quadrate der Totalen Abweichungen bzw. Sum of Squares Total) SQT oder SST</strong> gibt die Streuung der Messwerte <span class="math notranslate nohighlight">\(y_i\)</span> um deren Mittelwert <span class="math notranslate nohighlight">\(\bar y\)</span> an:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\mathrm{SQT} = \mathrm{SST} = \sum_{i=1}^N (y_i - \bar y)^2\]</div>
+<ul class="simple">
+<li><p>Die <strong>Restabweichungen</strong> (nicht erklärte Abweichungen), welche nach der Regression übrig bleiben sind ein Maß für die Abweichung der Datenpunkte von der Regressionskurve und werden durch die Residuenquadratsumme (<strong>Summe der Quadrate der Restabweichungen</strong> (oder: „Residuen“) bzw. englisch Sum of Squares Residual) SQR oder SSR) erfasst:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\mathrm{SQR} = \mathrm{SSR} = \sum_{i=1}^N(y_i-f(x_i))^2\]</div>
+<ul class="simple">
+<li><p>Man kann beweisen, dass folgendes gilt:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\mathrm{SQT} = \mathrm{SQR} + \mathrm{SQE}\]</div>
+</div>
+<div class="section" id="bestimmtheitsmasz-a-id-subsec-bestimmtheitsmasz-a">
+<h3>Bestimmtheitsmaß <a id="SubSec-Bestimmtheitsmaß"></a><a class="headerlink" href="#bestimmtheitsmasz-a-id-subsec-bestimmtheitsmasz-a" title="Permalink to this headline">¶</a></h3>
+<p>Für das <strong>Bestimmtheitsmaß</strong> gelten folgenden Punkte:</p>
+<ul class="simple">
+<li><p>Es beschreibt den Anteil der Varianz einer abhängigen Variablen <span class="math notranslate nohighlight">\(y\)</span> durch ein statistisches Modell</p></li>
+<li><p>Es ist nur für lineare Regressionen eindeutig definiert:
+$<span class="math notranslate nohighlight">\(\mathit{R}^2 = r^2 (=\textrm{Korrelation}^2)\)</span>$</p></li>
+<li><p>Es kann bedingt zur Beschreibung der Güte einer Regression verwendet werden.</p></li>
+<li><p>Das Verhältnis der beiden Größen SQE und SQT wird das <strong>Bestimmtheitsmaß</strong> der Regression genannt und gibt an, wie gut die gefundene geschätzte Modellfunktion zu den Messdaten passt, oder wie gut sich die Regression an die Daten annähert.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\mathit{R}^2 \equiv \frac{SQE}{SQT}=
+\frac{\displaystyle\sum_{i=1}^N \left(f(x_i)- \overline{y}\right)^2}{\displaystyle\sum_{i=1}^N \left(y_i - \overline{y}\right)^2} = 1 - \frac{SQR}{SQT}=1-\frac{\displaystyle\sum_{i=1}^N \left(y_i - f(x_i)\right)^2}{\displaystyle\sum_{i=1}^N \left(y_i - \overline{y}\right)^2}\]</div>
+<p>wobei:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(f(x_i)\)</span> der Funktionswert der Regression ist</p></li>
+<li><p><span class="math notranslate nohighlight">\(x_i\)</span> der Datenwert ist</p></li>
+<li><p>und <span class="math notranslate nohighlight">\(\bar y\)</span> der Mittelwert <span class="math notranslate nohighlight">\(y_i\)</span> der Messwerte ist</p></li>
+</ul>
+<p>Das Bestimmtheitsmaß lässt sich mit 100 multiplizieren, um es in Prozent anzugeben, dies entspricht dann dem prozentualen Anteil der Streuung in <span class="math notranslate nohighlight">\(y\)</span>, der durch das lineare Modell beschrieben wird und liegt somit zwischen 0% und 100%:</p>
+<ul class="simple">
+<li><p>0%: es existiert kein linearer Zusammenhang</p></li>
+<li><p>100%: perfekter linearer Zusammenhang</p></li>
+</ul>
+<p>Allgemein gilt für das Bestimmheitsmaß:</p>
+<ul class="simple">
+<li><p>je näher <span class="math notranslate nohighlight">\(\mathit{R}^2\)</span> an 1 liegt, desto höher ist die Güte der Kurvenanpassung</p></li>
+<li><p>für <span class="math notranslate nohighlight">\(\mathit{R}^2=0\)</span> ist der Schätzer im Modell völlig unbrauchbar für irgendeine Vorhersage eines Zusammenhangs zwischen <span class="math notranslate nohighlight">\(x_i\)</span> und <span class="math notranslate nohighlight">\(y_i\)</span>.</p></li>
+<li><p>für <span class="math notranslate nohighlight">\(\mathit{R}^2=1\)</span> lässt sich <span class="math notranslate nohighlight">\(y\)</span> vollständig durch ein lineares Modell beschreiben und alle Messpunkte liegen auf einer nicht-horizontalen Geraden. In diesem Falle würde man davon sprechen, dass ein deterministischer Zusammenhang besteht, kein stochastischer.</p></li>
+</ul>
+<p><strong>Nachteile des Bestimmheitsmaß:</strong>
+Für immer mehr Messwerte steigt <span class="math notranslate nohighlight">\(\mathit{R}^2\)</span> an, ohne dass die Korrelation oder die Regression besser wird.
+Dies könnte durch ein korrigiertes <span class="math notranslate nohighlight">\(\mathit{R}^2\)</span> behoben werden:</p>
+<div class="math notranslate nohighlight">
+\[\mathit{\overline R}^2 = 1-(1-\mathit{R}^2)\cdot \frac{n-1}{n-p-1}\]</div>
+<p>mit</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(n\)</span> Anzahl der Messwerte und</p></li>
+<li><p><span class="math notranslate nohighlight">\(p\)</span> Anzahl der Variablen im Regressionsmodell</p></li>
+</ul>
+<p>Ein weiterer Nachteil ist, dass keine Aussage darüber geliefert werden kann, ob ein <em>korrektes</em> Regressionsmodell verwendet wurde.</p>
+</div>
+<div class="section" id="modellanpassung-mit-unsicherheiten-a-id-subsec-modellanpassung-unsicherheiten-a">
+<h3>Modellanpassung mit Unsicherheiten <a id="SubSec-Modellanpassung_unsicherheiten"></a><a class="headerlink" href="#modellanpassung-mit-unsicherheiten-a-id-subsec-modellanpassung-unsicherheiten-a" title="Permalink to this headline">¶</a></h3>
+<p>Im allgemeinen Fall, d.h. wenn die Messwerte <span class="math notranslate nohighlight">\(y_i\)</span> mit Unsicherheiten <span class="math notranslate nohighlight">\(s_i\)</span> behaftet sind, lässt sich die Residuensumme wiefolgt definieren:</p>
+<div class="math notranslate nohighlight">
+\[\chi^2 = \sum_{i=1}^N \left(\frac{f(x_i)-y_i}{s_i}\right)^2\]</div>
+<p>Für die obigen Berechnungen, und auch im Falle von konstanten Unsicherheiten, d.h. wenn für alle Werte von <span class="math notranslate nohighlight">\(y_i\)</span> die gleiche absolute Unsicherheit existiert, ändert sich nichts. Denn es gilt <span class="math notranslate nohighlight">\(s_i = s = \mathrm{const}\)</span> und beim “Nullsetzen” werden diese einfach eliminiert.
+Gelten für die <span class="math notranslate nohighlight">\(N\)</span> Messwerte allerdings unterschiedliche Unsicherheiten, so müssen diese miteinbezogen werden.</p>
+</div>
+<div class="section" id="lineare-modellanpassung-a-id-subsec-lineare-modellanpassung-a">
+<h3>Lineare Modellanpassung <a id="SubSec-Lineare_Modellanpassung"></a><a class="headerlink" href="#lineare-modellanpassung-a-id-subsec-lineare-modellanpassung-a" title="Permalink to this headline">¶</a></h3>
+<p>Da wir als Messtechniker immer danach streben möglichst lineare Kennlinien zu erreichen, ist die Gerade eine häufig auftretende Kurve, die angepasst werden soll. Daher wollen wir uns in diesem Abschnitt mit der Herleitung der linearen Regression befassen. Die Herleitung für andere Modellfunktionen, welche quadratische Terme, noch höhere Terme oder ganz andere Zusammenhänge beinhalten, ist auch deutlich schwieriger.</p>
+<p>Unser Ausgangspunkt ist also eine Gerade der Form</p>
+<div class="math notranslate nohighlight">
+\[f(x) = mx + b\]</div>
+<p>Die Parameter <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span> werden nun durch das Minimierungsproblem bestimmt mithilfe der Gütefunktion, die nun wiefolgt geschrieben werden kann:</p>
+<div class="math notranslate nohighlight">
+\[Q = \sum_{i = 1}^{N} (y_i - f(x_i))^2 = \sum_{i = 1}^{N} (y_i - mx_i - b)^2 = \mathrm{min!}\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(y_i\)</span> und <span class="math notranslate nohighlight">\(x_i\)</span> die Messwerte (Datenpunkte) sind.</p>
+<p>Durch Differentation nach den Parametern und gleichsetzen auf Null können die Parameter bestimmt werden:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dQ}{dm} = -2 \sum_{i = 1}^{N} x_i (y_i - mx_i - b) = 0\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{dQ}{db} = -2 \sum_{i = 1}^{N} (y_i - mx_i - b) = 0\]</div>
+<p>Nach Umstellen der beiden Ableitungen gelangt man zu folgenden Gleichungssystem:</p>
+<div class="math notranslate nohighlight">
+\[m\sum_{i = 1}^{N} x_i^2 + b\sum_{i = 1}^{N}x_i  = \sum_{i = 1}^{N}x_i y_i\]</div>
+<div class="math notranslate nohighlight">
+\[m\sum_{i = 1}^{N} x_i + N b  = \sum_{i = 1}^{N} y_i\]</div>
+<p>Auflösen nach den gesuchten Parameter erhält man folgende Gleichungen für die gesuchten besten Schätzparamete der Regressionsgeraden, auch <strong>Regressionskoeffizienten</strong> genannt:</p>
+<div class="math notranslate nohighlight">
+\[ m = \frac{\sum_{i=1}^N (x_i y_i) - b\sum_{i=1}^N x_i }{\sum_{i=1}^N x_i^2 } = \frac{S_{xy}}{S_{x}^2} = \frac{\overline{x\cdot y} - \overline x \cdot \overline y}{\overline{x^2} - (\overline x)^2}\]</div>
+<div class="math notranslate nohighlight">
+\[b = \frac{\sum_{i=1}^N y_i - m \sum_{i=1}^N x_i}{N} = \bar y - m \cdot \bar x\]</div>
+<p>mit folgenden Definitionen:</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(\bar x = \sum_{i = 1}^N x_i\)</span></p>
+</div></blockquote>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(\bar y = \sum_{i = 1}^N y_i\)</span></p>
+</div></blockquote>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(S_{xy} = \frac{1}{N-1}\sum_{i = 1}^N (x_i-\bar x)(y_i - \bar y)\)</span></p>
+</div></blockquote>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(S_{x}^2 = \frac{1}{N-1}\sum_{i = 1}^N (x_i-\bar x)^2\)</span></p>
+</div></blockquote>
+<p>Wir sind hier in der verrückten Situation, dass tatsächlich  Mittelwerte für <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span> bestimmt werden müssen, obwohl die <span class="math notranslate nohighlight">\(x\)</span>-Werte absichtlich während der Versuchsreihe verändert werden, sich also die Grössen <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span> laufend ändern.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;pictures/lin_reg.png&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/display.py</span> in <span class="ni">_data_and_metadata</span><span class="nt">(self, always_both)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1299</span>         <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1300</span>             <span class="n">b64_data</span> <span class="o">=</span> <span class="n">b2a_base64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1301</span>         <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+
+<span class="ne">TypeError</span>: a bytes-like object is required, not &#39;str&#39;
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/formatters.py</span> in <span class="ni">__call__</span><span class="nt">(self, obj, include, exclude)</span>
+<span class="g g-Whitespace">    </span><span class="mi">968</span> 
+<span class="g g-Whitespace">    </span><span class="mi">969</span>             <span class="k">if</span> <span class="n">method</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">970</span>                 <span class="k">return</span> <span class="n">method</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="n">include</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="n">exclude</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">971</span>             <span class="k">return</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">972</span>         <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/display.py</span> in <span class="ni">_repr_mimebundle_</span><span class="nt">(self, include, exclude)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1288</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1289</span>             <span class="n">mimetype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mimetype</span>
+<span class="ne">-&gt; </span><span class="mi">1290</span>             <span class="n">data</span><span class="p">,</span> <span class="n">metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_and_metadata</span><span class="p">(</span><span class="n">always_both</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1291</span>             <span class="k">if</span> <span class="n">metadata</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1292</span>                 <span class="n">metadata</span> <span class="o">=</span> <span class="p">{</span><span class="n">mimetype</span><span class="p">:</span> <span class="n">metadata</span><span class="p">}</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/display.py</span> in <span class="ni">_data_and_metadata</span><span class="nt">(self, always_both)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1300</span>             <span class="n">b64_data</span> <span class="o">=</span> <span class="n">b2a_base64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1301</span>         <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1302</span>             <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1303</span>                 <span class="s2">&quot;No such file or directory: &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">))</span>
+<span class="g g-Whitespace">   </span><span class="mi">1304</span>         <span class="n">md</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="ne">FileNotFoundError</span>: No such file or directory: &#39;pictures/lin_reg.png&#39;
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/display.py</span> in <span class="ni">_data_and_metadata</span><span class="nt">(self, always_both)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1299</span>         <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1300</span>             <span class="n">b64_data</span> <span class="o">=</span> <span class="n">b2a_base64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1301</span>         <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+
+<span class="ne">TypeError</span>: a bytes-like object is required, not &#39;str&#39;
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/formatters.py</span> in <span class="ni">__call__</span><span class="nt">(self, obj)</span>
+<span class="g g-Whitespace">    </span><span class="mi">343</span>             <span class="n">method</span> <span class="o">=</span> <span class="n">get_real_method</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_method</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">344</span>             <span class="k">if</span> <span class="n">method</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">345</span>                 <span class="k">return</span> <span class="n">method</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">346</span>             <span class="k">return</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">347</span>         <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/display.py</span> in <span class="ni">_repr_png_</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1318</span>     <span class="k">def</span> <span class="nf">_repr_png_</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1319</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">format</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_FMT_PNG</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1320</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_and_metadata</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1321</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1322</span>     <span class="k">def</span> <span class="nf">_repr_jpeg_</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/display.py</span> in <span class="ni">_data_and_metadata</span><span class="nt">(self, always_both)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1300</span>             <span class="n">b64_data</span> <span class="o">=</span> <span class="n">b2a_base64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1301</span>         <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1302</span>             <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1303</span>                 <span class="s2">&quot;No such file or directory: &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">))</span>
+<span class="g g-Whitespace">   </span><span class="mi">1304</span>         <span class="n">md</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="ne">FileNotFoundError</span>: No such file or directory: &#39;pictures/lin_reg.png&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Image object&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nun sind die Schätzwerte allerdings zusätzlich fehlerbehaftet (wie sollte es auch anders sein). Mithilfe der Gleichung der Größtfehlers/Maximalfehlers kann man zeigen (den Beweis überspringen wir hier), dass für den Fehler von <span class="math notranslate nohighlight">\(y\)</span> folgendes gilt:</p>
+<div class="math notranslate nohighlight">
+\[s_y = \sqrt{\frac{1}{N-2}\sum(y_i - mx_i - b)^2 }\]</div>
+<p>Die ist auch die Standardabweichung der Einzelmessung aber <em>nicht</em> der Fehlerbalken, der im Diagramm als Fehlerbalken eingezeichnet wird. Die Abweichung der Einzelmessung wurde bisher mit <span class="math notranslate nohighlight">\(N-1\)</span> definiert, damals hat es sich aber um die Abweichung vom <em>Mittelwert</em> gehandelt. Nun betrachten wir die Abweichung zu einem linearen Modell, welches 2 offene Parameter, <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span>, hat, und somit einen Freiheitsgrad mehr bestitzt. Erst ab 3 Messwertepaaren können also Fehler für Steigung und Achsenabschnitt berechnet werden.
+Die besten Schätzwerte für die Abweichungen von <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span> können nun wiefolgt berechnet werden. Der Fehler der Geradensteigung beträgt:</p>
+<div class="math notranslate nohighlight">
+\[s_m = s_y \cdot \sqrt{\frac{N}{N\cdot \sum x_i^2 - \left(\sum x_i\right)^2}} = s_y \cdot \sqrt{\frac{1}{\sum x_i^2 - N\cdot \bar x^2}} = s_y \cdot \sqrt{\frac{1}{\sum \left(x_i - \bar x \right)^2}} = s_y \cdot \sqrt{\frac{1}{N\cdot (\overline{x^2} - (\overline x)^2)}}\]</div>
+<p>Der Fehler des Ordinatenabschnitts beträgt:</p>
+<div class="math notranslate nohighlight">
+\[s_b = s_y \cdot \sqrt{\frac{\sum x_i^2}{N\cdot \sum x_i^2 - \left(\sum x_i\right)^2}} = s_y \cdot \sqrt{\frac{1}{N}\frac{\sum x_i^2}{\sum x_i^2 - N\cdot \bar x^2}} = s_y \cdot \sqrt{\frac{1}{N}\frac{\sum x_i^2}{\sum \left(x_i - \bar x \right)^2}} = s_m \cdot \sqrt{\overline{x^2}}\]</div>
+</div>
+</div>
+<div class="section" id="beispiel-karussel-a-id-sec-beispiel-a">
+<h2>Beispiel: Karussel <a id="Sec-Beispiel"></a><a class="headerlink" href="#beispiel-karussel-a-id-sec-beispiel-a" title="Permalink to this headline">¶</a></h2>
+<p>Wir stellen uns im Folgenden ein Kinderkarussel vor und wir wollen die Geschwindigkeit der Feuerwehrautos ermitteln. Das Auto selbst verfügt über kein Tachometer - es bleibt also eigentlich nur die Möglichkeit, die Zeit eines Umlaufs zu stoppen und aus der Geometrie des Karussells den zurückgelegten Weg zu bestimmen. Daraus lässt sich die Geschwindigkeit leicht berechnen.
+Wie aber könnte eine Fehlerrechnung aussehen? Wie lässt sich eine Mehrfachmessung anstellen?</p>
+<p>Beispielsweise könnte man die Zeit nach jedem Umlauf messen, die näherungsweise konstant sein sollte (bis auf die 1. Runde, wo noch beschleunigt wird). Es könnte sich also ein linearer Zusammenhang zwischen zurückgelegtem Weg und der benötigten Zeit vermuten:</p>
+<div class="math notranslate nohighlight">
+\[y = m\cdot x + b \Rightarrow y - b - m\cdot x = 0\]</div>
+<p>Die Konstanten <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span> lassen sich nun bestimmen, indem <em>mindestens</em> zwei Messungen von <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span> vorgenommen werden. Die Messungen dieser Größen werden fehlerbehaftet sein, sodass es zu einer Verfälschung der Konstanten kommt. Durch mehrere Messungen (&gt;2!) von <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span> kann der zufällige Fehler auf die Konstanten vermindert und abgeschätzt werden. Zur Vereinfachung nehmen wir allerdings an, dass <span class="math notranslate nohighlight">\(x\)</span> fehlerfrei (oder zumindest fehlerarm) ist. Für verschiedene Werte von <span class="math notranslate nohighlight">\(x\)</span> ergeben sich dann entsprechende <span class="math notranslate nohighlight">\(y\)</span>-Werte mit Unsicherheiten.</p>
+<p>Für unser Kinderkarussel bleibt der Messpunkt der Strecke, <span class="math notranslate nohighlight">\(x\)</span>, laut Annahme unverändert. Dieser ist also sehr genau. Eine Unsicherheit wird bei der Zeitmessung, <span class="math notranslate nohighlight">\(y = t\)</span> auftreten. Folgende Messwerte wurden ermittelt:</p>
+<ul class="simple">
+<li><p>Weg  <span class="math notranslate nohighlight">\(x\)</span> (m): 12, 24, 36, 42, 60, 72, 84, 96, 108, 120</p></li>
+<li><p>Zeit <span class="math notranslate nohighlight">\(t\)</span> (s): 12.2, 17, 22.1, 33.2, 34.4, 59.1, 60.2, 65.7, 69.9, 70.1</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">108</span><span class="p">,</span> <span class="mi">120</span><span class="p">]</span> <span class="c1"># Messwerte der Strecke x in m</span>
+<span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mf">12.2</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mf">22.1</span><span class="p">,</span> <span class="mf">33.2</span><span class="p">,</span> <span class="mf">34.4</span><span class="p">,</span> <span class="mf">59.1</span><span class="p">,</span> <span class="mf">60.2</span><span class="p">,</span> <span class="mf">65.7</span><span class="p">,</span> <span class="mf">69.9</span><span class="p">,</span> <span class="mf">70.1</span><span class="p">]</span> <span class="c1"># Messwerte der Zeit t in sek.</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1">#konvertiere die Messwerte in ein Numpy-Array</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="c1">#konvertiere die Messwerte in ein Numpy-Array</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">t</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Messwerte&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Strecke x (m)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Zeit t (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Kurvenanpassung_13_0.png" src="../../_images/Kurvenanpassung_13_0.png" />
+</div>
+</div>
+<div class="section" id="analytische-lineare-regression-a-id-subsec-analytical-linreg-a">
+<h3>Analytische Lineare Regression <a id="SubSec-Analytical_LinReg"></a><a class="headerlink" href="#analytische-lineare-regression-a-id-subsec-analytical-linreg-a" title="Permalink to this headline">¶</a></h3>
+<p>An dem Diagram erkennt man, dass die Parameter <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span> niemals fehlerrfrei berechnet werden können. Die gemessenen Punkte werden immer neben der Geraden liegen. Das heißt eine fehlerfreie Berechnung der Parameter aus den Messwerten wird daher nicht möglich sein. Daher können wir wieder nur versuchen beste Schätzungen für <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span> zu definieren, die bei einer steigenden Anzahl von Messwerten den <em>wahren</em> Werten beliebig nahe kommt. Diese Schätzwerte sind die Regressionskoeffizienten, welche wir bereits eben definiert hatten und wiefolgt berechnen können:</p>
+<div class="math notranslate nohighlight">
+\[ m = \frac{S_{xt}}{S_{x}^2} = \frac{\overline{x\cdot t} - \overline x \cdot \overline t}{\overline{x^2} - (\overline x)^2}\]</div>
+<div class="math notranslate nohighlight">
+\[b = \frac{\sum_{i=1}^N t_i - m \sum_{i=1}^N x_i}{N} = \bar t - m \cdot \bar x\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">t</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">-</span> <span class="n">m</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Steigung ist </span><span class="se">\t\t</span><span class="s1"> m = </span><span class="si">%5.4f</span><span class="s1"> s/m&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Der Ordinatenabschnitt ist </span><span class="se">\t</span><span class="s1"> b = </span><span class="si">%5.4f</span><span class="s1"> s&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">t</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Messwerte&#39;</span><span class="p">)</span> <span class="c1"># plot Messwerte</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">m</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">b</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;analytische Lin. Reg.: y = </span><span class="si">%5.3f</span><span class="s1">*x+</span><span class="si">%5.3f</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">b</span><span class="p">))</span>  <span class="c1"># plot Ausgleichsgerade mit m und b</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Strecke x (m)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Zeit t (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Steigung ist 		 m = 0.6067 s/m
+Der Ordinatenabschnitt ist 	 b = 4.7148 s
+</pre></div>
+</div>
+<img alt="../../_images/Kurvenanpassung_15_1.png" src="../../_images/Kurvenanpassung_15_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="lineare-regression-mit-python-scipy-a-id-subsec-scipy-linreg-a">
+<h3>Lineare Regression mit Python: scipy <a id="SubSec-scipy_LinReg"></a><a class="headerlink" href="#lineare-regression-mit-python-scipy-a-id-subsec-scipy-linreg-a" title="Permalink to this headline">¶</a></h3>
+<p>Mit einem Datenanalyseprogramm, sei es hier in Python oder in Matlab oder Maple, können Hilfsfunktionen und Pakete geladen werden, um Fit-Funktionen automatisch auf Messwerte anzupassen. Dies ist in der Regel schneller und insbesondere auch für andere Zusammenhänge, neben linearen Zusammenhängen, viel einfacher in der Umsetzung. Man sollte jedoch stets das Ergebnis kontrollieren, z.B. anhand von grafischen Darstellungen, und sich die Unsicherheiten genau ansehen. Desweiteren können in der Fitroutine Startparameter angegeben werden, welche den Schätzwerten schon recht nah sein sollten. Das Fitergebnis kann nämlich unter Umständen sehr stark von der Wahl der Startparameter abhängen, gerade wenn es um komplexere Fitfunktionen geht. Im Folgenden wollen wir uns aber noch einmal das Beispiels das Karussels ansehen, um die beiden Methoden miteinander zu vergleichen.</p>
+<p>Als erstes definieren wir uns eine allgemein lineare Fitfunktion und anschließend nutzen wir das scipy-Paket und rufen die Optimierungsfunktion auf, um unsere Messwerte zu modellieren. Die Ausgangsparameter werden in einem weiteren Array abgespeichert, welches einerseits die gesuchten Variablen <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span> beinhaltet, andererseits die Kovarianzmatrix enthält. Aus der Wurzel die Diagonalelemente dieser Kovarianzmatrix erhält man die Standardabweichung der bestimmten Variablen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fit_lin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span> <span class="c1"># Fit Funktion für eine Gerade mit Steigung b</span>
+    <span class="k">return</span> <span class="n">b</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">a</span>
+
+<span class="c1"># Fit der Daten:</span>
+<span class="n">fit_out</span> <span class="o">=</span> <span class="n">optimization</span><span class="o">.</span><span class="n">curve_fit</span><span class="p">(</span><span class="n">fit_lin</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die scipy-Fitparameter lauten:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Steigung ist </span><span class="se">\t\t</span><span class="s1"> m = (</span><span class="si">%5.4f</span><span class="s1"> +- </span><span class="si">%5.4f</span><span class="s1">) s/m&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">fit_out</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">fit_out</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Der Ordinatenabschnitt ist </span><span class="se">\t</span><span class="s1"> b = (</span><span class="si">%5.4f</span><span class="s1"> +- </span><span class="si">%5.4f</span><span class="s1">) s&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">fit_out</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">fit_out</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">t</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Messwerte&#39;</span><span class="p">)</span> <span class="c1"># plot Messwerte</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">m</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">b</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Lin. Reg.: y = </span><span class="si">%5.3f</span><span class="s1">*x+</span><span class="si">%5.3f</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">b</span><span class="p">))</span>  <span class="c1"># plot Ausgleichsgerade mit m und b</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">fit_out</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">fit_out</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Fit: y = </span><span class="si">%5.3f</span><span class="s1">*x+</span><span class="si">%5.3f</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">fit_out</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">fit_out</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]))</span>  <span class="c1"># plot Fitfunktion mit b und a</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Strecke x (m)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Zeit t (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die scipy-Fitparameter lauten:
+Die Steigung ist 		 m = (0.6067 +- 0.0534) s/m
+Der Ordinatenabschnitt ist 	 b = (4.7148 +- 3.9581) s
+</pre></div>
+</div>
+<img alt="../../_images/Kurvenanpassung_17_1.png" src="../../_images/Kurvenanpassung_17_1.png" />
+</div>
+</div>
+<p>Man erkennt, dass die Regressionskoeffizienten der beiden Methoden sehr gut übereinstimmen. Die Unterschiede betragen lediglich:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Unterschied in den Steigungen: </span><span class="se">\t\t</span><span class="s1">  </span><span class="si">%5.3e</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">m</span><span class="o">-</span><span class="n">fit_out</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Unterschied in den Ordinatenabschnitten: </span><span class="si">%5.3e</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">fit_out</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Unterschied in den Steigungen: 		  8.582e-13
+Unterschied in den Ordinatenabschnitten: -8.125e-12
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="lineare-regression-mit-python-lmfit-a-id-subsec-lmfit-linreg-a">
+<h3>Lineare Regression mit Python: lmfit <a id="SubSec-lmfit_LinReg"></a><a class="headerlink" href="#lineare-regression-mit-python-lmfit-a-id-subsec-lmfit-linreg-a" title="Permalink to this headline">¶</a></h3>
+<p>Prinzipiell ist es wundervoll für Python für die Optimierung von Problemenen zu nutzen und das scipy-Paket bietet sehr robuste und einfach Nutzung. Andererseits unterscheidet sich das Verfahen nicht besonders von denjenigen, die wir in C oder Fortran bekommen würden. D.h. es gibt einige Herausforderungen in der praktischen Anwendung, warum scipy nicht die optimale Wahl ist:</p>
+<ul class="simple">
+<li><p>Der Benutzer muss sich die Reihenfolge der Variablen und deren Bedeutung merken. (Was war noch mal fit_out[0][0], die Steigung oder der Ordinatenabschnitt?)</p></li>
+<li><p>Wenn ich eine Variable nicht fitten möchte, also ich möchte zum Beispiel die Steigung auf fest Null setzen, so muss ich mir eine neue Funktion ohne diese Variable definieren. Insbesondere für komplexere Funktionen und Zusammenhänge wird dieses Verfahren schnell unübersichtlich. Einfacher wäre es, der Optimierungsfunktion zu sagen, welche Variablen ich in diesem Durchlauf gefittet haben möchte, und welche konstant bleiben sollen.</p></li>
+<li><p>Zwischen den verschiedenen Variablen können keine Beziehungen hergestellt werden. Es können lediglich Grenzen angegeben werden, in denen sich die Variablen befinden.</p></li>
+</ul>
+<p>Der Grund für die eingeschränkte Nutzung hat historische Gründe und basiert hauptsächlich auf Fit-Routinen, die beispielsweise für C oder Fortran entwickelt wurden. Python bietet aber mehr, da es unterschiedlich Objekte und Datenstrukturen bietet, statt nur mit Arrays zu rechnen. Daher möchten wir uns noch einem etwas besser geeignetem Paket widmen, und das eben vorgestellt Beispiel noch einmal durchrechnen.</p>
+<p>Das Paket lmfit definiert und benutzt Parameterobjekte anstelle von einfachen Zahlen als Variablen. Dies hat folgende Vorteile:</p>
+<ul class="simple">
+<li><p>Wir müssen uns endlich keine Reihenfolgen von Variablen mehr merken, wir können ihn ab sofort bedeutungsvolle Namen geben.</p></li>
+<li><p>Es müssen keine Arrays mehr für Grenzen eingegeben werden und die Reihenfolge der Grenzen, im Array, die vorher durch die Reihenfolge Variablen bestimmt war, spielt nun auch keine Rolle mehr.</p></li>
+<li><p>Wir können einfach Parameter fixieren ohne Zielfunktionen neu definieren zu müssen.</p></li>
+<li><p>Algebraische Beschänkungen der Parameter sind ab sofort möglich.</p></li>
+</ul>
+<p>Eine ausführliche Dokumentation findet man hier: <a class="reference external" href="https://lmfit.github.io/lmfit-py/index.html">https://lmfit.github.io/lmfit-py/index.html</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lmfit</span> <span class="kn">import</span> <span class="n">minimize</span><span class="p">,</span> <span class="n">Parameters</span>
+<span class="kn">from</span> <span class="nn">lmfit</span> <span class="kn">import</span> <span class="n">Model</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f_lin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">steigung</span><span class="p">,</span> <span class="n">abschnitt</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">steigung</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">abschnitt</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">f_lin</span><span class="p">)</span>
+<span class="n">params</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">make_params</span><span class="p">(</span><span class="n">steigung</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">abschnitt</span><span class="o">=</span><span class="mf">10.0</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;lmfit hat eine eigene print-Ausgabe:&#39;</span><span class="p">)</span>
+<span class="n">result</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">pretty_print</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Fit Report:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">fit_report</span><span class="p">())</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">t</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Messwerte&#39;</span><span class="p">)</span> <span class="c1"># plot Messwerte</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">m</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">b</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Lin. Reg.: y = </span><span class="si">%5.3f</span><span class="s1">*x+</span><span class="si">%5.3f</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">b</span><span class="p">))</span>  <span class="c1"># plot Ausgleichsgerade mit m und b</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">fit_out</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">fit_out</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;scipy Fit: y = </span><span class="si">%5.3f</span><span class="s1">*x+</span><span class="si">%5.3f</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">fit_out</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">fit_out</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]))</span>  <span class="c1"># plot Fitfunktion mit b und a</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">result</span><span class="o">.</span><span class="n">best_fit</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;lmfit Fit: y = </span><span class="si">%5.3f</span><span class="s1">*x+</span><span class="si">%5.3f</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;steigung&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">,</span><span class="n">result</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;abschnitt&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">))</span>  <span class="c1"># plot Fitfunktion mit b und a</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Strecke x (m)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Zeit t (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lmfit hat eine eigene print-Ausgabe:
+Name          Value      Min      Max   Stderr     Vary     Expr Brute_Step
+abschnitt     4.715     -inf      inf    3.958     True     None     None
+steigung     0.6067     -inf      inf  0.05342     True     None     None
+
+Fit Report:
+[[Model]]
+    Model(f_lin)
+[[Fit Statistics]]
+    # fitting method   = leastsq
+    # function evals   = 6
+    # data points      = 10
+    # variables        = 2
+    chi-square         = 276.888038
+    reduced chi-square = 34.6110047
+    Akaike info crit   = 37.2102814
+    Bayesian info crit = 37.8154516
+[[Variables]]
+    steigung:   0.60665381 +/- 0.05342018 (8.81%) (init = 0.7)
+    abschnitt:  4.71484116 +/- 3.95814322 (83.95%) (init = 10)
+[[Correlations]] (unreported correlations are &lt; 0.100)
+    C(steigung, abschnitt) = -0.883
+</pre></div>
+</div>
+<img alt="../../_images/Kurvenanpassung_22_1.png" src="../../_images/Kurvenanpassung_22_1.png" />
+</div>
+</div>
+<p>Anhand der ausführlichen Ausgabe erkennt man sofort, wie viele Informationen man aus der Benutzung dieses Paketes ziehen kann, ohne aufwendige Fehlerfortpflanzung betreiben zu müssen. Außerdem kann man Beispielsweise die Fit-Methode ändern (anstelle von least-squares), man kann sich die Anfangs-Fitfunktion ansehen (und parallel zur ‘besten’ Fit-Funktion anzeigen lassen), man kann Parameter konstant setzen oder sich Standardfehler, <span class="math notranslate nohighlight">\(\chi^2\)</span> und Korrelationen (zwischen den Fit-Parametern, nicht den Messwerten!) ausgeben lassen.</p>
+</div>
+<div class="section" id="bestimmung-der-geschwindigkeit-a-id-subsec-geschwindigkeit-a">
+<h3>Bestimmung der Geschwindigkeit <a id="SubSec-geschwindigkeit"></a><a class="headerlink" href="#bestimmung-der-geschwindigkeit-a-id-subsec-geschwindigkeit-a" title="Permalink to this headline">¶</a></h3>
+<p>Eigentlich wollten wir ja die Geschwindigkeit der Feuerwehrautos bestimmen.
+Der Kehrwert der Steigung <span class="math notranslate nohighlight">\(m\)</span> liefert uns die Geschwindigkeit des Karussells, wenn wir den Kehrwert berechnen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">m</span>
+<span class="n">v_fit</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">fit_out</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Geschwindigkeit ermittelt mittels Analytik ist: v = </span><span class="si">%5.4f</span><span class="s1"> m/s = </span><span class="si">%5.4f</span><span class="s1"> km/h&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">v</span><span class="o">/</span><span class="mi">1000</span><span class="o">*</span><span class="mi">3600</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Geschwindigkeit ermittelt mittels Fit ist:      v = </span><span class="si">%5.4f</span><span class="s1"> m/s = </span><span class="si">%5.4f</span><span class="s1"> km/h&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">v_fit</span><span class="p">,</span> <span class="n">v_fit</span><span class="o">/</span><span class="mi">1000</span><span class="o">*</span><span class="mi">3600</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Geschwindigkeit ermittelt mittels Analytik ist: v = 1.6484 m/s = 5.9342 km/h
+Die Geschwindigkeit ermittelt mittels Fit ist:      v = 1.6484 m/s = 5.9342 km/h
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="unsicherheit-der-geschwindigkeit-a-id-subsec-u-geschwindigkeit-a">
+<h3>Unsicherheit der Geschwindigkeit <a id="SubSec-u_geschwindigkeit"></a><a class="headerlink" href="#unsicherheit-der-geschwindigkeit-a-id-subsec-u-geschwindigkeit-a" title="Permalink to this headline">¶</a></h3>
+<p>Wie bereits oben schon erwähnt, hat die Regressionen eine Abweichung. Daher müssen wir uns jetzt fragen, was der Fehler der Geschwindigkeit ist. Diesen bekommen wir aus der Steigiung <span class="math notranslate nohighlight">\(m\)</span>. Das heißt wir benötigen zuerst den Fehler von <span class="math notranslate nohighlight">\(m\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[s_m = s_t \cdot \sqrt{\frac{1}{N\cdot (\overline{x^2} - (\overline x)^2)}} \quad \textrm{mit} \quad s_t = \sqrt{\frac{1}{N-2}\sum(t_i - mx_i - b)^2 }\]</div>
+<p>Der Vollständigkeit halber berechnen wir ebenfalls den Fehler für <span class="math notranslate nohighlight">\(b\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[s_b  = s_m \cdot \sqrt{\overline{x^2}}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="n">diff_t</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">diff_t</span> <span class="o">+=</span> <span class="p">(</span> <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">m</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">b</span> <span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">streuung_t</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">diff_t</span>
+<span class="n">s_t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">streuung_t</span><span class="p">)</span>
+<span class="n">s_m</span> <span class="o">=</span> <span class="n">s_t</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">N</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)))</span>
+<span class="n">s_b</span> <span class="o">=</span> <span class="n">s_m</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Unsicherheit von t ist </span><span class="se">\t</span><span class="s1"> s_t = </span><span class="si">%5.4f</span><span class="s1"> s&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">s_t</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Unsicherheit von m ist </span><span class="se">\t</span><span class="s1"> s_m = </span><span class="si">%5.4f</span><span class="s1"> s/m&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">s_m</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Unsicherheit von b ist </span><span class="se">\t</span><span class="s1"> s_b = </span><span class="si">%5.4f</span><span class="s1"> s&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">s_b</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Unsicherheit von t ist 	 s_t = 5.8831 s
+Die Unsicherheit von m ist 	 s_m = 0.0534 s/m
+Die Unsicherheit von b ist 	 s_b = 3.9581 s
+</pre></div>
+</div>
+</div>
+</div>
+<p>Die Fitroutine in Python gibt uns ebenfalls Unsicherheiten in Form von der Kovarianz-Matrix aus. Auf der Diagonale stehen die Varianzen, <span class="math notranslate nohighlight">\(s^2\)</span>, auf den Nicht-Diagonalelementen stehen die Kovarianzen (Korrelationsterme zwischen <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathrm{cov}(m,b) = 
+\begin{pmatrix}
+ s_m^2 &amp; s_{mb} \\
+ s_{bm} &amp; s_b^2
+\end{pmatrix} \end{split}\]</div>
+<p>Die Unsicherheiten für <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span> erhalten wir also aus der Wurzel von den Diagonalelementen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Kovarianzmatrix hat die folgende Form: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">fit_out</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Unsicherheit von m ist </span><span class="se">\t</span><span class="s1"> s_m = </span><span class="si">%5.4f</span><span class="s1"> s/m&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">fit_out</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Unsicherheit von b ist </span><span class="se">\t</span><span class="s1"> s_b = </span><span class="si">%5.4f</span><span class="s1"> s&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">fit_out</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Kovarianzmatrix hat die folgende Form: 
+ [[ 2.85371544e-03 -1.86632993e-01]
+ [-1.86632993e-01  1.56668987e+01]]
+
+Die Unsicherheit von m ist 	 s_m = 0.0534 s/m
+Die Unsicherheit von b ist 	 s_b = 3.9581 s
+</pre></div>
+</div>
+</div>
+</div>
+<p>Auch die Unsicherheiten stimmen für beide Methoden perfekt überein.</p>
+<p>Nun interessiert uns allerdings der absolute Fehler der geschätzen Geschwindigkeit. Da die Geschwindigkeit der Kehrwert der Steigung ist (<span class="math notranslate nohighlight">\(v = \frac{1}{m}\)</span>), müssen wir Fehlerfortpflanzung anwenden. Der Fehler wirkt sich wiefolgt auf den Kehrwert aus:</p>
+<div class="math notranslate nohighlight">
+\[\Delta v = \left|\frac{\partial v}{\partial m}\right|\cdot \Delta m = \left| -\frac{1}{m^2} \right| \cdot s_m = \frac{1}{m^2} \cdot s_m = s_v\]</div>
+<p>Da beide Methoden die gleichen Werte für Schätzungen und Unsicherheiten ausgeben, ersparen wir uns ab nun die Berechnung der Geschwindigkeit inkl. Unsicherheit für beide Methoden. Die Fehlerrechnung wird nur noch für die analytische Methode ausgeführt:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s_v</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">m</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">s_m</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Unsicherheit von v ist </span><span class="se">\t</span><span class="s1"> s_v = </span><span class="si">%5.4f</span><span class="s1"> m/s&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">s_v</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Unsicherheit von v ist 	 s_v = 0.1452 m/s
+</pre></div>
+</div>
+</div>
+</div>
+<p>Das Messergebnis kann also wiefolgt angegeben werden:</p>
+<div class="math notranslate nohighlight">
+\[v = (1,6484 \pm 0,1452)\,\mathrm{m/s}\]</div>
+<p><strong>Ist diese Angabe sinnvoll?</strong> Wenn wir das so konkret fragen, dann vermutlich nicht…
+Wenn der Fehler bereits in der ersten Stelle nach dem Komma signifikant bemerkbar den Schätzwert beeinflusst, warum sollte man sich dann die Mühe machen noch weitere Nachkommastellen hinzuschreiben? Also <strong>sinnvoll runden</strong>:</p>
+<div class="math notranslate nohighlight">
+\[v = (1,6 \pm 0,2)\,\mathrm{m/s}\]</div>
+<p>Warum 0,2 und nicht 0,1? <strong>Fehler werden immer aufgerundet!</strong></p>
+<p>Nun könnte noch der relative Fehler <span class="math notranslate nohighlight">\(\Delta v/v\)</span> berechnet werden.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die relative Unsicherheit von v ist </span><span class="se">\t</span><span class="s1"> s_v = </span><span class="si">%5.4f</span><span class="s1"> Prozent&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">s_v</span><span class="o">/</span><span class="n">v</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die relative Unsicherheit von v ist 	 s_v = 8.8057 Prozent
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="korrelationskoeffizient-a-id-subsec-korrelationskoeffizient-a">
+<h3>Korrelationskoeffizient <a id="SubSec-Korrelationskoeffizient"></a><a class="headerlink" href="#korrelationskoeffizient-a-id-subsec-korrelationskoeffizient-a" title="Permalink to this headline">¶</a></h3>
+<p>Der Korrelationskoeffizient kann wiefolgt berechnet werden:</p>
+<div class="math notranslate nohighlight">
+\[r = \frac{\overline{x\cdot t} - \overline x \cdot \overline t}{\sqrt{\overline{x^2} - (\overline x)^2} \cdot {\sqrt{\overline{t^2} - (\overline t)^2}}} \]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Analytische Methode:</span>
+<span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">t</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">t</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Der Korrelationskoeffizient zwischen x und t beträgt: </span><span class="si">%5.8f</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
+
+<span class="c1"># Python:</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Korrelationsmatrix zwischen x und t mittels numpy-Paket lautet:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der Korrelationskoeffizient zwischen x und t beträgt: 0.97035603
+
+Die Korrelationsmatrix zwischen x und t mittels numpy-Paket lautet:
+[[1.         0.97035603]
+ [0.97035603 1.        ]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der Korrelationskoeffizient von <span class="math notranslate nohighlight">\(+ 0,97035\)</span> zeigt mit positivem Vorzeichen eine direkte Proportionalität zwischen <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(t\)</span>. Die geringfügige Abweichung zu +1 zeigt, dass die Messwerte leicht von dem erwarteten linearen Zusammenhang dennoch abweichen.</p>
+</div>
+</div>
+<div class="section" id="beispiel-mit-fehlerbalken-in-den-y-messwerten-a-id-sec-beispiel-fehlerbalken-a">
+<h2>Beispiel mit Fehlerbalken in den y-Messwerten <a id="Sec-Beispiel_Fehlerbalken"></a><a class="headerlink" href="#beispiel-mit-fehlerbalken-in-den-y-messwerten-a-id-sec-beispiel-fehlerbalken-a" title="Permalink to this headline">¶</a></h2>
+<p>Gegeben sei eine Messreihe von 10 Messwerten mit annäherend konstanten Verhalten. In diesem sollen nun Kurvenanpassungen vorgenommen werden, unter Berücksichtung von Fehlerbalken. Folgende Messdaten inkl. Unsicherheiten wurden aufgenommen. Die Unsicherheit der <span class="math notranslate nohighlight">\(x\)</span>-Achse vernachlässen wir hier der Einfachheit halber.</p>
+<p>Wir werden dieses Beispiel für 3 Fälle durchrechnen:</p>
+<ul class="simple">
+<li><ol class="simple">
+<li><p>Fall: Jeder Messwert hat einen anderen Fehler: <span class="math notranslate nohighlight">\(s_y\)</span> hat unterschiedliche Einträge</p></li>
+</ol>
+</li>
+<li><ol class="simple">
+<li><p>Fall: Jeder Messwert hat den gleichen Fehler: <span class="math notranslate nohighlight">\(s_y = s_i = 1.0\)</span></p></li>
+</ol>
+</li>
+<li><ol class="simple">
+<li><p>Fall: Die Messwerte haben keinen Fehler: <span class="math notranslate nohighlight">\(s_y = s_i = 0.0\)</span></p></li>
+</ol>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mf">11.55</span><span class="p">,</span> <span class="mf">9.8</span><span class="p">,</span> <span class="mf">9.82</span><span class="p">,</span> <span class="mf">9.15</span><span class="p">,</span> <span class="mf">10.57</span><span class="p">,</span> <span class="mf">9.58</span><span class="p">,</span> <span class="mf">10.44</span><span class="p">,</span> <span class="mf">10.55</span><span class="p">,</span> <span class="mf">8.23</span><span class="p">,</span> <span class="mf">10.93</span><span class="p">]</span> <span class="c1">#Messwerte y_i</span>
+<span class="n">s_y</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">]</span> <span class="c1">#Unsicherheiten Fall 1</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">,</span> <span class="mf">7.</span><span class="p">,</span> <span class="mf">8.</span><span class="p">,</span> <span class="mf">9.</span><span class="p">]</span> <span class="c1">#Messwerte y_i</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="c1">#konvertiere die Messwerte in ein Numpy-Array</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1">#konvertiere die Messwerte in ein Numpy-Array</span>
+<span class="n">s_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">s_y</span><span class="p">)</span> <span class="c1">#konvertiere die Unsicherheiten in ein Numpy-Array</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">xerr</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">yerr</span> <span class="o">=</span> <span class="n">s_y</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Messwerte&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Nr der Messung&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="mi">13</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Kurvenanpassung_38_0.png" src="../../_images/Kurvenanpassung_38_0.png" />
+</div>
+</div>
+<div class="section" id="minimierungsproblem-losen-ausprobieren-a-id-subsec-ausprobieren-a">
+<h3>Minimierungsproblem lösen: Ausprobieren <a id="SubSec-Ausprobieren"></a><a class="headerlink" href="#minimierungsproblem-losen-ausprobieren-a-id-subsec-ausprobieren-a" title="Permalink to this headline">¶</a></h3>
+<p>Im Allgemeinen gilt, je kleiner die Unsicherheit eines Messwertes ist, desto wichtiger ist dieser Messwert für die Mittelwertbildung. Die analytische Lösung würde wiefolgt aussehen:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(S(c) = \displaystyle\sum_{i=1}^{N} \frac{(y_i -c)^2}{{s_i}^2}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(0= \frac{dS}{dc} = \displaystyle\sum_{i=1}^{N} \frac{2 (y_i -c)}{{s_i}^2}\)</span></p></li>
+</ul>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(\Rightarrow {\hat c} = \frac{1}{\sum{1/s_i}^2}
+     \displaystyle\sum_{i=1}^{N}\frac{1}{{s_i}^2}y_i \)</span></p>
+</div></blockquote>
+<p>Mit der Definition <span class="math notranslate nohighlight">\( w_i \equiv \frac{1} {{s_i}^2}\)</span> erhalten wir als wichtiges
+Ergebnis die Formel für den <em>gewichteten Mittelwert</em>:</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\({\hat c}= \frac{1} {\sum {w_i}} \displaystyle\sum_{i=1}^{N}  {w_i} y_i\)</span></p>
+</div></blockquote>
+<p>Der Mittelwert ist die mit <span class="math notranslate nohighlight">\(1/s_i^2\)</span> gewichtete Summe der Einzelmessungen.
+Die Gewichte entsprechen der obigen Erwartung: Messwerte mit den kleinsten <span class="math notranslate nohighlight">\(s_i\)</span>
+bekommen bei der Mittelwertbildung das größte Gewicht. Am Vorfaktor <span class="math notranslate nohighlight">\(1/\sum w_i\)</span> kann
+man ablesen, dass die Zahl der Messwerte <span class="math notranslate nohighlight">\(N\)</span> in diesem Fall durch die Summe der Gewichte
+<span class="math notranslate nohighlight">\(\sum w_i\)</span> ersetzt werden muss.</p>
+<p>Ist der Fehler für alle Messwerte konstant, so kann <span class="math notranslate nohighlight">\(s_i\)</span> einfach auf die andere Seite multipliziert werden und verschwindet aus der Gleichung. Ist der Fehler Null, nutzen wir die Gütefunktion, welche minimiert werden muss:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(Q(c) := \sum_{i=1}^n (y_i - f(x))^2 = \sum_{i=1}^n (y_i - c)^2 = \textrm{min?}\)</span></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">S</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">c</span><span class="p">):</span> <span class="c1"># Minimierungsfunktion mit Fehler</span>
+    <span class="k">return</span> <span class="p">((</span><span class="n">y</span><span class="o">-</span><span class="n">c</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">s_y</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">Q</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">c</span><span class="p">):</span> <span class="c1"># Minimierungsfehler ohne Fehler</span>
+    <span class="k">return</span> <span class="p">((</span><span class="n">y</span><span class="o">-</span><span class="n">c</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Die Minimierung kann einfach ausgeführt werden, indem die Gütefunktion für verschiedene Funktionsparameter (<span class="math notranslate nohighlight">\(c\)</span>) ausprobiert wird, im Folgenden werden für <span class="math notranslate nohighlight">\(c\)</span> 100 Werte zwischen 8 und 12 ausprobiert:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c_val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">S_c</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">Q_c</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">c_val</span><span class="p">:</span>
+    <span class="n">S_c</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">c</span><span class="p">))</span>
+    <span class="n">Q_c</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Q</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">c</span><span class="p">))</span>
+    
+<span class="n">id_min_S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">S_c</span><span class="p">)</span>
+<span class="n">id_min_Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">Q_c</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Minimum unter Einbezug von Unsicherheiten ist bei c =&quot;</span><span class="p">,</span> <span class="n">c_val</span><span class="p">[</span><span class="n">id_min_S</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Minimum ohne  Einbezug von Unsicherheiten ist bei c =&quot;</span><span class="p">,</span> <span class="n">c_val</span><span class="p">[</span><span class="n">id_min_Q</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">c_val</span><span class="p">,</span> <span class="n">S_c</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Minimierungsfunktion inkl. Unsicherheiten&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">c_val</span><span class="p">,</span> <span class="n">Q_c</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Minimierungsfunktion ohne/konstante Unsicherheiten&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Minimierungsfunktion&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Minimum unter Einbezug von Unsicherheiten ist bei c = 10.141414141414142
+Minimum ohne  Einbezug von Unsicherheiten ist bei c = 10.06060606060606
+</pre></div>
+</div>
+<img alt="../../_images/Kurvenanpassung_42_1.png" src="../../_images/Kurvenanpassung_42_1.png" />
+</div>
+</div>
+<p>Schon bei dieser schnellen Analyse sehen wir, dass es einen Unterschied gibt, ob wir die Fehlerbalken miteinbeziehen, oder ob keine Unsicherheiten vorhanden sind. Sind die absoluten Unsicherheiten für alle Messwerte die gleichen, so trifft der Fall <em>ohne</em> Unsicherheiten zu.</p>
+</div>
+<div class="section" id="kurvenanpassung-mit-python-scipy-a-id-subsec-scipy-bsp2-a">
+<h3>Kurvenanpassung mit Python: scipy <a id="SubSec-scipy_bsp2"></a><a class="headerlink" href="#kurvenanpassung-mit-python-scipy-a-id-subsec-scipy-bsp2-a" title="Permalink to this headline">¶</a></h3>
+<p>Im Folgenden Code-Block wollen wir die Analyse dieser einfachen Messreihe noch einmal mittel scipy-Paket wiederholen und eine lineare Regression und konstante Regression auf die Messdaten anwenden. Wir definieren also zwei Fit-Funktionen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fit_lin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span> <span class="c1"># Funktion für lineare Regression</span>
+    <span class="k">return</span> <span class="n">b</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">a</span>
+
+<span class="k">def</span> <span class="nf">fit_const</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span> <span class="c1"># Funktion für konstante Regression</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">x</span> <span class="o">-</span> <span class="n">x</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">c_val</span><span class="p">):</span> <span class="c1"># Funktion um Minimierungsfunktion in Diagramm zu zeichnen</span>
+    <span class="k">return</span> <span class="n">c_val</span> <span class="o">+</span> <span class="n">x</span><span class="o">-</span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Diese beiden Funktionen werden nun benutzt, um die Daten zu modellieren. Wir testen jeweils beide Fälle, nämlich mit und ohne Fehlerbalken:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ----- Mit Fehlerbalken: ---- #</span>
+
+<span class="n">fit_lin_out_err</span> <span class="o">=</span> <span class="n">optimization</span><span class="o">.</span><span class="n">curve_fit</span><span class="p">(</span><span class="n">fit_lin</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">s_y</span><span class="p">)</span>
+<span class="n">fit_const_out_err</span> <span class="o">=</span> <span class="n">optimization</span><span class="o">.</span><span class="n">curve_fit</span><span class="p">(</span><span class="n">fit_const</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">s_y</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">xerr</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">yerr</span> <span class="o">=</span> <span class="n">s_y</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Messwerte&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span>  <span class="n">c_val</span><span class="p">[</span><span class="n">id_min_S</span><span class="p">]),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Minimierungsfunktion: c = </span><span class="si">%5.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">c_val</span><span class="p">[</span><span class="n">id_min_S</span><span class="p">]))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">fit_lin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fit_lin_out_err</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">fit_lin_out_err</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Lin. Fit: y = </span><span class="si">%5.3f</span><span class="s1">*x+</span><span class="si">%5.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">fit_lin_out_err</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">fit_lin_out_err</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">fit_const</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fit_const_out_err</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Const. Fit: y = </span><span class="si">%5.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">fit_const_out_err</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Nr der Messung&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="mi">13</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Fit mit Fehlerbalken&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="c1"># ----- Ohne Fehlerbalken: ---- #</span>
+
+<span class="n">fit_lin_out</span> <span class="o">=</span> <span class="n">optimization</span><span class="o">.</span><span class="n">curve_fit</span><span class="p">(</span><span class="n">fit_lin</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">fit_const_out</span> <span class="o">=</span> <span class="n">optimization</span><span class="o">.</span><span class="n">curve_fit</span><span class="p">(</span><span class="n">fit_const</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Messwerte&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span>  <span class="n">c_val</span><span class="p">[</span><span class="n">id_min_Q</span><span class="p">]),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Minimierungsfunktion: c = </span><span class="si">%5.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">c_val</span><span class="p">[</span><span class="n">id_min_Q</span><span class="p">]))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">fit_lin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fit_lin_out</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">fit_lin_out</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Lin. Fit: y = </span><span class="si">%5.3f</span><span class="s1">*x+</span><span class="si">%5.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">fit_lin_out</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">fit_lin_out</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">fit_const</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fit_const_out</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Const. Fit: y = </span><span class="si">%5.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">fit_const_out</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Nr der Messung&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="mi">13</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Fit ohne Fehlerbalken&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Kurvenanpassung_47_0.png" src="../../_images/Kurvenanpassung_47_0.png" />
+<img alt="../../_images/Kurvenanpassung_47_1.png" src="../../_images/Kurvenanpassung_47_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="kurvenanpassung-mit-python-lmfit-a-id-subsec-lmfit-bsp2-a">
+<h3>Kurvenanpassung mit Python: lmfit <a id="SubSec-lmfit_bsp2"></a><a class="headerlink" href="#kurvenanpassung-mit-python-lmfit-a-id-subsec-lmfit-bsp2-a" title="Permalink to this headline">¶</a></h3>
+<p>Das vorangegangene Beispiel mit scipy zeigt auf, wie aufwändig es ist eine Fitparameter zu fixieren. Es muss eine neue Funktion mit weniger Freiheitsgeraden definiert werden. Wie oben schon angeükndigt, lässt sich dies mit dem lmfit-Paket etwas einfacher lösen und soll hier anhand des Beispiels noch einmal visualisiert werden.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ----- Mit Fehlerbalken: ---- #</span>
+
+<span class="k">def</span> <span class="nf">f_lin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">steigung</span><span class="p">,</span> <span class="n">abschnitt</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">steigung</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">abschnitt</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">f_lin</span><span class="p">)</span>
+<span class="n">params</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">make_params</span><span class="p">(</span><span class="n">steigung</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">abschnitt</span><span class="o">=</span><span class="mf">10.0</span><span class="p">)</span>
+<span class="n">result_lin</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">weights</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">s_y</span><span class="p">)</span> <span class="c1"># Fehlerbalken werden über die &#39;weights = 1/sigma&#39; Option berücksichtigt</span>
+
+<span class="n">params</span><span class="p">[</span><span class="s1">&#39;steigung&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">vary</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">result_const</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">weights</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">s_y</span><span class="p">)</span>
+
+<span class="c1">#print(&#39;Fit Parameter der Linearen Regression:&#39;)</span>
+<span class="n">result_lin</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">pretty_print</span><span class="p">()</span>
+<span class="c1">#print(&#39;Fit Report:&#39;)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result_lin</span><span class="o">.</span><span class="n">fit_report</span><span class="p">())</span>
+
+<span class="c1">#print(&#39;Fit Parameter der Konstanten Regression:&#39;)</span>
+<span class="c1">#result_const.params.pretty_print()</span>
+<span class="c1">#print(&#39;Fit Report:&#39;)</span>
+<span class="c1">#print(result_const.fit_report())</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">xerr</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">yerr</span> <span class="o">=</span> <span class="n">s_y</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Messwerte&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span>  <span class="n">c_val</span><span class="p">[</span><span class="n">id_min_S</span><span class="p">]),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Minimierungsfunktion: c = </span><span class="si">%5.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">c_val</span><span class="p">[</span><span class="n">id_min_S</span><span class="p">]))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">fit_lin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fit_lin_out_err</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">fit_lin_out_err</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Lin. Fit: y = </span><span class="si">%5.3f</span><span class="s1">*x+</span><span class="si">%5.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">fit_lin_out_err</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">fit_lin_out_err</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">fit_const</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fit_const_out_err</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Const. Fit: y = </span><span class="si">%5.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">fit_const_out_err</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">result_lin</span><span class="o">.</span><span class="n">best_fit</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;lmfit Lin-Fit: y = </span><span class="si">%5.3f</span><span class="s1">*x+</span><span class="si">%5.3f</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">result_lin</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;steigung&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">,</span><span class="n">result_lin</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;abschnitt&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">))</span>  <span class="c1"># plot Fitfunktion mit b und a</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">result_const</span><span class="o">.</span><span class="n">best_fit</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;lmfit Const-Fit: y = </span><span class="si">%5.3f</span><span class="s1">*x+</span><span class="si">%5.3f</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">result_const</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;steigung&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">,</span><span class="n">result_const</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;abschnitt&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">))</span>  <span class="c1"># plot Fitfunktion mit b und a</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Nr der Messung&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="mi">13</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Fit mit Fehlerbalken&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="c1"># ----- Ohne Fehlerbalken: ---- #</span>
+
+<span class="k">def</span> <span class="nf">f_lin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">steigung</span><span class="p">,</span> <span class="n">abschnitt</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">steigung</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">abschnitt</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">f_lin</span><span class="p">)</span>
+<span class="n">params</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">make_params</span><span class="p">(</span><span class="n">steigung</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">abschnitt</span><span class="o">=</span><span class="mf">10.0</span><span class="p">)</span>
+<span class="n">result_lin</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">params</span><span class="p">[</span><span class="s1">&#39;steigung&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">vary</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">result_const</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1">#print(&#39;Fit Parameter der Linearen Regression:&#39;)</span>
+<span class="n">result_lin</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">pretty_print</span><span class="p">()</span>
+<span class="c1">#print(&#39;Fit Report:&#39;)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result_lin</span><span class="o">.</span><span class="n">fit_report</span><span class="p">())</span>
+
+<span class="c1">#print(&#39;Fit Parameter der Konstanten Regression:&#39;)</span>
+<span class="n">result_const</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">pretty_print</span><span class="p">()</span>
+<span class="c1">#print(&#39;Fit Report:&#39;)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result_const</span><span class="o">.</span><span class="n">fit_report</span><span class="p">())</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Messwerte&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span>  <span class="n">c_val</span><span class="p">[</span><span class="n">id_min_Q</span><span class="p">]),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Minimierungsfunktion: c = </span><span class="si">%5.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">c_val</span><span class="p">[</span><span class="n">id_min_Q</span><span class="p">]))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">fit_lin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fit_lin_out</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">fit_lin_out</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;scipy Lin. Fit: y = </span><span class="si">%5.3f</span><span class="s1">*x+</span><span class="si">%5.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">fit_lin_out</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">fit_lin_out</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">fit_const</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fit_const_out</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;scipy const. Fit: y = </span><span class="si">%5.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">fit_const_out</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">result_lin</span><span class="o">.</span><span class="n">best_fit</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;lmfit Lin-Fit: y = </span><span class="si">%5.3f</span><span class="s1">*x+</span><span class="si">%5.3f</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">result_lin</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;steigung&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">,</span><span class="n">result_lin</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;abschnitt&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">))</span>  <span class="c1"># plot Fitfunktion mit b und a</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">result_const</span><span class="o">.</span><span class="n">best_fit</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;lmfit Const-Fit: y = </span><span class="si">%5.3f</span><span class="s1">*x+</span><span class="si">%5.3f</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">result_const</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;steigung&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">,</span><span class="n">result_const</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;abschnitt&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">))</span>  <span class="c1"># plot Fitfunktion mit b und a</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Nr der Messung&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="mi">13</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Fit ohne Fehlerbalken&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Name          Value      Min      Max   Stderr     Vary     Expr Brute_Step
+abschnitt     10.49     -inf      inf   0.5446     True     None     None
+steigung   -0.06839     -inf      inf   0.1031     True     None     None
+[[Model]]
+    Model(f_lin)
+[[Fit Statistics]]
+    # fitting method   = leastsq
+    # function evals   = 6
+    # data points      = 10
+    # variables        = 2
+    chi-square         = 8.81129304
+    reduced chi-square = 1.10141163
+    Akaike info crit   = 2.73449106
+    Bayesian info crit = 3.33966124
+[[Variables]]
+    steigung:  -0.06839389 +/- 0.10313985 (150.80%) (init = 0)
+    abschnitt:  10.4919542 +/- 0.54460553 (5.19%) (init = 10)
+[[Correlations]] (unreported correlations are &lt; 0.100)
+    C(steigung, abschnitt) = -0.825
+</pre></div>
+</div>
+<img alt="../../_images/Kurvenanpassung_49_1.png" src="../../_images/Kurvenanpassung_49_1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Name          Value      Min      Max   Stderr     Vary     Expr Brute_Step
+abschnitt     10.34     -inf      inf   0.5822     True     None     None
+steigung   -0.06085     -inf      inf   0.1091     True     None     None
+[[Model]]
+    Model(f_lin)
+[[Fit Statistics]]
+    # fitting method   = leastsq
+    # function evals   = 6
+    # data points      = 10
+    # variables        = 2
+    chi-square         = 7.84870061
+    reduced chi-square = 0.98108758
+    Akaike info crit   = 1.57762897
+    Bayesian info crit = 2.18279916
+[[Variables]]
+    steigung:  -0.06084848 +/- 0.10905032 (179.22%) (init = 0)
+    abschnitt:  10.3358182 +/- 0.58216937 (5.63%) (init = 10)
+[[Correlations]] (unreported correlations are &lt; 0.100)
+    C(steigung, abschnitt) = -0.843
+Name          Value      Min      Max   Stderr     Vary     Expr Brute_Step
+abschnitt     10.06     -inf      inf    0.301     True     None     None
+steigung          0     -inf      inf        0    False     None     None
+[[Model]]
+    Model(f_lin)
+[[Fit Statistics]]
+    # fitting method   = leastsq
+    # function evals   = 4
+    # data points      = 10
+    # variables        = 1
+    chi-square         = 8.15416000
+    reduced chi-square = 0.90601778
+    Akaike info crit   = -0.04056867
+    Bayesian info crit = 0.26201643
+[[Variables]]
+    steigung:   0 (fixed)
+    abschnitt:  10.0620000 +/- 0.30100129 (2.99%) (init = 10)
+</pre></div>
+</div>
+<img alt="../../_images/Kurvenanpassung_49_3.png" src="../../_images/Kurvenanpassung_49_3.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="zusammenfassung-a-id-sec-zusammenfassung-a">
+<h2>Zusammenfassung <a id="Sec-Zusammenfassung"></a><a class="headerlink" href="#zusammenfassung-a-id-sec-zusammenfassung-a" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;pictures/zusammenfassung_4.png&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/display.py</span> in <span class="ni">_data_and_metadata</span><span class="nt">(self, always_both)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1299</span>         <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1300</span>             <span class="n">b64_data</span> <span class="o">=</span> <span class="n">b2a_base64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1301</span>         <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+
+<span class="ne">TypeError</span>: a bytes-like object is required, not &#39;str&#39;
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/formatters.py</span> in <span class="ni">__call__</span><span class="nt">(self, obj, include, exclude)</span>
+<span class="g g-Whitespace">    </span><span class="mi">968</span> 
+<span class="g g-Whitespace">    </span><span class="mi">969</span>             <span class="k">if</span> <span class="n">method</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">970</span>                 <span class="k">return</span> <span class="n">method</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="n">include</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="n">exclude</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">971</span>             <span class="k">return</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">972</span>         <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/display.py</span> in <span class="ni">_repr_mimebundle_</span><span class="nt">(self, include, exclude)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1288</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1289</span>             <span class="n">mimetype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mimetype</span>
+<span class="ne">-&gt; </span><span class="mi">1290</span>             <span class="n">data</span><span class="p">,</span> <span class="n">metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_and_metadata</span><span class="p">(</span><span class="n">always_both</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1291</span>             <span class="k">if</span> <span class="n">metadata</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1292</span>                 <span class="n">metadata</span> <span class="o">=</span> <span class="p">{</span><span class="n">mimetype</span><span class="p">:</span> <span class="n">metadata</span><span class="p">}</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/display.py</span> in <span class="ni">_data_and_metadata</span><span class="nt">(self, always_both)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1300</span>             <span class="n">b64_data</span> <span class="o">=</span> <span class="n">b2a_base64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1301</span>         <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1302</span>             <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1303</span>                 <span class="s2">&quot;No such file or directory: &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">))</span>
+<span class="g g-Whitespace">   </span><span class="mi">1304</span>         <span class="n">md</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="ne">FileNotFoundError</span>: No such file or directory: &#39;pictures/zusammenfassung_4.png&#39;
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/display.py</span> in <span class="ni">_data_and_metadata</span><span class="nt">(self, always_both)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1299</span>         <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1300</span>             <span class="n">b64_data</span> <span class="o">=</span> <span class="n">b2a_base64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1301</span>         <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+
+<span class="ne">TypeError</span>: a bytes-like object is required, not &#39;str&#39;
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/formatters.py</span> in <span class="ni">__call__</span><span class="nt">(self, obj)</span>
+<span class="g g-Whitespace">    </span><span class="mi">343</span>             <span class="n">method</span> <span class="o">=</span> <span class="n">get_real_method</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_method</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">344</span>             <span class="k">if</span> <span class="n">method</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">345</span>                 <span class="k">return</span> <span class="n">method</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">346</span>             <span class="k">return</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">347</span>         <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/display.py</span> in <span class="ni">_repr_png_</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1318</span>     <span class="k">def</span> <span class="nf">_repr_png_</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1319</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">format</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_FMT_PNG</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1320</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_and_metadata</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1321</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1322</span>     <span class="k">def</span> <span class="nf">_repr_jpeg_</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/display.py</span> in <span class="ni">_data_and_metadata</span><span class="nt">(self, always_both)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1300</span>             <span class="n">b64_data</span> <span class="o">=</span> <span class="n">b2a_base64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1301</span>         <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1302</span>             <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1303</span>                 <span class="s2">&quot;No such file or directory: &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">))</span>
+<span class="g g-Whitespace">   </span><span class="mi">1304</span>         <span class="n">md</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="ne">FileNotFoundError</span>: No such file or directory: &#39;pictures/zusammenfassung_4.png&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Image object&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Kisleif/mtbook",
+            ref: "gh-pages",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/week1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../../intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Welcome</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Messabweichungen.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Messabweichungen</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Durch Katharina-S. Isleif<br/>
+    
+        &copy; Urheberrechte © 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

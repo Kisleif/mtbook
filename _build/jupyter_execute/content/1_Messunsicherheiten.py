@@ -31,7 +31,7 @@ plt.rcParams['font.size'] = 10; # Schriftgröße
 # - **Typ A ("Zufällige Abweichung"):** Berechnung der Messunsicherheit durch statistische Analyse der Messungen
 # - **Typ B ("Systematische Abweichung"):** Berechnung der Messunsicherheit mit anderen Mitteln als der statistischen Analyse
 # 
-# <img src="pictures/messfehler.png" width=800>
+# <img src="pictures/messfehler.PNG" width=800>
 # 
 # ## Typ A-Unsicherheiten ("Zufällige Fehler")
 # 

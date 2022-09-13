@@ -36,8 +36,7 @@ plt.rcParams['font.size'] = 10; # Schriftgröße
 # - **Prüfung:** Ergeben die Ergebnisse Sinn und sind diese konsistent mit anderen Ergebnissen aus der Literatur? Haben wir die Ergebnisse erwartet?
 # - **Darstellung:** Vollständige Angabe des Messergebnisses, bestehend aus Zahlenwert, Maßeinheit und Messunsicherheit. Verwende die wissenschaftliche Notation für Zehnerpotenzen:
 # 
-# %%html
-# <img src="pictures/praefix.png" width="500px">
+# <img src="pictures/praefix.png" width="500">
 # 
 # ```{image} pictures/praefix.png
 # :width: 500px

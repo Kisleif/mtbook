@@ -52,6 +52,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Quellen und Ursachen von Messunsicherheiten" href="1_Messunsicherheiten.html" />
@@ -407,7 +409,7 @@ require(['plotly'], function(Plotly) {
 <h1>Messdaten sammeln und darstellen<a class="headerlink" href="#messdaten-sammeln-und-darstellen" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="messdaten-sammeln">
 <h2>Messdaten sammeln<a class="headerlink" href="#messdaten-sammeln" title="Permalink to this headline">¶</a></h2>
-<p>Aufgabe der Messtechnik ist es physikalische Messgrößen quantitativ zu beobachten und ist somit wichtiger Bestandteil in der Physik. Eine <em>quantitative</em> Beschreibung bedeutet immer, dass eine Messgröße mit einem Zahlenwert, $x$, und einer Maßeinheit, $E$, ausgedrückt wird. Um einen möglichst <em>guten</em> Zahlenwert experimentell zu ermitteln, wird neben der konkreten Durchführung ein Großteil der Experimentierzeit damit verbracht das Experiment vorzubereiten und zu planen, aber auch die Daten auszuwerten und darzustellen, Ergebnisse zu überprüfen und ggf. Messungen zu wiederholen.
+<p>Aufgabe der Messtechnik ist es physikalische Messgrößen quantitativ zu beobachten und ist somit wichtiger Bestandteil in der Physik. Eine <em>quantitative</em> Beschreibung bedeutet immer, dass eine Messgröße mit einem Zahlenwert, <span class="math notranslate nohighlight">\(x\)</span>, und einer Maßeinheit, <span class="math notranslate nohighlight">\(E\)</span>, ausgedrückt wird. Um einen möglichst <em>guten</em> Zahlenwert experimentell zu ermitteln, wird neben der konkreten Durchführung ein Großteil der Experimentierzeit damit verbracht das Experiment vorzubereiten und zu planen, aber auch die Daten auszuwerten und darzustellen, Ergebnisse zu überprüfen und ggf. Messungen zu wiederholen.
 Was sich beim Messen nicht umgehen lässt, und was der ein oder andere sicherlich schon im Praktikum beobachten konnte, ist, dass Beobachtungen immer statistischen (zufälligen) Schwankungen unterliegen. Dies führt dazu, dass sich das Messergebnis immer verändert. eine Messung wird prinzipiell niemals den <em>wahren</em> Wert liefern können, weshalb wir sorgfältig messen und auswerten müssen. Es gibt <em>best practice</em> Methoden und Techniken, die in der Wissenschaft benutzt werden, um Unsicherheiten und Schwankungen der Messgröße quantitativ zu beschreiben um so ein Qualitätsmaß der Messung bzw. unseres Experimentes zu erhalten. Durch die Einhaltung der <em>best practice</em> Methoden kannst du jederzeit Rechenschaft ablegen und das Ergebnis begründen. Die grundlegende Norm für die Messtechnik ist in der <em>DIN-Norm DIN 1319</em> und dem <em>GUM</em> (Guide to the Expression of Uncertainty in Measurement) offiziell festgehalten.</p>
 <ul class="simple">
 <li><p><strong>Planung:</strong> Was soll gemessen werden? Was wird hierfür benötigt? Welche Fehlerquellen/Störeinflüsse könnten auftreten, bzw. welche sind bekannt? Welche systematischen Unsicherheiten sind bekannt?</p></li>
@@ -728,12 +730,13 @@ Name: Year, Length: 142, dtype: int64
 </div>
 </div>
 <p>Im ersten Array stehen die Fit-Parameter der linearen Ausgleichsgeraden entsprechend der obigen Deklaration: <code class="docutils literal notranslate"><span class="pre">y_model</span> <span class="pre">=</span> <span class="pre">model[0][0]*x+model[0][1]</span></code>.
-Im zweiten Array, hier eine 2x2 Matrix, sind die Unsicherheiten in Form von der Kovarianz-Matrix dargestellt. Auf der Diagonalen stehen die Varianzen, $s^2$, auf den Nicht-Diagonalelementen stehen die Kovarianzen (Korrelationsterme zwischen $m$ und $b$):</p>
-<p>$$\mathrm{cov}(m,b) =
+Im zweiten Array, hier eine 2x2 Matrix, sind die Unsicherheiten in Form von der Kovarianz-Matrix dargestellt. Auf der Diagonalen stehen die Varianzen, <span class="math notranslate nohighlight">\(s^2\)</span>, auf den Nicht-Diagonalelementen stehen die Kovarianzen (Korrelationsterme zwischen <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathrm{cov}(m,b) = 
 \begin{pmatrix}
-s_m^2 &amp; s_{mb} \
-s_{bm} &amp; s_b^2
-\end{pmatrix} $$</p>
+ s_m^2 &amp; s_{mb} \\
+ s_{bm} &amp; s_b^2
+\end{pmatrix} \end{split}\]</div>
 <p>Der Temperaturanstieg kann entsprechend ausgegeben werden:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

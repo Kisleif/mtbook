@@ -52,6 +52,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Messdaten sammeln und darstellen" href="1_Einleitung.html" />
@@ -318,7 +320,7 @@ const thebe_selector_output = ".output, .cell_output"
 </thead>
 <tbody>
 <tr class="row-even"><td class="text-align:left"><p>Messgröße</p></td>
-<td class="text-align:left"><p>die spezielle Größe der Messung, $x$</p></td>
+<td class="text-align:left"><p>die spezielle Größe der Messung, <span class="math notranslate nohighlight">\(x\)</span></p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>Wahrer Wert</p></td>
 <td class="text-align:left"><p>tatsächlich vorhandener Wert einer Messgröße, dessen Wert niemals bekannt sein wird.</p></td>
@@ -326,29 +328,29 @@ const thebe_selector_output = ".output, .cell_output"
 <tr class="row-even"><td class="text-align:left"><p>Messergebnis</p></td>
 <td class="text-align:left"><p>(Schätz-)Wert, den die Messgröße durch Auswertung einer Messung bekommt</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>arithmetischer Mittelwert $\overline x$</p></td>
-<td class="text-align:left"><p>Schätzewert für den wahren Wert einer Messgröße aus einer Messreihe mit den Messwerten $x_j$ und der Anzahl der Messwerte $m$: $\overline x = \frac{1}{m}\sum_{j=1}^m x_j$</p></td>
+<tr class="row-odd"><td class="text-align:left"><p>arithmetischer Mittelwert <span class="math notranslate nohighlight">\(\overline x\)</span></p></td>
+<td class="text-align:left"><p>Schätzewert für den wahren Wert einer Messgröße aus einer Messreihe mit den Messwerten <span class="math notranslate nohighlight">\(x_j\)</span> und der Anzahl der Messwerte <span class="math notranslate nohighlight">\(m\)</span>: <span class="math notranslate nohighlight">\(\overline x = \frac{1}{m}\sum_{j=1}^m x_j\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>Messunsicherheit $u(x)$</p></td>
-<td class="text-align:left"><p>Wichtiger Bestandteil zur Angabe eines Messergebnisses. Die Unsicherheit charakterisiert einen Vertrauensbereich, der der Messgröße zugeschrieben wird: $\overline x \pm u(x)$</p></td>
+<tr class="row-even"><td class="text-align:left"><p>Messunsicherheit <span class="math notranslate nohighlight">\(u(x)\)</span></p></td>
+<td class="text-align:left"><p>Wichtiger Bestandteil zur Angabe eines Messergebnisses. Die Unsicherheit charakterisiert einen Vertrauensbereich, der der Messgröße zugeschrieben wird: <span class="math notranslate nohighlight">\(\overline x \pm u(x)\)</span></p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>relative Messunsicherheit</p></td>
 <td class="text-align:left"><p>Messunsicherheit dividiert durch den Betrag des Mittelwerts: $A_{r} = \frac{u(x)}{</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>Varianz: mittlere quadratische Abweichung $s^2(x)$</p></td>
-<td class="text-align:left"><p>Ein Maß für die Messunsicherheit. Abweichung der Messwerte zum Mittelwert werden quadriert und gemittelt: $s^2 = \frac{1}{m-1} \sum_{j=1}^m (x_j - \overline x)^2$</p></td>
+<tr class="row-even"><td class="text-align:left"><p>Varianz: mittlere quadratische Abweichung <span class="math notranslate nohighlight">\(s^2(x)\)</span></p></td>
+<td class="text-align:left"><p>Ein Maß für die Messunsicherheit. Abweichung der Messwerte zum Mittelwert werden quadriert und gemittelt: <span class="math notranslate nohighlight">\(s^2 = \frac{1}{m-1} \sum_{j=1}^m (x_j - \overline x)^2\)</span></p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>Standardabweichung</p></td>
-<td class="text-align:left"><p>Wurzel aus der mittleren quadratischen Abweichung:  $s = \sqrt{\frac{1}{m-1} \sum_{j=1}^m (x_j - \overline x)^2}$</p></td>
+<td class="text-align:left"><p>Wurzel aus der mittleren quadratischen Abweichung:  <span class="math notranslate nohighlight">\(s = \sqrt{\frac{1}{m-1} \sum_{j=1}^m (x_j - \overline x)^2}\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>empirische Varianz $\sigma(x)^2$</p></td>
-<td class="text-align:left"><p>Schätzung der Varianz bezogen auf den <em>wahren</em> Wert (nicht auf den Mittelwert der Messreihe) der Messgröße: $\sigma^2 = \lim_{m\rightarrow \infty}\frac{1}{m} \sum_{j=1}^m (x_j - \mu)^2$</p></td>
+<tr class="row-even"><td class="text-align:left"><p>empirische Varianz <span class="math notranslate nohighlight">\(\sigma(x)^2\)</span></p></td>
+<td class="text-align:left"><p>Schätzung der Varianz bezogen auf den <em>wahren</em> Wert (nicht auf den Mittelwert der Messreihe) der Messgröße: <span class="math notranslate nohighlight">\(\sigma^2 = \lim_{m\rightarrow \infty}\frac{1}{m} \sum_{j=1}^m (x_j - \mu)^2\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>empirische Standardabweichung $\sigma(x)$</p></td>
-<td class="text-align:left"><p>Wurzel aus der empirischen Varianz: $\sigma = \lim_{m\rightarrow \infty}\sqrt{\frac{1}{m} \sum_{j=1}^m (x_j - \mu)^2}$</p></td>
+<tr class="row-odd"><td class="text-align:left"><p>empirische Standardabweichung <span class="math notranslate nohighlight">\(\sigma(x)\)</span></p></td>
+<td class="text-align:left"><p>Wurzel aus der empirischen Varianz: <span class="math notranslate nohighlight">\(\sigma = \lim_{m\rightarrow \infty}\sqrt{\frac{1}{m} \sum_{j=1}^m (x_j - \mu)^2}\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>Wahrscheinlichkeitsverteilung $dP(x)$</p></td>
-<td class="text-align:left"><p>eine Fukntion, die die Wahrscheinlichkeit angibt, dass eine Messgröße $x$ durch Messung einen bestimmten Wert $x_j + dx$ annehmen wird.</p></td>
+<tr class="row-even"><td class="text-align:left"><p>Wahrscheinlichkeitsverteilung <span class="math notranslate nohighlight">\(dP(x)\)</span></p></td>
+<td class="text-align:left"><p>eine Fukntion, die die Wahrscheinlichkeit angibt, dass eine Messgröße <span class="math notranslate nohighlight">\(x\)</span> durch Messung einen bestimmten Wert <span class="math notranslate nohighlight">\(x_j + dx\)</span> annehmen wird.</p></td>
 </tr>
 </tbody>
 </table>

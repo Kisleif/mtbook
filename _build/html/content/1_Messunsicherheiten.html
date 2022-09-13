@@ -1,0 +1,654 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quellen und Ursachen von Messunsicherheiten &#8212; Metrology Lecture Book</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Fortpflanzung von Messunsicherheiten" href="1_Fehlerfortpflanzung.html" />
+    <link rel="prev" title="Analyse und Präsentation von Messwerten" href="1_AnalyseUndPraesentationVonMessdaten.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/i_mt.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Metrology Lecture Book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Dieses Buch durchsuchen ..." aria-label="Dieses Buch durchsuchen ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Einführung
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="1_AnalyseUndPraesentationVonMessdaten.html">
+   Analyse und Präsentation von Messdaten
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Quellen und Ursachen von Messunsicherheiten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Fehlerfortpflanzung.html">
+     Fortpflanzung von Messunsicherheiten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Mittelwert_StdAbw.html">
+     Mittelwert und Standardabweichung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Kurvenanpassung.html">
+     Kurvenanpassung
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navigation umschalten" aria-controls="site-navigation"
+                title="Navigation umschalten" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Laden Sie diese Seite herunter"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/content/1_Messunsicherheiten.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Quelldatei herunterladen" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="In PDF drucken"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Kisleif/mtbook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Quell-Repository"><i
+                    class="fab fa-github"></i>Repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/Kisleif/mtbook/issues/new?title=Issue%20on%20page%20%2Fcontent/1_Messunsicherheiten.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Öffnen Sie ein Problem"><i class="fas fa-lightbulb"></i>offenes Thema</button></a>
+        <a class="edit-button" href="https://github.com/Kisleif/mtbook/edit/gh-pages/content/1_Messunsicherheiten.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Bearbeite diese Seite"><i class="fas fa-pencil-alt"></i>vorschlagen zu bearbeiten</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Vollbildmodus"
+        title="Vollbildmodus"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Kisleif/mtbook/gh-pages?urlpath=tree/content/1_Messunsicherheiten.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Starten Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://github.com/Kisleif/mtbook/hub/user-redirect/git-pull?repo=https://github.com/Kisleif/mtbook&urlpath=tree/mtbook/content/1_Messunsicherheiten.ipynb&branch=gh-pages"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Starten JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Starten Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Inhalt
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#typ-a-unsicherheiten-zufallige-fehler">
+   Typ A-Unsicherheiten (“Zufällige Fehler”)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#typ-b-unsicherheiten-systematische-fehler">
+   Typ B-Unsicherheiten (“Systematische Fehler”)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#anzeigefehler-von-messgeraten">
+     Anzeigefehler von Messgeräten
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#digitalstellenfehler">
+     Digitalstellenfehler
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#weitere-unsicherheiten">
+   Weitere Unsicherheiten
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#schreibweise-eines-messwertes-mit-messabweichung">
+   Schreibweise eines Messwertes mit Messabweichung
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#signifikante-stellen">
+     Signifikante Stellen
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#grafische-darstellung-eines-messwertes-mit-messabweichung">
+     Grafische Darstellung eines Messwertes mit Messabweichung
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#diskrepanz-und-konsistenz">
+     Diskrepanz und Konsistenz
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Quellen und Ursachen von Messunsicherheiten</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Inhalt </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#typ-a-unsicherheiten-zufallige-fehler">
+   Typ A-Unsicherheiten (“Zufällige Fehler”)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#typ-b-unsicherheiten-systematische-fehler">
+   Typ B-Unsicherheiten (“Systematische Fehler”)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#anzeigefehler-von-messgeraten">
+     Anzeigefehler von Messgeräten
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#digitalstellenfehler">
+     Digitalstellenfehler
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#weitere-unsicherheiten">
+   Weitere Unsicherheiten
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#schreibweise-eines-messwertes-mit-messabweichung">
+   Schreibweise eines Messwertes mit Messabweichung
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#signifikante-stellen">
+     Signifikante Stellen
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#grafische-darstellung-eines-messwertes-mit-messabweichung">
+     Grafische Darstellung eines Messwertes mit Messabweichung
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#diskrepanz-und-konsistenz">
+     Diskrepanz und Konsistenz
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="cell tag_hide-input tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Benötigte Libraries:</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">plotly.offline</span> <span class="k">as</span> <span class="nn">py</span>
+<span class="n">py</span><span class="o">.</span><span class="n">init_notebook_mode</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">plotly.graph_objs</span> <span class="k">as</span> <span class="nn">go</span>
+<span class="kn">import</span> <span class="nn">plotly.tools</span> <span class="k">as</span> <span class="nn">tls</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="c1"># MatplotLib Settings:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><script type="text/javascript">
+window.PlotlyConfig = {MathJaxConfig: 'local'};
+if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+if (typeof require !== 'undefined') {
+require.undef("plotly");
+requirejs.config({
+    paths: {
+        'plotly': ['https://cdn.plot.ly/plotly-2.12.1.min']
+    }
+});
+require(['plotly'], function(Plotly) {
+    window._Plotly = Plotly;
+});
+}
+</script>
+</div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1000x500 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="quellen-und-ursachen-von-messunsicherheiten">
+<h1>Quellen und Ursachen von Messunsicherheiten<a class="headerlink" href="#quellen-und-ursachen-von-messunsicherheiten" title="Permalink to this headline">¶</a></h1>
+<p>Früher hat man statt <em>Abweichung</em> noch den Begriff <em>Messfehler</em> verwendet. Man dachte, dass man mit genügend Aufwand, Sorgfalt und bestmöglicher Technologie den Fehler vollständig eliminieren können. Spätestens seit der Theorie der <em>Quantenphysik</em> ist uns allerdings bekannt, dass zufällige Einflüsse auf die beobachteten Messgrößen  unvermeidlich sind und auch nicht vorhergesagt werden können. Statt eines einzig <em>wahren</em> Wertes werden in der Quantenphysik Messgrößen durch deren Erwartungswerte vorhergesagt. Diesen Messgrößen liegt eine Wahrscheinlichkeitsdichte zu Grunde, dessen Varianz (bzw. Standardabweichung) nicht verschwindet! Somit werden für ein und dieselbe physikalische Messgröße verschiedene Ergebnisse gemessen, obwohl nahezu identische Bedingungen herrschen. Das Eintreten eines bestimmten Messergebnisses ist an eine bestimmte Wahrscheinlichkeit gekoppelt, mit der dieses Ergebnis eintritt.</p>
+<p>Jede Messung einer physikalischen Größe <span class="math notranslate nohighlight">\(x\)</span> ist abhängig von den verwendeten Messgeräten, dem Messverfahren, dem Messobjekt, von Umwelteinflüssen (Temperatur, Feuchtigkeit, elektromagnetische Felder) und schließlich auch vom Beobachter (Müdigkeit, Sehschärfe, Übung). Messungen liefern daher lediglich Schätzwerte für die <em>wahren</em> Werte einer Größe. Es gibt prinzipiell keine Möglichkeit, den wahren Wert einer Messgröße zu messen. Im Rahmen internationaler Anstrengungen für eine einheitliche Bewertung von Einflussgrößen auf eine Messung werden zwei Kategorien von Methoden der Berechnung von Unsicherheiten unterschieden <a class="reference external" href="https://www.iso.org/sites/JCGM/GUM/JCGM100/C045315e-html/C045315e.html?csnumber=50461">[GUM]</a>:</p>
+<ul class="simple">
+<li><p><strong>Typ A (“Zufällige Abweichung”):</strong> Berechnung der Messunsicherheit durch statistische Analyse der Messungen</p></li>
+<li><p><strong>Typ B (“Systematische Abweichung”):</strong> Berechnung der Messunsicherheit mit anderen Mitteln als der statistischen Analyse</p></li>
+</ul>
+<img src="pictures/messfehler.png" width=800>
+<div class="section" id="typ-a-unsicherheiten-zufallige-fehler">
+<h2>Typ A-Unsicherheiten (“Zufällige Fehler”)<a class="headerlink" href="#typ-a-unsicherheiten-zufallige-fehler" title="Permalink to this headline">¶</a></h2>
+<p>Dies sind Messunsicherheiten, die nicht einseitig gerichtet sind, sondern einer zufälligen Streuung der Messwerte zugrunde liegen. Zur Behandlung dieser Messunsicherheiten nutzt man die Stochastik (Wahrscheinlichkeitslehre und Statistik).
+Zufällige Fehler kennt man nicht, er ist folglich nicht korrigierbar und lässt sich auch nicht reproduzieren unter gleichen Messbedingungen. Hier sind wiederholte Messungen und statistische Analysen notwendig, wodurch Mittelwert und Standardabweichung von sogenannten <em>Stichproben</em> ermittelt wird. Wie gewinnt man aus einer Messreihe <span class="math notranslate nohighlight">\(x_j\)</span> den besten Schätzewert, der mit maximaler Wahrscheinlichkeit am nähesten am <em>wahren</em> Wert, <span class="math notranslate nohighlight">\(x_w\)</span>, liegt? Mit welcher Wahrscheinlichkeit liegt das Messergebnis innerhalb eines bestimmten Intervalls um den wahren Wert, $<span class="math notranslate nohighlight">\(x = x_w + \Delta x ?\)</span>$</p>
+</div>
+<div class="section" id="typ-b-unsicherheiten-systematische-fehler">
+<h2>Typ B-Unsicherheiten (“Systematische Fehler”)<a class="headerlink" href="#typ-b-unsicherheiten-systematische-fehler" title="Permalink to this headline">¶</a></h2>
+<p>Hierbei handelt es sich um reproduzierbare Messunsicherheiten.
+Sie kann durch Aufwand und Kalibration verbessert werden, was <em>nicht</em> für zufällige Messabweichungen gilt. Systematische Messabweichungen (z.B. Kennlinienfehler) sollten in aller Regel am besten korrigiert werden, wenn dies möglich ist. Ansonsten sollte mindestens eine Angabe der Messabweichung erfolgen.
+Es gibt keine allgemeingültige Definition oder allgemeine Verfahren zur Korrektur. Das heißt für jeden Fall müssen neue Verfahren entwickelt werden. Hier kommen ein paar Beispiele, wie man mit solchen <em>systematischen</em> Messunsicherheiten umgehen kann:</p>
+<div class="section" id="anzeigefehler-von-messgeraten">
+<h3>Anzeigefehler von Messgeräten<a class="headerlink" href="#anzeigefehler-von-messgeraten" title="Permalink to this headline">¶</a></h3>
+<p>Messgeräte werden anhand ihrer Genauigkeit in Klassen eingruppiert. Die Klasse entspricht der relativen Messabweichung. Präzisionsmessgeräte besitzen somit Abweichungen die zwischen 0,001% und 0,05% liegen. Die Genauigkeitsklasse K 2,5 (Angabe auf der Mess- skala nach DIN EN 60051 Abb. 1) bedeutet: Ist der Endwert des eingestellten Messbereichs <span class="math notranslate nohighlight">\(U_\mathrm{end}\)</span>, dann beträgt die Typ B-Unsicherheit über den gesamten Messbereich <span class="math notranslate nohighlight">\(u(U) = 0,0025\cdot U_\mathrm{end}\)</span>. Für <span class="math notranslate nohighlight">\(U_\mathrm{end} = 15\,\mathrm V\)</span> erhält man also:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">U_end</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">u</span> <span class="o">=</span> <span class="mf">0.0025</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;eine absolute Unsicherheit von &#39;</span><span class="p">,</span> <span class="n">u</span><span class="o">*</span><span class="n">U_end</span><span class="p">,</span> <span class="s1">&#39;V&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eine absolute Unsicherheit von  0.0375 V
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dieser Wert von 0,375V gilt unabhängig davon, wie groß der Zeigerausschlag beim Messgerät ist. Um die relative Unsicherheit gering zu halten, sollte der Messbereich möglichst so gewählt werden, dass der Messwert am Skalen<em>ende</em> abgelesen wird.</p>
+</div>
+<div class="section" id="digitalstellenfehler">
+<h3>Digitalstellenfehler<a class="headerlink" href="#digitalstellenfehler" title="Permalink to this headline">¶</a></h3>
+<img src="pictures/hersteller_abweichung.png" width=800>
+<p>Das Gerät im Bild zeigt den Messwert 5.847V an. Laut Hersteller ist die Maximalabweichung (unter Referenzbedingungen) <span class="math notranslate nohighlight">\(a = \pm\)</span> (0,5% vom <em>Messwert</em> + 9 Digit). Die Anzahl der Nachkommastellen (also der Digits) ist in diesem Falle 3, also 0,001V. Genauer kann das Messgerät keine Spannung angeben. Die Messabweichung setzt sich also wiefolgt zusammen (zwei signifikante Stellen reichen hierbei, da der Messwert selber nicht genauer angezeigt wird):</p>
+<div class="math notranslate nohighlight">
+\[a = \pm (0,5\% \cdot 5,847\,\mathrm{V} + 9 \cdot 0,001\,\mathrm V) \approx \pm 0,038\,\mathrm V = \pm 38,235\,\mathrm{mV}\]</div>
+<p>Innerhalb dieses <span class="math notranslate nohighlight">\(\pm\)</span> Bereiches der Breite <span class="math notranslate nohighlight">\(2a\)</span> unterstellt man eine Gleichverteilung der Messwerte und bekommt damit die Standardunsicherheit:</p>
+<div class="math notranslate nohighlight">
+\[u(U) = \frac{a}{\sqrt{3}} = \frac{38,235\,\mathrm{mV}}{\sqrt{3}} \approx \]</div>
+<p>Ist nichts weiter bekannt, schätzt man die Unsicherheit über einen Mindestfehler von a = 1 Digit ab.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Messwert</span> <span class="o">=</span> <span class="mf">5.847</span> <span class="c1"># in V</span>
+<span class="n">Nachkommastellen</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">A_rel</span> <span class="o">=</span> <span class="mf">0.005</span> <span class="c1"># = 0.5%</span>
+<span class="n">Digit</span> <span class="o">=</span> <span class="mf">0.001</span> <span class="c1"># in V </span>
+<span class="n">A_total</span> <span class="o">=</span> <span class="n">A_rel</span> <span class="o">*</span> <span class="n">Messwert</span> <span class="o">+</span> <span class="mi">9</span> <span class="o">*</span> <span class="n">Digit</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Messtoleranz beträgt: +-&#39;</span><span class="p">,</span><span class="nb">round</span><span class="p">(</span><span class="n">A_total</span><span class="p">,</span><span class="n">Nachkommastellen</span><span class="p">),</span> <span class="s1">&#39;V = +-&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">A_total</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span><span class="n">Nachkommastellen</span><span class="p">),</span> <span class="s1">&#39;mV&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Unsicherheit beträgt: +-&#39;</span><span class="p">,</span><span class="nb">round</span><span class="p">(</span><span class="n">A_total</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="n">Nachkommastellen</span><span class="p">),</span> <span class="s1">&#39;V = +-&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">A_total</span><span class="o">*</span><span class="mi">1000</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="n">Nachkommastellen</span><span class="p">),</span> <span class="s1">&#39;mV&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Messtoleranz beträgt: +- 0.03824 V = +- 38.235 mV
+Die Unsicherheit beträgt: +- 0.02207 V = +- 22.07499 mV
+</pre></div>
+</div>
+</div>
+</div>
+<p>Man merkt, dass systematische Fehler sehr unangenehm sein können, da Gegenmaßnahmen fallabhängig entwickelt werden müssen. In einigen Fällen gelangt man zu einer brauchbaren Abschätzung der Unsicherheit, wenn man den „worst case“ annimmt.</p>
+</div>
+</div>
+<div class="section" id="weitere-unsicherheiten">
+<h2>Weitere Unsicherheiten<a class="headerlink" href="#weitere-unsicherheiten" title="Permalink to this headline">¶</a></h2>
+<p>Dann gibt es noch der Vollständigkeitshaler die <strong>dynamischen Fehler</strong>. Jedes Messsystem braucht eine bestimmte Zeit, um sich auf einen bestimmten Messwert einzupedeln. Dies nennt man auch die Latenzzeit, oder die Trägheit, eines Messsystems. Es besteht also die Möglichkeit, dass man <em>zu früh misst</em>, und das Messsystem den zu messenden Wert noch gar nicht richtig anzeigen kann.</p>
+<p><strong>Quantisierungsfehler</strong> entstehen beim Prozess des Digitalisierens der Messwerte. Da nur eine endliche Anzahl von Möglichkeiten besteht einen analogen Messwert darzustellen (abhängig von der Anzahl der verwendet Bits) gehen bei diesem Prozess <em>immer</em> Informationen verloren.</p>
+</div>
+<div class="section" id="schreibweise-eines-messwertes-mit-messabweichung">
+<h2>Schreibweise eines Messwertes mit Messabweichung<a class="headerlink" href="#schreibweise-eines-messwertes-mit-messabweichung" title="Permalink to this headline">¶</a></h2>
+<p>Die <strong>Gesamt-Messabweichung</strong> einer Messgröße <span class="math notranslate nohighlight">\(x\)</span> setzt sich also wiefolgt zusammen:</p>
+<div class="math notranslate nohighlight">
+\[A = A_r +  A_s\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(A_r\)</span> zufällige und <span class="math notranslate nohighlight">\(A_s\)</span> systematische Messabweichungen sind. Ein Messwert setzt sich also zusammen aus dem <em>wahren</em> oder <em>richtigen</em> Wert, den wir niemals kennen werden, und der Messabweichung. Es gelten folgende Zusammenhänge:</p>
+<ul class="simple">
+<li><p>Der <strong>ermittelte Messwert</strong> lässt sich wiefolgt schreiben, wobei <span class="math notranslate nohighlight">\(x_w\)</span> der <em>wahre</em>, aber uns unbekannte, Wert ist. <span class="math notranslate nohighlight">\(A\)</span> ist die Messabweichung:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[x = x_w + A\]</div>
+<ul class="simple">
+<li><p>Die <strong>absolute Messabweichung</strong> ergibt sich aus Umstellen der Gleichung:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[A = x - x_w = \Delta x\]</div>
+<ul class="simple">
+<li><p>Bei der Angabe <strong>relativen Messabweichung</strong> wird die Messabweichung auf einen Referenzwert, <span class="math notranslate nohighlight">\(r\)</span>, bezogen, der entweder der Messwert selber ist (<span class="math notranslate nohighlight">\(r = x\)</span>), oder manchmal auch die Spanne (<span class="math notranslate nohighlight">\(r = x_\mathrm{max} - x_\mathrm{min}\)</span>) oder Maximalwert/Messbereichsendwert (<span class="math notranslate nohighlight">\(r = x_\mathrm{max}\)</span>):</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ A_\mathrm{rel} = \frac{A}{r} = \frac{\Delta x}{r}\]</div>
+<div class="section" id="signifikante-stellen">
+<h3>Signifikante Stellen<a class="headerlink" href="#signifikante-stellen" title="Permalink to this headline">¶</a></h3>
+<p>Die <strong>Anzahl der Nachkommastellen</strong> eines Messwertes ist niemals größer als die der angegebenen Messabweichung oder Unsicherheit. Die Anzahl der Nachkommastellen der Messabweichung wird über <strong>signifikante Stellen</strong> (= angegebene Ziffern ohne führende Nullen) definiert. Je mehr signifikante Stellen angegeben werden, desto größer ist die Genuigkeit, die reklamiert wird. Es gelten folgende Rechenoperationen nach DIN1333:</p>
+<ul class="simple">
+<li><p>Bei <strong>Addition von Größen</strong> bekommt das Ergebnis genauso viele Nachkommastellen wie die Zahl mit den <em>wenigsten</em> Nachkommastellen.</p></li>
+<li><p>Bei <strong>Multiplikation von Größen</strong> bekommst das Ergebnis genauso viele signifikante Stellen wie der Zahl mit den wenigsten signifikanten Stellen.</p></li>
+<li><p><strong>Messunsicherheiten</strong> werden auf eine signifikante Stelle gerundet. Eine Ausnahme existiert, wenn die erste Ziffer eine “1” ist, weil sonst Rundungsfehler schnell zu groß werden. Beispiel: <span class="math notranslate nohighlight">\(u(g) = 0,1562\,\mathrm{m/s^2} = 0,16\,\mathrm{m/s^2}\)</span>. Die Darstellung <span class="math notranslate nohighlight">\(g = (9,81 \pm 0,03562)\,\mathrm{m/s^2}\)</span> wäre unsinnig, da die Genauigkeit auf zwei Nachkommastellen durch den Messwert beschränkt ist.</p></li>
+<li><p><strong>Messwerte</strong> werden so angegeben, dass die letzte signifikante Stelle die gleiche Größenprdnung hat, wie die Messunsicherheit: Die Angabe <span class="math notranslate nohighlight">\(H=(13,13\pm 1)\,\mathrm m\)</span> ist sinnlos, richtig wäre <span class="math notranslate nohighlight">\(H=(13\pm 1)\,\mathrm m\)</span>.</p></li>
+</ul>
+<p>Um Rundungsfehler zu reduzieren, führen Sie in den Berechnungen soviel signifikante Stellen der Messunsicherheit mit, wie nötig.</p>
+</div>
+<div class="section" id="grafische-darstellung-eines-messwertes-mit-messabweichung">
+<h3>Grafische Darstellung eines Messwertes mit Messabweichung<a class="headerlink" href="#grafische-darstellung-eines-messwertes-mit-messabweichung" title="Permalink to this headline">¶</a></h3>
+<p>Die grafische Darstellung eines solchen Messwertes in einem Diagramm kann im folgenden Code-Block ausgeführt und angesehen werden. Prinzipiell gilt, dass für jeden Messwert in der Regel ein solcher <strong>Fehlerbalken</strong> stets anzugeben ist.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">]</span>  <span class="c1"># Datenwerte für x-Achse, hier Nr der Messung</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">]</span>  <span class="c1"># Messwert (Datenpunkt)</span>
+<span class="n">delta_y</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.3</span><span class="p">]</span> <span class="c1"># Messabweichung</span>
+
+<span class="c1"># Diagrammdarstellung:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">delta_y</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;bo&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span>
+<span class="c1">#plt.ylim(0.,1.1*(max(y)+max(delta_y)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;U (V)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Nr. der Messung&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/1_Messunsicherheiten_6_0.png" src="../_images/1_Messunsicherheiten_6_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="diskrepanz-und-konsistenz">
+<h3>Diskrepanz und Konsistenz<a class="headerlink" href="#diskrepanz-und-konsistenz" title="Permalink to this headline">¶</a></h3>
+<p>Die Diskrepanz zweier Messwerte derselben Größe ist der Absolutbetrag ihrer Differenz. Zwei Messungen sind konsistent, wenn ihre Diskrepanz geringer ist, als die (kleinere der) Messunsicherheiten:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(g = (9,73 \pm 0,05)\,\mathrm{m/s^2}\)</span> und <span class="math notranslate nohighlight">\(g = (9,76 \pm 0,04)\,\mathrm{m/s^2}\)</span> sind <em>konsistent</em>, nicht jedoch <span class="math notranslate nohighlight">\(g = (9,71 \pm 0,02)\,\mathrm{m/s^2}\)</span> und <span class="math notranslate nohighlight">\(g = (9,76 \pm 0,04)\,\mathrm{m/s^2}\)</span></p></li>
+<li><p>Ist <span class="math notranslate nohighlight">\(g = (8.9 \pm 1,5)\,\mathrm{m/s^2}\)</span> das Ergebnis einer Messung des Ortsfaktors, dann ist die Messung zwar nicht sonderlich präzise, aber mit dem Literaturwert von <span class="math notranslate nohighlight">\(g = 9,81\,\mathrm{m/s^2}\)</span> vereinbar.</p></li>
+</ul>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="mf">9.73</span><span class="p">,</span> <span class="mf">9.76</span><span class="p">,</span> <span class="mf">9.71</span><span class="p">,</span> <span class="mf">9.76</span><span class="p">,</span> <span class="mf">8.9</span><span class="p">]</span> <span class="c1"># Messung </span>
+<span class="n">u_y</span><span class="o">=</span><span class="p">[</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.04</span><span class="p">,</span><span class="mf">0.02</span><span class="p">,</span><span class="mf">0.04</span><span class="p">,</span><span class="mf">1.5</span><span class="p">]</span> <span class="c1"># Unsicherheit d</span>
+<span class="n">y_w</span><span class="o">=</span><span class="mf">9.81</span> <span class="c1"># wahrer / richtiger Wert </span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span> <span class="n">y</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">u_y</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;bo&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;tab:blue&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y_w</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:red&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">9.83</span><span class="p">,</span> <span class="s1">&#39;wahrer Wert&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:red&#39;</span><span class="p">)</span> 
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Erdbeschleunigung&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Nr. der Messung&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Messungen der Erdbeschleunigung&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mf">8.8</span><span class="p">,</span><span class="mf">9.9</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/1_Messunsicherheiten_8_0.png" src="../_images/1_Messunsicherheiten_8_0.png" />
+</div>
+</div>
+<p>Nur einer der Messwerte überlappt mit dem <em>wahren</em> Wert der Erdbeschleunigung Die Fehlerbalken der zweiten Messung hingegen sind davon entfernt, in den <em>wahren</em> Bereich überzulappen. D.h. es existiert hier ein Widerspruch zu vorherigen Messungen, die den wahren Wert kennzeichnete. Würde es sich hierbei nicht um die Messung der Erdbeschleunigung, sondern um die einer Natur<em>konstante</em> handeln, gäbe es sogar einen Widerspruch zum SI-Einheitensystem.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Kisleif/mtbook",
+            ref: "gh-pages",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="1_AnalyseUndPraesentationVonMessdaten.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Analyse und Präsentation von Messwerten</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="1_Fehlerfortpflanzung.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Fortpflanzung von Messunsicherheiten</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Durch Katharina-S. Isleif<br/>
+    
+        &copy; Urheberrechte © 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

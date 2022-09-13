@@ -23,14 +23,9 @@ import scipy.optimize as optimization
 # * **Regression**: Untersuchung der *Korrelation* von Datenpunkten ohne Messfehler mit angenommenen Zusammenhang
 # * **Fit/Anpassung**: wie die Regression, allerdings unter Berücksichtigung von Messfehlern. 
 # * **Interpolation**: Hierbei handelt es sich nicht um eine Regression bzw. Approximation. Anstelle eines funktionalen Zusammenhangs, der an die Messwerte angenähert wird, verwendert man Polynome hohen Grades, um eine analytische Kennlinie zu beschreiben, die *exakt* durch alle Messpunkte geht. Für eine große Anzahl von Messwerten wird die Interpolationsfunktion sehr schnell unhandlich. 
+# 
+# ![Bild](pictures/interpol_approx.png)
 
-# In[2]:
-
-
-Image("pictures/interpol_approx.png", width=800)
-
-
-# ***
 # ## Modellanpassung <a id="Sec-Modellanpassung"></a>
 # 
 # Um ein Regressionsmodell zu berechnen, benötigen wir ein objektives Maß um die Zuverlässigkeit und Güte unsere Modellfunktion zu bestimmen. Dies nennt man auch das **Bestimmtsheitsmaß**, bzwl. auf englisch **coefficient of determination** oder **goodness of fit**. Dieses Maß 
@@ -44,12 +39,8 @@ Image("pictures/interpol_approx.png", width=800)
 # $$\epsilon = \left( f(x_i) - y_i\right)$$
 # 
 # soll möglichst klein werden. 
-
-# In[3]:
-
-
-Image("pictures/kleinste_quadrate.png", width=400)
-
+# 
+# ![Bild](pictures/kleinste_quadrate.png)
 
 # ### Least-Squares: Methode der kleinsten Quadrate <a id="SubSec-least_squares"></a>
 # 
@@ -171,12 +162,8 @@ Image("pictures/kleinste_quadrate.png", width=400)
 # > $S_{x}^2 = \frac{1}{N-1}\sum_{i = 1}^N (x_i-\bar x)^2$
 # 
 # Wir sind hier in der verrückten Situation, dass tatsächlich  Mittelwerte für $x$ und $y$ bestimmt werden müssen, obwohl die $x$-Werte absichtlich während der Versuchsreihe verändert werden, sich also die Grössen $x$ und $y$ laufend ändern.
-
-# In[4]:
-
-
-Image("pictures/lin_reg.png", width=600)
-
+# 
+# ![Bild](pictures/lin_reg.png)
 
 # Nun sind die Schätzwerte allerdings zusätzlich fehlerbehaftet (wie sollte es auch anders sein). Mithilfe der Gleichung der Größtfehlers/Maximalfehlers kann man zeigen (den Beweis überspringen wir hier), dass für den Fehler von $y$ folgendes gilt:
 # 
@@ -207,7 +194,7 @@ Image("pictures/lin_reg.png", width=600)
 # * Weg  $x$ (m): 12, 24, 36, 42, 60, 72, 84, 96, 108, 120
 # * Zeit $t$ (s): 12.2, 17, 22.1, 33.2, 34.4, 59.1, 60.2, 65.7, 69.9, 70.1
 
-# In[5]:
+# In[2]:
 
 
 x = [12, 24, 36, 42, 60, 72, 84, 96, 108, 120] # Messwerte der Strecke x in m
@@ -230,7 +217,7 @@ plt.show()
 # 
 # $$b = \frac{\sum_{i=1}^N t_i - m \sum_{i=1}^N x_i}{N} = \bar t - m \cdot \bar x$$
 
-# In[6]:
+# In[3]:
 
 
 m = (np.mean(x*t) - np.mean(x)*np.mean(t))/(np.mean(x**2) - np.mean(x)**2)
@@ -252,7 +239,7 @@ plt.show()
 # 
 # Als erstes definieren wir uns eine allgemein lineare Fitfunktion und anschließend nutzen wir das scipy-Paket und rufen die Optimierungsfunktion auf, um unsere Messwerte zu modellieren. Die Ausgangsparameter werden in einem weiteren Array abgespeichert, welches einerseits die gesuchten Variablen $m$ und $b$ beinhaltet, andererseits die Kovarianzmatrix enthält. Aus der Wurzel die Diagonalelemente dieser Kovarianzmatrix erhält man die Standardabweichung der bestimmten Variablen. 
 
-# In[7]:
+# In[4]:
 
 
 def fit_lin(x, b, a): # Fit Funktion für eine Gerade mit Steigung b
@@ -276,7 +263,7 @@ plt.show()
 
 # Man erkennt, dass die Regressionskoeffizienten der beiden Methoden sehr gut übereinstimmen. Die Unterschiede betragen lediglich:
 
-# In[8]:
+# In[5]:
 
 
 print('Unterschied in den Steigungen: \t\t  %5.3e' %(m-fit_out[0][0]))
@@ -300,14 +287,14 @@ print('Unterschied in den Ordinatenabschnitten: %5.3e' %(b-fit_out[0][1]))
 # 
 # Eine ausführliche Dokumentation findet man hier: https://lmfit.github.io/lmfit-py/index.html
 
-# In[9]:
+# In[6]:
 
 
 from lmfit import minimize, Parameters
 from lmfit import Model
 
 
-# In[10]:
+# In[7]:
 
 
 def f_lin(x, steigung, abschnitt):
@@ -341,7 +328,7 @@ plt.show()
 # Eigentlich wollten wir ja die Geschwindigkeit der Feuerwehrautos bestimmen.
 # Der Kehrwert der Steigung $m$ liefert uns die Geschwindigkeit des Karussells, wenn wir den Kehrwert berechnen:
 
-# In[11]:
+# In[8]:
 
 
 v = 1/m
@@ -360,7 +347,7 @@ print('Die Geschwindigkeit ermittelt mittels Fit ist:      v = %5.4f m/s = %5.4f
 # 
 # $$s_b  = s_m \cdot \sqrt{\overline{x^2}}$$
 
-# In[12]:
+# In[9]:
 
 
 N = len(t)
@@ -388,7 +375,7 @@ print('Die Unsicherheit von b ist \t s_b = %5.4f s' %(s_b))
 # 
 # Die Unsicherheiten für $m$ und $b$ erhalten wir also aus der Wurzel von den Diagonalelementen. 
 
-# In[13]:
+# In[10]:
 
 
 print('Die Kovarianzmatrix hat die folgende Form: \n', fit_out[1])
@@ -405,7 +392,7 @@ print('Die Unsicherheit von b ist \t s_b = %5.4f s' %(np.sqrt(fit_out[1][1][1]))
 # 
 # Da beide Methoden die gleichen Werte für Schätzungen und Unsicherheiten ausgeben, ersparen wir uns ab nun die Berechnung der Geschwindigkeit inkl. Unsicherheit für beide Methoden. Die Fehlerrechnung wird nur noch für die analytische Methode ausgeführt:
 
-# In[14]:
+# In[11]:
 
 
 s_v = 1/m**2 * s_m
@@ -425,7 +412,7 @@ print('Die Unsicherheit von v ist \t s_v = %5.4f m/s' %(s_v))
 # 
 # Nun könnte noch der relative Fehler $\Delta v/v$ berechnet werden.
 
-# In[15]:
+# In[12]:
 
 
 print('Die relative Unsicherheit von v ist \t s_v = %5.4f Prozent' %(s_v/v*100))
@@ -437,7 +424,7 @@ print('Die relative Unsicherheit von v ist \t s_v = %5.4f Prozent' %(s_v/v*100))
 #     
 # $$r = \frac{\overline{x\cdot t} - \overline x \cdot \overline t}{\sqrt{\overline{x^2} - (\overline x)^2} \cdot {\sqrt{\overline{t^2} - (\overline t)^2}}} $$    
 
-# In[16]:
+# In[13]:
 
 
 # Analytische Methode:
@@ -461,7 +448,7 @@ print(r)
 # * 2. Fall: Jeder Messwert hat den gleichen Fehler: $s_y = s_i = 1.0$
 # * 3. Fall: Die Messwerte haben keinen Fehler: $s_y = s_i = 0.0$
 
-# In[17]:
+# In[14]:
 
 
 y = [11.55, 9.8, 9.82, 9.15, 10.57, 9.58, 10.44, 10.55, 8.23, 10.93] #Messwerte y_i
@@ -503,7 +490,7 @@ plt.show()
 # 
 #   -  $Q(c) := \sum_{i=1}^n (y_i - f(x))^2 = \sum_{i=1}^n (y_i - c)^2 = \textrm{min?}$
 
-# In[18]:
+# In[15]:
 
 
 def S(y,c): # Minimierungsfunktion mit Fehler
@@ -515,7 +502,7 @@ def Q(y,c): # Minimierungsfehler ohne Fehler
 
 # Die Minimierung kann einfach ausgeführt werden, indem die Gütefunktion für verschiedene Funktionsparameter ($c$) ausprobiert wird, im Folgenden werden für $c$ 100 Werte zwischen 8 und 12 ausprobiert:
 
-# In[19]:
+# In[16]:
 
 
 c_val = np.linspace(8,12,100)
@@ -547,7 +534,7 @@ plt.show()
 # 
 # Im Folgenden Code-Block wollen wir die Analyse dieser einfachen Messreihe noch einmal mittel scipy-Paket wiederholen und eine lineare Regression und konstante Regression auf die Messdaten anwenden. Wir definieren also zwei Fit-Funktionen:
 
-# In[20]:
+# In[17]:
 
 
 def fit_lin(x, b, a): # Funktion für lineare Regression
@@ -562,7 +549,7 @@ def f(x, c_val): # Funktion um Minimierungsfunktion in Diagramm zu zeichnen
 
 # Diese beiden Funktionen werden nun benutzt, um die Daten zu modellieren. Wir testen jeweils beide Fälle, nämlich mit und ohne Fehlerbalken:
 
-# In[21]:
+# In[18]:
 
 
 # ----- Mit Fehlerbalken: ---- #
@@ -603,7 +590,7 @@ plt.show()
 # 
 # Das vorangegangene Beispiel mit scipy zeigt auf, wie aufwändig es ist eine Fitparameter zu fixieren. Es muss eine neue Funktion mit weniger Freiheitsgeraden definiert werden. Wie oben schon angeükndigt, lässt sich dies mit dem lmfit-Paket etwas einfacher lösen und soll hier anhand des Beispiels noch einmal visualisiert werden. 
 
-# In[22]:
+# In[19]:
 
 
 # ----- Mit Fehlerbalken: ---- #
@@ -679,9 +666,5 @@ plt.show()
 
 
 # ## Zusammenfassung <a id="Sec-Zusammenfassung"></a>
-
-# In[23]:
-
-
-Image("pictures/zusammenfassung_4.png", width=800)
-
+# 
+# ![Bild](pictures/zusammenfassung_4.png)

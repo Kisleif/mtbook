@@ -618,7 +618,7 @@ Bei einer echten Normalverteilung gilt folgendes:</p>
 </ul>
 <p>Durch die Intervallgrenzen dieser Verteilung werden Güteklassen von Messeinrichtungen definiert. Andersherum können auch Anforderungen an Messgeräte gestellt werden: Die Anforderungen werden umso höher, je höher die Wahrscheinlichkeit sein soll, dass sich die Messwerte dem <em>richtigen</em> Wert annähern.
 Der Messtechniker kann somit mit der gegebenen Wahrscheinlichkeit abschätzen, ob ermittelte Messwerte innerhalb einer durch Fertigungsunterlagen zugelassenen Toleranz für die Maße eines Werkstücks liegen. Übliche Werte für Invervallgrenzen (meist symmetrisch, also Abweichungen sowohl nach unten als auch nach oben im gleichen Maße) und die zugehörigen Wahrscheinlichkeiten sind der nachfolgenden Tabelle angegeben:</p>
-<img src="pictures/tab_norm_grenzen.png" width=700>
+<p><img alt="Bild" src="../_images/tab_norm_grenzen.png" /></p>
 <p>Als Messtechniker gehen wir immer daher davon aus, dass innerhalb <span class="math notranslate nohighlight">\(\pm 3\sigma\)</span> alle Messwerte liegen. Auf dieser Basis wird entsprechend auch die Messabweichung berechnet, also A = <span class="math notranslate nohighlight">\(\pm 3\sigma\)</span>.</p>
 <p>Das <strong>Endergebnis</strong> der oben dargestellten Messreihe von <span class="math notranslate nohighlight">\(m = 15\)</span> Messwerten wird in der Regel wiefolgt angegeben. Als Messwert wird nicht das Ergebnis einer Einzelmessung angegeben, sondern stets der Mittelwert der Messreihe inkl. seiner Unsicherheit:
 $<span class="math notranslate nohighlight">\( s(\overline x) = \frac{s}{\sqrt{m}} = u_{\overline x} \)</span>$</p>
@@ -656,7 +656,7 @@ Messergebnis (95%): ( 0.994 +- 0.012 ) V
 <h2>Korrektur bei kleinen Stichproben: Student-t<a class="headerlink" href="#korrektur-bei-kleinen-stichproben-student-t" title="Permalink to this headline">¶</a></h2>
 <p>Ist die Zahl der Messwerte nur klein (<span class="math notranslate nohighlight">\(m \leq 25\)</span>) werden die aus der Normalverteilung berechneten Parameter ziemlich unsicher. Anfang des 20. Jh. veröffentlichte WILLIAM SEALY GOSSET unter dem Pseudonym „Student“ eine Verteilungsfunktion, die eine zuverlässigere Parameterschätzung auch für kleine Stichprobengrößen erlaubt. Für die Messwertanalyse ist folgender Teilaspekt von Bedeutung: Aus der Zahl <span class="math notranslate nohighlight">\(m\)</span> der Messwerte und einem vorgegebenen Vertrauensbereich berechnen Sie einen Faktor <span class="math notranslate nohighlight">\(t(s=m-1, p=1-\alpha/2)\)</span>, der die Unsicherheitsintervalle aus der Normalverteilung korrigiert.
 Die unten stehende Quantil-Tabelle zeigt die zugehörigen Werte von <span class="math notranslate nohighlight">\(t\)</span> in Abhängigkeit von der Messwertanzahl, und dem gewählten Vertrauensniveau, dass die geforderte statistische Sicherheit beschreibt:</p>
-<img src="pictures/student-t.png" width=700>
+<p><img alt="Bild" src="../_images/student-t.png" /></p>
 <p>Die Interpretation der Quantil-Tabelle der Student-t Verteilung kann verwirrend sein. Statt der Anzahl der Messwerte <span class="math notranslate nohighlight">\(m\)</span> wird die Anzahl der Freiheitsgrade <span class="math notranslate nohighlight">\(s = m-1\)</span> angegeben. Und statt des zweiseitigen Vertrauensbereich <span class="math notranslate nohighlight">\(P = 1-\alpha\)</span> wird der halbseitige Vertrauensbereich <span class="math notranslate nohighlight">\(p = 1-\alpha/2\)</span> gewählt. Beide <em>Quantile</em> können aber über die eben angegebenen Formel einfach bestimmt werden.</p>
 <p>Aus der empirischen Standardabweichung des Mittelwertes <span class="math notranslate nohighlight">\(s(\overline x)\)</span> berechnet man beispielsweise:
 $<span class="math notranslate nohighlight">\(u(\overline x) = t(s,p)\cdot s(\overline x) = t(s,p)\cdot \frac{s(x)}{\sqrt{m}}\)</span><span class="math notranslate nohighlight">\(.
@@ -737,13 +737,13 @@ Desweiteren können Vertrauensbereiche unterschiedlicher Wahrscheinlichkeiten in
 <div class="section" id="normierte-normalverteilung">
 <h2>Normierte Normalverteilung<a class="headerlink" href="#normierte-normalverteilung" title="Permalink to this headline">¶</a></h2>
 <p>Jede Normalverteilung kann in eine normierte Gaußverteilung transformiert werden. Der Übergang erfolgt mit einer Transformation, die die Messwerte normiert. Dadurch können die Verteilungen verschiedener Messwerte miteinander verglichen werden, unabhängig von deren physikalischen Einheit.</p>
-<img src="pictures/normierte_gauss.png" width=900>
+<p><img alt="Bild" src="../_images/normierte_gauss.png" /></p>
 <p>Die Differenz <span class="math notranslate nohighlight">\(x-\mu\)</span> wird auf die Standardabweichung <span class="math notranslate nohighlight">\(\sigma\)</span> normiert. Dadurch erhält man folgende Funktion für <span class="math notranslate nohighlight">\(\mu = 0\)</span> und <span class="math notranslate nohighlight">\(\sigma = 1\)</span> und <span class="math notranslate nohighlight">\(-1\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[h(z) = \frac{1}{\sqrt{2\pi}}\mathrm e^{-\frac{z^2}{2 ^2}} \]</div>
 <p>Der Flächeninhalt unterhalb dieser Verteilungsfunktion ist wieder auf 100% normiert, wenn von <span class="math notranslate nohighlight">\(\pm \infty\)</span> integriert wird. Die Maximale Amplitude ist jetzt <span class="math notranslate nohighlight">\(1/\sqrt{2 \pi}\)</span>. Die <span class="math notranslate nohighlight">\(z\)</span>-Achse (vorher Messwerte <span class="math notranslate nohighlight">\(x\)</span>) ist jetzt dimensionslos (einheitenlos). Somit können mit normierten Gaußverteilungen verschiedene physikalische Größen auch von verschiedenen Messgeräten bezüglich ihrer Streuung verglichen werden.
 Folgende Tabelle zeigt die Wahrscheinlichkeiten für verschiedene <span class="math notranslate nohighlight">\(z-\)</span>Werte. Die Spalten geben die erste Nachkommastelle von <span class="math notranslate nohighlight">\(z\)</span> an, die Zeilen die zweite:</p>
-<img src="pictures/normalverteilung_tabelle.png" width=500>
+<p><img alt="Bild" src="../_images/normalverteilung_tabelle.png" /></p>
 <div class="section" id="beispiel-wahrscheinlichkeit-fur-zutreffen-eines-ereignisses-mittels-gausz-test">
 <h3>Beispiel: Wahrscheinlichkeit für Zutreffen eines Ereignisses mittels Gauß-Test<a class="headerlink" href="#beispiel-wahrscheinlichkeit-fur-zutreffen-eines-ereignisses-mittels-gausz-test" title="Permalink to this headline">¶</a></h3>
 <p>Als wichtigste Erkenntnis gilt es festzuhalten, dass zu jeder Aussage zu zufälligen Abweichungen die zugehörige Wahrscheinlichkeit für das Zutreffen dieser Aussage zwingend erforderlich ist. Dies sollte immer mit angegeben werden, wenn die Messabweichung angegeben wird.
@@ -781,7 +781,8 @@ Wie groß ist die Wahrscheinlichkeit, dass die Saftflaschen mit einen Inhalt zwi
 </div>
 <div class="section" id="zusammenfassung-zufalliger-unsicherheiten">
 <h2>Zusammenfassung zufälliger Unsicherheiten<a class="headerlink" href="#zusammenfassung-zufalliger-unsicherheiten" title="Permalink to this headline">¶</a></h2>
-<img src="pictures/zusammenfassung_zufaellig.png" width=900></div>
+<p><img alt="Bild" src="../_images/zusammenfassung_zufaellig.png" /></p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">

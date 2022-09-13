@@ -414,9 +414,3 @@ model = np.polyfit(x, y, 1) # 1. Wert = Anstieg , 2. Wert = Schnittpunkt mit y-A
 y_model = model[0]*x+model[1]
 print(f"Temperaturanstieg pro Jahr (von 1980 bis 2020): {model[0]:.3f}°C/Jahr")
 
-
-# In[ ]:
-
-
-
-

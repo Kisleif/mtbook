@@ -52,6 +52,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -697,7 +699,7 @@ const thebe_selector_output = ".output, .cell_output"
 </thead>
 <tbody>
 <tr class="row-even"><td class="text-align:left"><p>Messgröße</p></td>
-<td class="text-align:left"><p>die spezielle Größe der Messung, $x$</p></td>
+<td class="text-align:left"><p>die spezielle Größe der Messung, <span class="math notranslate nohighlight">\(x\)</span></p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>Wahrer Wert</p></td>
 <td class="text-align:left"><p>tatsächlich vorhandener Wert einer Messgröße, dessen Wert niemals bekannt sein wird.</p></td>
@@ -705,36 +707,36 @@ const thebe_selector_output = ".output, .cell_output"
 <tr class="row-even"><td class="text-align:left"><p>Messergebnis</p></td>
 <td class="text-align:left"><p>(Schätz-)Wert, den die Messgröße durch Auswertung einer Messung bekommt</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>arithmetischer Mittelwert $\overline x$</p></td>
-<td class="text-align:left"><p>Schätzewert für den wahren Wert einer Messgröße aus einer Messreihe mit den Messwerten $x_j$ und der Anzahl der Messwerte $m$: $\overline x = \frac{1}{m}\sum_{j=1}^m x_j$</p></td>
+<tr class="row-odd"><td class="text-align:left"><p>arithmetischer Mittelwert <span class="math notranslate nohighlight">\(\overline x\)</span></p></td>
+<td class="text-align:left"><p>Schätzewert für den wahren Wert einer Messgröße aus einer Messreihe mit den Messwerten <span class="math notranslate nohighlight">\(x_j\)</span> und der Anzahl der Messwerte <span class="math notranslate nohighlight">\(m\)</span>: <span class="math notranslate nohighlight">\(\overline x = \frac{1}{m}\sum_{j=1}^m x_j\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>Messunsicherheit $u(x)$</p></td>
-<td class="text-align:left"><p>Wichtiger Bestandteil zur Angabe eines Messergebnisses. Die Unsicherheit charakterisiert einen Vertrauensbereich, der der Messgröße zugeschrieben wird: $\overline x \pm u(x)$</p></td>
+<tr class="row-even"><td class="text-align:left"><p>Messunsicherheit <span class="math notranslate nohighlight">\(u(x)\)</span></p></td>
+<td class="text-align:left"><p>Wichtiger Bestandteil zur Angabe eines Messergebnisses. Die Unsicherheit charakterisiert einen Vertrauensbereich, der der Messgröße zugeschrieben wird: <span class="math notranslate nohighlight">\(\overline x \pm u(x)\)</span></p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>relative Messunsicherheit</p></td>
 <td class="text-align:left"><p>Messunsicherheit dividiert durch den Betrag des Mittelwerts: $A_{r} = \frac{u(x)}{</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>Varianz: mittlere quadratische Abweichung $s^2(x)$</p></td>
-<td class="text-align:left"><p>Ein Maß für die Messunsicherheit. Abweichung der Messwerte zum Mittelwert werden quadriert und gemittelt: $s^2 = \frac{1}{m-1} \sum_{j=1}^m (x_j - \overline x)^2$</p></td>
+<tr class="row-even"><td class="text-align:left"><p>Varianz: mittlere quadratische Abweichung <span class="math notranslate nohighlight">\(s^2(x)\)</span></p></td>
+<td class="text-align:left"><p>Ein Maß für die Messunsicherheit. Abweichung der Messwerte zum Mittelwert werden quadriert und gemittelt: <span class="math notranslate nohighlight">\(s^2 = \frac{1}{m-1} \sum_{j=1}^m (x_j - \overline x)^2\)</span></p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>Standardabweichung</p></td>
-<td class="text-align:left"><p>Wurzel aus der mittleren quadratischen Abweichung:  $s = \sqrt{\frac{1}{m-1} \sum_{j=1}^m (x_j - \overline x)^2}$</p></td>
+<td class="text-align:left"><p>Wurzel aus der mittleren quadratischen Abweichung:  <span class="math notranslate nohighlight">\(s = \sqrt{\frac{1}{m-1} \sum_{j=1}^m (x_j - \overline x)^2}\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>empirische Varianz $\sigma(x)^2$</p></td>
-<td class="text-align:left"><p>Schätzung der Varianz bezogen auf den <em>wahren</em> Wert (nicht auf den Mittelwert der Messreihe) der Messgröße: $\sigma^2 = \lim_{m\rightarrow \infty}\frac{1}{m} \sum_{j=1}^m (x_j - \mu)^2$</p></td>
+<tr class="row-even"><td class="text-align:left"><p>empirische Varianz <span class="math notranslate nohighlight">\(\sigma(x)^2\)</span></p></td>
+<td class="text-align:left"><p>Schätzung der Varianz bezogen auf den <em>wahren</em> Wert (nicht auf den Mittelwert der Messreihe) der Messgröße: <span class="math notranslate nohighlight">\(\sigma^2 = \lim_{m\rightarrow \infty}\frac{1}{m} \sum_{j=1}^m (x_j - \mu)^2\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>empirische Standardabweichung $\sigma(x)$</p></td>
-<td class="text-align:left"><p>Wurzel aus der empirischen Varianz: $\sigma = \lim_{m\rightarrow \infty}\sqrt{\frac{1}{m} \sum_{j=1}^m (x_j - \mu)^2}$</p></td>
+<tr class="row-odd"><td class="text-align:left"><p>empirische Standardabweichung <span class="math notranslate nohighlight">\(\sigma(x)\)</span></p></td>
+<td class="text-align:left"><p>Wurzel aus der empirischen Varianz: <span class="math notranslate nohighlight">\(\sigma = \lim_{m\rightarrow \infty}\sqrt{\frac{1}{m} \sum_{j=1}^m (x_j - \mu)^2}\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>Wahrscheinlichkeitsverteilung $dP(x)$</p></td>
-<td class="text-align:left"><p>eine Fukntion, die die Wahrscheinlichkeit angibt, dass eine Messgröße $x$ durch Messung einen bestimmten Wert $x_j + dx$ annehmen wird.</p></td>
+<tr class="row-even"><td class="text-align:left"><p>Wahrscheinlichkeitsverteilung <span class="math notranslate nohighlight">\(dP(x)\)</span></p></td>
+<td class="text-align:left"><p>eine Fukntion, die die Wahrscheinlichkeit angibt, dass eine Messgröße <span class="math notranslate nohighlight">\(x\)</span> durch Messung einen bestimmten Wert <span class="math notranslate nohighlight">\(x_j + dx\)</span> annehmen wird.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="messdaten-sammeln">
 <h2>Messdaten sammeln<a class="headerlink" href="#messdaten-sammeln" title="Permalink to this headline">¶</a></h2>
-<p>Aufgabe der Messtechnik ist es physikalische Messgrößen quantitativ zu beobachten und ist somit wichtiger Bestandteil in der Physik. Eine <em>quantitative</em> Beschreibung bedeutet immer, dass eine Messgröße mit einem Zahlenwert, $x$, und einer Maßeinheit, $E$, ausgedrückt wird. Um einen möglichst <em>guten</em> Zahlenwert experimentell zu ermitteln, wird neben der konkreten Durchführung ein Großteil der Experimentierzeit damit verbracht das Experiment vorzubereiten und zu planen, aber auch die Daten auszuwerten und darzustellen, Ergebnisse zu überprüfen und ggf. Messungen zu wiederholen.
+<p>Aufgabe der Messtechnik ist es physikalische Messgrößen quantitativ zu beobachten und ist somit wichtiger Bestandteil in der Physik. Eine <em>quantitative</em> Beschreibung bedeutet immer, dass eine Messgröße mit einem Zahlenwert, <span class="math notranslate nohighlight">\(x\)</span>, und einer Maßeinheit, <span class="math notranslate nohighlight">\(E\)</span>, ausgedrückt wird. Um einen möglichst <em>guten</em> Zahlenwert experimentell zu ermitteln, wird neben der konkreten Durchführung ein Großteil der Experimentierzeit damit verbracht das Experiment vorzubereiten und zu planen, aber auch die Daten auszuwerten und darzustellen, Ergebnisse zu überprüfen und ggf. Messungen zu wiederholen.
 Was sich beim Messen nicht umgehen lässt, und was der ein oder andere sicherlich schon im Praktikum beobachten konnte, ist, dass Beobachtungen immer statistischen (zufälligen) Schwankungen unterliegen. Dies führt dazu, dass sich das Messergebnis immer verändert. eine Messung wird prinzipiell niemals den <em>wahren</em> Wert liefern können, weshalb wir sorgfältig messen und auswerten müssen. Es gibt <em>best practice</em> Methoden und Techniken, die in der Wissenschaft benutzt werden, um Unsicherheiten und Schwankungen der Messgröße quantitativ zu beschreiben um so ein Qualitätsmaß der Messung bzw. unseres Experimentes zu erhalten. Durch die Einhaltung der <em>best practice</em> Methoden kannst du jederzeit Rechenschaft ablegen und das Ergebnis begründen. Die grundlegende Norm für die Messtechnik ist in der <em>DIN-Norm DIN 1319</em> und dem <em>GUM</em> (Guide to the Expression of Uncertainty in Measurement) offiziell festgehalten.</p>
 <ul class="simple">
 <li><p><strong>Planung:</strong> Was soll gemessen werden? Was wird hierfür benötigt? Welche Fehlerquellen/Störeinflüsse könnten auftreten, bzw. welche sind bekannt? Welche systematischen Unsicherheiten sind bekannt?</p></li>
@@ -874,16 +876,15 @@ require(['plotly'], function(Plotly) {
 <div class="section" id="quellen-und-ursachen-von-messunsicherheiten">
 <h2>Quellen und Ursachen von Messunsicherheiten<a class="headerlink" href="#quellen-und-ursachen-von-messunsicherheiten" title="Permalink to this headline">¶</a></h2>
 <p>Früher hat man statt <em>Abweichung</em> noch den Begriff <em>Messfehler</em> verwendet. Man dachte, dass man mit genügend Aufwand, Sorgfalt und bestmöglicher Technologie den Fehler vollständig eliminieren können. Spätestens seit der Theorie der <em>Quantenphysik</em> ist uns allerdings bekannt, dass zufällige Einflüsse auf die beobachteten Messgrößen  unvermeidlich sind und auch nicht vorhergesagt werden können. Statt eines einzig <em>wahren</em> Wertes werden in der Quantenphysik Messgrößen durch deren Erwartungswerte vorhergesagt. Diesen Messgrößen liegt eine Wahrscheinlichkeitsdichte zu Grunde, dessen Varianz (bzw. Standardabweichung) nicht verschwindet! Somit werden für ein und dieselbe physikalische Messgröße verschiedene Ergebnisse gemessen, obwohl nahezu identische Bedingungen herrschen. Das Eintreten eines bestimmten Messergebnisses ist an eine bestimmte Wahrscheinlichkeit gekoppelt, mit der dieses Ergebnis eintritt.</p>
-<p>Jede Messung einer physikalischen Größe $x$ ist abhängig von den verwendeten Messgeräten, dem Messverfahren, dem Messobjekt, von Umwelteinflüssen (Temperatur, Feuchtigkeit, elektromagnetische Felder) und schließlich auch vom Beobachter (Müdigkeit, Sehschärfe, Übung). Messungen liefern daher lediglich Schätzwerte für die <em>wahren</em> Werte einer Größe. Es gibt prinzipiell keine Möglichkeit, den wahren Wert einer Messgröße zu messen. Im Rahmen internationaler Anstrengungen für eine einheitliche Bewertung von Einflussgrößen auf eine Messung werden zwei Kategorien von Methoden der Berechnung von Unsicherheiten unterschieden <a class="reference external" href="https://www.iso.org/sites/JCGM/GUM/JCGM100/C045315e-html/C045315e.html?csnumber=50461">[GUM]</a>:</p>
+<p>Jede Messung einer physikalischen Größe <span class="math notranslate nohighlight">\(x\)</span> ist abhängig von den verwendeten Messgeräten, dem Messverfahren, dem Messobjekt, von Umwelteinflüssen (Temperatur, Feuchtigkeit, elektromagnetische Felder) und schließlich auch vom Beobachter (Müdigkeit, Sehschärfe, Übung). Messungen liefern daher lediglich Schätzwerte für die <em>wahren</em> Werte einer Größe. Es gibt prinzipiell keine Möglichkeit, den wahren Wert einer Messgröße zu messen. Im Rahmen internationaler Anstrengungen für eine einheitliche Bewertung von Einflussgrößen auf eine Messung werden zwei Kategorien von Methoden der Berechnung von Unsicherheiten unterschieden <a class="reference external" href="https://www.iso.org/sites/JCGM/GUM/JCGM100/C045315e-html/C045315e.html?csnumber=50461">[GUM]</a>:</p>
 <ul class="simple">
 <li><p><strong>Typ A (“Zufällige Abweichung”):</strong> Berechnung der Messunsicherheit durch statistische Analyse der Messungen</p></li>
 <li><p><strong>Typ B (“Systematische Abweichung”):</strong> Berechnung der Messunsicherheit mit anderen Mitteln als der statistischen Analyse</p></li>
 </ul>
-<a class="reference internal image-reference" href="../_images/messfehler.png"><img alt="../_images/messfehler.png" src="../_images/messfehler.png" style="width: 800px;" /></a>
-<div class="section" id="typ-a-unsicherheiten-zufallige-fehler">
+<img src="pictures/messfehler.png" width=800><div class="section" id="typ-a-unsicherheiten-zufallige-fehler">
 <h3>Typ A-Unsicherheiten (“Zufällige Fehler”)<a class="headerlink" href="#typ-a-unsicherheiten-zufallige-fehler" title="Permalink to this headline">¶</a></h3>
 <p>Dies sind Messunsicherheiten, die nicht einseitig gerichtet sind, sondern einer zufälligen Streuung der Messwerte zugrunde liegen. Zur Behandlung dieser Messunsicherheiten nutzt man die Stochastik (Wahrscheinlichkeitslehre und Statistik).
-Zufällige Fehler kennt man nicht, er ist folglich nicht korrigierbar und lässt sich auch nicht reproduzieren unter gleichen Messbedingungen. Hier sind wiederholte Messungen und statistische Analysen notwendig, wodurch Mittelwert und Standardabweichung von sogenannten <em>Stichproben</em> ermittelt wird. Wie gewinnt man aus einer Messreihe $x_j$ den besten Schätzewert, der mit maximaler Wahrscheinlichkeit am nähesten am <em>wahren</em> Wert, $x_w$, liegt? Mit welcher Wahrscheinlichkeit liegt das Messergebnis innerhalb eines bestimmten Intervalls um den wahren Wert, $$x = x_w + \Delta x ?$$</p>
+Zufällige Fehler kennt man nicht, er ist folglich nicht korrigierbar und lässt sich auch nicht reproduzieren unter gleichen Messbedingungen. Hier sind wiederholte Messungen und statistische Analysen notwendig, wodurch Mittelwert und Standardabweichung von sogenannten <em>Stichproben</em> ermittelt wird. Wie gewinnt man aus einer Messreihe <span class="math notranslate nohighlight">\(x_j\)</span> den besten Schätzewert, der mit maximaler Wahrscheinlichkeit am nähesten am <em>wahren</em> Wert, <span class="math notranslate nohighlight">\(x_w\)</span>, liegt? Mit welcher Wahrscheinlichkeit liegt das Messergebnis innerhalb eines bestimmten Intervalls um den wahren Wert, $<span class="math notranslate nohighlight">\(x = x_w + \Delta x ?\)</span>$</p>
 </div>
 <div class="section" id="typ-b-unsicherheiten-systematische-fehler">
 <h3>Typ B-Unsicherheiten (“Systematische Fehler”)<a class="headerlink" href="#typ-b-unsicherheiten-systematische-fehler" title="Permalink to this headline">¶</a></h3>
@@ -892,7 +893,7 @@ Sie kann durch Aufwand und Kalibration verbessert werden, was <em>nicht</em> fü
 Es gibt keine allgemeingültige Definition oder allgemeine Verfahren zur Korrektur. Das heißt für jeden Fall müssen neue Verfahren entwickelt werden. Hier kommen ein paar Beispiele, wie man mit solchen <em>systematischen</em> Messunsicherheiten umgehen kann:</p>
 <div class="section" id="anzeigefehler-von-messgeraten">
 <h4>Anzeigefehler von Messgeräten<a class="headerlink" href="#anzeigefehler-von-messgeraten" title="Permalink to this headline">¶</a></h4>
-<p>Messgeräte werden anhand ihrer Genauigkeit in Klassen eingruppiert. Die Klasse entspricht der relativen Messabweichung. Präzisionsmessgeräte besitzen somit Abweichungen die zwischen 0,001% und 0,05% liegen. Die Genauigkeitsklasse K 2,5 (Angabe auf der Mess- skala nach DIN EN 60051 Abb. 1) bedeutet: Ist der Endwert des eingestellten Messbereichs $U_\mathrm{end}$, dann beträgt die Typ B-Unsicherheit über den gesamten Messbereich $u(U) = 0,0025\cdot U_\mathrm{end}$. Für $U_\mathrm{end} = 15,\mathrm V$ erhält man also:</p>
+<p>Messgeräte werden anhand ihrer Genauigkeit in Klassen eingruppiert. Die Klasse entspricht der relativen Messabweichung. Präzisionsmessgeräte besitzen somit Abweichungen die zwischen 0,001% und 0,05% liegen. Die Genauigkeitsklasse K 2,5 (Angabe auf der Mess- skala nach DIN EN 60051 Abb. 1) bedeutet: Ist der Endwert des eingestellten Messbereichs <span class="math notranslate nohighlight">\(U_\mathrm{end}\)</span>, dann beträgt die Typ B-Unsicherheit über den gesamten Messbereich <span class="math notranslate nohighlight">\(u(U) = 0,0025\cdot U_\mathrm{end}\)</span>. Für <span class="math notranslate nohighlight">\(U_\mathrm{end} = 15\,\mathrm V\)</span> erhält man also:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">U_end</span> <span class="o">=</span> <span class="mi">15</span>
@@ -911,11 +912,13 @@ Es gibt keine allgemeingültige Definition oder allgemeine Verfahren zur Korrekt
 </div>
 <div class="section" id="digitalstellenfehler">
 <h4>Digitalstellenfehler<a class="headerlink" href="#digitalstellenfehler" title="Permalink to this headline">¶</a></h4>
-<a class="reference internal image-reference" href="../_images/hersteller_abweichung.png"><img alt="../_images/hersteller_abweichung.png" src="../_images/hersteller_abweichung.png" style="width: 800px;" /></a>
-<p>Das Gerät im Bild zeigt den Messwert 5.847V an. Laut Hersteller ist die Maximalabweichung (unter Referenzbedingungen) $a = \pm$ (0,5% vom <em>Messwert</em> + 9 Digit). Die Anzahl der Nachkommastellen (also der Digits) ist in diesem Falle 3, also 0,001V. Genauer kann das Messgerät keine Spannung angeben. Die Messabweichung setzt sich also wiefolgt zusammen (zwei signifikante Stellen reichen hierbei, da der Messwert selber nicht genauer angezeigt wird):</p>
-<p>$$a = \pm (0,5% \cdot 5,847,\mathrm{V} + 9 \cdot 0,001,\mathrm V) \approx \pm 0,038,\mathrm V = \pm 38,235,\mathrm{mV}$$</p>
-<p>Innerhalb dieses $\pm$ Bereiches der Breite $2a$ unterstellt man eine Gleichverteilung der Messwerte und bekommt damit die Standardunsicherheit:</p>
-<p>$$u(U) = \frac{a}{\sqrt{3}} = \frac{38,235,\mathrm{mV}}{\sqrt{3}} \approx $$</p>
+<img src="pictures/hersteller_abweichung.png" width=800>
+<p>Das Gerät im Bild zeigt den Messwert 5.847V an. Laut Hersteller ist die Maximalabweichung (unter Referenzbedingungen) <span class="math notranslate nohighlight">\(a = \pm\)</span> (0,5% vom <em>Messwert</em> + 9 Digit). Die Anzahl der Nachkommastellen (also der Digits) ist in diesem Falle 3, also 0,001V. Genauer kann das Messgerät keine Spannung angeben. Die Messabweichung setzt sich also wiefolgt zusammen (zwei signifikante Stellen reichen hierbei, da der Messwert selber nicht genauer angezeigt wird):</p>
+<div class="math notranslate nohighlight">
+\[a = \pm (0,5\% \cdot 5,847\,\mathrm{V} + 9 \cdot 0,001\,\mathrm V) \approx \pm 0,038\,\mathrm V = \pm 38,235\,\mathrm{mV}\]</div>
+<p>Innerhalb dieses <span class="math notranslate nohighlight">\(\pm\)</span> Bereiches der Breite <span class="math notranslate nohighlight">\(2a\)</span> unterstellt man eine Gleichverteilung der Messwerte und bekommt damit die Standardunsicherheit:</p>
+<div class="math notranslate nohighlight">
+\[u(U) = \frac{a}{\sqrt{3}} = \frac{38,235\,\mathrm{mV}}{\sqrt{3}} \approx \]</div>
 <p>Ist nichts weiter bekannt, schätzt man die Unsicherheit über einen Mindestfehler von a = 1 Digit ab.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -946,29 +949,33 @@ Die Unsicherheit beträgt: +- 0.02207 V = +- 22.07499 mV
 </div>
 <div class="section" id="schreibweise-eines-messwertes-mit-messabweichung">
 <h3>Schreibweise eines Messwertes mit Messabweichung<a class="headerlink" href="#schreibweise-eines-messwertes-mit-messabweichung" title="Permalink to this headline">¶</a></h3>
-<p>Die <strong>Gesamt-Messabweichung</strong> einer Messgröße $x$ setzt sich also wiefolgt zusammen:</p>
-<p>$$A = A_r +  A_s$$</p>
-<p>wobei $A_r$ zufällige und $A_s$ systematische Messabweichungen sind. Ein Messwert setzt sich also zusammen aus dem <em>wahren</em> oder <em>richtigen</em> Wert, den wir niemals kennen werden, und der Messabweichung. Es gelten folgende Zusammenhänge:</p>
+<p>Die <strong>Gesamt-Messabweichung</strong> einer Messgröße <span class="math notranslate nohighlight">\(x\)</span> setzt sich also wiefolgt zusammen:</p>
+<div class="math notranslate nohighlight">
+\[A = A_r +  A_s\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(A_r\)</span> zufällige und <span class="math notranslate nohighlight">\(A_s\)</span> systematische Messabweichungen sind. Ein Messwert setzt sich also zusammen aus dem <em>wahren</em> oder <em>richtigen</em> Wert, den wir niemals kennen werden, und der Messabweichung. Es gelten folgende Zusammenhänge:</p>
 <ul class="simple">
-<li><p>Der <strong>ermittelte Messwert</strong> lässt sich wiefolgt schreiben, wobei $x_w$ der <em>wahre</em>, aber uns unbekannte, Wert ist. $A$ ist die Messabweichung:</p></li>
+<li><p>Der <strong>ermittelte Messwert</strong> lässt sich wiefolgt schreiben, wobei <span class="math notranslate nohighlight">\(x_w\)</span> der <em>wahre</em>, aber uns unbekannte, Wert ist. <span class="math notranslate nohighlight">\(A\)</span> ist die Messabweichung:</p></li>
 </ul>
-<p>$$x = x_w + A$$</p>
+<div class="math notranslate nohighlight">
+\[x = x_w + A\]</div>
 <ul class="simple">
 <li><p>Die <strong>absolute Messabweichung</strong> ergibt sich aus Umstellen der Gleichung:</p></li>
 </ul>
-<p>$$A = x - x_w = \Delta x$$</p>
+<div class="math notranslate nohighlight">
+\[A = x - x_w = \Delta x\]</div>
 <ul class="simple">
-<li><p>Bei der Angabe <strong>relativen Messabweichung</strong> wird die Messabweichung auf einen Referenzwert, $r$, bezogen, der entweder der Messwert selber ist ($r = x$), oder manchmal auch die Spanne ($r = x_\mathrm{max} - x_\mathrm{min}$) oder Maximalwert/Messbereichsendwert ($r = x_\mathrm{max}$):</p></li>
+<li><p>Bei der Angabe <strong>relativen Messabweichung</strong> wird die Messabweichung auf einen Referenzwert, <span class="math notranslate nohighlight">\(r\)</span>, bezogen, der entweder der Messwert selber ist (<span class="math notranslate nohighlight">\(r = x\)</span>), oder manchmal auch die Spanne (<span class="math notranslate nohighlight">\(r = x_\mathrm{max} - x_\mathrm{min}\)</span>) oder Maximalwert/Messbereichsendwert (<span class="math notranslate nohighlight">\(r = x_\mathrm{max}\)</span>):</p></li>
 </ul>
-<p>$$ A_\mathrm{rel} = \frac{A}{r} = \frac{\Delta x}{r}$$</p>
+<div class="math notranslate nohighlight">
+\[ A_\mathrm{rel} = \frac{A}{r} = \frac{\Delta x}{r}\]</div>
 <div class="section" id="signifikanten-stellen">
 <h4>Signifikanten Stellen<a class="headerlink" href="#signifikanten-stellen" title="Permalink to this headline">¶</a></h4>
 <p>Die <strong>Anzahl der Nachkommastellen</strong> eines Messwertes ist niemals größer als die der angegebenen Messabweichung oder Unsicherheit. Die Anzahl der Nachkommastellen der Messabweichung wird über <strong>signifikante Stellen</strong> (= angegebene Ziffern ohne führende Nullen) definiert. Je mehr signifikante Stellen angegeben werden, desto größer ist die Genuigkeit, die reklamiert wird. Es gelten folgende Rechenoperationen nach DIN1333:</p>
 <ul class="simple">
 <li><p>Bei <strong>Addition von Größen</strong> bekommt das Ergebnis genauso viele Nachkommastellen wie die Zahl mit den <em>wenigsten</em> Nachkommastellen.</p></li>
 <li><p>Bei <strong>Multiplikation von Größen</strong> bekommst das Ergebnis genauso viele signifikante Stellen wie der Zahl mit den wenigsten signifikanten Stellen.</p></li>
-<li><p><strong>Messunsicherheiten</strong> werden auf eine signifikante Stelle gerundet. Eine Ausnahme existiert, wenn die erste Ziffer eine “1” ist, weil sonst Rundungsfehler schnell zu groß werden. Beispiel: $u(g) = 0,1562,\mathrm{m/s^2} = 0,16,\mathrm{m/s^2}$. Die Darstellung $g = (9,81 \pm 0,03562),\mathrm{m/s^2}$ wäre unsinnig, da die Genauigkeit auf zwei Nachkommastellen durch den Messwert beschränkt ist.</p></li>
-<li><p><strong>Messwerte</strong> werden so angegeben, dass die letzte signifikante Stelle die gleiche Größenprdnung hat, wie die Messunsicherheit: Die Angabe $H=(13,13\pm 1),\mathrm m$ ist sinnlos, richtig wäre $H=(13\pm 1),\mathrm m$.</p></li>
+<li><p><strong>Messunsicherheiten</strong> werden auf eine signifikante Stelle gerundet. Eine Ausnahme existiert, wenn die erste Ziffer eine “1” ist, weil sonst Rundungsfehler schnell zu groß werden. Beispiel: <span class="math notranslate nohighlight">\(u(g) = 0,1562\,\mathrm{m/s^2} = 0,16\,\mathrm{m/s^2}\)</span>. Die Darstellung <span class="math notranslate nohighlight">\(g = (9,81 \pm 0,03562)\,\mathrm{m/s^2}\)</span> wäre unsinnig, da die Genauigkeit auf zwei Nachkommastellen durch den Messwert beschränkt ist.</p></li>
+<li><p><strong>Messwerte</strong> werden so angegeben, dass die letzte signifikante Stelle die gleiche Größenprdnung hat, wie die Messunsicherheit: Die Angabe <span class="math notranslate nohighlight">\(H=(13,13\pm 1)\,\mathrm m\)</span> ist sinnlos, richtig wäre <span class="math notranslate nohighlight">\(H=(13\pm 1)\,\mathrm m\)</span>.</p></li>
 </ul>
 <p>Um Rundungsfehler zu reduzieren, führen Sie in den Berechnungen soviel signifikante Stellen der Messunsicherheit mit, wie nötig.</p>
 </div>
@@ -1001,8 +1008,8 @@ Die Unsicherheit beträgt: +- 0.02207 V = +- 22.07499 mV
 <h3>Diskrepanz und Konsistenz<a class="headerlink" href="#diskrepanz-und-konsistenz" title="Permalink to this headline">¶</a></h3>
 <p>Die Diskrepanz zweier Messwerte derselben Größe ist der Absolutbetrag ihrer Differenz. Zwei Messungen sind konsistent, wenn ihre Diskrepanz geringer ist, als die (kleinere der) Messunsicherheiten:</p>
 <ul class="simple">
-<li><p>$g = (9,73 \pm 0,05),\mathrm{m/s^2}$ und $g = (9,76 \pm 0,04),\mathrm{m/s^2}$ sind <em>konsistent</em>, nicht jedoch $g = (9,71 \pm 0,02),\mathrm{m/s^2}$ und $g = (9,76 \pm 0,04),\mathrm{m/s^2}$</p></li>
-<li><p>Ist $g = (8.9 \pm 1,5),\mathrm{m/s^2}$ das Ergebnis einer Messung des Ortsfaktors, dann ist die Messung zwar nicht sonderlich präzise, aber mit dem Literaturwert von $g = 9,81,\mathrm{m/s^2}$ vereinbar.</p></li>
+<li><p><span class="math notranslate nohighlight">\(g = (9,73 \pm 0,05)\,\mathrm{m/s^2}\)</span> und <span class="math notranslate nohighlight">\(g = (9,76 \pm 0,04)\,\mathrm{m/s^2}\)</span> sind <em>konsistent</em>, nicht jedoch <span class="math notranslate nohighlight">\(g = (9,71 \pm 0,02)\,\mathrm{m/s^2}\)</span> und <span class="math notranslate nohighlight">\(g = (9,76 \pm 0,04)\,\mathrm{m/s^2}\)</span></p></li>
+<li><p>Ist <span class="math notranslate nohighlight">\(g = (8.9 \pm 1,5)\,\mathrm{m/s^2}\)</span> das Ergebnis einer Messung des Ortsfaktors, dann ist die Messung zwar nicht sonderlich präzise, aber mit dem Literaturwert von <span class="math notranslate nohighlight">\(g = 9,81\,\mathrm{m/s^2}\)</span> vereinbar.</p></li>
 </ul>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -1035,9 +1042,10 @@ Die Unsicherheit beträgt: +- 0.02207 V = +- 22.07499 mV
 <h2>Mittelwert und Standardabweichung<a class="headerlink" href="#mittelwert-und-standardabweichung" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="statistische-messunsicherheit">
 <h3>Statistische Messunsicherheit<a class="headerlink" href="#statistische-messunsicherheit" title="Permalink to this headline">¶</a></h3>
-<p>Statistische, oder zufällige, Einflüsse auf einen Messwert lassen sich durch Wiederholungen der eigentlichen Messung bestimmen. Dies nennt man auch Messreihe und bedeutet, dass $m$ Messungen für ein und denselben Messwert durchgeführt werden. Die einzelnen Messwerte $x_j$ unterscheiden sich, da der <em>wahre</em> Wert, $x_w$, immer mit einer zufälligen Abweichung, $A_j$,  versehen wird:</p>
-<p>$$x_j = x_R + A_j$$</p>
-<p>Bei genügend vielen Wiederholungen der Messung kann in vielen Fällen beobachtet werden, dass sich die Messwerte $x_j$ um einen zentralen Werte, $\overline x$ scharen. Die Häufigkeit, einen Messwert in einem bestimmten Abstand zu diesem zentralen Werte zu finden, $|x_j - \overline x$, ist umso kleiner, je größer der Abstand ist. Man spricht hierbei von einer Häufigkeitsverteilung der $x_j$. Die grafische Darstellung einer solchen Messreihe erfolgt in einem <strong>Histogramm</strong>. Diese Darstellung wird insbesondere dann häufig benutzt, wenn Messreihen mit vielen Messwerten vorliegen. An einer solchen Darstellung erkennt häufig schon die Art der zugrundeliegenden Verteilung der Messwerten. In nachfolgendem Code-Block wird für die Messreihe die <strong>absolute Häufigkeit</strong> der einzelnen Werte in einer bestimmten Klasse grafisch dargestellt.</p>
+<p>Statistische, oder zufällige, Einflüsse auf einen Messwert lassen sich durch Wiederholungen der eigentlichen Messung bestimmen. Dies nennt man auch Messreihe und bedeutet, dass <span class="math notranslate nohighlight">\(m\)</span> Messungen für ein und denselben Messwert durchgeführt werden. Die einzelnen Messwerte <span class="math notranslate nohighlight">\(x_j\)</span> unterscheiden sich, da der <em>wahre</em> Wert, <span class="math notranslate nohighlight">\(x_w\)</span>, immer mit einer zufälligen Abweichung, <span class="math notranslate nohighlight">\(A_j\)</span>,  versehen wird:</p>
+<div class="math notranslate nohighlight">
+\[x_j = x_R + A_j\]</div>
+<p>Bei genügend vielen Wiederholungen der Messung kann in vielen Fällen beobachtet werden, dass sich die Messwerte <span class="math notranslate nohighlight">\(x_j\)</span> um einen zentralen Werte, <span class="math notranslate nohighlight">\(\overline x\)</span> scharen. Die Häufigkeit, einen Messwert in einem bestimmten Abstand zu diesem zentralen Werte zu finden, <span class="math notranslate nohighlight">\(|x_j - \overline x\)</span>, ist umso kleiner, je größer der Abstand ist. Man spricht hierbei von einer Häufigkeitsverteilung der <span class="math notranslate nohighlight">\(x_j\)</span>. Die grafische Darstellung einer solchen Messreihe erfolgt in einem <strong>Histogramm</strong>. Diese Darstellung wird insbesondere dann häufig benutzt, wenn Messreihen mit vielen Messwerten vorliegen. An einer solchen Darstellung erkennt häufig schon die Art der zugrundeliegenden Verteilung der Messwerten. In nachfolgendem Code-Block wird für die Messreihe die <strong>absolute Häufigkeit</strong> der einzelnen Werte in einer bestimmten Klasse grafisch dargestellt.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_volt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.02</span><span class="p">,</span> <span class="mf">1.04</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">,</span> <span class="mf">1.00</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span><span class="mf">0.97</span><span class="p">,</span><span class="mf">0.99</span><span class="p">,</span><span class="mf">1.00</span><span class="p">,</span><span class="mf">0.98</span><span class="p">,</span><span class="mf">0.99</span><span class="p">,</span><span class="mf">1.01</span><span class="p">,</span><span class="mf">0.97</span><span class="p">,</span><span class="mf">1.00</span><span class="p">,</span><span class="mf">1.02</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
@@ -1055,7 +1063,8 @@ Die Unsicherheit beträgt: +- 0.02207 V = +- 22.07499 mV
 <p>Die <strong>relative Häufigkeit</strong> berechnet sich aus der absoluten Häufigkeit dividiert durch die Gesamtanzahl der vorgenommenen Messungen.
 Aus der Häufigkeit lässt sich auch die sogenannte <strong>Häufigkeitsdichte</strong> berechnen.
 Die Häufigkeitsdichte gibt bei einem Histogramm die Höhe des Rechtecks an. Mit ihr kann man den Vergleich verschiedener Klassen erst vornehmen. Anders ausgedrückt heißt dass, dass die Häufigkeitsdichte einer Klasse das Verhältnis der absoluten oder der relativen Häufigkeit einer Klasse zur entsprechenden Klassenbreite ist. Genauso lässt sich die Häufigkeitsdichte auch berechnen:</p>
-<p>$$ h(x) = \frac{\textrm{relative oder absolute Häufigkeit}}{\textrm{obere Grenze der Klasse i} - \textrm{untere Grenze der Klasse i}} $$</p>
+<div class="math notranslate nohighlight">
+\[ h(x) = \frac{\textrm{relative oder absolute Häufigkeit}}{\textrm{obere Grenze der Klasse i} - \textrm{untere Grenze der Klasse i}} \]</div>
 <p>Das Integral über die relative Häufigkeitsdichte ist immer auf 1 normiert, bzw auf 100% im Falle der absoluten Häufigkeitsdichte.</p>
 <p>Im nachstehenden Code-Block wird die relative Häufigkeitsdichte für die obenstehende Messreihe geplottet und das Integral berechnet.</p>
 <div class="cell tag_hide-input docutils container">
@@ -1079,22 +1088,23 @@ Die Häufigkeitsdichte gibt bei einem Histogramm die Höhe des Rechtecks an. Mit
 </div>
 </div>
 </div>
-<p>Mit größerer mathematischer Schärfe formuliert man: Die Wahrscheinlichkeit, einen Messwert innerhalb eines kleinen Intervalls $\Delta x$ um den Wert $\overline x$ zu finden, ist $dP(X) = p(x)\cdot \Delta x$. Je größer die Stichprobe $m$ (Anzahl der Messungen), desto eher erkennt man die zugrundeliegende Verteilung, die der Messreihe unterliegt. Häufig handelt es sich in der Praxis um eine <em>Normalverteilung</em> (oder auch Gaußverteilung genannt):</p>
-<p>$$P(x) = \frac{1}{s \sqrt{2\pi}}\int_{x_1}^{x_2} \mathrm{exp}\left(-\frac{(x-\overline x)^2}{2s^2}\right) dx$$</p>
+<p>Mit größerer mathematischer Schärfe formuliert man: Die Wahrscheinlichkeit, einen Messwert innerhalb eines kleinen Intervalls <span class="math notranslate nohighlight">\(\Delta x\)</span> um den Wert <span class="math notranslate nohighlight">\(\overline x\)</span> zu finden, ist <span class="math notranslate nohighlight">\(dP(X) = p(x)\cdot \Delta x\)</span>. Je größer die Stichprobe <span class="math notranslate nohighlight">\(m\)</span> (Anzahl der Messungen), desto eher erkennt man die zugrundeliegende Verteilung, die der Messreihe unterliegt. Häufig handelt es sich in der Praxis um eine <em>Normalverteilung</em> (oder auch Gaußverteilung genannt):</p>
+<div class="math notranslate nohighlight">
+\[P(x) = \frac{1}{s \sqrt{2\pi}}\int_{x_1}^{x_2} \mathrm{exp}\left(-\frac{(x-\overline x)^2}{2s^2}\right) dx\]</div>
 <p>Dies ist verblüffender Weise auch immer noch dann der Fall, wenn sehr viele externe Störungen (evtl. mit unterschiedlichen Verteilungsfunktionen) zu einer gemeinsamen Störgröße kombiniert werden. Die zusammengefasste Störung ist trotzdem fast immer gaußverteilt, egal die Einzelverteilungen aussehen (Poisson oder anderes). Dies wird auch als der <strong>zentrale Grenzwertsatz der Wahrscheinlichkeitstheorie</strong> bezeichnet.</p>
 <blockquote>
 <div><p><strong>Zentraler Grenzwertsatz der Wahrscheinlichkeitstheorie</strong>: Der Durchschnitt einer großen Anzahl von Zufallsvariablen aus derselben Verteilung sind annäherend normalverteilt, unabhängig von der Verteilungsfunktion aus der sie herausgenommen wurden.</p>
 </div></blockquote>
 <ul class="simple">
-<li><p>Normalverteilte Zufallsgrößen werden also von den beiden Paraemtern $\overline x$ und $s$ beschrieben. Der <strong>arithmetische Mittelwert</strong>, der das <strong>arithmetische Mittel</strong> aus $m$ Beobachtungen ist:
-$$\overline x = \frac{1}{m}\sum_{j=1}^m x_j$$
-Für den Erwartungswert findet man in der Literatur unterschiedliche Bezeichnungen, unter anderem zum Beispiel $\overline x = E(x) = \left&lt; x \right&gt; = \mu$.</p></li>
-<li><p>Der <em>Erwartungswert der quadratischen Abweichung der Einzelmessungen vom Mittelwert</em>, die <strong>Varianz</strong> $s^2$,
+<li><p>Normalverteilte Zufallsgrößen werden also von den beiden Paraemtern <span class="math notranslate nohighlight">\(\overline x\)</span> und <span class="math notranslate nohighlight">\(s\)</span> beschrieben. Der <strong>arithmetische Mittelwert</strong>, der das <strong>arithmetische Mittel</strong> aus <span class="math notranslate nohighlight">\(m\)</span> Beobachtungen ist:
+$<span class="math notranslate nohighlight">\(\overline x = \frac{1}{m}\sum_{j=1}^m x_j\)</span><span class="math notranslate nohighlight">\(
+Für den Erwartungswert findet man in der Literatur unterschiedliche Bezeichnungen, unter anderem zum Beispiel \)</span>\overline x = E(x) = \left&lt; x \right&gt; = \mu$.</p></li>
+<li><p>Der <em>Erwartungswert der quadratischen Abweichung der Einzelmessungen vom Mittelwert</em>, die <strong>Varianz</strong> <span class="math notranslate nohighlight">\(s^2\)</span>,
 lässt sich allgemein wie folgt schreiben:
-$$\sigma^2  =  \frac{1}{m} \sum_{j=1}^m \left( x_j - \mu \right)^2$$
+$<span class="math notranslate nohighlight">\(\sigma^2  =  \frac{1}{m} \sum_{j=1}^m \left( x_j - \mu \right)^2\)</span>$
 Der arithmetische Mittelwert zeichnet sich dadurch aus, dass für diesen Wert die Summe der Abweichungsquadrate minimal ist. Die Varianz hängt nicht von der Anzahl der Messungen ab. Die Streuung kann allein durch ein besseres Messverfahren verkleinert werden. Anschaulich ist das direkt nachvoll- ziehbar: Die „Punktwolke“ der Messergebnisse um den Mittelwert schmiegt sich nicht enger an den Mittelwert, nur weil häufiger gemessen wurde. Ein stark streuendes Messverfahren streut durch seine Wiederholung nicht weniger.</p></li>
 <li><p>Unabhängig von der zugrundeliegenden Verteilung der Messwerte kann nun ein Maß für die Abweichung definiert werden, welche als <strong>empirische Standardabweichung der Einzelmessungen</strong> bekannt ist und sich aus der Quadratwurzel der Varianz berechnen lässt:
-$$\sigma = \sqrt{\frac{1}{m} \sum_{j=1}^m (x_j - \mu)^2}$$</p></li>
+$<span class="math notranslate nohighlight">\(\sigma = \sqrt{\frac{1}{m} \sum_{j=1}^m (x_j - \mu)^2}\)</span>$</p></li>
 </ul>
 <p>Man nehme beispielhaft die Messung einer Spannung. Die Messreihe ist im nachstehenden Bode-Block gegeben. Es wurden 15 wiederholte Messungen durchgeführt in denen 15x der Wert 1V gemessen werden sollte. Mittelwert, Standardabweichung der Einzelmessungen und Unsicherheit des Mittelwertes werden berechnet.</p>
 <div class="cell tag_hide-input docutils container">
@@ -1133,19 +1143,20 @@ Standardabweichung der Messungen:  0.02293 V
 </div>
 </div>
 <ul class="simple">
-<li><p>Du wirst bei deinen Messungen in der Regel weniger an der Streuung um den Mittelwert sondern mehr an der (geschätzten) Streuung der Messwerte um den (unbekannten) <em>wahren</em> Wert interessiert sein. Man schätzt diese Unsicherheit durch die empirische Varianz $s^2(x)$ der Messwerte der $x_j$ ab. Diese ist etwas größer, um den Faktor $m/(m − 1)$:
-$$s^2 = \frac{1}{m-1} \sum_{j=1}^m (x_j - \overline x)^2$$</p></li>
-<li><p>Die empirische Standardabweichung $s(x)$ der Messwerte ist die Wurzel aus der empirischen Varianz:
-$$s = \sqrt{\frac{1}{m-1} \sum_{j=1}^m (x_j - \overline x)^2}$$</p></li>
+<li><p>Du wirst bei deinen Messungen in der Regel weniger an der Streuung um den Mittelwert sondern mehr an der (geschätzten) Streuung der Messwerte um den (unbekannten) <em>wahren</em> Wert interessiert sein. Man schätzt diese Unsicherheit durch die empirische Varianz <span class="math notranslate nohighlight">\(s^2(x)\)</span> der Messwerte der <span class="math notranslate nohighlight">\(x_j\)</span> ab. Diese ist etwas größer, um den Faktor <span class="math notranslate nohighlight">\(m/(m − 1)\)</span>:
+$<span class="math notranslate nohighlight">\(s^2 = \frac{1}{m-1} \sum_{j=1}^m (x_j - \overline x)^2\)</span>$</p></li>
+<li><p>Die empirische Standardabweichung <span class="math notranslate nohighlight">\(s(x)\)</span> der Messwerte ist die Wurzel aus der empirischen Varianz:
+$<span class="math notranslate nohighlight">\(s = \sqrt{\frac{1}{m-1} \sum_{j=1}^m (x_j - \overline x)^2}\)</span>$</p></li>
 </ul>
 <blockquote>
-<div><p>Welche der Größen s oder $\sigma$ du sinnvoll verwendest, hängt vom Einzelfall ab − wichtig ist, dass du dazu schreibst, welcher Wert verwendet wurde, damit die Leser die Argumentation nachvollziehen kann. Ein wenig spricht für die Verwendung $s$, da damit auch der etwas seltsame Fall einer Einzelmessung abgedeckt wird. Für m = 1 wäre $\sigma$ = 0, $s$ dagegen nicht definiert. Die zweite Aussage ist, bezogen auf die statistische Interpretation, sicher sinnvoller. Deshalb wird in diesem Skript $s$ verwendet.</p>
+<div><p>Welche der Größen s oder <span class="math notranslate nohighlight">\(\sigma\)</span> du sinnvoll verwendest, hängt vom Einzelfall ab − wichtig ist, dass du dazu schreibst, welcher Wert verwendet wurde, damit die Leser die Argumentation nachvollziehen kann. Ein wenig spricht für die Verwendung <span class="math notranslate nohighlight">\(s\)</span>, da damit auch der etwas seltsame Fall einer Einzelmessung abgedeckt wird. Für m = 1 wäre <span class="math notranslate nohighlight">\(\sigma\)</span> = 0, <span class="math notranslate nohighlight">\(s\)</span> dagegen nicht definiert. Die zweite Aussage ist, bezogen auf die statistische Interpretation, sicher sinnvoller. Deshalb wird in diesem Skript <span class="math notranslate nohighlight">\(s\)</span> verwendet.</p>
 </div></blockquote>
-<p>Auch die Messunsicherheit des Mittelwertes selbst, $u(\overline x)$, kann natürlich kritisch bewertet werden: Wie wirkt sich die zu erwartende Messunsicherheit der einzelnen Messwerte $u(x)$ auf die Unsicherheit des Mittelwerts $u(\overline x)$ der Messreihe aus?
-Laut <em>Grenzertsatz</em> sind folglich auch die Mittelwerte (sollte man mehrere Stichproben aufnehmen) normalverteilt. Das heißt aus den verschiedenen Mittelwerten von $k$ Stichproben könnte theoretisch wieder ein Mitelwert berechnet werden. Außerdem kann analog die Standardabweichung der Mittelwerte berechnet werden:</p>
-<p>$$s(\overline x) = \frac{s}{\sqrt{m}} = u_{\overline x}  = \sqrt{\frac{1}{m(m-1)} \sum_{j=1}^m (x_j - \overline x)^2}$$</p>
-<p>Der Grenzwertsatz sagt aus, wenn man eine ausreichend große Stichprobe aus einer <em>Grundgesamtheit</em> nimmt, so wird der <strong>Mittelwert der Stichprobe</strong> näherungsweise dem <strong>Mittelwert der Grundgesamtheit</strong> entsprechen und sich somit dem <em>wahren</em> Wert annähern.  Die <strong>Unsicherheit des Mittelwertes</strong> einer Messreihe ist gegenüber der Abweichung der Einzelmessungen um den Faktor $\sqrt{m}$ reduziert. Der Grund dafür ist, dass sich statistisch ermittelte Unsicherheiten teilweise herausmitteln.</p>
-<p>Bei einer großen Anzahl Messungen (&gt;30) werden Sie stets finden, dass etwa 68% der Messungen im Intervall $\pm s(x)$ um den Mittelwert der Messreihe liegen. Würden Sie den wahren Wert kennen, könnten Sie weiter herausfinden, dass etwa 68% der Messwerte im Intervall $\pm s(x)$ um den wahren Wert und 68 % der Mittelwerte im Intervall $\pm s(\overline x)$ um den wahren Wert lägen.</p>
+<p>Auch die Messunsicherheit des Mittelwertes selbst, <span class="math notranslate nohighlight">\(u(\overline x)\)</span>, kann natürlich kritisch bewertet werden: Wie wirkt sich die zu erwartende Messunsicherheit der einzelnen Messwerte <span class="math notranslate nohighlight">\(u(x)\)</span> auf die Unsicherheit des Mittelwerts <span class="math notranslate nohighlight">\(u(\overline x)\)</span> der Messreihe aus?
+Laut <em>Grenzertsatz</em> sind folglich auch die Mittelwerte (sollte man mehrere Stichproben aufnehmen) normalverteilt. Das heißt aus den verschiedenen Mittelwerten von <span class="math notranslate nohighlight">\(k\)</span> Stichproben könnte theoretisch wieder ein Mitelwert berechnet werden. Außerdem kann analog die Standardabweichung der Mittelwerte berechnet werden:</p>
+<div class="math notranslate nohighlight">
+\[s(\overline x) = \frac{s}{\sqrt{m}} = u_{\overline x}  = \sqrt{\frac{1}{m(m-1)} \sum_{j=1}^m (x_j - \overline x)^2}\]</div>
+<p>Der Grenzwertsatz sagt aus, wenn man eine ausreichend große Stichprobe aus einer <em>Grundgesamtheit</em> nimmt, so wird der <strong>Mittelwert der Stichprobe</strong> näherungsweise dem <strong>Mittelwert der Grundgesamtheit</strong> entsprechen und sich somit dem <em>wahren</em> Wert annähern.  Die <strong>Unsicherheit des Mittelwertes</strong> einer Messreihe ist gegenüber der Abweichung der Einzelmessungen um den Faktor <span class="math notranslate nohighlight">\(\sqrt{m}\)</span> reduziert. Der Grund dafür ist, dass sich statistisch ermittelte Unsicherheiten teilweise herausmitteln.</p>
+<p>Bei einer großen Anzahl Messungen (&gt;30) werden Sie stets finden, dass etwa 68% der Messungen im Intervall <span class="math notranslate nohighlight">\(\pm s(x)\)</span> um den Mittelwert der Messreihe liegen. Würden Sie den wahren Wert kennen, könnten Sie weiter herausfinden, dass etwa 68% der Messwerte im Intervall <span class="math notranslate nohighlight">\(\pm s(x)\)</span> um den wahren Wert und 68 % der Mittelwerte im Intervall <span class="math notranslate nohighlight">\(\pm s(\overline x)\)</span> um den wahren Wert lägen.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_volt</span><span class="o">=</span><span class="p">[</span><span class="mf">1.02</span><span class="p">,</span> <span class="mf">1.04</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">,</span> <span class="mf">1.00</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span><span class="mf">0.97</span><span class="p">,</span><span class="mf">0.99</span><span class="p">,</span><span class="mf">1.00</span><span class="p">,</span><span class="mf">0.98</span><span class="p">,</span><span class="mf">0.99</span><span class="p">,</span><span class="mf">1.01</span><span class="p">,</span><span class="mf">0.97</span><span class="p">,</span><span class="mf">1.00</span><span class="p">,</span><span class="mf">1.02</span><span class="p">]</span> <span class="c1"># Messergebnisse in Volt</span>
@@ -1215,34 +1226,36 @@ Laut <em>Grenzertsatz</em> sind folglich auch die Mittelwerte (sollte man mehrer
 </div>
 <div class="section" id="vertrauensintervalle">
 <h3>Vertrauensintervalle<a class="headerlink" href="#vertrauensintervalle" title="Permalink to this headline">¶</a></h3>
-<p>Wir haben eben bereits erwähnt, dass 68% der Messwerte innerhalb des Intervalls $\pm s(x)$ liegen. Bei bekannter  Wahrscheinlichkeitsverteilung $p(x)$ der Messwerte $x$ um den Mittelwert $\overline x$, lässt sich die Wahrscheinlichkeit dafür berechnen, einen Messwert im Intervall $[x_1, x_2]$ um den Mittelwert zu finden. Wir nehmen im Folgenden eine Normalverteilung, mit Standardabweichung $\sigma$, der Messwerte an, dann ist die Wahrscheinlichkeit für</p>
+<p>Wir haben eben bereits erwähnt, dass 68% der Messwerte innerhalb des Intervalls <span class="math notranslate nohighlight">\(\pm s(x)\)</span> liegen. Bei bekannter  Wahrscheinlichkeitsverteilung <span class="math notranslate nohighlight">\(p(x)\)</span> der Messwerte <span class="math notranslate nohighlight">\(x\)</span> um den Mittelwert <span class="math notranslate nohighlight">\(\overline x\)</span>, lässt sich die Wahrscheinlichkeit dafür berechnen, einen Messwert im Intervall <span class="math notranslate nohighlight">\([x_1, x_2]\)</span> um den Mittelwert zu finden. Wir nehmen im Folgenden eine Normalverteilung, mit Standardabweichung <span class="math notranslate nohighlight">\(\sigma\)</span>, der Messwerte an, dann ist die Wahrscheinlichkeit für</p>
 <ul class="simple">
-<li><p>einen Messwert $x\pm dx$: $$h(x)dx = \frac{1}{\sigma \sqrt{2\pi}}\mathrm{exp}\left(-\frac{(x-\overline x)^2}{2\sigma^2}\right) dx$$</p></li>
-<li><p>irgendeinen Messwerte zwischen $\pm \infty:$ $$P(-\infty &lt; x &lt; \infty) = \int_{-\infty}^\infty h(x)dx = 1$$</p></li>
-<li><p>einen Messwert im Intervall $[x_1, x_2]$: $$P(x_1 &lt; x &lt; x_2) = \int_{x_1}^{x_2} h(x)dx =  \frac{1}{\sigma \sqrt{2\pi}}\int_{x_1}^{x_2} \mathrm{exp}\left(-\frac{(x-\overline x)^2}{2\sigma^2}\right) dx$$</p></li>
+<li><p>einen Messwert <span class="math notranslate nohighlight">\(x\pm dx\)</span>: $<span class="math notranslate nohighlight">\(h(x)dx = \frac{1}{\sigma \sqrt{2\pi}}\mathrm{exp}\left(-\frac{(x-\overline x)^2}{2\sigma^2}\right) dx\)</span>$</p></li>
+<li><p>irgendeinen Messwerte zwischen <span class="math notranslate nohighlight">\(\pm \infty:\)</span> $<span class="math notranslate nohighlight">\(P(-\infty &lt; x &lt; \infty) = \int_{-\infty}^\infty h(x)dx = 1\)</span>$</p></li>
+<li><p>einen Messwert im Intervall <span class="math notranslate nohighlight">\([x_1, x_2]\)</span>: $<span class="math notranslate nohighlight">\(P(x_1 &lt; x &lt; x_2) = \int_{x_1}^{x_2} h(x)dx =  \frac{1}{\sigma \sqrt{2\pi}}\int_{x_1}^{x_2} \mathrm{exp}\left(-\frac{(x-\overline x)^2}{2\sigma^2}\right) dx\)</span>$</p></li>
 </ul>
-<p>Das hier auftretende Integral ist nicht elementar berechenbar und man findet statt dessen Tabellen, die man hierfür benutzen kann. Mit $x_1 = \mu - r\cdot \sigma$ und $x_2 = \mu + r\cdot \sigma$ findet man die Wahrscheinlichkeit $P(\mu-r\cdot\sigma \leq x \leq \mu+r\cdot\sigma)$ dafür, dass der Messwert innerhalb einer $t\cdot\sigma$-Umgebung um den Mittelwert liegt.
+<p>Das hier auftretende Integral ist nicht elementar berechenbar und man findet statt dessen Tabellen, die man hierfür benutzen kann. Mit <span class="math notranslate nohighlight">\(x_1 = \mu - r\cdot \sigma\)</span> und <span class="math notranslate nohighlight">\(x_2 = \mu + r\cdot \sigma\)</span> findet man die Wahrscheinlichkeit <span class="math notranslate nohighlight">\(P(\mu-r\cdot\sigma \leq x \leq \mu+r\cdot\sigma)\)</span> dafür, dass der Messwert innerhalb einer <span class="math notranslate nohighlight">\(t\cdot\sigma\)</span>-Umgebung um den Mittelwert liegt.
 Bei einer echten Normalverteilung gilt folgendes:</p>
 <ul class="simple">
-<li><p>68,3% aller Messwerte liegen im Bereich $\pm \sigma$</p></li>
-<li><p>95,5% aller Messwerte liegen im Bereich $\pm 2\sigma$</p></li>
-<li><p>99,7% aller Messwerte liegen im Bereich $\pm 3\sigma$</p></li>
-<li><p>Im Abstand $\pm \sigma$ sind die Wendestellen</p></li>
-<li><p>Die Normalverteilung reicht von $-\infty$ bis $+\infty$</p></li>
+<li><p>68,3% aller Messwerte liegen im Bereich <span class="math notranslate nohighlight">\(\pm \sigma\)</span></p></li>
+<li><p>95,5% aller Messwerte liegen im Bereich <span class="math notranslate nohighlight">\(\pm 2\sigma\)</span></p></li>
+<li><p>99,7% aller Messwerte liegen im Bereich <span class="math notranslate nohighlight">\(\pm 3\sigma\)</span></p></li>
+<li><p>Im Abstand <span class="math notranslate nohighlight">\(\pm \sigma\)</span> sind die Wendestellen</p></li>
+<li><p>Die Normalverteilung reicht von <span class="math notranslate nohighlight">\(-\infty\)</span> bis <span class="math notranslate nohighlight">\(+\infty\)</span></p></li>
 </ul>
 <p>Durch die Intervallgrenzen dieser Verteilung werden Güteklassen von Messeinrichtungen definiert. Andersherum können auch Anforderungen an Messgeräte gestellt werden: Die Anforderungen werden umso höher, je höher die Wahrscheinlichkeit sein soll, dass sich die Messwerte dem <em>richtigen</em> Wert annähern.
 Der Messtechniker kann somit mit der gegebenen Wahrscheinlichkeit abschätzen, ob ermittelte Messwerte innerhalb einer durch Fertigungsunterlagen zugelassenen Toleranz für die Maße eines Werkstücks liegen. Übliche Werte für Invervallgrenzen (meist symmetrisch, also Abweichungen sowohl nach unten als auch nach oben im gleichen Maße) und die zugehörigen Wahrscheinlichkeiten sind der nachfolgenden Tabelle angegeben:</p>
-<a class="reference internal image-reference" href="../_images/tab_norm_grenzen.png"><img alt="../_images/tab_norm_grenzen.png" src="../_images/tab_norm_grenzen.png" style="width: 700px;" /></a>
-<p>Als Messtechniker gehen wir immer daher davon aus, dass innerhalb $\pm 3\sigma$ alle Messwerte liegen. Auf dieser Basis wird entsprechend auch die Messabweichung berechnet, also A = $\pm 3\sigma$.</p>
-<p>Das <strong>Endergebnis</strong> der oben dargestellten Messreihe von $m = 15$ Messwerten wird in der Regel wiefolgt angegeben. Als Messwert wird nicht das Ergebnis einer Einzelmessung angegeben, sondern stets der Mittelwert der Messreihe inkl. seiner Unsicherheit:
-$$ s(\overline x) = \frac{s}{\sqrt{m}} = u_{\overline x} $$</p>
+<img src="pictures/tab_norm_grenzen.png" width=700>
+<p>Als Messtechniker gehen wir immer daher davon aus, dass innerhalb <span class="math notranslate nohighlight">\(\pm 3\sigma\)</span> alle Messwerte liegen. Auf dieser Basis wird entsprechend auch die Messabweichung berechnet, also A = <span class="math notranslate nohighlight">\(\pm 3\sigma\)</span>.</p>
+<p>Das <strong>Endergebnis</strong> der oben dargestellten Messreihe von <span class="math notranslate nohighlight">\(m = 15\)</span> Messwerten wird in der Regel wiefolgt angegeben. Als Messwert wird nicht das Ergebnis einer Einzelmessung angegeben, sondern stets der Mittelwert der Messreihe inkl. seiner Unsicherheit:
+$<span class="math notranslate nohighlight">\( s(\overline x) = \frac{s}{\sqrt{m}} = u_{\overline x} \)</span>$</p>
 <p>Der Mittelwert ist der beste Schätzwert, den wir für den <em>wahren</em> Wert ermitteln können. Die Angabe des Messergebnisses erfolgt also wiefolgt:</p>
-<p>$$x = \overline x \pm r \cdot u_{\overline x}$$</p>
-<p>wobei $r$ ein Maß für den <strong>Vertrauensbereich $v$</strong> ist:</p>
-<p>$$v = \pm \frac{r}{\sqrt{m}}\cdot s = u_v$$</p>
+<div class="math notranslate nohighlight">
+\[x = \overline x \pm r \cdot u_{\overline x}\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(r\)</span> ein Maß für den <strong>Vertrauensbereich <span class="math notranslate nohighlight">\(v\)</span></strong> ist:</p>
+<div class="math notranslate nohighlight">
+\[v = \pm \frac{r}{\sqrt{m}}\cdot s = u_v\]</div>
 <p>Der Vertrauensbereich beschreibt die Aufspreizung des Mittelwertes einer Messreihe zu einem Vertrauensband, das umso breiter ist, je weniger Messwerte zur Auswertung zur Verfügung stehen und je größer das geforderte Vertrauensniveau ist.
 Der Vertrauensbereich gilt als Qualitätsmaß für die Genauigkeit einer durchgeführten Messung.
-Für $r=1$ wählen wir also die $\pm 1\sigma$-Umgebung, in der 68% der Messwerte liegen. Für $r = 2$, also die $\pm 2\sigma$-Umgebung, werden schon 95% aller Messwerte in diesem Bereich erwartet. Die Messabweichung ist dadurch erhöht, das Vertrauen allerdings auch.</p>
+Für <span class="math notranslate nohighlight">\(r=1\)</span> wählen wir also die <span class="math notranslate nohighlight">\(\pm 1\sigma\)</span>-Umgebung, in der 68% der Messwerte liegen. Für <span class="math notranslate nohighlight">\(r = 2\)</span>, also die <span class="math notranslate nohighlight">\(\pm 2\sigma\)</span>-Umgebung, werden schon 95% aller Messwerte in diesem Bereich erwartet. Die Messabweichung ist dadurch erhöht, das Vertrauen allerdings auch.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mittelwert der Messreihe: &quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="s1">&#39;V&#39;</span><span class="p">)</span>
@@ -1266,44 +1279,46 @@ Messergebnis (95%): ( 0.994 +- 0.012 ) V
 </div>
 <div class="section" id="korrektur-bei-kleinen-stichproben-student-t">
 <h3>Korrektur bei kleinen Stichproben: Student-t<a class="headerlink" href="#korrektur-bei-kleinen-stichproben-student-t" title="Permalink to this headline">¶</a></h3>
-<p>Ist die Zahl der Messwerte nur klein ($m \leq 25$) werden die aus der Normalverteilung berechneten Parameter ziemlich unsicher. Anfang des 20. Jh. veröffentlichte WILLIAM SEALY GOSSET unter dem Pseudonym „Student“ eine Verteilungsfunktion, die eine zuverlässigere Parameterschätzung auch für kleine Stichprobengrößen erlaubt. Für die Messwertanalyse ist folgender Teilaspekt von Bedeutung: Aus der Zahl $m$ der Messwerte und einem vorgegebenen Vertrauensbereich berechnen Sie einen Faktor $t(s=m-1, p=1-\alpha/2)$, der die Unsicherheitsintervalle aus der Normalverteilung korrigiert.
-Die unten stehende Quantil-Tabelle zeigt die zugehörigen Werte von $t$ in Abhängigkeit von der Messwertanzahl, und dem gewählten Vertrauensniveau, dass die geforderte statistische Sicherheit beschreibt:</p>
-<a class="reference internal image-reference" href="../_images/student-t.png"><img alt="../_images/student-t.png" src="../_images/student-t.png" style="width: 700px;" /></a>
-<p>Die Interpretation der Quantil-Tabelle der Student-t Verteilung kann verwirrend sein. Statt der Anzahl der Messwerte $m$ wird die Anzahl der Freiheitsgrade $s = m-1$ angegeben. Und statt des zweiseitigen Vertrauensbereich $P = 1-\alpha$ wird der halbseitige Vertrauensbereich $p = 1-\alpha/2$ gewählt. Beide <em>Quantile</em> können aber über die eben angegebenen Formel einfach bestimmt werden.</p>
-<p>Aus der empirischen Standardabweichung des Mittelwertes $s(\overline x)$ berechnet man beispielsweise:
-$$u(\overline x) = t(s,p)\cdot s(\overline x) = t(s,p)\cdot \frac{s(x)}{\sqrt{m}}$$.
+<p>Ist die Zahl der Messwerte nur klein (<span class="math notranslate nohighlight">\(m \leq 25\)</span>) werden die aus der Normalverteilung berechneten Parameter ziemlich unsicher. Anfang des 20. Jh. veröffentlichte WILLIAM SEALY GOSSET unter dem Pseudonym „Student“ eine Verteilungsfunktion, die eine zuverlässigere Parameterschätzung auch für kleine Stichprobengrößen erlaubt. Für die Messwertanalyse ist folgender Teilaspekt von Bedeutung: Aus der Zahl <span class="math notranslate nohighlight">\(m\)</span> der Messwerte und einem vorgegebenen Vertrauensbereich berechnen Sie einen Faktor <span class="math notranslate nohighlight">\(t(s=m-1, p=1-\alpha/2)\)</span>, der die Unsicherheitsintervalle aus der Normalverteilung korrigiert.
+Die unten stehende Quantil-Tabelle zeigt die zugehörigen Werte von <span class="math notranslate nohighlight">\(t\)</span> in Abhängigkeit von der Messwertanzahl, und dem gewählten Vertrauensniveau, dass die geforderte statistische Sicherheit beschreibt:</p>
+<img src="pictures/student-t.png" width=700>
+<p>Die Interpretation der Quantil-Tabelle der Student-t Verteilung kann verwirrend sein. Statt der Anzahl der Messwerte <span class="math notranslate nohighlight">\(m\)</span> wird die Anzahl der Freiheitsgrade <span class="math notranslate nohighlight">\(s = m-1\)</span> angegeben. Und statt des zweiseitigen Vertrauensbereich <span class="math notranslate nohighlight">\(P = 1-\alpha\)</span> wird der halbseitige Vertrauensbereich <span class="math notranslate nohighlight">\(p = 1-\alpha/2\)</span> gewählt. Beide <em>Quantile</em> können aber über die eben angegebenen Formel einfach bestimmt werden.</p>
+<p>Aus der empirischen Standardabweichung des Mittelwertes <span class="math notranslate nohighlight">\(s(\overline x)\)</span> berechnet man beispielsweise:
+$<span class="math notranslate nohighlight">\(u(\overline x) = t(s,p)\cdot s(\overline x) = t(s,p)\cdot \frac{s(x)}{\sqrt{m}}\)</span><span class="math notranslate nohighlight">\(.
 Desweiteren können Vertrauensbereiche unterschiedlicher Wahrscheinlichkeiten ineinander umgerechnet werden:
-$$\frac{u_{\alpha 1}}{t_{m-1; 1-\frac{\alpha_1}{2}}} =  \frac{u_{\alpha 2}}{t_{m-1; 1-\frac{\alpha_2}{2}}}$$</p>
-<p>Hierbei ist $\alpha$ das Signifikanzniveau, also die Irrtumswahrscheinlichkeit $\alpha = 1-P$, wobei $P$ die Wahrscheinlichkeit bzw. die geforderte statistische Sicherheit ist.</p>
+\)</span><span class="math notranslate nohighlight">\(\frac{u_{\alpha 1}}{t_{m-1; 1-\frac{\alpha_1}{2}}} =  \frac{u_{\alpha 2}}{t_{m-1; 1-\frac{\alpha_2}{2}}}\)</span>$</p>
+<p>Hierbei ist <span class="math notranslate nohighlight">\(\alpha\)</span> das Signifikanzniveau, also die Irrtumswahrscheinlichkeit <span class="math notranslate nohighlight">\(\alpha = 1-P\)</span>, wobei <span class="math notranslate nohighlight">\(P\)</span> die Wahrscheinlichkeit bzw. die geforderte statistische Sicherheit ist.</p>
 <div class="section" id="beispiel-student-t-verteilung-a-id-subsec-beispiel-student-t-verteilung-a">
 <h4>Beispiel: Student-t Verteilung <a id="SubSec-Beispiel_Student-t_Verteilung"></a><a class="headerlink" href="#beispiel-student-t-verteilung-a-id-subsec-beispiel-student-t-verteilung-a" title="Permalink to this headline">¶</a></h4>
 <p>Für die Spannung-Messreihe aus dem oben aufgeführten Beispiel waren folgende Parameter gegeben:</p>
 <ul class="simple">
-<li><p>Anzahl der Messwerte $m=15$</p></li>
-<li><p>Mittelwert: $\overline U = 0.994,\mathrm{V}$</p></li>
-<li><p>Standardabweichung des Mittelwertes: $ u_{\overline U} = 0,006,\mathrm V $</p></li>
+<li><p>Anzahl der Messwerte <span class="math notranslate nohighlight">\(m=15\)</span></p></li>
+<li><p>Mittelwert: <span class="math notranslate nohighlight">\(\overline U = 0.994\,\mathrm{V}\)</span></p></li>
+<li><p>Standardabweichung des Mittelwertes: <span class="math notranslate nohighlight">\( u_{\overline U} = 0,006\,\mathrm V \)</span></p></li>
 </ul>
-<p>Oben hatten wir das Ergebnis, in dem 95% der Messwerte zu finden sind, wiefolgt angegeben gehabt, in dem wir die Gaußverteilung und den zugehörigen $2\sigma$-Vertrauensbereich benutzt haben:</p>
-<p>$$U = (0,994 \pm 2\cdot 0,006),\mathrm V = (0,994 \pm 0,012),\mathrm V \quad (95%)$$</p>
-<p>In Anbetracht der sehr kleinen Stichprobe von lediglich $m=15$ Messwerten sollte jedoch die Student-t Verteilung hinzugezogen werden und der Vertrauensbereich für 95% korrigiert werden. Es gilt also:</p>
+<p>Oben hatten wir das Ergebnis, in dem 95% der Messwerte zu finden sind, wiefolgt angegeben gehabt, in dem wir die Gaußverteilung und den zugehörigen <span class="math notranslate nohighlight">\(2\sigma\)</span>-Vertrauensbereich benutzt haben:</p>
+<div class="math notranslate nohighlight">
+\[U = (0,994 \pm 2\cdot 0,006)\,\mathrm V = (0,994 \pm 0,012)\,\mathrm V \quad (95\%)\]</div>
+<p>In Anbetracht der sehr kleinen Stichprobe von lediglich <span class="math notranslate nohighlight">\(m=15\)</span> Messwerten sollte jedoch die Student-t Verteilung hinzugezogen werden und der Vertrauensbereich für 95% korrigiert werden. Es gilt also:</p>
 <blockquote>
-<div><p>$P = 1-\alpha = 0,95$. Daraus folgt:</p>
+<div><p><span class="math notranslate nohighlight">\(P = 1-\alpha = 0,95\)</span>. Daraus folgt:</p>
 </div></blockquote>
 <blockquote>
-<div><p>$\Rightarrow \alpha = 1-P = 1-0,95 = 0,05$</p>
+<div><p><span class="math notranslate nohighlight">\(\Rightarrow \alpha = 1-P = 1-0,95 = 0,05\)</span></p>
 </div></blockquote>
 <blockquote>
-<div><p>$\Rightarrow \alpha/2 = 0,025$</p>
+<div><p><span class="math notranslate nohighlight">\(\Rightarrow \alpha/2 = 0,025\)</span></p>
 </div></blockquote>
 <blockquote>
-<div><p>$\Rightarrow p = 1-\alpha/2 = 1-0,025 = 0,975$</p>
+<div><p><span class="math notranslate nohighlight">\(\Rightarrow p = 1-\alpha/2 = 1-0,025 = 0,975\)</span></p>
 </div></blockquote>
 <p>Für die Berechnung des s-Quantils gilt:</p>
 <blockquote>
-<div><p>$s = m-1 = 15-1 = 14$</p>
+<div><p><span class="math notranslate nohighlight">\(s = m-1 = 15-1 = 14\)</span></p>
 </div></blockquote>
-<p>Der $t$-Wert des korrigierten Vertrauebnsbereichs wird aus der Tabelle abgelesen:</p>
-<p>$$t_{s;p} = t_{m-1; 1-\alpha/2} = t_{14; 0,975} = 2,145$$</p>
+<p>Der <span class="math notranslate nohighlight">\(t\)</span>-Wert des korrigierten Vertrauebnsbereichs wird aus der Tabelle abgelesen:</p>
+<div class="math notranslate nohighlight">
+\[t_{s;p} = t_{m-1; 1-\alpha/2} = t_{14; 0,975} = 2,145\]</div>
 <p>Der Unterschied zum Vertrauensbereich, der aus der Normalverteilung hervorgeht, ist ein über 7% höherer Fehler.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1317,17 +1332,19 @@ $$\frac{u_{\alpha 1}}{t_{m-1; 1-\frac{\alpha_1}{2}}} =  \frac{u_{\alpha 2}}{t_{m
 </div>
 </div>
 </div>
-<p>Die Umrechnung dieses Vertrauensbereich in einen Vertrauensbereich mit einem anderen Vertrauenzniveau, z.B. von 95% zu 99%, wird im folgenden anhand dieses Beispiels verdeutlicht. Die Ergebnisse für 95% sind bekannt. Nun muss das Quantil für 99% (also $\alpha = $1%) bestimmt werden. Analog werden die $s = m-1 = 14$ und $p = 1-\alpha/2 = 1-0,005 = 0,995$ Quantile bestimmt und der $t-Wert$ aus der Tabelle abgelesen:</p>
-<p>$$t_{s;p} = t_{m-1; 1-\alpha/2} = t_{14; 0,995} = 2,977$$</p>
+<p>Die Umrechnung dieses Vertrauensbereich in einen Vertrauensbereich mit einem anderen Vertrauenzniveau, z.B. von 95% zu 99%, wird im folgenden anhand dieses Beispiels verdeutlicht. Die Ergebnisse für 95% sind bekannt. Nun muss das Quantil für 99% (also <span class="math notranslate nohighlight">\(\alpha = \)</span>1%) bestimmt werden. Analog werden die <span class="math notranslate nohighlight">\(s = m-1 = 14\)</span> und <span class="math notranslate nohighlight">\(p = 1-\alpha/2 = 1-0,005 = 0,995\)</span> Quantile bestimmt und der <span class="math notranslate nohighlight">\(t-Wert\)</span> aus der Tabelle abgelesen:</p>
+<div class="math notranslate nohighlight">
+\[t_{s;p} = t_{m-1; 1-\alpha/2} = t_{14; 0,995} = 2,977\]</div>
 <p>Hieraus kann nun nach obiger Gleichung der Vertrauensbereich für 99% berechnet werden:</p>
 <blockquote>
-<div><p>$\frac{u_{\alpha 1}}{t_{m-1; 1-\frac{\alpha_1}{2}}} =  \frac{u_{\alpha 2}}{t_{m-1; 1-\frac{\alpha_2}{2}}}$</p>
+<div><p><span class="math notranslate nohighlight">\(\frac{u_{\alpha 1}}{t_{m-1; 1-\frac{\alpha_1}{2}}} =  \frac{u_{\alpha 2}}{t_{m-1; 1-\frac{\alpha_2}{2}}}\)</span></p>
 </div></blockquote>
 <blockquote>
-<div><p>$\Rightarrow u_{\alpha 2} = u_{\alpha 1} \cdot \frac{t_{m-1; 1-\frac{\alpha_2}{2}}}{t_{m-1; 1-\frac{\alpha_1}{2}}} = 0,013,\mathrm V \cdot 2,977 / 2,145 = 0,018,\mathrm V$</p>
+<div><p><span class="math notranslate nohighlight">\(\Rightarrow u_{\alpha 2} = u_{\alpha 1} \cdot \frac{t_{m-1; 1-\frac{\alpha_2}{2}}}{t_{m-1; 1-\frac{\alpha_1}{2}}} = 0,013\,\mathrm V \cdot 2,977 / 2,145 = 0,018\,\mathrm V\)</span></p>
 </div></blockquote>
 <p>Die Angabe des Messergebnisses lautet somit:</p>
-<p>$$U = (0,994 \pm 0,018),\mathrm V \quad (99%)$$</p>
+<div class="math notranslate nohighlight">
+\[U = (0,994 \pm 0,018)\,\mathrm V \quad (99\%)\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mf">0.013</span><span class="o">*</span><span class="mf">2.977</span><span class="o">/</span><span class="mf">2.145</span><span class="p">)</span>
@@ -1345,64 +1362,65 @@ $$\frac{u_{\alpha 1}}{t_{m-1; 1-\frac{\alpha_1}{2}}} =  \frac{u_{\alpha 2}}{t_{m
 <div class="section" id="normierte-normalverteilung">
 <h3>Normierte Normalverteilung<a class="headerlink" href="#normierte-normalverteilung" title="Permalink to this headline">¶</a></h3>
 <p>Jede Normalverteilung kann in eine normierte Gaußverteilung transformiert werden. Der Übergang erfolgt mit einer Transformation, die die Messwerte normiert. Dadurch können die Verteilungen verschiedener Messwerte miteinander verglichen werden, unabhängig von deren physikalischen Einheit.</p>
-<a class="reference internal image-reference" href="../_images/normierte_gauss.png"><img alt="../_images/normierte_gauss.png" src="../_images/normierte_gauss.png" style="width: 900px;" /></a>
-<p>Die Differenz $x-\mu$ wird auf die Standardabweichung $\sigma$ normiert. Dadurch erhält man folgende Funktion für $\mu = 0$ und $\sigma = 1$ und $-1$:</p>
-<p>$$h(z) = \frac{1}{\sqrt{2\pi}}\mathrm e^{-\frac{z^2}{2 ^2}} $$</p>
-<p>Der Flächeninhalt unterhalb dieser Verteilungsfunktion ist wieder auf 100% normiert, wenn von $\pm \infty$ integriert wird. Die Maximale Amplitude ist jetzt $1/\sqrt{2 \pi}$. Die $z$-Achse (vorher Messwerte $x$) ist jetzt dimensionslos (einheitenlos). Somit können mit normierten Gaußverteilungen verschiedene physikalische Größen auch von verschiedenen Messgeräten bezüglich ihrer Streuung verglichen werden.
-Folgende Tabelle zeigt die Wahrscheinlichkeiten für verschiedene $z-$Werte. Die Spalten geben die erste Nachkommastelle von $z$ an, die Zeilen die zweite:</p>
-<a class="reference internal image-reference" href="../_images/normalverteilung_tabelle.png"><img alt="../_images/normalverteilung_tabelle.png" src="../_images/normalverteilung_tabelle.png" style="width: 500px;" /></a>
+<img src="pictures/normierte_gauss.png" width=900>
+<p>Die Differenz <span class="math notranslate nohighlight">\(x-\mu\)</span> wird auf die Standardabweichung <span class="math notranslate nohighlight">\(\sigma\)</span> normiert. Dadurch erhält man folgende Funktion für <span class="math notranslate nohighlight">\(\mu = 0\)</span> und <span class="math notranslate nohighlight">\(\sigma = 1\)</span> und <span class="math notranslate nohighlight">\(-1\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[h(z) = \frac{1}{\sqrt{2\pi}}\mathrm e^{-\frac{z^2}{2 ^2}} \]</div>
+<p>Der Flächeninhalt unterhalb dieser Verteilungsfunktion ist wieder auf 100% normiert, wenn von <span class="math notranslate nohighlight">\(\pm \infty\)</span> integriert wird. Die Maximale Amplitude ist jetzt <span class="math notranslate nohighlight">\(1/\sqrt{2 \pi}\)</span>. Die <span class="math notranslate nohighlight">\(z\)</span>-Achse (vorher Messwerte <span class="math notranslate nohighlight">\(x\)</span>) ist jetzt dimensionslos (einheitenlos). Somit können mit normierten Gaußverteilungen verschiedene physikalische Größen auch von verschiedenen Messgeräten bezüglich ihrer Streuung verglichen werden.
+Folgende Tabelle zeigt die Wahrscheinlichkeiten für verschiedene <span class="math notranslate nohighlight">\(z-\)</span>Werte. Die Spalten geben die erste Nachkommastelle von <span class="math notranslate nohighlight">\(z\)</span> an, die Zeilen die zweite:</p>
+<img src="pictures/normalverteilung_tabelle.png" width=500>
 <div class="section" id="beispiel-wahrscheinlichkeit-fur-zutreffen-eines-ereignisses-mittels-gausz-test">
 <h4>Beispiel: Wahrscheinlichkeit für Zutreffen eines Ereignisses mittels Gauß-Test<a class="headerlink" href="#beispiel-wahrscheinlichkeit-fur-zutreffen-eines-ereignisses-mittels-gausz-test" title="Permalink to this headline">¶</a></h4>
 <p>Als wichtigste Erkenntnis gilt es festzuhalten, dass zu jeder Aussage zu zufälligen Abweichungen die zugehörige Wahrscheinlichkeit für das Zutreffen dieser Aussage zwingend erforderlich ist. Dies sollte immer mit angegeben werden, wenn die Messabweichung angegeben wird.
 Messwertangaben ohne Aussage zur Wahrscheinlichkeit bezüglich der zufälligen Abweichungen sind in der betrieblichen Praxis nicht brauchbar!</p>
 <p>Es soll im Folgenden ein Messsystem einer Abfüllanlage überprüft werden, die Flaschen sind jeweils mit 0,7 l Saftgetränk befüllt.
-Aus Kalibrierungen ist bekannt, dass die Messwerte des Messsystems der Abfüllanlage normalverteilt mit einem Erwartungswert $\mu$ = 0,7 l und Standardabweichung $\sigma$ = 5 ml sind.
+Aus Kalibrierungen ist bekannt, dass die Messwerte des Messsystems der Abfüllanlage normalverteilt mit einem Erwartungswert <span class="math notranslate nohighlight">\(\mu\)</span> = 0,7 l und Standardabweichung <span class="math notranslate nohighlight">\(\sigma\)</span> = 5 ml sind.
 Wie groß ist die Wahrscheinlichkeit, dass die Saftflaschen mit einen Inhalt zwischen 0,69 l und 0,71 l befüllt werden?</p>
 <p>Lösung:</p>
 <ul class="simple">
-<li><p>Obere und untere Grenze werden in den $z$-Wert umgerechnet:</p></li>
+<li><p>Obere und untere Grenze werden in den <span class="math notranslate nohighlight">\(z\)</span>-Wert umgerechnet:</p></li>
 </ul>
 <blockquote>
-<div><p>$z_o = \frac{x-\mu}{\sigma} = \frac{(0,69-0,7),\mathrm l}{0,005,\mathrm l} = -2$</p>
+<div><p><span class="math notranslate nohighlight">\(z_o = \frac{x-\mu}{\sigma} = \frac{(0,69-0,7)\,\mathrm l}{0,005\,\mathrm l} = -2\)</span></p>
 </div></blockquote>
 <blockquote>
-<div><p>$z_u = \frac{x-\mu}{\sigma} = \frac{(0,71-0,7),\mathrm l}{0,005,\mathrm l} = 2$</p>
+<div><p><span class="math notranslate nohighlight">\(z_u = \frac{x-\mu}{\sigma} = \frac{(0,71-0,7)\,\mathrm l}{0,005\,\mathrm l} = 2\)</span></p>
 </div></blockquote>
 <ul class="simple">
-<li><p>Aus der Tabelle werden die Werte für $z = 2,00$ abgelesen:</p></li>
+<li><p>Aus der Tabelle werden die Werte für <span class="math notranslate nohighlight">\(z = 2,00\)</span> abgelesen:</p></li>
 </ul>
 <blockquote>
-<div><p>$\phi(2) = 0.97725$ (Wahrscheinlichkeit dafür, dass der Messwert zwischen 0 l und 0,71 l liegt)</p>
+<div><p><span class="math notranslate nohighlight">\(\phi(2) = 0.97725\)</span> (Wahrscheinlichkeit dafür, dass der Messwert zwischen 0 l und 0,71 l liegt)</p>
 </div></blockquote>
 <blockquote>
-<div><p>$\phi(-2) = 1 - \phi(2) =  1-0,97725 = 0,02275$ (Wahrscheinlichkeit dafür, dass der Messwert NICHT zwischen 0 l und 0,69 l liegt)</p>
+<div><p><span class="math notranslate nohighlight">\(\phi(-2) = 1 - \phi(2) =  1-0,97725 = 0,02275\)</span> (Wahrscheinlichkeit dafür, dass der Messwert NICHT zwischen 0 l und 0,69 l liegt)</p>
 </div></blockquote>
 <ul class="simple">
 <li><p>Berechnung der Wahrscheinlichkeit, dass die Saftflaschen mit einem Inhalt zwischen 0,69 l und 0,71 l befüllt werden:</p></li>
 </ul>
 <blockquote>
-<div><p>$\phi(2) - \phi(-2) = 0,97725-0,02275 = 0,9545$</p>
+<div><p><span class="math notranslate nohighlight">\(\phi(2) - \phi(-2) = 0,97725-0,02275 = 0,9545\)</span></p>
 </div></blockquote>
-<p>Mit einer Wahrscheinlichkeit von 95,45 % werden die Flaschen in der Abfüllanlage mit einem Inhalt von 0,69 l – 0,71 l befüllt. Dies entspricht auch genau der Wahrscheinlichkeit der $2\sigma$-Umgebung (siehe vorheriges Kapitel), was für $z = \pm 2$ natürlich auch so sein sollte.</p>
+<p>Mit einer Wahrscheinlichkeit von 95,45 % werden die Flaschen in der Abfüllanlage mit einem Inhalt von 0,69 l – 0,71 l befüllt. Dies entspricht auch genau der Wahrscheinlichkeit der <span class="math notranslate nohighlight">\(2\sigma\)</span>-Umgebung (siehe vorheriges Kapitel), was für <span class="math notranslate nohighlight">\(z = \pm 2\)</span> natürlich auch so sein sollte.</p>
 </div>
 </div>
 <div class="section" id="zusammenfassung-zufalliger-unsicherheiten">
 <h3>Zusammenfassung zufälliger Unsicherheiten<a class="headerlink" href="#zusammenfassung-zufalliger-unsicherheiten" title="Permalink to this headline">¶</a></h3>
-<a class="reference internal image-reference" href="../_images/zusammenfassung_zufaellig.png"><img alt="../_images/zusammenfassung_zufaellig.png" src="../_images/zusammenfassung_zufaellig.png" style="width: 900px;" /></a>
-</div>
+<img src="pictures/zusammenfassung_zufaellig.png" width=900></div>
 </div>
 <div class="section" id="fortpflanzung-der-messunsicherheit">
 <h2>Fortpflanzung der Messunsicherheit<a class="headerlink" href="#fortpflanzung-der-messunsicherheit" title="Permalink to this headline">¶</a></h2>
 <p>In der Messtechnik gibt es zwei Möglichkeiten eines Messprinzips:</p>
 <ul class="simple">
-<li><p>Das <strong>direkte Messverfahren</strong>: der gesuchte Messwert wird unmittelbar durch den Vergleich mit einem Bezugswert derselben Messgröße gewonnen. Als Beispiel eignet sich hier die Balkenwaage, die die unbekannte Masse $m$ mit der bekannten Masse eines Gewichtssteins vergleicht.</p></li>
-<li><p>Das <strong>indirekt Messerverfahren</strong>: Die meisten physikalischen Größen werden so ermittelt, da sie nur indirekt ermittelt werden können. Die gesuchte Messgröße wird hierbei über physikalische Zusammenhänge auf andere Größen zurückgeführt und anschließend aus diesen ermittelt. Die Federwaage ist ein Beispiel hierfür, bei der eine unbekannte Masse $m$ über die Auslenkung $x$ einer Feder (Federkonstante $k$) ermittelt werden soll. Gravitationskraft wird der Rückstellkraft der Feder gleichgesetzt und man erhält folgenden Zusammenhang, wobei $g$ die Schwerebeschleunigung ist.</p></li>
+<li><p>Das <strong>direkte Messverfahren</strong>: der gesuchte Messwert wird unmittelbar durch den Vergleich mit einem Bezugswert derselben Messgröße gewonnen. Als Beispiel eignet sich hier die Balkenwaage, die die unbekannte Masse <span class="math notranslate nohighlight">\(m\)</span> mit der bekannten Masse eines Gewichtssteins vergleicht.</p></li>
+<li><p>Das <strong>indirekt Messerverfahren</strong>: Die meisten physikalischen Größen werden so ermittelt, da sie nur indirekt ermittelt werden können. Die gesuchte Messgröße wird hierbei über physikalische Zusammenhänge auf andere Größen zurückgeführt und anschließend aus diesen ermittelt. Die Federwaage ist ein Beispiel hierfür, bei der eine unbekannte Masse <span class="math notranslate nohighlight">\(m\)</span> über die Auslenkung <span class="math notranslate nohighlight">\(x\)</span> einer Feder (Federkonstante <span class="math notranslate nohighlight">\(k\)</span>) ermittelt werden soll. Gravitationskraft wird der Rückstellkraft der Feder gleichgesetzt und man erhält folgenden Zusammenhang, wobei <span class="math notranslate nohighlight">\(g\)</span> die Schwerebeschleunigung ist.</p></li>
 </ul>
-<a class="reference internal image-reference" href="../_images/direkt_indirekt.png"><img alt="../_images/direkt_indirekt.png" src="../_images/direkt_indirekt.png" style="width: 500px;" /></a>
-<p>Durch dieses Beispiel wird klar, dass Messgrößen $y$ oft nicht direkt ermittelt werden, sondern über funktionelle Zusammenhänge von $n$ Messgrößen $x_i$ bestimmt werden:</p>
-<p>$$ y = f(x_1, x_2, …,x_n)$$</p>
-<p><strong>Achtung</strong>, bei $x_i$ handelt es sich nicht um Stichprobengrößen $x_j$, sondern um  Messungen <em>unterschiedlicher</em> physikalischer Messgrößen, beispielsweise Federkonstante $k$ und Auslenkung $x$).</p>
-<p>Wie wirken sich Messunsicherheiten der Messgrößen $x_i$ auf das Ergebnis $y$ aus? Im folgenden Plot ist ersichtlich, dass eine Abweichung der Größe $x$ zwangsläufig eine Abweichung der Größe $y$ zur Folge hat:</p>
+<img src="pictures/direkt_indirekt.png" width=500>
+<p>Durch dieses Beispiel wird klar, dass Messgrößen <span class="math notranslate nohighlight">\(y\)</span> oft nicht direkt ermittelt werden, sondern über funktionelle Zusammenhänge von <span class="math notranslate nohighlight">\(n\)</span> Messgrößen <span class="math notranslate nohighlight">\(x_i\)</span> bestimmt werden:</p>
+<div class="math notranslate nohighlight">
+\[ y = f(x_1, x_2, ...,x_n)\]</div>
+<p><strong>Achtung</strong>, bei <span class="math notranslate nohighlight">\(x_i\)</span> handelt es sich nicht um Stichprobengrößen <span class="math notranslate nohighlight">\(x_j\)</span>, sondern um  Messungen <em>unterschiedlicher</em> physikalischer Messgrößen, beispielsweise Federkonstante <span class="math notranslate nohighlight">\(k\)</span> und Auslenkung <span class="math notranslate nohighlight">\(x\)</span>).</p>
+<p>Wie wirken sich Messunsicherheiten der Messgrößen <span class="math notranslate nohighlight">\(x_i\)</span> auf das Ergebnis <span class="math notranslate nohighlight">\(y\)</span> aus? Im folgenden Plot ist ersichtlich, dass eine Abweichung der Größe <span class="math notranslate nohighlight">\(x\)</span> zwangsläufig eine Abweichung der Größe <span class="math notranslate nohighlight">\(y\)</span> zur Folge hat:</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">global_mean</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">1980</span><span class="p">,</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span>
@@ -1447,98 +1465,114 @@ Wie groß ist die Wahrscheinlichkeit, dass die Saftflaschen mit einen Inhalt zwi
 <img alt="../_images/AnalyseUndPraesentationVonMessdaten_ALL_43_0.png" src="../_images/AnalyseUndPraesentationVonMessdaten_ALL_43_0.png" />
 </div>
 </div>
-<p>Das Intervall $\pm \Delta x = 20$ im obigen Plot um 1980 drum herum wird durch <em>irgendeinen</em> funktionellen Zusammenhang $f(x)$ auf das Intervall $\Delta y$ abgebildet. Durch den Messwert $x_0 = 1980$ kann eine lineare Ausgleichsgerade gezogen werden, deren Steigung der Ableitung der Funktion in diesem Punkt entspricht, $df(x_0)/dx$. Anhand der Steigung der linearen Ausgleichsgeraden kann man den Fehler für $y$ direkt ablesen: $\Delta y \approx 0,375$. Man sieht jedoch in der Abbildung auch, dass diese Abschätzung umso schlechter wird, je größer $\Delta x$ ist. Je nach Funktionstyp müssen also auch höhere Ableitungen berücksichtigt werden (<em>Taylorentwicklung</em> von $f(x)$).</p>
+<p>Das Intervall <span class="math notranslate nohighlight">\(\pm \Delta x = 20\)</span> im obigen Plot um 1980 drum herum wird durch <em>irgendeinen</em> funktionellen Zusammenhang <span class="math notranslate nohighlight">\(f(x)\)</span> auf das Intervall <span class="math notranslate nohighlight">\(\Delta y\)</span> abgebildet. Durch den Messwert <span class="math notranslate nohighlight">\(x_0 = 1980\)</span> kann eine lineare Ausgleichsgerade gezogen werden, deren Steigung der Ableitung der Funktion in diesem Punkt entspricht, <span class="math notranslate nohighlight">\(df(x_0)/dx\)</span>. Anhand der Steigung der linearen Ausgleichsgeraden kann man den Fehler für <span class="math notranslate nohighlight">\(y\)</span> direkt ablesen: <span class="math notranslate nohighlight">\(\Delta y \approx 0,375\)</span>. Man sieht jedoch in der Abbildung auch, dass diese Abschätzung umso schlechter wird, je größer <span class="math notranslate nohighlight">\(\Delta x\)</span> ist. Je nach Funktionstyp müssen also auch höhere Ableitungen berücksichtigt werden (<em>Taylorentwicklung</em> von <span class="math notranslate nohighlight">\(f(x)\)</span>).</p>
 <div class="section" id="herleitung-taylorentwicklung">
 <h3>Herleitung: Taylorentwicklung<a class="headerlink" href="#herleitung-taylorentwicklung" title="Permalink to this headline">¶</a></h3>
-<p>Für eine allgemeine Funktion $f(x) = y(x)$ <strong>einer</strong> Zufallsgröße $x$ lässt sich die Frage
+<p>Für eine allgemeine Funktion <span class="math notranslate nohighlight">\(f(x) = y(x)\)</span> <strong>einer</strong> Zufallsgröße <span class="math notranslate nohighlight">\(x\)</span> lässt sich die Frage
 nach der Unsicherheit näherungsweise beantworten, wenn man
-die Taylor-Entwicklung von $y$ an der Stelle $\bar x$ um deren Messabweichung $\Delta x$ herum entwickelt:</p>
-<p>$$y = y(x)\quad \Rightarrow \quad y(x+\Delta x)= y(x) + \frac1{1!}\ \frac{dy(x)}{dx} \cdot \Delta x + \frac1{2!}\ \frac{d^2 y(x)}{d x^2}\cdot (\Delta x)^2 + \cdots$$</p>
-<p>Da die Unsicherheit typischerweise eine kleine Größe ist, wird die Reihenentwicklung nach dem linearen Glied abgebrochen, da höhere Ordnung von $(\Delta x)^2$ recht klein werden. Damit ergibt sich die Näherung:</p>
-<p>$$ y(x+\Delta x)= y(x) + \frac1{1!}\ \frac{dy(x)}{dx} \cdot \Delta x \quad \Rightarrow \quad y(x+\Delta x) - y(x) = \Delta y =  \frac{dy(x)}{dx} \cdot \Delta x$$</p>
-<p>Diese Formel gilt, wenn das Messergebnis von einer einzelnen Zufallsgröße abhängt. Kommen weitere Messgrößen dazu, welche voneinander unabhängig sind, wird die entsprechende Reihenentwicklung verwendet, welche ebenfalls bis zum linearen Glied als Näherung für kleine $\Delta x$ angenommen werden kann:</p>
-<p>$$y = y(x_1, x_2, …)  \quad \Rightarrow \quad \Delta y = \frac{\partial y}{\partial x_1} \cdot \Delta x_1 + \frac{\partial y}{\partial x_2} \cdot \Delta x_2 + …$$</p>
-<p>wobei hier der Term $\frac{\partial y}{\partial x_1}$ die <em>partielle</em> Ableitung der Funktion $y(x_1, x_2, …)$ nach der Größe $x_1$ bedeutet. Wird die partielle Ableitung nach $x_1$ berechnet, verhalten sich alle anderen Eingangsgrößen ($x_2, …$) wie eine Konstante.</p>
+die Taylor-Entwicklung von <span class="math notranslate nohighlight">\(y\)</span> an der Stelle <span class="math notranslate nohighlight">\(\bar x\)</span> um deren Messabweichung <span class="math notranslate nohighlight">\(\Delta x\)</span> herum entwickelt:</p>
+<div class="math notranslate nohighlight">
+\[y = y(x)\quad \Rightarrow \quad y(x+\Delta x)= y(x) + \frac1{1!}\ \frac{dy(x)}{dx} \cdot \Delta x + \frac1{2!}\ \frac{d^2 y(x)}{d x^2}\cdot (\Delta x)^2 + \cdots\]</div>
+<p>Da die Unsicherheit typischerweise eine kleine Größe ist, wird die Reihenentwicklung nach dem linearen Glied abgebrochen, da höhere Ordnung von <span class="math notranslate nohighlight">\((\Delta x)^2\)</span> recht klein werden. Damit ergibt sich die Näherung:</p>
+<div class="math notranslate nohighlight">
+\[ y(x+\Delta x)= y(x) + \frac1{1!}\ \frac{dy(x)}{dx} \cdot \Delta x \quad \Rightarrow \quad y(x+\Delta x) - y(x) = \Delta y =  \frac{dy(x)}{dx} \cdot \Delta x\]</div>
+<p>Diese Formel gilt, wenn das Messergebnis von einer einzelnen Zufallsgröße abhängt. Kommen weitere Messgrößen dazu, welche voneinander unabhängig sind, wird die entsprechende Reihenentwicklung verwendet, welche ebenfalls bis zum linearen Glied als Näherung für kleine <span class="math notranslate nohighlight">\(\Delta x\)</span> angenommen werden kann:</p>
+<div class="math notranslate nohighlight">
+\[y = y(x_1, x_2, ...)  \quad \Rightarrow \quad \Delta y = \frac{\partial y}{\partial x_1} \cdot \Delta x_1 + \frac{\partial y}{\partial x_2} \cdot \Delta x_2 + ...\]</div>
+<p>wobei hier der Term <span class="math notranslate nohighlight">\(\frac{\partial y}{\partial x_1}\)</span> die <em>partielle</em> Ableitung der Funktion <span class="math notranslate nohighlight">\(y(x_1, x_2, ...)\)</span> nach der Größe <span class="math notranslate nohighlight">\(x_1\)</span> bedeutet. Wird die partielle Ableitung nach <span class="math notranslate nohighlight">\(x_1\)</span> berechnet, verhalten sich alle anderen Eingangsgrößen (<span class="math notranslate nohighlight">\(x_2, ...\)</span>) wie eine Konstante.</p>
 </div>
 <div class="section" id="vorzeichen-der-messabweichung-ist-bekannt-systematische-abweichung">
 <h3>Vorzeichen der Messabweichung ist bekannt (systematische Abweichung)<a class="headerlink" href="#vorzeichen-der-messabweichung-ist-bekannt-systematische-abweichung" title="Permalink to this headline">¶</a></h3>
-<p>Ist das Vorzeichen der Messabweichung bekannt, müssen die Vorzeichen unbedingt berücksichtigt werden. Das Ergebnis wird anschließend um diesen <em>Offset</em> korrigiert und nicht mit dem $\pm$-Symbol, wie für Mess<em>unsicherheiten</em> üblich versehen.</p>
-<p>Die allgemeine Formel aus dem vorangegangenen Kapitel ist gültig und die Messabweichung für $y$ berechnet sich zu:
-$$\Rightarrow \quad \Delta y = \frac{\partial y}{\partial x_1} \cdot \Delta x_1 + \frac{\partial y}{\partial x_2} \cdot \Delta x_2 + …$$</p>
+<p>Ist das Vorzeichen der Messabweichung bekannt, müssen die Vorzeichen unbedingt berücksichtigt werden. Das Ergebnis wird anschließend um diesen <em>Offset</em> korrigiert und nicht mit dem <span class="math notranslate nohighlight">\(\pm\)</span>-Symbol, wie für Mess<em>unsicherheiten</em> üblich versehen.</p>
+<p>Die allgemeine Formel aus dem vorangegangenen Kapitel ist gültig und die Messabweichung für <span class="math notranslate nohighlight">\(y\)</span> berechnet sich zu:
+$<span class="math notranslate nohighlight">\(\Rightarrow \quad \Delta y = \frac{\partial y}{\partial x_1} \cdot \Delta x_1 + \frac{\partial y}{\partial x_2} \cdot \Delta x_2 + ...\)</span>$</p>
 <p>Wichtige Spezialfälle sind Summen, Differenzen, Produkte oder Quotienten von zwei Größen. Beachte hier, dass wir in diesem Kapitel Fehler <strong>mit Vorzeichen</strong> betrachten, das heißt wir wissen, in welche Richtung der Messwert abweicht.</p>
 <ul class="simple">
-<li><p>Setzt sich die gesuchte Größe $y$ aus der <strong>Addition</strong> zweier unabhängigen Messwerte zusammen, so wird ihre Abweichung aus der Addition der Abweichungen der Einzelmessungen berechnet:</p></li>
+<li><p>Setzt sich die gesuchte Größe <span class="math notranslate nohighlight">\(y\)</span> aus der <strong>Addition</strong> zweier unabhängigen Messwerte zusammen, so wird ihre Abweichung aus der Addition der Abweichungen der Einzelmessungen berechnet:</p></li>
 </ul>
-<p>$$y=x_1 + x_2 \Rightarrow  \color{blue}{
-\Delta y =  \Delta x_1 + \Delta x_2 } $$</p>
+<div class="math notranslate nohighlight">
+\[y=x_1 + x_2 \Rightarrow  \color{blue}{
+   \Delta y =  \Delta x_1 + \Delta x_2 } \]</div>
 <ul class="simple">
-<li><p>Setzt sich die gesuchte Größe $y$ aus der <strong>Subtraktion</strong> zweier unabhängigen Messwerte zusammen, so wird ihre Abweichung aus der Subtraktion der Abweichungen der Einzelmessungen berechnet:</p></li>
+<li><p>Setzt sich die gesuchte Größe <span class="math notranslate nohighlight">\(y\)</span> aus der <strong>Subtraktion</strong> zweier unabhängigen Messwerte zusammen, so wird ihre Abweichung aus der Subtraktion der Abweichungen der Einzelmessungen berechnet:</p></li>
 </ul>
-<p>$$y=x_1 - x_2 \Rightarrow  \color{blue}{
-\Delta y =  \Delta x_1 - \Delta x_2 } $$</p>
+<div class="math notranslate nohighlight">
+\[y=x_1 - x_2 \Rightarrow  \color{blue}{
+   \Delta y =  \Delta x_1 - \Delta x_2 } \]</div>
 <ul class="simple">
-<li><p>Setzt sich die gesuchte Größe $y$ aus der <strong>Multiplikation</strong> zweier unabhängigen Messwerte zusammen, so wird ihre relative Abweichung aus der Addition der relativen Abweichungen der Einzelmessungen berechnet:</p></li>
+<li><p>Setzt sich die gesuchte Größe <span class="math notranslate nohighlight">\(y\)</span> aus der <strong>Multiplikation</strong> zweier unabhängigen Messwerte zusammen, so wird ihre relative Abweichung aus der Addition der relativen Abweichungen der Einzelmessungen berechnet:</p></li>
 </ul>
-<p>$$y=x_1 \cdot x_2 \Rightarrow  \color{blue}{
-\frac{\Delta y}{y} =  \frac{\Delta x_1}{x_1} + \frac{\Delta x_2}{x_2} }$$</p>
+<div class="math notranslate nohighlight">
+\[y=x_1 \cdot x_2 \Rightarrow  \color{blue}{
+   \frac{\Delta y}{y} =  \frac{\Delta x_1}{x_1} + \frac{\Delta x_2}{x_2} }\]</div>
 <ul class="simple">
-<li><p>Setzt sich die gesuchte Größe $y$ aus der <strong>Division</strong> zweier unabhängigen Messwerte zusammen, so wird ihre relative Abweichung aus der Subtraktion der relativen Abweichungen der Einzelmessungen berechnet:</p></li>
+<li><p>Setzt sich die gesuchte Größe <span class="math notranslate nohighlight">\(y\)</span> aus der <strong>Division</strong> zweier unabhängigen Messwerte zusammen, so wird ihre relative Abweichung aus der Subtraktion der relativen Abweichungen der Einzelmessungen berechnet:</p></li>
 </ul>
-<p>$$y=x_1 / x_2 \Rightarrow  \color{blue}{
-\frac{\Delta y}{y} =  \frac{\Delta x_1}{x_1} - \frac{\Delta x_2}{x_2} }$$</p>
-<p><strong>Anmerkung:</strong> Hierbei werden keine Fehlergrenzen (mit $\pm$) angegeben, sondern systematische Messabweichungen mit bekanntem Vorzeichen. Bei Fehlergrenzen und statischen Unsicherheiten, gelten andere Sacherverhalte (siehe nächsten Abschnitt)! Die Formeln gelten <em>nur</em>, wenn das Vorzeichen des Fehlers bekannt ist. Bei dieser Fehlerfortpflanzung können sich also Abweichungen ergänzen oder sogar <em>aufheben</em>, wie das folgende Beispiel zeigt.</p>
-<p><strong>Beispiel:</strong> Eine Messgröße $x_1$ wird um 2% zu klein gemessen und Messgröße $x_2$ um 3% zu groß.</p>
+<div class="math notranslate nohighlight">
+\[y=x_1 / x_2 \Rightarrow  \color{blue}{
+   \frac{\Delta y}{y} =  \frac{\Delta x_1}{x_1} - \frac{\Delta x_2}{x_2} }\]</div>
+<p><strong>Anmerkung:</strong> Hierbei werden keine Fehlergrenzen (mit <span class="math notranslate nohighlight">\(\pm\)</span>) angegeben, sondern systematische Messabweichungen mit bekanntem Vorzeichen. Bei Fehlergrenzen und statischen Unsicherheiten, gelten andere Sacherverhalte (siehe nächsten Abschnitt)! Die Formeln gelten <em>nur</em>, wenn das Vorzeichen des Fehlers bekannt ist. Bei dieser Fehlerfortpflanzung können sich also Abweichungen ergänzen oder sogar <em>aufheben</em>, wie das folgende Beispiel zeigt.</p>
+<p><strong>Beispiel:</strong> Eine Messgröße <span class="math notranslate nohighlight">\(x_1\)</span> wird um 2% zu klein gemessen und Messgröße <span class="math notranslate nohighlight">\(x_2\)</span> um 3% zu groß.</p>
 <blockquote>
-<div><p>Bei der Multiplikation $y=x_1 \cdot x_2$ wird $y$ um 5% zu groß gemessen (2% + 3% = 5%).</p>
+<div><p>Bei der Multiplikation <span class="math notranslate nohighlight">\(y=x_1 \cdot x_2\)</span> wird <span class="math notranslate nohighlight">\(y\)</span> um 5% zu groß gemessen (2% + 3% = 5%).</p>
 </div></blockquote>
 <blockquote>
-<div><p>Bei der Division $y=x_1 / x_2$ wird $y$ um 1% zu klein gemessen (2% - 3% = -1%).</p>
+<div><p>Bei der Division <span class="math notranslate nohighlight">\(y=x_1 / x_2\)</span> wird <span class="math notranslate nohighlight">\(y\)</span> um 1% zu klein gemessen (2% - 3% = -1%).</p>
 </div></blockquote>
 </div>
 <div class="section" id="vorzeichen-der-messabweichung-ist-unbekannt-unabhangige-unsicherheiten-a-id-subsec-fehlergrenzen-a">
 <h3>Vorzeichen der Messabweichung ist <em>un</em>bekannt (unabhängige Unsicherheiten) <a id="SubSec-Fehlergrenzen"></a><a class="headerlink" href="#vorzeichen-der-messabweichung-ist-unbekannt-unabhangige-unsicherheiten-a-id-subsec-fehlergrenzen-a" title="Permalink to this headline">¶</a></h3>
-<p>Die Größe der Messabweichung eines Messgereätes ist zwar betragsmäßig bekannt, das Vorzeichen jedoch nicht. Dies war auch der Fall in unserem obigen Beispiel der <em>Messgeräteabweichung</em>. Somit sind nur die Grenzen dieser Abweichung bekannt. Die gesuchte Abweichung $\Delta y$ der Messgröße $y$ kann aber über denselben mathematischen Ansatz wie eben ermittelt werden, wobei wir annehmen, dass sich die Abweichungen im schlimmsten Fall bei ungünstigen Vorzeichenkombinationen zu einem <strong>Maximalfehler</strong> addieren:</p>
-<p>$$\Delta y = \left| \frac{\partial y}{\partial x_1} \right| \cdot \Delta x_1+ \left|\frac{\partial y}{\partial x_2} \right| \cdot \Delta x_2 + \cdots$$</p>
+<p>Die Größe der Messabweichung eines Messgereätes ist zwar betragsmäßig bekannt, das Vorzeichen jedoch nicht. Dies war auch der Fall in unserem obigen Beispiel der <em>Messgeräteabweichung</em>. Somit sind nur die Grenzen dieser Abweichung bekannt. Die gesuchte Abweichung <span class="math notranslate nohighlight">\(\Delta y\)</span> der Messgröße <span class="math notranslate nohighlight">\(y\)</span> kann aber über denselben mathematischen Ansatz wie eben ermittelt werden, wobei wir annehmen, dass sich die Abweichungen im schlimmsten Fall bei ungünstigen Vorzeichenkombinationen zu einem <strong>Maximalfehler</strong> addieren:</p>
+<div class="math notranslate nohighlight">
+\[\Delta y = \left| \frac{\partial y}{\partial x_1} \right| \cdot \Delta x_1+ \left|\frac{\partial y}{\partial x_2} \right| \cdot \Delta x_2 + \cdots\]</div>
 <p>Die Spezialfälle vereinfachen sich aufgrund der Beträge zu folgenden Sachverhalten:</p>
 <ul class="simple">
-<li><p>Setzt sich die gesuchte Größe $y$ aus der <strong>Addition oder Subtraktion</strong> zweier unabhängigen Messwerte zusammen, so wird ihre Abweichung aus der Addition der Abweichungen der Einzelmessungen berechnet:</p></li>
+<li><p>Setzt sich die gesuchte Größe <span class="math notranslate nohighlight">\(y\)</span> aus der <strong>Addition oder Subtraktion</strong> zweier unabhängigen Messwerte zusammen, so wird ihre Abweichung aus der Addition der Abweichungen der Einzelmessungen berechnet:</p></li>
 </ul>
-<p>$$y=x_1 \pm x_2 \Rightarrow  \color{blue}{
-\Delta y =  \Delta x_1 + \Delta x_2 } $$</p>
+<div class="math notranslate nohighlight">
+\[y=x_1 \pm x_2 \Rightarrow  \color{blue}{
+   \Delta y =  \Delta x_1 + \Delta x_2 } \]</div>
 <ul class="simple">
-<li><p>Setzt sich die gesuchte Größe $y$ aus der <strong>Multiplikation oder Division</strong> zweier unabhängigen Messwerte zusammen, so wird ihre relative Abweichung aus der Addition der relativen Abweichungen der Einzelmessungen berechnet:</p></li>
+<li><p>Setzt sich die gesuchte Größe <span class="math notranslate nohighlight">\(y\)</span> aus der <strong>Multiplikation oder Division</strong> zweier unabhängigen Messwerte zusammen, so wird ihre relative Abweichung aus der Addition der relativen Abweichungen der Einzelmessungen berechnet:</p></li>
 </ul>
-<p>$$y=x_1 \cdot x_2 \quad \textrm{oder} \quad y=x_1 / x_2 \Rightarrow  \color{blue}{
-\frac{\Delta y}{y} =  \frac{\Delta x_1}{x_1} + \frac{\Delta x_2}{x_2} }$$</p>
+<div class="math notranslate nohighlight">
+\[y=x_1 \cdot x_2 \quad \textrm{oder} \quad y=x_1 / x_2 \Rightarrow  \color{blue}{
+   \frac{\Delta y}{y} =  \frac{\Delta x_1}{x_1} + \frac{\Delta x_2}{x_2} }\]</div>
 </div>
 <div class="section" id="messunsicherheit-bei-unabhangigen-zufalligen-variablen-statistische-unsicherheit-a-id-subsec-fehlerfortpflanzung-bei-unabhangigen-unsicherheiten-a">
 <h3>Messunsicherheit bei unabhängigen, zufälligen Variablen (statistische Unsicherheit) <a id="SubSec-Fehlerfortpflanzung_bei_unabhängigen_Unsicherheiten"></a><a class="headerlink" href="#messunsicherheit-bei-unabhangigen-zufalligen-variablen-statistische-unsicherheit-a-id-subsec-fehlerfortpflanzung-bei-unabhangigen-unsicherheiten-a" title="Permalink to this headline">¶</a></h3>
-<p>Nun gehen wir über von Fehlerfortpflanzungsgesetzen für systematische Abweichungen zu Gesetzmäßigkeiten, die für rein statistische Messgrößen $x$ gelten. Die Messgröße $x$ wird wie oben eingeführt über statstische Verfahren ermittelt und im Rahmen einer Messreihe (mit $m$ Messwerten) aufgenommen. Mittelwert und Unsicherheit werden also wiefolgt berechnet:</p>
-<p>$$\overline x = \frac{1}{m}\sum_{j=1}^m x_j$$</p>
-<p>$$s(\overline x) = \frac{s}{\sqrt{m}} = \sqrt{\frac{1}{m(m-1)} \sum_{j=1}^m (x_j - \overline x)^2} =  u_{\overline x}$$</p>
+<p>Nun gehen wir über von Fehlerfortpflanzungsgesetzen für systematische Abweichungen zu Gesetzmäßigkeiten, die für rein statistische Messgrößen <span class="math notranslate nohighlight">\(x\)</span> gelten. Die Messgröße <span class="math notranslate nohighlight">\(x\)</span> wird wie oben eingeführt über statstische Verfahren ermittelt und im Rahmen einer Messreihe (mit <span class="math notranslate nohighlight">\(m\)</span> Messwerten) aufgenommen. Mittelwert und Unsicherheit werden also wiefolgt berechnet:</p>
+<div class="math notranslate nohighlight">
+\[\overline x = \frac{1}{m}\sum_{j=1}^m x_j\]</div>
+<div class="math notranslate nohighlight">
+\[s(\overline x) = \frac{s}{\sqrt{m}} = \sqrt{\frac{1}{m(m-1)} \sum_{j=1}^m (x_j - \overline x)^2} =  u_{\overline x}\]</div>
 <p>Für große Stichproben wird die Unsicherheit des Mittelwertes immer kleiner und strebt gegen Null, und bei Abwesenheit systematischer Fehler nähert sich der Mittelwert somit dem <em>wahren</em> Wert an.</p>
-<p>Bei der Fehlerfortpflanzung wird als Eingangsgröße häufig der Mittelwert benutzt, und seine entsprechend kleine Unsicherheit benutzt, um die Unsicherheit für die Ausgangsgröße $y$ zu bestimmen. Die Taylorreihe von $y(x)$ wird entsprechend an der Stelle des Mittelwertes $x = \bar x$ entwickelt und es folgt:</p>
-<p>$$u_y = \left| \frac{dy}{dx} \right| \cdot u_\bar x$$</p>
+<p>Bei der Fehlerfortpflanzung wird als Eingangsgröße häufig der Mittelwert benutzt, und seine entsprechend kleine Unsicherheit benutzt, um die Unsicherheit für die Ausgangsgröße <span class="math notranslate nohighlight">\(y\)</span> zu bestimmen. Die Taylorreihe von <span class="math notranslate nohighlight">\(y(x)\)</span> wird entsprechend an der Stelle des Mittelwertes <span class="math notranslate nohighlight">\(x = \bar x\)</span> entwickelt und es folgt:</p>
+<div class="math notranslate nohighlight">
+\[u_y = \left| \frac{dy}{dx} \right| \cdot u_\bar x\]</div>
 <p>Da es sich bei statistische Unsicherheiten um Grenzen handelt, also das Vorzeichen der Abweichung nicht existiert, müssen wieder deren Beträge berücksichtigt werden.</p>
-<p>Haben wir nun den Fall, dass sich die gesuchte Größe $y$ aus mehreren voneinander unabhängigen Eingangsgrößen $\bar x_1, \bar x_2, …$ und deren Unsicherheiten $u_1, u_2, …$ zusammensetzt, gelten folgenden Regeln:</p>
+<p>Haben wir nun den Fall, dass sich die gesuchte Größe <span class="math notranslate nohighlight">\(y\)</span> aus mehreren voneinander unabhängigen Eingangsgrößen <span class="math notranslate nohighlight">\(\bar x_1, \bar x_2, ...\)</span> und deren Unsicherheiten <span class="math notranslate nohighlight">\(u_1, u_2, ...\)</span> zusammensetzt, gelten folgenden Regeln:</p>
 <ul class="simple">
-<li><p>Das Messergebnis $y$ berechnet sich aus den Mittelwerten $\bar x_1, \bar x_2, …$</p></li>
-<li><p>Um die Unsicherheit $u_y$ zu bestimmen, wird wieder mit der linearen Näherung bei mehreren unabhängigen Variablen begonnen (partielle Ableitungen bilden!), allerdings müssen jetzt, wie bei der Berechnung der Standardunsicherheit, die <em>quadrierten</em> Beiträge der Einzelunsicherheiten addiert werden:</p></li>
+<li><p>Das Messergebnis <span class="math notranslate nohighlight">\(y\)</span> berechnet sich aus den Mittelwerten <span class="math notranslate nohighlight">\(\bar x_1, \bar x_2, ...\)</span></p></li>
+<li><p>Um die Unsicherheit <span class="math notranslate nohighlight">\(u_y\)</span> zu bestimmen, wird wieder mit der linearen Näherung bei mehreren unabhängigen Variablen begonnen (partielle Ableitungen bilden!), allerdings müssen jetzt, wie bei der Berechnung der Standardunsicherheit, die <em>quadrierten</em> Beiträge der Einzelunsicherheiten addiert werden:</p></li>
 </ul>
-<p>$$u_y = \sqrt{\left (\frac{\partial y}{\partial x_1} \cdot u_1 \right)^2 +\left (\frac{\partial y}{\partial x_2} \cdot u_2 \right)^2 +\cdots}$$</p>
+<div class="math notranslate nohighlight">
+\[u_y = \sqrt{\left (\frac{\partial y}{\partial x_1} \cdot u_1 \right)^2 +\left (\frac{\partial y}{\partial x_2} \cdot u_2 \right)^2 +\cdots}\]</div>
 <p>Dies nennt sich auch das <strong>Gauß’sche Fehlerfortpflanzungsgesetz</strong> und wird bei Unsicherheiten, aber nicht bei systematischen Messabweichungen / Fehlern verwendet.</p>
 <p>Für die Spezialfälle gilt nun:</p>
 <ul class="simple">
-<li><p>Setzt sich die gesuchte Größe $y$ aus der <strong>Addition oder Subtraktion</strong> zweier unabhängigen Messwerte zusammen, so wird ihre quadrierte Unsicherheit aus der Addition der quadrierten Unsicherheiten der Einzelmessungen berechnet:</p></li>
+<li><p>Setzt sich die gesuchte Größe <span class="math notranslate nohighlight">\(y\)</span> aus der <strong>Addition oder Subtraktion</strong> zweier unabhängigen Messwerte zusammen, so wird ihre quadrierte Unsicherheit aus der Addition der quadrierten Unsicherheiten der Einzelmessungen berechnet:</p></li>
 </ul>
-<p>$$y=\bar x_1 \pm \bar x_2 \Rightarrow  \color{blue}{
-u_y^2 =  u_1^2 + u_2^2 } $$</p>
+<div class="math notranslate nohighlight">
+\[y=\bar x_1 \pm \bar x_2 \Rightarrow  \color{blue}{
+   u_y^2 =  u_1^2 + u_2^2 } \]</div>
 <ul class="simple">
-<li><p>Setzt sich die gesuchte Größe $y$ aus der <strong>Multiplikation oder Division</strong> zweier unabhängigen Messwerte zusammen, so wird ihre relative quadrierte Unsicherheit aus der Addition der relativen quadrierten Unsicherheiten der Einzelmessungen berechnet:</p></li>
+<li><p>Setzt sich die gesuchte Größe <span class="math notranslate nohighlight">\(y\)</span> aus der <strong>Multiplikation oder Division</strong> zweier unabhängigen Messwerte zusammen, so wird ihre relative quadrierte Unsicherheit aus der Addition der relativen quadrierten Unsicherheiten der Einzelmessungen berechnet:</p></li>
 </ul>
-<p>$$y=\bar x_1 \cdot \bar x_2 \quad \textrm{oder} \quad y=\bar x_1 / \bar x_2 \Rightarrow  \color{blue}{
-\left(\frac{u_y}{y}\right)^2 =  \left(\frac{u_1}{\bar x_1}\right)^2 + \left(\frac{u_2}{\bar x_2} \right)^2}$$</p>
-<p><strong>Hinweis:</strong> Diese Gesetze sind nur bei hinreichender Linearität anwendbar, d.h. wenn sich die Funktion $y(x_1, x_2, …)$ bei Änderung einer der Eingsangsgrößen $x_i$ im Bereich ihrer eigenen Unsicherheit $u_i$ nur hinreichen linear verändert. Andernfalls wird die Fehlerfortpflanzung aufwendiger (DIN1319).</p>
+<div class="math notranslate nohighlight">
+\[y=\bar x_1 \cdot \bar x_2 \quad \textrm{oder} \quad y=\bar x_1 / \bar x_2 \Rightarrow  \color{blue}{
+   \left(\frac{u_y}{y}\right)^2 =  \left(\frac{u_1}{\bar x_1}\right)^2 + \left(\frac{u_2}{\bar x_2} \right)^2}\]</div>
+<p><strong>Hinweis:</strong> Diese Gesetze sind nur bei hinreichender Linearität anwendbar, d.h. wenn sich die Funktion <span class="math notranslate nohighlight">\(y(x_1, x_2, ...)\)</span> bei Änderung einer der Eingsangsgrößen <span class="math notranslate nohighlight">\(x_i\)</span> im Bereich ihrer eigenen Unsicherheit <span class="math notranslate nohighlight">\(u_i\)</span> nur hinreichen linear verändert. Andernfalls wird die Fehlerfortpflanzung aufwendiger (DIN1319).</p>
 </div>
 <div class="section" id="messunsicherheiten-bei-abhangigen-korrelierten-zufalligen-variablen-statistische-unsicherheit-a-id-subsec-fehlerfortpflanzung-bei-korrelierten-unsicherheiten-a">
 <h3>Messunsicherheiten bei abhängigen (korrelierten), zufälligen Variablen (statistische Unsicherheit) <a id="SubSec-Fehlerfortpflanzung_bei_korrelierten_Unsicherheiten"></a><a class="headerlink" href="#messunsicherheiten-bei-abhangigen-korrelierten-zufalligen-variablen-statistische-unsicherheit-a-id-subsec-fehlerfortpflanzung-bei-korrelierten-unsicherheiten-a" title="Permalink to this headline">¶</a></h3>
@@ -1548,21 +1582,25 @@ u_y^2 =  u_1^2 + u_2^2 } $$</p>
 <ul class="simple">
 <li><p>Bei <strong>unabhängigen (nicht-korrelierten)</strong> Messungen wird der Kovarianz-Term auf Null gesetzt:</p></li>
 </ul>
-<p>$$\mathrm{cov}(x_1, x_2) = 0$$</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{cov}(x_1, x_2) = 0\]</div>
 <ul class="simple">
 <li><p>Bei <strong>abhängigen (korrelierten)</strong> Messungen besitzen die Messungen <em>gemeinsame</em> Unsicherheiten, wenn z.B. alle Messungen eine gemeinsame systematische Unsicherheit besitzen:</p></li>
 </ul>
-<p>$$\mathrm{cov}(x_1, x_2) = \underbrace{\left&lt; x_1 x_2 \right&gt;}<em>{\substack{\text{zuerst Multiplikation,} \ \text{dann Mittelwertbildung}}} - \underbrace{\left&lt; x_1 \right&gt;\left&lt; x_2 \right&gt;}</em>{\substack{\text{zuerst Mittelwertbildung,} \ \text{dann Multiplikation}}}$$</p>
-<p>Diese <em>gemeinsame</em> Unsicherheit resultiert darin, dass Abhängigkeiten zwischen den gemessenen Messwerten $x_1$ und $x_2$ entstehen. Ist zum Beispiel die eine Messgröße $x_1$ zu groß, so ist die Wahrscheinlichkeit, dass auch die andere Größe $x_2$ einen zu großen Wert hat, erhöht. Diesen Effekt, dass beide Größen zu große Werte ausgeben, nennt man auch <strong>positive Korrelation</strong>. Entsprechend würde eine <strong>negative Korrelation</strong> bedeuten, dass der zweite Wert einer Messgröße mit erhöhter Wahrscheinlichkeit zu klein ausgegeben wird, obwohl die erste Größe einen zu großen Wert hat. Ein Beispiel für eine negative Korrelation ist die Ausgleichsgerade $y = m\cdot x + b$, welche an Messwerte angepasst werden kann. Wenn sich der Wert von $m$ vergrößert, zu muss zwangsläufig der $y$-Achsenabschnitt $b$ kleiner werden, damit die Gleichung weiterhin erfüllt ist. Die Größen $m$ und $b$ sind also negativ korreliert.
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathrm{cov}(x_1, x_2) = \underbrace{\left&lt; x_1 x_2 \right&gt;}_{\substack{\text{zuerst Multiplikation,} \\ \text{dann Mittelwertbildung}}} - \underbrace{\left&lt; x_1 \right&gt;\left&lt; x_2 \right&gt;}_{\substack{\text{zuerst Mittelwertbildung,} \\ \text{dann Multiplikation}}}\end{split}\]</div>
+<p>Diese <em>gemeinsame</em> Unsicherheit resultiert darin, dass Abhängigkeiten zwischen den gemessenen Messwerten <span class="math notranslate nohighlight">\(x_1\)</span> und <span class="math notranslate nohighlight">\(x_2\)</span> entstehen. Ist zum Beispiel die eine Messgröße <span class="math notranslate nohighlight">\(x_1\)</span> zu groß, so ist die Wahrscheinlichkeit, dass auch die andere Größe <span class="math notranslate nohighlight">\(x_2\)</span> einen zu großen Wert hat, erhöht. Diesen Effekt, dass beide Größen zu große Werte ausgeben, nennt man auch <strong>positive Korrelation</strong>. Entsprechend würde eine <strong>negative Korrelation</strong> bedeuten, dass der zweite Wert einer Messgröße mit erhöhter Wahrscheinlichkeit zu klein ausgegeben wird, obwohl die erste Größe einen zu großen Wert hat. Ein Beispiel für eine negative Korrelation ist die Ausgleichsgerade <span class="math notranslate nohighlight">\(y = m\cdot x + b\)</span>, welche an Messwerte angepasst werden kann. Wenn sich der Wert von <span class="math notranslate nohighlight">\(m\)</span> vergrößert, zu muss zwangsläufig der <span class="math notranslate nohighlight">\(y\)</span>-Achsenabschnitt <span class="math notranslate nohighlight">\(b\)</span> kleiner werden, damit die Gleichung weiterhin erfüllt ist. Die Größen <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span> sind also negativ korreliert.
 Sind hingegen zwei Variablen <em>unabhängig</em>, so kann man aus dem Wert der ersten <em>keine</em> Information über die zweite Variable gewinnen. In diesem Fall ist die Korrelation exakt Null.</p>
 <ul class="simple">
-<li><p>Im Prinzip kann die Kovarianz, und somit auch die Werte in der Kovarianzmatrix, jeden beliebigen Wert annehmen, was zu einem sehr großen Wertebereich führt. Um die Darstellung zu vereinfachen wird die Kovarianz typischerweise normiert, sodass die Kovarianz Werte zwischen $-1$ und $+1$ annimmt und sich der <strong>Korrelationskoeffizient</strong> ergibt:</p></li>
+<li><p>Im Prinzip kann die Kovarianz, und somit auch die Werte in der Kovarianzmatrix, jeden beliebigen Wert annehmen, was zu einem sehr großen Wertebereich führt. Um die Darstellung zu vereinfachen wird die Kovarianz typischerweise normiert, sodass die Kovarianz Werte zwischen <span class="math notranslate nohighlight">\(-1\)</span> und <span class="math notranslate nohighlight">\(+1\)</span> annimmt und sich der <strong>Korrelationskoeffizient</strong> ergibt:</p></li>
 </ul>
-<p>$$\bigl( r_{ij} \bigr) ,=, \Bigl (\frac{ \mathrm{S}^2_{ij} } {s_i,s_j} \Bigr)$$</p>
+<div class="math notranslate nohighlight">
+\[\bigl( r_{ij} \bigr) \,=\, \Bigl (\frac{ \mathrm{S}^2_{ij} } {s_i\,s_j} \Bigr)\]</div>
 <ul class="simple">
 <li><p>Der Korrelationskoeffizient für nur zwei Variablen sieht in vereinfachter Schreibweise wiefolgt aus:</p></li>
 </ul>
-<p>$$r = \frac{\mathrm{cov}<em>{x_1x_2}}{s</em>{x_1} \cdot s_{x_2}} = \frac{\sum_{i=1}^N (x_{1,i}-\overline x_1)\cdot (x_{2,i}-\overline x_2)}{\sqrt{\sum_{i=1}^N (x_{1,i}-\overline x_1)^2} \cdot \sqrt{ \sum_{i=1}^N (x_{2,i}-\overline x_2)^2}}$$</p>
+<div class="math notranslate nohighlight">
+\[r = \frac{\mathrm{cov}_{x_1x_2}}{s_{x_1} \cdot s_{x_2}} = \frac{\sum_{i=1}^N (x_{1,i}-\overline x_1)\cdot (x_{2,i}-\overline x_2)}{\sqrt{\sum_{i=1}^N (x_{1,i}-\overline x_1)^2} \cdot \sqrt{ \sum_{i=1}^N (x_{2,i}-\overline x_2)^2}}\]</div>
 <blockquote>
 <div><p>Wir haben nun verschiedene Kenngrößen der Statistik kennengelernt, um Beziehungen zwischen zwei Variablen zu beschreiben. Die <strong>Kovarianz</strong> ist eher ungeeignet um Größen miteinander zu vergleichen, da sie von der Skalierung abhängt. Der <strong>Korrelationskoeffizient</strong> hingegen ist eine mormierte Größe und kann als Maß für Korrelationen benutzt werden. Allerdings nur für lineare Korrelationen! Außerdem muss auch hierbei Vorsicht gewahrt werden: Eine hoher Korrelationskoeffizient bedeutet nicht immer eine hohe Korrelation der Variablen. Es kann sich auch um Ausreißer handeln! Außerdem wird die Bedeutung der Korrelation auch häufig überinterpretiert. Ein kleiner Korrelationskoeffizient beudetet nämlich auch nicht notwendigerweise, dass es keinerlei Beziehung zwischen zwei Variablen gibts. Der Zusammenhang könnte ja ein anderer als linear sein, z.B. quadratisch. Dann würde die Korrelation trotz quadratischem Zusammenhang den Wert 0 ausgeben.</p>
 </div></blockquote>
@@ -1655,36 +1693,38 @@ unabhängigen und gemeinsamen Fehlern.</p>
 </div>
 <div class="section" id="fehlerfortpflanzung">
 <h4>Fehlerfortpflanzung<a class="headerlink" href="#fehlerfortpflanzung" title="Permalink to this headline">¶</a></h4>
-<p>Das <strong>Gauß’sche Fehlerfortpflanzungsgesetz</strong> muss für diesen Fall erweitert werden, indem die Kovarianzen oder die Korrelationskoeffizienten zwischen jeweils zwei Größen, für alle $N$ Messgrößen, berücksichtig werden.
-Setzt sich eine Messgröße $y$ aus $N$ fehlerbehafteten Größen $x_1 \pm u_1, x_2 \pm u_2, …  x_N \pm u_N$ zusammen (die Mittelwertschreibweise $\bar x_i$ wurde hier wegen die Übersichtlichkeit weggelassen), so gilt für ihre Unsicherheit:</p>
-<p>$$u_y=\sqrt{\underbrace{\sum_{i=1}^N\left(\frac{\partial y}{\partial x_i}\cdot u_i\right)^2}<em>{\mathrm{wie~oben}}+ 2\underbrace{\sum</em>{i=1}^{N-1}\sum_{k=i+1}^N\frac{\partial y}{\partial x_i}\ \frac{\partial y}{\partial x_k}\cdot \mathrm{cov}(x_i, x_k)}_{\mathrm{Korrelationsterme}}}$$</p>
+<p>Das <strong>Gauß’sche Fehlerfortpflanzungsgesetz</strong> muss für diesen Fall erweitert werden, indem die Kovarianzen oder die Korrelationskoeffizienten zwischen jeweils zwei Größen, für alle <span class="math notranslate nohighlight">\(N\)</span> Messgrößen, berücksichtig werden.
+Setzt sich eine Messgröße <span class="math notranslate nohighlight">\(y\)</span> aus <span class="math notranslate nohighlight">\(N\)</span> fehlerbehafteten Größen <span class="math notranslate nohighlight">\(x_1 \pm u_1, x_2 \pm u_2, ...  x_N \pm u_N\)</span> zusammen (die Mittelwertschreibweise <span class="math notranslate nohighlight">\(\bar x_i\)</span> wurde hier wegen die Übersichtlichkeit weggelassen), so gilt für ihre Unsicherheit:</p>
+<div class="math notranslate nohighlight">
+\[u_y=\sqrt{\underbrace{\sum_{i=1}^N\left(\frac{\partial y}{\partial x_i}\cdot u_i\right)^2}_{\mathrm{wie~oben}}+ 2\underbrace{\sum_{i=1}^{N-1}\sum_{k=i+1}^N\frac{\partial y}{\partial x_i}\ \frac{\partial y}{\partial x_k}\cdot \mathrm{cov}(x_i, x_k)}_{\mathrm{Korrelationsterme}}}\]</div>
 <p>Für die Spezialfälle gilt nun:</p>
 <ul class="simple">
 <li><p>Addition und Subtration zweier korrelierter Messwerte führt zu folgendem Fehlerfortpflanzungsgesetz:</p></li>
 </ul>
-<p>$$y=x_1 \pm x_2 \Rightarrow \color{blue}{
-{s_y}^2 = {s_1}^2 + {s_2}^2 \pm 2, \mathrm{cov}(x_1,x_2) } $$</p>
+<div class="math notranslate nohighlight">
+\[y=x_1 \pm x_2 \Rightarrow \color{blue}{
+   {s_y}^2 = {s_1}^2 + {s_2}^2 \pm 2\, \mathrm{cov}(x_1,x_2) } \]</div>
 <ul class="simple">
 <li><p>Multiplikation oder Division zweier korrelierter Messwerte führt zu folgendem Fehlerfortpflanzungsgesetz:</p></li>
 </ul>
-<p>$$y=x_1 \cdot  x_2 {\rm ~oder~} y = \frac{x_1}{x_2} \Rightarrow \color{blue} {
-\left( \frac{s_y} {y} \right)^2 \simeq
-\left( \frac{s_1} {x_1} \right)^2</p>
+<div class="math notranslate nohighlight">
+\[y=x_1 \cdot  x_2 {\rm ~oder~} y = \frac{x_1}{x_2} \Rightarrow \color{blue} {
+    \left( \frac{s_y} {y} \right)^2 \simeq 
+    \left( \frac{s_1} {x_1} \right)^2  
+  + \left( \frac{s_2} {x_2} \right)^2
+   \pm 2\frac{\mathrm{cov}(x_1,x_2)}{x_1 x_2} }\]</div>
 <ul class="simple">
-<li><p>\left( \frac{s_2} {x_2} \right)^2
-\pm 2\frac{\mathrm{cov}(x_1,x_2)}{x_1 x_2} }$$</p></li>
+<li><p>der spezielle Fall für <span class="math notranslate nohighlight">\(y = f(x_1, x_2, ... x_n)\)</span> und <strong>100% abhängige (100% korrelierte)</strong> Variablen:</p></li>
 </ul>
+<div class="math notranslate nohighlight">
+\[u_{y}= \displaystyle \sum_{i=1}^n
+ \left| \frac{\partial y}{\partial x_i} \right| u_{i}\]</div>
+<p><strong>Beispiel:</strong> Man nehme zwei Messwerte <span class="math notranslate nohighlight">\(x_1\)</span> und <span class="math notranslate nohighlight">\(x_2\)</span> deren Erwartungswerte und Unsicherheiten jeweils identisch sind, z.B. <span class="math notranslate nohighlight">\(\bar x_1 = \bar x_2 = 10\)</span> mit <span class="math notranslate nohighlight">\(u_1 = u_2 = 1\)</span>. Die zu ermittelnde Messgröße wird über folgende Relation berechnet: <span class="math notranslate nohighlight">\(y = \bar x_1 - \bar x_2\)</span></p>
 <ul class="simple">
-<li><p>der spezielle Fall für $y = f(x_1, x_2, … x_n)$ und <strong>100% abhängige (100% korrelierte)</strong> Variablen:</p></li>
+<li><p>Das Ergebnis für <span class="math notranslate nohighlight">\(r = 0\)</span>, d.h. <strong>unabhängige</strong> Messwerte, der kombinierten Messunsicherheit für <span class="math notranslate nohighlight">\(y\)</span> beträgt <span class="math notranslate nohighlight">\(u_y = 1.4\)</span></p></li>
+<li><p>Das Ergebnis für <span class="math notranslate nohighlight">\(r = 1\)</span>, d.h. <strong>korrelierte</strong> Messwerte, der kombinierten Messunsicherheit für <span class="math notranslate nohighlight">\(y\)</span> beträgt <span class="math notranslate nohighlight">\(u_y = 0.0\)</span></p></li>
 </ul>
-<p>$$u_{y}= \displaystyle \sum_{i=1}^n
-\left| \frac{\partial y}{\partial x_i} \right| u_{i}$$</p>
-<p><strong>Beispiel:</strong> Man nehme zwei Messwerte $x_1$ und $x_2$ deren Erwartungswerte und Unsicherheiten jeweils identisch sind, z.B. $\bar x_1 = \bar x_2 = 10$ mit $u_1 = u_2 = 1$. Die zu ermittelnde Messgröße wird über folgende Relation berechnet: $y = \bar x_1 - \bar x_2$</p>
-<ul class="simple">
-<li><p>Das Ergebnis für $r = 0$, d.h. <strong>unabhängige</strong> Messwerte, der kombinierten Messunsicherheit für $y$ beträgt $u_y = 1.4$</p></li>
-<li><p>Das Ergebnis für $r = 1$, d.h. <strong>korrelierte</strong> Messwerte, der kombinierten Messunsicherheit für $y$ beträgt $u_y = 0.0$</p></li>
-</ul>
-<p>Dieses Beispiel findet häufig Anwendung im Bereich die Signalübertragung und ist unter der Bezeichnung <strong>differentielle Signalübertragung</strong> bekannt. Neben dem eigentlichen Signal, $x_1$ wird hierbei ein zweites, invertiertes Signal mitübertragen, $x_2 = -x_1$. Da alle Störungen innerhalb der gleichen Übertragungsstrecke fast vollständig korreliert sind, heben sich diese am Ende auf. Das Nutzsignal erhält man zurück, indem man folgende Signalkombination berechnet: $y = 0.5\cdot (x_1 - x_2)$. Aufgrund des hohen Korrelationsgrades der einzelnen Signalkomponenten ist die Unsicherheit des extrahierten Signal sehr klein: $u_y \simeq 0$.</p>
+<p>Dieses Beispiel findet häufig Anwendung im Bereich die Signalübertragung und ist unter der Bezeichnung <strong>differentielle Signalübertragung</strong> bekannt. Neben dem eigentlichen Signal, <span class="math notranslate nohighlight">\(x_1\)</span> wird hierbei ein zweites, invertiertes Signal mitübertragen, <span class="math notranslate nohighlight">\(x_2 = -x_1\)</span>. Da alle Störungen innerhalb der gleichen Übertragungsstrecke fast vollständig korreliert sind, heben sich diese am Ende auf. Das Nutzsignal erhält man zurück, indem man folgende Signalkombination berechnet: <span class="math notranslate nohighlight">\(y = 0.5\cdot (x_1 - x_2)\)</span>. Aufgrund des hohen Korrelationsgrades der einzelnen Signalkomponenten ist die Unsicherheit des extrahierten Signal sehr klein: <span class="math notranslate nohighlight">\(u_y \simeq 0\)</span>.</p>
 </div>
 </div>
 </div>
@@ -1921,12 +1961,13 @@ Name: Year, Length: 142, dtype: int64
 </div>
 </div>
 <p>Im ersten Array stehen die Fit-Parameter der linearen Ausgleichsgeraden entsprechend der obigen Deklaration: <code class="docutils literal notranslate"><span class="pre">y_model</span> <span class="pre">=</span> <span class="pre">model[0][0]*x+model[0][1]</span></code>.
-Im zweiten Array, hier eine 2x2 Matrix, sind die Unsicherheiten in Form von der Kovarianz-Matrix dargestellt. Auf der Diagonalen stehen die Varianzen, $s^2$, auf den Nicht-Diagonalelementen stehen die Kovarianzen (Korrelationsterme zwischen $m$ und $b$):</p>
-<p>$$\mathrm{cov}(m,b) =
+Im zweiten Array, hier eine 2x2 Matrix, sind die Unsicherheiten in Form von der Kovarianz-Matrix dargestellt. Auf der Diagonalen stehen die Varianzen, <span class="math notranslate nohighlight">\(s^2\)</span>, auf den Nicht-Diagonalelementen stehen die Kovarianzen (Korrelationsterme zwischen <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathrm{cov}(m,b) = 
 \begin{pmatrix}
-s_m^2 &amp; s_{mb} \
-s_{bm} &amp; s_b^2
-\end{pmatrix} $$</p>
+ s_m^2 &amp; s_{mb} \\
+ s_{bm} &amp; s_b^2
+\end{pmatrix} \end{split}\]</div>
 <p>Der Temperaturanstieg kann entsprechend ausgegeben werden:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

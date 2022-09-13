@@ -52,6 +52,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="prev" title="Fortpflanzung von Messunsicherheiten" href="1_Fehlerfortpflanzung.html" />
@@ -549,7 +551,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="kurvenanpassung">
 <h1>Kurvenanpassung<a class="headerlink" href="#kurvenanpassung" title="Permalink to this headline">¶</a></h1>
-<p>Bei der Kurvenanpassung handelt es sich um ein statistisches Analyseverfahren zur Feststellung funktionaler Beziehungen zwischen einer abhängigen und einer oder mehreren unabhängigen Variablen. Der Begriff <strong>lineare Regression</strong> ist weit verbreitet, doch dies ist nur der einfachste Fall eines Modells, nämlich der einer Geraden: $y = a \cdot x +b$. Grundsätzlich sollte man den Typ der Fit-Funktion $y = f(x)$ immer vorher festlegen und auch begründen können. Es ist keine wissenschaftlicher oder messtechnische Vorgehensweise alle möglichen Funktionen nur auf Verdacht <em>auszuprobieren</em> und sich für die besten entscheiden. Hierbei wäre es möglich, dass unbrauchbare Näherungen pder sogar falsche (unsinnige) und nicht-wissenschaftlicher Ergebnisinterpretationen auftreten könnten, was es zu vermeiden gilt.</p>
+<p>Bei der Kurvenanpassung handelt es sich um ein statistisches Analyseverfahren zur Feststellung funktionaler Beziehungen zwischen einer abhängigen und einer oder mehreren unabhängigen Variablen. Der Begriff <strong>lineare Regression</strong> ist weit verbreitet, doch dies ist nur der einfachste Fall eines Modells, nämlich der einer Geraden: <span class="math notranslate nohighlight">\(y = a \cdot x +b\)</span>. Grundsätzlich sollte man den Typ der Fit-Funktion <span class="math notranslate nohighlight">\(y = f(x)\)</span> immer vorher festlegen und auch begründen können. Es ist keine wissenschaftlicher oder messtechnische Vorgehensweise alle möglichen Funktionen nur auf Verdacht <em>auszuprobieren</em> und sich für die besten entscheiden. Hierbei wäre es möglich, dass unbrauchbare Näherungen pder sogar falsche (unsinnige) und nicht-wissenschaftlicher Ergebnisinterpretationen auftreten könnten, was es zu vermeiden gilt.</p>
 <p>Zusammengefasst suchen wir nun also ein bestimmtes Modell für ein bestimmtes Set an Daten und wollen die Modellparameter bestimmen. Dabei soll das Modell möglichst gut die Messdaten vorhersagen. Die Modellanpassung wird häufig über die Methode der kleinsten Quadrate verwendet, mit welcher sich fast alle Messdaten modellieren lassen (auch kompliziertere Situationen wie beispielsweise korrelierte Unsicherheiten).</p>
 <p>Hinweis zur Begrifflichkeit:</p>
 <ul class="simple">
@@ -572,13 +574,14 @@ const thebe_selector_output = ".output, .cell_output"
 <h2>Modellanpassung <a id="Sec-Modellanpassung"></a><a class="headerlink" href="#modellanpassung-a-id-sec-modellanpassung-a" title="Permalink to this headline">¶</a></h2>
 <p>Um ein Regressionsmodell zu berechnen, benötigen wir ein objektives Maß um die Zuverlässigkeit und Güte unsere Modellfunktion zu bestimmen. Dies nennt man auch das <strong>Bestimmtsheitsmaß</strong>, bzwl. auf englisch <strong>coefficient of determination</strong> oder <strong>goodness of fit</strong>. Dieses Maß</p>
 <ul class="simple">
-<li><p>bestimmt die Verkleinerung des Vorhersagefehlers der Ausgangsgröße $y$</p></li>
-<li><p>definiert die Größe der Streuung von $y$</p></li>
+<li><p>bestimmt die Verkleinerung des Vorhersagefehlers der Ausgangsgröße <span class="math notranslate nohighlight">\(y\)</span></p></li>
+<li><p>definiert die Größe der Streuung von <span class="math notranslate nohighlight">\(y\)</span></p></li>
 <li><p>zeigt die Qualität der linearen Regression, aber nicht ob das Modell richtig ist</p></li>
 <li><p>sagt nichts über die statistische Signifikanz des ermittelten Zusammenhangs der einzelnen Regressoren aus (Signifikanztest notwendig)</p></li>
 </ul>
-<p>Als erstes soll überprüft werden, inwiefern die Funktion oder das Modell mit den Messdaten übereinstimmt. Ausgangspunkt ist also unsere Messreihe mit $N$ Messpunkten $(x_i, y_i)$ und wir haben eine Funktion $f(x_i)$ definiert, die die Messwerte $y_i$ möglichst gut vorhersagen soll. In der unteren Grafik (geborgt von <a class="reference external" href="https://de.wikipedia.org/wiki/Methode_der_kleinsten_Quadrate">Wikipedia</a>), sind Messpunkte in blau und eine Modellfunktion in rot aufgezeichnet. Die Parameter der gesuchten Modellfunktion werden nun so bestimmt, dass die Modellfunktion möglichst wenig von den Messwerten abweicht, d.h. das Residuum</p>
-<p>$$\epsilon = \left( f(x_i) - y_i\right)$$</p>
+<p>Als erstes soll überprüft werden, inwiefern die Funktion oder das Modell mit den Messdaten übereinstimmt. Ausgangspunkt ist also unsere Messreihe mit <span class="math notranslate nohighlight">\(N\)</span> Messpunkten <span class="math notranslate nohighlight">\((x_i, y_i)\)</span> und wir haben eine Funktion <span class="math notranslate nohighlight">\(f(x_i)\)</span> definiert, die die Messwerte <span class="math notranslate nohighlight">\(y_i\)</span> möglichst gut vorhersagen soll. In der unteren Grafik (geborgt von <a class="reference external" href="https://de.wikipedia.org/wiki/Methode_der_kleinsten_Quadrate">Wikipedia</a>), sind Messpunkte in blau und eine Modellfunktion in rot aufgezeichnet. Die Parameter der gesuchten Modellfunktion werden nun so bestimmt, dass die Modellfunktion möglichst wenig von den Messwerten abweicht, d.h. das Residuum</p>
+<div class="math notranslate nohighlight">
+\[\epsilon = \left( f(x_i) - y_i\right)\]</div>
 <p>soll möglichst klein werden.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -595,107 +598,122 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Laut Carl Friedrich Gauß kann also der Abstand der Funktionswerte zu den Messwerten wievolgt definiert werden:</p>
 <blockquote>
 <div><p>Methode der Gauß’schen Fehlerquadrate (Gütefunktion):
-$$Q := \sum_{i=1}^N \left( f(x_i) - y_i\right)^2 :=  \sum_{i=1}^N \epsilon_i^2 = \mathrm{min!}$$</p>
+$<span class="math notranslate nohighlight">\(Q := \sum_{i=1}^N \left( f(x_i) - y_i\right)^2 :=  \sum_{i=1}^N \epsilon_i^2 = \mathrm{min!}\)</span>$</p>
 </div></blockquote>
-<p>Die Gütefunktion, die gleichbedeutend mit den SQT ist, ist wieder so gewählt, dass sich Abweichungen aufgrund unterschiedliche Vorzeichen nicht aufheben können und dass größere Abweichungen stärker gewichtet werden (durch die Quadrierung). Die Modellfunktion $f(x)$ wird bestimmt, indem das Minimierungsproblem gelöst wird. Dies kann entwedet analytisch geschehen (siehe <a class="reference external" href="#SubSec-Lineare_Modellanpassung">Lineare Modellanpassung</a>) oder man lässt sich die Regression mittels Software berechnen.</p>
+<p>Die Gütefunktion, die gleichbedeutend mit den SQT ist, ist wieder so gewählt, dass sich Abweichungen aufgrund unterschiedliche Vorzeichen nicht aufheben können und dass größere Abweichungen stärker gewichtet werden (durch die Quadrierung). Die Modellfunktion <span class="math notranslate nohighlight">\(f(x)\)</span> wird bestimmt, indem das Minimierungsproblem gelöst wird. Dies kann entwedet analytisch geschehen (siehe <a class="reference external" href="#SubSec-Lineare_Modellanpassung">Lineare Modellanpassung</a>) oder man lässt sich die Regression mittels Software berechnen.</p>
 <p>Es handelt sich um ein <em>Minimierungsproblem</em> welches je nach Art der Modellfunktion unterschiedlich gelöst wird. Man sollte stets die Regressionsgerade zusammen mit den Datenpunkten in ein Diagramm zeichnen, um zu sehen, wie “gut” die Messdaten durch die Kurvenanpassung beschrieben werden.
 Je enger die Datenpunkte um die Regressionsgerade herum konzentriert sind, d. h. je kleiner also die Residuenquadrate sind, desto „besser“. Die Residuenquadrate sind meistens relativ klein, insbesondere dann, wenn die abhängige Variable sehr konstant ist. Das heißt man möchte eigentlich auch die Streuung der abhängigen Variablen mit ins Spiel bringen.
 Sowohl die Streuung der Messwerte zum Mittelwert, als auch die der geschätzten Werte, sollte in Relation zueinander gebracht werden. Das heißt wir definieren im Folgenden zwei Summen der Abweichungsquadrate. Die <strong>Summe der Abweichungsquadrate (Sum of Squares) SQT oder SST</strong> gibt die Streuung der Messwerte um ihren Mittelwert an. Das <em>mittlere</em> Abweichungsquadrat bestimmt deren Varianz.</p>
 <ul class="simple">
-<li><p>Die <strong>Summe der Quadrate der Erklärten Abweichungen (Sum of Squares Explained) SQE oder SSE</strong> gibt die Streuung der Schätzwerte $f(x_i)$ des Fits um den Mittelwert $\bar f = \bar y$ der gemessenen Messwerte an:</p></li>
+<li><p>Die <strong>Summe der Quadrate der Erklärten Abweichungen (Sum of Squares Explained) SQE oder SSE</strong> gibt die Streuung der Schätzwerte <span class="math notranslate nohighlight">\(f(x_i)\)</span> des Fits um den Mittelwert <span class="math notranslate nohighlight">\(\bar f = \bar y\)</span> der gemessenen Messwerte an:</p></li>
 </ul>
-<p>$$\mathrm{SQE} = \mathrm{SSE} = \sum_{i=1}^N (f(x_i) - \bar y)^2$$</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{SQE} = \mathrm{SSE} = \sum_{i=1}^N (f(x_i) - \bar y)^2\]</div>
 <ul class="simple">
-<li><p>Die <strong>totale Quadratsumme (Summe der Quadrate der Totalen Abweichungen bzw. Sum of Squares Total) SQT oder SST</strong> gibt die Streuung der Messwerte $y_i$ um deren Mittelwert $\bar y$ an:</p></li>
+<li><p>Die <strong>totale Quadratsumme (Summe der Quadrate der Totalen Abweichungen bzw. Sum of Squares Total) SQT oder SST</strong> gibt die Streuung der Messwerte <span class="math notranslate nohighlight">\(y_i\)</span> um deren Mittelwert <span class="math notranslate nohighlight">\(\bar y\)</span> an:</p></li>
 </ul>
-<p>$$\mathrm{SQT} = \mathrm{SST} = \sum_{i=1}^N (y_i - \bar y)^2$$</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{SQT} = \mathrm{SST} = \sum_{i=1}^N (y_i - \bar y)^2\]</div>
 <ul class="simple">
 <li><p>Die <strong>Restabweichungen</strong> (nicht erklärte Abweichungen), welche nach der Regression übrig bleiben sind ein Maß für die Abweichung der Datenpunkte von der Regressionskurve und werden durch die Residuenquadratsumme (<strong>Summe der Quadrate der Restabweichungen</strong> (oder: „Residuen“) bzw. englisch Sum of Squares Residual) SQR oder SSR) erfasst:</p></li>
 </ul>
-<p>$$\mathrm{SQR} = \mathrm{SSR} = \sum_{i=1}^N(y_i-f(x_i))^2$$</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{SQR} = \mathrm{SSR} = \sum_{i=1}^N(y_i-f(x_i))^2\]</div>
 <ul class="simple">
 <li><p>Man kann beweisen, dass folgendes gilt:</p></li>
 </ul>
-<p>$$\mathrm{SQT} = \mathrm{SQR} + \mathrm{SQE}$$</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{SQT} = \mathrm{SQR} + \mathrm{SQE}\]</div>
 </div>
 <div class="section" id="bestimmtheitsmasz-a-id-subsec-bestimmtheitsmasz-a">
 <h3>Bestimmtheitsmaß <a id="SubSec-Bestimmtheitsmaß"></a><a class="headerlink" href="#bestimmtheitsmasz-a-id-subsec-bestimmtheitsmasz-a" title="Permalink to this headline">¶</a></h3>
 <p>Für das <strong>Bestimmtheitsmaß</strong> gelten folgenden Punkte:</p>
 <ul class="simple">
-<li><p>Es beschreibt den Anteil der Varianz einer abhängigen Variablen $y$ durch ein statistisches Modell</p></li>
+<li><p>Es beschreibt den Anteil der Varianz einer abhängigen Variablen <span class="math notranslate nohighlight">\(y\)</span> durch ein statistisches Modell</p></li>
 <li><p>Es ist nur für lineare Regressionen eindeutig definiert:
-$$\mathit{R}^2 = r^2 (=\textrm{Korrelation}^2)$$</p></li>
+$<span class="math notranslate nohighlight">\(\mathit{R}^2 = r^2 (=\textrm{Korrelation}^2)\)</span>$</p></li>
 <li><p>Es kann bedingt zur Beschreibung der Güte einer Regression verwendet werden.</p></li>
 <li><p>Das Verhältnis der beiden Größen SQE und SQT wird das <strong>Bestimmtheitsmaß</strong> der Regression genannt und gibt an, wie gut die gefundene geschätzte Modellfunktion zu den Messdaten passt, oder wie gut sich die Regression an die Daten annähert.</p></li>
 </ul>
-<p>$$\mathit{R}^2 \equiv \frac{SQE}{SQT}=
-\frac{\displaystyle\sum_{i=1}^N \left(f(x_i)- \overline{y}\right)^2}{\displaystyle\sum_{i=1}^N \left(y_i - \overline{y}\right)^2} = 1 - \frac{SQR}{SQT}=1-\frac{\displaystyle\sum_{i=1}^N \left(y_i - f(x_i)\right)^2}{\displaystyle\sum_{i=1}^N \left(y_i - \overline{y}\right)^2}$$</p>
+<div class="math notranslate nohighlight">
+\[\mathit{R}^2 \equiv \frac{SQE}{SQT}=
+\frac{\displaystyle\sum_{i=1}^N \left(f(x_i)- \overline{y}\right)^2}{\displaystyle\sum_{i=1}^N \left(y_i - \overline{y}\right)^2} = 1 - \frac{SQR}{SQT}=1-\frac{\displaystyle\sum_{i=1}^N \left(y_i - f(x_i)\right)^2}{\displaystyle\sum_{i=1}^N \left(y_i - \overline{y}\right)^2}\]</div>
 <p>wobei:</p>
 <ul class="simple">
-<li><p>$f(x_i)$ der Funktionswert der Regression ist</p></li>
-<li><p>$x_i$ der Datenwert ist</p></li>
-<li><p>und $\bar y$ der Mittelwert $y_i$ der Messwerte ist</p></li>
+<li><p><span class="math notranslate nohighlight">\(f(x_i)\)</span> der Funktionswert der Regression ist</p></li>
+<li><p><span class="math notranslate nohighlight">\(x_i\)</span> der Datenwert ist</p></li>
+<li><p>und <span class="math notranslate nohighlight">\(\bar y\)</span> der Mittelwert <span class="math notranslate nohighlight">\(y_i\)</span> der Messwerte ist</p></li>
 </ul>
-<p>Das Bestimmtheitsmaß lässt sich mit 100 multiplizieren, um es in Prozent anzugeben, dies entspricht dann dem prozentualen Anteil der Streuung in $y$, der durch das lineare Modell beschrieben wird und liegt somit zwischen 0% und 100%:</p>
+<p>Das Bestimmtheitsmaß lässt sich mit 100 multiplizieren, um es in Prozent anzugeben, dies entspricht dann dem prozentualen Anteil der Streuung in <span class="math notranslate nohighlight">\(y\)</span>, der durch das lineare Modell beschrieben wird und liegt somit zwischen 0% und 100%:</p>
 <ul class="simple">
 <li><p>0%: es existiert kein linearer Zusammenhang</p></li>
 <li><p>100%: perfekter linearer Zusammenhang</p></li>
 </ul>
 <p>Allgemein gilt für das Bestimmheitsmaß:</p>
 <ul class="simple">
-<li><p>je näher $\mathit{R}^2$ an 1 liegt, desto höher ist die Güte der Kurvenanpassung</p></li>
-<li><p>für $\mathit{R}^2=0$ ist der Schätzer im Modell völlig unbrauchbar für irgendeine Vorhersage eines Zusammenhangs zwischen $x_i$ und $y_i$.</p></li>
-<li><p>für $\mathit{R}^2=1$ lässt sich $y$ vollständig durch ein lineares Modell beschreiben und alle Messpunkte liegen auf einer nicht-horizontalen Geraden. In diesem Falle würde man davon sprechen, dass ein deterministischer Zusammenhang besteht, kein stochastischer.</p></li>
+<li><p>je näher <span class="math notranslate nohighlight">\(\mathit{R}^2\)</span> an 1 liegt, desto höher ist die Güte der Kurvenanpassung</p></li>
+<li><p>für <span class="math notranslate nohighlight">\(\mathit{R}^2=0\)</span> ist der Schätzer im Modell völlig unbrauchbar für irgendeine Vorhersage eines Zusammenhangs zwischen <span class="math notranslate nohighlight">\(x_i\)</span> und <span class="math notranslate nohighlight">\(y_i\)</span>.</p></li>
+<li><p>für <span class="math notranslate nohighlight">\(\mathit{R}^2=1\)</span> lässt sich <span class="math notranslate nohighlight">\(y\)</span> vollständig durch ein lineares Modell beschreiben und alle Messpunkte liegen auf einer nicht-horizontalen Geraden. In diesem Falle würde man davon sprechen, dass ein deterministischer Zusammenhang besteht, kein stochastischer.</p></li>
 </ul>
 <p><strong>Nachteile des Bestimmheitsmaß:</strong>
-Für immer mehr Messwerte steigt $\mathit{R}^2$ an, ohne dass die Korrelation oder die Regression besser wird.
-Dies könnte durch ein korrigiertes $\mathit{R}^2$ behoben werden:</p>
-<p>$$\mathit{\overline R}^2 = 1-(1-\mathit{R}^2)\cdot \frac{n-1}{n-p-1}$$</p>
+Für immer mehr Messwerte steigt <span class="math notranslate nohighlight">\(\mathit{R}^2\)</span> an, ohne dass die Korrelation oder die Regression besser wird.
+Dies könnte durch ein korrigiertes <span class="math notranslate nohighlight">\(\mathit{R}^2\)</span> behoben werden:</p>
+<div class="math notranslate nohighlight">
+\[\mathit{\overline R}^2 = 1-(1-\mathit{R}^2)\cdot \frac{n-1}{n-p-1}\]</div>
 <p>mit</p>
 <ul class="simple">
-<li><p>$n$ Anzahl der Messwerte und</p></li>
-<li><p>$p$ Anzahl der Variablen im Regressionsmodell</p></li>
+<li><p><span class="math notranslate nohighlight">\(n\)</span> Anzahl der Messwerte und</p></li>
+<li><p><span class="math notranslate nohighlight">\(p\)</span> Anzahl der Variablen im Regressionsmodell</p></li>
 </ul>
 <p>Ein weiterer Nachteil ist, dass keine Aussage darüber geliefert werden kann, ob ein <em>korrektes</em> Regressionsmodell verwendet wurde.</p>
 </div>
 <div class="section" id="modellanpassung-mit-unsicherheiten-a-id-subsec-modellanpassung-unsicherheiten-a">
 <h3>Modellanpassung mit Unsicherheiten <a id="SubSec-Modellanpassung_unsicherheiten"></a><a class="headerlink" href="#modellanpassung-mit-unsicherheiten-a-id-subsec-modellanpassung-unsicherheiten-a" title="Permalink to this headline">¶</a></h3>
-<p>Im allgemeinen Fall, d.h. wenn die Messwerte $y_i$ mit Unsicherheiten $s_i$ behaftet sind, lässt sich die Residuensumme wiefolgt definieren:</p>
-<p>$$\chi^2 = \sum_{i=1}^N \left(\frac{f(x_i)-y_i}{s_i}\right)^2$$</p>
-<p>Für die obigen Berechnungen, und auch im Falle von konstanten Unsicherheiten, d.h. wenn für alle Werte von $y_i$ die gleiche absolute Unsicherheit existiert, ändert sich nichts. Denn es gilt $s_i = s = \mathrm{const}$ und beim “Nullsetzen” werden diese einfach eliminiert.
-Gelten für die $N$ Messwerte allerdings unterschiedliche Unsicherheiten, so müssen diese miteinbezogen werden.</p>
+<p>Im allgemeinen Fall, d.h. wenn die Messwerte <span class="math notranslate nohighlight">\(y_i\)</span> mit Unsicherheiten <span class="math notranslate nohighlight">\(s_i\)</span> behaftet sind, lässt sich die Residuensumme wiefolgt definieren:</p>
+<div class="math notranslate nohighlight">
+\[\chi^2 = \sum_{i=1}^N \left(\frac{f(x_i)-y_i}{s_i}\right)^2\]</div>
+<p>Für die obigen Berechnungen, und auch im Falle von konstanten Unsicherheiten, d.h. wenn für alle Werte von <span class="math notranslate nohighlight">\(y_i\)</span> die gleiche absolute Unsicherheit existiert, ändert sich nichts. Denn es gilt <span class="math notranslate nohighlight">\(s_i = s = \mathrm{const}\)</span> und beim “Nullsetzen” werden diese einfach eliminiert.
+Gelten für die <span class="math notranslate nohighlight">\(N\)</span> Messwerte allerdings unterschiedliche Unsicherheiten, so müssen diese miteinbezogen werden.</p>
 </div>
 <div class="section" id="lineare-modellanpassung-a-id-subsec-lineare-modellanpassung-a">
 <h3>Lineare Modellanpassung <a id="SubSec-Lineare_Modellanpassung"></a><a class="headerlink" href="#lineare-modellanpassung-a-id-subsec-lineare-modellanpassung-a" title="Permalink to this headline">¶</a></h3>
 <p>Da wir als Messtechniker immer danach streben möglichst lineare Kennlinien zu erreichen, ist die Gerade eine häufig auftretende Kurve, die angepasst werden soll. Daher wollen wir uns in diesem Abschnitt mit der Herleitung der linearen Regression befassen. Die Herleitung für andere Modellfunktionen, welche quadratische Terme, noch höhere Terme oder ganz andere Zusammenhänge beinhalten, ist auch deutlich schwieriger.</p>
 <p>Unser Ausgangspunkt ist also eine Gerade der Form</p>
-<p>$$f(x) = mx + b$$</p>
-<p>Die Parameter $m$ und $b$ werden nun durch das Minimierungsproblem bestimmt mithilfe der Gütefunktion, die nun wiefolgt geschrieben werden kann:</p>
-<p>$$Q = \sum_{i = 1}^{N} (y_i - f(x_i))^2 = \sum_{i = 1}^{N} (y_i - mx_i - b)^2 = \mathrm{min!}$$</p>
-<p>wobei $y_i$ und $x_i$ die Messwerte (Datenpunkte) sind.</p>
+<div class="math notranslate nohighlight">
+\[f(x) = mx + b\]</div>
+<p>Die Parameter <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span> werden nun durch das Minimierungsproblem bestimmt mithilfe der Gütefunktion, die nun wiefolgt geschrieben werden kann:</p>
+<div class="math notranslate nohighlight">
+\[Q = \sum_{i = 1}^{N} (y_i - f(x_i))^2 = \sum_{i = 1}^{N} (y_i - mx_i - b)^2 = \mathrm{min!}\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(y_i\)</span> und <span class="math notranslate nohighlight">\(x_i\)</span> die Messwerte (Datenpunkte) sind.</p>
 <p>Durch Differentation nach den Parametern und gleichsetzen auf Null können die Parameter bestimmt werden:</p>
-<p>$$\frac{dQ}{dm} = -2 \sum_{i = 1}^{N} x_i (y_i - mx_i - b) = 0$$</p>
-<p>$$\frac{dQ}{db} = -2 \sum_{i = 1}^{N} (y_i - mx_i - b) = 0$$</p>
+<div class="math notranslate nohighlight">
+\[\frac{dQ}{dm} = -2 \sum_{i = 1}^{N} x_i (y_i - mx_i - b) = 0\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{dQ}{db} = -2 \sum_{i = 1}^{N} (y_i - mx_i - b) = 0\]</div>
 <p>Nach Umstellen der beiden Ableitungen gelangt man zu folgenden Gleichungssystem:</p>
-<p>$$m\sum_{i = 1}^{N} x_i^2 + b\sum_{i = 1}^{N}x_i  = \sum_{i = 1}^{N}x_i y_i$$</p>
-<p>$$m\sum_{i = 1}^{N} x_i + N b  = \sum_{i = 1}^{N} y_i$$</p>
+<div class="math notranslate nohighlight">
+\[m\sum_{i = 1}^{N} x_i^2 + b\sum_{i = 1}^{N}x_i  = \sum_{i = 1}^{N}x_i y_i\]</div>
+<div class="math notranslate nohighlight">
+\[m\sum_{i = 1}^{N} x_i + N b  = \sum_{i = 1}^{N} y_i\]</div>
 <p>Auflösen nach den gesuchten Parameter erhält man folgende Gleichungen für die gesuchten besten Schätzparamete der Regressionsgeraden, auch <strong>Regressionskoeffizienten</strong> genannt:</p>
-<p>$$ m = \frac{\sum_{i=1}^N (x_i y_i) - b\sum_{i=1}^N x_i }{\sum_{i=1}^N x_i^2 } = \frac{S_{xy}}{S_{x}^2} = \frac{\overline{x\cdot y} - \overline x \cdot \overline y}{\overline{x^2} - (\overline x)^2}$$</p>
-<p>$$b = \frac{\sum_{i=1}^N y_i - m \sum_{i=1}^N x_i}{N} = \bar y - m \cdot \bar x$$</p>
+<div class="math notranslate nohighlight">
+\[ m = \frac{\sum_{i=1}^N (x_i y_i) - b\sum_{i=1}^N x_i }{\sum_{i=1}^N x_i^2 } = \frac{S_{xy}}{S_{x}^2} = \frac{\overline{x\cdot y} - \overline x \cdot \overline y}{\overline{x^2} - (\overline x)^2}\]</div>
+<div class="math notranslate nohighlight">
+\[b = \frac{\sum_{i=1}^N y_i - m \sum_{i=1}^N x_i}{N} = \bar y - m \cdot \bar x\]</div>
 <p>mit folgenden Definitionen:</p>
 <blockquote>
-<div><p>$\bar x = \sum_{i = 1}^N x_i$</p>
+<div><p><span class="math notranslate nohighlight">\(\bar x = \sum_{i = 1}^N x_i\)</span></p>
 </div></blockquote>
 <blockquote>
-<div><p>$\bar y = \sum_{i = 1}^N y_i$</p>
+<div><p><span class="math notranslate nohighlight">\(\bar y = \sum_{i = 1}^N y_i\)</span></p>
 </div></blockquote>
 <blockquote>
-<div><p>$S_{xy} = \frac{1}{N-1}\sum_{i = 1}^N (x_i-\bar x)(y_i - \bar y)$</p>
+<div><p><span class="math notranslate nohighlight">\(S_{xy} = \frac{1}{N-1}\sum_{i = 1}^N (x_i-\bar x)(y_i - \bar y)\)</span></p>
 </div></blockquote>
 <blockquote>
-<div><p>$S_{x}^2 = \frac{1}{N-1}\sum_{i = 1}^N (x_i-\bar x)^2$</p>
+<div><p><span class="math notranslate nohighlight">\(S_{x}^2 = \frac{1}{N-1}\sum_{i = 1}^N (x_i-\bar x)^2\)</span></p>
 </div></blockquote>
-<p>Wir sind hier in der verrückten Situation, dass tatsächlich  Mittelwerte für $x$ und $y$ bestimmt werden müssen, obwohl die $x$-Werte absichtlich während der Versuchsreihe verändert werden, sich also die Grössen $x$ und $y$ laufend ändern.</p>
+<p>Wir sind hier in der verrückten Situation, dass tatsächlich  Mittelwerte für <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span> bestimmt werden müssen, obwohl die <span class="math notranslate nohighlight">\(x\)</span>-Werte absichtlich während der Versuchsreihe verändert werden, sich also die Grössen <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span> laufend ändern.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;pictures/lin_reg.png&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
@@ -706,13 +724,16 @@ Gelten für die $N$ Messwerte allerdings unterschiedliche Unsicherheiten, so mü
 <img alt="../_images/1_Kurvenanpassung_10_0.png" src="../_images/1_Kurvenanpassung_10_0.png" />
 </div>
 </div>
-<p>Nun sind die Schätzwerte allerdings zusätzlich fehlerbehaftet (wie sollte es auch anders sein). Mithilfe der Gleichung der Größtfehlers/Maximalfehlers kann man zeigen (den Beweis überspringen wir hier), dass für den Fehler von $y$ folgendes gilt:</p>
-<p>$$s_y = \sqrt{\frac{1}{N-2}\sum(y_i - mx_i - b)^2 }$$</p>
-<p>Die ist auch die Standardabweichung der Einzelmessung aber <em>nicht</em> der Fehlerbalken, der im Diagramm als Fehlerbalken eingezeichnet wird. Die Abweichung der Einzelmessung wurde bisher mit $N-1$ definiert, damals hat es sich aber um die Abweichung vom <em>Mittelwert</em> gehandelt. Nun betrachten wir die Abweichung zu einem linearen Modell, welches 2 offene Parameter, $m$ und $b$, hat, und somit einen Freiheitsgrad mehr bestitzt. Erst ab 3 Messwertepaaren können also Fehler für Steigung und Achsenabschnitt berechnet werden.
-Die besten Schätzwerte für die Abweichungen von $m$ und $b$ können nun wiefolgt berechnet werden. Der Fehler der Geradensteigung beträgt:</p>
-<p>$$s_m = s_y \cdot \sqrt{\frac{N}{N\cdot \sum x_i^2 - \left(\sum x_i\right)^2}} = s_y \cdot \sqrt{\frac{1}{\sum x_i^2 - N\cdot \bar x^2}} = s_y \cdot \sqrt{\frac{1}{\sum \left(x_i - \bar x \right)^2}} = s_y \cdot \sqrt{\frac{1}{N\cdot (\overline{x^2} - (\overline x)^2)}}$$</p>
+<p>Nun sind die Schätzwerte allerdings zusätzlich fehlerbehaftet (wie sollte es auch anders sein). Mithilfe der Gleichung der Größtfehlers/Maximalfehlers kann man zeigen (den Beweis überspringen wir hier), dass für den Fehler von <span class="math notranslate nohighlight">\(y\)</span> folgendes gilt:</p>
+<div class="math notranslate nohighlight">
+\[s_y = \sqrt{\frac{1}{N-2}\sum(y_i - mx_i - b)^2 }\]</div>
+<p>Die ist auch die Standardabweichung der Einzelmessung aber <em>nicht</em> der Fehlerbalken, der im Diagramm als Fehlerbalken eingezeichnet wird. Die Abweichung der Einzelmessung wurde bisher mit <span class="math notranslate nohighlight">\(N-1\)</span> definiert, damals hat es sich aber um die Abweichung vom <em>Mittelwert</em> gehandelt. Nun betrachten wir die Abweichung zu einem linearen Modell, welches 2 offene Parameter, <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span>, hat, und somit einen Freiheitsgrad mehr bestitzt. Erst ab 3 Messwertepaaren können also Fehler für Steigung und Achsenabschnitt berechnet werden.
+Die besten Schätzwerte für die Abweichungen von <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span> können nun wiefolgt berechnet werden. Der Fehler der Geradensteigung beträgt:</p>
+<div class="math notranslate nohighlight">
+\[s_m = s_y \cdot \sqrt{\frac{N}{N\cdot \sum x_i^2 - \left(\sum x_i\right)^2}} = s_y \cdot \sqrt{\frac{1}{\sum x_i^2 - N\cdot \bar x^2}} = s_y \cdot \sqrt{\frac{1}{\sum \left(x_i - \bar x \right)^2}} = s_y \cdot \sqrt{\frac{1}{N\cdot (\overline{x^2} - (\overline x)^2)}}\]</div>
 <p>Der Fehler des Ordinatenabschnitts beträgt:</p>
-<p>$$s_b = s_y \cdot \sqrt{\frac{\sum x_i^2}{N\cdot \sum x_i^2 - \left(\sum x_i\right)^2}} = s_y \cdot \sqrt{\frac{1}{N}\frac{\sum x_i^2}{\sum x_i^2 - N\cdot \bar x^2}} = s_y \cdot \sqrt{\frac{1}{N}\frac{\sum x_i^2}{\sum \left(x_i - \bar x \right)^2}} = s_m \cdot \sqrt{\overline{x^2}}$$</p>
+<div class="math notranslate nohighlight">
+\[s_b = s_y \cdot \sqrt{\frac{\sum x_i^2}{N\cdot \sum x_i^2 - \left(\sum x_i\right)^2}} = s_y \cdot \sqrt{\frac{1}{N}\frac{\sum x_i^2}{\sum x_i^2 - N\cdot \bar x^2}} = s_y \cdot \sqrt{\frac{1}{N}\frac{\sum x_i^2}{\sum \left(x_i - \bar x \right)^2}} = s_m \cdot \sqrt{\overline{x^2}}\]</div>
 </div>
 </div>
 <div class="section" id="beispiel-karussel-a-id-sec-beispiel-a">
@@ -720,12 +741,13 @@ Die besten Schätzwerte für die Abweichungen von $m$ und $b$ können nun wiefol
 <p>Wir stellen uns im Folgenden ein Kinderkarussel vor und wir wollen die Geschwindigkeit der Feuerwehrautos ermitteln. Das Auto selbst verfügt über kein Tachometer - es bleibt also eigentlich nur die Möglichkeit, die Zeit eines Umlaufs zu stoppen und aus der Geometrie des Karussells den zurückgelegten Weg zu bestimmen. Daraus lässt sich die Geschwindigkeit leicht berechnen.
 Wie aber könnte eine Fehlerrechnung aussehen? Wie lässt sich eine Mehrfachmessung anstellen?</p>
 <p>Beispielsweise könnte man die Zeit nach jedem Umlauf messen, die näherungsweise konstant sein sollte (bis auf die 1. Runde, wo noch beschleunigt wird). Es könnte sich also ein linearer Zusammenhang zwischen zurückgelegtem Weg und der benötigten Zeit vermuten:</p>
-<p>$$y = m\cdot x + b \Rightarrow y - b - m\cdot x = 0$$</p>
-<p>Die Konstanten $m$ und $b$ lassen sich nun bestimmen, indem <em>mindestens</em> zwei Messungen von $x$ und $y$ vorgenommen werden. Die Messungen dieser Größen werden fehlerbehaftet sein, sodass es zu einer Verfälschung der Konstanten kommt. Durch mehrere Messungen (&gt;2!) von $x$ und $y$ kann der zufällige Fehler auf die Konstanten vermindert und abgeschätzt werden. Zur Vereinfachung nehmen wir allerdings an, dass $x$ fehlerfrei (oder zumindest fehlerarm) ist. Für verschiedene Werte von $x$ ergeben sich dann entsprechende $y$-Werte mit Unsicherheiten.</p>
-<p>Für unser Kinderkarussel bleibt der Messpunkt der Strecke, $x$, laut Annahme unverändert. Dieser ist also sehr genau. Eine Unsicherheit wird bei der Zeitmessung, $y = t$ auftreten. Folgende Messwerte wurden ermittelt:</p>
+<div class="math notranslate nohighlight">
+\[y = m\cdot x + b \Rightarrow y - b - m\cdot x = 0\]</div>
+<p>Die Konstanten <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span> lassen sich nun bestimmen, indem <em>mindestens</em> zwei Messungen von <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span> vorgenommen werden. Die Messungen dieser Größen werden fehlerbehaftet sein, sodass es zu einer Verfälschung der Konstanten kommt. Durch mehrere Messungen (&gt;2!) von <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span> kann der zufällige Fehler auf die Konstanten vermindert und abgeschätzt werden. Zur Vereinfachung nehmen wir allerdings an, dass <span class="math notranslate nohighlight">\(x\)</span> fehlerfrei (oder zumindest fehlerarm) ist. Für verschiedene Werte von <span class="math notranslate nohighlight">\(x\)</span> ergeben sich dann entsprechende <span class="math notranslate nohighlight">\(y\)</span>-Werte mit Unsicherheiten.</p>
+<p>Für unser Kinderkarussel bleibt der Messpunkt der Strecke, <span class="math notranslate nohighlight">\(x\)</span>, laut Annahme unverändert. Dieser ist also sehr genau. Eine Unsicherheit wird bei der Zeitmessung, <span class="math notranslate nohighlight">\(y = t\)</span> auftreten. Folgende Messwerte wurden ermittelt:</p>
 <ul class="simple">
-<li><p>Weg  $x$ (m): 12, 24, 36, 42, 60, 72, 84, 96, 108, 120</p></li>
-<li><p>Zeit $t$ (s): 12.2, 17, 22.1, 33.2, 34.4, 59.1, 60.2, 65.7, 69.9, 70.1</p></li>
+<li><p>Weg  <span class="math notranslate nohighlight">\(x\)</span> (m): 12, 24, 36, 42, 60, 72, 84, 96, 108, 120</p></li>
+<li><p>Zeit <span class="math notranslate nohighlight">\(t\)</span> (s): 12.2, 17, 22.1, 33.2, 34.4, 59.1, 60.2, 65.7, 69.9, 70.1</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -748,9 +770,11 @@ Wie aber könnte eine Fehlerrechnung aussehen? Wie lässt sich eine Mehrfachmess
 </div>
 <div class="section" id="analytische-lineare-regression-a-id-subsec-analytical-linreg-a">
 <h3>Analytische Lineare Regression <a id="SubSec-Analytical_LinReg"></a><a class="headerlink" href="#analytische-lineare-regression-a-id-subsec-analytical-linreg-a" title="Permalink to this headline">¶</a></h3>
-<p>An dem Diagram erkennt man, dass die Parameter $m$ und $b$ niemals fehlerrfrei berechnet werden können. Die gemessenen Punkte werden immer neben der Geraden liegen. Das heißt eine fehlerfreie Berechnung der Parameter aus den Messwerten wird daher nicht möglich sein. Daher können wir wieder nur versuchen beste Schätzungen für $m$ und $b$ zu definieren, die bei einer steigenden Anzahl von Messwerten den <em>wahren</em> Werten beliebig nahe kommt. Diese Schätzwerte sind die Regressionskoeffizienten, welche wir bereits eben definiert hatten und wiefolgt berechnen können:</p>
-<p>$$ m = \frac{S_{xt}}{S_{x}^2} = \frac{\overline{x\cdot t} - \overline x \cdot \overline t}{\overline{x^2} - (\overline x)^2}$$</p>
-<p>$$b = \frac{\sum_{i=1}^N t_i - m \sum_{i=1}^N x_i}{N} = \bar t - m \cdot \bar x$$</p>
+<p>An dem Diagram erkennt man, dass die Parameter <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span> niemals fehlerrfrei berechnet werden können. Die gemessenen Punkte werden immer neben der Geraden liegen. Das heißt eine fehlerfreie Berechnung der Parameter aus den Messwerten wird daher nicht möglich sein. Daher können wir wieder nur versuchen beste Schätzungen für <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span> zu definieren, die bei einer steigenden Anzahl von Messwerten den <em>wahren</em> Werten beliebig nahe kommt. Diese Schätzwerte sind die Regressionskoeffizienten, welche wir bereits eben definiert hatten und wiefolgt berechnen können:</p>
+<div class="math notranslate nohighlight">
+\[ m = \frac{S_{xt}}{S_{x}^2} = \frac{\overline{x\cdot t} - \overline x \cdot \overline t}{\overline{x^2} - (\overline x)^2}\]</div>
+<div class="math notranslate nohighlight">
+\[b = \frac{\sum_{i=1}^N t_i - m \sum_{i=1}^N x_i}{N} = \bar t - m \cdot \bar x\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">t</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
@@ -779,7 +803,7 @@ Der Ordinatenabschnitt ist 	 b = 4.7148 s
 <div class="section" id="lineare-regression-mit-python-scipy-a-id-subsec-scipy-linreg-a">
 <h3>Lineare Regression mit Python: scipy <a id="SubSec-scipy_LinReg"></a><a class="headerlink" href="#lineare-regression-mit-python-scipy-a-id-subsec-scipy-linreg-a" title="Permalink to this headline">¶</a></h3>
 <p>Mit einem Datenanalyseprogramm, sei es hier in Python oder in Matlab oder Maple, können Hilfsfunktionen und Pakete geladen werden, um Fit-Funktionen automatisch auf Messwerte anzupassen. Dies ist in der Regel schneller und insbesondere auch für andere Zusammenhänge, neben linearen Zusammenhängen, viel einfacher in der Umsetzung. Man sollte jedoch stets das Ergebnis kontrollieren, z.B. anhand von grafischen Darstellungen, und sich die Unsicherheiten genau ansehen. Desweiteren können in der Fitroutine Startparameter angegeben werden, welche den Schätzwerten schon recht nah sein sollten. Das Fitergebnis kann nämlich unter Umständen sehr stark von der Wahl der Startparameter abhängen, gerade wenn es um komplexere Fitfunktionen geht. Im Folgenden wollen wir uns aber noch einmal das Beispiels das Karussels ansehen, um die beiden Methoden miteinander zu vergleichen.</p>
-<p>Als erstes definieren wir uns eine allgemein lineare Fitfunktion und anschließend nutzen wir das scipy-Paket und rufen die Optimierungsfunktion auf, um unsere Messwerte zu modellieren. Die Ausgangsparameter werden in einem weiteren Array abgespeichert, welches einerseits die gesuchten Variablen $m$ und $b$ beinhaltet, andererseits die Kovarianzmatrix enthält. Aus der Wurzel die Diagonalelemente dieser Kovarianzmatrix erhält man die Standardabweichung der bestimmten Variablen.</p>
+<p>Als erstes definieren wir uns eine allgemein lineare Fitfunktion und anschließend nutzen wir das scipy-Paket und rufen die Optimierungsfunktion auf, um unsere Messwerte zu modellieren. Die Ausgangsparameter werden in einem weiteren Array abgespeichert, welches einerseits die gesuchten Variablen <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span> beinhaltet, andererseits die Kovarianzmatrix enthält. Aus der Wurzel die Diagonalelemente dieser Kovarianzmatrix erhält man die Standardabweichung der bestimmten Variablen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fit_lin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span> <span class="c1"># Fit Funktion für eine Gerade mit Steigung b</span>
@@ -907,12 +931,12 @@ Fit Report:
 <img alt="../_images/1_Kurvenanpassung_22_1.png" src="../_images/1_Kurvenanpassung_22_1.png" />
 </div>
 </div>
-<p>Anhand der ausführlichen Ausgabe erkennt man sofort, wie viele Informationen man aus der Benutzung dieses Paketes ziehen kann, ohne aufwendige Fehlerfortpflanzung betreiben zu müssen. Außerdem kann man Beispielsweise die Fit-Methode ändern (anstelle von least-squares), man kann sich die Anfangs-Fitfunktion ansehen (und parallel zur ‘besten’ Fit-Funktion anzeigen lassen), man kann Parameter konstant setzen oder sich Standardfehler, $\chi^2$ und Korrelationen (zwischen den Fit-Parametern, nicht den Messwerten!) ausgeben lassen.</p>
+<p>Anhand der ausführlichen Ausgabe erkennt man sofort, wie viele Informationen man aus der Benutzung dieses Paketes ziehen kann, ohne aufwendige Fehlerfortpflanzung betreiben zu müssen. Außerdem kann man Beispielsweise die Fit-Methode ändern (anstelle von least-squares), man kann sich die Anfangs-Fitfunktion ansehen (und parallel zur ‘besten’ Fit-Funktion anzeigen lassen), man kann Parameter konstant setzen oder sich Standardfehler, <span class="math notranslate nohighlight">\(\chi^2\)</span> und Korrelationen (zwischen den Fit-Parametern, nicht den Messwerten!) ausgeben lassen.</p>
 </div>
 <div class="section" id="bestimmung-der-geschwindigkeit-a-id-subsec-geschwindigkeit-a">
 <h3>Bestimmung der Geschwindigkeit <a id="SubSec-geschwindigkeit"></a><a class="headerlink" href="#bestimmung-der-geschwindigkeit-a-id-subsec-geschwindigkeit-a" title="Permalink to this headline">¶</a></h3>
 <p>Eigentlich wollten wir ja die Geschwindigkeit der Feuerwehrautos bestimmen.
-Der Kehrwert der Steigung $m$ liefert uns die Geschwindigkeit des Karussells, wenn wir den Kehrwert berechnen:</p>
+Der Kehrwert der Steigung <span class="math notranslate nohighlight">\(m\)</span> liefert uns die Geschwindigkeit des Karussells, wenn wir den Kehrwert berechnen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">m</span>
@@ -932,10 +956,12 @@ Die Geschwindigkeit ermittelt mittels Fit ist:      v = 1.6484 m/s = 5.9342 km/h
 </div>
 <div class="section" id="unsicherheit-der-geschwindigkeit-a-id-subsec-u-geschwindigkeit-a">
 <h3>Unsicherheit der Geschwindigkeit <a id="SubSec-u_geschwindigkeit"></a><a class="headerlink" href="#unsicherheit-der-geschwindigkeit-a-id-subsec-u-geschwindigkeit-a" title="Permalink to this headline">¶</a></h3>
-<p>Wie bereits oben schon erwähnt, hat die Regressionen eine Abweichung. Daher müssen wir uns jetzt fragen, was der Fehler der Geschwindigkeit ist. Diesen bekommen wir aus der Steigiung $m$. Das heißt wir benötigen zuerst den Fehler von $m$:</p>
-<p>$$s_m = s_t \cdot \sqrt{\frac{1}{N\cdot (\overline{x^2} - (\overline x)^2)}} \quad \textrm{mit} \quad s_t = \sqrt{\frac{1}{N-2}\sum(t_i - mx_i - b)^2 }$$</p>
-<p>Der Vollständigkeit halber berechnen wir ebenfalls den Fehler für $b$:</p>
-<p>$$s_b  = s_m \cdot \sqrt{\overline{x^2}}$$</p>
+<p>Wie bereits oben schon erwähnt, hat die Regressionen eine Abweichung. Daher müssen wir uns jetzt fragen, was der Fehler der Geschwindigkeit ist. Diesen bekommen wir aus der Steigiung <span class="math notranslate nohighlight">\(m\)</span>. Das heißt wir benötigen zuerst den Fehler von <span class="math notranslate nohighlight">\(m\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[s_m = s_t \cdot \sqrt{\frac{1}{N\cdot (\overline{x^2} - (\overline x)^2)}} \quad \textrm{mit} \quad s_t = \sqrt{\frac{1}{N-2}\sum(t_i - mx_i - b)^2 }\]</div>
+<p>Der Vollständigkeit halber berechnen wir ebenfalls den Fehler für <span class="math notranslate nohighlight">\(b\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[s_b  = s_m \cdot \sqrt{\overline{x^2}}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
@@ -962,13 +988,14 @@ Die Unsicherheit von b ist 	 s_b = 3.9581 s
 </div>
 </div>
 </div>
-<p>Die Fitroutine in Python gibt uns ebenfalls Unsicherheiten in Form von der Kovarianz-Matrix aus. Auf der Diagonale stehen die Varianzen, $s^2$, auf den Nicht-Diagonalelementen stehen die Kovarianzen (Korrelationsterme zwischen $m$ und $b$):</p>
-<p>$$\mathrm{cov}(m,b) =
+<p>Die Fitroutine in Python gibt uns ebenfalls Unsicherheiten in Form von der Kovarianz-Matrix aus. Auf der Diagonale stehen die Varianzen, <span class="math notranslate nohighlight">\(s^2\)</span>, auf den Nicht-Diagonalelementen stehen die Kovarianzen (Korrelationsterme zwischen <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathrm{cov}(m,b) = 
 \begin{pmatrix}
-s_m^2 &amp; s_{mb} \
-s_{bm} &amp; s_b^2
-\end{pmatrix} $$</p>
-<p>Die Unsicherheiten für $m$ und $b$ erhalten wir also aus der Wurzel von den Diagonalelementen.</p>
+ s_m^2 &amp; s_{mb} \\
+ s_{bm} &amp; s_b^2
+\end{pmatrix} \end{split}\]</div>
+<p>Die Unsicherheiten für <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span> erhalten wir also aus der Wurzel von den Diagonalelementen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Kovarianzmatrix hat die folgende Form: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">fit_out</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
@@ -990,8 +1017,9 @@ Die Unsicherheit von b ist 	 s_b = 3.9581 s
 </div>
 </div>
 <p>Auch die Unsicherheiten stimmen für beide Methoden perfekt überein.</p>
-<p>Nun interessiert uns allerdings der absolute Fehler der geschätzen Geschwindigkeit. Da die Geschwindigkeit der Kehrwert der Steigung ist ($v = \frac{1}{m}$), müssen wir Fehlerfortpflanzung anwenden. Der Fehler wirkt sich wiefolgt auf den Kehrwert aus:</p>
-<p>$$\Delta v = \left|\frac{\partial v}{\partial m}\right|\cdot \Delta m = \left| -\frac{1}{m^2} \right| \cdot s_m = \frac{1}{m^2} \cdot s_m = s_v$$</p>
+<p>Nun interessiert uns allerdings der absolute Fehler der geschätzen Geschwindigkeit. Da die Geschwindigkeit der Kehrwert der Steigung ist (<span class="math notranslate nohighlight">\(v = \frac{1}{m}\)</span>), müssen wir Fehlerfortpflanzung anwenden. Der Fehler wirkt sich wiefolgt auf den Kehrwert aus:</p>
+<div class="math notranslate nohighlight">
+\[\Delta v = \left|\frac{\partial v}{\partial m}\right|\cdot \Delta m = \left| -\frac{1}{m^2} \right| \cdot s_m = \frac{1}{m^2} \cdot s_m = s_v\]</div>
 <p>Da beide Methoden die gleichen Werte für Schätzungen und Unsicherheiten ausgeben, ersparen wir uns ab nun die Berechnung der Geschwindigkeit inkl. Unsicherheit für beide Methoden. Die Fehlerrechnung wird nur noch für die analytische Methode ausgeführt:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1007,12 +1035,14 @@ Die Unsicherheit von b ist 	 s_b = 3.9581 s
 </div>
 </div>
 <p>Das Messergebnis kann also wiefolgt angegeben werden:</p>
-<p>$$v = (1,6484 \pm 0,1452),\mathrm{m/s}$$</p>
+<div class="math notranslate nohighlight">
+\[v = (1,6484 \pm 0,1452)\,\mathrm{m/s}\]</div>
 <p><strong>Ist diese Angabe sinnvoll?</strong> Wenn wir das so konkret fragen, dann vermutlich nicht…
 Wenn der Fehler bereits in der ersten Stelle nach dem Komma signifikant bemerkbar den Schätzwert beeinflusst, warum sollte man sich dann die Mühe machen noch weitere Nachkommastellen hinzuschreiben? Also <strong>sinnvoll runden</strong>:</p>
-<p>$$v = (1,6 \pm 0,2),\mathrm{m/s}$$</p>
+<div class="math notranslate nohighlight">
+\[v = (1,6 \pm 0,2)\,\mathrm{m/s}\]</div>
 <p>Warum 0,2 und nicht 0,1? <strong>Fehler werden immer aufgerundet!</strong></p>
-<p>Nun könnte noch der relative Fehler $\Delta v/v$ berechnet werden.</p>
+<p>Nun könnte noch der relative Fehler <span class="math notranslate nohighlight">\(\Delta v/v\)</span> berechnet werden.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die relative Unsicherheit von v ist </span><span class="se">\t</span><span class="s1"> s_v = </span><span class="si">%5.4f</span><span class="s1"> Prozent&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">s_v</span><span class="o">/</span><span class="n">v</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
@@ -1029,7 +1059,8 @@ Wenn der Fehler bereits in der ersten Stelle nach dem Komma signifikant bemerkba
 <div class="section" id="korrelationskoeffizient-a-id-subsec-korrelationskoeffizient-a">
 <h3>Korrelationskoeffizient <a id="SubSec-Korrelationskoeffizient"></a><a class="headerlink" href="#korrelationskoeffizient-a-id-subsec-korrelationskoeffizient-a" title="Permalink to this headline">¶</a></h3>
 <p>Der Korrelationskoeffizient kann wiefolgt berechnet werden:</p>
-<p>$$r = \frac{\overline{x\cdot t} - \overline x \cdot \overline t}{\sqrt{\overline{x^2} - (\overline x)^2} \cdot {\sqrt{\overline{t^2} - (\overline t)^2}}} $$</p>
+<div class="math notranslate nohighlight">
+\[r = \frac{\overline{x\cdot t} - \overline x \cdot \overline t}{\sqrt{\overline{x^2} - (\overline x)^2} \cdot {\sqrt{\overline{t^2} - (\overline t)^2}}} \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Analytische Methode:</span>
@@ -1053,24 +1084,24 @@ Die Korrelationsmatrix zwischen x und t mittels numpy-Paket lautet:
 </div>
 </div>
 </div>
-<p>Der Korrelationskoeffizient von $+ 0,97035$ zeigt mit positivem Vorzeichen eine direkte Proportionalität zwischen $x$ und $t$. Die geringfügige Abweichung zu +1 zeigt, dass die Messwerte leicht von dem erwarteten linearen Zusammenhang dennoch abweichen.</p>
+<p>Der Korrelationskoeffizient von <span class="math notranslate nohighlight">\(+ 0,97035\)</span> zeigt mit positivem Vorzeichen eine direkte Proportionalität zwischen <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(t\)</span>. Die geringfügige Abweichung zu +1 zeigt, dass die Messwerte leicht von dem erwarteten linearen Zusammenhang dennoch abweichen.</p>
 </div>
 </div>
 <div class="section" id="beispiel-mit-fehlerbalken-in-den-y-messwerten-a-id-sec-beispiel-fehlerbalken-a">
 <h2>Beispiel mit Fehlerbalken in den y-Messwerten <a id="Sec-Beispiel_Fehlerbalken"></a><a class="headerlink" href="#beispiel-mit-fehlerbalken-in-den-y-messwerten-a-id-sec-beispiel-fehlerbalken-a" title="Permalink to this headline">¶</a></h2>
-<p>Gegeben sei eine Messreihe von 10 Messwerten mit annäherend konstanten Verhalten. In diesem sollen nun Kurvenanpassungen vorgenommen werden, unter Berücksichtung von Fehlerbalken. Folgende Messdaten inkl. Unsicherheiten wurden aufgenommen. Die Unsicherheit der $x$-Achse vernachlässen wir hier der Einfachheit halber.</p>
+<p>Gegeben sei eine Messreihe von 10 Messwerten mit annäherend konstanten Verhalten. In diesem sollen nun Kurvenanpassungen vorgenommen werden, unter Berücksichtung von Fehlerbalken. Folgende Messdaten inkl. Unsicherheiten wurden aufgenommen. Die Unsicherheit der <span class="math notranslate nohighlight">\(x\)</span>-Achse vernachlässen wir hier der Einfachheit halber.</p>
 <p>Wir werden dieses Beispiel für 3 Fälle durchrechnen:</p>
 <ul class="simple">
 <li><ol class="simple">
-<li><p>Fall: Jeder Messwert hat einen anderen Fehler: $s_y$ hat unterschiedliche Einträge</p></li>
+<li><p>Fall: Jeder Messwert hat einen anderen Fehler: <span class="math notranslate nohighlight">\(s_y\)</span> hat unterschiedliche Einträge</p></li>
 </ol>
 </li>
 <li><ol class="simple">
-<li><p>Fall: Jeder Messwert hat den gleichen Fehler: $s_y = s_i = 1.0$</p></li>
+<li><p>Fall: Jeder Messwert hat den gleichen Fehler: <span class="math notranslate nohighlight">\(s_y = s_i = 1.0\)</span></p></li>
 </ol>
 </li>
 <li><ol class="simple">
-<li><p>Fall: Die Messwerte haben keinen Fehler: $s_y = s_i = 0.0$</p></li>
+<li><p>Fall: Die Messwerte haben keinen Fehler: <span class="math notranslate nohighlight">\(s_y = s_i = 0.0\)</span></p></li>
 </ol>
 </li>
 </ul>
@@ -1101,26 +1132,26 @@ Die Korrelationsmatrix zwischen x und t mittels numpy-Paket lautet:
 <h3>Minimierungsproblem lösen: Ausprobieren <a id="SubSec-Ausprobieren"></a><a class="headerlink" href="#minimierungsproblem-losen-ausprobieren-a-id-subsec-ausprobieren-a" title="Permalink to this headline">¶</a></h3>
 <p>Im Allgemeinen gilt, je kleiner die Unsicherheit eines Messwertes ist, desto wichtiger ist dieser Messwert für die Mittelwertbildung. Die analytische Lösung würde wiefolgt aussehen:</p>
 <ul class="simple">
-<li><p>$S(c) = \displaystyle\sum_{i=1}^{N} \frac{(y_i -c)^2}{{s_i}^2}$</p></li>
-<li><p>$0= \frac{dS}{dc} = \displaystyle\sum_{i=1}^{N} \frac{2 (y_i -c)}{{s_i}^2}$</p></li>
+<li><p><span class="math notranslate nohighlight">\(S(c) = \displaystyle\sum_{i=1}^{N} \frac{(y_i -c)^2}{{s_i}^2}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(0= \frac{dS}{dc} = \displaystyle\sum_{i=1}^{N} \frac{2 (y_i -c)}{{s_i}^2}\)</span></p></li>
 </ul>
 <blockquote>
-<div><p>$\Rightarrow {\hat c} = \frac{1}{\sum{1/s_i}^2}
-\displaystyle\sum_{i=1}^{N}\frac{1}{{s_i}^2}y_i $</p>
+<div><p><span class="math notranslate nohighlight">\(\Rightarrow {\hat c} = \frac{1}{\sum{1/s_i}^2}
+     \displaystyle\sum_{i=1}^{N}\frac{1}{{s_i}^2}y_i \)</span></p>
 </div></blockquote>
-<p>Mit der Definition $ w_i \equiv \frac{1} {{s_i}^2}$ erhalten wir als wichtiges
+<p>Mit der Definition <span class="math notranslate nohighlight">\( w_i \equiv \frac{1} {{s_i}^2}\)</span> erhalten wir als wichtiges
 Ergebnis die Formel für den <em>gewichteten Mittelwert</em>:</p>
 <blockquote>
-<div><p>${\hat c}= \frac{1} {\sum {w_i}} \displaystyle\sum_{i=1}^{N}  {w_i} y_i$</p>
+<div><p><span class="math notranslate nohighlight">\({\hat c}= \frac{1} {\sum {w_i}} \displaystyle\sum_{i=1}^{N}  {w_i} y_i\)</span></p>
 </div></blockquote>
-<p>Der Mittelwert ist die mit $1/s_i^2$ gewichtete Summe der Einzelmessungen.
-Die Gewichte entsprechen der obigen Erwartung: Messwerte mit den kleinsten $s_i$
-bekommen bei der Mittelwertbildung das größte Gewicht. Am Vorfaktor $1/\sum w_i$ kann
-man ablesen, dass die Zahl der Messwerte $N$ in diesem Fall durch die Summe der Gewichte
-$\sum w_i$ ersetzt werden muss.</p>
-<p>Ist der Fehler für alle Messwerte konstant, so kann $s_i$ einfach auf die andere Seite multipliziert werden und verschwindet aus der Gleichung. Ist der Fehler Null, nutzen wir die Gütefunktion, welche minimiert werden muss:</p>
+<p>Der Mittelwert ist die mit <span class="math notranslate nohighlight">\(1/s_i^2\)</span> gewichtete Summe der Einzelmessungen.
+Die Gewichte entsprechen der obigen Erwartung: Messwerte mit den kleinsten <span class="math notranslate nohighlight">\(s_i\)</span>
+bekommen bei der Mittelwertbildung das größte Gewicht. Am Vorfaktor <span class="math notranslate nohighlight">\(1/\sum w_i\)</span> kann
+man ablesen, dass die Zahl der Messwerte <span class="math notranslate nohighlight">\(N\)</span> in diesem Fall durch die Summe der Gewichte
+<span class="math notranslate nohighlight">\(\sum w_i\)</span> ersetzt werden muss.</p>
+<p>Ist der Fehler für alle Messwerte konstant, so kann <span class="math notranslate nohighlight">\(s_i\)</span> einfach auf die andere Seite multipliziert werden und verschwindet aus der Gleichung. Ist der Fehler Null, nutzen wir die Gütefunktion, welche minimiert werden muss:</p>
 <ul class="simple">
-<li><p>$Q(c) := \sum_{i=1}^n (y_i - f(x))^2 = \sum_{i=1}^n (y_i - c)^2 = \textrm{min?}$</p></li>
+<li><p><span class="math notranslate nohighlight">\(Q(c) := \sum_{i=1}^n (y_i - f(x))^2 = \sum_{i=1}^n (y_i - c)^2 = \textrm{min?}\)</span></p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1133,7 +1164,7 @@ $\sum w_i$ ersetzt werden muss.</p>
 </div>
 </div>
 </div>
-<p>Die Minimierung kann einfach ausgeführt werden, indem die Gütefunktion für verschiedene Funktionsparameter ($c$) ausprobiert wird, im Folgenden werden für $c$ 100 Werte zwischen 8 und 12 ausprobiert:</p>
+<p>Die Minimierung kann einfach ausgeführt werden, indem die Gütefunktion für verschiedene Funktionsparameter (<span class="math notranslate nohighlight">\(c\)</span>) ausprobiert wird, im Folgenden werden für <span class="math notranslate nohighlight">\(c\)</span> 100 Werte zwischen 8 und 12 ausprobiert:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c_val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>

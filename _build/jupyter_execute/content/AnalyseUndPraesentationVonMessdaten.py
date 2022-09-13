@@ -33,8 +33,6 @@
 # - **Darstellung:** Vollständige Angabe des Messergebnisses, bestehend aus Zahlenwert, Maßeinheit und Messunsicherheit. Verwende die wissenschaftliche Notation für Zehnerpotenzen:
 # 
 # ```{image} pictures/praefix.png
-# :alt: fishy
-# :class: bg-primary mb-1
 # :width: 500px
 # :align: center
 # ````

@@ -23,7 +23,8 @@ print('Setup Complete')
 
 # ## Einlesen von Klimadaten
 # 
-# Im Folgenden Nutzen wir Daten, die auf der Webseite der NASA zu finden sind: https://data.giss.nasa.gov/gistemp/. Es werden Daten von Dateien (online oder offline) eingelesen mit der Python Bilbiothek `pandas`. Die Daten werden in sogenannten *DataFrames* gespeichert.
+# Im Folgenden Nutzen wir globale Klimadaten, die auf der Webseite der NASA zu finden sind: https://data.giss.nasa.gov/gistemp/. Hierbei handelt es sich um Temperaturdaten, die Anomalien gegenüber dem Mittelwert in den Jahren 1951-1980 aufweisen.
+# Es werden Daten von Dateien (online oder offline) eingelesen mit der Python Bilbiothek `pandas`. Die Daten werden in sogenannten *DataFrames* gespeichert. 
 
 # In[2]:
 
@@ -374,10 +375,11 @@ plt.grid();
 # Glättung:
 from statsmodels.nonparametric.smoothers_lowess import lowess
 GER_mean["Lowess(own3)"] = lowess(GER_mean["Jahresmitteltemperaturabweichung [°C]"],GER_mean["Jahr"], frac=1/3)[:,1]
-GER_mean_Lowess_own3_mean_until_1910 = GER_mean.loc[GER_mean["Jahr"] <= 1910,"Lowess(own3)"].mean()
+GER_mean_Lowess_own3_mean_until_1910 = GER_mean.loc[GER_mean["Jahr"] <= 1910,"Jahresmitteltemperaturabweichung [°C]"].mean()
 GER_mean["Lowess(own3)"] = GER_mean["Lowess(own3)"] - GER_mean_Lowess_own3_mean_until_1910
 
 global_mean["Lowess(own3)"] = lowess(global_mean["No_Smoothing"],global_mean["Year"], frac=1/3)[:,1]
+global_mean["Lowess(own3)"] = global_mean["Lowess(own3)"]
 
 
 # In[29]:
@@ -387,10 +389,10 @@ global_mean["Lowess(own3)"] = lowess(global_mean["No_Smoothing"],global_mean["Ye
 plt.style.use('default')
 plt.figure(figsize=(10,5))
 plt.rcParams['font.size'] = 14;
-plt.plot(global_mean["Year"],global_mean["No_Smoothing"], ls="-", lw=1,  color="tab:gray", alpha=0.5, marker="x", label="Werte NASA ");
-plt.plot(global_mean["Year"],global_mean["Lowess(own3)"], ls="-", lw=3,  color="tab:gray", label="eigene Glättung (LOWESS f=1/3) NASA ");
-plt.plot(GER_mean["Jahr"],GER_mean["Jahresmitteltemperaturabweichung [°C]"], ls="-", lw=1, marker="s", ms=3, color="tab:green", alpha=0.5, label="Werte DWD");
-plt.plot(GER_mean["Jahr"],GER_mean["Lowess(own3)"],ls="-",lw=3,  color="tab:green", label="eigene Glättung (LOWESS f=1/3) DWD");
+plt.plot(global_mean["Year"],global_mean["No_Smoothing"]-global_mean["Lowess(own3)"][1], ls="-", lw=1,  color="tab:gray", alpha=0.5, marker="x", label="Werte NASA ");
+plt.plot(global_mean["Year"],global_mean["Lowess(own3)"]-global_mean["Lowess(own3)"][1], ls="-", lw=3,  color="tab:gray", label="eigene Glättung (LOWESS f=1/3) NASA ");
+plt.plot(GER_mean["Jahr"],GER_mean["Jahresmitteltemperaturabweichung [°C]"]-GER_mean["Lowess(own3)"][1], ls="-", lw=1, marker="s", ms=3, color="tab:green", alpha=0.5, label="Werte DWD");
+plt.plot(GER_mean["Jahr"],GER_mean["Lowess(own3)"]-GER_mean["Lowess(own3)"][1],ls="-",lw=3,  color="tab:green", label="eigene Glättung (LOWESS f=1/3) DWD");
 plt.ylabel("Jahresmitteltemperaturabweichung [°C]")
 plt.xlabel("Jahr")
 plt.legend();

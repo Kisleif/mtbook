@@ -52,12 +52,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Fortpflanzung von Messunsicherheiten" href="1_Fehlerfortpflanzung.html" />
-    <link rel="prev" title="Analyse und Präsentation von Messwerten" href="1_AnalyseUndPraesentationVonMessdaten.html" />
+    <link rel="next" title="Mittelwert und Standardabweichung" href="1_Mittelwert_StdAbw.html" />
+    <link rel="prev" title="Messdaten sammeln und darstellen" href="1_Einleitung.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -117,19 +115,24 @@ const thebe_selector_output = ".output, .cell_output"
    </i>
   </label>
   <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Einleitung.html">
+     Messdaten sammeln und darstellen
+    </a>
+   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Quellen und Ursachen von Messunsicherheiten
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="1_Fehlerfortpflanzung.html">
-     Fortpflanzung von Messunsicherheiten
+    <a class="reference internal" href="1_Mittelwert_StdAbw.html">
+     Mittelwert und Standardabweichung
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="1_Mittelwert_StdAbw.html">
-     Mittelwert und Standardabweichung
+    <a class="reference internal" href="1_Fehlerfortpflanzung.html">
+     Fortpflanzung von Messunsicherheiten
     </a>
    </li>
    <li class="toctree-l2">
@@ -427,16 +430,16 @@ require(['plotly'], function(Plotly) {
 <div class="tex2jax_ignore mathjax_ignore section" id="quellen-und-ursachen-von-messunsicherheiten">
 <h1>Quellen und Ursachen von Messunsicherheiten<a class="headerlink" href="#quellen-und-ursachen-von-messunsicherheiten" title="Permalink to this headline">¶</a></h1>
 <p>Früher hat man statt <em>Abweichung</em> noch den Begriff <em>Messfehler</em> verwendet. Man dachte, dass man mit genügend Aufwand, Sorgfalt und bestmöglicher Technologie den Fehler vollständig eliminieren können. Spätestens seit der Theorie der <em>Quantenphysik</em> ist uns allerdings bekannt, dass zufällige Einflüsse auf die beobachteten Messgrößen  unvermeidlich sind und auch nicht vorhergesagt werden können. Statt eines einzig <em>wahren</em> Wertes werden in der Quantenphysik Messgrößen durch deren Erwartungswerte vorhergesagt. Diesen Messgrößen liegt eine Wahrscheinlichkeitsdichte zu Grunde, dessen Varianz (bzw. Standardabweichung) nicht verschwindet! Somit werden für ein und dieselbe physikalische Messgröße verschiedene Ergebnisse gemessen, obwohl nahezu identische Bedingungen herrschen. Das Eintreten eines bestimmten Messergebnisses ist an eine bestimmte Wahrscheinlichkeit gekoppelt, mit der dieses Ergebnis eintritt.</p>
-<p>Jede Messung einer physikalischen Größe <span class="math notranslate nohighlight">\(x\)</span> ist abhängig von den verwendeten Messgeräten, dem Messverfahren, dem Messobjekt, von Umwelteinflüssen (Temperatur, Feuchtigkeit, elektromagnetische Felder) und schließlich auch vom Beobachter (Müdigkeit, Sehschärfe, Übung). Messungen liefern daher lediglich Schätzwerte für die <em>wahren</em> Werte einer Größe. Es gibt prinzipiell keine Möglichkeit, den wahren Wert einer Messgröße zu messen. Im Rahmen internationaler Anstrengungen für eine einheitliche Bewertung von Einflussgrößen auf eine Messung werden zwei Kategorien von Methoden der Berechnung von Unsicherheiten unterschieden <a class="reference external" href="https://www.iso.org/sites/JCGM/GUM/JCGM100/C045315e-html/C045315e.html?csnumber=50461">[GUM]</a>:</p>
+<p>Jede Messung einer physikalischen Größe $x$ ist abhängig von den verwendeten Messgeräten, dem Messverfahren, dem Messobjekt, von Umwelteinflüssen (Temperatur, Feuchtigkeit, elektromagnetische Felder) und schließlich auch vom Beobachter (Müdigkeit, Sehschärfe, Übung). Messungen liefern daher lediglich Schätzwerte für die <em>wahren</em> Werte einer Größe. Es gibt prinzipiell keine Möglichkeit, den wahren Wert einer Messgröße zu messen. Im Rahmen internationaler Anstrengungen für eine einheitliche Bewertung von Einflussgrößen auf eine Messung werden zwei Kategorien von Methoden der Berechnung von Unsicherheiten unterschieden <a class="reference external" href="https://www.iso.org/sites/JCGM/GUM/JCGM100/C045315e-html/C045315e.html?csnumber=50461">[GUM]</a>:</p>
 <ul class="simple">
 <li><p><strong>Typ A (“Zufällige Abweichung”):</strong> Berechnung der Messunsicherheit durch statistische Analyse der Messungen</p></li>
 <li><p><strong>Typ B (“Systematische Abweichung”):</strong> Berechnung der Messunsicherheit mit anderen Mitteln als der statistischen Analyse</p></li>
 </ul>
-<img src="pictures/messfehler.png" width=800>
+<a class="reference internal image-reference" href="../_images/messfehler.png"><img alt="../_images/messfehler.png" src="../_images/messfehler.png" style="width: 800px;" /></a>
 <div class="section" id="typ-a-unsicherheiten-zufallige-fehler">
 <h2>Typ A-Unsicherheiten (“Zufällige Fehler”)<a class="headerlink" href="#typ-a-unsicherheiten-zufallige-fehler" title="Permalink to this headline">¶</a></h2>
 <p>Dies sind Messunsicherheiten, die nicht einseitig gerichtet sind, sondern einer zufälligen Streuung der Messwerte zugrunde liegen. Zur Behandlung dieser Messunsicherheiten nutzt man die Stochastik (Wahrscheinlichkeitslehre und Statistik).
-Zufällige Fehler kennt man nicht, er ist folglich nicht korrigierbar und lässt sich auch nicht reproduzieren unter gleichen Messbedingungen. Hier sind wiederholte Messungen und statistische Analysen notwendig, wodurch Mittelwert und Standardabweichung von sogenannten <em>Stichproben</em> ermittelt wird. Wie gewinnt man aus einer Messreihe <span class="math notranslate nohighlight">\(x_j\)</span> den besten Schätzewert, der mit maximaler Wahrscheinlichkeit am nähesten am <em>wahren</em> Wert, <span class="math notranslate nohighlight">\(x_w\)</span>, liegt? Mit welcher Wahrscheinlichkeit liegt das Messergebnis innerhalb eines bestimmten Intervalls um den wahren Wert, $<span class="math notranslate nohighlight">\(x = x_w + \Delta x ?\)</span>$</p>
+Zufällige Fehler kennt man nicht, er ist folglich nicht korrigierbar und lässt sich auch nicht reproduzieren unter gleichen Messbedingungen. Hier sind wiederholte Messungen und statistische Analysen notwendig, wodurch Mittelwert und Standardabweichung von sogenannten <em>Stichproben</em> ermittelt wird. Wie gewinnt man aus einer Messreihe $x_j$ den besten Schätzewert, der mit maximaler Wahrscheinlichkeit am nähesten am <em>wahren</em> Wert, $x_w$, liegt? Mit welcher Wahrscheinlichkeit liegt das Messergebnis innerhalb eines bestimmten Intervalls um den wahren Wert, $$x = x_w + \Delta x ?$$</p>
 </div>
 <div class="section" id="typ-b-unsicherheiten-systematische-fehler">
 <h2>Typ B-Unsicherheiten (“Systematische Fehler”)<a class="headerlink" href="#typ-b-unsicherheiten-systematische-fehler" title="Permalink to this headline">¶</a></h2>
@@ -445,7 +448,7 @@ Sie kann durch Aufwand und Kalibration verbessert werden, was <em>nicht</em> fü
 Es gibt keine allgemeingültige Definition oder allgemeine Verfahren zur Korrektur. Das heißt für jeden Fall müssen neue Verfahren entwickelt werden. Hier kommen ein paar Beispiele, wie man mit solchen <em>systematischen</em> Messunsicherheiten umgehen kann:</p>
 <div class="section" id="anzeigefehler-von-messgeraten">
 <h3>Anzeigefehler von Messgeräten<a class="headerlink" href="#anzeigefehler-von-messgeraten" title="Permalink to this headline">¶</a></h3>
-<p>Messgeräte werden anhand ihrer Genauigkeit in Klassen eingruppiert. Die Klasse entspricht der relativen Messabweichung. Präzisionsmessgeräte besitzen somit Abweichungen die zwischen 0,001% und 0,05% liegen. Die Genauigkeitsklasse K 2,5 (Angabe auf der Mess- skala nach DIN EN 60051 Abb. 1) bedeutet: Ist der Endwert des eingestellten Messbereichs <span class="math notranslate nohighlight">\(U_\mathrm{end}\)</span>, dann beträgt die Typ B-Unsicherheit über den gesamten Messbereich <span class="math notranslate nohighlight">\(u(U) = 0,0025\cdot U_\mathrm{end}\)</span>. Für <span class="math notranslate nohighlight">\(U_\mathrm{end} = 15\,\mathrm V\)</span> erhält man also:</p>
+<p>Messgeräte werden anhand ihrer Genauigkeit in Klassen eingruppiert. Die Klasse entspricht der relativen Messabweichung. Präzisionsmessgeräte besitzen somit Abweichungen die zwischen 0,001% und 0,05% liegen. Die Genauigkeitsklasse K 2,5 (Angabe auf der Mess- skala nach DIN EN 60051 Abb. 1) bedeutet: Ist der Endwert des eingestellten Messbereichs $U_\mathrm{end}$, dann beträgt die Typ B-Unsicherheit über den gesamten Messbereich $u(U) = 0,0025\cdot U_\mathrm{end}$. Für $U_\mathrm{end} = 15,\mathrm V$ erhält man also:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">U_end</span> <span class="o">=</span> <span class="mi">15</span>
@@ -464,13 +467,11 @@ Es gibt keine allgemeingültige Definition oder allgemeine Verfahren zur Korrekt
 </div>
 <div class="section" id="digitalstellenfehler">
 <h3>Digitalstellenfehler<a class="headerlink" href="#digitalstellenfehler" title="Permalink to this headline">¶</a></h3>
-<img src="pictures/hersteller_abweichung.png" width=800>
-<p>Das Gerät im Bild zeigt den Messwert 5.847V an. Laut Hersteller ist die Maximalabweichung (unter Referenzbedingungen) <span class="math notranslate nohighlight">\(a = \pm\)</span> (0,5% vom <em>Messwert</em> + 9 Digit). Die Anzahl der Nachkommastellen (also der Digits) ist in diesem Falle 3, also 0,001V. Genauer kann das Messgerät keine Spannung angeben. Die Messabweichung setzt sich also wiefolgt zusammen (zwei signifikante Stellen reichen hierbei, da der Messwert selber nicht genauer angezeigt wird):</p>
-<div class="math notranslate nohighlight">
-\[a = \pm (0,5\% \cdot 5,847\,\mathrm{V} + 9 \cdot 0,001\,\mathrm V) \approx \pm 0,038\,\mathrm V = \pm 38,235\,\mathrm{mV}\]</div>
-<p>Innerhalb dieses <span class="math notranslate nohighlight">\(\pm\)</span> Bereiches der Breite <span class="math notranslate nohighlight">\(2a\)</span> unterstellt man eine Gleichverteilung der Messwerte und bekommt damit die Standardunsicherheit:</p>
-<div class="math notranslate nohighlight">
-\[u(U) = \frac{a}{\sqrt{3}} = \frac{38,235\,\mathrm{mV}}{\sqrt{3}} \approx \]</div>
+<a class="reference internal image-reference" href="../_images/hersteller_abweichung.png"><img alt="../_images/hersteller_abweichung.png" src="../_images/hersteller_abweichung.png" style="width: 800px;" /></a>
+<p>Das Gerät im Bild zeigt den Messwert 5.847V an. Laut Hersteller ist die Maximalabweichung (unter Referenzbedingungen) $a = \pm$ (0,5% vom <em>Messwert</em> + 9 Digit). Die Anzahl der Nachkommastellen (also der Digits) ist in diesem Falle 3, also 0,001V. Genauer kann das Messgerät keine Spannung angeben. Die Messabweichung setzt sich also wiefolgt zusammen (zwei signifikante Stellen reichen hierbei, da der Messwert selber nicht genauer angezeigt wird):</p>
+<p>$$a = \pm (0,5% \cdot 5,847,\mathrm{V} + 9 \cdot 0,001,\mathrm V) \approx \pm 0,038,\mathrm V = \pm 38,235,\mathrm{mV}$$</p>
+<p>Innerhalb dieses $\pm$ Bereiches der Breite $2a$ unterstellt man eine Gleichverteilung der Messwerte und bekommt damit die Standardunsicherheit:</p>
+<p>$$u(U) = \frac{a}{\sqrt{3}} = \frac{38,235,\mathrm{mV}}{\sqrt{3}} \approx $$</p>
 <p>Ist nichts weiter bekannt, schätzt man die Unsicherheit über einen Mindestfehler von a = 1 Digit ab.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -501,33 +502,29 @@ Die Unsicherheit beträgt: +- 0.02207 V = +- 22.07499 mV
 </div>
 <div class="section" id="schreibweise-eines-messwertes-mit-messabweichung">
 <h2>Schreibweise eines Messwertes mit Messabweichung<a class="headerlink" href="#schreibweise-eines-messwertes-mit-messabweichung" title="Permalink to this headline">¶</a></h2>
-<p>Die <strong>Gesamt-Messabweichung</strong> einer Messgröße <span class="math notranslate nohighlight">\(x\)</span> setzt sich also wiefolgt zusammen:</p>
-<div class="math notranslate nohighlight">
-\[A = A_r +  A_s\]</div>
-<p>wobei <span class="math notranslate nohighlight">\(A_r\)</span> zufällige und <span class="math notranslate nohighlight">\(A_s\)</span> systematische Messabweichungen sind. Ein Messwert setzt sich also zusammen aus dem <em>wahren</em> oder <em>richtigen</em> Wert, den wir niemals kennen werden, und der Messabweichung. Es gelten folgende Zusammenhänge:</p>
+<p>Die <strong>Gesamt-Messabweichung</strong> einer Messgröße $x$ setzt sich also wiefolgt zusammen:</p>
+<p>$$A = A_r +  A_s$$</p>
+<p>wobei $A_r$ zufällige und $A_s$ systematische Messabweichungen sind. Ein Messwert setzt sich also zusammen aus dem <em>wahren</em> oder <em>richtigen</em> Wert, den wir niemals kennen werden, und der Messabweichung. Es gelten folgende Zusammenhänge:</p>
 <ul class="simple">
-<li><p>Der <strong>ermittelte Messwert</strong> lässt sich wiefolgt schreiben, wobei <span class="math notranslate nohighlight">\(x_w\)</span> der <em>wahre</em>, aber uns unbekannte, Wert ist. <span class="math notranslate nohighlight">\(A\)</span> ist die Messabweichung:</p></li>
+<li><p>Der <strong>ermittelte Messwert</strong> lässt sich wiefolgt schreiben, wobei $x_w$ der <em>wahre</em>, aber uns unbekannte, Wert ist. $A$ ist die Messabweichung:</p></li>
 </ul>
-<div class="math notranslate nohighlight">
-\[x = x_w + A\]</div>
+<p>$$x = x_w + A$$</p>
 <ul class="simple">
 <li><p>Die <strong>absolute Messabweichung</strong> ergibt sich aus Umstellen der Gleichung:</p></li>
 </ul>
-<div class="math notranslate nohighlight">
-\[A = x - x_w = \Delta x\]</div>
+<p>$$A = x - x_w = \Delta x$$</p>
 <ul class="simple">
-<li><p>Bei der Angabe <strong>relativen Messabweichung</strong> wird die Messabweichung auf einen Referenzwert, <span class="math notranslate nohighlight">\(r\)</span>, bezogen, der entweder der Messwert selber ist (<span class="math notranslate nohighlight">\(r = x\)</span>), oder manchmal auch die Spanne (<span class="math notranslate nohighlight">\(r = x_\mathrm{max} - x_\mathrm{min}\)</span>) oder Maximalwert/Messbereichsendwert (<span class="math notranslate nohighlight">\(r = x_\mathrm{max}\)</span>):</p></li>
+<li><p>Bei der Angabe <strong>relativen Messabweichung</strong> wird die Messabweichung auf einen Referenzwert, $r$, bezogen, der entweder der Messwert selber ist ($r = x$), oder manchmal auch die Spanne ($r = x_\mathrm{max} - x_\mathrm{min}$) oder Maximalwert/Messbereichsendwert ($r = x_\mathrm{max}$):</p></li>
 </ul>
-<div class="math notranslate nohighlight">
-\[ A_\mathrm{rel} = \frac{A}{r} = \frac{\Delta x}{r}\]</div>
+<p>$$ A_\mathrm{rel} = \frac{A}{r} = \frac{\Delta x}{r}$$</p>
 <div class="section" id="signifikante-stellen">
 <h3>Signifikante Stellen<a class="headerlink" href="#signifikante-stellen" title="Permalink to this headline">¶</a></h3>
 <p>Die <strong>Anzahl der Nachkommastellen</strong> eines Messwertes ist niemals größer als die der angegebenen Messabweichung oder Unsicherheit. Die Anzahl der Nachkommastellen der Messabweichung wird über <strong>signifikante Stellen</strong> (= angegebene Ziffern ohne führende Nullen) definiert. Je mehr signifikante Stellen angegeben werden, desto größer ist die Genuigkeit, die reklamiert wird. Es gelten folgende Rechenoperationen nach DIN1333:</p>
 <ul class="simple">
 <li><p>Bei <strong>Addition von Größen</strong> bekommt das Ergebnis genauso viele Nachkommastellen wie die Zahl mit den <em>wenigsten</em> Nachkommastellen.</p></li>
 <li><p>Bei <strong>Multiplikation von Größen</strong> bekommst das Ergebnis genauso viele signifikante Stellen wie der Zahl mit den wenigsten signifikanten Stellen.</p></li>
-<li><p><strong>Messunsicherheiten</strong> werden auf eine signifikante Stelle gerundet. Eine Ausnahme existiert, wenn die erste Ziffer eine “1” ist, weil sonst Rundungsfehler schnell zu groß werden. Beispiel: <span class="math notranslate nohighlight">\(u(g) = 0,1562\,\mathrm{m/s^2} = 0,16\,\mathrm{m/s^2}\)</span>. Die Darstellung <span class="math notranslate nohighlight">\(g = (9,81 \pm 0,03562)\,\mathrm{m/s^2}\)</span> wäre unsinnig, da die Genauigkeit auf zwei Nachkommastellen durch den Messwert beschränkt ist.</p></li>
-<li><p><strong>Messwerte</strong> werden so angegeben, dass die letzte signifikante Stelle die gleiche Größenprdnung hat, wie die Messunsicherheit: Die Angabe <span class="math notranslate nohighlight">\(H=(13,13\pm 1)\,\mathrm m\)</span> ist sinnlos, richtig wäre <span class="math notranslate nohighlight">\(H=(13\pm 1)\,\mathrm m\)</span>.</p></li>
+<li><p><strong>Messunsicherheiten</strong> werden auf eine signifikante Stelle gerundet. Eine Ausnahme existiert, wenn die erste Ziffer eine “1” ist, weil sonst Rundungsfehler schnell zu groß werden. Beispiel: $u(g) = 0,1562,\mathrm{m/s^2} = 0,16,\mathrm{m/s^2}$. Die Darstellung $g = (9,81 \pm 0,03562),\mathrm{m/s^2}$ wäre unsinnig, da die Genauigkeit auf zwei Nachkommastellen durch den Messwert beschränkt ist.</p></li>
+<li><p><strong>Messwerte</strong> werden so angegeben, dass die letzte signifikante Stelle die gleiche Größenprdnung hat, wie die Messunsicherheit: Die Angabe $H=(13,13\pm 1),\mathrm m$ ist sinnlos, richtig wäre $H=(13\pm 1),\mathrm m$.</p></li>
 </ul>
 <p>Um Rundungsfehler zu reduzieren, führen Sie in den Berechnungen soviel signifikante Stellen der Messunsicherheit mit, wie nötig.</p>
 </div>
@@ -559,8 +556,8 @@ Die Unsicherheit beträgt: +- 0.02207 V = +- 22.07499 mV
 <h3>Diskrepanz und Konsistenz<a class="headerlink" href="#diskrepanz-und-konsistenz" title="Permalink to this headline">¶</a></h3>
 <p>Die Diskrepanz zweier Messwerte derselben Größe ist der Absolutbetrag ihrer Differenz. Zwei Messungen sind konsistent, wenn ihre Diskrepanz geringer ist, als die (kleinere der) Messunsicherheiten:</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(g = (9,73 \pm 0,05)\,\mathrm{m/s^2}\)</span> und <span class="math notranslate nohighlight">\(g = (9,76 \pm 0,04)\,\mathrm{m/s^2}\)</span> sind <em>konsistent</em>, nicht jedoch <span class="math notranslate nohighlight">\(g = (9,71 \pm 0,02)\,\mathrm{m/s^2}\)</span> und <span class="math notranslate nohighlight">\(g = (9,76 \pm 0,04)\,\mathrm{m/s^2}\)</span></p></li>
-<li><p>Ist <span class="math notranslate nohighlight">\(g = (8.9 \pm 1,5)\,\mathrm{m/s^2}\)</span> das Ergebnis einer Messung des Ortsfaktors, dann ist die Messung zwar nicht sonderlich präzise, aber mit dem Literaturwert von <span class="math notranslate nohighlight">\(g = 9,81\,\mathrm{m/s^2}\)</span> vereinbar.</p></li>
+<li><p>$g = (9,73 \pm 0,05),\mathrm{m/s^2}$ und $g = (9,76 \pm 0,04),\mathrm{m/s^2}$ sind <em>konsistent</em>, nicht jedoch $g = (9,71 \pm 0,02),\mathrm{m/s^2}$ und $g = (9,76 \pm 0,04),\mathrm{m/s^2}$</p></li>
+<li><p>Ist $g = (8.9 \pm 1,5),\mathrm{m/s^2}$ das Ergebnis einer Messung des Ortsfaktors, dann ist die Messung zwar nicht sonderlich präzise, aber mit dem Literaturwert von $g = 9,81,\mathrm{m/s^2}$ vereinbar.</p></li>
 </ul>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -616,17 +613,17 @@ Die Unsicherheit beträgt: +- 0.02207 V = +- 22.07499 mV
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="1_AnalyseUndPraesentationVonMessdaten.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="1_Einleitung.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Analyse und Präsentation von Messwerten</p>
+            <p class="prev-next-title">Messdaten sammeln und darstellen</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="1_Fehlerfortpflanzung.html" title="next page">
+    <a class='right-next' id="next-link" href="1_Mittelwert_StdAbw.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Fortpflanzung von Messunsicherheiten</p>
+        <p class="prev-next-title">Mittelwert und Standardabweichung</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

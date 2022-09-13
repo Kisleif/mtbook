@@ -157,7 +157,7 @@ global_mean['Year']
 import matplotlib.pyplot as plt
 plt.style.use('default')
 plt.figure(figsize=(10,5))
-plt.rcParams['font.size'] = 14;
+plt.rcParams['font.size'] = 10;
 plt.plot(global_mean["Year"],global_mean["No_Smoothing"], ls="-", lw=1, marker="s", ms=3, color="tab:gray", alpha=0.5, label="Werte");
 plt.plot(global_mean["Year"],global_mean["Lowess(5)"], lw=4,  color="tab:blue", label="Glättung (NASA)");
 plt.xlabel('Jahr')
@@ -182,9 +182,6 @@ print(global_mean)
 # In[9]:
 
 
-plt.style.use('default')
-plt.figure(figsize=(10,5))
-plt.rcParams['font.size'] = 14;
 plt.errorbar(global_mean["Year"],global_mean["No_Smoothing"], yerr=global_mean["uncertainty"], ls="-", lw=1, marker="s", ms=3, color="tab:gray", alpha=0.5, label="Werte");
 plt.plot(global_mean["Year"],global_mean["Lowess(5)"], lw=4,  color="tab:blue", label="Glättung (NASA)");
 plt.xlabel('Jahr')
@@ -209,9 +206,6 @@ y_err = global_mean["uncertainty"]
 model = np.polyfit(x, y, deg=1, w=1/y_err, cov=True) # 1. Wert = Anstieg , 2. Wert = Schnittpunkt mit y-Achse
 y_model = model[0][0]*x+model[0][1] # Modell einer linearen Regression
 
-plt.style.use('default')
-plt.figure(figsize=(10,4))
-plt.rcParams['font.size'] = 14;
 plt.ylabel("Jahresmitteltemperaturabweichung [°C]")
 plt.xlabel("Jahr")
 plt.errorbar(global_mean["Year"],global_mean["No_Smoothing"], yerr=global_mean["uncertainty"], ls="-", lw=1, marker="s", ms=3, color="tab:gray", alpha=0.5, label="Werte");
@@ -263,9 +257,6 @@ print(f"Temperaturanstieg pro Jahr (von 1980 bis 2020): {model[0][0]:.3f}°C/Jah
 # In[14]:
 
 
-plt.style.use('default')
-plt.figure(figsize=(10,4))
-plt.rcParams['font.size'] = 14;
 plt.ylabel("Jahresmitteltemperaturabweichung [°C]")
 plt.xlabel("Jahr")
 plt.errorbar(global_mean["Year"],global_mean["No_Smoothing"], yerr=global_mean["uncertainty"], ls="-", lw=1, marker="s", ms=3, color="tab:gray", alpha=0.5, label="Werte");

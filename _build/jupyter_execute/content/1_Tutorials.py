@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Tutorials
+# # Übung mit Jupyter Notebooks
 # 
 # Einige Jupyter Notebooks zum Üben.
 # 

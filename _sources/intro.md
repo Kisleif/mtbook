@@ -7,38 +7,19 @@ Aktuell könnt ihr euch leider noch nicht auf Vollständigkeit verlassen. Folgen
 ::::{grid}
 :gutter: 3
 
-:::{grid-item-card} Tips fürs Praktikum
-:link: content/1_Datenanalyse
-:link-type: doc
-:class-header: bg-light
-:columns: 6
+:::{grid-item-card} One!
 Here's the first card.
 :::
 
-:::{grid-item-card} Grundlagen der Messtechnik
-:link: content/1_Datenanalyse
-:link-type: doc
-:class-header: bg-light
-:columns: 6
+:::{grid-item-card} Two!
 Here's the second card.
 :::
 
-:::{grid-item-card} Sensoren
-:link: content/1_Datenanalyse
-:link-type: doc
-:class-header: bg-light
-:columns: 6
-Here's the third card.
-:::
-
-:::{grid-item-card} Sensoren
-:link: content/1_Datenanalyse
-:link-type: doc
-:class-header: bg-light
-:columns: 6
+:::{grid-item-card} Three!
 Here's the third card.
 :::
 ::::
 
 
-
+```{tableofcontents}
+```

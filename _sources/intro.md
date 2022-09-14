@@ -5,12 +5,16 @@ Dieses Jupyter-Book befindet sich aktuell noch im Aufbau und soll später als Vo
 Aktuell könnt ihr euch leider noch nicht auf Vollständigkeit verlassen. Folgende Funktionen stehen euch aber schon zur Verfügung um das Lernmaterial anzusehen, herunterzuladen, zu testen und zu kommentieren.
 
 
-
-::::{important}
-:::{note}
-This text is **standard** _Markdown_
+:::{grid-item-card} One!
+Here's the first card.
 :::
-::::
+:::{grid-item-card} One!
+Here's the first card.
+:::
+:::{grid-item-card} One!
+Here's the first card.
+:::
+
 
 
 

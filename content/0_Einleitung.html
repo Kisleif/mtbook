@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Messdaten darstellen und sammeln &#8212; Metrology Lecture Book</title>
+    <title>Grundlagen &#8212; Metrology Lecture Book</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -151,7 +151,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="current">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Messdaten darstellen und sammeln
+     Grundlagen
     </a>
    </li>
    <li class="toctree-l2">
@@ -222,6 +222,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="4_ElektrischeGroessen.html">
    Messen elektrischer Größen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_Sensoren.html">
+   Sensoren
   </a>
  </li>
 </ul>
@@ -340,16 +345,6 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#grundidee">
-   Grundidee
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#diagramme-zeichnen">
-   Diagramme zeichnen
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#maszeinheiten">
    Maßeinheiten
   </a>
@@ -391,7 +386,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Messdaten darstellen und sammeln</h1>
+                <h1>Grundlagen</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -401,16 +396,6 @@ const thebe_selector_output = ".output, .cell_output"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#grundidee">
-   Grundidee
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#diagramme-zeichnen">
-   Diagramme zeichnen
-  </a>
- </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#maszeinheiten">
    Maßeinheiten
@@ -495,103 +480,8 @@ require(['plotly'], function(Plotly) {
 </div>
 </div>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="messdaten-darstellen-und-sammeln">
-<h1>Messdaten darstellen und sammeln<a class="headerlink" href="#messdaten-darstellen-und-sammeln" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="grundidee">
-<h2>Grundidee<a class="headerlink" href="#grundidee" title="Permalink to this headline">¶</a></h2>
-<p>Aufgabe der Messtechnik ist es physikalische Messgrößen quantitativ zu beobachten und ist somit wichtiger Bestandteil in der Physik. Eine <em>quantitative</em> Beschreibung bedeutet immer, dass eine Messgröße mit einem Zahlenwert, <span class="math notranslate nohighlight">\(x\)</span>, und einer Maßeinheit, <span class="math notranslate nohighlight">\(E\)</span>, ausgedrückt wird. Um einen möglichst <em>guten</em> Zahlenwert experimentell zu ermitteln, wird neben der konkreten Durchführung ein Großteil der Experimentierzeit damit verbracht das Experiment vorzubereiten und zu planen, aber auch die Daten auszuwerten und darzustellen, Ergebnisse zu überprüfen und ggf. Messungen zu wiederholen.
-Was sich beim Messen nicht umgehen lässt, und was der ein oder andere sicherlich schon im Praktikum beobachten konnte, ist, dass Beobachtungen immer statistischen (zufälligen) Schwankungen unterliegen. Dies führt dazu, dass sich das Messergebnis immer verändert. eine Messung wird prinzipiell niemals den <em>wahren</em> Wert liefern können, weshalb wir sorgfältig messen und auswerten müssen. Es gibt <em>best practice</em> Methoden und Techniken, die in der Wissenschaft benutzt werden, um Unsicherheiten und Schwankungen der Messgröße quantitativ zu beschreiben um so ein Qualitätsmaß der Messung bzw. unseres Experimentes zu erhalten. Durch die Einhaltung der <em>best practice</em> Methoden kannst du jederzeit Rechenschaft ablegen und das Ergebnis begründen. Die grundlegende Norm für die Messtechnik ist in der <em>DIN-Norm DIN 1319</em> und dem <em>GUM</em> (Guide to the Expression of Uncertainty in Measurement) offiziell festgehalten.</p>
-<ul class="simple">
-<li><p><strong>Planung:</strong> Was soll gemessen werden? Was wird hierfür benötigt? Welche Fehlerquellen/Störeinflüsse könnten auftreten, bzw. welche sind bekannt? Welche systematischen Unsicherheiten sind bekannt?</p></li>
-<li><p><strong>Durchführung:</strong> Führe Protokoll! Wurde <strong>alles</strong>, was wichtig sein könnte, protokolliert und in Tabellen zusammengefasst, aufgeschrieben, fotografiert?</p></li>
-<li><p><strong>Auswertung:</strong> Prüfe die Ergebnisse auf Vollständigkeit und Übersichtlichkeit! Hierzu gehört auch eine vollständige Abschätzung von Messunsicherheiten.</p></li>
-<li><p><strong>Prüfung:</strong> Ergeben die Ergebnisse Sinn und sind diese konsistent mit anderen Ergebnissen aus der Literatur? Haben wir die Ergebnisse erwartet?</p></li>
-<li><p><strong>Darstellung:</strong> Vollständige Angabe des Messergebnisses, bestehend aus Zahlenwert, Maßeinheit und Messunsicherheit. Verwende die wissenschaftliche Notation für Zehnerpotenzen.</p></li>
-</ul>
-</div>
-<div class="section" id="diagramme-zeichnen">
-<h2>Diagramme zeichnen<a class="headerlink" href="#diagramme-zeichnen" title="Permalink to this headline">¶</a></h2>
-<p>Mittels Diagrammen (engl. <em>Plots</em>) werden Messwerte dargestellt. Die folgenden Regeln helfen dabei, dass die Diagramme anschaulich sind und der Betrachter direkt erkennt, worum es geht:</p>
-<ul class="simple">
-<li><p><strong>Achsenbeschriftung:</strong> Beschrifte die Achsen richtig, eindeutig und mit vollständiger Angabe: physikalische Größe und Maßeinheit!</p></li>
-<li><p><strong>Skalierung:</strong> Wähle eine passende Skalierung in 1er-/2er-/5er oder 10er- (Dakaden) Schritten</p></li>
-<li><p><strong>Markierungen:</strong> Wähle eine gute erkennbare Markierung für Messpunkte und ggf. eine angebrachte Linienbreite für Kurven. Hierbei können unterschiedliche Farben, Strichdicken, Stricharten und Markierungspunkte verwendet werden, oder eine Kombination.</p></li>
-<li><p><strong>Titel:</strong> Nutze passende Über-/ oder Unterschriften für das Diagramm, insbesondere wenn diese in der Auswertung im Text erwähnt werden.</p></li>
-<li><p><strong>Anderes:</strong> Weitere Punkte und Linien, die nicht gemessen wurden, sondern nur als <em>Hilfe</em> dienen (z.B. Fit-Funktionen, Modelle, Referenzlinien) oder Kommentare sind, sollten besonders gekennzeichnet werden.</p></li>
-<li><p><strong>Messunsicherheiten:</strong> Für Messwerte (in Form von Fehlerbalken), aber auch für Funktionsterme und Ausgleichsgeraden, müssen Messunsicherheiten in den Graphen angegeben werden.</p></li>
-</ul>
-<p>Verwende eine sinnvolle Software für die Datenanalyse und die grafische Darstellung, welche auch Fit-Analysen unterstützen. Wir werden hier im folgenden Beispiele in <code class="docutils literal notranslate"><span class="pre">python</span></code> aufführen und Jupyter Notebooks verwenden. Die Codes auf dieser Seite können direkt benutzt und sogar ausgeführt werden.
-Weitere Software ist Qti-Plot (kostenlos) oder Matlab (Lizenzen über HSU verfügbar).</p>
-<p>Im Folgenden sind zwei Diagramme dargestellt, wovon das zweite einige Defizite aufweist. Aufgrund der Darstellung wurde eine lineare Regression über einen anderen Messwertebereich durchgeführt, wodurch der Temperaturanstieg der letzten Jahre um einen Faktor 2 zu gering abgeschätzt wurde!</p>
-<div class="tip admonition">
-<p class="admonition-title">Aufgabe</p>
-<p>Welche anderen Defizite fallen dir im Vergleich zum ersten Bild auf?</p>
-</div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">link</span> <span class="o">=</span> <span class="s1">&#39;data/graph.csv&#39;</span> <span class="c1"># Beispieldatei mit Klimadaten</span>
-<span class="n">global_mean</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">link</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># Daten einlesen</span>
-<span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;uncertainty&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.25</span> <span class="c1">#Messunsicherheiten abschätzen, hier 0.25K Temperaturgenauigkeit angenommen</span>
-
-<span class="c1"># Lineare Regression berechnen:</span>
-<span class="n">x</span><span class="o">=</span><span class="n">global_mean</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">1980</span><span class="p">,</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span>
-<span class="n">y</span><span class="o">=</span><span class="n">global_mean</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">1980</span><span class="p">,</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">]</span>
-<span class="n">y_err</span> <span class="o">=</span> <span class="n">global_mean</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">1980</span><span class="p">,</span><span class="s2">&quot;uncertainty&quot;</span><span class="p">]</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">deg</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">y_err</span><span class="p">,</span> <span class="n">cov</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># 1. Wert = Anstieg , 2. Wert = Schnittpunkt mit y-Achse</span>
-<span class="n">y_model</span> <span class="o">=</span> <span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># Modell einer linearen Regression</span>
-
-<span class="c1"># print(global_mean) # Eingelesene Daten ausgeben</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">],</span> <span class="n">yerr</span><span class="o">=</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;uncertainty&quot;</span><span class="p">],</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:gray&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Werte&quot;</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Lowess(5)&quot;</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>  <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Glättung (NASA)&quot;</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y_model</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;lineare Regression y=(</span><span class="si">{</span><span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">+-</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">model</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">)1e-3*x+(</span><span class="si">{</span><span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">+-</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">model</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Jahr&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Jahresmitteltemperaturabweichung [°C]&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span>
-
-<span class="c1"># Temperaturanstieg ausgeben:</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Temperaturanstieg pro Jahr (von 1980 bis 2020): </span><span class="si">{</span><span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">°C/Jahr&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Temperaturanstieg pro Jahr (von 1980 bis 2020): 0.019°C/Jahr
-</pre></div>
-</div>
-<img alt="../_images/0_Einleitung_2_1.png" src="../_images/0_Einleitung_2_1.png" />
-</div>
-</div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lineare Regression berechnen:</span>
-<span class="n">x</span><span class="o">=</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span>
-<span class="n">y</span><span class="o">=</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">]</span>
-<span class="n">y_err</span> <span class="o">=</span> <span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;uncertainty&quot;</span><span class="p">]</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">deg</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">y_err</span><span class="p">,</span> <span class="n">cov</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># 1. Wert = Anstieg , 2. Wert = Schnittpunkt mit y-Achse</span>
-<span class="n">y_model</span> <span class="o">=</span> <span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># Modell einer linearen Regression</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">],</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:gray&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Werte&quot;</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Lowess(5)&quot;</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>  <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Kurve&quot;</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y_model</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Modell&quot;</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">1850</span><span class="p">,</span><span class="mi">2040</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span>
-
-<span class="c1"># Temperaturanstieg ausgeben:</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Temperaturanstieg pro Jahr (von 1980 bis 2020): </span><span class="si">{</span><span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">°C/Jahr&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Temperaturanstieg pro Jahr (von 1980 bis 2020): 0.008°C/Jahr
-</pre></div>
-</div>
-<img alt="../_images/0_Einleitung_3_1.png" src="../_images/0_Einleitung_3_1.png" />
-</div>
-</div>
-</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="grundlagen">
+<h1>Grundlagen<a class="headerlink" href="#grundlagen" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="maszeinheiten">
 <h2>Maßeinheiten<a class="headerlink" href="#maszeinheiten" title="Permalink to this headline">¶</a></h2>
 <p><a id="SubSec-Das_International_Einheitensystem"></a></p>

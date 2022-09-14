@@ -4,13 +4,12 @@ Willkommen zur Vorlesung Messtechnik an der HSU. Auf den folgenden Seiten findet
 Dieses Jupyter-Book befindet sich aktuell noch im Aufbau und soll später als Vorlesungsskript mit interaktiven Beispielen dienen. 
 Aktuell könnt ihr euch leider noch nicht auf Vollständigkeit verlassen. Folgende Funktionen stehen euch aber schon zur Verfügung um das Lernmaterial anzusehen, herunterzuladen, zu testen und zu kommentieren.
 
-```
-::::{grid}
+```{grid}
 :gutter: 3
 
-:::{grid-item-card} One!
+```{grid-item-card} One!
 Here's the first card.
-:::
+```
 
 :::{grid-item-card} Two!
 Here's the second card.
@@ -19,8 +18,8 @@ Here's the second card.
 :::{grid-item-card} Three!
 Here's the third card.
 :::
-::::
 ```
+
 
 
 ```{tableofcontents}

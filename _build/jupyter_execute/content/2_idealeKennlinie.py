@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Ideal Kennlinie
+# # Ideale Kennlinie
 # <a id="Sec-Kennlinie"></a>
 # 
 # Jede einzelne der Komponenten führt die an ihr anliegenden Eingangssignal in Ausgangssignale über. Wie diese Überführung genau aussieht beschreibt die sogenannte **Kennlinie**, die für jede Komponente unterschiedlich aussehen kann. Im folgenden Bild ist beispielshaft eine lineare Kennlinie dargestellt:

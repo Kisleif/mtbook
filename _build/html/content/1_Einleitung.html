@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Messdaten darstellen und sammeln &#8212; Metrology Lecture Book</title>
+    <title>Messdaten sammeln und darstellen &#8212; Metrology Lecture Book</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -114,7 +114,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Messdaten darstellen und sammeln
+   Messdaten sammeln und darstellen
   </a>
  </li>
  <li class="toctree-l1">
@@ -186,29 +186,39 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Signale
+  Signale &amp; Systeme
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="3_Messsignale.html">
-   Messsignale, Charakterisierung und  Analyse
+   Messsignale
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3_basics.html">
+     Grundlagen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3_Kenngroessen.html">
+     Kenngrößen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3_FourierAnalyse.html">
+     Fourier-Analyse
+    </a>
+   </li>
+  </ul>
  </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Messsysteme
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="2_StationareMesssysteme.html">
-   Stationäre Messsysteme
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="2_Dynamische_Messsysteme.html">
+  <a class="reference internal" href="5_Dynamische_Messsysteme.html">
    Dynamische Messsysteme
   </a>
  </li>
@@ -364,7 +374,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Messdaten darstellen und sammeln</h1>
+                <h1>Messdaten sammeln und darstellen</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -436,8 +446,9 @@ require(['plotly'], function(Plotly) {
 </div>
 </div>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="messdaten-darstellen-und-sammeln">
-<h1>Messdaten darstellen und sammeln<a class="headerlink" href="#messdaten-darstellen-und-sammeln" title="Permalink to this headline">¶</a></h1>
+<div class="tex2jax_ignore mathjax_ignore section" id="messdaten-sammeln-und-darstellen">
+<h1>Messdaten sammeln und darstellen<a class="headerlink" href="#messdaten-sammeln-und-darstellen" title="Permalink to this headline">¶</a></h1>
+<p>Viele Studierende sammeln im Praktikum erstmals Erfahrung im Umgang mit Messdaten, nehmen eigene Messreihen auf und müssen diese begründbar und nachvollziehbar auswerten und darstellen. Im Studium, z.B. im Rahmen von Semester-, Abschluss- oder sogar Promotionsarbeiten müssen Analyse und Präsentation wissenschaftlich und sachgerecht sein. Auf dieser Seite findet ihr das absolute Minimum an notwendigen Hilfsmitteln, Grundideen und Praktiken, die ihr bei der Auswertung von Messdaten immer berücksichtigen solltet!</p>
 <div class="section" id="grundidee">
 <h2>Grundidee<a class="headerlink" href="#grundidee" title="Permalink to this headline">¶</a></h2>
 <p>Aufgabe der Messtechnik ist es physikalische Messgrößen quantitativ zu beobachten und ist somit wichtiger Bestandteil in der Physik. Eine <em>quantitative</em> Beschreibung bedeutet immer, dass eine Messgröße mit einem Zahlenwert, <span class="math notranslate nohighlight">\(x\)</span>, und einer Maßeinheit, <span class="math notranslate nohighlight">\(E\)</span>, ausgedrückt wird. Um einen möglichst <em>guten</em> Zahlenwert experimentell zu ermitteln, wird neben der konkreten Durchführung ein Großteil der Experimentierzeit damit verbracht das Experiment vorzubereiten und zu planen, aber auch die Daten auszuwerten und darzustellen, Ergebnisse zu überprüfen und ggf. Messungen zu wiederholen.
@@ -471,6 +482,10 @@ Was sich beim Messen nicht umgehen lässt, und was der ein oder andere sicherlic
 </div>
 <p>Verwende eine sinnvolle Software für die Datenanalyse und die grafische Darstellung, welche auch Fit-Analysen unterstützen. Wir werden hier im folgenden Beispiele in <code class="docutils literal notranslate"><span class="pre">python</span></code> aufführen und Jupyter Notebooks verwenden. Die Codes auf dieser Seite können direkt benutzt und sogar ausgeführt werden.
 Weitere Software ist Qti-Plot (kostenlos) oder Matlab (Lizenzen über HSU verfügbar).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Alle Beispiele und Tutorials im <em>Metrology Lecture Book</em> benutzen <code class="docutils literal notranslate"><span class="pre">python</span></code>.</p>
+</div>
 <p>Im Folgenden sind zwei Diagramme dargestellt, wovon das zweite einige Defizite aufweist. Aufgrund der Darstellung wurde eine lineare Regression über einen anderen Messwertebereich durchgeführt, wodurch der Temperaturanstieg der letzten Jahre um einen Faktor 2 zu gering abgeschätzt wurde!</p>
 <div class="tip admonition">
 <p class="admonition-title">Aufgabe</p>

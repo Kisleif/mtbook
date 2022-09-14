@@ -23,7 +23,9 @@ plt.figure(figsize=(10,5)) # Plot-Größe
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 
-# # Messdaten darstellen und sammeln
+# # Messdaten sammeln und darstellen
+# 
+# Viele Studierende sammeln im Praktikum erstmals Erfahrung im Umgang mit Messdaten, nehmen eigene Messreihen auf und müssen diese begründbar und nachvollziehbar auswerten und darstellen. Im Studium, z.B. im Rahmen von Semester-, Abschluss- oder sogar Promotionsarbeiten müssen Analyse und Präsentation wissenschaftlich und sachgerecht sein. Auf dieser Seite findet ihr das absolute Minimum an notwendigen Hilfsmitteln, Grundideen und Praktiken, die ihr bei der Auswertung von Messdaten immer berücksichtigen solltet! 
 # 
 # ## Grundidee
 # 
@@ -57,6 +59,10 @@ plt.rcParams['font.size'] = 10; # Schriftgröße
 # 
 # Verwende eine sinnvolle Software für die Datenanalyse und die grafische Darstellung, welche auch Fit-Analysen unterstützen. Wir werden hier im folgenden Beispiele in `python` aufführen und Jupyter Notebooks verwenden. Die Codes auf dieser Seite können direkt benutzt und sogar ausgeführt werden. 
 # Weitere Software ist Qti-Plot (kostenlos) oder Matlab (Lizenzen über HSU verfügbar).
+# 
+# ```{warning}
+# Alle Beispiele und Tutorials im *Metrology Lecture Book* benutzen `python`. 
+# ```
 # 
 # Im Folgenden sind zwei Diagramme dargestellt, wovon das zweite einige Defizite aufweist. Aufgrund der Darstellung wurde eine lineare Regression über einen anderen Messwertebereich durchgeführt, wodurch der Temperaturanstieg der letzten Jahre um einen Faktor 2 zu gering abgeschätzt wurde! 
 # 

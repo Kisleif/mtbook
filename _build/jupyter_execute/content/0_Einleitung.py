@@ -1,28 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
-#Benötigte Libraries:
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-import plotly.offline as py
-py.init_notebook_mode(connected=True)
-import plotly.graph_objs as go
-import plotly.tools as tls
-import seaborn as sns
-import time
-import warnings
-warnings.filterwarnings('ignore')
-
-# MatplotLib Settings:
-plt.style.use('default') # Matplotlib Style wählen
-plt.figure(figsize=(10,5)) # Plot-Größe
-plt.rcParams['font.size'] = 10; # Schriftgröße
-
-
 # # Grundlagen
 # 
 # ## Maßeinheiten

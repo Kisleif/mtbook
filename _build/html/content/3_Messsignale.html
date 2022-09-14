@@ -1,0 +1,1318 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Messsignale, Charakterisierung und Analyse &#8212; Metrology Lecture Book</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Stationäre Messsysteme" href="2_StationareMesssysteme.html" />
+    <link rel="prev" title="Selbstlernen: Klimadatten plotten mit Python" href="1_APy_Plotten.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/i_mt.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Metrology Lecture Book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Dieses Buch durchsuchen ..." aria-label="Dieses Buch durchsuchen ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Basics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="1_AnalyseUndPraesentationVonMessdaten.html">
+   Basics fürs Praktikum
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Einleitung.html">
+     Messdaten darstellen und sammeln
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Messunsicherheiten.html">
+     Quellen und Ursachen von Messunsicherheiten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Mittelwert_StdAbw.html">
+     Mittelwert und Standardabweichung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Fehlerfortpflanzung.html">
+     Fortpflanzung von Messunsicherheiten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Kurvenanpassung.html">
+     Kurvenanpassung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Zusammenfassung.html">
+     Zusammenfassung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="1_Tutorials.html">
+   Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_APy_Plotten.html">
+     Selbstlernen: Klimadatten plotten mit Python
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Signale
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Messsignale, Charakterisierung und  Analyse
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Messsysteme
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_StationareMesssysteme.html">
+   Stationäre Messsysteme
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Dynamische_Messsysteme.html">
+   Dynamische Messsysteme
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Sensoren
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_ElektrischeGroessen.html">
+   Messen elektrischer Größen
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navigation umschalten" aria-controls="site-navigation"
+                title="Navigation umschalten" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Laden Sie diese Seite herunter"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/content/3_Messsignale.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Quelldatei herunterladen" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="In PDF drucken"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Kisleif/mtbook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Quell-Repository"><i
+                    class="fab fa-github"></i>Repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/Kisleif/mtbook/issues/new?title=Issue%20on%20page%20%2Fcontent/3_Messsignale.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Öffnen Sie ein Problem"><i class="fas fa-lightbulb"></i>offenes Thema</button></a>
+        <a class="edit-button" href="https://github.com/Kisleif/mtbook/edit/gh-pages/content/3_Messsignale.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Bearbeite diese Seite"><i class="fas fa-pencil-alt"></i>vorschlagen zu bearbeiten</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Vollbildmodus"
+        title="Vollbildmodus"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Kisleif/mtbook/gh-pages?urlpath=tree/content/3_Messsignale.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Starten Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://github.com/Kisleif/mtbook/hub/user-redirect/git-pull?repo=https://github.com/Kisleif/mtbook&urlpath=tree/mtbook/content/3_Messsignale.ipynb&branch=gh-pages"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Starten JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Starten Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Inhalt
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inhalt">
+   Inhalt
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#messsignale">
+     Messsignale
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#messsignale-charakterisieren-und-analysieren">
+     Messsignale charakterisieren und analysieren
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fourrierreihen">
+     Fourrierreihen
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fourier-transformation">
+     Fourier-Transformation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#zusammenfassung">
+     Zusammenfassung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#messsignale-a-id-sec-messsignale-a">
+   Messsignale
+   <a id="Sec-Messsignale">
+   </a>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#wandlung-von-physikalischen-groszen-a-id-subsec-wandlung-von-physikalischen-groszen-a">
+     Wandlung von physikalischen Größen
+     <a id="SubSec-Wandlung_von_physikalischen_Größen">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#beispiel-radiowellen-bzw-elektromagnetische-wellen-a-id-subsec-beispiel-radiowellen-a">
+     Beispiel: Radiowellen (bzw. elektromagnetische Wellen)
+     <a id="SubSec-Beispiel_Radiowellen">
+     </a>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#exkurs-funkwellen-in-der-ionosphare-a-id-subsubsec-exkurs-a">
+       Exkurs: Funkwellen in der Ionosphäre
+       <a id="SubSubSec-Exkurs">
+       </a>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#wo-steckt-die-information-a-id-subsec-information-a">
+     Wo steckt die Information?
+     <a id="SubSec-Information">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#klassifizierung-von-messsignalen-a-id-subsec-klassifizierung-von-messsignalen-a">
+     Klassifizierung von Messsignalen
+     <a id="SubSec-Klassifizierung_von_Messsignalen">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#digitalisierung-von-messsignalen-nyquist-shannon-abtasttheorem-aliasing-a-id-subsec-nyquist-shannon-abtasttheorem-a">
+     Digitalisierung von Messsignalen: Nyquist-Shannon-Abtasttheorem (Aliasing)
+     <a id="SubSec-Nyquist-Shannon-Abtasttheorem">
+     </a>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Messsignale charakterisieren und analysieren
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kenngroszen-von-wechselgroszen">
+     Kenngrößen von Wechselgrößen
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#beispiele-von-kenngroszen-fur-sinusschwingungen">
+       Beispiele von Kenngrößen für Sinusschwingungen
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#beispiele-von-kenngroszen-fur-pulsweitenmodulation">
+       Beispiele von Kenngrößen für Pulsweitenmodulation
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Fourrierreihen
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#beispiel-fourierreihe-eines-rechteckpuls">
+     Beispiel Fourierreihe eines Rechteckpuls
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   Fourier-Transformation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#eigenschaften">
+     Eigenschaften
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#anwendung">
+     Anwendung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   Zusammenfassung
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Messsignale, Charakterisierung und  Analyse</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Inhalt </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inhalt">
+   Inhalt
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#messsignale">
+     Messsignale
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#messsignale-charakterisieren-und-analysieren">
+     Messsignale charakterisieren und analysieren
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fourrierreihen">
+     Fourrierreihen
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fourier-transformation">
+     Fourier-Transformation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#zusammenfassung">
+     Zusammenfassung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#messsignale-a-id-sec-messsignale-a">
+   Messsignale
+   <a id="Sec-Messsignale">
+   </a>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#wandlung-von-physikalischen-groszen-a-id-subsec-wandlung-von-physikalischen-groszen-a">
+     Wandlung von physikalischen Größen
+     <a id="SubSec-Wandlung_von_physikalischen_Größen">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#beispiel-radiowellen-bzw-elektromagnetische-wellen-a-id-subsec-beispiel-radiowellen-a">
+     Beispiel: Radiowellen (bzw. elektromagnetische Wellen)
+     <a id="SubSec-Beispiel_Radiowellen">
+     </a>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#exkurs-funkwellen-in-der-ionosphare-a-id-subsubsec-exkurs-a">
+       Exkurs: Funkwellen in der Ionosphäre
+       <a id="SubSubSec-Exkurs">
+       </a>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#wo-steckt-die-information-a-id-subsec-information-a">
+     Wo steckt die Information?
+     <a id="SubSec-Information">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#klassifizierung-von-messsignalen-a-id-subsec-klassifizierung-von-messsignalen-a">
+     Klassifizierung von Messsignalen
+     <a id="SubSec-Klassifizierung_von_Messsignalen">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#digitalisierung-von-messsignalen-nyquist-shannon-abtasttheorem-aliasing-a-id-subsec-nyquist-shannon-abtasttheorem-a">
+     Digitalisierung von Messsignalen: Nyquist-Shannon-Abtasttheorem (Aliasing)
+     <a id="SubSec-Nyquist-Shannon-Abtasttheorem">
+     </a>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Messsignale charakterisieren und analysieren
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kenngroszen-von-wechselgroszen">
+     Kenngrößen von Wechselgrößen
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#beispiele-von-kenngroszen-fur-sinusschwingungen">
+       Beispiele von Kenngrößen für Sinusschwingungen
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#beispiele-von-kenngroszen-fur-pulsweitenmodulation">
+       Beispiele von Kenngrößen für Pulsweitenmodulation
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Fourrierreihen
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#beispiel-fourierreihe-eines-rechteckpuls">
+     Beispiel Fourierreihe eines Rechteckpuls
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   Fourier-Transformation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#eigenschaften">
+     Eigenschaften
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#anwendung">
+     Anwendung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   Zusammenfassung
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <hr class="docutils" />
+<p>Zurück zur Übersicht | <span class="xref myst">Inhalt</span></p>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Für diese Notebook benötigte Pakete:</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">HTML</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="messsignale-charakterisierung-und-analyse">
+<h1>Messsignale, Charakterisierung und  Analyse<a class="headerlink" href="#messsignale-charakterisierung-und-analyse" title="Permalink to this headline">¶</a></h1>
+<p>Bisher haben wir uns mit dem stationären Messungen einer physikalischen Größe befasst. Bis zu diesem Punkt sollte jedem bekannt sein was eine Kennlinie <span class="math notranslate nohighlight">\(y(x)\)</span> ist und was die Sensitivität bedeutet. Außerdem haben wir uns mit Störungen und Unsicherheiten befasst, die während Messungen auftreten können und wie wir diese anhand von Fehlerabschätzungen und Fehlerfortpflanzungen abschätzen können. Außerdem sollte jede/r in der Lage eine Kurvenanpassung inkl. Fehlerbalken und Fehlerfortpflanzung auf gemessene Werte anwenden zu können.</p>
+<div class="section" id="inhalt">
+<h2>Inhalt<a class="headerlink" href="#inhalt" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<div class="section" id="messsignale">
+<h3><a class="reference external" href="#Sec-Messsignale">Messsignale</a><a class="headerlink" href="#messsignale" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="#SubSec-Wandlung_von_physikalischen_Gr%C3%B6%C3%9Fen">Wandlung von physikalischen Größen</a></p></li>
+<li><p><span class="xref myst">Beispiel: Radiowellen (bzw. elektromagnetische Wellen)</span></p></li>
+<li><p><a class="reference external" href="#SubSec-Information">Wo steckt die Information?</a></p></li>
+<li><p><a class="reference external" href="#SubSec-Klassifizierung_von_Messsignalen">Klassifizierung von Messsignalen</a></p></li>
+<li><p><a class="reference external" href="#SubSec-Nyquist-Shannon-Abtasttheorem">Digitalisierung von Messsignalen: Nyquist-Shannon-Abtasttheorem (Aliasing)</a></p></li>
+</ul>
+</div>
+<div class="section" id="messsignale-charakterisieren-und-analysieren">
+<h3><a class="reference external" href="#Sec-Messsignale_charakterisierung">Messsignale charakterisieren und analysieren</a><a class="headerlink" href="#messsignale-charakterisieren-und-analysieren" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="#SubSec-Kenngr%C3%B6%C3%9Fen">Kenngrößen von Wechselgrößen</a></p>
+<ul>
+<li><p><a class="reference external" href="#SubsubSec-Kenngr%C3%B6%C3%9Fen_bsp_sinus">Beispiel von Kenngrößen für Sinusschwingung mit und ohne Gleichanteil</a></p></li>
+<li><p><a class="reference external" href="#SubsubSec-Kenngr%C3%B6%C3%9Fen_bsp_puls">Beispiel von Kenngrößen für Pulsweitenmodulation</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="fourrierreihen">
+<h3><a class="reference external" href="#Sec-Fourierreihe">Fourrierreihen</a><a class="headerlink" href="#fourrierreihen" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="#SubSec-Bsp_Fourier_rechteck">Beispiel Fourierreihe eines Rechteckpuls</a></p></li>
+</ul>
+</div>
+<div class="section" id="fourier-transformation">
+<h3><a class="reference external" href="#Sec-FFFT">Fourier-Transformation</a><a class="headerlink" href="#fourier-transformation" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="#SubSec-Eigenschaften_FFT">Eigenschaften</a></p></li>
+<li><p><a class="reference external" href="#SubSec-Anwendung_FFT">Anwendung</a></p></li>
+</ul>
+</div>
+<div class="section" id="zusammenfassung">
+<h3><a class="reference external" href="#Sec-Zusammenfassung">Zusammenfassung</a><a class="headerlink" href="#zusammenfassung" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="messsignale-a-id-sec-messsignale-a">
+<h2>Messsignale <a id="Sec-Messsignale"></a><a class="headerlink" href="#messsignale-a-id-sec-messsignale-a" title="Permalink to this headline">¶</a></h2>
+<p>Wir wissen also bereits, dass Messwerte die gesuchten Informationen über eine physikalische Größe beinhalten. Häufig findet die Übertragung dieser Information in Form eines Messsignals statt. Die Frage ist nun: Was ist denn überhaupt ein <em>Signal</em>? Dieser Begriff wird umgangssprachlich häufig mehrdeutig benutzt. In unserem Falle, also im technischen Gebrauch, sprechen wir von einem <em>Zeitverlauf</em> einer physikalischen Größe. Damit es eindeutig wird, wollen wir statt des Begriffs <em>Signal</em> einfach das Wort <em>Messsignal</em> einführen. Das bedeutet, dass ein Signal nicht an eine bestimmte physikalische Größe gebunden ist. Ein Signal besteht nämlich in der Regel aus mehreren Parametern (<em>Informationsparameter</em>), die die <em>Träger</em> von physikalischen Informationen sein können. Das einfachste Beispiel kann ein Messsignal in Form einer sinusförmigen Spannung sein, z.B.:</p>
+<div class="math notranslate nohighlight">
+\[u(t) = A \cdot \sin(\omega t + \varphi)\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="mf">1.0</span>   <span class="c1"># Amplitude</span>
+<span class="n">f</span> <span class="o">=</span> <span class="mi">10</span>    <span class="c1"># Frequenz in Hz</span>
+<span class="n">phi</span> <span class="o">=</span> <span class="mf">0.</span>  <span class="c1"># Phase in radian</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">f</span>   <span class="c1"># Perdiodendauer</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">T</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># Zeitwerte der Sinusfunktion in sec</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">A</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="n">t</span> <span class="o">+</span> <span class="n">phi</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;$\phi = 0.0\,\mathrm</span><span class="si">{rad}</span><span class="s1">$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">A</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="n">t</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;$\phi = 0.5\,\mathrm</span><span class="si">{rad}</span><span class="s1">$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude (a.u.)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">T</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">T</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="s1">&#39;2T&#39;</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="o">-</span><span class="n">A</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">A</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([</span><span class="s1">&#39;-A&#39;</span><span class="p">,</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="s1">&#39;A&#39;</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;u(t) =</span><span class="si">%5.1f</span><span class="s1"> $\cdot$ sin(</span><span class="si">%5.1f</span><span class="s1"> Hz $\cdot t$ + $\phi$)&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3_Messsignale_6_0.png" src="../_images/3_Messsignale_6_0.png" />
+</div>
+</div>
+<p>Die Funktion hängt von drei Parametern ab:</p>
+<ul class="simple">
+<li><p>der Amplitude <span class="math notranslate nohighlight">\(A\)</span></p></li>
+<li><p>der Frequenz <span class="math notranslate nohighlight">\(f\)</span>, bzw. Kreisfrequenz <span class="math notranslate nohighlight">\(\omega = 2\pi f\)</span></p></li>
+<li><p>der Phase (Phasenwinkel) <span class="math notranslate nohighlight">\(\phi\)</span></p></li>
+</ul>
+<p>Je nach Aufgabe können wir das Messsignal auswerten indem wir entweder die Ampltiudeu messen, oder die Frequenz, oder den Phasenwinkel (oder alle zusammen).</p>
+<p>Vorteil der Nutzung von Messsignalen ist, das physikalische Größen mittels dieser Umwandlung relativ einfach übertragen und weiterverarbeitet werden können. Dies ist insbesondere für Steuer- oder Regelungsprozesse von besonderem Interesse.</p>
+<div class="section" id="wandlung-von-physikalischen-groszen-a-id-subsec-wandlung-von-physikalischen-groszen-a">
+<h3>Wandlung von physikalischen Größen <a id="SubSec-Wandlung_von_physikalischen_Größen"></a><a class="headerlink" href="#wandlung-von-physikalischen-groszen-a-id-subsec-wandlung-von-physikalischen-groszen-a" title="Permalink to this headline">¶</a></h3>
+<p>Schon bei sehr einfachen Messeinrichtungen erfolgt im Allgemeinen eine Wandlung desaus der Umwelt gewonnen Messsignals in einer für den Menschen interpretierbare, bzw. zur Weiterverarbeitung geeignete Signalform. Ganz wichtig ist hierbei, dass die Messinformation auf gar keinen Fall verändert werden darf. Bzw. wenn die Messinformation verändert werden sollte, dann sollte dies immer kontrolliert und bewusst geschehen, sodass die gewünschte Information immer noch zurück gewonnen werden kann. Dies ist in der Praxis aber wieder nur bedingt möglich.</p>
+<p>Wir können auf jeden Fall folgendes zusammenfassen, wenn wir die Wandlung einer physikalischen Größe betrachten:</p>
+<ul class="simple">
+<li><p>Jede physikalische Größe wird in der Regel in ein Signal umgewandelt, da die wenigsten Größen in der Natur <em>direkt</em> messbar sind.</p></li>
+<li><p>Selbst elektrische Spannungen müssen irgendwie angezeigt werden können:</p>
+<ul>
+<li><p>Die Amplitude könnte beispielsweise über einen Zeigerausschlag transformiert werden. Hierfür kann ein <em>Elektroskop</em> benutzt werden, welches über die Spannung, bzw. Spannungsdifferenzen, aufgeladen wird. Gleichnamige Ladungen stoßen sich ab und es wird eine elektrostatische Kraft erzeugt: <span class="math notranslate nohighlight">\(F = q\cdot E\)</span>, wobei <span class="math notranslate nohighlight">\(q\)</span> die Ladung und <span class="math notranslate nohighlight">\(E\)</span> die Feldstärke ist. D.h. zunächst einmal kann das Elektroskop Ladungen messen. Da es sich aber wir ein Kondensator verhält (zwei voneinander isolierte Elektroden) können wir mittels <span class="math notranslate nohighlight">\(Q = CU\)</span> auch Spannungen messen. <span class="math notranslate nohighlight">\(C\)</span> ist hierbei die Kapazität des Kondensators (konstant).</p></li>
+<li><p>Für die Temperatur könnte ein temperaturabhängiger Widerstand beutzt werden, der einen Spannungsabfall erzeugt.</p></li>
+</ul>
+</li>
+</ul>
+<p>Für die Wandlung einer Signalform in eine andere sollte folgendes gelten:</p>
+<ul class="simple">
+<li><p>Die physikalische Größe der Informationsparamter darf nicht verändert werden, sie wird lediglich in eine neue Signalform umgewandelt.</p></li>
+<li><p>Beispiel: Ein Messverstärker, der eine Amplitude eines Messsignals für die Anzeige vorbereitet, wandelt eine <em>Amplitude</em> in eine <em>Amplitude</em>.</p></li>
+</ul>
+<p>Zur Informationsübertragung werden häufig <strong>elektromagnetische Wellen</strong> oder <strong>elektrische Signale</strong> benutzt. In einigen Bereichen sind aber auch <strong>mechanische</strong>, <strong>pneumatische</strong> und <strong>hydraulische</strong> Signale üblich, vor allem wenn man sich technische Regeleinrichtungen ansieht, spielen die letztgenannten Signale eine wichtige Rolle. Die nachfolgenden Beschreibungen kann aber auch jede Art von Messsignal angewendet werden.</p>
+</div>
+<div class="section" id="beispiel-radiowellen-bzw-elektromagnetische-wellen-a-id-subsec-beispiel-radiowellen-a">
+<h3>Beispiel: Radiowellen (bzw. elektromagnetische Wellen) <a id="SubSec-Beispiel_Radiowellen"></a><a class="headerlink" href="#beispiel-radiowellen-bzw-elektromagnetische-wellen-a-id-subsec-beispiel-radiowellen-a" title="Permalink to this headline">¶</a></h3>
+<p>Ein Beispiel sind Radiowellen, welche bis zu 300 Millionen-mal pro Sekunde eine Schwingung ausführen (= 300 MHz). Je nach Frequenz, bzw. Wellenlänge, werden Radiowellen in Mittel-, Kurz- und Ultrakurzwellen klassifiziert. Deren Ausbreitungsgeschwindigkeit beträgt Lichtgeschwindigkeit (es sind ja elektromagnetische Wellen) und liegt somit bei 299.792.458 m/s (also ca. 300.000km/s). Die Wellenlänge kann mittels folgender Formel aus Freqnenz <span class="math notranslate nohighlight">\(f\)</span> und Geschwindigkeit <span class="math notranslate nohighlight">\(c\)</span> berechnet werden:</p>
+<div class="math notranslate nohighlight">
+\[ \lambda = \frac{c}{f}\]</div>
+<p>Die Wellenlängen von Radiowellen sind somit über 1m lang.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="mf">300e6</span> <span class="c1"># Frequenz in Hz</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mi">299792458</span> <span class="c1"># Lichtgeschwindigkeit in m/s</span>
+<span class="n">wellenlaenge</span> <span class="o">=</span> <span class="n">c</span><span class="o">/</span><span class="n">f</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Wellenlänge einer Schwingung mit Frequenz f = </span><span class="si">%5.2f</span><span class="s1"> MHz beträgt </span><span class="si">%5.2f</span><span class="s1"> m&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">f</span><span class="o">/</span><span class="mf">1e6</span><span class="p">,</span><span class="n">wellenlaenge</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Wellenlänge einer Schwingung mit Frequenz f = 300.00 MHz beträgt  1.00 m
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;pictures/messsignal_wandlung.png&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3_Messsignale_11_0.png" src="../_images/3_Messsignale_11_0.png" />
+</div>
+</div>
+<p>Da die Wellenlänge sehr groß ist, wird diese Art von Strahlung kaum durch Teilchen in unserer Atmosphäre oder Ionosphäre absorbiert und abgeschwächt, sondern tatsächlich reflektiert. Dadurch eignet sie sich hervorragend für die Signalübertragung von langen Distanzen. Die Ionosphäre agiert quasi als riesengroßer Spiegel für die Radiowelle, wodruch die Strahlung zurück zur Erde reflektiert wird. (Tatächlich wird dank Strahlung aus dem Weltall dafür gesrogt, dass Elektronen aus Atomen in der Ionosphäre gelöst werden. Dadruch bilden sich positiv geladene Atomreste, welche zusammen mit den freien Elektronen einen Spiegel für Radiowellen bilden.)</p>
+<ul class="simple">
+<li><p>Radiowellen mit Frequenzen <strong>unter 30 MHz</strong> können von der Ionosphäre vollständig reflektiert werden. Einige Telekommunikations- und Radarsysteme nutzen die reflektierenden Eigenschaften der Ionosphäre für Radiowellen unterhalb von etwa 30 MHz zur Überbrückung großer Entfernungen.</p></li>
+<li><p>Radiowellen mit Frequenzen <strong>oberhalb von 30 MHz</strong> können die Ionosphäre durchdringen, so dass eine Kommunikation mit Satelliten möglich wird.  (Die Radiowellen regen die freien Elektronen zum Schwingen an, wodurch ein Dipolstrahler entsteht. Dieser erzeugt Strahlung mit einer Phasenverschiebung, aber der gleichen Frequenz. Als Resultat sieht es so aus, als würde die einfallende Strahlung von Erde vom Lot webgebrochen werden (Die Ionosphäre ist also ein optisch dünneres Medium. Je steiler der Einfallswinkel (oder je höher die Frequenz), umso tiefer dringt die Radiowelle in die ionisierte Schicht ein.</p></li>
+<li><p>Selbst im <strong>GHz-Bereich</strong> macht sich ein Brechungseinfluss noch störend bemerkbar, wodurch Messfehler bei der Satellitennavigation entstehen.</p></li>
+</ul>
+<p>Die Reichweite von Signale zur Übertragung von Informationen hängt also von der Wellenlänge bzw. Frequenz der Strahlung ab und den Umgebungsparametern (wie z.B. die Ionosphäre). Weitere  elektromagnetische Wellen, welche gerne zur Signaleübertragung benutzt werden, sind z.B.:</p>
+<ul class="simple">
+<li><p>Funkwellen (~1m - ~1km)</p></li>
+<li><p>Mikrowellen (~1mm - ~1m)</p></li>
+<li><p>Infrarot-Strahlung (~1um - ~1mm)</p></li>
+<li><p>UV-Strahlung (~100nm - ~390nm)</p></li>
+<li><p>Röntgenstrahlung (~30pm - ~1nm)</p></li>
+</ul>
+<p>Das sichtbare Licht, ebenfalls eine elektromagnetische Welle, ist nur in einem verhältnismäßig kleinem Bereich zu finden.~</p>
+<p>Es gilt allgemein, je kleiner die Wellenlänge, desto höher die Frequenz, desto höher ist die Energie, die transportiert wird:</p>
+<div class="math notranslate nohighlight">
+\[E = h \cdot f \]</div>
+<p>mit <span class="math notranslate nohighlight">\(h = 6.626\cdot 10^{-34}\,\mathrm{Js}\)</span> dem Planck’schen Wirkungsquantum.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;pictures/EM_spectrum.png&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3_Messsignale_13_0.png" src="../_images/3_Messsignale_13_0.png" />
+</div>
+</div>
+<div class="section" id="exkurs-funkwellen-in-der-ionosphare-a-id-subsubsec-exkurs-a">
+<h4>Exkurs: Funkwellen in der Ionosphäre <a id="SubSubSec-Exkurs"></a><a class="headerlink" href="#exkurs-funkwellen-in-der-ionosphare-a-id-subsubsec-exkurs-a" title="Permalink to this headline">¶</a></h4>
+<p>Radiowellen unterschiedlicher Frequenz und Einfallswinkel werden an der Ionosphäre reflektiert und auf die Erde zurück geworden, oder durchgelassen, wodruch Satellitenkommunikation ermöglich wird. Ob und wie Funkwellen reflektiert werden, hängt von der Dichte und Höhe der Ionosphärenschicht ab, und von der Frequenz der einfallenden Funkwelle.</p>
+<p>Durch Sonneneinstrahlung im ultravioletten Bereich werden Elektronen in der Ionosphäre von ihren Luftatomen getrennt. Dadurch entstehen freie Elektronen und postiv geladene Ionenrümpfe bleiben zurück. Je stärker die Sonneneinstrahlung (je mehr UV-Lichtteilchen), desto mehr Elektronen frei gesetzt und die Elektronendichte, <span class="math notranslate nohighlight">\(N_e\)</span>, steigt an.</p>
+<ul class="simple">
+<li><p>0-90km: hier gibt es keine freien Elektronen, keine Ionosphäre!</p></li>
+<li><p>50-90km: D_Schicht: keine Bedeutung für unsere Funkwellen (sie existiert auch nur am Tag wenn die Sonneneinstrahlung am stärksten ist</p></li>
+<li><p>~100km: E-Schicht</p></li>
+<li><p>~200km: F1-Schicht</p></li>
+<li><p>250-400km: F2-Schicht: größte Elektronen-/Ionendichte mit etwa <span class="math notranslate nohighlight">\(N_e =\)</span> 1 Million/cm<span class="math notranslate nohighlight">\(^3\)</span> freie Elektronen</p></li>
+<li><p>noch höher: Luftmoleküle werden seltener, wodruch die Elektronendichte trotz stärkerer Strahlung wieder abnimmt</p></li>
+</ul>
+<p>Ionosphäre ist tagüber, bei maximaler Sonneneinstrahlung, am stärksten mit freien Elektronen versetzt. Nachts nimmt die  Ionosphäre ab, da sich die freien Elektronen wieder mit den Ionen verbinden. Dies dauert je nach Höhe der Schicht unterschiedlich lang. Die F2-Schicht beispielsweise ist auch nachts noch so stark ausgeprägt, dass sie zur Übertragung von Funkwellen benutzt werden kann.</p>
+<p>Wenn Funkwellen in die Ionosphäre eintreten, ändern sie ihre Richtung, ähnlich wie Lichtstrahlen an einem Prisma. Niederigere Frequenzen brechen sich hierbei leichter, also hohe Frequenzen. Schräge Wellen berechen sich leichter als senkrecht eintreffende Strahlen.</p>
+<p>Das Verhalten von Funkwellen beim Auftreffen auf freie Elektronen kann mittels Plasmatheorie beschrieben werden. In einem Plasma treten lokal verdichtete Bereiche von freien Elektronen auf. Das sogenannten Elektronengas. An diesen Stellen ist die Dichte der Elektronen so hoch, dass die Coulombkraft abstoßend zwischen den Elektronen in Vorschein tritt. Dadurch werden die Elektronen wieder auseinander getrieben. Aufgrund der Trägheit der Elektronen treten hierdurch allerdings an anderen Stellen wieder lokale Verdichtungen auf und der Effekt wiederholt sich. Dieses Hin und Her von lokalen Ladungsüberschussen resultiert in eine periodische Schwingung, die sogenannte Plasmafrequenz, mit der die Elektronendichte um ihre mittlere Dichte oszilliert:</p>
+<div class="math notranslate nohighlight">
+\[f_p = \frac{1}{2\pi}\sqrt{\frac{N_e e^2}{\epsilon_e m_e}} \approx 8,978\,\mathrm{Hz} \cdot \sqrt{\frac{N_e}{\mathrm{m^3}}}\]</div>
+<p>Hier ist <span class="math notranslate nohighlight">\(\epsilon_0 = 8,854\cdot 10^{-12}\,\mathrm{\frac{As}{Vm}}\)</span> die elektrische Feldkonstante, <span class="math notranslate nohighlight">\(N_e\)</span> die Elektronendichte, <span class="math notranslate nohighlight">\(m_e\)</span> die Elektronenmasse, <span class="math notranslate nohighlight">\(e = 1,602\cdot 10^{-19}\,\mathrm{C}\)</span> die Elementarladung. Abhängig von der Höhe haben wir in der Ionosphäre unterschiedliche Elektronendichten und können folgende Plasmafrequenzen berechnen:</p>
+<ul class="simple">
+<li><p>100km Höhe: <span class="math notranslate nohighlight">\(f_p = 1,5\,\mathrm{MHz}\)</span></p></li>
+<li><p>800km Höhe: <span class="math notranslate nohighlight">\(f_p = 7\,\mathrm{MHz}\)</span></p></li>
+</ul>
+<p>Der Brechungsindex <span class="math notranslate nohighlight">\(n\)</span> der Ionosphäre lässt sich mittels folgender Formel berechnen:</p>
+<div class="math notranslate nohighlight">
+\[n = \sqrt{1- \frac{f_p^2}{f^2}}\]</div>
+<p>Hierbei wurde die Zyklotronfrequenz der Elektronen, die durch das Magnetfeld der Erde  hervorgerufen wird, vernachlässigt. Unter Berücksichtung der Kreisbewegung der Elektronen um die Feldlinien im Erdmagnetfeld würde ansonsten ein zusätzlicher Frequenzterm von etwa 1,3MHz zu der Gleichung hinzugefügt werden und je nach Polrisation der einfallenden Funkwelle (links-zirkular oder recht-zirkular) würden sich leicht unterschiedliche Brechungsindizies ergeben, abhängig davon, ob die Drehrichtung mit der Elektronenbewegung übereinstimmt.</p>
+<p>Anhang dieser Formel sind zwei Fälle zu berücksichtigen:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(f &lt; f_p\)</span>: der Brechungsindex wird imaginär. D.h. es findet vollständige Reflektion statt und Lang- und Mittelwellen kommen wieder zurück zur Erden</p></li>
+<li><p><span class="math notranslate nohighlight">\(f &gt; f_p\)</span>: der Brechungsindex ist real. D.h. die Funkwellen können die Schicht durchdringen (bei senkrechtem Einfall der Strahlung)</p></li>
+</ul>
+<p>Das bedeutet für unsere beiden Fälle von oben, dass unter senkrechtem Einfall:</p>
+<ul class="simple">
+<li><p>in 100km Höhe Funkwellen mit einer Frequenz von &lt;1,5MHz vollständig reflektiert werden. Wellen höherer Frequenz können diese Ionosphärenschicht durchdringen.</p></li>
+<li><p>in 800km Höhe Funkwellen mit einer Frequenz von &lt;7,0MHz vollständig reflektiert werden. Wellen höherer Frequenz können diese Ionosphärenschicht durchdringen.</p></li>
+<li><p>Funkwellen mit Frequenzen &gt;7MHz werden die Erde nicht wieder erreichen.</p></li>
+</ul>
+<p>Die Plasmafrequenz ist in dieser Annäherung also die kritische Frequenz, bis zu welcher Funkwellen unter einem senkrechtem Einfallswinkel, vollständig reflektiert werden.</p>
+<p>Desweiteren wird beobachtet, dass die Durchlässigkeit der Ionosphäre für Funkwellen vom Eintreffwinkel abhängt und näherungsweise über folgende Formel beschrieben werden kann:</p>
+<div class="math notranslate nohighlight">
+\[f_\mathrm{MUF} \approx \frac{f_\mathrm{krit}}{\sin(\alpha)} = f_\mathrm{krit} \cdot \sqrt{1 + \left(\frac{d}{2 h_\mathrm{krit}}\right)^2}\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(\alpha\)</span> der Winkel ist, der die Strahlung zum Horizont bildet, <span class="math notranslate nohighlight">\(f_\mathrm{krit}\)</span> die kritische Frequenz ist, unter welcher die Strahlung vollständig reflektiert werden würde, <span class="math notranslate nohighlight">\(d\)</span> ist die Entfernung zwischen Sender und Empfänger und <span class="math notranslate nohighlight">\(h_\mathrm{krit}\)</span> die virtuelle Höhe der Reflektion. Hier ist <span class="math notranslate nohighlight">\(f_\mathrm{MUF}\)</span> die <strong>Grenzfrequenz</strong> der Funkwelle, welche gerade noch von der Schicht reflektiert wird. MUF steht hierbei für <em>maximum usable frequency</em>. Analog gibt es auch die LUF-Frequenz, die <em>lowest usable frequency</em>.</p>
+</div>
+</div>
+<div class="section" id="wo-steckt-die-information-a-id-subsec-information-a">
+<h3>Wo steckt die Information? <a id="SubSec-Information"></a><a class="headerlink" href="#wo-steckt-die-information-a-id-subsec-information-a" title="Permalink to this headline">¶</a></h3>
+<p>Im ersten Abschnitt haben wir schon angedeutet, dass nicht nur physikalische Größen in Messsignale umgewandelt werden, sondern auch Signale in andere Signalformen. Sehr häufiges Beispiel aus der Messtechnik ist der Informationsparameter Amplitude der in Frequenz umgewandelt wird. Dies hat den einfachen Grund, dass die Frequenz eines Messsignals extrem unempfindlich gegenüber Störeinflüssen aus der Umgebung ist. Eine Amplitude wird viel schneller verfälscht, oder abgeschwächt, als die Frequenz. Ein weiterer Vorteil ist, dass die Frequenz eines Messsignals sehr einfach digitalisiert werden kann, wodurch auch die physikalische Größe schnell digital zur Verfügung steht. Man könnte beispielsweise eine einfache Triggereinrichtung nutzen, welche die Frequenz eines Messsignals in Pulse umwandelt, die mit einer bestimmten Wiederholrate (also mit der Frequenz des Signals) zur Verfügung gestellt werden. Diese Pulse werden dann innerhalb eines definierten Zeitfenster ausgezählt. Mit solchen <em>Frequenzzählern</em> werden wir uns später noch ausführlicher beschäftigen. Für solch eine Art von Messsignal wird eine <strong>Modulation</strong> des Messsignals benötigt, welche die physikalische Größe auf den Träger, in diesem Fall die Frequenz, aufbringt.</p>
+<p>Klassischerweise benutzt man eine sinusförmige Schwingung konstanter Frequent und Amplitude als <strong>Trägerschwingung</strong>. Durch die Modulation können folgende Parameter der Trägerschwingung beeinflusst werden:</p>
+<ul class="simple">
+<li><p>die Amplitude. Dies ist bekannt als Amplitudenmodulation (AM)</p></li>
+<li><p>die Frequenz. Dies ist bekannt als Frequenzmodulation (FM)</p></li>
+<li><p>die Phase. Hierbei wird der Nullphasenwinkel verschoben. Dies ist bekannt als Phasenmodulation (PM)</p></li>
+</ul>
+<p>Im Anschluss muss mittels <strong>Demodulation</strong> der originale Zeitverlauf der physikalischen Größe zurückgewonnen werden.</p>
+<p><strong>Beispiel Nutzsignale</strong>: Nutzsignale wie Sprache oder Musik können häufig nicht direkt über gewünschte Übertragungsmedien wie beispielsweise einen Funkkanal übertragen werden. Zur Übertragung muss das Nutzsignal in einen anderen Frequenzbereich verschoben werden, was beispielsweise durch eine AM geschehen kann. Durch das Verschieben können auch mehrere Nutzsignale gleichzeitig und ohne gegenseitige Störung übertragen werden.
+Vom heutigen Stand der Technik betrachtet ist die AM allerdings überholt, weil die Qualitätsansprüche gestiegen sind und mit modernen Bauelementen die FM-Geräte erheblich einfacher, billiger und leistungssparender gebaut werden können. Außerdem haben die FM einen höheren Dynamikumfang des Informationssignals und ist weniger anfällig gegenüber Störungen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;pictures/AM_FM.png&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">700</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3_Messsignale_16_0.png" src="../_images/3_Messsignale_16_0.png" />
+</div>
+</div>
+<p>Häufig werden auch Rechteckpulsfolgen als Trägerschwingung verwendet. Ähnlich wie bei der Sinusschwingung können auch hier verschiedene Modulationen vorgenommen werden, die größtenteils selbsterklärend sind (wie Pulsamplitudenmodulation oder Pulsdauermodulation). Nur die Pulscode-Modulation ist etwas anders und besonders. Hierbei wird das Messsignal kodiert und besteht aus einer Folge von Pulsgruppen. Diese Aneinanderreihung von Pulsgruppen entspricht einem bestimmten Alphabet. Vorteil dieser Variante ist, dass nur noch zwei Zustände, nämlich 0 und 1, in einer bestimmten Reihenfolge verarbeitet werden müssen. D.h. diese Art von Signalen ist direkt im Computer weiterverarbeitbar, ohne vorangegangen Analog-Digital-Wandlung.</p>
+<p>Auch hier gilt natürlich, dass eine entsprechende Demodulation nachgeschaltet werden muss, um das eigentliche Signal zurück zu gewinnen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;pictures/puls_mod.png&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">700</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3_Messsignale_18_0.png" src="../_images/3_Messsignale_18_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="klassifizierung-von-messsignalen-a-id-subsec-klassifizierung-von-messsignalen-a">
+<h3>Klassifizierung von Messsignalen <a id="SubSec-Klassifizierung_von_Messsignalen"></a><a class="headerlink" href="#klassifizierung-von-messsignalen-a-id-subsec-klassifizierung-von-messsignalen-a" title="Permalink to this headline">¶</a></h3>
+<p>Für eine ausreichende Charakterisierung von Messsignalen werden diese noch nach dem Wertevorrat der Informationsparameter (analog oder diskret) und dem zeitlichen Auftreten (kontinuierlich oder diskontinuierlich/diskret) unterschieden. Oft kommt dazu noch eine weitere Signalart, nämlich <em>stochastische</em> Signale, auch bekannt als <em>Rauschen</em>, bei welchem die Werte zufallsbehaftet sind. In diesem Fall können erst bei einer großen Anzahl von Ereignissen gesicherte Aussagen über die Qualität einer Messung geliefert werden (damit haben wir uns ja schon innerhalb der Messunsicherheiten und der Statistik befasst).
+Determinierte Signale liefern hingegen zu jedem Zeitpunkt einen festen Zusammenhang zwischen zu analysierenden und den erhaltenene Messwerten. Allgemein finden wir in technischen Messsystemen eigentlich immer deterministische Signale. Das heißt es gilt Determiniertheit.</p>
+<p>Das folgende Bild zeigt, wie der Wertevorrat und deren zeitliche Verfügbarkeit aussehen könnte. Hierbei können kontinuierliche und diskrete sowohl im Wertebereich, also auch im Zeitbereich, kombiniert werden.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;pictures/messsignal_analog_diskret.png&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3_Messsignale_20_0.png" src="../_images/3_Messsignale_20_0.png" />
+</div>
+</div>
+<p>Folgende Klassifizierungen von Messsignalen existieren:</p>
+<ul class="simple">
+<li><p><strong>analog</strong>: Der Wertebereich (also die Werte auf der y-Achse) ist kontinuierlich. Theoretisch kann der Informationsparameter <span class="math notranslate nohighlight">\(y\)</span> jeden beliebigen Wert innerhalb seines Wertebereichs annehmen. Dadurch erhält man eine proportional Abbildung zwischen Messsignal und Parameter. Allerdings ist dieses System sehr störanfällig und reagiert auf Störsignale, Rauschen oder Temperaturdrifts.</p></li>
+<li><p><strong>diskret (wertdiskret)</strong>: Diskret kann man sowohl der Werte- als auch den Zeitbereich bezeichnen. Für die Eindeutigkeit können wir den Begriff wertdiskret benutzen. Hierbei kann der Informationsparameter nur endlich viele Werte annehmen und wird nicht mehr vollständig proportional abgebildet. Dadurch ist das System zwar etwas weniger empfindlich gegenüber Störeinflüssen (erst nach Überschreiten von Grenzwerten wird der nächste <em>diskrete</em> Messwert angezeigt), doch bei der Abbildung analoger Messwerte auf einen diskreten Informationsparameter gehen Informationen verloren.</p></li>
+<li><p><strong>kontinuierlich</strong>: Dies ist das Analogon auf der Zeitachse zum <em>analogen</em> Wertebereich. Kontinuierliche Messwerte bedeutet, dass die Informationparameter zu jedem beliebigen <em>Zeitpunkt</em> seinen Wert ändern kann. D.h. der zeitliche Verlauf ist immer verfolgbar, jedoch können auch hier Störungen einwirken, und zwar jederzeit, die die Messung beeinflussen. Außerdem wird die Datenmenge oft unnötig groß.</p></li>
+<li><p><strong>diskontinuierlich (zeitdiskret)</strong>: Nun befassen wir uns mit diskreten Messwerten im Zeitbereich. Dies nennt zur Unterscheidung auch diskontinuierlich. Hierbei stehen Informationsparameter nur zu bestimmten Zeitpunkten zur Verfügung, wodurch Störungen, die zwischen zwei Zeitpunkten wirken, keine Rolle mehr spielen. Nachteil ist jedoch, dass die Informationen nur noch zu bestimmten Zeitpunkten zur Verfügung stehen.</p></li>
+<li><p><strong>stochastisch</strong>: Jetzt steckt der Informationsparameter in einer stochastischen Größe, also im Rauschen. Da Störungen häufig eine charakteristische Verteilung haben, sind diese, wenn überhaupt, nur stark reduziert bemerkbar. Sie werden quasi über die Messzeit hinweg mitgemessen, integrieren sich auf, und können weggemittelt werden (Mittelwert ist häufig bei Null). Nachteil dieses Verfahrens ist, dass die Information erst nach mehrmaligen Messungen zur Verfügung steht, was einen großen Zeitbereich benötigen kann.</p></li>
+<li><p><strong>determiniert</strong>: Im Unterschied zu stochastischen Signalen kann hier die Information mit nur einer einmaligen Messung gewonnen werden. Nachteil ist, dass diese einmalige Messung durch Störungen unbrauchbar gemacht werden können.</p></li>
+</ul>
+<p>Bei <em>digitalen</em> Signalen sind die diskreten Werte einem bestimmten Alphabet zugeordnet. Im <em>binären</em> System kann der Informationsparameter dann nur noch zwei Werte annehmen.</p>
+<p>Beispiele zum obigen Bild sind:</p>
+<ul class="simple">
+<li><p><strong>analog kontinuierlich</strong>: Manometer am Druckkessel, Aufgesetzte Messuhr (Wärmeausdehnung), Analoge Spannungs- oder Strommessung</p></li>
+<li><p><strong>analog zeitdiskret</strong>: Abgetastetes System. Informationen gehen verloren.</p></li>
+<li><p><strong>wertdiskret und kontinuierlich</strong>: Lagerbestand (Es können nur ganze Bauelemente dem Lager entnommen werden, sodass der Lagerbestand wertediskret ist. Es ist aber zu jedem Zeitpunkt bekannt, wie viele Bauelemente eines bestimmten Typs vorhanden sind. Das Signal ist zeitkontinuierlich.)</p></li>
+<li><p><strong>wertdiskret und zeitdiskret</strong>: Digitalisierung</p></li>
+</ul>
+<p>Nur bei analogen kontinuierlichen Signalen sind informationsverlustfreie Signalübertragungen möglich.</p>
+</div>
+<div class="section" id="digitalisierung-von-messsignalen-nyquist-shannon-abtasttheorem-aliasing-a-id-subsec-nyquist-shannon-abtasttheorem-a">
+<h3>Digitalisierung von Messsignalen: Nyquist-Shannon-Abtasttheorem (Aliasing) <a id="SubSec-Nyquist-Shannon-Abtasttheorem"></a><a class="headerlink" href="#digitalisierung-von-messsignalen-nyquist-shannon-abtasttheorem-aliasing-a-id-subsec-nyquist-shannon-abtasttheorem-a" title="Permalink to this headline">¶</a></h3>
+<p>Oft liegen in der Messtechnik analoge Signale vor, welche mittels Analog-Digital-Wandler (ADW) <em>digitalisiert</em> werden. Analog bedeutet, dass das Signal einen unendlich großen Wertevorrat aufweist, wobei die Werte unendlich viele Ziffern haben. Solche Elemente sind in der digitalen Welt nicht darstellbar. Ein Rechner, egal wie gut, wird nur in der Lage sein endliche Speicherstellen zur Verfügung zu stellen. Der unendliche Wertevorrat der analogen Größe wird auf einen endlichen Wertevorrat von Teilbereichen (Quanten) abgebildet. Dies wird durch einen AWD erreicht und geht immer mit einem Informationsverlust einher (siehe <span class="xref myst">Stationäre Messsysteme</span>, wo wir bereits die Digitalisierungskennlinie besprochen haben). Zur Erinnerung noch mal:</p>
+<p>Der diskrete Wertebereich kann wiefolgt angegeben werden:</p>
+<div class="math notranslate nohighlight">
+\[W_B = (2^n-1) \cdot 1\,\mathrm{LSB}\]</div>
+<p>Aufgrund des begrenzten (diskreten) Wertebereichs ergibt sich eine absolute Messabweichung infolge der Quantisierung, die oft als absoluter Quantisierungsfehler bezeichnet wird. Diese bildet sich aus der Differenz zwischen dem digitalen Ist-Wert und dem idealisierten Kennenlinienwert (linear verlaufende ideale Kennlinie, im Bild blau gekennzeichnet).</p>
+<p>Die maximale Abweichung beträgt hier 1LSB, wodruch die relative Messabweichung, bezogen auf den Wertebereich, wiefolgt abgeschätzt werden kann:</p>
+<div class="math notranslate nohighlight">
+\[A_\mathrm{rel} = \frac{A_\mathrm{max}}{W_B} = \frac{1\,\mathrm{LSB}}{(2^n-1)\cdot 1\,\mathrm{LSB}} \approx \frac{1}{2^n}\]</div>
+<p>Jeder ADW benötigt für die Wandlung eines analogen Signals in ein digitales eine bestimmte Zeit und reagiert relativ spät. Diese Zeit ist endlich und kann nicht beliebig klein werden. Aus dem kontinuierlichen, analogen Signal wird also nur eine Schnittmenge von Messwerten entnommen zu bestimmten Zeitpunkten. Was zwischen zwei Zeitpunkte (Samples) mit dem analogen Signal passiert, wird nicht mitaufgezeichnet. Diese Zeitdiskretisierung muss allerdings nicht zwangsläufig mit einem Informationsverlust einhergehen.</p>
+<p>Unter bestimmten Voraussetzungen, die im Abtasttheorem festgelegt sind, kann man die Signalwerte zwischen den festen Abtastzeitpunkten wieder vollständig rekonstruieren. Das Shannon’sche Abtasttheorem gibt an, wie oft eine Sinusschwingung mit Frequenz <span class="math notranslate nohighlight">\(f\)</span> abgetastet werden muss, damit sie aus dem digitalisieren Signal extrahiert werden kann:</p>
+<div class="math notranslate nohighlight">
+\[f_\mathrm{ab} &gt; 2f\]</div>
+<p>Eine Schwingung muss innerhalb einer Periode mindestens 2-mal abgetastet werden.
+Nur wenn diese Bedingung erfüllt ist, entstehen durch die Abtastung keine Signalfehler.
+Diese Bedingung ist ebenfalls auf beliebe periodische Signale anwendbar. Hierbei betrachtet man die höchste Frequenz, die noch in dem Signal vorkommt, und wählt entsprechend die <em>Nyquist</em>-Frequenz.</p>
+<p>Bestimmte Signale, wie z.B. Rechteckpulse oder Einzelpulse, haben eine unendlich hohe Flanke. Mathematisch werden wir im nächsten Kapitel dieser Vorlesung noch sehen, dass das bedeutet, dass deren Frequenzanteile bis ins Unendliche gehen. Das heißt eine Rechteckspannung hat unendliche hohe Frequenzen. Diese können durch Digitalisierung <em>nicht</em> mehr berücksichtigt werden, da keine Abtastfrequenzen von <span class="math notranslate nohighlight">\(2\cdot \infty\)</span>, also Zeitintervallen von 0 Sekunden, erreichbar sind. In diesem Falle findet ein Informationsverlust statt.</p>
+<p>Andersherum kann man analysieren, welche Art von Signalen mit bestimmten ADWs noch analysiert werden können. Hat mein Messsystem eine Abtastfrequenz (auch Sampling-Frequenz oder Bandbreite genannt) von <span class="math notranslate nohighlight">\(f_\mathrm{ab} = 100\,\mathrm{MHz}\)</span>, so können nur Signale mit Frequenzanteilen bis zu <span class="math notranslate nohighlight">\(f = 50\,\mathrm{MHz}\)</span> verlustfrei analysiert werden.</p>
+<p>Außerdem sollte man als Messtechniker:in stets vermeiden, dass höhere Frequenzen als diese Grenzfrequenz in den ADW gelangen.
+Dadurch können nämlich hässliche Effekte entstehen, die Mehrdeutigkeiten des gewonnenen Ausgangssignals zulassen. Diesen Effekt nennt man auch <strong>Aliasing</strong>. Angenommen man speist hohe Frequenzen in einen ADW ein, für die der ADW nicht mehr ausgelegt ist. Dies hat zu Folge, dass die Kurve nicht mehr mit mehr als 2 Punkten innerhalb einer Periode abgetastet wird (Nyquist-Shannon ist nicht erfüllt). Dadurch kann der ursprüngliche Kurvenverlauf nicht reproduziert werden. Man erhält irgendeinen anderen Kurvenverlauf (siehe Bild), der keinerlei Rückschlüsse auf den wahren Verlauf aufweist.
+Um diese Effekte zu vermeiden, werden Filter, so genannten <em>Anti-Aliasing-Filter</em> verwendet. Diese sind im Prinzip nur sehr steilflankige Tiefpass-Filter, welche Signalanteile bei hohen Frequenzen (&gt; <span class="math notranslate nohighlight">\(f_\mathrm{ab}/2\)</span>) rausfiltern und unterdrücken.
+Das Signal sollte hierbei allerdings möglichst nicht in seinem Frequenzverlauf beeinflusst oder gestört werden, weshalb man bei dem Filterdesign sehr sorgfältig vorgehen muss.</p>
+<p>Im Bild sieht man das Beispiel für 2,6 Abtastungen pro Periode (oben links), 1,4 Abtastungen (oben rechts), 2 Abtastungen (unten links) und 0,8 Abtastungen (unten rechts). Abtastungenspunkte, die 2 pro Periode unterschreiten, zeigen eine falsch-rekonstruierte Wellenform auf, was durch die rot gestrichelte Linie verdeutlicht werden soll.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;pictures/aliasing.png&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3_Messsignale_23_0.png" src="../_images/3_Messsignale_23_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>Messsignale charakterisieren und analysieren<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><a id="Sec-Messsignale_charakterisierung"></a></p>
+<p>Eine Wechselgröße, z.B. eine Wechselspannung, liegt in der allgemein Form als Sinusschwingung vor. Die Form wollen wir im folgenden wiefolgt bescheiben:
+$<span class="math notranslate nohighlight">\(u(t) = \hat U \cdot \sin(\omega t)\)</span>$</p>
+<p>In elektronischen Schaltungen hat man dazu eine Stromstärke, der dieser Wechselspannung zugehörig ist, und sich allgemein wiefolgt schreiben lässt:</p>
+<div class="math notranslate nohighlight">
+\[i(t) = \hat I \cdot \sin(\omega t + \varphi)\]</div>
+<p>Der Stromstärke haben wir die Phase <span class="math notranslate nohighlight">\(\varphi\)</span> hinzugefügt, da durch besondere Komponenten in der Schaltung, wie z.B. ein Kondensator oder eine Spule, eine Verzögerung zwischen Spannung und Stromstärke auftritt. Im klassischen Stromkreis, mit lediglich einem Widerstand, ist so eine Verzögerung meist vernachlässigbar.</p>
+<ul class="simple">
+<li><p>Mit <span class="math notranslate nohighlight">\(\omega = 2\pi f\)</span> wird die <strong>Kreisfrequenz</strong> bezeichnet, welche ebenfalls die Einheit Hz hat. Genauso wie die Frequenz <span class="math notranslate nohighlight">\(f\)</span>.</p></li>
+<li><p>Die <strong>Frequenz</strong> <span class="math notranslate nohighlight">\(f = \frac{1}{T}\)</span> ist der Kehrwert der <strong>Periodendauer</strong> <span class="math notranslate nohighlight">\(T\)</span>.</p></li>
+<li><p>Die <strong>Phase</strong> <span class="math notranslate nohighlight">\(\varphi\)</span> gibt die Phasenverschiebung oder Verzögerung des Messsignals an</p></li>
+</ul>
+<div class="section" id="kenngroszen-von-wechselgroszen">
+<h3>Kenngrößen von Wechselgrößen<a class="headerlink" href="#kenngroszen-von-wechselgroszen" title="Permalink to this headline">¶</a></h3>
+<p><a id="SubSec-Kenngrößen"></a></p>
+<p>Bei einem Wechselsignal interessiert man sich häufig nicht für den Zeitverlauf, oder den einzelnen Wert zu einem bestimmten Zeitpunkt, den sogenannten Momentanwert. Dieser hat nämlich keine große Aussagekraft, da er sich gemäß der zugrundeliegenden Signalform ständig ändert. Für viele Fragestellungen sind Kenngrößen relevant, die sich aus der Periode des Wchselsignals ermitteln lassen:</p>
+<ul class="simple">
+<li><p>Mit <span class="math notranslate nohighlight">\(\hat U\)</span> bezeichnen wir den <strong>Scheitelfaktor</strong> oder die <strong>Amplitude</strong>. Dies ist der maximale Ausschlag eines Messsignals innerhalb einer Periode (oder Messzeit) <span class="math notranslate nohighlight">\(T\)</span>.</p></li>
+<li><p>Der <strong>Gleichanteil</strong> einer Wechselgröße wird über den arithmetischen Mittelwert über eine Perdiode <span class="math notranslate nohighlight">\(T\)</span> berechnet. Es ist nur dann aussagekräftig, wenn nicht gerade eine Signal vorliert was keinen Gleichanteil hat. Andernfalls ist der Wert immer 0.
+$<span class="math notranslate nohighlight">\(\overline u = \frac{1}{T}\int_{t}^{t+T} u(t)dt\)</span>$</p></li>
+<li><p>Wenn wir uns jetzt einen Förn oder Lampe, angeschlossen an eine normale Steckdose mit Wechselstrom vorstellen, so ist der Gleichanteil der Wechselspannung 0, aber trotzdem wirkt die Spannung, da Fön oder Lampe arbeiten. Das heißt es kommt offensichtlich nicht auf die Polarität der Spannung an, sondern nur darum, dass im Durchschnitt irgendeine Art von beliebig gepolter Spannung anliegt. Mathematisch gesehen entspricht dies einer Betragsbildung und wird durch den Gleichrichtwert definiert.  Das Signal wird mittels analoger Schaltung <em>gleichgerichtet</em> (das sehen wir uns später noch mal genauer an), bevor es zur Mittelwertbildung kommt. Daher auch der Name. Der Gleichrichtwert hat auch für Signale ohne Gleichanteil eine Aussagekraft. Der <strong>Gleichrichtwert</strong> einer Wechselgröße ist der Mittelwert des Absolutwertes einer Wechselgröße berechnet sich zu:
+$<span class="math notranslate nohighlight">\(\overline{|u|} = \frac{1}{T}\int_{t}^{t+T} |u(t)|dt\)</span>$</p></li>
+<li><p>Aus der Physik ist bekannt, dass die Berechnung der elektrischen Leistung <em>nicht</em> über den Einbezug von Gleichrichtwerten erfolgt. Vielmehr muss der <strong>Effektivwert</strong> (auch RMS genannt = root mean square) berechnet werden:
+$<span class="math notranslate nohighlight">\(U = u_\mathrm{eff} = \sqrt{\overline{u^2}} = \sqrt{\frac{1}{T}\int_{t}^{t+T}u(t)^2dt}\)</span>$</p></li>
+<li><p>Mittelwert, Gleichrichtwert und Effektivwert lassen sich für jede beliebige periodische Signalform berechnen und sind <em>unabhängig</em> von der Frequenz. Zwischen Ihnen sind Umrechnungsfaktoren definiert, Scheitelfaktoren oder Formfaktoren, welche das Verhältnis zwischen Effektivwert und anderen Kenngrößen angeben. Wir werden später noch sehen, dass die Messung von Effektivwerten sehr aufwendig ist (die mathematischen Operationen im Intergral zeigen dies auch). Es ist einfacher den Scheitel- oder Gleichrichtwert zu messen und mittels dieser Umrechnungs-Faktoren den Effektivwert anschließend zu berechnen. Die Faktoren sind jedoch für jede Signalform anders!</p>
+<ul>
+<li><p><strong>Scheitelfaktor (Crest-Faktor)</strong>:
+$<span class="math notranslate nohighlight">\(k_S = \frac{\hat u}{u_\mathrm{eff}}\)</span>$</p></li>
+<li><p><strong>Formfaktor</strong>:
+$<span class="math notranslate nohighlight">\(k_F = \frac{u_\mathrm{eff}}{\overline{|u|}}\)</span>$</p></li>
+</ul>
+</li>
+</ul>
+<p>Allgemein kann man sagen, dass je größer der Scheitelfaktor, desto mehr übersteigt der Spitzenwert eines Signals den Effektivwert. Für die Praxis bedeutet dies, dass bei der Ermittlung eines Effektivwertes die Messeinrichtung aufgrund sehr hoher Spitzenwerte bereits übersteuert, obwohl der Effektivwert eigentlich noch ausreichend Aussteuerungsreserven aufweist. Besonders kritisch ist dieses Verhalten bei Pulsfolgen mit sehr kleinem Tastverhältnis. Hier kann der Scheitelfaktor unter Umständen Werte von 10 oder mehr annehmen. Messgeräte geben daher häufig Scheitelfaktoren vor, welche nicht überschritten werden sollten.</p>
+<p>Bei der digitalen Signalverarbeitung können die oben genannten Kenngrößen ebenfalls mathematisch ermittelt werden, indem die Integrale durch diskrete Summen ausgetauscht werden. Der Effektivwert  berechnet sich dann wie folgt:</p>
+<div class="math notranslate nohighlight">
+\[U = u_\mathrm{eff} = \sqrt{\overline{u^2}} = \sqrt{\frac{1}{T}\sum_{k = 1}^{n}T_\mathrm A \cdot  u_k^2}\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(n\)</span> die Abtastwerte sind, <span class="math notranslate nohighlight">\(T_A\)</span> der Abstand zwischen zwei Messungen und <span class="math notranslate nohighlight">\(u_k\)</span> der einzelne Messwert zum Zeitpunkt <span class="math notranslate nohighlight">\(k\cdot T_A\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;pictures/digital_eff.png&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3_Messsignale_26_0.png" src="../_images/3_Messsignale_26_0.png" />
+</div>
+</div>
+<div class="section" id="beispiele-von-kenngroszen-fur-sinusschwingungen">
+<h4>Beispiele von Kenngrößen für Sinusschwingungen<a class="headerlink" href="#beispiele-von-kenngroszen-fur-sinusschwingungen" title="Permalink to this headline">¶</a></h4>
+<p><a id="SubsubSec-Kenngrößen_bsp_sinus"></a></p>
+<p>Beispiel eines Sinussignals mit und ohne Gleichanteil ist im folgenden Bild einmal dargestellt. Für beide Fälle wurden die Integrale von oben gelöst und aus den entsprechenden Ergebnissen die Formeln für Scheitelfaktor und Formfaktor abgeleitet.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;pictures/bsp_eff_sin.png&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3_Messsignale_28_0.png" src="../_images/3_Messsignale_28_0.png" />
+</div>
+</div>
+<p>Die Angabe von Scheitel- und Formfaktor haben für Signale mit Gleichanteil keine größere Bedeutung und müssen nicht berechnet werden. Im Vergleich der beiden Beispiele zeigt sich, dass der Effektivwert eines Sinussignals mit Gleichanteil der quadratische Mittelwert der Effektivwerte des Gleichanteils und dem Wert des Gleichanteils <span class="math notranslate nohighlight">\(u_0\)</span> entspricht.</p>
+</div>
+<div class="section" id="beispiele-von-kenngroszen-fur-pulsweitenmodulation">
+<h4>Beispiele von Kenngrößen für Pulsweitenmodulation<a class="headerlink" href="#beispiele-von-kenngroszen-fur-pulsweitenmodulation" title="Permalink to this headline">¶</a></h4>
+<p><a id="SubsubSec-Kenngrößen_bsp_puls"></a></p>
+<p>Ein weiteres Beispiel ist für eine Pulsweitenmodulation berechnet und die Formeln können aus folgendem Bild abgelesen werden. Er handelt sich um ein unsymmetrisches Rechtecksignal. In diesem Fall sprechen wir von einem Pulsweitenmodulierten Signal, da die ‘An’-Zeit innerhalb einer bestimmten Anwendung nicht immer gleich groß sein muss. Das Verhältnis</p>
+<div class="math notranslate nohighlight">
+\[\tau = \frac{\Delta t}{T}\]</div>
+<p>wird auch Tastverhältnis genannt. Hierüber kann ein Messwert analog codiert und übertragen werden, während das Signal selber digital ist.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;pictures/bsp_eff_puls.png&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3_Messsignale_31_0.png" src="../_images/3_Messsignale_31_0.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>Fourrierreihen<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><a id="Sec-Fourierreihe"></a></p>
+<p>Jeder periodische Signal kann als Summe von Sinus- und Cosinusfunktionen mit Frequenzen von ganzzahligen Vielfachen der Grundfrequenz des Signals beschrieben werden. Dies ist die sogenannten <strong>Fourierreihe</strong>, Fourierreihen-Entwicklung/oder -Zerlegung. Die <strong>reelle Darstellung der Fourierreihe</strong> sieht wiefolgt aus:</p>
+<div class="math notranslate nohighlight">
+\[x(t) = x_0 + \sum_{k=1}^{\infty} a_k \cos(2\pi k f_0 t) + \sum_{k=1}^{\infty} b_k \sin(2\pi k f_0 t)\]</div>
+<p><span class="math notranslate nohighlight">\(x_0\)</span> ist hierbei der Gleichanteil (Mittelwert) des Signals, der sich wieder über den arithmetischen Mittelwert berechnet:</p>
+<div class="math notranslate nohighlight">
+\[x_0 = \frac{1}{T} \int_{-T/2}^{T/2} x(t) dt = \frac{a_0}{2}\]</div>
+<p>Die (reellen) Koeffizienten <span class="math notranslate nohighlight">\(a_k\)</span> und <span class="math notranslate nohighlight">\(b_k\)</span> nehmen für jedes Messsignal eine anderen Wert an und berechnen sich über:</p>
+<div class="math notranslate nohighlight">
+\[a_k = \frac{2}{T}  \int_{-T/2}^{T/2} x(t) \cos(2\pi k f_0 t) dt \]</div>
+<p>und</p>
+<div class="math notranslate nohighlight">
+\[b_k = \frac{2}{T}  \int_{-T/2}^{T/2} x(t) \sin(2\pi k f_0 t) dt\]</div>
+<p>Jedes Integral muss immer über eine Periode ausgeführt werden. Ob hier die Grenzen <span class="math notranslate nohighlight">\(\pm T/2\)</span> gewählt werden, oder von 0 bis <span class="math notranslate nohighlight">\(T\)</span> integriert wird, ist jedem selber überlassen.</p>
+<p>Es kann übrigens folgendes gezeigt werden, was für die Praxis oft sehr hilfreich ist, da es die Anzahl von Integralberechnungen reduziert:</p>
+<ul class="simple">
+<li><p>für <strong>gerade</strong> Funktionen, also wenn <span class="math notranslate nohighlight">\(x(t) = x(-t)\)</span> gilt, dann sind alle <span class="math notranslate nohighlight">\(b_k = 0\)</span> (es existieren nur noch Cosinus-Terme)</p></li>
+<li><p>für <strong>ungerade</strong> Funktionen, also wenn <span class="math notranslate nohighlight">\(x(t) = -x(-t)\)</span> gilt, dann sind alle <span class="math notranslate nohighlight">\(a_k = 0\)</span> (es existieren nur noch Sinus-Terme)</p></li>
+<li><p>einen Gleichanteil <span class="math notranslate nohighlight">\(x_0\)</span> kann es folglich bei ungeraden FUnktionen <em>nicht</em> geben.</p></li>
+</ul>
+<p>Eine alternative Schreibweise ist die <strong>komplexe Darstellung</strong>.</p>
+<div class="math notranslate nohighlight">
+\[x(t) = \sum_{k=-\infty}^{\infty} \underline{c}_k \mathrm e^{j 2\pi k f_0 t}\]</div>
+<p>Diese liefert den Vorteil, dass nur eine Art von Koeffizienten berechnet werden muss:</p>
+<div class="math notranslate nohighlight">
+\[\underline {c}_k = \frac{1}{T}  \int_{-T/2}^{T/2} x(t) \mathrm e^{- j 2\pi k f_0 t} dt \]</div>
+<p>Trotz der Rechnung mit komplexen Funktionen, anstelle von reellen Sinus- und Cosinus-Termen, handelt es sich immer noch um eine reelle Funktion. Für <span class="math notranslate nohighlight">\(k=0\)</span> erhält man wieder den Gleichanteilm d.h.:</p>
+<div class="math notranslate nohighlight">
+\[\underline c_0 = x_0\]</div>
+<p>Außerdem sieht man, dass die Werte für <span class="math notranslate nohighlight">\(\underline {c}_{-k}\)</span> und <span class="math notranslate nohighlight">\(\underline {c}_k\)</span> zueinander komplex konjugiert sind:</p>
+<div class="math notranslate nohighlight">
+\[\underline {c}_{-k} = \underline {c}_k^*\]</div>
+<p>Mittels der Euler-Formel</p>
+<div class="math notranslate nohighlight">
+\[e^{j\omega t} = \cos(\omega t) + j \sin(\omega t)\]</div>
+<p>lassen sich die Koeffizienten aus reeller Fourierreihen-Entwicklung und komplexer Darstellung ineinander umformen. Durch die Addition eines zueinander komplex konjugierten Koeffizientenpaares lässt sich der reelle Koeffizient <span class="math notranslate nohighlight">\(a_k\)</span> bestimmen:</p>
+<div class="math notranslate nohighlight">
+\[a_k = \underline{c}_{k} + \underline{c}_{-k}\]</div>
+<p>und analog fällt bei der Subtraktion der Realteil weg, sodass nach zusätzliche Multiplikation mit <span class="math notranslate nohighlight">\(j\)</span> <span class="math notranslate nohighlight">\(b_k\)</span> berechnet wird:</p>
+<div class="math notranslate nohighlight">
+\[b_k = j (\underline{c}_{k} - \underline{c}_{-k})\]</div>
+<p>Andersherum können aus den reellen Koeffizienten auch die komplexen Koeffizienten berechnet werden:</p>
+<div class="math notranslate nohighlight">
+\[\underline c_k = \frac{1}{2} (a_k - j b_k)\]</div>
+<div class="math notranslate nohighlight">
+\[\underline c_{-k} = \frac{1}{2} (a_k + j b_k) = \underline c_k^*\]</div>
+<p>An dieser Stelle wollen wir noch mal festhalten, dass die Koeffizienten der Fourierreihe eine Schwingung oder ein Messsignal im Frequenzbereich eindeutig beschreibt. In Ihrer Gesamtheit stellen diese Koeffizienten das <strong>Spektrum</strong> des Signals dar. Dies ist zumindest wahr für die hier dargestellte mathematische Betrachtung mittels Fourier-Transformation. Ein Spektrumanalysator wertet hingegen bei der jeder Einzelmessung in einem begrenzten Bereich Frequenzbereich das Signal aus, was häufig noch durch einen Bandpassfilter geschleust wurde. Dabei gehen Informationen über die Phasenlage verloren.</p>
+<div class="section" id="beispiel-fourierreihe-eines-rechteckpuls">
+<h3>Beispiel Fourierreihe eines Rechteckpuls<a class="headerlink" href="#beispiel-fourierreihe-eines-rechteckpuls" title="Permalink to this headline">¶</a></h3>
+<p><a id="SubSec-Bsp_Fourier_rechteck"></a></p>
+<p>Gucken wir uns im folgenden Code-Block mal einige Überlagerungen von Sinusschwingungen und wie dieser zum Rechteckpuls, der Signumsfumktion, führen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Defintion der Rechteckfunktion</span>
+<span class="k">def</span> <span class="nf">rechteck</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">x</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">if</span> <span class="n">x</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">out</span>
+<span class="n">sig</span> <span class="o">=</span> <span class="p">[]</span>   
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+    <span class="n">sig</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rechteck</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">sig</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit t&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Spannung U&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3_Messsignale_34_0.png" src="../_images/3_Messsignale_34_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Berechnung der Fourier-Koeffizienten für diesen Rechteckpuls</span>
+
+<span class="c1"># Da die Funktion gerade ist sind alle Koeffzienten a_k = 0</span>
+
+<span class="c1"># Berechnung der b_k:</span>
+<span class="k">def</span> <span class="nf">b</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">2</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="n">k</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">k</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="n">k</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">fourier_reihe_rechteck</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">out</span> <span class="o">+</span> <span class="n">b</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">out</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">sig</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">fourier_reihe_rechteck</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">x</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;N = </span><span class="si">%d</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">fourier_reihe_rechteck</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">x</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;N = </span><span class="si">%d</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">fourier_reihe_rechteck</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">x</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;N = </span><span class="si">%d</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit t&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Spannung U&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">b</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">x</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit t&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Spannung U&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">b</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequenz f&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude b_k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3_Messsignale_35_0.png" src="../_images/3_Messsignale_35_0.png" />
+<img alt="../_images/3_Messsignale_35_1.png" src="../_images/3_Messsignale_35_1.png" />
+<img alt="../_images/3_Messsignale_35_2.png" src="../_images/3_Messsignale_35_2.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>Fourier-Transformation<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p><a id="Sec-FFT"></a></p>
+<p>Die Fourier-Transformation ist Teil der Spektralanalyse in der Messtechnik. Sie basiert auf der Grundidee, dass, wie wir eben gesehen haben, sich jede periodische Funktion aus Sinus- und Cosinusfunktionen schreiben lässt. Das Ziel ist es, die Anteile dieser Schwingungen sichtbar zu machen. Die Fourier-Transformation ist eine mathematische Methode mit der nun auch aperiodische Signale in ein kontinuierliches Spektrum zerlegt werden.</p>
+<p>Die <strong>diskrete Fourier-Transformation</strong> (z.B. auf digitalisierte, abgetastete Messwerte angewendet) entspricht der Fourierreihen:</p>
+<div class="math notranslate nohighlight">
+\[X_\mathrm d (k \Delta f) = \sum_{i = 0}^{N-1} x(i\Delta t) \mathrm e^{-j 2\pi  k \Delta f i \Delta t}\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(\Delta f = 1/T\)</span> mit der Periode <span class="math notranslate nohighlight">\(T = N\cdot \Delta T\)</span>, <span class="math notranslate nohighlight">\(N\)</span> ist die Anzahl der Samples.</p>
+<p>Die <strong>kontinuierliche Fourier-Transformation</strong> ist für beliebige Funktionen <span class="math notranslate nohighlight">\(f(t)\)</span> definiert, d.h. die Periode kann unendlich lang werden und die Funktion kann aperiodisches Verhalten aufweisen:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal F(x(t)) = X(j\omega) = \int_{-\infty}^{\infty} x(t) \mathrm e^{-j \omega t} dt\]</div>
+<p>Die Rücktransformation ist wiefolgt definiert:</p>
+<div class="math notranslate nohighlight">
+\[x(t) = \frac{1}{2\pi}\int_{-\infty}^{\infty} X(j\omega) \mathrm e^{j \omega t} d\omega\]</div>
+<p>Der Vollständigkeitshalber soll an dieser Stelle auch noch die <strong>Laplace-Transformation</strong> erwähnt werden, die sich wiefolgt berechnen lässt:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal L(x(t)) = X(s) = \int_{0}^{\infty} x(t) \mathrm e^{-st} dt\]</div>
+<p>mit der Rücktransformation</p>
+<div class="math notranslate nohighlight">
+\[x(t) = \frac{1}{2\pi}\int_{0}^{\infty} X(s) \mathrm e^{st} ds\]</div>
+<p>Hierbei ist <span class="math notranslate nohighlight">\(s= \sigma + j\omega\)</span> eine komplexe Zahl (anstelle von <span class="math notranslate nohighlight">\(\omega\)</span>) und wird für dynamische Messsysteme wichtig werden.</p>
+<div class="section" id="eigenschaften">
+<h3>Eigenschaften<a class="headerlink" href="#eigenschaften" title="Permalink to this headline">¶</a></h3>
+<p><a id="SubSec-Eigenschaften_FFT"></a></p>
+<p>Jeder Fourier-Transformation hat folgende wichtige <strong>Eigenschaften</strong>, die das Leben und Rechnen im Frequenzraum erheblich erleichtern können:</p>
+<ul class="simple">
+<li><p><strong>Linearität</strong>: <span class="math notranslate nohighlight">\(\mathcal F(ax_1 + bx_2) = a\mathcal F(x_1)+ b \mathcal F(x_2)\)</span></p></li>
+<li><p><strong>Ableitung</strong>: <span class="math notranslate nohighlight">\(\mathcal F(\dot x) = j\omega \cdot \mathcal F(x)\)</span></p></li>
+<li><p><strong>Faltung</strong>:<span class="math notranslate nohighlight">\( \mathcal F(x_1*x_2) = \mathcal F(x_1) \cdot \mathcal F(x_1)\)</span></p>
+<ul>
+<li><p>Faltung im Zeichbereich ist zum Vergleich sehr kompliziert: <span class="math notranslate nohighlight">\((x_1 \ast x_2)(t) = \int_{-\infty}^{\infty} x_1(\tau)x_2(t-\tau) \mathrm{d}\tau\)</span></p></li>
+</ul>
+</li>
+<li><p><strong>Zeitverschiebung</strong>: <span class="math notranslate nohighlight">\(\mathcal F(x(t-\tau)) = \mathcal F(x(t)) \cdot \mathrm e^{-j\omega \tau}\)</span></p></li>
+</ul>
+</div>
+<div class="section" id="anwendung">
+<h3>Anwendung<a class="headerlink" href="#anwendung" title="Permalink to this headline">¶</a></h3>
+<p><a id="SubSec-Anwendung_FFT"></a></p>
+<p>Ein Spektralanalyse, wie sie die Fouriertransformation durchführt, eigenet sich besonders gut zur Zustandüberwachung. Hier können Motoren, Turbinen, Sägen, Kugellager uvm, im Prinzip alles was rotiert, überwacht werden. Die spezifischen Frequenz jedes Kugellagers kann beispielsweise überwacht werden. Sollte sich die Amplitude über die Zeit verändert, kann dies ein Indiz dafür sein, dass eine Kugel ins Lager gefallen ist oder das Lager einen Schaden bekommen hat. Verschlechtert sich das Verhalten kann frühzeitig gegengewirkt werden, indem das Kugellager ausgetauscht wird. Das heißt auch Fehlerfrüherkennung, Fehlerdiagnose und Trendanalysen (“predictive maintenance”) werden häufig im Frequenzraum durchgeführt.</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>Zusammenfassung<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p><a id="Sec-Zusammenfassung"></a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;pictures/zusammenfassung_5-1.png&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3_Messsignale_38_0.png" src="../_images/3_Messsignale_38_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;pictures/zusammenfassung_5-2.png&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3_Messsignale_39_0.png" src="../_images/3_Messsignale_39_0.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Kisleif/mtbook",
+            ref: "gh-pages",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="1_APy_Plotten.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Selbstlernen: Klimadatten plotten mit Python</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="2_StationareMesssysteme.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Stationäre Messsysteme</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Durch Katharina-S. Isleif<br/>
+    
+        &copy; Urheberrechte © 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

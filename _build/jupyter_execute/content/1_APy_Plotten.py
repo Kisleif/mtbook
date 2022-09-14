@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Selbstlernen: Klimadatten plotten mit Python
+# # Klimadaten analysieren mit Python
 # 
 # Zunächst werden die für dieses Jupyter Notebook benötigten Libraries geladen:
 

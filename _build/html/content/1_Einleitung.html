@@ -57,7 +57,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Quellen und Ursachen von Messunsicherheiten" href="1_Messunsicherheiten.html" />
-    <link rel="prev" title="Analyse und Präsentation von Messwerten" href="1_AnalyseUndPraesentationVonMessdaten.html" />
+    <link rel="prev" title="Basics fürs Praktikum" href="1_AnalyseUndPraesentationVonMessdaten.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -103,13 +103,13 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Einführung
+  Basics
  </span>
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="1_AnalyseUndPraesentationVonMessdaten.html">
-   Analyse und Präsentation von Messdaten
+   Basics fürs Praktikum
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -148,6 +148,64 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="1_Tutorials.html">
+   Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_APy_Plotten.html">
+     Selbstlernen: Klimadatten plotten mit Python
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Signale
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_Messsignale.html">
+   Messsignale, Charakterisierung und  Analyse
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Messsysteme
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_StationareMesssysteme.html">
+   Stationäre Messsysteme
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Dynamische_Messsysteme.html">
+   Dynamische Messsysteme
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Sensoren
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_ElektrischeGroessen.html">
+   Messen elektrischer Größen
+  </a>
  </li>
 </ul>
 
@@ -265,21 +323,14 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tips-furs-praktikum">
-   Tips fürs Praktikum
+  <a class="reference internal nav-link" href="#grundidee">
+   Grundidee
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#daten-sammeln">
-     Daten sammeln
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#diagramme-zeichnen">
-     Diagramme zeichnen
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#diagramme-zeichnen">
+   Diagramme zeichnen
+  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#maszeinheiten">
@@ -334,21 +385,14 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tips-furs-praktikum">
-   Tips fürs Praktikum
+  <a class="reference internal nav-link" href="#grundidee">
+   Grundidee
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#daten-sammeln">
-     Daten sammeln
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#diagramme-zeichnen">
-     Diagramme zeichnen
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#diagramme-zeichnen">
+   Diagramme zeichnen
+  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#maszeinheiten">
@@ -436,10 +480,8 @@ require(['plotly'], function(Plotly) {
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="messdaten-darstellen-und-sammeln">
 <h1>Messdaten darstellen und sammeln<a class="headerlink" href="#messdaten-darstellen-und-sammeln" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="tips-furs-praktikum">
-<h2>Tips fürs Praktikum<a class="headerlink" href="#tips-furs-praktikum" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="daten-sammeln">
-<h3>Daten sammeln<a class="headerlink" href="#daten-sammeln" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="grundidee">
+<h2>Grundidee<a class="headerlink" href="#grundidee" title="Permalink to this headline">¶</a></h2>
 <p>Aufgabe der Messtechnik ist es physikalische Messgrößen quantitativ zu beobachten und ist somit wichtiger Bestandteil in der Physik. Eine <em>quantitative</em> Beschreibung bedeutet immer, dass eine Messgröße mit einem Zahlenwert, <span class="math notranslate nohighlight">\(x\)</span>, und einer Maßeinheit, <span class="math notranslate nohighlight">\(E\)</span>, ausgedrückt wird. Um einen möglichst <em>guten</em> Zahlenwert experimentell zu ermitteln, wird neben der konkreten Durchführung ein Großteil der Experimentierzeit damit verbracht das Experiment vorzubereiten und zu planen, aber auch die Daten auszuwerten und darzustellen, Ergebnisse zu überprüfen und ggf. Messungen zu wiederholen.
 Was sich beim Messen nicht umgehen lässt, und was der ein oder andere sicherlich schon im Praktikum beobachten konnte, ist, dass Beobachtungen immer statistischen (zufälligen) Schwankungen unterliegen. Dies führt dazu, dass sich das Messergebnis immer verändert. eine Messung wird prinzipiell niemals den <em>wahren</em> Wert liefern können, weshalb wir sorgfältig messen und auswerten müssen. Es gibt <em>best practice</em> Methoden und Techniken, die in der Wissenschaft benutzt werden, um Unsicherheiten und Schwankungen der Messgröße quantitativ zu beschreiben um so ein Qualitätsmaß der Messung bzw. unseres Experimentes zu erhalten. Durch die Einhaltung der <em>best practice</em> Methoden kannst du jederzeit Rechenschaft ablegen und das Ergebnis begründen. Die grundlegende Norm für die Messtechnik ist in der <em>DIN-Norm DIN 1319</em> und dem <em>GUM</em> (Guide to the Expression of Uncertainty in Measurement) offiziell festgehalten.</p>
 <ul class="simple">
@@ -451,7 +493,7 @@ Was sich beim Messen nicht umgehen lässt, und was der ein oder andere sicherlic
 </ul>
 </div>
 <div class="section" id="diagramme-zeichnen">
-<h3>Diagramme zeichnen<a class="headerlink" href="#diagramme-zeichnen" title="Permalink to this headline">¶</a></h3>
+<h2>Diagramme zeichnen<a class="headerlink" href="#diagramme-zeichnen" title="Permalink to this headline">¶</a></h2>
 <p>Mittels Diagrammen (engl. <em>Plots</em>) werden Messwerte dargestellt. Die folgenden Regeln helfen dabei, dass die Diagramme anschaulich sind und der Betrachter direkt erkennt, worum es geht:</p>
 <ul class="simple">
 <li><p><strong>Achsenbeschriftung:</strong> Beschrifte die Achsen richtig, eindeutig und mit vollständiger Angabe: physikalische Größe und Maßeinheit!</p></li>
@@ -530,7 +572,6 @@ Weitere Software ist Qti-Plot (kostenlos) oder Matlab (Lizenzen über HSU verfü
 </pre></div>
 </div>
 <img alt="../_images/1_Einleitung_3_1.png" src="../_images/1_Einleitung_3_1.png" />
-</div>
 </div>
 </div>
 </div>
@@ -694,7 +735,7 @@ Weitere Software ist Qti-Plot (kostenlos) oder Matlab (Lizenzen über HSU verfü
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Analyse und Präsentation von Messwerten</p>
+            <p class="prev-next-title">Basics fürs Praktikum</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="1_Messunsicherheiten.html" title="next page">

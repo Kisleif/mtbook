@@ -1,0 +1,786 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Messdaten darstellen und sammeln &#8212; Metrology Lecture Book</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Kurvenanpassung" href="1_Kurvenanpassung.html" />
+    <link rel="prev" title="Grundlagen der Messtechnik" href="0_Basics.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/i_mt.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Metrology Lecture Book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Dieses Buch durchsuchen ..." aria-label="Dieses Buch durchsuchen ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Basics für Praktikum
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_AnalyseUndPraesentationVonMessdaten.html">
+   Basics fürs Praktikum
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_Einleitung.html">
+   Messdaten darstellen und sammeln
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_Messunsicherheiten.html">
+   Quellen und Ursachen von Messunsicherheiten
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_Mittelwert_StdAbw.html">
+   Mittelwert und Standardabweichung
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_Fehlerfortpflanzung.html">
+   Fortpflanzung von Messunsicherheiten
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Basics
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="0_Basics.html">
+   Grundlagen der Messtechnik
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Messdaten darstellen und sammeln
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Kurvenanpassung.html">
+     Kurvenanpassung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Zusammenfassung.html">
+     Zusammenfassung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="1_Tutorials.html">
+   Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_APy_Plotten.html">
+     Klimadaten analysieren mit Python
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Signale
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_Messsignale.html">
+   Messsignale, Charakterisierung und  Analyse
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Messsysteme
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_StationareMesssysteme.html">
+   Stationäre Messsysteme
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Dynamische_Messsysteme.html">
+   Dynamische Messsysteme
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Sensoren
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_ElektrischeGroessen.html">
+   Messen elektrischer Größen
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navigation umschalten" aria-controls="site-navigation"
+                title="Navigation umschalten" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Laden Sie diese Seite herunter"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/content/0_Einleitung.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Quelldatei herunterladen" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="In PDF drucken"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Kisleif/mtbook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Quell-Repository"><i
+                    class="fab fa-github"></i>Repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/Kisleif/mtbook/issues/new?title=Issue%20on%20page%20%2Fcontent/0_Einleitung.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Öffnen Sie ein Problem"><i class="fas fa-lightbulb"></i>offenes Thema</button></a>
+        <a class="edit-button" href="https://github.com/Kisleif/mtbook/edit/gh-pages/content/0_Einleitung.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Bearbeite diese Seite"><i class="fas fa-pencil-alt"></i>vorschlagen zu bearbeiten</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Vollbildmodus"
+        title="Vollbildmodus"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Kisleif/mtbook/gh-pages?urlpath=tree/content/0_Einleitung.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Starten Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://github.com/Kisleif/mtbook/hub/user-redirect/git-pull?repo=https://github.com/Kisleif/mtbook&urlpath=tree/mtbook/content/0_Einleitung.ipynb&branch=gh-pages"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Starten JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Starten Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Inhalt
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#grundidee">
+   Grundidee
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#diagramme-zeichnen">
+   Diagramme zeichnen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#maszeinheiten">
+   Maßeinheiten
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#si-einheiten">
+     SI-Einheiten
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#abgeleitete-erganzende-si-einheiten">
+     Abgeleitete / Ergänzende SI-Einheiten
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nicht-si-einheiten">
+     Nicht-SI-Einheiten
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vorsatze-und-prafix-im-si">
+     Vorsätze und Präfix im SI
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#logarithmische-einheiten">
+     Logarithmische Einheiten
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Messdaten darstellen und sammeln</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Inhalt </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#grundidee">
+   Grundidee
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#diagramme-zeichnen">
+   Diagramme zeichnen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#maszeinheiten">
+   Maßeinheiten
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#si-einheiten">
+     SI-Einheiten
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#abgeleitete-erganzende-si-einheiten">
+     Abgeleitete / Ergänzende SI-Einheiten
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nicht-si-einheiten">
+     Nicht-SI-Einheiten
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vorsatze-und-prafix-im-si">
+     Vorsätze und Präfix im SI
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#logarithmische-einheiten">
+     Logarithmische Einheiten
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="cell tag_hide-input tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Benötigte Libraries:</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">plotly.offline</span> <span class="k">as</span> <span class="nn">py</span>
+<span class="n">py</span><span class="o">.</span><span class="n">init_notebook_mode</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">plotly.graph_objs</span> <span class="k">as</span> <span class="nn">go</span>
+<span class="kn">import</span> <span class="nn">plotly.tools</span> <span class="k">as</span> <span class="nn">tls</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="c1"># MatplotLib Settings:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><script type="text/javascript">
+window.PlotlyConfig = {MathJaxConfig: 'local'};
+if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+if (typeof require !== 'undefined') {
+require.undef("plotly");
+requirejs.config({
+    paths: {
+        'plotly': ['https://cdn.plot.ly/plotly-2.12.1.min']
+    }
+});
+require(['plotly'], function(Plotly) {
+    window._Plotly = Plotly;
+});
+}
+</script>
+</div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1000x500 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="messdaten-darstellen-und-sammeln">
+<h1>Messdaten darstellen und sammeln<a class="headerlink" href="#messdaten-darstellen-und-sammeln" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="grundidee">
+<h2>Grundidee<a class="headerlink" href="#grundidee" title="Permalink to this headline">¶</a></h2>
+<p>Aufgabe der Messtechnik ist es physikalische Messgrößen quantitativ zu beobachten und ist somit wichtiger Bestandteil in der Physik. Eine <em>quantitative</em> Beschreibung bedeutet immer, dass eine Messgröße mit einem Zahlenwert, <span class="math notranslate nohighlight">\(x\)</span>, und einer Maßeinheit, <span class="math notranslate nohighlight">\(E\)</span>, ausgedrückt wird. Um einen möglichst <em>guten</em> Zahlenwert experimentell zu ermitteln, wird neben der konkreten Durchführung ein Großteil der Experimentierzeit damit verbracht das Experiment vorzubereiten und zu planen, aber auch die Daten auszuwerten und darzustellen, Ergebnisse zu überprüfen und ggf. Messungen zu wiederholen.
+Was sich beim Messen nicht umgehen lässt, und was der ein oder andere sicherlich schon im Praktikum beobachten konnte, ist, dass Beobachtungen immer statistischen (zufälligen) Schwankungen unterliegen. Dies führt dazu, dass sich das Messergebnis immer verändert. eine Messung wird prinzipiell niemals den <em>wahren</em> Wert liefern können, weshalb wir sorgfältig messen und auswerten müssen. Es gibt <em>best practice</em> Methoden und Techniken, die in der Wissenschaft benutzt werden, um Unsicherheiten und Schwankungen der Messgröße quantitativ zu beschreiben um so ein Qualitätsmaß der Messung bzw. unseres Experimentes zu erhalten. Durch die Einhaltung der <em>best practice</em> Methoden kannst du jederzeit Rechenschaft ablegen und das Ergebnis begründen. Die grundlegende Norm für die Messtechnik ist in der <em>DIN-Norm DIN 1319</em> und dem <em>GUM</em> (Guide to the Expression of Uncertainty in Measurement) offiziell festgehalten.</p>
+<ul class="simple">
+<li><p><strong>Planung:</strong> Was soll gemessen werden? Was wird hierfür benötigt? Welche Fehlerquellen/Störeinflüsse könnten auftreten, bzw. welche sind bekannt? Welche systematischen Unsicherheiten sind bekannt?</p></li>
+<li><p><strong>Durchführung:</strong> Führe Protokoll! Wurde <strong>alles</strong>, was wichtig sein könnte, protokolliert und in Tabellen zusammengefasst, aufgeschrieben, fotografiert?</p></li>
+<li><p><strong>Auswertung:</strong> Prüfe die Ergebnisse auf Vollständigkeit und Übersichtlichkeit! Hierzu gehört auch eine vollständige Abschätzung von Messunsicherheiten.</p></li>
+<li><p><strong>Prüfung:</strong> Ergeben die Ergebnisse Sinn und sind diese konsistent mit anderen Ergebnissen aus der Literatur? Haben wir die Ergebnisse erwartet?</p></li>
+<li><p><strong>Darstellung:</strong> Vollständige Angabe des Messergebnisses, bestehend aus Zahlenwert, Maßeinheit und Messunsicherheit. Verwende die wissenschaftliche Notation für Zehnerpotenzen.</p></li>
+</ul>
+</div>
+<div class="section" id="diagramme-zeichnen">
+<h2>Diagramme zeichnen<a class="headerlink" href="#diagramme-zeichnen" title="Permalink to this headline">¶</a></h2>
+<p>Mittels Diagrammen (engl. <em>Plots</em>) werden Messwerte dargestellt. Die folgenden Regeln helfen dabei, dass die Diagramme anschaulich sind und der Betrachter direkt erkennt, worum es geht:</p>
+<ul class="simple">
+<li><p><strong>Achsenbeschriftung:</strong> Beschrifte die Achsen richtig, eindeutig und mit vollständiger Angabe: physikalische Größe und Maßeinheit!</p></li>
+<li><p><strong>Skalierung:</strong> Wähle eine passende Skalierung in 1er-/2er-/5er oder 10er- (Dakaden) Schritten</p></li>
+<li><p><strong>Markierungen:</strong> Wähle eine gute erkennbare Markierung für Messpunkte und ggf. eine angebrachte Linienbreite für Kurven. Hierbei können unterschiedliche Farben, Strichdicken, Stricharten und Markierungspunkte verwendet werden, oder eine Kombination.</p></li>
+<li><p><strong>Titel:</strong> Nutze passende Über-/ oder Unterschriften für das Diagramm, insbesondere wenn diese in der Auswertung im Text erwähnt werden.</p></li>
+<li><p><strong>Anderes:</strong> Weitere Punkte und Linien, die nicht gemessen wurden, sondern nur als <em>Hilfe</em> dienen (z.B. Fit-Funktionen, Modelle, Referenzlinien) oder Kommentare sind, sollten besonders gekennzeichnet werden.</p></li>
+<li><p><strong>Messunsicherheiten:</strong> Für Messwerte (in Form von Fehlerbalken), aber auch für Funktionsterme und Ausgleichsgeraden, müssen Messunsicherheiten in den Graphen angegeben werden.</p></li>
+</ul>
+<p>Verwende eine sinnvolle Software für die Datenanalyse und die grafische Darstellung, welche auch Fit-Analysen unterstützen. Wir werden hier im folgenden Beispiele in <code class="docutils literal notranslate"><span class="pre">python</span></code> aufführen und Jupyter Notebooks verwenden. Die Codes auf dieser Seite können direkt benutzt und sogar ausgeführt werden.
+Weitere Software ist Qti-Plot (kostenlos) oder Matlab (Lizenzen über HSU verfügbar).</p>
+<p>Im Folgenden sind zwei Diagramme dargestellt, wovon das zweite einige Defizite aufweist. Aufgrund der Darstellung wurde eine lineare Regression über einen anderen Messwertebereich durchgeführt, wodurch der Temperaturanstieg der letzten Jahre um einen Faktor 2 zu gering abgeschätzt wurde!</p>
+<div class="tip admonition">
+<p class="admonition-title">Aufgabe</p>
+<p>Welche anderen Defizite fallen dir im Vergleich zum ersten Bild auf?</p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">link</span> <span class="o">=</span> <span class="s1">&#39;data/graph.csv&#39;</span> <span class="c1"># Beispieldatei mit Klimadaten</span>
+<span class="n">global_mean</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">link</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># Daten einlesen</span>
+<span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;uncertainty&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.25</span> <span class="c1">#Messunsicherheiten abschätzen, hier 0.25K Temperaturgenauigkeit angenommen</span>
+
+<span class="c1"># Lineare Regression berechnen:</span>
+<span class="n">x</span><span class="o">=</span><span class="n">global_mean</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">1980</span><span class="p">,</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span>
+<span class="n">y</span><span class="o">=</span><span class="n">global_mean</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">1980</span><span class="p">,</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">]</span>
+<span class="n">y_err</span> <span class="o">=</span> <span class="n">global_mean</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">1980</span><span class="p">,</span><span class="s2">&quot;uncertainty&quot;</span><span class="p">]</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">deg</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">y_err</span><span class="p">,</span> <span class="n">cov</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># 1. Wert = Anstieg , 2. Wert = Schnittpunkt mit y-Achse</span>
+<span class="n">y_model</span> <span class="o">=</span> <span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># Modell einer linearen Regression</span>
+
+<span class="c1"># print(global_mean) # Eingelesene Daten ausgeben</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">],</span> <span class="n">yerr</span><span class="o">=</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;uncertainty&quot;</span><span class="p">],</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:gray&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Werte&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Lowess(5)&quot;</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>  <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Glättung (NASA)&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y_model</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;lineare Regression y=(</span><span class="si">{</span><span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">+-</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">model</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">)1e-3*x+(</span><span class="si">{</span><span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">+-</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">model</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Jahr&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Jahresmitteltemperaturabweichung [°C]&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span>
+
+<span class="c1"># Temperaturanstieg ausgeben:</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Temperaturanstieg pro Jahr (von 1980 bis 2020): </span><span class="si">{</span><span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">°C/Jahr&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Temperaturanstieg pro Jahr (von 1980 bis 2020): 0.019°C/Jahr
+</pre></div>
+</div>
+<img alt="../_images/0_Einleitung_2_1.png" src="../_images/0_Einleitung_2_1.png" />
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lineare Regression berechnen:</span>
+<span class="n">x</span><span class="o">=</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span>
+<span class="n">y</span><span class="o">=</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">]</span>
+<span class="n">y_err</span> <span class="o">=</span> <span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;uncertainty&quot;</span><span class="p">]</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">deg</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">y_err</span><span class="p">,</span> <span class="n">cov</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># 1. Wert = Anstieg , 2. Wert = Schnittpunkt mit y-Achse</span>
+<span class="n">y_model</span> <span class="o">=</span> <span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># Modell einer linearen Regression</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">],</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:gray&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Werte&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Lowess(5)&quot;</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>  <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Kurve&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y_model</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Modell&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">1850</span><span class="p">,</span><span class="mi">2040</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span>
+
+<span class="c1"># Temperaturanstieg ausgeben:</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Temperaturanstieg pro Jahr (von 1980 bis 2020): </span><span class="si">{</span><span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">°C/Jahr&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Temperaturanstieg pro Jahr (von 1980 bis 2020): 0.008°C/Jahr
+</pre></div>
+</div>
+<img alt="../_images/0_Einleitung_3_1.png" src="../_images/0_Einleitung_3_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="maszeinheiten">
+<h2>Maßeinheiten<a class="headerlink" href="#maszeinheiten" title="Permalink to this headline">¶</a></h2>
+<p><a id="SubSec-Das_International_Einheitensystem"></a></p>
+<div class="section" id="si-einheiten">
+<h3>SI-Einheiten<a class="headerlink" href="#si-einheiten" title="Permalink to this headline">¶</a></h3>
+<p>Im Rahmen der Meterkonvention im Jahr 1960 wurde das <strong>Internationale Einheitensystem</strong>, kurz SI, benannt nach „le Système Internationale d’unités“, eingeführt. Die Definitionen der Basiseinheiten basierten nach wie vor teilweise auf materiellen Prototypen (bis 2019 war dies tatsächlich beim Kilogramm der Fall). Das SI basiert auf der Idee, dass sich im Prinzip alle relevanten Messgrößen über physikalische Gesetze auf genau 7 Basisgrößen zurückführen lassen. Diese 7 Basisgrößen sind die Basiseinheiten, aus denen alle weiteren Einheiten abgeleitet werden können:</p>
+<ul class="simple">
+<li><p>Meter (m) als Einheit für die Länge</p></li>
+<li><p>Kilogramm (kg) als Einheit für die Masse</p></li>
+<li><p>Sekunde (s) als Einheit für die Zeit</p></li>
+<li><p>Ampere (A) als Einheit für die elektrische Stromstärke</p></li>
+<li><p>Kelvin (K) als Einheit für die thermodynamische Temperatur</p></li>
+<li><p>Candela (Cd) als Einheit für die Lichtstärke und</p></li>
+<li><p>Mol (mol) als Einheit für die Stoffmenge</p></li>
+</ul>
+<p><img alt="Bild" src="../_images/SI.png" /></p>
+<p>Seit 2018 werden alle SI-Einheiten von Naturkonstanten abgeleitet. Das war nicht immer so. So gabs es bepsielsweise bis 2018 noch das <em>Ur-Kilo</em>, ein Klotz der in einem Verließ in Paris aufbewahrt wurde aber mit der Zeit immer leichter wurde.</p>
+<ul class="simple">
+<li><p>Die <strong>Sekunde</strong> ist ab sofort dadurch definiert, dass die Frequenz der Cäsium-Strahlung, <span class="math notranslate nohighlight">\(\Delta \nu_\mathrm{133Cs}\)</span>, exakt den Wert 9192631770 annimmt, wenn man diese in 1/s ausdrückt:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[1\,\mathrm s = \frac{9192631770}{\Delta \nu_\mathrm{133Cs}}\]</div>
+<p>(Cäsiumuhren haben übrigens eine Störanfälligkeit von 1:1e13, das entspricht einer Abweichung von 1s in 300000 Jahren.)</p>
+<ul class="simple">
+<li><p>Das <strong>Meter</strong> wird ähnlich wie zuvor über die Lichtgeschwindigkeit <span class="math notranslate nohighlight">\(c\)</span> ausgedrückt:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[1\,\mathrm m = \frac{c}{299 792 458} s = 30,663318...\frac{c}{\Delta \nu_\mathrm{133Cs}}\]</div>
+<ul class="simple">
+<li><p>Die <strong>Candela</strong> wird von der photometrische Strahlungsäquivalent <span class="math notranslate nohighlight">\(\mathrm K_\mathrm{cd}\)</span> (ebenfalls eine Naturkonstante) abgeleitet. Sie wird über die SI-Einheiten kg, m, s und Steradiant (sr = m<span class="math notranslate nohighlight">\(^2\)</span>/m<span class="math notranslate nohighlight">\(^2\)</span>) definiert.</p></li>
+</ul>
+<p>Anders sieht es bei den weiteren vier Basiseinheiten aus, für die Naturkonstanten gefunden und festgelegt wurden:</p>
+<ul class="simple">
+<li><p>Das <strong>Kilogramm</strong> ist nun durch Ableitung aus dem Planckschen Wirkungsquantum <span class="math notranslate nohighlight">\(h = 6,62607015 \cdot 10^{-34}\,\mathrm{Js}\)</span> definiert, wobei die Einheit J (Joule), wie unten noch aufgeführt wird, nichts anderes als kgm<span class="math notranslate nohighlight">\(^2\)</span>/s<span class="math notranslate nohighlight">\(^2\)</span> ist.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[1\,\mathrm{kg} = \frac{h}{6,626070040 \cdot 10^{-34}}\,\mathrm{m^{−2} s} = 1,475521... \cdot 10^{40} h \cdot \frac{\Delta \nu_\mathrm{133Cs}}{c}\]</div>
+<p><span class="math notranslate nohighlight">\(h\)</span> wird dabei in Kooperation der metrologischen Institutionen in Form aufwendiger Experimente in entsprechender Genauigkeit bestimmt.</p>
+<ul class="simple">
+<li><p>Das <strong>Ampere</strong> wird dadurch definiert, dass die Elementarladung <span class="math notranslate nohighlight">\(e = 1,602 176 620 8 \cdot 10^{−19}\,\mathrm{As}\)</span> beträgt:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ 1\,\mathrm A = \frac{e}{1,6021766208\cdot 10^{−19}}s^{−1} = 6,789687...\cdot 10^8 \Delta \nu_\mathrm{133Cs}\cdot e \]</div>
+<ul class="simple">
+<li><p>Das <strong>Kelvin</strong> ist die Einheit der thermodynamischen Temperatur, über die Boltzmann-Konstante <span class="math notranslate nohighlight">\(k_B = 1,380 648 52 \cdot 10^{−23}\,\mathrm{kg m^2 s^{−2} K^{−1}}\)</span>.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ 1\,\mathrm K = \frac{1,38064852\cdot 10^{−23}}{k_B}\,\mathrm{kg m^2 s^{−1}} = 2,266665 \Delta \nu_\mathrm{133Cs} \cdot \frac{h}{k_B} \]</div>
+<ul class="simple">
+<li><p>Das <strong>Mol</strong> ist dadurch definiert, dass die Avogadro-Konstante <span class="math notranslate nohighlight">\(N_A = 6,022 140 857 \cdot 10^{23}\,\mathrm{mol^{−1}}\)</span> beträgt.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ 1\,\mathrm{mol} = \frac{6,022 140 857 \cdot 10^23}{N_A}\]</div>
+<p><span class="math notranslate nohighlight">\(N_A\)</span> ist die Zahl, der in einem Mol enthaltenen Atome. Sie ist so definiert, dass 12 g Kohlenstoff (12C) genau einem Mol entspricht.</p>
+<p><img alt="Bild" src="../_images/SI-konst.png" /></p>
+</div>
+<div class="section" id="abgeleitete-erganzende-si-einheiten">
+<h3>Abgeleitete / Ergänzende SI-Einheiten<a class="headerlink" href="#abgeleitete-erganzende-si-einheiten" title="Permalink to this headline">¶</a></h3>
+<p><a id="SubSec-Abgeleitete_Ergänzende_SI-Einheiten"></a></p>
+<p>SI umfasst auch eine Aufzählung weiterer Einheiten, welche von den 7 Basiseinheiten, oder über physikalische Gesetzmäßigkeiten, abgeleitetet werdem können. Hier nur einige Beispiele:</p>
+<ul class="simple">
+<li><p>1 Hz (Hertz für Frequenz) = 1/s</p></li>
+<li><p>1 N (Newton für Kraft) = kgm/s<span class="math notranslate nohighlight">\(^2\)</span></p></li>
+<li><p>1 Pa (Pascal für Druck) = 1 N/m<span class="math notranslate nohighlight">\(^2\)</span> = 1 kg/ms<span class="math notranslate nohighlight">\(^2\)</span></p></li>
+<li><p>1 J (Joule für Energie) = 1 Nm = 1 kg<span class="math notranslate nohighlight">\(^2\)</span>/s<span class="math notranslate nohighlight">\(^2\)</span></p></li>
+<li><p>1 W (Watt für Leistung) = 1 J/s = 1 kgm<span class="math notranslate nohighlight">\(^2\)</span>/s<span class="math notranslate nohighlight">\(^3\)</span></p></li>
+<li><p>1 V (Volt für Spannung) = 1 W/A = 1 kgm<span class="math notranslate nohighlight">\(^2\)</span>/s<span class="math notranslate nohighlight">\(^3\)</span>A</p></li>
+<li><p>1 H (Henry für Induktivität) = 1 Vs/A = 1 kgm<span class="math notranslate nohighlight">\(^2\)</span>/s<span class="math notranslate nohighlight">\(^2\)</span>A<span class="math notranslate nohighlight">\(^2\)</span></p></li>
+<li><p>1 F (Farad für Kapazität) = 1 As/V = 1 s<span class="math notranslate nohighlight">\(^4\)</span>A<span class="math notranslate nohighlight">\(^2\)</span>/kgm<span class="math notranslate nohighlight">\(^2\)</span></p></li>
+</ul>
+<p>Zwischen verschiedenen physikalischen Teildisziplinen kann nun auch mit den Einheiten hin und her jongliert werden. So kommt die Leistung (W) sowohl in mechanischen, als auch auch elektrische Gesetzmäßigkeiten vor. Man kann durch die elektrische Spannung (V) durch eine Kombination des Amperes (elektrische Basiseinheit) mit mechanischen verknüpfen.</p>
+<p>Ergänzende Einheiten im SI-System sind beispielsweise:</p>
+<ul class="simple">
+<li><p>1 rad (Radiant) = 1 m/m, welches der ebene Winkel zwischen zwei Radien eines Kreises ist, falls der dadruch beschriebene Kreisbogen genauso groß ist wie der Radius. Der Umfang eines Kreises ist bekannterweise <span class="math notranslate nohighlight">\(2\pi \cdot r\)</span>, wobei <span class="math notranslate nohighlight">\(r\)</span> der Kreisradius ist. Dadurch entspricht eine komplette Drehung einem Winkel von <span class="math notranslate nohighlight">\(2\pi\,\mathrm{rad}\)</span></p></li>
+<li><p>1 sr (Steradiant) = 1 m<span class="math notranslate nohighlight">\(^2\)</span>/m<span class="math notranslate nohighlight">\(^2\)</span> ist der räumliche Winkel (analog zum Radiant). Dieser schließt mit der Kugelmitte als Scheitelpunkt eine Fläche auf der Kugeloberfläche sein. Diese Fläche ist quadratisch mit einer Seitenlänge die dem Kugelradius entspricht. Die Einheit kann also ebenfalls auf Basiseinheiten zurückgeführt werden, hier 1 sr = m<span class="math notranslate nohighlight">\(^2\)</span>/m<span class="math notranslate nohighlight">\(^2\)</span>.</p></li>
+</ul>
+</div>
+<div class="section" id="nicht-si-einheiten">
+<h3>Nicht-SI-Einheiten<a class="headerlink" href="#nicht-si-einheiten" title="Permalink to this headline">¶</a></h3>
+<p><a id="SubSec-Nicht-Si-Einheiten"></a></p>
+<p>Es gibt diverse zusätzliche Einheiten, welche keine offiziellen SI-Einheiten sind, aber aufgrund ihrer großen Beliebheit und Handbarkeit gerne benutzt werden. Im Allgemeinem gibt es aber immer Zusammenhänge zu den SI-Einheiten, sodass sie sich in solche umformen lassen. Beispiele sind z.B.:</p>
+<ul class="simple">
+<li><p>Grad Celsius: 1°C = K + 273,15</p></li>
+<li><p>Grad Fahrenheit: 9/5 K - 459,67</p></li>
+<li><p>Minute: 1 min = 60 s</p></li>
+<li><p>(Winkel-)Grad: 1° = <span class="math notranslate nohighlight">\(\pi\)</span>/180 rad</p></li>
+<li><p>(Winkel-)Minute: 1’  1/60°</p></li>
+<li><p>Liter: 1 l = 1 dm<span class="math notranslate nohighlight">\(^3\)</span></p></li>
+<li><p>Tonne: 1 t  10<span class="math notranslate nohighlight">\(^3\)</span> kg</p></li>
+<li><p>Bar: 1 bar = 10<span class="math notranslate nohighlight">\(^5\)</span> Pa</p></li>
+</ul>
+<p>Dann gibt es noch historisch gewachsene Einheiten, wie z.B. die Meile, yard, foot, inch, once, pound, gallon, welche sich analog in SI-Einheiten umrechnen lassen. Diese Umrechnung ist global nicht immer die gleiche und es existieren für dieselbe Einheit unterschiedliche Umrechnungen (USA und UK sind hier die wohl bekanntesten Beispiele). Doch auch je nach Anwednungsgebiet gibt es Unterschiede:</p>
+<ul class="simple">
+<li><p>1 mile = 1 Landmeile = 1.609,344 m (US)</p></li>
+<li><p>1 nautical mile = 1 Seemeile (oder Luftfahrt) = 1.853,2 m (UK)</p></li>
+<li><p>1 mile = exakt 1.852 m (international)</p></li>
+</ul>
+<p>Einheiten, die zwar in Gebrauch sind, aber nicht auf SI-Einheiten zurückzuführen sind, wurden für spezifische Einsatzgebiete konkret festgelegt:</p>
+<ul class="simple">
+<li><p>die Wasserhärte</p></li>
+<li><p>das Mostgewicht</p></li>
+<li><p>den Feingehalt von Gold- und Silberlegierungen</p></li>
+<li><p>die Windstärke</p></li>
+<li><p>den Seegang</p></li>
+<li><p>die Stärke von Erdbeben</p></li>
+</ul>
+</div>
+<div class="section" id="vorsatze-und-prafix-im-si">
+<h3>Vorsätze und Präfix im SI<a class="headerlink" href="#vorsatze-und-prafix-im-si" title="Permalink to this headline">¶</a></h3>
+<p>Zum SI, bzw. prinzipiell angewendet in allen anderen Einheiten, sind sogenannte Präfixe / Vorsätze definiert. Teile oder Vielfach von SI-Einheiten können in Kurzform geschrieben werden, was das Lesen erleichtert. So können besonders große oder besonders kleine Zahlen übersichtlicher dargestellt werden. Dafür muss der oder die Forschende oder Ingeneur:in lediglich ein paar Vokabeln können:</p>
+<p><img alt="Bild" src="../_images/praefix.png" /></p>
+</div>
+<div class="section" id="logarithmische-einheiten">
+<h3>Logarithmische Einheiten<a class="headerlink" href="#logarithmische-einheiten" title="Permalink to this headline">¶</a></h3>
+<p><a id="SubSec-Logarithmische_Einheiten"></a></p>
+<p>In der Messtechnik können unter Umständen Messwerte in ganz unterschiedlichen Größenordnungen anfallen. Daher haben wir uns ja im Kapitel vorher die Präfixe bzw. Vorsätze angesehen. Für eine Darstellung im Diagramm, bei dem die Achsen typischerweise eine feste Einheit besitzen, wird es dennoch schwierig, die Gesamtheit der Messreihe übersichtlich darzustellen. Daher bedient man sich häufig der logarithmischen Darstellung, welche im ersten Moment relativ umständlich und kompliziert erscheint, aber einen hohen Nutzen hat. Diese Darstellung ist auch im SI-System vorgesehen.</p>
+<p>Der eigentlich Messwert auf einen wohl definierten Referenzwert bezogen wird. Man bildet also den Quotienten aus Messwert und Referenzwert, <span class="math notranslate nohighlight">\(P/P_\mathrm{ref}\)</span> (bei Leistungen) oder <span class="math notranslate nohighlight">\(U/U_\mathrm{ref}\)</span> bei Spannungen. Danach werden diese Quotienten logarithmiert, <em>fast ausschließlich</em> mit der 10er-Logarithmus (log). Der neue Wert ist per Definition einheitenlos, wird aber die Einheit <strong>Dezibel</strong> (dB) zugeordnet, also das Zehntel eines <strong>Bels</strong>. Ganz selten wird der natürlich Logarithmus benutzt, dann wird die Einheit Neper (Np) angewendet.</p>
+<p>In der Messtechnik hat es sich etabliert (ungeschriebenes Gesetz), dass in erster Linie Leistungen gemäß der eben beschriebenen Gesetzmäßigkeit in der Einheit dB umgewandelt werden, man spricht hierbei von der <strong>Leistungsgröße</strong>:</p>
+<div class="math notranslate nohighlight">
+\[1\,\mathrm{dB} = 10 \cdot \log\frac{P}{P_\mathrm{ref}}\]</div>
+<p>Man spricht von der <strong>Feldgröße</strong>, wenn Spannungen in die Einheit dB umgewandelt werden:</p>
+<div class="math notranslate nohighlight">
+\[1\,\mathrm{dB} = 20 \cdot \log\frac{U}{U_\mathrm{ref}}\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Aufgabe</p>
+<p>Beweise die Umformung von Leistungsgröße in Feldgröße! Hinweise: Es gilt <span class="math notranslate nohighlight">\(P \propto U^2\)</span></p>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Kisleif/mtbook",
+            ref: "gh-pages",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="0_Basics.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Grundlagen der Messtechnik</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="1_Kurvenanpassung.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Kurvenanpassung</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Durch Katharina-S. Isleif<br/>
+    
+        &copy; Urheberrechte © 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

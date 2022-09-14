@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dynamische Messsysteme &#8212; Metrology Lecture Book</title>
+    <title>Linear zeitinvariante (LZI) Systeme &#8212; Metrology Lecture Book</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -52,10 +52,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Linear zeitinvariante (LZI) Systeme" href="5_LTI.html" />
-    <link rel="prev" title="Fourier-Analyse" href="3_FourierAnalyse.html" />
+    <link rel="next" title="Differentialgleichung" href="5_DGL.html" />
+    <link rel="prev" title="Dynamische Messsysteme" href="5_Dynamische_Messsysteme.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -211,7 +213,7 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+  <a class="reference internal" href="5_Dynamische_Messsysteme.html">
    Dynamische Messsysteme
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
@@ -219,9 +221,9 @@ const thebe_selector_output = ".output, .cell_output"
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="5_LTI.html">
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Linear zeitinvariante (LZI) Systeme
     </a>
    </li>
@@ -300,7 +302,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/content/5_Dynamische_Messsysteme.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/content/5_LTI.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Quelldatei herunterladen" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -320,10 +322,10 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Quell-Repository"><i
                     class="fab fa-github"></i>Repository</button></a>
         <a class="issues-button"
-            href="https://github.com/Kisleif/mtbook/issues/new?title=Issue%20on%20page%20%2Fcontent/5_Dynamische_Messsysteme.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/Kisleif/mtbook/issues/new?title=Issue%20on%20page%20%2Fcontent/5_LTI.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Öffnen Sie ein Problem"><i class="fas fa-lightbulb"></i>offenes Thema</button></a>
-        <a class="edit-button" href="https://github.com/Kisleif/mtbook/edit/gh-pages/content/5_Dynamische_Messsysteme.ipynb"><button
+        <a class="edit-button" href="https://github.com/Kisleif/mtbook/edit/gh-pages/content/5_LTI.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Bearbeite diese Seite"><i class="fas fa-pencil-alt"></i>vorschlagen zu bearbeiten</button></a>
     </div>
@@ -343,14 +345,14 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/Kisleif/mtbook/gh-pages?urlpath=tree/content/5_Dynamische_Messsysteme.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Kisleif/mtbook/gh-pages?urlpath=tree/content/5_LTI.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Starten Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
-        <a class="jupyterhub-button" href="https://github.com/Kisleif/mtbook/hub/user-redirect/git-pull?repo=https://github.com/Kisleif/mtbook&urlpath=tree/mtbook/content/5_Dynamische_Messsysteme.ipynb&branch=gh-pages"><button type="button"
+        <a class="jupyterhub-button" href="https://github.com/Kisleif/mtbook/hub/user-redirect/git-pull?repo=https://github.com/Kisleif/mtbook&urlpath=tree/mtbook/content/5_LTI.ipynb&branch=gh-pages"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Starten JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../_static/images/logo_jupyterhub.svg"
@@ -369,6 +371,24 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Inhalt
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#eigenschaften">
+   Eigenschaften
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#system-identifizierung">
+   System-Identifizierung
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -376,27 +396,88 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Dynamische Messsysteme</h1>
+                <h1>Linear zeitinvariante (LZI) Systeme</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Inhalt </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#eigenschaften">
+   Eigenschaften
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#system-identifizierung">
+   System-Identifizierung
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="dynamische-messsysteme">
-<h1>Dynamische Messsysteme<a class="headerlink" href="#dynamische-messsysteme" title="Permalink to this headline">¶</a></h1>
-<p>Einleitung</p>
-<div class="toctree-wrapper compound">
+  <div class="tex2jax_ignore mathjax_ignore section" id="linear-zeitinvariante-lzi-systeme">
+<h1>Linear zeitinvariante (LZI) Systeme<a class="headerlink" href="#linear-zeitinvariante-lzi-systeme" title="Permalink to this headline">¶</a></h1>
+<p><a id="Sec-LZI_system"></a></p>
+<p>LTI Systeme sind wichtig, da sie zwar sehr vereinfacht sind, aber gut zu lösen sind. Sie sind in der Tat die einzigen Systeme, die wir lösen können (mittels Differentialgleichungen).</p>
+<p>Für ein LTI System können Ausgangssignale vorhergesagt werden, die man für ein bestimmtes Eingangssignale erwarten würde. Das gleiche gilt auch für <em>Veränderungen</em> von Eingangssignalen.</p>
+<div class="section" id="eigenschaften">
+<h2>Eigenschaften<a class="headerlink" href="#eigenschaften" title="Permalink to this headline">¶</a></h2>
+<p>Das liegt daran, dass LTIs bestimmte Eigenschaften haben: <em>Superposition, Homogenität und Zeitinvarianz</em>.
+Im Folgenden sei <span class="math notranslate nohighlight">\(h\)</span> ein Operator, der eine lineare Abbildung zwischen Eingangsvektor <span class="math notranslate nohighlight">\(x(t)\)</span> und dem Ausgang eines Systems, Vektor <span class="math notranslate nohighlight">\(y(t)\)</span>, darstellt.
+Für ein <strong>lineares System</strong> gelten allgemein folgende Eigenschaften:</p>
+<ul class="simple">
+<li><p><strong>Homogenität</strong>: Wenn <span class="math notranslate nohighlight">\(x(t)\)</span> mit Faktor <span class="math notranslate nohighlight">\(a\)</span> skaliert wird, dann wird <span class="math notranslate nohighlight">\(y(t)\)</span> ebenso skaliert</p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="5_LTI.html">Linear zeitinvariante (LZI) Systeme</a></li>
-<li class="toctree-l1"><a class="reference internal" href="5_DGL.html">Differentialgleichung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="5_ImpulsSprung.html">Impuls- und Sprungantwort</a></li>
-<li class="toctree-l1"><a class="reference internal" href="5_Uebertragungsfunktion.html">Übertragungsfunktion</a></li>
+<li><p>Ein Sprung der Größe <span class="math notranslate nohighlight">\(A\)</span> produziert eine Schwingung mit Größe <span class="math notranslate nohighlight">\(B\)</span></p></li>
+<li><p>Da h(x) linear ist, wird ein verdoppelter Sprung am Eingang, also <span class="math notranslate nohighlight">\(2A\)</span> zu einer Verdopplung am Ausgang, <span class="math notranslate nohighlight">\(2B\)</span>, führen</p></li>
 </ul>
+</li>
+<li><p><strong>Superposition</strong> bedeutet Additivität: Addiere zwei Eingangssignale, <span class="math notranslate nohighlight">\(A\)</span> und <span class="math notranslate nohighlight">\(B\)</span> zusammen, sprich <span class="math notranslate nohighlight">\(A+B\)</span>, dann ist die Antwort des linearen Systems auch die Summe der individuellen Ausgänge (<span class="math notranslate nohighlight">\(a\)</span> und <span class="math notranslate nohighlight">\(b\)</span>), also <span class="math notranslate nohighlight">\(a+b\)</span>.</p></li>
+<li><p><strong>Zeitinvariant</strong>: Das Systeme verhält sich immer gleich, egal wann in der Zeit es durchgeführt wird.</p>
+<ul>
+<li><p>Wird das Eingangssignal $<span class="math notranslate nohighlight">\(x(t) um \)</span>T<span class="math notranslate nohighlight">\( verschoben, dann ist auch das Ausgangssignal um \)</span>T$ verschoben.</p></li>
+</ul>
+</li>
+</ul>
+<p>In Realität gibt es fast immer Abweichungen von diesen Idealvorstellungen. D.h. wir können mit LTIs Eingänge eines Signals skalieren, verschieben und summieren, aber sie entsprechen niemals einem realen System. Warum sind sie dann so wichtig? Richard Feynman sagte damals: „Linear Systems are important, because we can solve them“.
+Selbst wenn LTI nicht real ist, so können wir reale Probleme sehr gut <em>annähern</em> indem wir LTI Analysen durchführen.
+Das heißt, stell immer sicher, dass dein System für einen bestimmten Bereich linear funktioniert.</p>
+<p><img alt="Bild" src="../_images/LZI.png" /></p>
+</div>
+<div class="section" id="system-identifizierung">
+<h2>System-Identifizierung<a class="headerlink" href="#system-identifizierung" title="Permalink to this headline">¶</a></h2>
+<p><a id="Sec-System-Identifizierung"></a></p>
+<p>Jedes Messsystem hat eine spezifische Übertragungsfunktion <span class="math notranslate nohighlight">\(h(t)\)</span>, welche, angewendet auf ein Eingangssignal <span class="math notranslate nohighlight">\(x(t)\)</span>, ein Ausgangssignal <span class="math notranslate nohighlight">\(y(t)\)</span> liefert. Im Allgemeinen kann man drei Probleme in der Praxis erkennen, jenachdem welche Informationen einem vorliegen:</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(x(t)\)</span> und <span class="math notranslate nohighlight">\(h(t)\)</span> sind gegeben -&gt; <span class="math notranslate nohighlight">\(y(t)\)</span> ist gesucht: Dies ist das <strong>Simulationsproblem</strong></p>
+<ul class="simple">
+<li><p>Anhand von Simulationen kann der Ausgang eines Systems vorhergesagt werden.</p></li>
+</ul>
+</li>
+<li><p><span class="math notranslate nohighlight">\(h(t)\)</span> und <span class="math notranslate nohighlight">\(y(t)\)</span> sind gegeben -&gt; <span class="math notranslate nohighlight">\(x(t)\)</span> ist gesucht: Dies ist das <strong>Kontrollproblem</strong></p>
+<ul class="simple">
+<li><p>Dieses Problem wird man in der Regelungstechnik häufig antreffen, wo eine Regelgröße am Eingang des Mess- bzw. Regelsystems gesucht wird um einen stabilen Zustand zu erreichen.</p></li>
+</ul>
+</li>
+<li><p><span class="math notranslate nohighlight">\(u(t)\)</span> und <span class="math notranslate nohighlight">\(y(t)\)</span> gegeben -&gt; <span class="math notranslate nohighlight">\(h(t)\)</span> ist gesucht: Dies ist das <strong>System-Identifizierungsproblem</strong></p>
+<ul class="simple">
+<li><p>Hier wollen wir das Messsystem charaktisieren, was unter anderem durch 2 Methoden möglich ist: Mittels Messungen der Eingangs- und Ausgangsgröße, oder mittels Aufstellen von Differentialgleichungen (Systemtheorie).</p></li>
+</ul>
+</li>
+</ol>
+<p>Während Problem 1 und 2 Bestandteil anderer Vorlesungen oder Themengebiete ist, wollen wir uns im Folgenden mit dem Problem 3 befassen. Hier wollen wir im Folgenden zwei Möglichkeiten betrachten, mittels welcher <span class="math notranslate nohighlight">\(h(t)\)</span> bestimmt werden kann. Die beiden Methoden werden im folgenden mit <strong>black box</strong> und <strong>white box</strong> bezeichnet.</p>
+<p>In allen Kapiteln wird der Inhalt am Beispiel eines Tiefpasses 1. Ordnung noch einmal konkreter erläutert.</p>
+<p><img alt="Bild" src="../_images/3probleme.png" /></p>
 </div>
 </div>
 
@@ -425,17 +506,17 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="3_FourierAnalyse.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="5_Dynamische_Messsysteme.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Fourier-Analyse</p>
+            <p class="prev-next-title">Dynamische Messsysteme</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="5_LTI.html" title="next page">
+    <a class='right-next' id="next-link" href="5_DGL.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Linear zeitinvariante (LZI) Systeme</p>
+        <p class="prev-next-title">Differentialgleichung</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

@@ -5,15 +5,15 @@ Dieses Jupyter-Book befindet sich aktuell noch im Aufbau und soll später als Vo
 Aktuell könnt ihr euch leider noch nicht auf Vollständigkeit verlassen. Folgende Funktionen stehen euch aber schon zur Verfügung um das Lernmaterial anzusehen, herunterzuladen, zu testen und zu kommentieren.
 
 
-:::{grid-item-card} One!
-Here's the first card.
+
+::::{grid} 2
+:::{grid-item-card}  Title 1
+A
 :::
-:::{grid-item-card} One!
-Here's the first card.
+:::{grid-item-card}  Title 2
+B
 :::
-:::{grid-item-card} One!
-Here's the first card.
-:::
+::::
 
 
 

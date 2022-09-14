@@ -4,12 +4,23 @@
 # In[1]:
 
 
-# Für diese Notebook benötigte Pakete:
+#Benötigte Libraries:
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
-from IPython.display import Image
-from IPython.core.display import HTML 
-import scipy.optimize as optimization
+import plotly.offline as py
+py.init_notebook_mode(connected=True)
+import plotly.graph_objs as go
+import plotly.tools as tls
+import seaborn as sns
+import time
+import warnings
+warnings.filterwarnings('ignore')
+
+# MatplotLib Settings:
+plt.style.use('default') # Matplotlib Style wählen
+plt.figure(figsize=(10,5)) # Plot-Größe
+plt.rcParams['font.size'] = 10; # Schriftgröße
 
 
 # # Kurvenanpassung
@@ -263,7 +274,7 @@ plt.show()
 
 # Man erkennt, dass die Regressionskoeffizienten der beiden Methoden sehr gut übereinstimmen. Die Unterschiede betragen lediglich:
 
-# In[5]:
+# In[24]:
 
 
 print('Unterschied in den Steigungen: \t\t  %5.3e' %(m-fit_out[0][0]))
@@ -287,14 +298,14 @@ print('Unterschied in den Ordinatenabschnitten: %5.3e' %(b-fit_out[0][1]))
 # 
 # Eine ausführliche Dokumentation findet man hier: https://lmfit.github.io/lmfit-py/index.html
 
-# In[6]:
+# In[25]:
 
 
 from lmfit import minimize, Parameters
 from lmfit import Model
 
 
-# In[7]:
+# In[26]:
 
 
 def f_lin(x, steigung, abschnitt):
@@ -328,7 +339,7 @@ plt.show()
 # Eigentlich wollten wir ja die Geschwindigkeit der Feuerwehrautos bestimmen.
 # Der Kehrwert der Steigung $m$ liefert uns die Geschwindigkeit des Karussells, wenn wir den Kehrwert berechnen:
 
-# In[8]:
+# In[27]:
 
 
 v = 1/m
@@ -347,7 +358,7 @@ print('Die Geschwindigkeit ermittelt mittels Fit ist:      v = %5.4f m/s = %5.4f
 # 
 # $$s_b  = s_m \cdot \sqrt{\overline{x^2}}$$
 
-# In[9]:
+# In[28]:
 
 
 N = len(t)
@@ -375,7 +386,7 @@ print('Die Unsicherheit von b ist \t s_b = %5.4f s' %(s_b))
 # 
 # Die Unsicherheiten für $m$ und $b$ erhalten wir also aus der Wurzel von den Diagonalelementen. 
 
-# In[10]:
+# In[29]:
 
 
 print('Die Kovarianzmatrix hat die folgende Form: \n', fit_out[1])
@@ -392,7 +403,7 @@ print('Die Unsicherheit von b ist \t s_b = %5.4f s' %(np.sqrt(fit_out[1][1][1]))
 # 
 # Da beide Methoden die gleichen Werte für Schätzungen und Unsicherheiten ausgeben, ersparen wir uns ab nun die Berechnung der Geschwindigkeit inkl. Unsicherheit für beide Methoden. Die Fehlerrechnung wird nur noch für die analytische Methode ausgeführt:
 
-# In[11]:
+# In[30]:
 
 
 s_v = 1/m**2 * s_m
@@ -412,7 +423,7 @@ print('Die Unsicherheit von v ist \t s_v = %5.4f m/s' %(s_v))
 # 
 # Nun könnte noch der relative Fehler $\Delta v/v$ berechnet werden.
 
-# In[12]:
+# In[31]:
 
 
 print('Die relative Unsicherheit von v ist \t s_v = %5.4f Prozent' %(s_v/v*100))
@@ -424,7 +435,7 @@ print('Die relative Unsicherheit von v ist \t s_v = %5.4f Prozent' %(s_v/v*100))
 #     
 # $$r = \frac{\overline{x\cdot t} - \overline x \cdot \overline t}{\sqrt{\overline{x^2} - (\overline x)^2} \cdot {\sqrt{\overline{t^2} - (\overline t)^2}}} $$    
 
-# In[13]:
+# In[32]:
 
 
 # Analytische Methode:
@@ -448,7 +459,7 @@ print(r)
 # * 2. Fall: Jeder Messwert hat den gleichen Fehler: $s_y = s_i = 1.0$
 # * 3. Fall: Die Messwerte haben keinen Fehler: $s_y = s_i = 0.0$
 
-# In[14]:
+# In[33]:
 
 
 y = [11.55, 9.8, 9.82, 9.15, 10.57, 9.58, 10.44, 10.55, 8.23, 10.93] #Messwerte y_i
@@ -490,7 +501,7 @@ plt.show()
 # 
 #   -  $Q(c) := \sum_{i=1}^n (y_i - f(x))^2 = \sum_{i=1}^n (y_i - c)^2 = \textrm{min?}$
 
-# In[15]:
+# In[34]:
 
 
 def S(y,c): # Minimierungsfunktion mit Fehler
@@ -502,7 +513,7 @@ def Q(y,c): # Minimierungsfehler ohne Fehler
 
 # Die Minimierung kann einfach ausgeführt werden, indem die Gütefunktion für verschiedene Funktionsparameter ($c$) ausprobiert wird, im Folgenden werden für $c$ 100 Werte zwischen 8 und 12 ausprobiert:
 
-# In[16]:
+# In[35]:
 
 
 c_val = np.linspace(8,12,100)
@@ -534,7 +545,7 @@ plt.show()
 # 
 # Im Folgenden Code-Block wollen wir die Analyse dieser einfachen Messreihe noch einmal mittel scipy-Paket wiederholen und eine lineare Regression und konstante Regression auf die Messdaten anwenden. Wir definieren also zwei Fit-Funktionen:
 
-# In[17]:
+# In[36]:
 
 
 def fit_lin(x, b, a): # Funktion für lineare Regression
@@ -549,7 +560,7 @@ def f(x, c_val): # Funktion um Minimierungsfunktion in Diagramm zu zeichnen
 
 # Diese beiden Funktionen werden nun benutzt, um die Daten zu modellieren. Wir testen jeweils beide Fälle, nämlich mit und ohne Fehlerbalken:
 
-# In[18]:
+# In[37]:
 
 
 # ----- Mit Fehlerbalken: ---- #
@@ -590,7 +601,7 @@ plt.show()
 # 
 # Das vorangegangene Beispiel mit scipy zeigt auf, wie aufwändig es ist eine Fitparameter zu fixieren. Es muss eine neue Funktion mit weniger Freiheitsgeraden definiert werden. Wie oben schon angeükndigt, lässt sich dies mit dem lmfit-Paket etwas einfacher lösen und soll hier anhand des Beispiels noch einmal visualisiert werden. 
 
-# In[19]:
+# In[38]:
 
 
 # ----- Mit Fehlerbalken: ---- #

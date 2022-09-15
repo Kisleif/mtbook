@@ -13,8 +13,7 @@ Aktuell könnt ihr euch leider noch nicht auf Vollständigkeit verlassen. Folgen
 :link: content/1_Datenanalyse
 :link-type: doc
 :class-header: bg-light
-
-Tips für's Praktikum 👩‍🔬
+**Tips für's Praktikum** 👩‍🔬
 ^^^
 
 Messdaten richtig sammeln, dokumentieren und analysieren.

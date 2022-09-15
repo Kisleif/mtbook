@@ -107,3 +107,9 @@ ax.legend(custom_lines, ['Cold', 'Medium', 'Hot']);
 
 
 
+
+# In[ ]:
+
+
+
+

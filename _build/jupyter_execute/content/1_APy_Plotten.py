@@ -32,7 +32,7 @@ plt.rcParams['font.size'] = 10; # Schriftgröße
 # Im Folgenden Nutzen wir globale Klimadaten, die auf der Webseite der NASA zu finden sind: https://data.giss.nasa.gov/gistemp/. Hierbei handelt es sich um Temperaturdaten, die Anomalien gegenüber dem Mittelwert in den Jahren 1951-1980 aufweisen.
 # Es werden Daten von Dateien (online oder offline) eingelesen mit der Python Bilbiothek `pandas`. Die Daten werden in sogenannten *DataFrames* hier mit dem Namen `global_mean` abgespeichert. 
 
-# In[2]:
+# In[ ]:
 
 
 #link = "https://data.giss.nasa.gov/gistemp/graphs_v4/graph_data/Global_Mean_Estimates_based_on_Land_and_Ocean_Data/graph.csv"
@@ -42,7 +42,7 @@ global_mean = pd.read_csv(link, header = 1)
 
 # Wir geben das *DataFrame* aus um uns die Messdaten einmal anzusehen: 
 
-# In[3]:
+# In[ ]:
 
 
 global_mean.head(6) # Ausgabe der ersten 5 Spalten
@@ -54,7 +54,7 @@ global_mean.head(6) # Ausgabe der ersten 5 Spalten
 # 
 # Einzelne Spalten kann man sich anzeigen lassen, indem den Spaltel-Namen des zugehörigen *DataFrames* nutzt:
 
-# In[4]:
+# In[ ]:
 
 
 global_mean['Year']
@@ -64,7 +64,7 @@ global_mean['Year']
 # 
 # Als Beispiel für eine gelungene grafische Darstellung wollen wir die beiden Spalten, *No_Smoothing* and *Lowess(5)* gegenüber der Zeitachse *Year* plotten. Hierfür benützen wir die Python Library `matplotlib`:
 
-# In[5]:
+# In[ ]:
 
 
 import matplotlib.pyplot as plt
@@ -83,7 +83,7 @@ plt.grid();
 # 
 # Bei diesem Datenset stehen uns leider keine Messunsicherheiten zur Verfügung. Um Sie jedoch als Fehlerbalken miteinzubeziehen, wollen wir im Folgenden annehmen, dass der Temperaturunterschied auf 0.25K genau messen werden konnte und fügen die unserem Datensatz hinzu:
 
-# In[6]:
+# In[ ]:
 
 
 global_mean["uncertainty"] = 0.25
@@ -92,7 +92,7 @@ print(global_mean)
 
 # Grafisch darstellen tun wir Messunsicherheiten mittels Fehlerbalken und der Matplotlib-Funktion `plt.errorbar`. 
 
-# In[7]:
+# In[ ]:
 
 
 plt.errorbar(global_mean["Year"],global_mean["No_Smoothing"], yerr=global_mean["uncertainty"], ls="-", lw=1, marker="s", ms=3, color="tab:gray", alpha=0.5, label="Werte");
@@ -107,7 +107,7 @@ plt.grid();
 # 
 # Mittels linearer Regression kann der Temperaturanstieg aus den Daten berechnet werden. Hierfür wird die Python Library `numpy` benutzt und die Funktion `polyfit` aufgerufen und in als `model` gespeichert. Diese Funktion benutzt die Least-Square Methode für polynomische Modelle. Weitere Informationen zu der Funktion findet ihr [hier](https://numpy.org/doc/stable/reference/generated/numpy.polyfit.html). Mit der Option `cov=True` wird die Kovarianz-Matrix berechnet, welche die Unsicherheiten für die Fit-Parameter beinhaltet. 
 
-# In[8]:
+# In[ ]:
 
 
 import numpy as np
@@ -129,7 +129,7 @@ plt.grid();
 
 # Das Model beinhaltet zwei Matrizen:
 
-# In[9]:
+# In[ ]:
 
 
 model
@@ -146,7 +146,7 @@ model
 # 
 # Der Temperaturanstieg kann entsprechend ausgegeben werden:
 
-# In[10]:
+# In[ ]:
 
 
 print(f"Temperaturanstieg pro Jahr (von 1981 bis 2020): {model[0][0]:.3f}°C/Jahr")
@@ -157,7 +157,7 @@ print(f"Temperaturanstieg seit Beginn der Messung: {(y_model.iloc[-1]-y_model.il
 # Die lineare Regression bezieht hier den ganzen Zeitraum mit ein! Im folgenden betrachten wir für den Temperaturgradienten nur die Daten von 1980 bis 2020!
 # ```
 
-# In[11]:
+# In[ ]:
 
 
 x=global_mean.loc[global_mean["Year"] >= 1980,"Year"]
@@ -169,7 +169,7 @@ y_model = model[0][0]*x+model[0][1] # Modell einer linearen Regression
 print(f"Temperaturanstieg pro Jahr (von 1980 bis 2020): {model[0][0]:.3f}°C/Jahr")
 
 
-# In[12]:
+# In[ ]:
 
 
 plt.ylabel("Jahresmitteltemperaturabweichung [°C]")

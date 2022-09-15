@@ -5,12 +5,6 @@ Dieses Jupyter-Book befindet sich aktuell noch im Aufbau und soll später als Vo
 Aktuell könnt ihr euch leider noch nicht auf Vollständigkeit verlassen. Folgende Funktionen stehen euch aber schon zur Verfügung um das Lernmaterial anzusehen, herunterzuladen, zu testen und zu kommentieren.
 
 
-:::{admonition} Tips fürs Praktikum
-:class: tip
-Messdaten sammeln und analysieren: [hier](content/1_Datenanalyse.ipynb)
-:::
-
-
 ::::{grid} 1 1 2 3
 :class-container: text-center
 :gutter: 3
@@ -20,7 +14,7 @@ Messdaten sammeln und analysieren: [hier](content/1_Datenanalyse.ipynb)
 :link-type: doc
 :class-header: bg-light
 
-Tips für's Praktikum
+Tips für's Praktikum 👩‍🔬
 ^^^
 
 Messdaten richtig sammeln, dokumentieren und analysieren.

@@ -30,15 +30,14 @@ Messdaten richtig sammeln, dokumentieren und analysieren.
 :::
 
 :::{grid-item-card}
-:link: content/1_Tutorials
+:link: content/00_jupyter
 :link-type: doc
 :class-header: bg-light
-**Einführung in Jupyter-Notebooks** 🐍
+**Über dieses Vorlesungsskript** 🐍
 ^^^
 
-Installation und Ausführen von Jupyter-Notebooks.
+Einführung in Python und Jupyter-Notebooks.
 :::
-
 ::::
 
 ```{tableofcontents}

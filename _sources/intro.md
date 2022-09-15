@@ -18,6 +18,27 @@ Aktuell könnt ihr euch leider noch nicht auf Vollständigkeit verlassen. Folgen
 
 Messdaten richtig sammeln, dokumentieren und analysieren.
 :::
+
+:::{grid-item-card}
+:link: content/1_Tutorials
+:link-type: doc
+:class-header: bg-light
+**Tutorials** 🧑🏽‍💻
+^^^
+
+Übungen zur Messtechnik mit Jupyter-Notebooks.
+:::
+
+:::{grid-item-card}
+:link: content/1_Tutorials
+:link-type: doc
+:class-header: bg-light
+**Einführung in Jupyter-Notebooks** 🐍
+^^^
+
+Installation und Ausführen von Jupyter-Notebooks.
+:::
+
 ::::
 
 ```{tableofcontents}

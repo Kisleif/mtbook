@@ -54,92 +54,92 @@ Einführung in Python und Jupyter-Notebooks.
 **Messen, Einheiten**
 ^^^
 ```{image} content/pictures/SI.png
-:height: 100
+:height: 120
 ```
-Einführung in Python und Jupyter-Notebooks.
+SI-Einheiten, Nicht-SI, Kalibrieren, Eichen, Prüfen
 :::
 
 :::{grid-item-card}
-:link: content/1_Datenanalyse
+:link: content/1_Messunsicherheiten
 :link-type: doc
 :class-header: bg-light
 **Messunsicherheiten** 🐍
 ^^^
 
-Einführung in Python und Jupyter-Notebooks.
+Systematische und zufällige Messunsicherheiten, Mittelwert, Standardabweichung, Vertrauensintervalle, Normalverteilung, Fehlerfortpflanzung
 :::
 
 :::{grid-item-card}
-:link: content/1_Datenanalyse
+:link: content/1_Kurvenanpassung
 :link-type: doc
 :class-header: bg-light
 **Kurvenanpassung** 🐍
 ^^^
 
-Einführung in Python und Jupyter-Notebooks.
+Regression, Fit, Korrelation, Kovarianz, Least-Squares
 :::
 
 
 :::{grid-item-card}
-:link: content/1_Tutorials
+:link: content/2_Stationaer
 :link-type: doc
 :class-header: bg-light
 **Stationäre Messsysteme** 🧑🏽‍💻
 ^^^
 
-Übungen zur Messtechnik mit Jupyter-Notebooks.
+Ideale und reale Kennlinie
 :::
 
 :::{grid-item-card}
-:link: content/1_Datenanalyse
+:link: content/3_Messsignale
 :link-type: doc
 :class-header: bg-light
 **Messsignale** 👩‍🔬
 ^^^
 
-Messdaten richtig sammeln, dokumentieren und analysieren.
+Signale als Informationsträger, Digitalisierung, Kenngrößen
 :::
 
 :::{grid-item-card}
-:link: content/00_jupyter
+:link: content/3_FourierAnalyse
 :link-type: doc
 :class-header: bg-light
 **Fourier-Analyse** 🐍
 ^^^
 
-Einführung in Python und Jupyter-Notebooks.
+Fourier-Reihen, Fourier-Transformation
 :::
 
 
 :::{grid-item-card}
-:link: content/00_jupyter
+:link: content/5_Dynamische_Messsysteme
 :link-type: doc
 :class-header: bg-light
 **Dynamische Messsysteme** 🐍
 ^^^
 
-Einführung in Python und Jupyter-Notebooks.
+LZI-Systeme, DGLs, Impuls- und Sprungantwort, Übertragungsfunktion
 :::
 
 
 :::{grid-item-card}
-:link: content/1_Tutorials
+:link: content/4_ElektrischeGroessen
 :link-type: doc
 :class-header: bg-light
 **Messen elektrischer Größen** 🧑🏽‍💻
 ^^^
 
-Übungen zur Messtechnik mit Jupyter-Notebooks.
+Messeingänge, Widerstandsbrücken, Wechselspannung, Messverstärker
 :::
 
 :::{grid-item-card}
-:link: content/1_Tutorials
+:link: content/4_Sensoren
 :link-type: doc
 :class-header: bg-light
 **Sensoren** 🧑🏽‍💻
 ^^^
 
-Übungen zur Messtechnik mit Jupyter-Notebooks.
+optisch, kapazitiv, piezo-elektrisch, resistiv, magnetisch, gravitativ
 :::
 
 ::::

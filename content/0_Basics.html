@@ -604,6 +604,23 @@ title="Print to PDF"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kalibrieren-und-eichen-und-prufen">
+   Kalibrieren und Eichen (und Prüfen)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kalibrieren-und-eichen">
+     Kalibrieren und Eichen
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#normale">
+     Normale
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
     </nav>
@@ -661,6 +678,23 @@ title="Print to PDF"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#logarithmische-einheiten">
      Logarithmische Einheiten
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kalibrieren-und-eichen-und-prufen">
+   Kalibrieren und Eichen (und Prüfen)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kalibrieren-und-eichen">
+     Kalibrieren und Eichen
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#normale">
+     Normale
     </a>
    </li>
   </ul>
@@ -908,6 +942,68 @@ Eine große Ausnahme ist und blieb das Ur-Kilo, welches als Prototyp von 1889-20
 <p class="admonition-title">Aufgabe</p>
 <p>Beweise die Umformung von Leistungsgröße in Feldgröße! Hinweise: Es gilt <span class="math notranslate nohighlight">\(P \propto U^2\)</span></p>
 </div>
+<p>Logarithmische Darstellungen finden meistens nur bei elektrischen Leistungen und Spannungen statt. Häufig wird das Dezibel z.B. in der Hochfrequenztechnik verwendet oder bei der Charakterisierung von Frequenzgängen (dazu kommen wir später noch). Im Allgemeinen spricht man von <strong>Pegeln</strong>, sobald die Messwerte logarithmisch angegeben sind. Bei der Angabe von Messwerten in der Einheit Dezibel <strong>muss</strong> stets darauf geachtet werden den Refrenzwert mitanzugeben. Typische Schreibweisen hierzu sind z.B.</p>
+<ul class="simple">
+<li><p>dB(mW): es handelt sich um einen Leistungspegel und der Referenzwert ist 1 mW</p></li>
+<li><p>dB(mV): es handelt sich um einen Spannungspegel und der Referenzwert ist 1 mV</p></li>
+<li><p>dB(<span class="math notranslate nohighlight">\(\mu\)</span>V): es handelt sich um einen Spannungspegel und der Referenzwert ist 1 <span class="math notranslate nohighlight">\(\mu\)</span>V
+Ohne die Angabe des Referenzwertes ist weder die physikalische Größe, noch der Skalierungsfaktor bekannt, und daher sehr wichtig, falls der Dezibel-Wert später in absolute Einheiten zurück konvertiert werden sollte.</p></li>
+</ul>
+<p>Für Leistungspegel gilt also im Allgmeinen (für einen typischen Referenzwert von 1 mW)</p>
+<ul class="simple">
+<li><p>1 <span class="math notranslate nohighlight">\(\mu\)</span>W = 0,000001 W = -30 dB (mW)</p></li>
+</ul>
+<p>In folgendem Code-Block können Umrechungen für verschiedene Messwerte ausprobiert werden:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># diesen Code durch Eingabe von &lt;shift&gt;&lt;ret&gt; ausführen</span>
+
+<span class="n">P</span> <span class="o">=</span> <span class="mf">1e-6</span>     <span class="c1"># Beispiels eines Messwerts in W, hier 1 uW</span>
+<span class="n">P_ref</span> <span class="o">=</span> <span class="mf">1e-3</span> <span class="c1"># Referenzwert = 1 mW</span>
+<span class="n">P_dB</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">P</span><span class="o">/</span><span class="n">P_ref</span><span class="p">)</span> <span class="c1"># Achtung: in numpy ist &quot;log&quot; der natürlich Logarithmus ln</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Leistung = %.e W = </span><span class="si">%.10f</span><span class="s1"> W&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">P</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Pegel in dB: &#39;</span><span class="p">,</span> <span class="n">P_dB</span><span class="p">,</span> <span class="s1">&#39;(</span><span class="si">%.3f</span><span class="s1">)&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">P_ref</span><span class="p">))</span><span class="c1"># In diesem Code Block können Umrechnungen für verschiedene Messwerte ausprobiert werden:</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 5&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">P</span> <span class="o">=</span> <span class="mf">1e-6</span>     <span class="c1"># Beispiels eines Messwerts in W, hier 1 uW</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">P_ref</span> <span class="o">=</span> <span class="mf">1e-3</span> <span class="c1"># Referenzwert = 1 mW</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">P_dB</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">P</span><span class="o">/</span><span class="n">P_ref</span><span class="p">)</span> <span class="c1"># Achtung: in numpy ist &quot;log&quot; der natürlich Logarithmus ln</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Leistung = %.e W = </span><span class="si">%.10f</span><span class="s1"> W&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">P</span><span class="p">))</span>
+<span class="nn">      7 print(&#39;Pegel</span> in <span class="ni">dB: &#39;, P_dB, &#39;(%.3f)&#39; %</span><span class="nt">(P_ref))</span>
+
+<span class="ne">NameError</span>: name &#39;np&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="kalibrieren-und-eichen-und-prufen">
+<h2>Kalibrieren und Eichen (und Prüfen)<a class="headerlink" href="#kalibrieren-und-eichen-und-prufen" title="Permalink to this headline">#</a></h2>
+<p><a id="Sec-Kalibrieren_und_Eichen_und_Prüfen"></a></p>
+<p>Es gibt verschiedene Sprachlichkeiten in der Messtechnik, die im folgenden einmal kurz definiert werden, da es hier in der Umgangssprache häufig zu Unkorrektheiten kommt. Der Unterschied zwischen <em>messen</em> und <em>prüfen</em> ist nicht immer klar. Im technischen Bereich versteht man unter <strong>prüfen</strong>, ob ein Prüfgegenstand bestimmte Vorgaben erfüllt. Diese werden dann auch in Form von Prüfbedingungen spezifiziert. Zum Beispiel kann man auf elektromagnetische Verträglichkeit (EMV) prüfen., diese werden in Normen festgehalten, welche wiederum ganz konkrete Randbedingungen für Messaufbauten - zur Messung von elektromagnetischen Störungen - bei Messgeräten gegeben sein müssen. Messgeräte können also darauf geprüft werden, ob diese Normen eingehalten werden und die Messungen entsprechend durchgeführt und ausgeführt werden. Prüfen ist also etwas mehr, als nur das Messen einer Größe.</p>
+<section id="kalibrieren-und-eichen">
+<h3>Kalibrieren und Eichen<a class="headerlink" href="#kalibrieren-und-eichen" title="Permalink to this headline">#</a></h3>
+<p><a id="SubSec-Kalibrieren_und_Eichen"></a></p>
+<p>Messsysteme haben bekannterweise Messgenauigkeiten (darauf kommen wir später noch mal zurück), welche eine Messung limitieren. Die erzielbare Messgenauigkeit kann werksseitig während des Herstellprozesses oder später, in der gewünschten Testumgebung, verbessert werden. Hierzu benötigt man eine <em>bekannte</em> Referenz, die an das Messgerät angeschlossen werden kann. Nun kann das Messsystem entweder eingestellt werden, sodass der angezeigt Messwert möglichst genau dem <em>bekannten</em> Referenzwert entspricht. Dieses Verfahren nennent man auch <strong>Justieren</strong> oder <strong>Kalibrieren</strong>.</p>
+<p><img alt="Bild" src="../_images/kalibrieren.png" /></p>
+<p>Unter dem Begriff <strong>Eichen</strong> hingegen versteht man die Prüfung und Stempelung eines Messgeräts, welches nach gesetzlichen Eichvorschriften erfolgt ist. Geeicht werden müssen Messsysteme, die im gewerblichen Verkehr oder Handel eingesetzt werden sollen, wie z.B. eine Obst- und Gemüsewaage an der Kasse eines Supermarktes. Dem Verbraucher wird damit eine bestimmte Sicherheit gegeben, dass die Waage - innerhalb bestimmter Grenzen - genau arbeitet. In Deutschland existiert dafür die sogenannten <em>Eichordnung</em>.
+Da das Eichen ein hoheitlicher Akt ist, kann es nur in vom Statt autorisierten Behörden durchgeführt werden, in den sogenannten Eichämtern, und muss in bestimmten Abständen wiederholt werden. Um generell eine möglichst gute Genauigkeit und hohe Manipulationssicherheit sicherzustellen, werden die meisten Messgeräte bereits während des Herstellungsprozesses kalibirert oder geeicht. In Deutschland macht dies häufig die Physikalisch-Technische Bundesanstalt (PTB) in Braunschweig und Berlin.</p>
+</section>
+<section id="normale">
+<h3>Normale<a class="headerlink" href="#normale" title="Permalink to this headline">#</a></h3>
+<p><a id="SubSec-Normale"></a></p>
+<p>Normale sind Maßverkörperungen, welche einfach handhabbar sind und von Basisgrößen abzuleiten sind.
+Wir wissen, dass die Basiseinheiten - bzw. die von ihnen ableitende Einheiten - über atomare Naturkonstanten definiert sind. Dies ist in der Praxis allerdings sehr unpraktisch und in Betrieben nicht realisierbar.
+Im BIPM (Internationales Büro für Maß und Gewicht) werden praktisch anwendbare <strong>Primärnormale</strong> direkt von Basisgrößen abgeleitet und hergestellt. Diese werden ständig überwacht um deren Genauigkeit sicherzustellen. Für so ziemlich jede Messgröße existieren solche Primärnormale, wie z.B. für Ohm, Volt, Henry, Farad usw.
+Alle Staaten, die damals bei der Generalkonferenz für Maß und Gewicht den Vertrag unterzeichnet haben, erhalten jeweils ein solches Primärnormal. Von diesen werden dann sogenannte <strong>Sekundärnormale</strong> innerhalb der Staaten abgeleitet, welche dann wiederum zur Eichung von betrieblichen Arbeitsnormalen in Eichlaboren (oder Behören oder Ämtern) zur Verfügung stehen.
+<strong>Arbeitsnormale</strong>, abgeleitet von den Skundärnormalen, werden in Firmen verwendet, um ihre betrieblichen Messmittel eigenhändig kalibrieren zu können.</p>
+<p><img alt="Bild" src="../_images/normale.png" /></p>
 </section>
 </section>
 </section>

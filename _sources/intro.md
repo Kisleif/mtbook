@@ -63,30 +63,35 @@ SI-Einheiten, Nicht-SI, Kalibrieren, Eichen, Prüfen
 :link: content/1_Messunsicherheiten
 :link-type: doc
 :class-header: bg-light
-**Messunsicherheiten** 🐍
+**Messunsicherheiten**
 ^^^
-
-Systematische und zufällige Messunsicherheiten, Mittelwert, Standardabweichung, Vertrauensintervalle, Normalverteilung, Fehlerfortpflanzung
+```{image} content/pictures/tab_norm_grenzen.png
+:height: 120
+```
+Systematisch, zufällig, Vertrauensintervall, Normalverteilung, Fehlerfortpflanzung
 :::
 
 :::{grid-item-card}
 :link: content/1_Kurvenanpassung
 :link-type: doc
 :class-header: bg-light
-**Kurvenanpassung** 🐍
+**Kurvenanpassung**
 ^^^
-
+```{image} content/pictures/kleinste_quadrate.png
+:height: 120
+```
 Regression, Fit, Korrelation, Kovarianz, Least-Squares
 :::
-
 
 :::{grid-item-card}
 :link: content/2_Stationaer
 :link-type: doc
 :class-header: bg-light
-**Stationäre Messsysteme** 🧑🏽‍💻
+**Stationäre Messsysteme**
 ^^^
-
+```{image} content/pictures/reale_kennlinie.png
+:height: 120
+```
 Ideale und reale Kennlinie
 :::
 
@@ -94,9 +99,11 @@ Ideale und reale Kennlinie
 :link: content/3_Messsignale
 :link-type: doc
 :class-header: bg-light
-**Messsignale** 👩‍🔬
+**Messsignale**
 ^^^
-
+```{image} content/pictures/messsignal_analog_diskret.png
+:height: 120
+```
 Signale als Informationsträger, Digitalisierung, Kenngrößen
 :::
 
@@ -104,21 +111,24 @@ Signale als Informationsträger, Digitalisierung, Kenngrößen
 :link: content/3_FourierAnalyse
 :link-type: doc
 :class-header: bg-light
-**Fourier-Analyse** 🐍
+**Fourier-Analyse**
 ^^^
-
+```{image} content/pictures/messsignal_analog_diskret.png
+:height: 120
+```
 Fourier-Reihen, Fourier-Transformation
 :::
-
 
 :::{grid-item-card}
 :link: content/5_Dynamische_Messsysteme
 :link-type: doc
 :class-header: bg-light
-**Dynamische Messsysteme** 🐍
+**Dynamische Messsysteme**
 ^^^
-
-LZI-Systeme, DGLs, Impuls- und Sprungantwort, Übertragungsfunktion
+```{image} content/pictures/bandpass.png
+:height: 120
+```
+LZI-Systeme, DGLs, Impuls- und Sprungantwort, Faltung, Übertragungsfunktion
 :::
 
 
@@ -126,9 +136,11 @@ LZI-Systeme, DGLs, Impuls- und Sprungantwort, Übertragungsfunktion
 :link: content/4_ElektrischeGroessen
 :link-type: doc
 :class-header: bg-light
-**Messen elektrischer Größen** 🧑🏽‍💻
+**Messen elektrischer Größen**
 ^^^
-
+```{image} content/pictures/bandpass.png
+:height: 120
+```
 Messeingänge, Widerstandsbrücken, Wechselspannung, Messverstärker
 :::
 
@@ -136,9 +148,11 @@ Messeingänge, Widerstandsbrücken, Wechselspannung, Messverstärker
 :link: content/4_Sensoren
 :link-type: doc
 :class-header: bg-light
-**Sensoren** 🧑🏽‍💻
+**Sensoren**
 ^^^
-
+```{image} content/pictures/bandpass.png
+:height: 120
+```
 optisch, kapazitiv, piezo-elektrisch, resistiv, magnetisch, gravitativ
 :::
 

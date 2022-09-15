@@ -196,11 +196,6 @@ const thebe_selector_output = ".output, .cell_output"
      Reale Kennlinie
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="2_Digital.html">
-     Digitalisierung
-    </a>
-   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -221,6 +216,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="3_Kenngroessen.html">
      Kenngrößen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2_Digital.html">
+     Digitalisierung
     </a>
    </li>
    <li class="toctree-l2">
@@ -736,8 +736,8 @@ Außerdem gibt es auch noch den Begriff des <em>Justierens</em>. Dieser beschrei
 </section>
 <section id="wissenschaft-des-messens">
 <h2>Wissenschaft des Messens<a class="headerlink" href="#wissenschaft-des-messens" title="Permalink to this headline">#</a></h2>
-<div class="dropdown admonition note">
-<p class="admonition-title">Note</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Wunder an Präzision (2600 v. Chr.): Cheops-Pyramide</p>
 <p><strong>Wunder an Präzision (2600 v. Chr.): Cheops-Pyramide</strong></p>
 <p>Die Cheops-Pyramide ist die älteste und größte der 3 Pyramiden von Gizeh. Sie wurde als Grabmal für den ägyptischen König (Pharao) Cheops errichtet, der während der 4. Dynastie im Alten Reich regierte (2620-2580 v. Chr.) und sie gehört zu den 7 Weltwundern der Antike. Sie ist eines der einzigen Weltwunder, welches bis heute erhalten geblieben ist.
 Die Seitenlänge beträgt <span class="math notranslate nohighlight">\(230,33\,\mathrm m \pm 4\,\mathrm{cm}\)</span> und die Höhe <span class="math notranslate nohighlight">\(146,59\,\mathrm m\)</span> und war damit 4000 Jahre lang das höchste Bauwerk der Welt.
@@ -816,8 +816,8 @@ Der erste Antrag wurde am 07. Oktober für die Maßeinheit Meter gestellt. Ein M
 <li><p>Mol (mol) als Einheit für die Stoffmenge</p></li>
 </ul>
 <p><img alt="Bild" src="../_images/SI.png" /></p>
-<div class="dropdown admonition note">
-<p class="admonition-title">Note</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Das Ur-Kilo in Paris</p>
 <p>Mit Ausnahme des Kilogramms wurden bis vor Kurzem alle Basiseinheiten über reproduzierbare Experimente eindeutig festgelegt. Die Sekunde ist zum Beispiel darüber definiert, als das sie das 9192631770-fache der Periodendauer einer bestimmten Strahlung ist, nämlich der des Übergangs zwischen den beiden Hyperfeinstrukturniveaus des Grundzustands von Atomen des Nuklids 133-Cäsium. Im Prinzip könnte sich also jeder das Element Cäsium besorgen, eine Atomuhr betreiben, und somit seine Sekunde zuhause definieren. Oder man spart sich die Arbeit und sucht eine der Kalibrierbehörden auf.
 1983 wird die Länge eines Meters als “jene Wegstrecke, die das Licht im Vakuum während der Dauer von 1/299792458-tel einer Sekunde zurücklegt”, festgelegt. Somit war das Meter die erste Einheit, welche durch eine Naturkonstanten, nämlich die Lichtgeschwindigkeit c = 299792458 m/s definiert, bzw. festgelegt wurde. Andere Einheiten waren in der Praxis schwieriger umzusetzen, wie z.B. das Ampere. Für die Definition eines Amperes wurde die Kraft zwischen 2 stromdurchflossenen Leitern gemessen, was extrem unpraktisch ist.
 Eine große Ausnahme ist und blieb das Ur-Kilo, welches als Prototyp von 1889-2018 in Paris als internationale Referenz sicher (bzw. vermeintlich sicher) aufbewahrt wurde. Das Ur-Kilo war:</p>
@@ -953,12 +953,14 @@ Ohne die Angabe des Referenzwertes ist weder die physikalische Größe, noch der
 <ul class="simple">
 <li><p>1 <span class="math notranslate nohighlight">\(\mu\)</span>W = 0,000001 W = -30 dB (mW)</p></li>
 </ul>
+<div class="tip admonition">
+<p class="admonition-title">Aufgabe</p>
 <p>In folgendem Code-Block können Umrechungen für verschiedene Messwerte ausprobiert werden:</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># diesen Code durch Eingabe von &lt;shift&gt;&lt;ret&gt; ausführen</span>
-
-<span class="n">P</span> <span class="o">=</span> <span class="mf">1e-6</span>     <span class="c1"># Beispiels eines Messwerts in W, hier 1 uW</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">P</span> <span class="o">=</span> <span class="mf">1e-6</span>     <span class="c1"># Messwerts, hier 1 uW</span>
 <span class="n">P_ref</span> <span class="o">=</span> <span class="mf">1e-3</span> <span class="c1"># Referenzwert = 1 mW</span>
 <span class="n">P_dB</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">P</span><span class="o">/</span><span class="n">P_ref</span><span class="p">)</span> <span class="c1"># Achtung: in numpy ist &quot;log&quot; der natürlich Logarithmus ln</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Leistung = %.e W = </span><span class="si">%.10f</span><span class="s1"> W&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">P</span><span class="p">))</span>
@@ -967,16 +969,8 @@ Ohne die Angabe des Referenzwertes ist weder die physikalische Größe, noch der
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 5&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">P</span> <span class="o">=</span> <span class="mf">1e-6</span>     <span class="c1"># Beispiels eines Messwerts in W, hier 1 uW</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">P_ref</span> <span class="o">=</span> <span class="mf">1e-3</span> <span class="c1"># Referenzwert = 1 mW</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">P_dB</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">P</span><span class="o">/</span><span class="n">P_ref</span><span class="p">)</span> <span class="c1"># Achtung: in numpy ist &quot;log&quot; der natürlich Logarithmus ln</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Leistung = %.e W = </span><span class="si">%.10f</span><span class="s1"> W&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">P</span><span class="p">))</span>
-<span class="nn">      7 print(&#39;Pegel</span> in <span class="ni">dB: &#39;, P_dB, &#39;(%.3f)&#39; %</span><span class="nt">(P_ref))</span>
-
-<span class="ne">NameError</span>: name &#39;np&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Leistung = 1e-06 W = 0.0000010000 W
+Pegel in dB:  -30.0 (0.001)
 </pre></div>
 </div>
 </div>

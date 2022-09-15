@@ -1,28 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
-#Benötigte Libraries:
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-import plotly.offline as py
-py.init_notebook_mode(connected=True)
-import plotly.graph_objs as go
-import plotly.tools as tls
-import seaborn as sns
-import time
-import warnings
-warnings.filterwarnings('ignore')
-
-# MatplotLib Settings:
-plt.style.use('default') # Matplotlib Style wählen
-plt.figure(figsize=(10,5)) # Plot-Größe
-plt.rcParams['font.size'] = 10; # Schriftgröße
-
-
 # # Messdaten sammeln und darstellen
 # 
 # ## Grundidee
@@ -73,8 +51,26 @@ plt.rcParams['font.size'] = 10; # Schriftgröße
 # Wie du eine Kurve an deine Messdaten anpasst findet du unter [Kurvenanpassung](1_Kurvenanpassung.ipynb) und [Übungen in Python](1_Tutorials.ipynb).
 # ```
 
-# In[2]:
+# In[1]:
 
+
+#Benötigte Libraries:
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import plotly.offline as py
+py.init_notebook_mode(connected=True)
+import plotly.graph_objs as go
+import plotly.tools as tls
+import seaborn as sns
+import time
+import warnings
+warnings.filterwarnings('ignore')
+
+# MatplotLib Settings:
+plt.style.use('default') # Matplotlib Style wählen
+plt.figure(figsize=(10,5)) # Plot-Größe
+plt.rcParams['font.size'] = 10; # Schriftgröße
 
 link = 'data/graph.csv' # Beispieldatei mit Klimadaten
 global_mean = pd.read_csv(link, header = 1) # Daten einlesen
@@ -100,7 +96,7 @@ plt.grid();
 print(f"Temperaturanstieg pro Jahr (von 1980 bis 2020): {model[0][0]:.3f}°C/Jahr")
 
 
-# In[3]:
+# In[2]:
 
 
 # Lineare Regression berechnen:

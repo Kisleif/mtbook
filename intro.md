@@ -2,7 +2,7 @@
 
 Willkommen zur Vorlesung Messtechnik an der HSU. Auf den folgenden Seiten findet ihr begleitende Informationen zur Vorlesung, Übung und zum Praktikum.
 Dieses Jupyter-Book befindet sich aktuell im Aufbau und soll später als Vorlesungsskript mit interaktiven Beispielen dienen. 
-Aktuell könnt ihr euch noch nicht auf Vollständigkeit verlassen. Folgende Funktionen stehen euch aber schon zur Verfügung um das Lernmaterial anzusehen, herunterzuladen, zu testen und zu kommentieren. {cite}`parthier2020`
+Aktuell könnt ihr euch noch nicht auf Vollständigkeit verlassen. Folgende Funktionen stehen euch aber schon zur Verfügung um das Lernmaterial anzusehen, herunterzuladen, zu testen und zu kommentieren.
 
 
 ::::{grid} 1 1 2 3
@@ -41,7 +41,7 @@ Einführung in Python und Jupyter-Notebooks.
 :::
 ::::
 
-## Vorlesungs-Inhalt
+## Vorlesungsinhalt
 
 ::::{grid} 1 1 3 3
 :class-container: text-center
@@ -157,6 +157,43 @@ optisch, kapazitiv, piezo-elektrisch, resistiv, magnetisch, gravitativ
 :::
 
 ::::
+
+
+## Literatur
+
+::::{grid} 1 1 1 3
+:class-container: text-center
+:gutter: 3
+
+:::{grid-item-card}
+:link: https://doi.org/10.1007/978-3-658-27131-2
+:link-type: url
+:class-header: bg-light
+**Parthier 2020 {cite}`parthier2020`**
+^^^
+```{image} content/pictures/2020_Book_Messtechnik.png
+:height: 150
+```
+**Messtechnik**: Vom SI-Einheitensystem über Bewertung von Messergebnissen zu Anwendungen der elektrischen Messtechnik
++++
+Explore this book {fas}`arrow-right`
+:::
+
+:::{grid-item-card}
+:link: https://doi.org/10.1007/978-3-662-59767-5
+:link-type: url
+:class-header: bg-light
+**Léon 2019 {cite}`puenteleon2019`**
+^^^
+```{image} content/pictures/2019_Book_Messtechnik.png
+:height: 150
+```
+**Messtechnik**: Grundlagen, Methoden und Anwendungen
++++
+Explore this book {fas}`arrow-right`
+:::
+::::
+
 
 
 ```{bibliography}

@@ -175,6 +175,8 @@ optisch, kapazitiv, piezo-elektrisch, resistiv, magnetisch, gravitativ
 :height: 150
 ```
 **Messtechnik**: Vom SI-Einheitensystem über Bewertung von Messergebnissen zu Anwendungen der elektrischen Messtechnik
++++
+Explore this book {fas}`arrow-right`
 :::
 
 :::{grid-item-card}
@@ -187,6 +189,8 @@ optisch, kapazitiv, piezo-elektrisch, resistiv, magnetisch, gravitativ
 :height: 150
 ```
 **Messtechnik**: Grundlagen, Methoden und Anwendungen
++++
+Explore this book {fas}`arrow-right`
 :::
 ::::
 

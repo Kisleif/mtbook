@@ -2,7 +2,7 @@
 
 Willkommen zur Vorlesung Messtechnik an der HSU. Auf den folgenden Seiten findet ihr begleitende Informationen zur Vorlesung, Übung und zum Praktikum.
 Dieses Jupyter-Book befindet sich aktuell im Aufbau und soll später als Vorlesungsskript mit interaktiven Beispielen dienen. 
-Aktuell könnt ihr euch noch nicht auf Vollständigkeit verlassen. Folgende Funktionen stehen euch aber schon zur Verfügung um das Lernmaterial anzusehen, herunterzuladen, zu testen und zu kommentieren. {parthier2020}
+Aktuell könnt ihr euch noch nicht auf Vollständigkeit verlassen. Folgende Funktionen stehen euch aber schon zur Verfügung um das Lernmaterial anzusehen, herunterzuladen, zu testen und zu kommentieren. {cite}`parthier2020`
 
 
 ::::{grid} 1 1 2 3
@@ -157,3 +157,7 @@ optisch, kapazitiv, piezo-elektrisch, resistiv, magnetisch, gravitativ
 :::
 
 ::::
+
+
+```{bibliography}
+```

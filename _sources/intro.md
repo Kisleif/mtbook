@@ -10,27 +10,19 @@ Aktuell könnt ihr euch leider noch nicht auf Vollständigkeit verlassen. Folgen
 Messdaten sammeln und analysieren: [hier](content/1_Datenanalyse.ipynb)
 :::
 
-::::{grid}
-:gutter: 2
+::::{grid} 1 1 2 3
+:class-container: text-center
+:gutter: 3
 
-:::{grid-item}
-:outline:
-A
-:::
-:::{grid-item}
-:outline:
-B
-:::
-:::{grid-item}
-:outline:
-C
-:::
-:::{grid-item}
-:outline:
-D
-:::
+:::{grid-item-card}
+:link: basics/organize
+:link-type: doc
+:class-header: bg-light
 
-::::
+test
+
+Structure books with text files and Jupyter Notebooks with minimal configuration.
+:::
 
 
 ```{tableofcontents}

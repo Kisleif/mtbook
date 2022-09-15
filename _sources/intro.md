@@ -48,12 +48,14 @@ Einführung in Python und Jupyter-Notebooks.
 :gutter: 3
 
 :::{grid-item-card}
-:link: content/1_Datenanalyse
+:link: content/0_Basics
 :link-type: doc
 :class-header: bg-light
-**Messen, Einheiten** 🐍
+**Messen, Einheiten**
 ^^^
-
+```{image} pictures/SI.png
+:height: 100
+```
 Einführung in Python und Jupyter-Notebooks.
 :::
 

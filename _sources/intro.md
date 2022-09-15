@@ -20,7 +20,7 @@ Messdaten sammeln und analysieren: [hier](content/1_Datenanalyse.ipynb)
 :link-type: doc
 :class-header: bg-light
 
-Text content âœï¸
+Text content
 ^^^
 
 Wie ihr richtig Messdaten sammelt und analysiert.

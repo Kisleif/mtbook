@@ -11,7 +11,6 @@ Messdaten sammeln und analysieren: [hier](content/1_Datenanalyse.ipynb)
 :::
 
 
-
 ```{tableofcontents}
 ```
 

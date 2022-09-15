@@ -1,19 +1,19 @@
 Traceback (most recent call last):
   File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
     executenb(
-  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 1112, in execute
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 1204, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/util.py", line 74, in wrapped
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/util.py", line 84, in wrapped
     return just_run(coro(*args, **kwargs))
-  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/util.py", line 53, in just_run
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/util.py", line 62, in just_run
     return loop.run_until_complete(coro)
-  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/asyncio/base_events.py", line 642, in run_until_complete
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
     return future.result()
-  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 553, in async_execute
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 663, in async_execute
     await self.async_execute_cell(
-  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 857, in async_execute_cell
-    self._check_raise_for_error(cell, exec_reply)
-  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 760, in _check_raise_for_error
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
@@ -38,12 +38,12 @@ plt.show()
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m/var/folders/6d/574ptfzx6v9_j7pylzkngrkm0000gp/T/ipykernel_15812/3303641914.py[0m in [0;36m<module>[0;34m[0m
-[1;32m      3[0m [0;34m[0m[0m
-[1;32m      4[0m [0;31m# Fit der Daten:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 5[0;31m [0mfit_out[0m [0;34m=[0m [0moptimization[0m[0;34m.[0m[0mcurve_fit[0m[0;34m([0m[0mfit_lin[0m[0;34m,[0m [0mx[0m[0;34m,[0m [0mt[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      6[0m [0;34m[0m[0m
-[1;32m      7[0m [0mprint[0m[0;34m([0m[0;34m'Die scipy-Fitparameter lauten:'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+Input [0;32mIn [4][0m, in [0;36m<cell line: 5>[0;34m()[0m
+[1;32m      2[0m     [38;5;28;01mreturn[39;00m b[38;5;241m*[39mx [38;5;241m+[39m a
+[1;32m      4[0m [38;5;66;03m# Fit der Daten:[39;00m
+[0;32m----> 5[0m fit_out [38;5;241m=[39m [43moptimization[49m[38;5;241m.[39mcurve_fit(fit_lin, x, t)
+[1;32m      7[0m [38;5;28mprint[39m([38;5;124m'[39m[38;5;124mDie scipy-Fitparameter lauten:[39m[38;5;124m'[39m)
+[1;32m      8[0m [38;5;28mprint[39m([38;5;124m'[39m[38;5;124mDie Steigung ist [39m[38;5;130;01m\t[39;00m[38;5;130;01m\t[39;00m[38;5;124m m = ([39m[38;5;132;01m%5.4f[39;00m[38;5;124m +- [39m[38;5;132;01m%5.4f[39;00m[38;5;124m) s/m[39m[38;5;124m'[39m [38;5;241m%[39m(fit_out[[38;5;241m0[39m][[38;5;241m0[39m], np[38;5;241m.[39msqrt(fit_out[[38;5;241m1[39m][[38;5;241m0[39m][[38;5;241m0[39m])))
 
 [0;31mNameError[0m: name 'optimization' is not defined
 NameError: name 'optimization' is not defined

@@ -5,16 +5,10 @@ Dieses Jupyter-Book befindet sich aktuell noch im Aufbau und soll später als Vo
 Aktuell könnt ihr euch leider noch nicht auf Vollständigkeit verlassen. Folgende Funktionen stehen euch aber schon zur Verfügung um das Lernmaterial anzusehen, herunterzuladen, zu testen und zu kommentieren.
 
 
-
-::::{grid} 2
-:::{grid-item-card}  Title 1
-A
+:::{admonition} Tips fürs Praktikum
+:class: tip
+Messdaten sammeln und analysieren: [hier](content/1_Datenanalyse.ipynb)
 :::
-:::{grid-item-card}  Title 2
-B
-:::
-::::
-
 
 
 

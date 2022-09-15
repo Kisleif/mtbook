@@ -10,6 +10,7 @@ Aktuell könnt ihr euch leider noch nicht auf Vollständigkeit verlassen. Folgen
 Messdaten sammeln und analysieren: [hier](content/1_Datenanalyse.ipynb)
 :::
 
+
 ::::{grid} 1 1 2 3
 :class-container: text-center
 :gutter: 3
@@ -23,7 +24,7 @@ test
 
 Structure books with text files and Jupyter Notebooks with minimal configuration.
 :::
-
+::::
 
 ```{tableofcontents}
 ```

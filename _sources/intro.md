@@ -161,5 +161,24 @@ optisch, kapazitiv, piezo-elektrisch, resistiv, magnetisch, gravitativ
 
 ## Literatur
 
+::::{grid} 1 1 1 3
+:class-container: text-center
+:gutter: 3
+
+:::{grid-item-card}
+:link: content/1_Datenanalyse
+:link-type: doc
+:class-header: bg-light
+**Parthier 2020 {cite}`parthier2020`** 👩‍🔬
+^^^
+```{image} content/pictures/2020_Book_Messtechnik.png
+:height: 120
+```
+Messtechnik: Vom SI-Einheitensystem über Bewertung von Messergebnissen zu Anwendungen der elektrischen Messtechnik
+:::
+::::
+
+
+
 ```{bibliography}
 ```

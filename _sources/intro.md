@@ -166,8 +166,8 @@ optisch, kapazitiv, piezo-elektrisch, resistiv, magnetisch, gravitativ
 :gutter: 3
 
 :::{grid-item-card}
-:link: content/1_Datenanalyse
-:link-type: doc
+:link: https://doi.org/10.1007/978-3-658-27131-2
+:link-type: url
 :class-header: bg-light
 **Parthier 2020 {cite}`parthier2020`**
 ^^^

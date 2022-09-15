@@ -53,7 +53,7 @@ Einführung in Python und Jupyter-Notebooks.
 :class-header: bg-light
 **Messen, Einheiten**
 ^^^
-```{image} pictures/SI.png
+```{image} content/pictures/SI.png
 :height: 100
 ```
 Einführung in Python und Jupyter-Notebooks.

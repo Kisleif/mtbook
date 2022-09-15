@@ -169,12 +169,24 @@ optisch, kapazitiv, piezo-elektrisch, resistiv, magnetisch, gravitativ
 :link: content/1_Datenanalyse
 :link-type: doc
 :class-header: bg-light
-**Parthier 2020 {cite}`parthier2020`** 👩‍🔬
+**Parthier 2020 {cite}`parthier2020`**
 ^^^
 ```{image} content/pictures/2020_Book_Messtechnik.png
-:height: 120
+:height: 150
 ```
 Messtechnik: Vom SI-Einheitensystem über Bewertung von Messergebnissen zu Anwendungen der elektrischen Messtechnik
+:::
+
+:::{grid-item-card}
+:link: content/1_Datenanalyse
+:link-type: doc
+:class-header: bg-light
+**Léon 2019 {cite}`puenteleon2019`**
+^^^
+```{image} content/pictures/2019_Book_Messtechnik.png
+:height: 150
+```
+Messtechnik: Grundlagen, Methoden und Anwendungen
 :::
 ::::
 

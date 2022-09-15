@@ -16,13 +16,13 @@ Messdaten sammeln und analysieren: [hier](content/1_Datenanalyse.ipynb)
 :gutter: 3
 
 :::{grid-item-card}
-:link: basics/organize
+:link: content/1_Datenanalyse
 :link-type: doc
 :class-header: bg-light
 
-test
+Tips fürs Praktikum
 
-Structure books with text files and Jupyter Notebooks with minimal configuration.
+Wie ihr richtig Messdaten sammelt und analysiert.
 :::
 ::::
 

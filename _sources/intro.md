@@ -20,7 +20,8 @@ Messdaten sammeln und analysieren: [hier](content/1_Datenanalyse.ipynb)
 :link-type: doc
 :class-header: bg-light
 
-Tips fürs Praktikum
+Text content âœï¸
+^^^
 
 Wie ihr richtig Messdaten sammelt und analysiert.
 :::

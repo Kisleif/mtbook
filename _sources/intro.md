@@ -10,6 +10,28 @@ Aktuell könnt ihr euch leider noch nicht auf Vollständigkeit verlassen. Folgen
 Messdaten sammeln und analysieren: [hier](content/1_Datenanalyse.ipynb)
 :::
 
+::::{grid}
+:gutter: 2
+
+:::{grid-item}
+:outline:
+A
+:::
+:::{grid-item}
+:outline:
+B
+:::
+:::{grid-item}
+:outline:
+C
+:::
+:::{grid-item}
+:outline:
+D
+:::
+
+::::
+
 
 ```{tableofcontents}
 ```

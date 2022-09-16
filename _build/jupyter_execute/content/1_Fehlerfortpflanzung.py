@@ -1,6 +1,22 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# # Fortpflanzung von Messunsicherheiten
+
+# In der Messtechnik gibt es zwei Möglichkeiten eines Messprinzips:
+# * Das **direkte Messverfahren**: der gesuchte Messwert wird unmittelbar durch den Vergleich mit einem Bezugswert derselben Messgröße gewonnen. Als Beispiel eignet sich hier die Balkenwaage, die die unbekannte Masse $m$ mit der bekannten Masse eines Gewichtssteins vergleicht.
+# * Das **indirekt Messerverfahren**: Die meisten physikalischen Größen werden so ermittelt, da sie nur indirekt ermittelt werden können. Die gesuchte Messgröße wird hierbei über physikalische Zusammenhänge auf andere Größen zurückgeführt und anschließend aus diesen ermittelt. Die Federwaage ist ein Beispiel hierfür, bei der eine unbekannte Masse $m$ über die Auslenkung $x$ einer Feder (Federkonstante $k$) ermittelt werden soll. Gravitationskraft wird der Rückstellkraft der Feder gleichgesetzt und man erhält folgenden Zusammenhang, wobei $g$ die Schwerebeschleunigung ist. 
+# 
+# ![Bild](pictures/direkt_indirekt.png)
+# 
+# Durch dieses Beispiel wird klar, dass Messgrößen $y$ oft nicht direkt ermittelt werden, sondern über funktionelle Zusammenhänge von $n$ Messgrößen $x_i$ bestimmt werden:
+# 
+# $$ y = f(x_1, x_2, ...,x_n)$$
+# 
+# **Achtung**, bei $x_i$ handelt es sich nicht um Stichprobengrößen $x_j$, sondern um  Messungen *unterschiedlicher* physikalischer Messgrößen, beispielsweise Federkonstante $k$ und Auslenkung $x$).
+# 
+# Wie wirken sich Messunsicherheiten der Messgrößen $x_i$ auf das Ergebnis $y$ aus? Im folgenden Plot ist ersichtlich, dass eine Abweichung der Größe $x$ zwangsläufig eine Abweichung der Größe $y$ zur Folge hat:
+
 # In[1]:
 
 
@@ -22,26 +38,6 @@ plt.style.use('default') # Matplotlib Style wählen
 plt.figure(figsize=(10,5)) # Plot-Größe
 plt.rcParams['font.size'] = 10; # Schriftgröße
 print('Setup Complete')
-
-
-# # Fortpflanzung von Messunsicherheiten
-
-# In der Messtechnik gibt es zwei Möglichkeiten eines Messprinzips:
-# * Das **direkte Messverfahren**: der gesuchte Messwert wird unmittelbar durch den Vergleich mit einem Bezugswert derselben Messgröße gewonnen. Als Beispiel eignet sich hier die Balkenwaage, die die unbekannte Masse $m$ mit der bekannten Masse eines Gewichtssteins vergleicht.
-# * Das **indirekt Messerverfahren**: Die meisten physikalischen Größen werden so ermittelt, da sie nur indirekt ermittelt werden können. Die gesuchte Messgröße wird hierbei über physikalische Zusammenhänge auf andere Größen zurückgeführt und anschließend aus diesen ermittelt. Die Federwaage ist ein Beispiel hierfür, bei der eine unbekannte Masse $m$ über die Auslenkung $x$ einer Feder (Federkonstante $k$) ermittelt werden soll. Gravitationskraft wird der Rückstellkraft der Feder gleichgesetzt und man erhält folgenden Zusammenhang, wobei $g$ die Schwerebeschleunigung ist. 
-# 
-# ![Bild](pictures/direkt_indirekt.png)
-# 
-# Durch dieses Beispiel wird klar, dass Messgrößen $y$ oft nicht direkt ermittelt werden, sondern über funktionelle Zusammenhänge von $n$ Messgrößen $x_i$ bestimmt werden:
-# 
-# $$ y = f(x_1, x_2, ...,x_n)$$
-# 
-# **Achtung**, bei $x_i$ handelt es sich nicht um Stichprobengrößen $x_j$, sondern um  Messungen *unterschiedlicher* physikalischer Messgrößen, beispielsweise Federkonstante $k$ und Auslenkung $x$).
-# 
-# Wie wirken sich Messunsicherheiten der Messgrößen $x_i$ auf das Ergebnis $y$ aus? Im folgenden Plot ist ersichtlich, dass eine Abweichung der Größe $x$ zwangsläufig eine Abweichung der Größe $y$ zur Folge hat:
-
-# In[2]:
-
 
 link = 'data/graph.csv' # Beispieldatei mit Klimadaten
 global_mean = pd.read_csv(link, header = 1) # Daten einlesen
@@ -199,9 +195,7 @@ plt.grid();
 
 # ## Zufällige, abhängige (korrelierte) Variablen <a id="SubSec-Fehlerfortpflanzung_bei_korrelierten_Unsicherheiten"></a> 
 # 
-# (sec_korr_cov)= 
-# ### Korrelation und Kovarianz-Matrix
-# 
+# ### Korrelation und Kovarianz-Matrix <a id="sec_korrelation_kovarianz"></a> 
 # 
 # Häufig liegt in der Messtechnik der Fall vor, dass wir voneinander unabhängige Messungen betrachten und diese zu unserer gesuchten Messgröße kombinieren. Teilweise können aber auch Messungen beobachtet werden, welche eine Abhängigkeit voneinander aufweisen. In diesem Fall spricht man von **Korrelationen** zwischen Messgrößen und ein *Kovarianz-Term* muss berücksichtigt werden! 
 # 
@@ -229,7 +223,7 @@ plt.grid();
 # Zum besseren Verständnis mag ein Beispiel helfen. Wir erzeugen dazu Zufallsgrößen mit
 # unabhängigen und gemeinsamen Fehlern.
 
-# In[3]:
+# In[2]:
 
 
 def scatterplot(x, y): 

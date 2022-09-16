@@ -14,6 +14,14 @@
 # * **Interpolation**: Hierbei handelt es sich nicht um eine Regression bzw. Approximation. Anstelle eines funktionalen Zusammenhangs, der an die Messwerte angenähert wird, verwendert man Polynome hohen Grades, um eine analytische Kennlinie zu beschreiben, die *exakt* durch alle Messpunkte geht. Für eine große Anzahl von Messwerten wird die Interpolationsfunktion sehr schnell unhandlich. 
 # 
 # ![Bild](pictures/interpol_approx.png)
+# 
+# :::{admonition} Tutorial
+# :class: tip
+# Python-Beispiele für Kurvenanpassungen findet ihr hier:
+# * [Vergleich verschiedener Fit-Routinen in Python](T_LinReg)
+# * [Fitten mit Fehlerbalken in Python](T_FitmitFehlerbalken)
+# * [Fitten von *echten* Klimadaten](T_Plotten)
+# :::
 
 # ## Modellanpassung <a id="Sec-Modellanpassung"></a>
 # 
@@ -111,7 +119,29 @@
 # ### Lineare Modellanpassung <a id="SubSec-Lineare_Modellanpassung"></a>
 # 
 # Da wir als Messtechniker immer danach streben möglichst lineare Kennlinien zu erreichen, ist die Gerade eine häufig auftretende Kurve, die angepasst werden soll. Daher wollen wir uns in diesem Abschnitt mit der Herleitung der linearen Regression befassen. Die Herleitung für andere Modellfunktionen, welche quadratische Terme, noch höhere Terme oder ganz andere Zusammenhänge beinhalten, ist auch deutlich schwieriger.
-# 
+
+# In[1]:
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+# MatplotLib Settings:
+plt.style.use('default') # Matplotlib Style wählen
+plt.figure(figsize=(7,5)) # Plot-Größe
+plt.rcParams['font.size'] = 10; # Schriftgröße
+
+x = [12, 24, 36, 42, 60, 72, 84, 96, 108, 120] # Messwerte der Strecke x in m
+y = [12.2, 17, 22.1, 33.2, 34.4, 59.1, 60.2, 65.7, 69.9, 70.1] # Messwerte der Zeit t in sek.
+x = np.array(x) #konvertiere die Messwerte in ein Numpy-Array
+y = np.array(y) #konvertiere die Messwerte in ein Numpy-Array
+
+plt.plot(x,y, 'o', label = 'Messwerte', ms=6, color="tab:gray")
+plt.xlabel('x')
+plt.ylabel('y')
+plt.legend()
+plt.show()
+
+
 # Unser Ausgangspunkt ist also eine Gerade der Form 
 # 
 # $$f(x) = mx + b$$
@@ -151,163 +181,70 @@
 # > $S_{x}^2 = \frac{1}{N-1}\sum_{i = 1}^N (x_i-\bar x)^2$
 # 
 # Wir sind hier in der verrückten Situation, dass tatsächlich  Mittelwerte für $x$ und $y$ bestimmt werden müssen, obwohl die $x$-Werte absichtlich während der Versuchsreihe verändert werden, sich also die Grössen $x$ und $y$ laufend ändern.
-# 
-# ![Bild](pictures/lin_reg.png)
-
-# Nun sind die Schätzwerte allerdings zusätzlich fehlerbehaftet (wie sollte es auch anders sein). Mithilfe der Gleichung der Größtfehlers/Maximalfehlers kann man zeigen (den Beweis überspringen wir hier), dass für den Fehler von $y$ folgendes gilt:
-# 
-# $$s_y = \sqrt{\frac{1}{N-2}\sum(y_i - mx_i - b)^2 }$$
-# 
-# Die ist auch die Standardabweichung der Einzelmessung aber *nicht* der Fehlerbalken, der im Diagramm als Fehlerbalken eingezeichnet wird. Die Abweichung der Einzelmessung wurde bisher mit $N-1$ definiert, damals hat es sich aber um die Abweichung vom *Mittelwert* gehandelt. Nun betrachten wir die Abweichung zu einem linearen Modell, welches 2 offene Parameter, $m$ und $b$, hat, und somit einen Freiheitsgrad mehr bestitzt. Erst ab 3 Messwertepaaren können also Fehler für Steigung und Achsenabschnitt berechnet werden.
-# Die besten Schätzwerte für die Abweichungen von $m$ und $b$ können nun wiefolgt berechnet werden. Der Fehler der Geradensteigung beträgt:
-# 
-# $$s_m = s_y \cdot \sqrt{\frac{N}{N\cdot \sum x_i^2 - \left(\sum x_i\right)^2}} = s_y \cdot \sqrt{\frac{1}{\sum x_i^2 - N\cdot \bar x^2}} = s_y \cdot \sqrt{\frac{1}{\sum \left(x_i - \bar x \right)^2}} = s_y \cdot \sqrt{\frac{1}{N\cdot (\overline{x^2} - (\overline x)^2)}}$$
-# 
-# Der Fehler des Ordinatenabschnitts beträgt:
-# 
-# $$s_b = s_y \cdot \sqrt{\frac{\sum x_i^2}{N\cdot \sum x_i^2 - \left(\sum x_i\right)^2}} = s_y \cdot \sqrt{\frac{1}{N}\frac{\sum x_i^2}{\sum x_i^2 - N\cdot \bar x^2}} = s_y \cdot \sqrt{\frac{1}{N}\frac{\sum x_i^2}{\sum \left(x_i - \bar x \right)^2}} = s_m \cdot \sqrt{\overline{x^2}}$$
-
-# ## Beispiel: Karussel <a id="Sec-Beispiel"></a>
-# 
-# Wir stellen uns im Folgenden ein Kinderkarussel vor und wir wollen die Geschwindigkeit der Feuerwehrautos ermitteln. Das Auto selbst verfügt über kein Tachometer - es bleibt also eigentlich nur die Möglichkeit, die Zeit eines Umlaufs zu stoppen und aus der Geometrie des Karussells den zurückgelegten Weg zu bestimmen. Daraus lässt sich die Geschwindigkeit leicht berechnen.
-# Wie aber könnte eine Fehlerrechnung aussehen? Wie lässt sich eine Mehrfachmessung anstellen?
-# 
-# Beispielsweise könnte man die Zeit nach jedem Umlauf messen, die näherungsweise konstant sein sollte (bis auf die 1. Runde, wo noch beschleunigt wird). Es könnte sich also ein linearer Zusammenhang zwischen zurückgelegtem Weg und der benötigten Zeit vermuten:
-# 
-# $$y = m\cdot x + b \Rightarrow y - b - m\cdot x = 0$$
-# 
-# Die Konstanten $m$ und $b$ lassen sich nun bestimmen, indem *mindestens* zwei Messungen von $x$ und $y$ vorgenommen werden. Die Messungen dieser Größen werden fehlerbehaftet sein, sodass es zu einer Verfälschung der Konstanten kommt. Durch mehrere Messungen (>2!) von $x$ und $y$ kann der zufällige Fehler auf die Konstanten vermindert und abgeschätzt werden. Zur Vereinfachung nehmen wir allerdings an, dass $x$ fehlerfrei (oder zumindest fehlerarm) ist. Für verschiedene Werte von $x$ ergeben sich dann entsprechende $y$-Werte mit Unsicherheiten. 
-# 
-# Für unser Kinderkarussel bleibt der Messpunkt der Strecke, $x$, laut Annahme unverändert. Dieser ist also sehr genau. Eine Unsicherheit wird bei der Zeitmessung, $y = t$ auftreten. Folgende Messwerte wurden ermittelt:
-# 
-# * Weg  $x$ (m): 12, 24, 36, 42, 60, 72, 84, 96, 108, 120
-# * Zeit $t$ (s): 12.2, 17, 22.1, 33.2, 34.4, 59.1, 60.2, 65.7, 69.9, 70.1
-
-# In[1]:
-
-
-import numpy as np
-import matplotlib.pyplot as plt
-# MatplotLib Settings:
-plt.style.use('default') # Matplotlib Style wählen
-plt.figure(figsize=(7,5)) # Plot-Größe
-plt.rcParams['font.size'] = 10; # Schriftgröße
-
-x = [12, 24, 36, 42, 60, 72, 84, 96, 108, 120] # Messwerte der Strecke x in m
-t = [12.2, 17, 22.1, 33.2, 34.4, 59.1, 60.2, 65.7, 69.9, 70.1] # Messwerte der Zeit t in sek.
-x = np.array(x) #konvertiere die Messwerte in ein Numpy-Array
-t = np.array(t) #konvertiere die Messwerte in ein Numpy-Array
-
-plt.plot(x,t, 'o', label = 'Messwerte')
-plt.xlabel('Strecke x (m)')
-plt.ylabel('Zeit t (s)')
-plt.legend()
-plt.show()
-
-
-# ### Analytische Lineare Regression <a id="SubSec-Analytical_LinReg"></a>
-# 
-# An dem Diagram erkennt man, dass die Parameter $m$ und $b$ niemals fehlerrfrei berechnet werden können. Die gemessenen Punkte werden immer neben der Geraden liegen. Das heißt eine fehlerfreie Berechnung der Parameter aus den Messwerten wird daher nicht möglich sein. Daher können wir wieder nur versuchen beste Schätzungen für $m$ und $b$ zu definieren, die bei einer steigenden Anzahl von Messwerten den *wahren* Werten beliebig nahe kommt. Diese Schätzwerte sind die Regressionskoeffizienten, welche wir bereits eben definiert hatten und wiefolgt berechnen können:
-# 
-# $$ m = \frac{S_{xt}}{S_{x}^2} = \frac{\overline{x\cdot t} - \overline x \cdot \overline t}{\overline{x^2} - (\overline x)^2}$$
-# 
-# $$b = \frac{\sum_{i=1}^N t_i - m \sum_{i=1}^N x_i}{N} = \bar t - m \cdot \bar x$$
 
 # In[2]:
 
 
-m = (np.mean(x*t) - np.mean(x)*np.mean(t))/(np.mean(x**2) - np.mean(x)**2)
-b = np.mean(t) - m * np.mean(x)
+m = (np.mean(x*y) - np.mean(x)*np.mean(y))/(np.mean(x**2) - np.mean(x)**2)
+b = np.mean(y) - m * np.mean(x)
 print('Die Steigung ist \t\t m = %5.4f s/m' %(m))
 print('Der Ordinatenabschnitt ist \t b = %5.4f s' %(b))
 
-plt.plot(x,t, 'o', label = 'Messwerte') # plot Messwerte
-plt.plot(x,m*x+b, label = 'analytische Lin. Reg.: y = %5.3f*x+%5.3f' %(m,b))  # plot Ausgleichsgerade mit m und b
-plt.xlabel('Strecke x (m)')
-plt.ylabel('Zeit t (s)')
+plt.plot(x,y, 'o', label = 'Messwerte', ms=6, color="tab:gray")
+plt.plot(x,m*x+b,lw=3, color="tab:red", label = 'analytische lineare Regression: y = %5.3f*x+%5.3f' %(m,b))  # plot Ausgleichsgerade mit m und b
+plt.xlabel('x')
+plt.ylabel('y')
 plt.legend()
 plt.show()
 
 
-# ### Bestimmung der Geschwindigkeit <a id="SubSec-geschwindigkeit"></a>
+# Nun sind die Schätzwerte allerdings zusätzlich fehlerbehaftet (wie sollte es auch anders sein). Mithilfe der Gleichung der Größtfehlers/Maximalfehlers kann man zeigen (den Beweis überspringen wir hier), dass für den Fehler von $y$ folgendes gilt:
 # 
-# Eigentlich wollten wir ja die Geschwindigkeit der Feuerwehrautos bestimmen.
-# Der Kehrwert der Steigung $m$ liefert uns die Geschwindigkeit des Karussells, wenn wir den Kehrwert berechnen:
+# $$s_y = \sqrt{\frac{1}{N-2}\sum(y_i - mx_i - b)^2 }$$
 
 # In[3]:
 
 
-v = 1/m
-print('Die Geschwindigkeit beträgt: v = %5.4f m/s = %5.4f km/h' %(v, v/1000*3600))
+N = len(y)
+diff_y = 0
+for i in range(N):
+    diff_y += ( y[i] - m * x[i] - b )**2
+
+streuung_y = 1/(N-2)*diff_y
+s_y = np.sqrt(streuung_y)
+print('Die Unsicherheit von y ist \t s_y = %5.4f s' %(s_y))
 
 
-# ### Unsicherheit der Geschwindigkeit <a id="SubSec-u_geschwindigkeit"></a>
+# Die ist auch die Standardabweichung der Einzelmessung aber *nicht* der Fehlerbalken, der im Diagramm als Fehlerbalken eingezeichnet wird. Die Abweichung der Einzelmessung wurde bisher mit $N-1$ definiert, damals hat es sich aber um die Abweichung vom *Mittelwert* gehandelt. Nun betrachten wir die Abweichung zu einem linearen Modell, welches 2 offene Parameter, $m$ und $b$, hat, und somit einen Freiheitsgrad mehr bestitzt. Erst ab 3 Messwertepaaren können also Fehler für Steigung und Achsenabschnitt berechnet werden.
+# Die besten Schätzwerte für die Abweichungen von $m$ und $b$ können nun wiefolgt berechnet werden. Der Fehler der Geradensteigung beträgt:
 # 
-# Wie bereits oben schon erwähnt, hat die Regressionen eine Abweichung. Daher müssen wir uns jetzt fragen, was der Fehler der Geschwindigkeit ist. Diesen bekommen wir aus der Steigiung $m$. Das heißt wir benötigen zuerst den Fehler von $m$: 
-# 
-# $$s_m = s_t \cdot \sqrt{\frac{1}{N\cdot (\overline{x^2} - (\overline x)^2)}} \quad \textrm{mit} \quad s_t = \sqrt{\frac{1}{N-2}\sum(t_i - mx_i - b)^2 }$$
-# 
-# Der Vollständigkeit halber berechnen wir ebenfalls den Fehler für $b$:
-# 
-# $$s_b  = s_m \cdot \sqrt{\overline{x^2}}$$
+# $$s_m = s_y \cdot \sqrt{\frac{N}{N\cdot \sum x_i^2 - \left(\sum x_i\right)^2}} = s_y \cdot \sqrt{\frac{1}{\sum x_i^2 - N\cdot \bar x^2}} = s_y \cdot \sqrt{\frac{1}{\sum \left(x_i - \bar x \right)^2}} = s_y \cdot \sqrt{\frac{1}{N\cdot (\overline{x^2} - (\overline x)^2)}}$$
 
 # In[4]:
 
 
-N = len(t)
-diff_t = 0
-for i in range(N):
-    diff_t += ( t[i] - m * x[i] - b )**2
-
-streuung_t = 1/(N-2)*diff_t
-s_t = np.sqrt(streuung_t)
 s_m = s_t * np.sqrt(1 / (N*(np.mean(x**2) - np.mean(x)**2)))
-s_b = s_m * np.sqrt(np.mean(x**2))
-
-print('Die Unsicherheit von t ist \t s_t = %5.4f s' %(s_t))
 print('Die Unsicherheit von m ist \t s_m = %5.4f s/m' %(s_m))
+
+
+# Der Fehler des Ordinatenabschnitts beträgt:
+# 
+# $$s_b = s_y \cdot \sqrt{\frac{\sum x_i^2}{N\cdot \sum x_i^2 - \left(\sum x_i\right)^2}} = s_y \cdot \sqrt{\frac{1}{N}\frac{\sum x_i^2}{\sum x_i^2 - N\cdot \bar x^2}} = s_y \cdot \sqrt{\frac{1}{N}\frac{\sum x_i^2}{\sum \left(x_i - \bar x \right)^2}} = s_m \cdot \sqrt{\overline{x^2}}$$
+
+# In[ ]:
+
+
+s_b = s_m * np.sqrt(np.mean(x**2))
 print('Die Unsicherheit von b ist \t s_b = %5.4f s' %(s_b))
-
-
-# Nun interessiert uns  der absolute Fehler der geschätzen Geschwindigkeit. Da die Geschwindigkeit der Kehrwert der Steigung ist ($v = \frac{1}{m}$), müssen wir Fehlerfortpflanzung anwenden. Der Fehler wirkt sich wiefolgt auf den Kehrwert aus: 
-# 
-# $$\Delta v = \left|\frac{\partial v}{\partial m}\right|\cdot \Delta m = \left| -\frac{1}{m^2} \right| \cdot s_m = \frac{1}{m^2} \cdot s_m = s_v$$
-# 
-# Da beide Methoden die gleichen Werte für Schätzungen und Unsicherheiten ausgeben, ersparen wir uns ab nun die Berechnung der Geschwindigkeit inkl. Unsicherheit für beide Methoden. Die Fehlerrechnung wird nur noch für die analytische Methode ausgeführt:
-
-# In[5]:
-
-
-s_v = 1/m**2 * s_m
-print('Die Unsicherheit von v ist \t s_v = %5.4f m/s' %(s_v))
-
-
-# Das Messergebnis kann also wiefolgt angegeben werden:
-#     
-# $$v = (1,6484 \pm 0,1452)\,\mathrm{m/s}$$    
-# 
-# **Ist diese Angabe sinnvoll?** Wenn wir das so konkret fragen, dann vermutlich nicht...
-# Wenn der Fehler bereits in der ersten Stelle nach dem Komma signifikant bemerkbar den Schätzwert beeinflusst, warum sollte man sich dann die Mühe machen noch weitere Nachkommastellen hinzuschreiben? Also **sinnvoll runden**:
-# 
-# $$v = (1,6 \pm 0,2)\,\mathrm{m/s}$$    
-# 
-# Warum 0,2 und nicht 0,1? **Fehler werden immer aufgerundet!**
-# 
-# Nun könnte noch der relative Fehler $\Delta v/v$ berechnet werden.
-
-# In[6]:
-
-
-print('Die relative Unsicherheit von v ist \t s_v = %5.4f Prozent' %(s_v/v*100))
 
 
 # ### Korrelationskoeffizient <a id="SubSec-Korrelationskoeffizient"></a>
 # 
-# Der Korrelationskoeffizient kann wiefolgt berechnet werden:
+# Für lineare Zusammenhänge ist es häufig sinnvoll den Korrelationskoeffizient zu berechnen (siehe auch [hier](sec_korrelation_kovarianz)):
 #     
 # $$r = \frac{\overline{x\cdot t} - \overline x \cdot \overline t}{\sqrt{\overline{x^2} - (\overline x)^2} \cdot {\sqrt{\overline{t^2} - (\overline t)^2}}} $$    
 
-# In[7]:
+# In[21]:
 
 
 # Analytische Methode:

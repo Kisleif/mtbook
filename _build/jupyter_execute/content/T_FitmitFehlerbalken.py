@@ -4,11 +4,6 @@
 # # Lineare Regression mit Berücksichtigung von Fehlerbalken
 # 
 # Gegeben sei eine Messreihe von 10 Messwerten mit annäherend konstanten Verhalten. In diesem sollen nun Kurvenanpassungen vorgenommen werden, unter Berücksichtung von Fehlerbalken. Folgende Messdaten inkl. Unsicherheiten wurden aufgenommen. Die Unsicherheit der $x$-Achse vernachlässen wir hier der Einfachheit halber.
-# 
-# Wir werden dieses Beispiel für 3 Fälle durchrechnen:
-# * 1. Fall: Jeder Messwert hat einen anderen Fehler: $s_y$ hat unterschiedliche Einträge
-# * 2. Fall: Jeder Messwert hat den gleichen Fehler: $s_y = s_i = 1.0$
-# * 3. Fall: Die Messwerte haben keinen Fehler: $s_y = s_i = 0.0$
 
 # In[1]:
 

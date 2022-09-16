@@ -298,12 +298,17 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="T_Plotten.html">
-     Klimadaten analysieren mit Python
+     Klimadatei (.csv) einlesen und analysieren
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="T_LinRegmitFehler.html">
-     Lineare Regression mit Fehlerrechnung
+    <a class="reference internal" href="T_Fehlerfortpflanzung.html">
+     Fehlerfortpflanzung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="T_LinReg.html">
+     Vergleich verschiedener Fit-Funktionen
     </a>
    </li>
    <li class="toctree-l2">
@@ -590,8 +595,10 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#korrelation-und-kovarianz-matrix">
+    <a class="reference internal nav-link" href="#korrelation-und-kovarianz-matrix-a-id-sec-korrelation-kovarianz-a">
      Korrelation und Kovarianz-Matrix
+     <a id="sec_korrelation_kovarianz">
+     </a>
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -656,8 +663,10 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#korrelation-und-kovarianz-matrix">
+    <a class="reference internal nav-link" href="#korrelation-und-kovarianz-matrix-a-id-sec-korrelation-kovarianz-a">
      Korrelation und Kovarianz-Matrix
+     <a id="sec_korrelation_kovarianz">
+     </a>
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -677,7 +686,20 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="cell tag_hide-input tag_hide-output docutils container">
+  <section class="tex2jax_ignore mathjax_ignore" id="fortpflanzung-von-messunsicherheiten">
+<h1>Fortpflanzung von Messunsicherheiten<a class="headerlink" href="#fortpflanzung-von-messunsicherheiten" title="Permalink to this headline">#</a></h1>
+<p>In der Messtechnik gibt es zwei Möglichkeiten eines Messprinzips:</p>
+<ul class="simple">
+<li><p>Das <strong>direkte Messverfahren</strong>: der gesuchte Messwert wird unmittelbar durch den Vergleich mit einem Bezugswert derselben Messgröße gewonnen. Als Beispiel eignet sich hier die Balkenwaage, die die unbekannte Masse <span class="math notranslate nohighlight">\(m\)</span> mit der bekannten Masse eines Gewichtssteins vergleicht.</p></li>
+<li><p>Das <strong>indirekt Messerverfahren</strong>: Die meisten physikalischen Größen werden so ermittelt, da sie nur indirekt ermittelt werden können. Die gesuchte Messgröße wird hierbei über physikalische Zusammenhänge auf andere Größen zurückgeführt und anschließend aus diesen ermittelt. Die Federwaage ist ein Beispiel hierfür, bei der eine unbekannte Masse <span class="math notranslate nohighlight">\(m\)</span> über die Auslenkung <span class="math notranslate nohighlight">\(x\)</span> einer Feder (Federkonstante <span class="math notranslate nohighlight">\(k\)</span>) ermittelt werden soll. Gravitationskraft wird der Rückstellkraft der Feder gleichgesetzt und man erhält folgenden Zusammenhang, wobei <span class="math notranslate nohighlight">\(g\)</span> die Schwerebeschleunigung ist.</p></li>
+</ul>
+<p><img alt="Bild" src="../_images/direkt_indirekt.png" /></p>
+<p>Durch dieses Beispiel wird klar, dass Messgrößen <span class="math notranslate nohighlight">\(y\)</span> oft nicht direkt ermittelt werden, sondern über funktionelle Zusammenhänge von <span class="math notranslate nohighlight">\(n\)</span> Messgrößen <span class="math notranslate nohighlight">\(x_i\)</span> bestimmt werden:</p>
+<div class="math notranslate nohighlight">
+\[ y = f(x_1, x_2, ...,x_n)\]</div>
+<p><strong>Achtung</strong>, bei <span class="math notranslate nohighlight">\(x_i\)</span> handelt es sich nicht um Stichprobengrößen <span class="math notranslate nohighlight">\(x_j\)</span>, sondern um  Messungen <em>unterschiedlicher</em> physikalischer Messgrößen, beispielsweise Federkonstante <span class="math notranslate nohighlight">\(k\)</span> und Auslenkung <span class="math notranslate nohighlight">\(x\)</span>).</p>
+<p>Wie wirken sich Messunsicherheiten der Messgrößen <span class="math notranslate nohighlight">\(x_i\)</span> auf das Ergebnis <span class="math notranslate nohighlight">\(y\)</span> aus? Im folgenden Plot ist ersichtlich, dass eine Abweichung der Größe <span class="math notranslate nohighlight">\(x\)</span> zwangsläufig eine Abweichung der Größe <span class="math notranslate nohighlight">\(y\)</span> zur Folge hat:</p>
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Benötigte Libraries:</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -697,49 +719,8 @@ title="Print to PDF"
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Setup Complete&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><script type="text/javascript">
-window.PlotlyConfig = {MathJaxConfig: 'local'};
-if (window.MathJax) {MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
-if (typeof require !== 'undefined') {
-require.undef("plotly");
-requirejs.config({
-    paths: {
-        'plotly': ['https://cdn.plot.ly/plotly-2.9.0.min']
-    }
-});
-require(['plotly'], function(Plotly) {
-    window._Plotly = Plotly;
-});
-}
-</script>
-</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Setup Complete
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1000x500 with 0 Axes&gt;
-</pre></div>
-</div>
-</div>
-</div>
-<section class="tex2jax_ignore mathjax_ignore" id="fortpflanzung-von-messunsicherheiten">
-<h1>Fortpflanzung von Messunsicherheiten<a class="headerlink" href="#fortpflanzung-von-messunsicherheiten" title="Permalink to this headline">#</a></h1>
-<p>In der Messtechnik gibt es zwei Möglichkeiten eines Messprinzips:</p>
-<ul class="simple">
-<li><p>Das <strong>direkte Messverfahren</strong>: der gesuchte Messwert wird unmittelbar durch den Vergleich mit einem Bezugswert derselben Messgröße gewonnen. Als Beispiel eignet sich hier die Balkenwaage, die die unbekannte Masse <span class="math notranslate nohighlight">\(m\)</span> mit der bekannten Masse eines Gewichtssteins vergleicht.</p></li>
-<li><p>Das <strong>indirekt Messerverfahren</strong>: Die meisten physikalischen Größen werden so ermittelt, da sie nur indirekt ermittelt werden können. Die gesuchte Messgröße wird hierbei über physikalische Zusammenhänge auf andere Größen zurückgeführt und anschließend aus diesen ermittelt. Die Federwaage ist ein Beispiel hierfür, bei der eine unbekannte Masse <span class="math notranslate nohighlight">\(m\)</span> über die Auslenkung <span class="math notranslate nohighlight">\(x\)</span> einer Feder (Federkonstante <span class="math notranslate nohighlight">\(k\)</span>) ermittelt werden soll. Gravitationskraft wird der Rückstellkraft der Feder gleichgesetzt und man erhält folgenden Zusammenhang, wobei <span class="math notranslate nohighlight">\(g\)</span> die Schwerebeschleunigung ist.</p></li>
-</ul>
-<p><img alt="Bild" src="../_images/direkt_indirekt.png" /></p>
-<p>Durch dieses Beispiel wird klar, dass Messgrößen <span class="math notranslate nohighlight">\(y\)</span> oft nicht direkt ermittelt werden, sondern über funktionelle Zusammenhänge von <span class="math notranslate nohighlight">\(n\)</span> Messgrößen <span class="math notranslate nohighlight">\(x_i\)</span> bestimmt werden:</p>
-<div class="math notranslate nohighlight">
-\[ y = f(x_1, x_2, ...,x_n)\]</div>
-<p><strong>Achtung</strong>, bei <span class="math notranslate nohighlight">\(x_i\)</span> handelt es sich nicht um Stichprobengrößen <span class="math notranslate nohighlight">\(x_j\)</span>, sondern um  Messungen <em>unterschiedlicher</em> physikalischer Messgrößen, beispielsweise Federkonstante <span class="math notranslate nohighlight">\(k\)</span> und Auslenkung <span class="math notranslate nohighlight">\(x\)</span>).</p>
-<p>Wie wirken sich Messunsicherheiten der Messgrößen <span class="math notranslate nohighlight">\(x_i\)</span> auf das Ergebnis <span class="math notranslate nohighlight">\(y\)</span> aus? Im folgenden Plot ist ersichtlich, dass eine Abweichung der Größe <span class="math notranslate nohighlight">\(x\)</span> zwangsläufig eine Abweichung der Größe <span class="math notranslate nohighlight">\(y\)</span> zur Folge hat:</p>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">link</span> <span class="o">=</span> <span class="s1">&#39;data/graph.csv&#39;</span> <span class="c1"># Beispieldatei mit Klimadaten</span>
+
+<span class="n">link</span> <span class="o">=</span> <span class="s1">&#39;data/graph.csv&#39;</span> <span class="c1"># Beispieldatei mit Klimadaten</span>
 <span class="n">global_mean</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">link</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># Daten einlesen</span>
 <span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;uncertainty&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.25</span> <span class="c1">#Messunsicherheiten abschätzen, hier 0.25K Temperaturgenauigkeit angenommen</span>
 
@@ -782,7 +763,25 @@ require(['plotly'], function(Plotly) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1_Fehlerfortpflanzung_3_0.png" src="../_images/1_Fehlerfortpflanzung_3_0.png" />
+<div class="output text_html"><script type="text/javascript">
+window.PlotlyConfig = {MathJaxConfig: 'local'};
+if (window.MathJax) {MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+if (typeof require !== 'undefined') {
+require.undef("plotly");
+requirejs.config({
+    paths: {
+        'plotly': ['https://cdn.plot.ly/plotly-2.9.0.min']
+    }
+});
+require(['plotly'], function(Plotly) {
+    window._Plotly = Plotly;
+});
+}
+</script>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Setup Complete
+</pre></div>
+</div>
+<img alt="../_images/1_Fehlerfortpflanzung_2_2.png" src="../_images/1_Fehlerfortpflanzung_2_2.png" />
 </div>
 </div>
 <p>Das Intervall <span class="math notranslate nohighlight">\(\pm \Delta x = 20\)</span> im obigen Plot um 1980 drum herum wird durch <em>irgendeinen</em> funktionellen Zusammenhang <span class="math notranslate nohighlight">\(f(x)\)</span> auf das Intervall <span class="math notranslate nohighlight">\(\Delta y\)</span> abgebildet. Durch den Messwert <span class="math notranslate nohighlight">\(x_0 = 1980\)</span> kann eine lineare Ausgleichsgerade gezogen werden, deren Steigung der Ableitung der Funktion in diesem Punkt entspricht, <span class="math notranslate nohighlight">\(df(x_0)/dx\)</span>. Anhand der Steigung der linearen Ausgleichsgeraden kann man den Fehler für <span class="math notranslate nohighlight">\(y\)</span> direkt ablesen: <span class="math notranslate nohighlight">\(\Delta y \approx 0,375\)</span>. Man sieht jedoch in der Abbildung auch, dass diese Abschätzung umso schlechter wird, je größer <span class="math notranslate nohighlight">\(\Delta x\)</span> ist. Je nach Funktionstyp müssen also auch höhere Ableitungen berücksichtigt werden (<em>Taylorentwicklung</em> von <span class="math notranslate nohighlight">\(f(x)\)</span>).</p>
@@ -896,8 +895,8 @@ $<span class="math notranslate nohighlight">\(\Rightarrow \quad \Delta y = \frac
 </section>
 <section id="zufallige-abhangige-korrelierte-variablen-a-id-subsec-fehlerfortpflanzung-bei-korrelierten-unsicherheiten-a">
 <h2>Zufällige, abhängige (korrelierte) Variablen <a id="SubSec-Fehlerfortpflanzung_bei_korrelierten_Unsicherheiten"></a><a class="headerlink" href="#zufallige-abhangige-korrelierte-variablen-a-id-subsec-fehlerfortpflanzung-bei-korrelierten-unsicherheiten-a" title="Permalink to this headline">#</a></h2>
-<section id="korrelation-und-kovarianz-matrix">
-<span id="sec-korr-cov"></span><h3>Korrelation und Kovarianz-Matrix<a class="headerlink" href="#korrelation-und-kovarianz-matrix" title="Permalink to this headline">#</a></h3>
+<section id="korrelation-und-kovarianz-matrix-a-id-sec-korrelation-kovarianz-a">
+<h3>Korrelation und Kovarianz-Matrix <a id="sec_korrelation_kovarianz"></a><a class="headerlink" href="#korrelation-und-kovarianz-matrix-a-id-sec-korrelation-kovarianz-a" title="Permalink to this headline">#</a></h3>
 <p>Häufig liegt in der Messtechnik der Fall vor, dass wir voneinander unabhängige Messungen betrachten und diese zu unserer gesuchten Messgröße kombinieren. Teilweise können aber auch Messungen beobachtet werden, welche eine Abhängigkeit voneinander aufweisen. In diesem Fall spricht man von <strong>Korrelationen</strong> zwischen Messgrößen und ein <em>Kovarianz-Term</em> muss berücksichtigt werden!</p>
 <ul class="simple">
 <li><p>Bei <strong>unabhängigen (nicht-korrelierten)</strong> Messungen wird der Kovarianz-Term auf Null gesetzt:</p></li>
@@ -1007,7 +1006,7 @@ unabhängigen und gemeinsamen Fehlern.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1_Fehlerfortpflanzung_10_0.png" src="../_images/1_Fehlerfortpflanzung_10_0.png" />
+<img alt="../_images/1_Fehlerfortpflanzung_9_0.png" src="../_images/1_Fehlerfortpflanzung_9_0.png" />
 </div>
 </div>
 </section>

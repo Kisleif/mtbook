@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Klimadaten analysieren mit Python
+# # Klimadatei (.csv) einlesen und analysieren
 # 
 # Zunächst werden die für dieses Jupyter Notebook benötigten Libraries geladen:
 
@@ -27,7 +27,7 @@ plt.figure(figsize=(10,5)) # Plot-Größe
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 
-# ## Daten einlesen als 'DataFrame'
+# ## .csv-Datei als *DataFrame* einlesen
 # 
 # Im Folgenden Nutzen wir globale Klimadaten, die auf der Webseite der NASA zu finden sind: https://data.giss.nasa.gov/gistemp/. Hierbei handelt es sich um Temperaturdaten, die Anomalien gegenüber dem Mittelwert in den Jahren 1951-1980 aufweisen.
 # Es werden Daten von Dateien (online oder offline) eingelesen mit der Python Bilbiothek `pandas`. Die Daten werden in sogenannten *DataFrames* hier mit dem Namen `global_mean` abgespeichert. 

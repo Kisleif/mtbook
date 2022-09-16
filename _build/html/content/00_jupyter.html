@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Über dieses Vorlesungsskript &#8212; Metrology Lecture Book</title>
+    <title>Python im Lecture Book &#8212; Metrology Lecture Book</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -53,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Daten analysieren und präsentieren" href="1_Datenanalyse.html" />
+    <link rel="next" title="Grundlagen der Messtechnik" href="0_Basics.html" />
     <link rel="prev" title="Welcome" href="../intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -117,7 +117,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Über dieses Vorlesungsskript
+   Python im Lecture Book
   </a>
  </li>
 </ul>
@@ -127,6 +127,11 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0_Basics.html">
+   Grundlagen der Messtechnik
+  </a>
+ </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="1_Datenanalyse.html">
    Daten analysieren und präsentieren
@@ -143,18 +148,13 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="0_Basics.html">
-     Grundlagen der Messtechnik
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="1_Messunsicherheiten.html">
      Quellen und Ursachen von Messunsicherheiten
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="1_Mittelwert_StdAbw.html">
-     Mittelwert und Standardabweichung
+     Statistische Größen
     </a>
    </li>
    <li class="toctree-l2">
@@ -285,8 +285,8 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="1_Tutorials.html">
-   Übung mit Jupyter Notebooks
+  <a class="reference internal" href="T_Tutorials.html">
+   Jupyter Notebooks
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
@@ -295,8 +295,18 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="1_APy_Plotten.html">
+    <a class="reference internal" href="T_Plotten.html">
      Klimadaten analysieren mit Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="T_LinRegmitFehler.html">
+     Lineare Regression mit Fehlerrechnung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="T_FitmitFehlerbalken.html">
+     Lineare Regression mit Berücksichtigung von Fehlerbalken
     </a>
    </li>
   </ul>
@@ -392,24 +402,6 @@ title="Launch on Colab"
   </span>
 <span class="headerbtn__text-container">Colab</span>
 </a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="initThebeSBT()"
-  class="headerbtn headerbtn-launch-thebe"
-  data-toggle="tooltip"
-data-placement="left"
-title="Launch Thebe"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-play"></i>
-  </span>
-<span class="headerbtn__text-container">Live Code</span>
-</button>
 
       </li>
       
@@ -561,13 +553,28 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#quick-introduction-to-jupyter-notebook">
-   Quick introduction to Jupyter Notebook
+  <a class="reference internal nav-link" href="#vorlesungsinhalte">
+   Vorlesungsinhalte
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#einfuhrung-in-python">
-   Einführung in Python
+  <a class="reference internal nav-link" href="#praktikum">
+   Praktikum
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tutorials">
+   Tutorials
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#programmieren-mit-python">
+   Programmieren mit Python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#quick-introduction-to-jupyter-notebook">
+   Quick introduction to Jupyter Notebook
   </a>
  </li>
 </ul>
@@ -579,7 +586,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Über dieses Vorlesungsskript</h1>
+                <h1>Python im Lecture Book</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -590,13 +597,28 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#quick-introduction-to-jupyter-notebook">
-   Quick introduction to Jupyter Notebook
+  <a class="reference internal nav-link" href="#vorlesungsinhalte">
+   Vorlesungsinhalte
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#einfuhrung-in-python">
-   Einführung in Python
+  <a class="reference internal nav-link" href="#praktikum">
+   Praktikum
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tutorials">
+   Tutorials
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#programmieren-mit-python">
+   Programmieren mit Python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#quick-introduction-to-jupyter-notebook">
+   Quick introduction to Jupyter Notebook
   </a>
  </li>
 </ul>
@@ -609,22 +631,73 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="uber-dieses-vorlesungsskript">
-<h1>Über dieses Vorlesungsskript<a class="headerlink" href="#uber-dieses-vorlesungsskript" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="python-im-lecture-book">
+<h1>Python im Lecture Book<a class="headerlink" href="#python-im-lecture-book" title="Permalink to this headline">#</a></h1>
+<p>Das <em>Metrology Lecture Book</em> ist eine Mischung aus Vorlesungsskript, Praktikumshinweisen und Tutorials als Jupyter-Notebooks. Es handelt sich hierbei um ein Jupyter-Book was es ermöglicht <code class="docutils literal notranslate"><span class="pre">Python</span></code>-Code direkt einzubinden.</p>
+<section id="vorlesungsinhalte">
+<h2>Vorlesungsinhalte<a class="headerlink" href="#vorlesungsinhalte" title="Permalink to this headline">#</a></h2>
+<p>Um dem <strong>Vorlesungsskript</strong> zu folgen sind <strong>keine Python-Kenntnisse erforderlich</strong>.</p>
+<ul class="simple">
+<li><p>Den <strong>Code</strong> zu den Berechnungen und Plots sind meist versteckt und können über einen Klick auf dein <em>Pfeil</em> angezeigt werden.</p></li>
+<li><p><strong>Anmerkungen, Textmarker und Vorlesungsnotizen</strong> könnt ihr direkt auf der Seite machen (oben ganz rechter Seitenrand). Hierfür müsst ihr euch unter <a class="reference external" href="https://hypothes.is/">https://hypothes.is/</a> registrieren. Möchtet ihr die Notizen mit mir oder der Jahrgangs-Gruppe teilen, dann müsst ihr der entsprechenden Hypothes-Gruppe beitreten. Dadurch könnt ihr direkt Fragen zum Skript stellen (und Antworten bekommen) oder auf Fehler hinweisen. Den Link für eure Jahrgangsgruppe findet ihr im <a class="reference external" href="https://ilias.hsu-hh.de/ilias.php?ref_id=429366&amp;cmdClass=ilrepositorygui&amp;cmdNode=zm&amp;baseClass=ilrepositorygui">ILIAS</a>.</p></li>
+</ul>
+</section>
+<section id="praktikum">
+<h2>Praktikum<a class="headerlink" href="#praktikum" title="Permalink to this headline">#</a></h2>
+<p>Für das <strong>Praktikum</strong> müsst ihr <a class="reference internal" href="1_Datenanalyse.html"><span class="doc std std-doc">Daten aufnehmen, auswerten und grafisch darstellen</span></a>. Hierfür könnt ihr ein Programm eurer Wahl nehmen, wie z.B.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://de.mathworks.com/products/matlab.html">Matlab</a> (Lizenzen sind über die HSU erhältlich)</p></li>
+<li><p><a class="reference external" href="https://www.python.org">Python</a>, frei-erhältlich und die <a class="reference internal" href="T_Tutorials.html"><span class="doc std std-doc">Tutorials</span></a> im <em>Lecture Book</em> nutzen Python (<a class="reference external" href="https://docs.jupyter.org/en/latest/">Jupyter-Notebooks</a>).</p></li>
+<li><p><a class="reference external" href="https://qtiplot.com">QtiPlot</a>, freil erhältlich</p></li>
+<li><p>Von einer Datenanalyse in Excel rate ich ab.</p></li>
+</ul>
+</section>
+<section id="tutorials">
+<h2>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this headline">#</a></h2>
+<p>Die Tutorials sind freiwillig. Hiermit lernt ihr aber nicht nur die Auswertung und Darstellung von Messdaten, sondern gleichzeitig auch die Programmiersprache <code class="docutils literal notranslate"><span class="pre">Python</span></code>.</p>
+</section>
+<section id="programmieren-mit-python">
+<h2>Programmieren mit Python<a class="headerlink" href="#programmieren-mit-python" title="Permalink to this headline">#</a></h2>
+<p>Es gibt zahlreiche Tutorials und Lernseiten über Python im Internet, womit ihr Python-Programmierung schnell und einfach lernen könnt. Für die Tutorials benötigt ihr folgende Grundkenntnisse, bzw. lernt sie innerhalb der Tutorials:</p>
+<ul class="simple">
+<li><p><strong>Basics:</strong> Schleifen, Funktionen, Listen, Tuples, Sets, Dictionaries</p></li>
+<li><p><strong>Algebra:</strong> <a class="reference external" href="https://numpy.org">numpy</a>, <a class="reference external" href="https://scipy.org">scipy</a></p>
+<ul>
+<li><p><strong>Fit/Modellanpassungen:</strong> <a class="reference external" href="https://pypi.org/project/lmfit/">lmfit</a>, <a class="reference external" href="https://scipy.org">scipy</a> (z.B. curve_fit), <a class="reference external" href="https://numpy.org">numpy</a> (z.B. polyfit)</p></li>
+</ul>
+</li>
+<li><p><strong>Datenverarbeitung:</strong> <a class="reference external" href="https://pandas.pydata.org">pandas</a> (z.B. DataFrames)</p></li>
+<li><p><strong>Datenvisualisierung:</strong> <a class="reference external" href="https://matplotlib.org">matplotlib</a></p></li>
+</ul>
+<p>Die einfachste Möglichkeit mit der Python Programmierung zu starten ist das ausführen von Jupyter-Notebooks.</p>
+</section>
 <section id="quick-introduction-to-jupyter-notebook">
 <h2>Quick introduction to Jupyter Notebook<a class="headerlink" href="#quick-introduction-to-jupyter-notebook" title="Permalink to this headline">#</a></h2>
+<p>Es gibt verschiedene Möglichkeiten Jupyter-Notebooks auszuführen.</p>
+<ul class="simple">
+<li><p><strong>Ohne Installation: Code direkt im Browser ausprobieren:</strong></p>
+<ul>
+<li><p><strong>Jupyter-Lab</strong> sofort ausprobieren: <a class="reference external" href="https://jupyter.org/try-jupyter/lab/">https://jupyter.org/try-jupyter/lab/</a>. Um einzelne <em>Zellen</em> auszuführen macht einen <em>Doppelklick</em> in den Abschnitt und führt diesen mit <code class="docutils literal notranslate"><span class="pre">Shift+Enter</span></code> aus.</p></li>
+<li><p><strong>Jupyter-Notebooks</strong> sofort ausprobieren: <a class="reference external" href="https://jupyter.org/try-jupyter/retro/notebooks/?path=notebooks/Intro.ipynb">https://jupyter.org/try-jupyter/retro/notebooks/?path=notebooks/Intro.ipynb</a>. Um einzelne <em>Zellen</em> auszuführen macht einen <em>Doppelklick</em> in den Abschnitt und führt diesen mit <code class="docutils literal notranslate"><span class="pre">Shift+Enter</span></code> aus.</p></li>
+<li><p><strong>Tutorials</strong> im <em>Lecture Book</em> sofort ausprobieren: klickt oben auf die <em>Rakete</em> und dann auf <code class="docutils literal notranslate"><span class="pre">Colab</span></code>. Diese ist eine weitere interaktive Umgebung, in der das Jupyter-Notebook gestartet wird. Die <em>Rakete</em> erscheint nur auf den Seiten, die als Jupyter-Notebook hinterlegt sind.</p></li>
+</ul>
+</li>
+<li><p><strong>Installation auf dem Rechner:</strong></p>
+<ul>
+<li><p>ich empfehle die Installation von Python/Jupyter-Notebooks/Jupyter-Lab über <a class="reference external" href="https://www.anaconda.com/products/distribution">Anaconda</a></p></li>
+<li><p>außerdem gibt es neuerdings eine Desktop-Version von <a class="reference external" href="https://pypi.org/project/jupyterlab/">Jupyter-Lab</a>, die es erlaubt <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> Dateien ganz einfach per Doppelklick aus eurem lokalen Datei-System zu öffnen.</p></li>
+</ul>
+</li>
+</ul>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/jZ952vChhuI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></section>
-<section id="einfuhrung-in-python">
-<h2>Einführung in Python<a class="headerlink" href="#einfuhrung-in-python" title="Permalink to this headline">#</a></h2>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
         binderOptions: {
-            repo: "Kisleif/mtbook",
-            ref: "main",
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
         },
         codeMirrorConfig: {
             theme: "abcdef",
@@ -653,10 +726,10 @@ title="Print to PDF"
             <p class="prev-next-title">Welcome</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="1_Datenanalyse.html" title="next page">
+    <a class='right-next' id="next-link" href="0_Basics.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Daten analysieren und präsentieren</p>
+        <p class="prev-next-title">Grundlagen der Messtechnik</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

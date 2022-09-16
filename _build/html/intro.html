@@ -53,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Über dieses Vorlesungsskript" href="content/00_jupyter.html" />
+    <link rel="next" title="Python im Lecture Book" href="content/00_jupyter.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -116,7 +116,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="content/00_jupyter.html">
-   Über dieses Vorlesungsskript
+   Python im Lecture Book
   </a>
  </li>
 </ul>
@@ -126,6 +126,11 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/0_Basics.html">
+   Grundlagen der Messtechnik
+  </a>
+ </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="content/1_Datenanalyse.html">
    Daten analysieren und präsentieren
@@ -142,18 +147,13 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="content/0_Basics.html">
-     Grundlagen der Messtechnik
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="content/1_Messunsicherheiten.html">
      Quellen und Ursachen von Messunsicherheiten
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="content/1_Mittelwert_StdAbw.html">
-     Mittelwert und Standardabweichung
+     Statistische Größen
     </a>
    </li>
    <li class="toctree-l2">
@@ -284,8 +284,8 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="content/1_Tutorials.html">
-   Übung mit Jupyter Notebooks
+  <a class="reference internal" href="content/T_Tutorials.html">
+   Jupyter Notebooks
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
@@ -294,8 +294,18 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="content/1_APy_Plotten.html">
+    <a class="reference internal" href="content/T_Plotten.html">
      Klimadaten analysieren mit Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="content/T_LinRegmitFehler.html">
+     Lineare Regression mit Fehlerrechnung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="content/T_FitmitFehlerbalken.html">
+     Lineare Regression mit Berücksichtigung von Fehlerbalken
     </a>
    </li>
   </ul>
@@ -545,9 +555,15 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="welcome">
 <h1>Welcome<a class="headerlink" href="#welcome" title="Permalink to this headline">#</a></h1>
-<p>Willkommen zur Vorlesung Messtechnik an der HSU. Auf den folgenden Seiten findet ihr begleitende Informationen zur Vorlesung, Übung und zum Praktikum.
-Dieses Jupyter-Book befindet sich aktuell im Aufbau und soll später als Vorlesungsskript mit interaktiven Beispielen dienen.
-Aktuell könnt ihr euch noch nicht auf Vollständigkeit verlassen. Folgende Funktionen stehen euch aber schon zur Verfügung um das Lernmaterial anzusehen, herunterzuladen, zu testen und zu kommentieren.</p>
+<p>Willkommen zur Vorlesung Messtechnik an der HSU. Auf den folgenden Seiten findet ihr begleitende Informationen zur Vorlesung und zum Praktikum.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Dieses <em>Metrology Lecture Book</em> befindet sich aktuell im Aufbau und ihr könnt euch noch nicht auf Vollständigkeit verlassen.</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Weitere Infos zum <a class="reference internal" href="content/00_jupyter.html"><span class="doc std std-doc"><em>Lecture Book</em></span></a>.</p>
+</div>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 text-center docutils">
 <div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-3 sd-g-3 sd-g-xs-3 sd-g-sm-3 sd-g-md-3 sd-g-lg-3 docutils">
 <div class="sd-col sd-d-flex-row docutils">
@@ -578,7 +594,7 @@ Aktuell könnt ihr euch noch nicht auf Vollständigkeit verlassen. Folgende Funk
 <div class="sd-card-body docutils">
 <p class="sd-card-text">Übungen zur Messtechnik mit Jupyter-Notebooks.</p>
 </div>
-<a class="sd-stretched-link reference internal" href="content/1_Tutorials.html"><span class="doc"></span></a></div>
+<a class="sd-stretched-link reference internal" href="content/T_Tutorials.html"><span class="doc"></span></a></div>
 </div>
 </div>
 </div>
@@ -592,7 +608,7 @@ Aktuell könnt ihr euch noch nicht auf Vollständigkeit verlassen. Folgende Funk
 <p class="sd-card-text"><strong>Messen, Einheiten</strong></p>
 </div>
 <div class="sd-card-body docutils">
-<a class="reference internal image-reference" href="_images/SI.png"><img alt="_images/SI.png" src="_images/SI.png" style="height: 120px;" /></a>
+<a class="reference internal image-reference" href="_images/SI1.png"><img alt="_images/SI1.png" src="_images/SI1.png" style="height: 120px;" /></a>
 <p class="sd-card-text">SI-Einheiten, Nicht-SI, Kalibrieren, Eichen, Prüfen</p>
 </div>
 <a class="sd-stretched-link reference internal" href="content/0_Basics.html"><span class="doc"></span></a></div>
@@ -603,7 +619,7 @@ Aktuell könnt ihr euch noch nicht auf Vollständigkeit verlassen. Folgende Funk
 <p class="sd-card-text"><strong>Messunsicherheiten</strong></p>
 </div>
 <div class="sd-card-body docutils">
-<a class="reference internal image-reference" href="_images/tab_norm_grenzen.png"><img alt="_images/tab_norm_grenzen.png" src="_images/tab_norm_grenzen.png" style="height: 120px;" /></a>
+<a class="reference internal image-reference" href="_images/abweichung.png"><img alt="_images/abweichung.png" src="_images/abweichung.png" style="height: 120px;" /></a>
 <p class="sd-card-text">Systematisch, zufällig, Vertrauensintervall, Normalverteilung, Fehlerfortpflanzung</p>
 </div>
 <a class="sd-stretched-link reference internal" href="content/1_Messunsicherheiten.html"><span class="doc"></span></a></div>
@@ -614,7 +630,7 @@ Aktuell könnt ihr euch noch nicht auf Vollständigkeit verlassen. Folgende Funk
 <p class="sd-card-text"><strong>Kurvenanpassung</strong></p>
 </div>
 <div class="sd-card-body docutils">
-<a class="reference internal image-reference" href="_images/kleinste_quadrate.png"><img alt="_images/kleinste_quadrate.png" src="_images/kleinste_quadrate.png" style="height: 120px;" /></a>
+<a class="reference internal image-reference" href="_images/regression.png"><img alt="_images/regression.png" src="_images/regression.png" style="height: 120px;" /></a>
 <p class="sd-card-text">Regression, Fit, Korrelation, Kovarianz, Least-Squares</p>
 </div>
 <a class="sd-stretched-link reference internal" href="content/1_Kurvenanpassung.html"><span class="doc"></span></a></div>
@@ -625,7 +641,7 @@ Aktuell könnt ihr euch noch nicht auf Vollständigkeit verlassen. Folgende Funk
 <p class="sd-card-text"><strong>Stationäre Messsysteme</strong></p>
 </div>
 <div class="sd-card-body docutils">
-<a class="reference internal image-reference" href="_images/reale_kennlinie.png"><img alt="_images/reale_kennlinie.png" src="_images/reale_kennlinie.png" style="height: 120px;" /></a>
+<a class="reference internal image-reference" href="_images/realeKennlinie.png"><img alt="_images/realeKennlinie.png" src="_images/realeKennlinie.png" style="height: 120px;" /></a>
 <p class="sd-card-text">Ideale und reale Kennlinie</p>
 </div>
 <a class="sd-stretched-link reference internal" href="content/2_Stationaer.html"><span class="doc"></span></a></div>
@@ -636,7 +652,7 @@ Aktuell könnt ihr euch noch nicht auf Vollständigkeit verlassen. Folgende Funk
 <p class="sd-card-text"><strong>Messsignale</strong></p>
 </div>
 <div class="sd-card-body docutils">
-<a class="reference internal image-reference" href="_images/messsignal_analog_diskret.png"><img alt="_images/messsignal_analog_diskret.png" src="_images/messsignal_analog_diskret.png" style="height: 120px;" /></a>
+<a class="reference internal image-reference" href="_images/digitalisierung1.png"><img alt="_images/digitalisierung1.png" src="_images/digitalisierung1.png" style="height: 120px;" /></a>
 <p class="sd-card-text">Signale als Informationsträger, Digitalisierung, Kenngrößen</p>
 </div>
 <a class="sd-stretched-link reference internal" href="content/3_Messsignale.html"><span class="doc"></span></a></div>
@@ -647,7 +663,7 @@ Aktuell könnt ihr euch noch nicht auf Vollständigkeit verlassen. Folgende Funk
 <p class="sd-card-text"><strong>Fourier-Analyse</strong></p>
 </div>
 <div class="sd-card-body docutils">
-<a class="reference internal image-reference" href="_images/messsignal_analog_diskret.png"><img alt="_images/messsignal_analog_diskret.png" src="_images/messsignal_analog_diskret.png" style="height: 120px;" /></a>
+<a class="reference internal image-reference" href="_images/fft.png"><img alt="_images/fft.png" src="_images/fft.png" style="height: 120px;" /></a>
 <p class="sd-card-text">Fourier-Reihen, Fourier-Transformation</p>
 </div>
 <a class="sd-stretched-link reference internal" href="content/3_FourierAnalyse.html"><span class="doc"></span></a></div>
@@ -658,7 +674,7 @@ Aktuell könnt ihr euch noch nicht auf Vollständigkeit verlassen. Folgende Funk
 <p class="sd-card-text"><strong>Dynamische Messsysteme</strong></p>
 </div>
 <div class="sd-card-body docutils">
-<a class="reference internal image-reference" href="_images/bandpass.png"><img alt="_images/bandpass.png" src="_images/bandpass.png" style="height: 120px;" /></a>
+<a class="reference internal image-reference" href="_images/übertragungsfunktion.png"><img alt="_images/übertragungsfunktion.png" src="_images/übertragungsfunktion.png" style="height: 120px;" /></a>
 <p class="sd-card-text">LZI-Systeme, DGLs, Impuls- und Sprungantwort, Faltung, Übertragungsfunktion</p>
 </div>
 <a class="sd-stretched-link reference internal" href="content/5_Dynamische_Messsysteme.html"><span class="doc"></span></a></div>
@@ -669,7 +685,7 @@ Aktuell könnt ihr euch noch nicht auf Vollständigkeit verlassen. Folgende Funk
 <p class="sd-card-text"><strong>Messen elektrischer Größen</strong></p>
 </div>
 <div class="sd-card-body docutils">
-<a class="reference internal image-reference" href="_images/bandpass.png"><img alt="_images/bandpass.png" src="_images/bandpass.png" style="height: 120px;" /></a>
+<a class="reference internal image-reference" href="_images/messbruecke.png"><img alt="_images/messbruecke.png" src="_images/messbruecke.png" style="height: 120px;" /></a>
 <p class="sd-card-text">Messeingänge, Widerstandsbrücken, Wechselspannung, Messverstärker</p>
 </div>
 <a class="sd-stretched-link reference internal" href="content/4_ElektrischeGroessen.html"><span class="doc"></span></a></div>
@@ -680,7 +696,7 @@ Aktuell könnt ihr euch noch nicht auf Vollständigkeit verlassen. Folgende Funk
 <p class="sd-card-text"><strong>Sensoren</strong></p>
 </div>
 <div class="sd-card-body docutils">
-<a class="reference internal image-reference" href="_images/bandpass.png"><img alt="_images/bandpass.png" src="_images/bandpass.png" style="height: 120px;" /></a>
+<a class="reference internal image-reference" href="_images/ifo.png"><img alt="_images/ifo.png" src="_images/ifo.png" style="height: 120px;" /></a>
 <p class="sd-card-text">optisch, kapazitiv, piezo-elektrisch, resistiv, magnetisch, gravitativ</p>
 </div>
 <a class="sd-stretched-link reference internal" href="content/4_Sensoren.html"><span class="doc"></span></a></div>
@@ -747,8 +763,8 @@ Aktuell könnt ihr euch noch nicht auf Vollständigkeit verlassen. Folgende Funk
     {
         requestKernel: true,
         binderOptions: {
-            repo: "Kisleif/mtbook",
-            ref: "main",
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
         },
         codeMirrorConfig: {
             theme: "abcdef",
@@ -773,7 +789,7 @@ Aktuell könnt ihr euch noch nicht auf Vollständigkeit verlassen. Folgende Funk
     <a class='right-next' id="next-link" href="content/00_jupyter.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Über dieses Vorlesungsskript</p>
+        <p class="prev-next-title">Python im Lecture Book</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

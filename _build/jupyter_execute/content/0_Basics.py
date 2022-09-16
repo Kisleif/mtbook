@@ -22,7 +22,7 @@
 # 
 # Von einem **Messsignal**, $x_1$ (im Gegensatz zur Begrifflichkeit *Messgröße*) spricht man, wenn direkt mit der Messgröße zusammenhängende elektrische Signale zwischen den beiden Stellen, an denen Messgröße und Messwert anfallen, gemessen werden (zum Beispiel das Kabel in der Skizze). Messsignale tragen die Information über die Messgröße, welche auf unterschiedlichste Weise realisiert werden z.B. als analoger Spanungs- oder Stromwert, als frequenzmoduliertes Signal, als Digitalwort oder ähnliches.
 # 
-# ![Bild](pictures/temp.png)
+# ![Bild](draw/messgroesse.jpg)
 # 
 # Wird ein Messwert, $y$, bestimmt, so entspricht dieser im Rahmen der Messtechnik einem Vielfachen, $n$, von einer Einheit, $E$:
 # 
@@ -33,7 +33,7 @@
 # 
 # Häufig werden Prozesse in der Messtechnik mittels **Blockdiagrammen** dargestellt:
 # 
-# ![Bild](pictures/block1.png)
+# ![Bild](draw/messsystem.jpg)
 # 
 # Wie man an der oben dargestellten Temperaturmessung sieht, sind die Werte, die gemessen werden, nicht unbedingt *exakt*. Später befassen wir uns noch mal genauer mit den so genannten [Messabweichungen](1_Messunsicherheiten.ipynb).
 
@@ -109,15 +109,25 @@ print('relative Messabweichung der Cheops-Pyramide: ', relative_abweichung*100, 
 # ### SI-Einheiten 
 # 
 # Im Rahmen der Meterkonvention im Jahr 1960 wurde das **Internationale Einheitensystem**, kurz SI, benannt nach „le Système Internationale d’unités“, eingeführt. Die Definitionen der Basiseinheiten basierten nach wie vor teilweise auf materiellen Prototypen (bis 2019 war dies tatsächlich beim Kilogramm der Fall). Das SI basiert auf der Idee, dass sich im Prinzip alle relevanten Messgrößen über physikalische Gesetze auf genau 7 Basisgrößen zurückführen lassen. Diese 7 Basisgrößen sind die Basiseinheiten, aus denen alle weiteren Einheiten abgeleitet werden können:
-# * Meter (m) als Einheit für die Länge
-# * Kilogramm (kg) als Einheit für die Masse
-# * Sekunde (s) als Einheit für die Zeit
-# * Ampere (A) als Einheit für die elektrische Stromstärke
-# * Kelvin (K) als Einheit für die thermodynamische Temperatur
-# * Candela (Cd) als Einheit für die Lichtstärke und 
-# * Mol (mol) als Einheit für die Stoffmenge
 # 
-# ![Bild](pictures/SI.png)
+# 
+# ::::{grid} 2
+# 
+# :::{grid-item}
+# * **Meter (m)** als Einheit für die Länge
+# * **Kilogramm (kg)** als Einheit für die Masse
+# * **Sekunde (s)** als Einheit für die Zeit
+# * **Ampere (A)** als Einheit für die elektrische Stromstärke
+# * **Kelvin (K)** als Einheit für die thermodynamische Temperatur
+# * **Candela (Cd)** als Einheit für die Lichtstärke und 
+# * **Mol (mol)** als Einheit für die Stoffmenge
+# :::
+# 
+# :::{grid-item}
+# ![Bild](draw/SI.jpg)
+# :::
+# ::::
+# 
 # 
 # ```{admonition} Das Ur-Kilo in Paris
 # :class: dropdown
@@ -169,7 +179,7 @@ print('relative Messabweichung der Cheops-Pyramide: ', relative_abweichung*100, 
 # 
 # $N_A$ ist die Zahl, der in einem Mol enthaltenen Atome. Sie ist so definiert, dass 12 g Kohlenstoff (12C) genau einem Mol entspricht.
 # 
-# ![Bild](pictures/SI-konst.png)
+# ![Bild](draw/SI-konst.jpg)
 
 # ### Abgeleitete / Ergänzende SI-Einheiten
 # <a id="SubSec-Abgeleitete_Ergänzende_SI-Einheiten"></a>
@@ -277,7 +287,7 @@ print('Pegel in dB: ', P_dB, '(%.3f)' %(P_ref))# In diesem Code Block können Um
 # 
 # Messsysteme haben bekannterweise Messgenauigkeiten (darauf kommen wir später noch mal zurück), welche eine Messung limitieren. Die erzielbare Messgenauigkeit kann werksseitig während des Herstellprozesses oder später, in der gewünschten Testumgebung, verbessert werden. Hierzu benötigt man eine *bekannte* Referenz, die an das Messgerät angeschlossen werden kann. Nun kann das Messsystem entweder eingestellt werden, sodass der angezeigt Messwert möglichst genau dem *bekannten* Referenzwert entspricht. Dieses Verfahren nennent man auch **Justieren** oder **Kalibrieren**.
 # 
-# ![Bild](pictures/kalibrieren.png)
+# ![Bild](draw/eichung.jpg)
 # 
 # Unter dem Begriff **Eichen** hingegen versteht man die Prüfung und Stempelung eines Messgeräts, welches nach gesetzlichen Eichvorschriften erfolgt ist. Geeicht werden müssen Messsysteme, die im gewerblichen Verkehr oder Handel eingesetzt werden sollen, wie z.B. eine Obst- und Gemüsewaage an der Kasse eines Supermarktes. Dem Verbraucher wird damit eine bestimmte Sicherheit gegeben, dass die Waage - innerhalb bestimmter Grenzen - genau arbeitet. In Deutschland existiert dafür die sogenannten *Eichordnung*.
 # Da das Eichen ein hoheitlicher Akt ist, kann es nur in vom Statt autorisierten Behörden durchgeführt werden, in den sogenannten Eichämtern, und muss in bestimmten Abständen wiederholt werden. Um generell eine möglichst gute Genauigkeit und hohe Manipulationssicherheit sicherzustellen, werden die meisten Messgeräte bereits während des Herstellungsprozesses kalibirert oder geeicht. In Deutschland macht dies häufig die Physikalisch-Technische Bundesanstalt (PTB) in Braunschweig und Berlin. 
@@ -291,4 +301,10 @@ print('Pegel in dB: ', P_dB, '(%.3f)' %(P_ref))# In diesem Code Block können Um
 # Alle Staaten, die damals bei der Generalkonferenz für Maß und Gewicht den Vertrag unterzeichnet haben, erhalten jeweils ein solches Primärnormal. Von diesen werden dann sogenannte **Sekundärnormale** innerhalb der Staaten abgeleitet, welche dann wiederum zur Eichung von betrieblichen Arbeitsnormalen in Eichlaboren (oder Behören oder Ämtern) zur Verfügung stehen. 
 # **Arbeitsnormale**, abgeleitet von den Skundärnormalen, werden in Firmen verwendet, um ihre betrieblichen Messmittel eigenhändig kalibrieren zu können. 
 # 
-# ![Bild](pictures/normale.png)
+# ![Bild](draw/normal.jpg)
+
+# In[ ]:
+
+
+
+

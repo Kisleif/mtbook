@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Klimadaten analysieren mit Python &#8212; Metrology Lecture Book</title>
+    <title>Klimadatei (.csv) einlesen und analysieren &#8212; Metrology Lecture Book</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -53,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Lineare Regression mit Fehlerrechnung" href="T_LinRegmitFehler.html" />
+    <link rel="next" title="Fehlerfortpflanzung" href="T_Fehlerfortpflanzung.html" />
     <link rel="prev" title="Jupyter Notebooks" href="T_Tutorials.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -296,12 +296,17 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="current">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Klimadaten analysieren mit Python
+     Klimadatei (.csv) einlesen und analysieren
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="T_LinRegmitFehler.html">
-     Lineare Regression mit Fehlerrechnung
+    <a class="reference internal" href="T_Fehlerfortpflanzung.html">
+     Fehlerfortpflanzung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="T_LinReg.html">
+     Vergleich verschiedener Fit-Funktionen
     </a>
    </li>
    <li class="toctree-l2">
@@ -553,8 +558,12 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#daten-einlesen-als-dataframe">
-   Daten einlesen als ‘DataFrame’
+  <a class="reference internal nav-link" href="#csv-datei-als-dataframe-einlesen">
+   .csv-Datei als
+   <em>
+    DataFrame
+   </em>
+   einlesen
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -581,7 +590,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Klimadaten analysieren mit Python</h1>
+                <h1>Klimadatei (.csv) einlesen und analysieren</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -592,8 +601,12 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#daten-einlesen-als-dataframe">
-   Daten einlesen als ‘DataFrame’
+  <a class="reference internal nav-link" href="#csv-datei-als-dataframe-einlesen">
+   .csv-Datei als
+   <em>
+    DataFrame
+   </em>
+   einlesen
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -621,8 +634,8 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="klimadaten-analysieren-mit-python">
-<h1>Klimadaten analysieren mit Python<a class="headerlink" href="#klimadaten-analysieren-mit-python" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="klimadatei-csv-einlesen-und-analysieren">
+<h1>Klimadatei (.csv) einlesen und analysieren<a class="headerlink" href="#klimadatei-csv-einlesen-und-analysieren" title="Permalink to this headline">#</a></h1>
 <p>Zunächst werden die für dieses Jupyter Notebook benötigten Libraries geladen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -667,8 +680,8 @@ require(['plotly'], function(Plotly) {
 </div>
 </div>
 </div>
-<section id="daten-einlesen-als-dataframe">
-<h2>Daten einlesen als ‘DataFrame’<a class="headerlink" href="#daten-einlesen-als-dataframe" title="Permalink to this headline">#</a></h2>
+<section id="csv-datei-als-dataframe-einlesen">
+<h2>.csv-Datei als <em>DataFrame</em> einlesen<a class="headerlink" href="#csv-datei-als-dataframe-einlesen" title="Permalink to this headline">#</a></h2>
 <p>Im Folgenden Nutzen wir globale Klimadaten, die auf der Webseite der NASA zu finden sind: <a class="reference external" href="https://data.giss.nasa.gov/gistemp/">https://data.giss.nasa.gov/gistemp/</a>. Hierbei handelt es sich um Temperaturdaten, die Anomalien gegenüber dem Mittelwert in den Jahren 1951-1980 aufweisen.
 Es werden Daten von Dateien (online oder offline) eingelesen mit der Python Bilbiothek <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. Die Daten werden in sogenannten <em>DataFrames</em> hier mit dem Namen <code class="docutils literal notranslate"><span class="pre">global_mean</span></code> abgespeichert.</p>
 <div class="cell docutils container">
@@ -892,7 +905,7 @@ Name: Year, Length: 142, dtype: int64
 </div>
 </div>
 <p>Im ersten Array stehen die Fit-Parameter der linearen Ausgleichsgeraden entsprechend der obigen Deklaration: <code class="docutils literal notranslate"><span class="pre">y_model</span> <span class="pre">=</span> <span class="pre">model[0][0]*x+model[0][1]</span></code>.
-Im zweiten Array, hier eine 2x2 Matrix, sind die Unsicherheiten in Form von der <a class="reference internal" href="1_Fehlerfortpflanzung.html#sec-korr-cov"><span class="std std-ref">Kovarianz-Matrix</span></a> dargestellt.
+Im zweiten Array, hier eine 2x2 Matrix, sind die Unsicherheiten in Form von der <span class="xref myst">Kovarianz-Matrix</span> dargestellt.
 Der Temperaturanstieg kann entsprechend ausgegeben werden:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -982,10 +995,10 @@ Temperaturanstieg seit Beginn der Messung: 1.090°C
             <p class="prev-next-title">Jupyter Notebooks</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="T_LinRegmitFehler.html" title="next page">
+    <a class='right-next' id="next-link" href="T_Fehlerfortpflanzung.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Lineare Regression mit Fehlerrechnung</p>
+        <p class="prev-next-title">Fehlerfortpflanzung</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

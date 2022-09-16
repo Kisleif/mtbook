@@ -17,34 +17,16 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-def fit_lin(x, b, a): # Fit Funktion für eine Gerade mit Steigung b
-    return b*x + a
-
-# Fit der Daten:
-fit_out = optimization.curve_fit(fit_lin, x, t)
-
-print('Die scipy-Fitparameter lauten:')
-print('Die Steigung ist \t\t m = (%5.4f +- %5.4f) s/m' %(fit_out[0][0], np.sqrt(fit_out[1][0][0])))
-print('Der Ordinatenabschnitt ist \t b = (%5.4f +- %5.4f) s' %(fit_out[0][1], np.sqrt(fit_out[1][1][1])))
-
-plt.plot(x,t, 'o', label = 'Messwerte') # plot Messwerte
-plt.plot(x,m*x+b, label = 'Lin. Reg.: y = %5.3f*x+%5.3f' %(m,b))  # plot Ausgleichsgerade mit m und b
-plt.plot(x,fit_out[0][0]*x+fit_out[0][1], '--',label = 'Fit: y = %5.3f*x+%5.3f' %(fit_out[0][0],fit_out[0][1]))  # plot Fitfunktion mit b und a
-plt.xlabel('Strecke x (m)')
-plt.ylabel('Zeit t (s)')
-plt.legend()
-plt.show()
+s_m = s_t * np.sqrt(1 / (N*(np.mean(x**2) - np.mean(x)**2)))
+print('Die Unsicherheit von m ist \t s_m = %5.4f s/m' %(s_m))
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-Input [0;32mIn [4][0m, in [0;36m<cell line: 5>[0;34m()[0m
-[1;32m      2[0m     [38;5;28;01mreturn[39;00m b[38;5;241m*[39mx [38;5;241m+[39m a
-[1;32m      4[0m [38;5;66;03m# Fit der Daten:[39;00m
-[0;32m----> 5[0m fit_out [38;5;241m=[39m [43moptimization[49m[38;5;241m.[39mcurve_fit(fit_lin, x, t)
-[1;32m      7[0m [38;5;28mprint[39m([38;5;124m'[39m[38;5;124mDie scipy-Fitparameter lauten:[39m[38;5;124m'[39m)
-[1;32m      8[0m [38;5;28mprint[39m([38;5;124m'[39m[38;5;124mDie Steigung ist [39m[38;5;130;01m\t[39;00m[38;5;130;01m\t[39;00m[38;5;124m m = ([39m[38;5;132;01m%5.4f[39;00m[38;5;124m +- [39m[38;5;132;01m%5.4f[39;00m[38;5;124m) s/m[39m[38;5;124m'[39m [38;5;241m%[39m(fit_out[[38;5;241m0[39m][[38;5;241m0[39m], np[38;5;241m.[39msqrt(fit_out[[38;5;241m1[39m][[38;5;241m0[39m][[38;5;241m0[39m])))
+Input [0;32mIn [4][0m, in [0;36m<cell line: 1>[0;34m()[0m
+[0;32m----> 1[0m s_m [38;5;241m=[39m [43ms_t[49m [38;5;241m*[39m np[38;5;241m.[39msqrt([38;5;241m1[39m [38;5;241m/[39m (N[38;5;241m*[39m(np[38;5;241m.[39mmean(x[38;5;241m*[39m[38;5;241m*[39m[38;5;241m2[39m) [38;5;241m-[39m np[38;5;241m.[39mmean(x)[38;5;241m*[39m[38;5;241m*[39m[38;5;241m2[39m)))
+[1;32m      2[0m [38;5;28mprint[39m([38;5;124m'[39m[38;5;124mDie Unsicherheit von m ist [39m[38;5;130;01m\t[39;00m[38;5;124m s_m = [39m[38;5;132;01m%5.4f[39;00m[38;5;124m s/m[39m[38;5;124m'[39m [38;5;241m%[39m(s_m))
 
-[0;31mNameError[0m: name 'optimization' is not defined
-NameError: name 'optimization' is not defined
+[0;31mNameError[0m: name 's_t' is not defined
+NameError: name 's_t' is not defined
 

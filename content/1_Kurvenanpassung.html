@@ -298,12 +298,17 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="T_Plotten.html">
-     Klimadaten analysieren mit Python
+     Klimadatei (.csv) einlesen und analysieren
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="T_LinRegmitFehler.html">
-     Lineare Regression mit Fehlerrechnung
+    <a class="reference internal" href="T_Fehlerfortpflanzung.html">
+     Fehlerfortpflanzung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="T_LinReg.html">
+     Vergleich verschiedener Fit-Funktionen
     </a>
    </li>
    <li class="toctree-l2">
@@ -589,36 +594,6 @@ title="Print to PDF"
      </a>
     </a>
    </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#beispiel-karussel-a-id-sec-beispiel-a">
-   Beispiel: Karussel
-   <a id="Sec-Beispiel">
-   </a>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#analytische-lineare-regression-a-id-subsec-analytical-linreg-a">
-     Analytische Lineare Regression
-     <a id="SubSec-Analytical_LinReg">
-     </a>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bestimmung-der-geschwindigkeit-a-id-subsec-geschwindigkeit-a">
-     Bestimmung der Geschwindigkeit
-     <a id="SubSec-geschwindigkeit">
-     </a>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#unsicherheit-der-geschwindigkeit-a-id-subsec-u-geschwindigkeit-a">
-     Unsicherheit der Geschwindigkeit
-     <a id="SubSec-u_geschwindigkeit">
-     </a>
-    </a>
-   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#korrelationskoeffizient-a-id-subsec-korrelationskoeffizient-a">
      Korrelationskoeffizient
@@ -682,36 +657,6 @@ title="Print to PDF"
      </a>
     </a>
    </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#beispiel-karussel-a-id-sec-beispiel-a">
-   Beispiel: Karussel
-   <a id="Sec-Beispiel">
-   </a>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#analytische-lineare-regression-a-id-subsec-analytical-linreg-a">
-     Analytische Lineare Regression
-     <a id="SubSec-Analytical_LinReg">
-     </a>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bestimmung-der-geschwindigkeit-a-id-subsec-geschwindigkeit-a">
-     Bestimmung der Geschwindigkeit
-     <a id="SubSec-geschwindigkeit">
-     </a>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#unsicherheit-der-geschwindigkeit-a-id-subsec-u-geschwindigkeit-a">
-     Unsicherheit der Geschwindigkeit
-     <a id="SubSec-u_geschwindigkeit">
-     </a>
-    </a>
-   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#korrelationskoeffizient-a-id-subsec-korrelationskoeffizient-a">
      Korrelationskoeffizient
@@ -742,6 +687,15 @@ title="Print to PDF"
 <li><p><strong>Interpolation</strong>: Hierbei handelt es sich nicht um eine Regression bzw. Approximation. Anstelle eines funktionalen Zusammenhangs, der an die Messwerte angenähert wird, verwendert man Polynome hohen Grades, um eine analytische Kennlinie zu beschreiben, die <em>exakt</em> durch alle Messpunkte geht. Für eine große Anzahl von Messwerten wird die Interpolationsfunktion sehr schnell unhandlich.</p></li>
 </ul>
 <p><img alt="Bild" src="../_images/interpol_approx.png" /></p>
+<div class="tip admonition">
+<p class="admonition-title">Tutorial</p>
+<p>Python-Beispiele für Kurvenanpassungen findet ihr hier:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="T_LinReg.html"><span class="doc std std-doc">Vergleich verschiedener Fit-Routinen in Python</span></a></p></li>
+<li><p><a class="reference internal" href="T_FitmitFehlerbalken.html"><span class="doc std std-doc">Fitten mit Fehlerbalken in Python</span></a></p></li>
+<li><p><a class="reference internal" href="T_Plotten.html"><span class="doc std std-doc">Fitten von <em>echten</em> Klimadaten</span></a></p></li>
+</ul>
+</div>
 <section id="modellanpassung-a-id-sec-modellanpassung-a">
 <h2>Modellanpassung <a id="Sec-Modellanpassung"></a><a class="headerlink" href="#modellanpassung-a-id-sec-modellanpassung-a" title="Permalink to this headline">#</a></h2>
 <p>Um ein Regressionsmodell zu berechnen, benötigen wir ein objektives Maß um die Zuverlässigkeit und Güte unsere Modellfunktion zu bestimmen. Dies nennt man auch das <strong>Bestimmtsheitsmaß</strong>, bzwl. auf englisch <strong>coefficient of determination</strong> oder <strong>goodness of fit</strong>. Dieses Maß</p>
@@ -841,6 +795,32 @@ Gelten für die <span class="math notranslate nohighlight">\(N\)</span> Messwert
 <section id="lineare-modellanpassung-a-id-subsec-lineare-modellanpassung-a">
 <h3>Lineare Modellanpassung <a id="SubSec-Lineare_Modellanpassung"></a><a class="headerlink" href="#lineare-modellanpassung-a-id-subsec-lineare-modellanpassung-a" title="Permalink to this headline">#</a></h3>
 <p>Da wir als Messtechniker immer danach streben möglichst lineare Kennlinien zu erreichen, ist die Gerade eine häufig auftretende Kurve, die angepasst werden soll. Daher wollen wir uns in diesem Abschnitt mit der Herleitung der linearen Regression befassen. Die Herleitung für andere Modellfunktionen, welche quadratische Terme, noch höhere Terme oder ganz andere Zusammenhänge beinhalten, ist auch deutlich schwieriger.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="c1"># MatplotLib Settings:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">108</span><span class="p">,</span> <span class="mi">120</span><span class="p">]</span> <span class="c1"># Messwerte der Strecke x in m</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mf">12.2</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mf">22.1</span><span class="p">,</span> <span class="mf">33.2</span><span class="p">,</span> <span class="mf">34.4</span><span class="p">,</span> <span class="mf">59.1</span><span class="p">,</span> <span class="mf">60.2</span><span class="p">,</span> <span class="mf">65.7</span><span class="p">,</span> <span class="mf">69.9</span><span class="p">,</span> <span class="mf">70.1</span><span class="p">]</span> <span class="c1"># Messwerte der Zeit t in sek.</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1">#konvertiere die Messwerte in ein Numpy-Array</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="c1">#konvertiere die Messwerte in ein Numpy-Array</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Messwerte&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:gray&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/1_Kurvenanpassung_7_0.png" src="../_images/1_Kurvenanpassung_7_0.png" />
+</div>
+</div>
 <p>Unser Ausgangspunkt ist also eine Gerade der Form</p>
 <div class="math notranslate nohighlight">
 \[f(x) = mx + b\]</div>
@@ -877,76 +857,17 @@ Gelten für die <span class="math notranslate nohighlight">\(N\)</span> Messwert
 <div><p><span class="math notranslate nohighlight">\(S_{x}^2 = \frac{1}{N-1}\sum_{i = 1}^N (x_i-\bar x)^2\)</span></p>
 </div></blockquote>
 <p>Wir sind hier in der verrückten Situation, dass tatsächlich  Mittelwerte für <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span> bestimmt werden müssen, obwohl die <span class="math notranslate nohighlight">\(x\)</span>-Werte absichtlich während der Versuchsreihe verändert werden, sich also die Grössen <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span> laufend ändern.</p>
-<p><img alt="Bild" src="../_images/lin_reg.png" /></p>
-<p>Nun sind die Schätzwerte allerdings zusätzlich fehlerbehaftet (wie sollte es auch anders sein). Mithilfe der Gleichung der Größtfehlers/Maximalfehlers kann man zeigen (den Beweis überspringen wir hier), dass für den Fehler von <span class="math notranslate nohighlight">\(y\)</span> folgendes gilt:</p>
-<div class="math notranslate nohighlight">
-\[s_y = \sqrt{\frac{1}{N-2}\sum(y_i - mx_i - b)^2 }\]</div>
-<p>Die ist auch die Standardabweichung der Einzelmessung aber <em>nicht</em> der Fehlerbalken, der im Diagramm als Fehlerbalken eingezeichnet wird. Die Abweichung der Einzelmessung wurde bisher mit <span class="math notranslate nohighlight">\(N-1\)</span> definiert, damals hat es sich aber um die Abweichung vom <em>Mittelwert</em> gehandelt. Nun betrachten wir die Abweichung zu einem linearen Modell, welches 2 offene Parameter, <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span>, hat, und somit einen Freiheitsgrad mehr bestitzt. Erst ab 3 Messwertepaaren können also Fehler für Steigung und Achsenabschnitt berechnet werden.
-Die besten Schätzwerte für die Abweichungen von <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span> können nun wiefolgt berechnet werden. Der Fehler der Geradensteigung beträgt:</p>
-<div class="math notranslate nohighlight">
-\[s_m = s_y \cdot \sqrt{\frac{N}{N\cdot \sum x_i^2 - \left(\sum x_i\right)^2}} = s_y \cdot \sqrt{\frac{1}{\sum x_i^2 - N\cdot \bar x^2}} = s_y \cdot \sqrt{\frac{1}{\sum \left(x_i - \bar x \right)^2}} = s_y \cdot \sqrt{\frac{1}{N\cdot (\overline{x^2} - (\overline x)^2)}}\]</div>
-<p>Der Fehler des Ordinatenabschnitts beträgt:</p>
-<div class="math notranslate nohighlight">
-\[s_b = s_y \cdot \sqrt{\frac{\sum x_i^2}{N\cdot \sum x_i^2 - \left(\sum x_i\right)^2}} = s_y \cdot \sqrt{\frac{1}{N}\frac{\sum x_i^2}{\sum x_i^2 - N\cdot \bar x^2}} = s_y \cdot \sqrt{\frac{1}{N}\frac{\sum x_i^2}{\sum \left(x_i - \bar x \right)^2}} = s_m \cdot \sqrt{\overline{x^2}}\]</div>
-</section>
-</section>
-<section id="beispiel-karussel-a-id-sec-beispiel-a">
-<h2>Beispiel: Karussel <a id="Sec-Beispiel"></a><a class="headerlink" href="#beispiel-karussel-a-id-sec-beispiel-a" title="Permalink to this headline">#</a></h2>
-<p>Wir stellen uns im Folgenden ein Kinderkarussel vor und wir wollen die Geschwindigkeit der Feuerwehrautos ermitteln. Das Auto selbst verfügt über kein Tachometer - es bleibt also eigentlich nur die Möglichkeit, die Zeit eines Umlaufs zu stoppen und aus der Geometrie des Karussells den zurückgelegten Weg zu bestimmen. Daraus lässt sich die Geschwindigkeit leicht berechnen.
-Wie aber könnte eine Fehlerrechnung aussehen? Wie lässt sich eine Mehrfachmessung anstellen?</p>
-<p>Beispielsweise könnte man die Zeit nach jedem Umlauf messen, die näherungsweise konstant sein sollte (bis auf die 1. Runde, wo noch beschleunigt wird). Es könnte sich also ein linearer Zusammenhang zwischen zurückgelegtem Weg und der benötigten Zeit vermuten:</p>
-<div class="math notranslate nohighlight">
-\[y = m\cdot x + b \Rightarrow y - b - m\cdot x = 0\]</div>
-<p>Die Konstanten <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span> lassen sich nun bestimmen, indem <em>mindestens</em> zwei Messungen von <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span> vorgenommen werden. Die Messungen dieser Größen werden fehlerbehaftet sein, sodass es zu einer Verfälschung der Konstanten kommt. Durch mehrere Messungen (&gt;2!) von <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span> kann der zufällige Fehler auf die Konstanten vermindert und abgeschätzt werden. Zur Vereinfachung nehmen wir allerdings an, dass <span class="math notranslate nohighlight">\(x\)</span> fehlerfrei (oder zumindest fehlerarm) ist. Für verschiedene Werte von <span class="math notranslate nohighlight">\(x\)</span> ergeben sich dann entsprechende <span class="math notranslate nohighlight">\(y\)</span>-Werte mit Unsicherheiten.</p>
-<p>Für unser Kinderkarussel bleibt der Messpunkt der Strecke, <span class="math notranslate nohighlight">\(x\)</span>, laut Annahme unverändert. Dieser ist also sehr genau. Eine Unsicherheit wird bei der Zeitmessung, <span class="math notranslate nohighlight">\(y = t\)</span> auftreten. Folgende Messwerte wurden ermittelt:</p>
-<ul class="simple">
-<li><p>Weg  <span class="math notranslate nohighlight">\(x\)</span> (m): 12, 24, 36, 42, 60, 72, 84, 96, 108, 120</p></li>
-<li><p>Zeit <span class="math notranslate nohighlight">\(t\)</span> (s): 12.2, 17, 22.1, 33.2, 34.4, 59.1, 60.2, 65.7, 69.9, 70.1</p></li>
-</ul>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="c1"># MatplotLib Settings:</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
-
-<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">108</span><span class="p">,</span> <span class="mi">120</span><span class="p">]</span> <span class="c1"># Messwerte der Strecke x in m</span>
-<span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mf">12.2</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mf">22.1</span><span class="p">,</span> <span class="mf">33.2</span><span class="p">,</span> <span class="mf">34.4</span><span class="p">,</span> <span class="mf">59.1</span><span class="p">,</span> <span class="mf">60.2</span><span class="p">,</span> <span class="mf">65.7</span><span class="p">,</span> <span class="mf">69.9</span><span class="p">,</span> <span class="mf">70.1</span><span class="p">]</span> <span class="c1"># Messwerte der Zeit t in sek.</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1">#konvertiere die Messwerte in ein Numpy-Array</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="c1">#konvertiere die Messwerte in ein Numpy-Array</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">t</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Messwerte&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Strecke x (m)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Zeit t (s)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/1_Kurvenanpassung_9_0.png" src="../_images/1_Kurvenanpassung_9_0.png" />
-</div>
-</div>
-<section id="analytische-lineare-regression-a-id-subsec-analytical-linreg-a">
-<h3>Analytische Lineare Regression <a id="SubSec-Analytical_LinReg"></a><a class="headerlink" href="#analytische-lineare-regression-a-id-subsec-analytical-linreg-a" title="Permalink to this headline">#</a></h3>
-<p>An dem Diagram erkennt man, dass die Parameter <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span> niemals fehlerrfrei berechnet werden können. Die gemessenen Punkte werden immer neben der Geraden liegen. Das heißt eine fehlerfreie Berechnung der Parameter aus den Messwerten wird daher nicht möglich sein. Daher können wir wieder nur versuchen beste Schätzungen für <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span> zu definieren, die bei einer steigenden Anzahl von Messwerten den <em>wahren</em> Werten beliebig nahe kommt. Diese Schätzwerte sind die Regressionskoeffizienten, welche wir bereits eben definiert hatten und wiefolgt berechnen können:</p>
-<div class="math notranslate nohighlight">
-\[ m = \frac{S_{xt}}{S_{x}^2} = \frac{\overline{x\cdot t} - \overline x \cdot \overline t}{\overline{x^2} - (\overline x)^2}\]</div>
-<div class="math notranslate nohighlight">
-\[b = \frac{\sum_{i=1}^N t_i - m \sum_{i=1}^N x_i}{N} = \bar t - m \cdot \bar x\]</div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">t</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">-</span> <span class="n">m</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">-</span> <span class="n">m</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Steigung ist </span><span class="se">\t\t</span><span class="s1"> m = </span><span class="si">%5.4f</span><span class="s1"> s/m&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Der Ordinatenabschnitt ist </span><span class="se">\t</span><span class="s1"> b = </span><span class="si">%5.4f</span><span class="s1"> s&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">t</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Messwerte&#39;</span><span class="p">)</span> <span class="c1"># plot Messwerte</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">m</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">b</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;analytische Lin. Reg.: y = </span><span class="si">%5.3f</span><span class="s1">*x+</span><span class="si">%5.3f</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">b</span><span class="p">))</span>  <span class="c1"># plot Ausgleichsgerade mit m und b</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Strecke x (m)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Zeit t (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Messwerte&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:gray&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">m</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">b</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:red&quot;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;analytische lineare Regression: y = </span><span class="si">%5.3f</span><span class="s1">*x+</span><span class="si">%5.3f</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">b</span><span class="p">))</span>  <span class="c1"># plot Ausgleichsgerade mit m und b</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -957,96 +878,61 @@ Wie aber könnte eine Fehlerrechnung aussehen? Wie lässt sich eine Mehrfachmess
 Der Ordinatenabschnitt ist 	 b = 4.7148 s
 </pre></div>
 </div>
-<img alt="../_images/1_Kurvenanpassung_11_1.png" src="../_images/1_Kurvenanpassung_11_1.png" />
+<img alt="../_images/1_Kurvenanpassung_9_1.png" src="../_images/1_Kurvenanpassung_9_1.png" />
 </div>
 </div>
-</section>
-<section id="bestimmung-der-geschwindigkeit-a-id-subsec-geschwindigkeit-a">
-<h3>Bestimmung der Geschwindigkeit <a id="SubSec-geschwindigkeit"></a><a class="headerlink" href="#bestimmung-der-geschwindigkeit-a-id-subsec-geschwindigkeit-a" title="Permalink to this headline">#</a></h3>
-<p>Eigentlich wollten wir ja die Geschwindigkeit der Feuerwehrautos bestimmen.
-Der Kehrwert der Steigung <span class="math notranslate nohighlight">\(m\)</span> liefert uns die Geschwindigkeit des Karussells, wenn wir den Kehrwert berechnen:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">m</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Geschwindigkeit beträgt: v = </span><span class="si">%5.4f</span><span class="s1"> m/s = </span><span class="si">%5.4f</span><span class="s1"> km/h&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">v</span><span class="o">/</span><span class="mi">1000</span><span class="o">*</span><span class="mi">3600</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Geschwindigkeit beträgt: v = 1.6484 m/s = 5.9342 km/h
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="unsicherheit-der-geschwindigkeit-a-id-subsec-u-geschwindigkeit-a">
-<h3>Unsicherheit der Geschwindigkeit <a id="SubSec-u_geschwindigkeit"></a><a class="headerlink" href="#unsicherheit-der-geschwindigkeit-a-id-subsec-u-geschwindigkeit-a" title="Permalink to this headline">#</a></h3>
-<p>Wie bereits oben schon erwähnt, hat die Regressionen eine Abweichung. Daher müssen wir uns jetzt fragen, was der Fehler der Geschwindigkeit ist. Diesen bekommen wir aus der Steigiung <span class="math notranslate nohighlight">\(m\)</span>. Das heißt wir benötigen zuerst den Fehler von <span class="math notranslate nohighlight">\(m\)</span>:</p>
+<p>Nun sind die Schätzwerte allerdings zusätzlich fehlerbehaftet (wie sollte es auch anders sein). Mithilfe der Gleichung der Größtfehlers/Maximalfehlers kann man zeigen (den Beweis überspringen wir hier), dass für den Fehler von <span class="math notranslate nohighlight">\(y\)</span> folgendes gilt:</p>
 <div class="math notranslate nohighlight">
-\[s_m = s_t \cdot \sqrt{\frac{1}{N\cdot (\overline{x^2} - (\overline x)^2)}} \quad \textrm{mit} \quad s_t = \sqrt{\frac{1}{N-2}\sum(t_i - mx_i - b)^2 }\]</div>
-<p>Der Vollständigkeit halber berechnen wir ebenfalls den Fehler für <span class="math notranslate nohighlight">\(b\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[s_b  = s_m \cdot \sqrt{\overline{x^2}}\]</div>
-<div class="cell docutils container">
+\[s_y = \sqrt{\frac{1}{N-2}\sum(y_i - mx_i - b)^2 }\]</div>
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-<span class="n">diff_t</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">diff_y</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-    <span class="n">diff_t</span> <span class="o">+=</span> <span class="p">(</span> <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">m</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">b</span> <span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">diff_y</span> <span class="o">+=</span> <span class="p">(</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">m</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">b</span> <span class="p">)</span><span class="o">**</span><span class="mi">2</span>
 
-<span class="n">streuung_t</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">diff_t</span>
-<span class="n">s_t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">streuung_t</span><span class="p">)</span>
-<span class="n">s_m</span> <span class="o">=</span> <span class="n">s_t</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">N</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)))</span>
-<span class="n">s_b</span> <span class="o">=</span> <span class="n">s_m</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Unsicherheit von t ist </span><span class="se">\t</span><span class="s1"> s_t = </span><span class="si">%5.4f</span><span class="s1"> s&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">s_t</span><span class="p">))</span>
+<span class="n">streuung_y</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">diff_y</span>
+<span class="n">s_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">streuung_y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Unsicherheit von y ist </span><span class="se">\t</span><span class="s1"> s_y = </span><span class="si">%5.4f</span><span class="s1"> s&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">s_y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Unsicherheit von y ist 	 s_y = 5.8831 s
+</pre></div>
+</div>
+</div>
+</div>
+<p>Die ist auch die Standardabweichung der Einzelmessung aber <em>nicht</em> der Fehlerbalken, der im Diagramm als Fehlerbalken eingezeichnet wird. Die Abweichung der Einzelmessung wurde bisher mit <span class="math notranslate nohighlight">\(N-1\)</span> definiert, damals hat es sich aber um die Abweichung vom <em>Mittelwert</em> gehandelt. Nun betrachten wir die Abweichung zu einem linearen Modell, welches 2 offene Parameter, <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span>, hat, und somit einen Freiheitsgrad mehr bestitzt. Erst ab 3 Messwertepaaren können also Fehler für Steigung und Achsenabschnitt berechnet werden.
+Die besten Schätzwerte für die Abweichungen von <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span> können nun wiefolgt berechnet werden. Der Fehler der Geradensteigung beträgt:</p>
+<div class="math notranslate nohighlight">
+\[s_m = s_y \cdot \sqrt{\frac{N}{N\cdot \sum x_i^2 - \left(\sum x_i\right)^2}} = s_y \cdot \sqrt{\frac{1}{\sum x_i^2 - N\cdot \bar x^2}} = s_y \cdot \sqrt{\frac{1}{\sum \left(x_i - \bar x \right)^2}} = s_y \cdot \sqrt{\frac{1}{N\cdot (\overline{x^2} - (\overline x)^2)}}\]</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s_m</span> <span class="o">=</span> <span class="n">s_t</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">N</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Unsicherheit von m ist </span><span class="se">\t</span><span class="s1"> s_m = </span><span class="si">%5.4f</span><span class="s1"> s/m&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">s_m</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [4],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">s_m</span> <span class="o">=</span> <span class="n">s_t</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">N</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)))</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Unsicherheit von m ist </span><span class="se">\t</span><span class="s1"> s_m = </span><span class="si">%5.4f</span><span class="s1"> s/m&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">s_m</span><span class="p">))</span>
+
+<span class="ne">NameError</span>: name &#39;s_t&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der Fehler des Ordinatenabschnitts beträgt:</p>
+<div class="math notranslate nohighlight">
+\[s_b = s_y \cdot \sqrt{\frac{\sum x_i^2}{N\cdot \sum x_i^2 - \left(\sum x_i\right)^2}} = s_y \cdot \sqrt{\frac{1}{N}\frac{\sum x_i^2}{\sum x_i^2 - N\cdot \bar x^2}} = s_y \cdot \sqrt{\frac{1}{N}\frac{\sum x_i^2}{\sum \left(x_i - \bar x \right)^2}} = s_m \cdot \sqrt{\overline{x^2}}\]</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s_b</span> <span class="o">=</span> <span class="n">s_m</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Unsicherheit von b ist </span><span class="se">\t</span><span class="s1"> s_b = </span><span class="si">%5.4f</span><span class="s1"> s&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">s_b</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Unsicherheit von t ist 	 s_t = 5.8831 s
-Die Unsicherheit von m ist 	 s_m = 0.0534 s/m
-Die Unsicherheit von b ist 	 s_b = 3.9581 s
-</pre></div>
-</div>
-</div>
-</div>
-<p>Nun interessiert uns  der absolute Fehler der geschätzen Geschwindigkeit. Da die Geschwindigkeit der Kehrwert der Steigung ist (<span class="math notranslate nohighlight">\(v = \frac{1}{m}\)</span>), müssen wir Fehlerfortpflanzung anwenden. Der Fehler wirkt sich wiefolgt auf den Kehrwert aus:</p>
-<div class="math notranslate nohighlight">
-\[\Delta v = \left|\frac{\partial v}{\partial m}\right|\cdot \Delta m = \left| -\frac{1}{m^2} \right| \cdot s_m = \frac{1}{m^2} \cdot s_m = s_v\]</div>
-<p>Da beide Methoden die gleichen Werte für Schätzungen und Unsicherheiten ausgeben, ersparen wir uns ab nun die Berechnung der Geschwindigkeit inkl. Unsicherheit für beide Methoden. Die Fehlerrechnung wird nur noch für die analytische Methode ausgeführt:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s_v</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">m</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">s_m</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Unsicherheit von v ist </span><span class="se">\t</span><span class="s1"> s_v = </span><span class="si">%5.4f</span><span class="s1"> m/s&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">s_v</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Unsicherheit von v ist 	 s_v = 0.1452 m/s
-</pre></div>
-</div>
-</div>
-</div>
-<p>Das Messergebnis kann also wiefolgt angegeben werden:</p>
-<div class="math notranslate nohighlight">
-\[v = (1,6484 \pm 0,1452)\,\mathrm{m/s}\]</div>
-<p><strong>Ist diese Angabe sinnvoll?</strong> Wenn wir das so konkret fragen, dann vermutlich nicht…
-Wenn der Fehler bereits in der ersten Stelle nach dem Komma signifikant bemerkbar den Schätzwert beeinflusst, warum sollte man sich dann die Mühe machen noch weitere Nachkommastellen hinzuschreiben? Also <strong>sinnvoll runden</strong>:</p>
-<div class="math notranslate nohighlight">
-\[v = (1,6 \pm 0,2)\,\mathrm{m/s}\]</div>
-<p>Warum 0,2 und nicht 0,1? <strong>Fehler werden immer aufgerundet!</strong></p>
-<p>Nun könnte noch der relative Fehler <span class="math notranslate nohighlight">\(\Delta v/v\)</span> berechnet werden.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die relative Unsicherheit von v ist </span><span class="se">\t</span><span class="s1"> s_v = </span><span class="si">%5.4f</span><span class="s1"> Prozent&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">s_v</span><span class="o">/</span><span class="n">v</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die relative Unsicherheit von v ist 	 s_v = 8.8057 Prozent
 </pre></div>
 </div>
 </div>
@@ -1054,7 +940,7 @@ Wenn der Fehler bereits in der ersten Stelle nach dem Komma signifikant bemerkba
 </section>
 <section id="korrelationskoeffizient-a-id-subsec-korrelationskoeffizient-a">
 <h3>Korrelationskoeffizient <a id="SubSec-Korrelationskoeffizient"></a><a class="headerlink" href="#korrelationskoeffizient-a-id-subsec-korrelationskoeffizient-a" title="Permalink to this headline">#</a></h3>
-<p>Der Korrelationskoeffizient kann wiefolgt berechnet werden:</p>
+<p>Für lineare Zusammenhänge ist es häufig sinnvoll den Korrelationskoeffizient zu berechnen (siehe auch <span class="xref myst">hier</span>):</p>
 <div class="math notranslate nohighlight">
 \[r = \frac{\overline{x\cdot t} - \overline x \cdot \overline t}{\sqrt{\overline{x^2} - (\overline x)^2} \cdot {\sqrt{\overline{t^2} - (\overline t)^2}}} \]</div>
 <div class="cell docutils container">

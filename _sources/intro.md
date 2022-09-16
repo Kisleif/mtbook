@@ -2,8 +2,12 @@
 
 Willkommen zur Vorlesung Messtechnik an der HSU. Auf den folgenden Seiten findet ihr begleitende Informationen zur Vorlesung und zum Praktikum. 
 
+```{warning} 
+Dieses *Metrology Lecture Book* befindet sich aktuell im Aufbau und ihr könnt euch noch nicht auf Vollständigkeit verlassen. 
+```
+
 ```{seealso}
-Schaut euch die Weiteren Infos zum [*Lecture Book*](content/00_jupyter) an. 
+Weitere Infos zum [*Lecture Book*](content/00_jupyter). 
 ```
 
 

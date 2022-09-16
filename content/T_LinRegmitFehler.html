@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Kurvenanpassung &#8212; Metrology Lecture Book</title>
+    <title>Lineare Regression mit Fehlerrechnung &#8212; Metrology Lecture Book</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -55,8 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Stationäre Messsysteme" href="2_Stationaer.html" />
-    <link rel="prev" title="Fortpflanzung von Messunsicherheiten" href="1_Fehlerfortpflanzung.html" />
+    <link rel="next" title="Lineare Regression mit Berücksichtigung von Fehlerbalken" href="T_FitmitFehlerbalken.html" />
+    <link rel="prev" title="Klimadaten analysieren mit Python" href="T_Plotten.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -128,22 +128,22 @@ const thebe_selector_output = ".output, .cell_output"
   Grundlagen
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="0_Basics.html">
    Grundlagen der Messtechnik
   </a>
  </li>
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="1_Datenanalyse.html">
    Daten analysieren und präsentieren
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="1_Einleitung.html">
      Messdaten sammeln und darstellen
@@ -164,8 +164,8 @@ const thebe_selector_output = ".output, .cell_output"
      Fortpflanzung von Messunsicherheiten
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Kurvenanpassung.html">
      Kurvenanpassung
     </a>
    </li>
@@ -285,24 +285,24 @@ const thebe_selector_output = ".output, .cell_output"
   Tutorials
  </span>
 </p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="T_Tutorials.html">
    Übung mit Jupyter Notebooks
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="T_Plotten.html">
      Klimadaten analysieren mit Python
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="T_LinRegmitFehler.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Lineare Regression mit Fehlerrechnung
     </a>
    </li>
@@ -372,7 +372,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/Kisleif/mtbook/main?urlpath=tree/content/1_Kurvenanpassung.ipynb"
+        <a href="https://mybinder.org/v2/gh/Kisleif/mtbook/main?urlpath=tree/content/T_LinRegmitFehler.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -390,7 +390,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/Kisleif/mtbook/blob/main/content/1_Kurvenanpassung.ipynb"
+        <a href="https://colab.research.google.com/github/Kisleif/mtbook/blob/main/content/T_LinRegmitFehler.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -468,7 +468,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/Kisleif/mtbook/issues/new?title=Issue%20on%20page%20%2Fcontent/1_Kurvenanpassung.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/Kisleif/mtbook/issues/new?title=Issue%20on%20page%20%2Fcontent/T_LinRegmitFehler.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -485,7 +485,7 @@ title="Open an issue"
       </li>
       
       <li>
-        <a href="https://github.com/Kisleif/mtbook/edit/main/content/1_Kurvenanpassung.ipynb"
+        <a href="https://github.com/Kisleif/mtbook/edit/main/content/T_LinRegmitFehler.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -513,7 +513,7 @@ title="Edit this page"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/content/1_Kurvenanpassung.ipynb"
+        <a href="../_sources/content/T_LinRegmitFehler.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -573,63 +573,33 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#modellanpassung-a-id-sec-modellanpassung-a">
-   Modellanpassung
-   <a id="Sec-Modellanpassung">
+  <a class="reference internal nav-link" href="#analytische-lineare-regression-a-id-subsec-analytical-linreg-a">
+   Analytische Lineare Regression
+   <a id="SubSec-Analytical_LinReg">
    </a>
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#least-squares-methode-der-kleinsten-quadrate-a-id-subsec-least-squares-a">
-     Least-Squares: Methode der kleinsten Quadrate
-     <a id="SubSec-least_squares">
-     </a>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bestimmtheitsmasz-a-id-subsec-bestimmtheitsmasz-a">
-     Bestimmtheitsmaß
-     <a id="SubSec-Bestimmtheitsmaß">
-     </a>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#modellanpassung-mit-unsicherheiten-a-id-subsec-modellanpassung-unsicherheiten-a">
-     Modellanpassung mit Unsicherheiten
-     <a id="SubSec-Modellanpassung_unsicherheiten">
-     </a>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#lineare-modellanpassung-a-id-subsec-lineare-modellanpassung-a">
-     Lineare Modellanpassung
-     <a id="SubSec-Lineare_Modellanpassung">
-     </a>
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#beispiel-karussel-a-id-sec-beispiel-a">
-   Beispiel: Karussel
-   <a id="Sec-Beispiel">
+  <a class="reference internal nav-link" href="#lineare-regression-mit-python-scipy-a-id-subsec-scipy-linreg-a">
+   Lineare Regression mit Python: scipy
+   <a id="SubSec-scipy_LinReg">
+   </a>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lineare-regression-mit-python-lmfit-a-id-subsec-lmfit-linreg-a">
+   Lineare Regression mit Python: lmfit
+   <a id="SubSec-lmfit_LinReg">
+   </a>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bestimmung-der-geschwindigkeit-a-id-subsec-geschwindigkeit-a">
+   Bestimmung der Geschwindigkeit
+   <a id="SubSec-geschwindigkeit">
    </a>
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#analytische-lineare-regression-a-id-subsec-analytical-linreg-a">
-     Analytische Lineare Regression
-     <a id="SubSec-Analytical_LinReg">
-     </a>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bestimmung-der-geschwindigkeit-a-id-subsec-geschwindigkeit-a">
-     Bestimmung der Geschwindigkeit
-     <a id="SubSec-geschwindigkeit">
-     </a>
-    </a>
-   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#unsicherheit-der-geschwindigkeit-a-id-subsec-u-geschwindigkeit-a">
      Unsicherheit der Geschwindigkeit
@@ -655,7 +625,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Kurvenanpassung</h1>
+                <h1>Lineare Regression mit Fehlerrechnung</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -666,63 +636,33 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#modellanpassung-a-id-sec-modellanpassung-a">
-   Modellanpassung
-   <a id="Sec-Modellanpassung">
+  <a class="reference internal nav-link" href="#analytische-lineare-regression-a-id-subsec-analytical-linreg-a">
+   Analytische Lineare Regression
+   <a id="SubSec-Analytical_LinReg">
    </a>
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#least-squares-methode-der-kleinsten-quadrate-a-id-subsec-least-squares-a">
-     Least-Squares: Methode der kleinsten Quadrate
-     <a id="SubSec-least_squares">
-     </a>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bestimmtheitsmasz-a-id-subsec-bestimmtheitsmasz-a">
-     Bestimmtheitsmaß
-     <a id="SubSec-Bestimmtheitsmaß">
-     </a>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#modellanpassung-mit-unsicherheiten-a-id-subsec-modellanpassung-unsicherheiten-a">
-     Modellanpassung mit Unsicherheiten
-     <a id="SubSec-Modellanpassung_unsicherheiten">
-     </a>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#lineare-modellanpassung-a-id-subsec-lineare-modellanpassung-a">
-     Lineare Modellanpassung
-     <a id="SubSec-Lineare_Modellanpassung">
-     </a>
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#beispiel-karussel-a-id-sec-beispiel-a">
-   Beispiel: Karussel
-   <a id="Sec-Beispiel">
+  <a class="reference internal nav-link" href="#lineare-regression-mit-python-scipy-a-id-subsec-scipy-linreg-a">
+   Lineare Regression mit Python: scipy
+   <a id="SubSec-scipy_LinReg">
+   </a>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lineare-regression-mit-python-lmfit-a-id-subsec-lmfit-linreg-a">
+   Lineare Regression mit Python: lmfit
+   <a id="SubSec-lmfit_LinReg">
+   </a>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bestimmung-der-geschwindigkeit-a-id-subsec-geschwindigkeit-a">
+   Bestimmung der Geschwindigkeit
+   <a id="SubSec-geschwindigkeit">
    </a>
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#analytische-lineare-regression-a-id-subsec-analytical-linreg-a">
-     Analytische Lineare Regression
-     <a id="SubSec-Analytical_LinReg">
-     </a>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bestimmung-der-geschwindigkeit-a-id-subsec-geschwindigkeit-a">
-     Bestimmung der Geschwindigkeit
-     <a id="SubSec-geschwindigkeit">
-     </a>
-    </a>
-   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#unsicherheit-der-geschwindigkeit-a-id-subsec-u-geschwindigkeit-a">
      Unsicherheit der Geschwindigkeit
@@ -749,167 +689,8 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="kurvenanpassung">
-<h1>Kurvenanpassung<a class="headerlink" href="#kurvenanpassung" title="Permalink to this headline">#</a></h1>
-<p>Bei der Kurvenanpassung handelt es sich um ein statistisches Analyseverfahren zur Feststellung funktionaler Beziehungen zwischen einer abhängigen und einer oder mehreren unabhängigen Variablen. Der Begriff <strong>lineare Regression</strong> ist weit verbreitet, doch dies ist nur der einfachste Fall eines Modells, nämlich der einer Geraden: <span class="math notranslate nohighlight">\(y = a \cdot x +b\)</span>. Grundsätzlich sollte man den Typ der Fit-Funktion <span class="math notranslate nohighlight">\(y = f(x)\)</span> immer vorher festlegen und auch begründen können. Es ist keine wissenschaftlicher oder messtechnische Vorgehensweise alle möglichen Funktionen nur auf Verdacht <em>auszuprobieren</em> und sich für die besten entscheiden. Hierbei wäre es möglich, dass unbrauchbare Näherungen pder sogar falsche (unsinnige) und nicht-wissenschaftlicher Ergebnisinterpretationen auftreten könnten, was es zu vermeiden gilt.</p>
-<p>Zusammengefasst suchen wir nun also ein bestimmtes Modell für ein bestimmtes Set an Daten und wollen die Modellparameter bestimmen. Dabei soll das Modell möglichst gut die Messdaten vorhersagen. Die Modellanpassung wird häufig über die Methode der kleinsten Quadrate verwendet, mit welcher sich fast alle Messdaten modellieren lassen (auch kompliziertere Situationen wie beispielsweise korrelierte Unsicherheiten).</p>
-<p>Hinweis zur Begrifflichkeit:</p>
-<ul class="simple">
-<li><p><strong>Regression</strong>: Untersuchung der <em>Korrelation</em> von Datenpunkten ohne Messfehler mit angenommenen Zusammenhang</p></li>
-<li><p><strong>Fit/Anpassung</strong>: wie die Regression, allerdings unter Berücksichtigung von Messfehlern.</p></li>
-<li><p><strong>Interpolation</strong>: Hierbei handelt es sich nicht um eine Regression bzw. Approximation. Anstelle eines funktionalen Zusammenhangs, der an die Messwerte angenähert wird, verwendert man Polynome hohen Grades, um eine analytische Kennlinie zu beschreiben, die <em>exakt</em> durch alle Messpunkte geht. Für eine große Anzahl von Messwerten wird die Interpolationsfunktion sehr schnell unhandlich.</p></li>
-</ul>
-<p><img alt="Bild" src="../_images/interpol_approx.png" /></p>
-<section id="modellanpassung-a-id-sec-modellanpassung-a">
-<h2>Modellanpassung <a id="Sec-Modellanpassung"></a><a class="headerlink" href="#modellanpassung-a-id-sec-modellanpassung-a" title="Permalink to this headline">#</a></h2>
-<p>Um ein Regressionsmodell zu berechnen, benötigen wir ein objektives Maß um die Zuverlässigkeit und Güte unsere Modellfunktion zu bestimmen. Dies nennt man auch das <strong>Bestimmtsheitsmaß</strong>, bzwl. auf englisch <strong>coefficient of determination</strong> oder <strong>goodness of fit</strong>. Dieses Maß</p>
-<ul class="simple">
-<li><p>bestimmt die Verkleinerung des Vorhersagefehlers der Ausgangsgröße <span class="math notranslate nohighlight">\(y\)</span></p></li>
-<li><p>definiert die Größe der Streuung von <span class="math notranslate nohighlight">\(y\)</span></p></li>
-<li><p>zeigt die Qualität der linearen Regression, aber nicht ob das Modell richtig ist</p></li>
-<li><p>sagt nichts über die statistische Signifikanz des ermittelten Zusammenhangs der einzelnen Regressoren aus (Signifikanztest notwendig)</p></li>
-</ul>
-<p>Als erstes soll überprüft werden, inwiefern die Funktion oder das Modell mit den Messdaten übereinstimmt. Ausgangspunkt ist also unsere Messreihe mit <span class="math notranslate nohighlight">\(N\)</span> Messpunkten <span class="math notranslate nohighlight">\((x_i, y_i)\)</span> und wir haben eine Funktion <span class="math notranslate nohighlight">\(f(x_i)\)</span> definiert, die die Messwerte <span class="math notranslate nohighlight">\(y_i\)</span> möglichst gut vorhersagen soll. In der unteren Grafik (geborgt von <a class="reference external" href="https://de.wikipedia.org/wiki/Methode_der_kleinsten_Quadrate">Wikipedia</a>), sind Messpunkte in blau und eine Modellfunktion in rot aufgezeichnet. Die Parameter der gesuchten Modellfunktion werden nun so bestimmt, dass die Modellfunktion möglichst wenig von den Messwerten abweicht, d.h. das Residuum</p>
-<div class="math notranslate nohighlight">
-\[\epsilon = \left( f(x_i) - y_i\right)\]</div>
-<p>soll möglichst klein werden.</p>
-<p><img alt="Bild" src="../_images/kleinste_quadrate.png" /></p>
-<section id="least-squares-methode-der-kleinsten-quadrate-a-id-subsec-least-squares-a">
-<h3>Least-Squares: Methode der kleinsten Quadrate <a id="SubSec-least_squares"></a><a class="headerlink" href="#least-squares-methode-der-kleinsten-quadrate-a-id-subsec-least-squares-a" title="Permalink to this headline">#</a></h3>
-<p>Laut Carl Friedrich Gauß kann also der Abstand der Funktionswerte zu den Messwerten wievolgt definiert werden:</p>
-<blockquote>
-<div><p>Methode der Gauß’schen Fehlerquadrate (Gütefunktion):
-$<span class="math notranslate nohighlight">\(Q := \sum_{i=1}^N \left( f(x_i) - y_i\right)^2 :=  \sum_{i=1}^N \epsilon_i^2 = \mathrm{min!}\)</span>$</p>
-</div></blockquote>
-<p>Die Gütefunktion, die gleichbedeutend mit den SQT ist, ist wieder so gewählt, dass sich Abweichungen aufgrund unterschiedliche Vorzeichen nicht aufheben können und dass größere Abweichungen stärker gewichtet werden (durch die Quadrierung). Die Modellfunktion <span class="math notranslate nohighlight">\(f(x)\)</span> wird bestimmt, indem das Minimierungsproblem gelöst wird. Dies kann entwedet analytisch geschehen (siehe <a class="reference external" href="#SubSec-Lineare_Modellanpassung">Lineare Modellanpassung</a>) oder man lässt sich die Regression mittels Software berechnen.</p>
-<p>Es handelt sich um ein <em>Minimierungsproblem</em> welches je nach Art der Modellfunktion unterschiedlich gelöst wird. Man sollte stets die Regressionsgerade zusammen mit den Datenpunkten in ein Diagramm zeichnen, um zu sehen, wie “gut” die Messdaten durch die Kurvenanpassung beschrieben werden.
-Je enger die Datenpunkte um die Regressionsgerade herum konzentriert sind, d. h. je kleiner also die Residuenquadrate sind, desto „besser“. Die Residuenquadrate sind meistens relativ klein, insbesondere dann, wenn die abhängige Variable sehr konstant ist. Das heißt man möchte eigentlich auch die Streuung der abhängigen Variablen mit ins Spiel bringen.
-Sowohl die Streuung der Messwerte zum Mittelwert, als auch die der geschätzten Werte, sollte in Relation zueinander gebracht werden. Das heißt wir definieren im Folgenden zwei Summen der Abweichungsquadrate. Die <strong>Summe der Abweichungsquadrate (Sum of Squares) SQT oder SST</strong> gibt die Streuung der Messwerte um ihren Mittelwert an. Das <em>mittlere</em> Abweichungsquadrat bestimmt deren Varianz.</p>
-<ul class="simple">
-<li><p>Die <strong>Summe der Quadrate der Erklärten Abweichungen (Sum of Squares Explained) SQE oder SSE</strong> gibt die Streuung der Schätzwerte <span class="math notranslate nohighlight">\(f(x_i)\)</span> des Fits um den Mittelwert <span class="math notranslate nohighlight">\(\bar f = \bar y\)</span> der gemessenen Messwerte an:</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[\mathrm{SQE} = \mathrm{SSE} = \sum_{i=1}^N (f(x_i) - \bar y)^2\]</div>
-<ul class="simple">
-<li><p>Die <strong>totale Quadratsumme (Summe der Quadrate der Totalen Abweichungen bzw. Sum of Squares Total) SQT oder SST</strong> gibt die Streuung der Messwerte <span class="math notranslate nohighlight">\(y_i\)</span> um deren Mittelwert <span class="math notranslate nohighlight">\(\bar y\)</span> an:</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[\mathrm{SQT} = \mathrm{SST} = \sum_{i=1}^N (y_i - \bar y)^2\]</div>
-<ul class="simple">
-<li><p>Die <strong>Restabweichungen</strong> (nicht erklärte Abweichungen), welche nach der Regression übrig bleiben sind ein Maß für die Abweichung der Datenpunkte von der Regressionskurve und werden durch die Residuenquadratsumme (<strong>Summe der Quadrate der Restabweichungen</strong> (oder: „Residuen“) bzw. englisch Sum of Squares Residual) SQR oder SSR) erfasst:</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[\mathrm{SQR} = \mathrm{SSR} = \sum_{i=1}^N(y_i-f(x_i))^2\]</div>
-<ul class="simple">
-<li><p>Man kann beweisen, dass folgendes gilt:</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[\mathrm{SQT} = \mathrm{SQR} + \mathrm{SQE}\]</div>
-</section>
-<section id="bestimmtheitsmasz-a-id-subsec-bestimmtheitsmasz-a">
-<h3>Bestimmtheitsmaß <a id="SubSec-Bestimmtheitsmaß"></a><a class="headerlink" href="#bestimmtheitsmasz-a-id-subsec-bestimmtheitsmasz-a" title="Permalink to this headline">#</a></h3>
-<p>Für das <strong>Bestimmtheitsmaß</strong> gelten folgenden Punkte:</p>
-<ul class="simple">
-<li><p>Es beschreibt den Anteil der Varianz einer abhängigen Variablen <span class="math notranslate nohighlight">\(y\)</span> durch ein statistisches Modell</p></li>
-<li><p>Es ist nur für lineare Regressionen eindeutig definiert:
-$<span class="math notranslate nohighlight">\(\mathit{R}^2 = r^2 (=\textrm{Korrelation}^2)\)</span>$</p></li>
-<li><p>Es kann bedingt zur Beschreibung der Güte einer Regression verwendet werden.</p></li>
-<li><p>Das Verhältnis der beiden Größen SQE und SQT wird das <strong>Bestimmtheitsmaß</strong> der Regression genannt und gibt an, wie gut die gefundene geschätzte Modellfunktion zu den Messdaten passt, oder wie gut sich die Regression an die Daten annähert.</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[\mathit{R}^2 \equiv \frac{SQE}{SQT}=
-\frac{\displaystyle\sum_{i=1}^N \left(f(x_i)- \overline{y}\right)^2}{\displaystyle\sum_{i=1}^N \left(y_i - \overline{y}\right)^2} = 1 - \frac{SQR}{SQT}=1-\frac{\displaystyle\sum_{i=1}^N \left(y_i - f(x_i)\right)^2}{\displaystyle\sum_{i=1}^N \left(y_i - \overline{y}\right)^2}\]</div>
-<p>wobei:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(f(x_i)\)</span> der Funktionswert der Regression ist</p></li>
-<li><p><span class="math notranslate nohighlight">\(x_i\)</span> der Datenwert ist</p></li>
-<li><p>und <span class="math notranslate nohighlight">\(\bar y\)</span> der Mittelwert <span class="math notranslate nohighlight">\(y_i\)</span> der Messwerte ist</p></li>
-</ul>
-<p>Das Bestimmtheitsmaß lässt sich mit 100 multiplizieren, um es in Prozent anzugeben, dies entspricht dann dem prozentualen Anteil der Streuung in <span class="math notranslate nohighlight">\(y\)</span>, der durch das lineare Modell beschrieben wird und liegt somit zwischen 0% und 100%:</p>
-<ul class="simple">
-<li><p>0%: es existiert kein linearer Zusammenhang</p></li>
-<li><p>100%: perfekter linearer Zusammenhang</p></li>
-</ul>
-<p>Allgemein gilt für das Bestimmheitsmaß:</p>
-<ul class="simple">
-<li><p>je näher <span class="math notranslate nohighlight">\(\mathit{R}^2\)</span> an 1 liegt, desto höher ist die Güte der Kurvenanpassung</p></li>
-<li><p>für <span class="math notranslate nohighlight">\(\mathit{R}^2=0\)</span> ist der Schätzer im Modell völlig unbrauchbar für irgendeine Vorhersage eines Zusammenhangs zwischen <span class="math notranslate nohighlight">\(x_i\)</span> und <span class="math notranslate nohighlight">\(y_i\)</span>.</p></li>
-<li><p>für <span class="math notranslate nohighlight">\(\mathit{R}^2=1\)</span> lässt sich <span class="math notranslate nohighlight">\(y\)</span> vollständig durch ein lineares Modell beschreiben und alle Messpunkte liegen auf einer nicht-horizontalen Geraden. In diesem Falle würde man davon sprechen, dass ein deterministischer Zusammenhang besteht, kein stochastischer.</p></li>
-</ul>
-<p><strong>Nachteile des Bestimmheitsmaß:</strong>
-Für immer mehr Messwerte steigt <span class="math notranslate nohighlight">\(\mathit{R}^2\)</span> an, ohne dass die Korrelation oder die Regression besser wird.
-Dies könnte durch ein korrigiertes <span class="math notranslate nohighlight">\(\mathit{R}^2\)</span> behoben werden:</p>
-<div class="math notranslate nohighlight">
-\[\mathit{\overline R}^2 = 1-(1-\mathit{R}^2)\cdot \frac{n-1}{n-p-1}\]</div>
-<p>mit</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(n\)</span> Anzahl der Messwerte und</p></li>
-<li><p><span class="math notranslate nohighlight">\(p\)</span> Anzahl der Variablen im Regressionsmodell</p></li>
-</ul>
-<p>Ein weiterer Nachteil ist, dass keine Aussage darüber geliefert werden kann, ob ein <em>korrektes</em> Regressionsmodell verwendet wurde.</p>
-</section>
-<section id="modellanpassung-mit-unsicherheiten-a-id-subsec-modellanpassung-unsicherheiten-a">
-<h3>Modellanpassung mit Unsicherheiten <a id="SubSec-Modellanpassung_unsicherheiten"></a><a class="headerlink" href="#modellanpassung-mit-unsicherheiten-a-id-subsec-modellanpassung-unsicherheiten-a" title="Permalink to this headline">#</a></h3>
-<p>Im allgemeinen Fall, d.h. wenn die Messwerte <span class="math notranslate nohighlight">\(y_i\)</span> mit Unsicherheiten <span class="math notranslate nohighlight">\(s_i\)</span> behaftet sind, lässt sich die Residuensumme wiefolgt definieren:</p>
-<div class="math notranslate nohighlight">
-\[\chi^2 = \sum_{i=1}^N \left(\frac{f(x_i)-y_i}{s_i}\right)^2\]</div>
-<p>Für die obigen Berechnungen, und auch im Falle von konstanten Unsicherheiten, d.h. wenn für alle Werte von <span class="math notranslate nohighlight">\(y_i\)</span> die gleiche absolute Unsicherheit existiert, ändert sich nichts. Denn es gilt <span class="math notranslate nohighlight">\(s_i = s = \mathrm{const}\)</span> und beim “Nullsetzen” werden diese einfach eliminiert.
-Gelten für die <span class="math notranslate nohighlight">\(N\)</span> Messwerte allerdings unterschiedliche Unsicherheiten, so müssen diese miteinbezogen werden.</p>
-</section>
-<section id="lineare-modellanpassung-a-id-subsec-lineare-modellanpassung-a">
-<h3>Lineare Modellanpassung <a id="SubSec-Lineare_Modellanpassung"></a><a class="headerlink" href="#lineare-modellanpassung-a-id-subsec-lineare-modellanpassung-a" title="Permalink to this headline">#</a></h3>
-<p>Da wir als Messtechniker immer danach streben möglichst lineare Kennlinien zu erreichen, ist die Gerade eine häufig auftretende Kurve, die angepasst werden soll. Daher wollen wir uns in diesem Abschnitt mit der Herleitung der linearen Regression befassen. Die Herleitung für andere Modellfunktionen, welche quadratische Terme, noch höhere Terme oder ganz andere Zusammenhänge beinhalten, ist auch deutlich schwieriger.</p>
-<p>Unser Ausgangspunkt ist also eine Gerade der Form</p>
-<div class="math notranslate nohighlight">
-\[f(x) = mx + b\]</div>
-<p>Die Parameter <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span> werden nun durch das Minimierungsproblem bestimmt mithilfe der Gütefunktion, die nun wiefolgt geschrieben werden kann:</p>
-<div class="math notranslate nohighlight">
-\[Q = \sum_{i = 1}^{N} (y_i - f(x_i))^2 = \sum_{i = 1}^{N} (y_i - mx_i - b)^2 = \mathrm{min!}\]</div>
-<p>wobei <span class="math notranslate nohighlight">\(y_i\)</span> und <span class="math notranslate nohighlight">\(x_i\)</span> die Messwerte (Datenpunkte) sind.</p>
-<p>Durch Differentation nach den Parametern und gleichsetzen auf Null können die Parameter bestimmt werden:</p>
-<div class="math notranslate nohighlight">
-\[\frac{dQ}{dm} = -2 \sum_{i = 1}^{N} x_i (y_i - mx_i - b) = 0\]</div>
-<div class="math notranslate nohighlight">
-\[\frac{dQ}{db} = -2 \sum_{i = 1}^{N} (y_i - mx_i - b) = 0\]</div>
-<p>Nach Umstellen der beiden Ableitungen gelangt man zu folgenden Gleichungssystem:</p>
-<div class="math notranslate nohighlight">
-\[m\sum_{i = 1}^{N} x_i^2 + b\sum_{i = 1}^{N}x_i  = \sum_{i = 1}^{N}x_i y_i\]</div>
-<div class="math notranslate nohighlight">
-\[m\sum_{i = 1}^{N} x_i + N b  = \sum_{i = 1}^{N} y_i\]</div>
-<p>Auflösen nach den gesuchten Parameter erhält man folgende Gleichungen für die gesuchten besten Schätzparamete der Regressionsgeraden, auch <strong>Regressionskoeffizienten</strong> genannt:</p>
-<div class="math notranslate nohighlight">
-\[ m = \frac{\sum_{i=1}^N (x_i y_i) - b\sum_{i=1}^N x_i }{\sum_{i=1}^N x_i^2 } = \frac{S_{xy}}{S_{x}^2} = \frac{\overline{x\cdot y} - \overline x \cdot \overline y}{\overline{x^2} - (\overline x)^2}\]</div>
-<div class="math notranslate nohighlight">
-\[b = \frac{\sum_{i=1}^N y_i - m \sum_{i=1}^N x_i}{N} = \bar y - m \cdot \bar x\]</div>
-<p>mit folgenden Definitionen:</p>
-<blockquote>
-<div><p><span class="math notranslate nohighlight">\(\bar x = \sum_{i = 1}^N x_i\)</span></p>
-</div></blockquote>
-<blockquote>
-<div><p><span class="math notranslate nohighlight">\(\bar y = \sum_{i = 1}^N y_i\)</span></p>
-</div></blockquote>
-<blockquote>
-<div><p><span class="math notranslate nohighlight">\(S_{xy} = \frac{1}{N-1}\sum_{i = 1}^N (x_i-\bar x)(y_i - \bar y)\)</span></p>
-</div></blockquote>
-<blockquote>
-<div><p><span class="math notranslate nohighlight">\(S_{x}^2 = \frac{1}{N-1}\sum_{i = 1}^N (x_i-\bar x)^2\)</span></p>
-</div></blockquote>
-<p>Wir sind hier in der verrückten Situation, dass tatsächlich  Mittelwerte für <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span> bestimmt werden müssen, obwohl die <span class="math notranslate nohighlight">\(x\)</span>-Werte absichtlich während der Versuchsreihe verändert werden, sich also die Grössen <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span> laufend ändern.</p>
-<p><img alt="Bild" src="../_images/lin_reg.png" /></p>
-<p>Nun sind die Schätzwerte allerdings zusätzlich fehlerbehaftet (wie sollte es auch anders sein). Mithilfe der Gleichung der Größtfehlers/Maximalfehlers kann man zeigen (den Beweis überspringen wir hier), dass für den Fehler von <span class="math notranslate nohighlight">\(y\)</span> folgendes gilt:</p>
-<div class="math notranslate nohighlight">
-\[s_y = \sqrt{\frac{1}{N-2}\sum(y_i - mx_i - b)^2 }\]</div>
-<p>Die ist auch die Standardabweichung der Einzelmessung aber <em>nicht</em> der Fehlerbalken, der im Diagramm als Fehlerbalken eingezeichnet wird. Die Abweichung der Einzelmessung wurde bisher mit <span class="math notranslate nohighlight">\(N-1\)</span> definiert, damals hat es sich aber um die Abweichung vom <em>Mittelwert</em> gehandelt. Nun betrachten wir die Abweichung zu einem linearen Modell, welches 2 offene Parameter, <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span>, hat, und somit einen Freiheitsgrad mehr bestitzt. Erst ab 3 Messwertepaaren können also Fehler für Steigung und Achsenabschnitt berechnet werden.
-Die besten Schätzwerte für die Abweichungen von <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span> können nun wiefolgt berechnet werden. Der Fehler der Geradensteigung beträgt:</p>
-<div class="math notranslate nohighlight">
-\[s_m = s_y \cdot \sqrt{\frac{N}{N\cdot \sum x_i^2 - \left(\sum x_i\right)^2}} = s_y \cdot \sqrt{\frac{1}{\sum x_i^2 - N\cdot \bar x^2}} = s_y \cdot \sqrt{\frac{1}{\sum \left(x_i - \bar x \right)^2}} = s_y \cdot \sqrt{\frac{1}{N\cdot (\overline{x^2} - (\overline x)^2)}}\]</div>
-<p>Der Fehler des Ordinatenabschnitts beträgt:</p>
-<div class="math notranslate nohighlight">
-\[s_b = s_y \cdot \sqrt{\frac{\sum x_i^2}{N\cdot \sum x_i^2 - \left(\sum x_i\right)^2}} = s_y \cdot \sqrt{\frac{1}{N}\frac{\sum x_i^2}{\sum x_i^2 - N\cdot \bar x^2}} = s_y \cdot \sqrt{\frac{1}{N}\frac{\sum x_i^2}{\sum \left(x_i - \bar x \right)^2}} = s_m \cdot \sqrt{\overline{x^2}}\]</div>
-</section>
-</section>
-<section id="beispiel-karussel-a-id-sec-beispiel-a">
-<h2>Beispiel: Karussel <a id="Sec-Beispiel"></a><a class="headerlink" href="#beispiel-karussel-a-id-sec-beispiel-a" title="Permalink to this headline">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="lineare-regression-mit-fehlerrechnung">
+<h1>Lineare Regression mit Fehlerrechnung<a class="headerlink" href="#lineare-regression-mit-fehlerrechnung" title="Permalink to this headline">#</a></h1>
 <p>Wir stellen uns im Folgenden ein Kinderkarussel vor und wir wollen die Geschwindigkeit der Feuerwehrautos ermitteln. Das Auto selbst verfügt über kein Tachometer - es bleibt also eigentlich nur die Möglichkeit, die Zeit eines Umlaufs zu stoppen und aus der Geometrie des Karussells den zurückgelegten Weg zu bestimmen. Daraus lässt sich die Geschwindigkeit leicht berechnen.
 Wie aber könnte eine Fehlerrechnung aussehen? Wie lässt sich eine Mehrfachmessung anstellen?</p>
 <p>Beispielsweise könnte man die Zeit nach jedem Umlauf messen, die näherungsweise konstant sein sollte (bis auf die 1. Runde, wo noch beschleunigt wird). Es könnte sich also ein linearer Zusammenhang zwischen zurückgelegtem Weg und der benötigten Zeit vermuten:</p>
@@ -921,7 +702,7 @@ Wie aber könnte eine Fehlerrechnung aussehen? Wie lässt sich eine Mehrfachmess
 <li><p>Weg  <span class="math notranslate nohighlight">\(x\)</span> (m): 12, 24, 36, 42, 60, 72, 84, 96, 108, 120</p></li>
 <li><p>Zeit <span class="math notranslate nohighlight">\(t\)</span> (s): 12.2, 17, 22.1, 33.2, 34.4, 59.1, 60.2, 65.7, 69.9, 70.1</p></li>
 </ul>
-<div class="cell tag_hide-input docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -944,17 +725,17 @@ Wie aber könnte eine Fehlerrechnung aussehen? Wie lässt sich eine Mehrfachmess
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1_Kurvenanpassung_9_0.png" src="../_images/1_Kurvenanpassung_9_0.png" />
+<img alt="../_images/T_LinRegmitFehler_1_0.png" src="../_images/T_LinRegmitFehler_1_0.png" />
 </div>
 </div>
 <section id="analytische-lineare-regression-a-id-subsec-analytical-linreg-a">
-<h3>Analytische Lineare Regression <a id="SubSec-Analytical_LinReg"></a><a class="headerlink" href="#analytische-lineare-regression-a-id-subsec-analytical-linreg-a" title="Permalink to this headline">#</a></h3>
+<h2>Analytische Lineare Regression <a id="SubSec-Analytical_LinReg"></a><a class="headerlink" href="#analytische-lineare-regression-a-id-subsec-analytical-linreg-a" title="Permalink to this headline">#</a></h2>
 <p>An dem Diagram erkennt man, dass die Parameter <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span> niemals fehlerrfrei berechnet werden können. Die gemessenen Punkte werden immer neben der Geraden liegen. Das heißt eine fehlerfreie Berechnung der Parameter aus den Messwerten wird daher nicht möglich sein. Daher können wir wieder nur versuchen beste Schätzungen für <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span> zu definieren, die bei einer steigenden Anzahl von Messwerten den <em>wahren</em> Werten beliebig nahe kommt. Diese Schätzwerte sind die Regressionskoeffizienten, welche wir bereits eben definiert hatten und wiefolgt berechnen können:</p>
 <div class="math notranslate nohighlight">
 \[ m = \frac{S_{xt}}{S_{x}^2} = \frac{\overline{x\cdot t} - \overline x \cdot \overline t}{\overline{x^2} - (\overline x)^2}\]</div>
 <div class="math notranslate nohighlight">
 \[b = \frac{\sum_{i=1}^N t_i - m \sum_{i=1}^N x_i}{N} = \bar t - m \cdot \bar x\]</div>
-<div class="cell tag_hide-input docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">t</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">-</span> <span class="n">m</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -975,28 +756,160 @@ Wie aber könnte eine Fehlerrechnung aussehen? Wie lässt sich eine Mehrfachmess
 Der Ordinatenabschnitt ist 	 b = 4.7148 s
 </pre></div>
 </div>
-<img alt="../_images/1_Kurvenanpassung_11_1.png" src="../_images/1_Kurvenanpassung_11_1.png" />
+<img alt="../_images/T_LinRegmitFehler_3_1.png" src="../_images/T_LinRegmitFehler_3_1.png" />
 </div>
 </div>
 </section>
+<section id="lineare-regression-mit-python-scipy-a-id-subsec-scipy-linreg-a">
+<h2>Lineare Regression mit Python: scipy <a id="SubSec-scipy_LinReg"></a><a class="headerlink" href="#lineare-regression-mit-python-scipy-a-id-subsec-scipy-linreg-a" title="Permalink to this headline">#</a></h2>
+<p>Mit einem Datenanalyseprogramm, sei es hier in Python oder in Matlab oder Maple, können Hilfsfunktionen und Pakete geladen werden, um Fit-Funktionen automatisch auf Messwerte anzupassen. Dies ist in der Regel schneller und insbesondere auch für andere Zusammenhänge, neben linearen Zusammenhängen, viel einfacher in der Umsetzung. Man sollte jedoch stets das Ergebnis kontrollieren, z.B. anhand von grafischen Darstellungen, und sich die Unsicherheiten genau ansehen. Desweiteren können in der Fitroutine Startparameter angegeben werden, welche den Schätzwerten schon recht nah sein sollten. Das Fitergebnis kann nämlich unter Umständen sehr stark von der Wahl der Startparameter abhängen, gerade wenn es um komplexere Fitfunktionen geht. Im Folgenden wollen wir uns aber noch einmal das Beispiels das Karussels ansehen, um die beiden Methoden miteinander zu vergleichen.</p>
+<p>Als erstes definieren wir uns eine allgemein lineare Fitfunktion und anschließend nutzen wir das scipy-Paket und rufen die Optimierungsfunktion auf, um unsere Messwerte zu modellieren. Die Ausgangsparameter werden in einem weiteren Array abgespeichert, welches einerseits die gesuchten Variablen <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span> beinhaltet, andererseits die Kovarianzmatrix enthält. Aus der Wurzel die Diagonalelemente dieser Kovarianzmatrix erhält man die Standardabweichung der bestimmten Variablen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
+
+<span class="k">def</span> <span class="nf">fit_lin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span> <span class="c1"># Fit Funktion für eine Gerade mit Steigung b</span>
+    <span class="k">return</span> <span class="n">b</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">a</span>
+
+<span class="c1"># Fit der Daten:</span>
+<span class="n">fit_out</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">fit_lin</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die scipy-Fitparameter lauten:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Steigung ist </span><span class="se">\t\t</span><span class="s1"> m = (</span><span class="si">%5.4f</span><span class="s1"> +- </span><span class="si">%5.4f</span><span class="s1">) s/m&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">fit_out</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">fit_out</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Der Ordinatenabschnitt ist </span><span class="se">\t</span><span class="s1"> b = (</span><span class="si">%5.4f</span><span class="s1"> +- </span><span class="si">%5.4f</span><span class="s1">) s&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">fit_out</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">fit_out</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">t</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Messwerte&#39;</span><span class="p">)</span> <span class="c1"># plot Messwerte</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">m</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">b</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Lin. Reg.: y = </span><span class="si">%5.3f</span><span class="s1">*x+</span><span class="si">%5.3f</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">b</span><span class="p">))</span>  <span class="c1"># plot Ausgleichsgerade mit m und b</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">fit_out</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">fit_out</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Fit: y = </span><span class="si">%5.3f</span><span class="s1">*x+</span><span class="si">%5.3f</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">fit_out</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">fit_out</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]))</span>  <span class="c1"># plot Fitfunktion mit b und a</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Strecke x (m)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Zeit t (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die scipy-Fitparameter lauten:
+Die Steigung ist 		 m = (0.6067 +- 0.0534) s/m
+Der Ordinatenabschnitt ist 	 b = (4.7148 +- 3.9581) s
+</pre></div>
+</div>
+<img alt="../_images/T_LinRegmitFehler_5_1.png" src="../_images/T_LinRegmitFehler_5_1.png" />
+</div>
+</div>
+<p>Man erkennt, dass die Regressionskoeffizienten der beiden Methoden sehr gut übereinstimmen. Die Unterschiede betragen lediglich:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Unterschied in den Steigungen: </span><span class="se">\t\t</span><span class="s1">  </span><span class="si">%5.3e</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">m</span><span class="o">-</span><span class="n">fit_out</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Unterschied in den Ordinatenabschnitten: </span><span class="si">%5.3e</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">fit_out</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Unterschied in den Steigungen: 		  8.582e-13
+Unterschied in den Ordinatenabschnitten: -8.125e-12
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="lineare-regression-mit-python-lmfit-a-id-subsec-lmfit-linreg-a">
+<h2>Lineare Regression mit Python: lmfit <a id="SubSec-lmfit_LinReg"></a><a class="headerlink" href="#lineare-regression-mit-python-lmfit-a-id-subsec-lmfit-linreg-a" title="Permalink to this headline">#</a></h2>
+<p>Prinzipiell ist es wundervoll für Python für die Optimierung von Problemenen zu nutzen und das scipy-Paket bietet sehr robuste und einfach Nutzung. Andererseits unterscheidet sich das Verfahen nicht besonders von denjenigen, die wir in C oder Fortran bekommen würden. D.h. es gibt einige Herausforderungen in der praktischen Anwendung, warum scipy nicht die optimale Wahl ist:</p>
+<ul class="simple">
+<li><p>Der Benutzer muss sich die Reihenfolge der Variablen und deren Bedeutung merken. (Was war noch mal fit_out[0][0], die Steigung oder der Ordinatenabschnitt?)</p></li>
+<li><p>Wenn ich eine Variable nicht fitten möchte, also ich möchte zum Beispiel die Steigung auf fest Null setzen, so muss ich mir eine neue Funktion ohne diese Variable definieren. Insbesondere für komplexere Funktionen und Zusammenhänge wird dieses Verfahren schnell unübersichtlich. Einfacher wäre es, der Optimierungsfunktion zu sagen, welche Variablen ich in diesem Durchlauf gefittet haben möchte, und welche konstant bleiben sollen.</p></li>
+<li><p>Zwischen den verschiedenen Variablen können keine Beziehungen hergestellt werden. Es können lediglich Grenzen angegeben werden, in denen sich die Variablen befinden.</p></li>
+</ul>
+<p>Der Grund für die eingeschränkte Nutzung hat historische Gründe und basiert hauptsächlich auf Fit-Routinen, die beispielsweise für C oder Fortran entwickelt wurden. Python bietet aber mehr, da es unterschiedlich Objekte und Datenstrukturen bietet, statt nur mit Arrays zu rechnen. Daher möchten wir uns noch einem etwas besser geeignetem Paket widmen, und das eben vorgestellt Beispiel noch einmal durchrechnen.</p>
+<p>Das Paket lmfit definiert und benutzt Parameterobjekte anstelle von einfachen Zahlen als Variablen. Dies hat folgende Vorteile:</p>
+<ul class="simple">
+<li><p>Wir müssen uns endlich keine Reihenfolgen von Variablen mehr merken, wir können ihn ab sofort bedeutungsvolle Namen geben.</p></li>
+<li><p>Es müssen keine Arrays mehr für Grenzen eingegeben werden und die Reihenfolge der Grenzen, im Array, die vorher durch die Reihenfolge Variablen bestimmt war, spielt nun auch keine Rolle mehr.</p></li>
+<li><p>Wir können einfach Parameter fixieren ohne Zielfunktionen neu definieren zu müssen.</p></li>
+<li><p>Algebraische Beschänkungen der Parameter sind ab sofort möglich.</p></li>
+</ul>
+<p>Eine ausführliche Dokumentation findet man hier: <a class="reference external" href="https://lmfit.github.io/lmfit-py/index.html">https://lmfit.github.io/lmfit-py/index.html</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lmfit</span> <span class="kn">import</span> <span class="n">minimize</span><span class="p">,</span> <span class="n">Parameters</span>
+<span class="kn">from</span> <span class="nn">lmfit</span> <span class="kn">import</span> <span class="n">Model</span>
+
+<span class="k">def</span> <span class="nf">f_lin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">steigung</span><span class="p">,</span> <span class="n">abschnitt</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">steigung</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">abschnitt</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">f_lin</span><span class="p">)</span>
+<span class="n">params</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">make_params</span><span class="p">(</span><span class="n">steigung</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">abschnitt</span><span class="o">=</span><span class="mf">10.0</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;lmfit hat eine eigene print-Ausgabe:&#39;</span><span class="p">)</span>
+<span class="n">result</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">pretty_print</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Fit Report:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">fit_report</span><span class="p">())</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">t</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Messwerte&#39;</span><span class="p">)</span> <span class="c1"># plot Messwerte</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">m</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">b</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Lin. Reg.: y = </span><span class="si">%5.3f</span><span class="s1">*x+</span><span class="si">%5.3f</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">b</span><span class="p">))</span>  <span class="c1"># plot Ausgleichsgerade mit m und b</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">fit_out</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">fit_out</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;scipy Fit: y = </span><span class="si">%5.3f</span><span class="s1">*x+</span><span class="si">%5.3f</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">fit_out</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">fit_out</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]))</span>  <span class="c1"># plot Fitfunktion mit b und a</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">result</span><span class="o">.</span><span class="n">best_fit</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;lmfit Fit: y = </span><span class="si">%5.3f</span><span class="s1">*x+</span><span class="si">%5.3f</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;steigung&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">,</span><span class="n">result</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;abschnitt&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">))</span>  <span class="c1"># plot Fitfunktion mit b und a</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Strecke x (m)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Zeit t (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lmfit hat eine eigene print-Ausgabe:
+Name          Value      Min      Max   Stderr     Vary     Expr Brute_Step
+abschnitt     4.715     -inf      inf    3.958     True     None     None
+steigung     0.6067     -inf      inf  0.05342     True     None     None
+
+Fit Report:
+[[Model]]
+    Model(f_lin)
+[[Fit Statistics]]
+    # fitting method   = leastsq
+    # function evals   = 6
+    # data points      = 10
+    # variables        = 2
+    chi-square         = 276.888038
+    reduced chi-square = 34.6110047
+    Akaike info crit   = 37.2102814
+    Bayesian info crit = 37.8154516
+[[Variables]]
+    steigung:   0.60665381 +/- 0.05342018 (8.81%) (init = 0.7)
+    abschnitt:  4.71484116 +/- 3.95814322 (83.95%) (init = 10)
+[[Correlations]] (unreported correlations are &lt; 0.100)
+    C(steigung, abschnitt) = -0.883
+</pre></div>
+</div>
+<img alt="../_images/T_LinRegmitFehler_9_1.png" src="../_images/T_LinRegmitFehler_9_1.png" />
+</div>
+</div>
+<p>Anhand der ausführlichen Ausgabe erkennt man sofort, wie viele Informationen man aus der Benutzung dieses Paketes ziehen kann, ohne aufwendige Fehlerfortpflanzung betreiben zu müssen. Außerdem kann man Beispielsweise die Fit-Methode ändern (anstelle von least-squares), man kann sich die Anfangs-Fitfunktion ansehen (und parallel zur ‘besten’ Fit-Funktion anzeigen lassen), man kann Parameter konstant setzen oder sich Standardfehler, <span class="math notranslate nohighlight">\(\chi^2\)</span> und Korrelationen (zwischen den Fit-Parametern, nicht den Messwerten!) ausgeben lassen.</p>
+</section>
 <section id="bestimmung-der-geschwindigkeit-a-id-subsec-geschwindigkeit-a">
-<h3>Bestimmung der Geschwindigkeit <a id="SubSec-geschwindigkeit"></a><a class="headerlink" href="#bestimmung-der-geschwindigkeit-a-id-subsec-geschwindigkeit-a" title="Permalink to this headline">#</a></h3>
+<h2>Bestimmung der Geschwindigkeit <a id="SubSec-geschwindigkeit"></a><a class="headerlink" href="#bestimmung-der-geschwindigkeit-a-id-subsec-geschwindigkeit-a" title="Permalink to this headline">#</a></h2>
 <p>Eigentlich wollten wir ja die Geschwindigkeit der Feuerwehrautos bestimmen.
 Der Kehrwert der Steigung <span class="math notranslate nohighlight">\(m\)</span> liefert uns die Geschwindigkeit des Karussells, wenn wir den Kehrwert berechnen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">m</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Geschwindigkeit beträgt: v = </span><span class="si">%5.4f</span><span class="s1"> m/s = </span><span class="si">%5.4f</span><span class="s1"> km/h&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">v</span><span class="o">/</span><span class="mi">1000</span><span class="o">*</span><span class="mi">3600</span><span class="p">))</span>
+<span class="n">v_fit</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">fit_out</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Geschwindigkeit ermittelt mittels Analytik ist: v = </span><span class="si">%5.4f</span><span class="s1"> m/s = </span><span class="si">%5.4f</span><span class="s1"> km/h&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">v</span><span class="o">/</span><span class="mi">1000</span><span class="o">*</span><span class="mi">3600</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Geschwindigkeit ermittelt mittels Fit ist:      v = </span><span class="si">%5.4f</span><span class="s1"> m/s = </span><span class="si">%5.4f</span><span class="s1"> km/h&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">v_fit</span><span class="p">,</span> <span class="n">v_fit</span><span class="o">/</span><span class="mi">1000</span><span class="o">*</span><span class="mi">3600</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Geschwindigkeit beträgt: v = 1.6484 m/s = 5.9342 km/h
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Geschwindigkeit ermittelt mittels Analytik ist: v = 1.6484 m/s = 5.9342 km/h
+Die Geschwindigkeit ermittelt mittels Fit ist:      v = 1.6484 m/s = 5.9342 km/h
 </pre></div>
 </div>
 </div>
 </div>
-</section>
 <section id="unsicherheit-der-geschwindigkeit-a-id-subsec-u-geschwindigkeit-a">
 <h3>Unsicherheit der Geschwindigkeit <a id="SubSec-u_geschwindigkeit"></a><a class="headerlink" href="#unsicherheit-der-geschwindigkeit-a-id-subsec-u-geschwindigkeit-a" title="Permalink to this headline">#</a></h3>
 <p>Wie bereits oben schon erwähnt, hat die Regressionen eine Abweichung. Daher müssen wir uns jetzt fragen, was der Fehler der Geschwindigkeit ist. Diesen bekommen wir aus der Steigiung <span class="math notranslate nohighlight">\(m\)</span>. Das heißt wir benötigen zuerst den Fehler von <span class="math notranslate nohighlight">\(m\)</span>:</p>
@@ -1031,7 +944,36 @@ Die Unsicherheit von b ist 	 s_b = 3.9581 s
 </div>
 </div>
 </div>
-<p>Nun interessiert uns  der absolute Fehler der geschätzen Geschwindigkeit. Da die Geschwindigkeit der Kehrwert der Steigung ist (<span class="math notranslate nohighlight">\(v = \frac{1}{m}\)</span>), müssen wir Fehlerfortpflanzung anwenden. Der Fehler wirkt sich wiefolgt auf den Kehrwert aus:</p>
+<p>Die Fitroutine in Python gibt uns ebenfalls Unsicherheiten in Form von der Kovarianz-Matrix aus. Auf der Diagonale stehen die Varianzen, <span class="math notranslate nohighlight">\(s^2\)</span>, auf den Nicht-Diagonalelementen stehen die Kovarianzen (Korrelationsterme zwischen <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathrm{cov}(m,b) = 
+\begin{pmatrix}
+ s_m^2 &amp; s_{mb} \\
+ s_{bm} &amp; s_b^2
+\end{pmatrix} \end{split}\]</div>
+<p>Die Unsicherheiten für <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span> erhalten wir also aus der Wurzel von den Diagonalelementen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Kovarianzmatrix hat die folgende Form: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">fit_out</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Unsicherheit von m ist </span><span class="se">\t</span><span class="s1"> s_m = </span><span class="si">%5.4f</span><span class="s1"> s/m&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">fit_out</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Unsicherheit von b ist </span><span class="se">\t</span><span class="s1"> s_b = </span><span class="si">%5.4f</span><span class="s1"> s&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">fit_out</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Kovarianzmatrix hat die folgende Form: 
+ [[ 2.85371544e-03 -1.86632993e-01]
+ [-1.86632993e-01  1.56668987e+01]]
+
+Die Unsicherheit von m ist 	 s_m = 0.0534 s/m
+Die Unsicherheit von b ist 	 s_b = 3.9581 s
+</pre></div>
+</div>
+</div>
+</div>
+<p>Auch die Unsicherheiten stimmen für beide Methoden perfekt überein.</p>
+<p>Nun interessiert uns allerdings der absolute Fehler der geschätzen Geschwindigkeit. Da die Geschwindigkeit der Kehrwert der Steigung ist (<span class="math notranslate nohighlight">\(v = \frac{1}{m}\)</span>), müssen wir Fehlerfortpflanzung anwenden. Der Fehler wirkt sich wiefolgt auf den Kehrwert aus:</p>
 <div class="math notranslate nohighlight">
 \[\Delta v = \left|\frac{\partial v}{\partial m}\right|\cdot \Delta m = \left| -\frac{1}{m^2} \right| \cdot s_m = \frac{1}{m^2} \cdot s_m = s_v\]</div>
 <p>Da beide Methoden die gleichen Werte für Schätzungen und Unsicherheiten ausgeben, ersparen wir uns ab nun die Berechnung der Geschwindigkeit inkl. Unsicherheit für beide Methoden. Die Fehlerrechnung wird nur noch für die analytische Methode ausgeführt:</p>
@@ -1130,17 +1072,17 @@ Die Korrelationsmatrix zwischen x und t mittels numpy-Paket lautet:
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="1_Fehlerfortpflanzung.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="T_Plotten.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Fortpflanzung von Messunsicherheiten</p>
+            <p class="prev-next-title">Klimadaten analysieren mit Python</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="2_Stationaer.html" title="next page">
+    <a class='right-next' id="next-link" href="T_FitmitFehlerbalken.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Stationäre Messsysteme</p>
+        <p class="prev-next-title">Lineare Regression mit Berücksichtigung von Fehlerbalken</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

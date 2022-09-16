@@ -31,7 +31,7 @@ Einführung in Python und Jupyter-Notebooks.
 
 
 :::{grid-item-card}
-:link: content/1_Tutorials
+:link: content/T_Tutorials
 :link-type: doc
 :class-header: bg-light
 **Tutorials** 🧑🏽‍💻

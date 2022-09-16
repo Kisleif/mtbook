@@ -717,8 +717,7 @@ title="Print to PDF"
 <span class="c1"># MatplotLib Settings:</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Setup Complete&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
 
 <span class="n">link</span> <span class="o">=</span> <span class="s1">&#39;data/graph.csv&#39;</span> <span class="c1"># Beispieldatei mit Klimadaten</span>
 <span class="n">global_mean</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">link</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># Daten einlesen</span>
@@ -778,10 +777,7 @@ require(['plotly'], function(Plotly) {
 });
 }
 </script>
-</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Setup Complete
-</pre></div>
-</div>
-<img alt="../_images/1_Fehlerfortpflanzung_2_2.png" src="../_images/1_Fehlerfortpflanzung_2_2.png" />
+</div><img alt="../_images/1_Fehlerfortpflanzung_2_1.png" src="../_images/1_Fehlerfortpflanzung_2_1.png" />
 </div>
 </div>
 <p>Das Intervall <span class="math notranslate nohighlight">\(\pm \Delta x = 20\)</span> im obigen Plot um 1980 drum herum wird durch <em>irgendeinen</em> funktionellen Zusammenhang <span class="math notranslate nohighlight">\(f(x)\)</span> auf das Intervall <span class="math notranslate nohighlight">\(\Delta y\)</span> abgebildet. Durch den Messwert <span class="math notranslate nohighlight">\(x_0 = 1980\)</span> kann eine lineare Ausgleichsgerade gezogen werden, deren Steigung der Ableitung der Funktion in diesem Punkt entspricht, <span class="math notranslate nohighlight">\(df(x_0)/dx\)</span>. Anhand der Steigung der linearen Ausgleichsgeraden kann man den Fehler für <span class="math notranslate nohighlight">\(y\)</span> direkt ablesen: <span class="math notranslate nohighlight">\(\Delta y \approx 0,375\)</span>. Man sieht jedoch in der Abbildung auch, dass diese Abschätzung umso schlechter wird, je größer <span class="math notranslate nohighlight">\(\Delta x\)</span> ist. Je nach Funktionstyp müssen also auch höhere Ableitungen berücksichtigt werden (<em>Taylorentwicklung</em> von <span class="math notranslate nohighlight">\(f(x)\)</span>).</p>

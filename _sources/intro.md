@@ -53,7 +53,7 @@ Einführung in Python und Jupyter-Notebooks.
 :class-header: bg-light
 **Messen, Einheiten**
 ^^^
-```{image} content/pictures/SI.png
+```{image} content/draw/SI.png
 :height: 120
 ```
 SI-Einheiten, Nicht-SI, Kalibrieren, Eichen, Prüfen
@@ -65,7 +65,7 @@ SI-Einheiten, Nicht-SI, Kalibrieren, Eichen, Prüfen
 :class-header: bg-light
 **Messunsicherheiten**
 ^^^
-```{image} content/pictures/tab_norm_grenzen.png
+```{image} content/draw/abweichung.png
 :height: 120
 ```
 Systematisch, zufällig, Vertrauensintervall, Normalverteilung, Fehlerfortpflanzung
@@ -77,7 +77,7 @@ Systematisch, zufällig, Vertrauensintervall, Normalverteilung, Fehlerfortpflanz
 :class-header: bg-light
 **Kurvenanpassung**
 ^^^
-```{image} content/pictures/kleinste_quadrate.png
+```{image} content/draw/regression.png
 :height: 120
 ```
 Regression, Fit, Korrelation, Kovarianz, Least-Squares
@@ -89,7 +89,7 @@ Regression, Fit, Korrelation, Kovarianz, Least-Squares
 :class-header: bg-light
 **Stationäre Messsysteme**
 ^^^
-```{image} content/pictures/reale_kennlinie.png
+```{image} content/draw/realeKennlinie.png
 :height: 120
 ```
 Ideale und reale Kennlinie
@@ -101,7 +101,7 @@ Ideale und reale Kennlinie
 :class-header: bg-light
 **Messsignale**
 ^^^
-```{image} content/pictures/messsignal_analog_diskret.png
+```{image} content/draw/digitalisierung.png
 :height: 120
 ```
 Signale als Informationsträger, Digitalisierung, Kenngrößen
@@ -113,7 +113,7 @@ Signale als Informationsträger, Digitalisierung, Kenngrößen
 :class-header: bg-light
 **Fourier-Analyse**
 ^^^
-```{image} content/pictures/messsignal_analog_diskret.png
+```{image} content/draw/fft.png
 :height: 120
 ```
 Fourier-Reihen, Fourier-Transformation
@@ -125,7 +125,7 @@ Fourier-Reihen, Fourier-Transformation
 :class-header: bg-light
 **Dynamische Messsysteme**
 ^^^
-```{image} content/pictures/bandpass.png
+```{image} content/draw/übertragungsfunktion.png
 :height: 120
 ```
 LZI-Systeme, DGLs, Impuls- und Sprungantwort, Faltung, Übertragungsfunktion
@@ -138,7 +138,7 @@ LZI-Systeme, DGLs, Impuls- und Sprungantwort, Faltung, Übertragungsfunktion
 :class-header: bg-light
 **Messen elektrischer Größen**
 ^^^
-```{image} content/pictures/bandpass.png
+```{image} content/draw/messbruecke.png
 :height: 120
 ```
 Messeingänge, Widerstandsbrücken, Wechselspannung, Messverstärker
@@ -150,7 +150,7 @@ Messeingänge, Widerstandsbrücken, Wechselspannung, Messverstärker
 :class-header: bg-light
 **Sensoren**
 ^^^
-```{image} content/pictures/bandpass.png
+```{image} content/draw/ifo.png
 :height: 120
 ```
 optisch, kapazitiv, piezo-elektrisch, resistiv, magnetisch, gravitativ

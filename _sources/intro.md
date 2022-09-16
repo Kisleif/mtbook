@@ -1,8 +1,20 @@
 # Welcome
 
-Willkommen zur Vorlesung Messtechnik an der HSU. Auf den folgenden Seiten findet ihr begleitende Informationen zur Vorlesung, Übung und zum Praktikum.
-Dieses Jupyter-Book befindet sich aktuell im Aufbau und soll später als Vorlesungsskript mit interaktiven Beispielen dienen. 
-Aktuell könnt ihr euch noch nicht auf Vollständigkeit verlassen. Folgende Funktionen stehen euch aber schon zur Verfügung um das Lernmaterial anzusehen, herunterzuladen, zu testen und zu kommentieren.
+Willkommen zur Vorlesung Messtechnik an der HSU. Auf den folgenden Seiten findet ihr begleitende Informationen zur Vorlesung und zum Praktikum. Es handelt sich hierbei um ein Jupyter-Book was es ermöglicht `Python`-Code zu benutzen. 
+
+
+```{warning} 
+Dieses Jupyter-Book befindet sich aktuell im Aufbau und ihr könnt euch noch nicht auf Vollständigkeit verlassen. 
+```
+
+Um dem **Vorlesungsskript** zu folgen sind **keine Python-Kenntnisse erforderlich**. Ihr könnt euch aber den `code` zu den Berechnungen und Plots anzeigen lassen, falls es euch interessiert. 
+
+Für das **Praktikum** müsst ihr [Daten aufnehmen, auswerten und grafisch darstellen](content/1_Datenanalyse). Hierfür könnt ihr ein Programm eurer Wahl nehmen, wie z.B. [Matlab](https://de.mathworks.com/products/matlab.html) (Lizenzen sind über die HSU erhältlich) oder [Python](https://www.python.org), was frei-erhältlich ist und wozu es bereits einige Beispiele im *Lecture Book* in Form von [Jupyter-Notebooks](https://jupyter.org) gibt. 
+
+```{seealso}
+Schaut euch die Weiteren Infos zum [*Lecture Book*](content/00_jupyter) an. 
+```
+
 
 
 ::::{grid} 1 1 2 3

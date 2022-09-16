@@ -1,28 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
-#Benötigte Libraries:
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-import plotly.offline as py
-py.init_notebook_mode(connected=True)
-import plotly.graph_objs as go
-import plotly.tools as tls
-import seaborn as sns
-import time
-import warnings
-warnings.filterwarnings('ignore')
-
-# MatplotLib Settings:
-plt.style.use('default') # Matplotlib Style wählen
-plt.figure(figsize=(10,5)) # Plot-Größe
-plt.rcParams['font.size'] = 10; # Schriftgröße
-
-
 # # Quellen und Ursachen von Messunsicherheiten
 # 
 # Früher hat man statt *Abweichung* noch den Begriff *Messfehler* verwendet. Man dachte, dass man mit genügend Aufwand, Sorgfalt und bestmöglicher Technologie den Fehler vollständig eliminieren können. Spätestens seit der Theorie der *Quantenphysik* ist uns allerdings bekannt, dass zufällige Einflüsse auf die beobachteten Messgrößen  unvermeidlich sind und auch nicht vorhergesagt werden können. Statt eines einzig *wahren* Wertes werden in der Quantenphysik Messgrößen durch deren Erwartungswerte vorhergesagt. Diesen Messgrößen liegt eine Wahrscheinlichkeitsdichte zu Grunde, dessen Varianz (bzw. Standardabweichung) nicht verschwindet! Somit werden für ein und dieselbe physikalische Messgröße verschiedene Ergebnisse gemessen, obwohl nahezu identische Bedingungen herrschen. Das Eintreten eines bestimmten Messergebnisses ist an eine bestimmte Wahrscheinlichkeit gekoppelt, mit der dieses Ergebnis eintritt.  
@@ -48,7 +26,7 @@ plt.rcParams['font.size'] = 10; # Schriftgröße
 # 
 # Messgeräte werden anhand ihrer Genauigkeit in Klassen eingruppiert. Die Klasse entspricht der relativen Messabweichung. Präzisionsmessgeräte besitzen somit Abweichungen die zwischen 0,001% und 0,05% liegen. Die Genauigkeitsklasse K 2,5 (Angabe auf der Mess- skala nach DIN EN 60051 Abb. 1) bedeutet: Ist der Endwert des eingestellten Messbereichs $U_\mathrm{end}$, dann beträgt die Typ B-Unsicherheit über den gesamten Messbereich $u(U) = 0,0025\cdot U_\mathrm{end}$. Für $U_\mathrm{end} = 15\,\mathrm V$ erhält man also:
 
-# In[2]:
+# In[1]:
 
 
 U_end = 15
@@ -72,7 +50,7 @@ print('eine absolute Unsicherheit von ', u*U_end, 'V')
 # 
 # Ist nichts weiter bekannt, schätzt man die Unsicherheit über einen Mindestfehler von a = 1 Digit ab.
 
-# In[3]:
+# In[2]:
 
 
 Messwert = 5.847 # in V
@@ -127,8 +105,26 @@ print('Die Unsicherheit beträgt: +-',round(A_total/np.sqrt(3),Nachkommastellen)
 # 
 # Die grafische Darstellung eines solchen Messwertes in einem Diagramm kann im folgenden Code-Block ausgeführt und angesehen werden. Prinzipiell gilt, dass für jeden Messwert in der Regel ein solcher **Fehlerbalken** stets anzugeben ist. 
 
-# In[4]:
+# In[6]:
 
+
+#Benötigte Libraries:
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import plotly.offline as py
+py.init_notebook_mode(connected=True)
+import plotly.graph_objs as go
+import plotly.tools as tls
+import seaborn as sns
+import time
+import warnings
+warnings.filterwarnings('ignore')
+
+# MatplotLib Settings:
+plt.style.use('default') # Matplotlib Style wählen
+plt.figure(figsize=(10,5)) # Plot-Größe
+plt.rcParams['font.size'] = 10; # Schriftgröße
 
 x = [1.0]  # Datenwerte für x-Achse, hier Nr der Messung
 y = [1.0]  # Messwert (Datenpunkt)
@@ -149,7 +145,7 @@ plt.show()
 # - $g = (9,73 \pm 0,05)\,\mathrm{m/s^2}$ und $g = (9,76 \pm 0,04)\,\mathrm{m/s^2}$ sind *konsistent*, nicht jedoch $g = (9,71 \pm 0,02)\,\mathrm{m/s^2}$ und $g = (9,76 \pm 0,04)\,\mathrm{m/s^2}$
 # - Ist $g = (8.9 \pm 1,5)\,\mathrm{m/s^2}$ das Ergebnis einer Messung des Ortsfaktors, dann ist die Messung zwar nicht sonderlich präzise, aber mit dem Literaturwert von $g = 9,81\,\mathrm{m/s^2}$ vereinbar.
 
-# In[5]:
+# In[7]:
 
 
 y=[9.73, 9.76, 9.71, 9.76, 8.9] # Messung 

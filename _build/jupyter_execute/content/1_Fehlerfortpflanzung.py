@@ -36,8 +36,7 @@ warnings.filterwarnings('ignore')
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
 plt.figure(figsize=(10,5)) # Plot-Größe
-plt.rcParams['font.size'] = 10; # Schriftgröße
-print('Setup Complete')
+plt.rcParams['font.size'] = 12; # Schriftgröße
 
 link = 'data/graph.csv' # Beispieldatei mit Klimadaten
 global_mean = pd.read_csv(link, header = 1) # Daten einlesen

@@ -298,12 +298,17 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="T_Plotten.html">
-     Klimadaten analysieren mit Python
+     Klimadatei (.csv) einlesen und analysieren
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="T_LinRegmitFehler.html">
-     Lineare Regression mit Fehlerrechnung
+    <a class="reference internal" href="T_Fehlerfortpflanzung.html">
+     Fehlerfortpflanzung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="T_LinReg.html">
+     Vergleich verschiedener Fit-Funktionen
     </a>
    </li>
    <li class="toctree-l2">
@@ -665,7 +670,15 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="cell tag_hide-output tag_hide-input docutils container">
+  <section class="tex2jax_ignore mathjax_ignore" id="statistische-groszen">
+<h1>Statistische Größen<a class="headerlink" href="#statistische-groszen" title="Permalink to this headline">#</a></h1>
+<section id="statistische-messunsicherheit">
+<h2>Statistische Messunsicherheit<a class="headerlink" href="#statistische-messunsicherheit" title="Permalink to this headline">#</a></h2>
+<p>Statistische, oder zufällige, Einflüsse auf einen Messwert lassen sich durch Wiederholungen der eigentlichen Messung bestimmen. Dies nennt man auch Messreihe und bedeutet, dass <span class="math notranslate nohighlight">\(m\)</span> Messungen für ein und denselben Messwert durchgeführt werden. Die einzelnen Messwerte <span class="math notranslate nohighlight">\(x_j\)</span> unterscheiden sich, da der <em>wahre</em> Wert, <span class="math notranslate nohighlight">\(x_w\)</span>, immer mit einer zufälligen Abweichung, <span class="math notranslate nohighlight">\(A_j\)</span>,  versehen wird:</p>
+<div class="math notranslate nohighlight">
+\[x_j = x_R + A_j\]</div>
+<p>Bei genügend vielen Wiederholungen der Messung kann in vielen Fällen beobachtet werden, dass sich die Messwerte <span class="math notranslate nohighlight">\(x_j\)</span> um einen zentralen Werte, <span class="math notranslate nohighlight">\(\overline x\)</span> scharen. Die Häufigkeit, einen Messwert in einem bestimmten Abstand zu diesem zentralen Werte zu finden, <span class="math notranslate nohighlight">\(|x_j - \overline x\)</span>, ist umso kleiner, je größer der Abstand ist. Man spricht hierbei von einer Häufigkeitsverteilung der <span class="math notranslate nohighlight">\(x_j\)</span>. Die grafische Darstellung einer solchen Messreihe erfolgt in einem <strong>Histogramm</strong>. Diese Darstellung wird insbesondere dann häufig benutzt, wenn Messreihen mit vielen Messwerten vorliegen. An einer solchen Darstellung erkennt häufig schon die Art der zugrundeliegenden Verteilung der Messwerten. In nachfolgendem Code-Block wird für die Messreihe die <strong>absolute Häufigkeit</strong> der einzelnen Werte in einer bestimmten Klasse grafisch dargestellt.</p>
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Benötigte Libraries:</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -683,7 +696,13 @@ title="Print to PDF"
 <span class="c1"># MatplotLib Settings:</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
+
+<span class="n">x_volt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.02</span><span class="p">,</span> <span class="mf">1.04</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">,</span> <span class="mf">1.00</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span><span class="mf">0.97</span><span class="p">,</span><span class="mf">0.99</span><span class="p">,</span><span class="mf">1.00</span><span class="p">,</span><span class="mf">0.98</span><span class="p">,</span><span class="mf">0.99</span><span class="p">,</span><span class="mf">1.01</span><span class="p">,</span><span class="mf">0.97</span><span class="p">,</span><span class="mf">1.00</span><span class="p">,</span><span class="mf">1.02</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">bconts</span><span class="p">,</span> <span class="n">bedges</span><span class="p">,</span> <span class="n">_p</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x_volt</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.95</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Absolute Häufigkeit H(U)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Klassenverteilung der Spannung (V)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -703,31 +722,7 @@ require(['plotly'], function(Plotly) {
 });
 }
 </script>
-</div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1000x500 with 0 Axes&gt;
-</pre></div>
-</div>
-</div>
-</div>
-<section class="tex2jax_ignore mathjax_ignore" id="statistische-groszen">
-<h1>Statistische Größen<a class="headerlink" href="#statistische-groszen" title="Permalink to this headline">#</a></h1>
-<section id="statistische-messunsicherheit">
-<h2>Statistische Messunsicherheit<a class="headerlink" href="#statistische-messunsicherheit" title="Permalink to this headline">#</a></h2>
-<p>Statistische, oder zufällige, Einflüsse auf einen Messwert lassen sich durch Wiederholungen der eigentlichen Messung bestimmen. Dies nennt man auch Messreihe und bedeutet, dass <span class="math notranslate nohighlight">\(m\)</span> Messungen für ein und denselben Messwert durchgeführt werden. Die einzelnen Messwerte <span class="math notranslate nohighlight">\(x_j\)</span> unterscheiden sich, da der <em>wahre</em> Wert, <span class="math notranslate nohighlight">\(x_w\)</span>, immer mit einer zufälligen Abweichung, <span class="math notranslate nohighlight">\(A_j\)</span>,  versehen wird:</p>
-<div class="math notranslate nohighlight">
-\[x_j = x_R + A_j\]</div>
-<p>Bei genügend vielen Wiederholungen der Messung kann in vielen Fällen beobachtet werden, dass sich die Messwerte <span class="math notranslate nohighlight">\(x_j\)</span> um einen zentralen Werte, <span class="math notranslate nohighlight">\(\overline x\)</span> scharen. Die Häufigkeit, einen Messwert in einem bestimmten Abstand zu diesem zentralen Werte zu finden, <span class="math notranslate nohighlight">\(|x_j - \overline x\)</span>, ist umso kleiner, je größer der Abstand ist. Man spricht hierbei von einer Häufigkeitsverteilung der <span class="math notranslate nohighlight">\(x_j\)</span>. Die grafische Darstellung einer solchen Messreihe erfolgt in einem <strong>Histogramm</strong>. Diese Darstellung wird insbesondere dann häufig benutzt, wenn Messreihen mit vielen Messwerten vorliegen. An einer solchen Darstellung erkennt häufig schon die Art der zugrundeliegenden Verteilung der Messwerten. In nachfolgendem Code-Block wird für die Messreihe die <strong>absolute Häufigkeit</strong> der einzelnen Werte in einer bestimmten Klasse grafisch dargestellt.</p>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_volt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.02</span><span class="p">,</span> <span class="mf">1.04</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">,</span> <span class="mf">1.00</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span><span class="mf">0.97</span><span class="p">,</span><span class="mf">0.99</span><span class="p">,</span><span class="mf">1.00</span><span class="p">,</span><span class="mf">0.98</span><span class="p">,</span><span class="mf">0.99</span><span class="p">,</span><span class="mf">1.01</span><span class="p">,</span><span class="mf">0.97</span><span class="p">,</span><span class="mf">1.00</span><span class="p">,</span><span class="mf">1.02</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
-<span class="n">bconts</span><span class="p">,</span> <span class="n">bedges</span><span class="p">,</span> <span class="n">_p</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x_volt</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.95</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Absolute Häufigkeit H(U)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Klassenverteilung der Spannung (V)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/1_Mittelwert_StdAbw_2_0.png" src="../_images/1_Mittelwert_StdAbw_2_0.png" />
+</div><img alt="../_images/1_Mittelwert_StdAbw_1_1.png" src="../_images/1_Mittelwert_StdAbw_1_1.png" />
 </div>
 </div>
 <p>Die <strong>relative Häufigkeit</strong> berechnet sich aus der absoluten Häufigkeit dividiert durch die Gesamtanzahl der vorgenommenen Messungen.
@@ -752,7 +747,7 @@ Die Häufigkeitsdichte gibt bei einem Histogramm die Höhe des Rechtecks an. Mit
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1_Mittelwert_StdAbw_4_0.png" src="../_images/1_Mittelwert_StdAbw_4_0.png" />
+<img alt="../_images/1_Mittelwert_StdAbw_3_0.png" src="../_images/1_Mittelwert_StdAbw_3_0.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Integral über die Häufigkeitsdichte:  1.0
 </pre></div>
 </div>
@@ -809,7 +804,7 @@ $<span class="math notranslate nohighlight">\(\sigma = \sqrt{\frac{1}{m} \sum_{j
 Standardabweichung der Messungen:  0.02293 V
 </pre></div>
 </div>
-<img alt="../_images/1_Mittelwert_StdAbw_6_1.png" src="../_images/1_Mittelwert_StdAbw_6_1.png" />
+<img alt="../_images/1_Mittelwert_StdAbw_5_1.png" src="../_images/1_Mittelwert_StdAbw_5_1.png" />
 </div>
 </div>
 <ul class="simple">
@@ -890,7 +885,7 @@ Laut <em>Grenzertsatz</em> sind folglich auch die Mittelwerte (sollte man mehrer
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1_Mittelwert_StdAbw_8_0.png" src="../_images/1_Mittelwert_StdAbw_8_0.png" />
+<img alt="../_images/1_Mittelwert_StdAbw_7_0.png" src="../_images/1_Mittelwert_StdAbw_7_0.png" />
 </div>
 </div>
 </section>

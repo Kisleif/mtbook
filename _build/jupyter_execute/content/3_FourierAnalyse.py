@@ -5,7 +5,88 @@
 # 
 # ## Fourierreihen
 # 
-# Jeder periodische Signal kann als Summe von Sinus- und Cosinusfunktionen mit Frequenzen von ganzzahligen Vielfachen der Grundfrequenz des Signals beschrieben werden. Dies ist die sogenannten **Fourierreihe**, Fourierreihen-Entwicklung/oder -Zerlegung. Die **reelle Darstellung der Fourierreihe** sieht wiefolgt aus:
+# Jedes periodische Signal kann als *Summe von Sinus- und Cosinusfunktionen* mit Frequenzen von ganzzahligen Vielfachen der Grundfrequenz des Signals beschrieben werden. Dies ist die sogenannten **Fourierreihe**, Fourierreihen-Entwicklung/oder -Zerlegung. Im folgenden Bild sehr ihr einen Rechteckpuls und die zugehörige Fourierreihe unter Einbeziehung verschiedener Anzahl von Sinus- bzw. Cosinusfunktionen. Je mehr Sinusfunktionen bei ganzzahligen Vielfachen der Grundfrequenz des Rectheckpulses miteinbezogen werden, desto genauer wird das ursprüngliche Rechtecksignal dargestellt.
+
+# In[1]:
+
+
+#Benötigte Libraries:
+import numpy as np
+import pandas as pd
+from scipy import signal 
+import scipy.integrate as spi
+import matplotlib.pyplot as plt
+import plotly.offline as py
+py.init_notebook_mode(connected=True)
+import plotly.graph_objs as go
+import plotly.tools as tls
+import seaborn as sns
+import time
+import warnings
+warnings.filterwarnings('ignore')
+
+# MatplotLib Settings:
+plt.style.use('default') # Matplotlib Style wählen
+plt.figure(figsize=(10,6)) # Plot-Größe
+plt.rcParams['font.size'] = 10; # Schriftgröße
+
+T = 1
+t_range = np.linspace(-2*T, 2*T, 1000, endpoint = True)
+
+# Rechteckpuls:
+f = lambda t: signal.square(2 * np.pi * 1/T * t)
+
+y_true = f(t_range)
+
+#function that computes the real fourier couples of coefficients (a0, 0), (a1, b1)...(aN, bN)
+def compute_real_fourier_coeffs(func, N):
+    result = []
+    for n in range(N+1):
+        an = (2./T) * spi.quad(lambda t: func(t) * np.cos(2 * np.pi * n * t / T), 0, T)[0]
+        bn = (2./T) * spi.quad(lambda t: func(t) * np.sin(2 * np.pi * n * t / T), 0, T)[0]
+        result.append((an, bn))
+    return np.array(result)
+
+#function that computes the real form Fourier series using an and bn coefficients
+def fit_func_by_fourier_series_with_real_coeffs(t, AB):
+    result = 0.
+    A = AB[:,0]
+    B = AB[:,1]
+    for n in range(0, len(AB)):
+        if n > 0:
+            result +=  A[n] * np.cos(2. * np.pi * n * t / T) + B[n] * np.sin(2. * np.pi * n * t / T)
+        else:
+            result +=  A[0]/2.
+    return result
+
+maxN = 9
+COLs = 3 #cols of plt
+ROWs = 1 + (maxN-1) // COLs #rows of plt
+plt.rcParams['font.size'] = 8
+fig, axs = plt.subplots(ROWs, COLs)
+fig.suptitle('Rechteckpuls')
+#fig.tight_layout(rect=[0, 0, 1, 0.95], pad=3.0)
+
+#plot, in the range from BT to ET, the true f(t) in blue and the approximation in red
+for N in range(1, maxN + 1):
+    AB = compute_real_fourier_coeffs(f, N)
+    #AB contains the list of couples of (an, bn) coefficients for n in 1..N interval.
+
+    y_approx = fit_func_by_fourier_series_with_real_coeffs(t_range, AB)
+    #y_approx contains the discrete values of approximation obtained by the Fourier series
+
+    row = (N-1) // COLs
+    col = (N-1) % COLs
+    axs[row, col].set_title('N=' + str(N))
+    axs[row, col].plot(t_range, f(t_range), color='k')
+    axs[row, col].plot(t_range, y_approx, color='tab:blue')
+plt.tight_layout()   
+plt.show()
+
+
+# ### Reelle Fourierreihe
+# 
+# Die **reelle Darstellung der Fourierreihe** für eine Funktion $x(t)$ sieht wiefolgt aus:
 # 
 # $$x(t) = x_0 + \sum_{k=1}^{\infty} a_k \cos(2\pi k f_0 t) + \sum_{k=1}^{\infty} b_k \sin(2\pi k f_0 t)$$
 # 
@@ -21,14 +102,105 @@
 # 
 # $$b_k = \frac{2}{T}  \int_{-T/2}^{T/2} x(t) \sin(2\pi k f_0 t) dt$$
 # 
-# Jedes Integral muss immer über eine Periode ausgeführt werden. Ob hier die Grenzen $\pm T/2$ gewählt werden, oder von 0 bis $T$ integriert wird, ist jedem selber überlassen. 
+# Jedes Integral muss immer über eine Periode ausgeführt werden. Ob hier die Grenzen $\pm T/2$ gewählt werden, oder von $0$ bis $T$ integriert wird, ist jedem selber überlassen. 
 # 
+# Die Koeffizienten geben die Amplitude der Sinus- bzw. Cosinusfunktionen an, aus denen ein periodisches Signal rekonstruiert wird. Dargestellt über die Frequenz ergibt sich folgendes Bild, aus dem ersichtlich wird, dass für eine Rechtackfunktion auch noch bis zu 19. Harmonischen relevante Frequenzanteile zu erkennen sind. Bei einem Dreickecksignal sieht das anders aus.
+# 
+# `````{admonition} Aufgabe
+# :class: tip
+# Woran könnte es liegen, dass das Rechtecksignal höhere Harmonische benötigt als das Dreiecksignal? Im Python-Code könnt ihr die Flanke des Dreicksignals ändern indem ihr in `f = lambda t: signal.sawtooth(2 * np.pi * 1/T * t, 0.5)`den letzten Parameter, die 0.5, entfernt. Was ändert sich jetzt?
+# `````
+
+# In[2]:
+
+
+maxN = 20
+plt.rcParams['font.size'] = 10
+
+# Rechteckpuls:
+f = lambda t: signal.square(2 * np.pi * 1/T * t)
+
+#plot, in the range from BT to ET, the true f(t) in blue and the approximation in red
+i = []
+for N in range(1, maxN + 1):
+    i.append(N)
+    AB = compute_real_fourier_coeffs(f, N)
+    #AB contains the list of couples of (an, bn) coefficients for n in 1..N interval.
+
+    y_approx = fit_func_by_fourier_series_with_real_coeffs(t_range, AB)
+    #y_approx contains the discrete values of approximation obtained by the Fourier series
+
+plt.figure(figsize=(8,4)) # Plot-Größe
+
+plt.subplot(1,2,1)
+plt.title('N=' + str(N))
+plt.plot(t_range, f(t_range), color='k')
+plt.plot(t_range, y_approx, color='tab:blue')
+plt.xlabel('Zeit')
+plt.ylabel('Signalamplitude')
+
+plt.subplot(1,2,2)
+plt.plot(abs(AB[:,0]), 'o', label = '|a_k|')
+plt.plot(abs(AB[:,1]), 'o', label = '|b_b|')
+plt.legend()
+plt.xlabel('Vielfache der Grundfrequenz')
+plt.ylabel('Reelle Amplitude der Fourierreihe')
+plt.xticks(i)
+plt.suptitle('Reelle Fourierkoeffizienten für einen Rechteckpuls')
+plt.tight_layout()
+plt.show()
+
+
+# In[3]:
+
+
+# Dreieckfunktion:
+f = lambda t: signal.sawtooth(2 * np.pi * 1/T * t, 0.5)
+
+maxN = 10
+plt.rcParams['font.size'] = 10
+
+#plot, in the range from BT to ET, the true f(t) in blue and the approximation in red
+i = []
+AB = []
+for N in range(1, maxN + 1):
+    i.append(N)
+    AB = compute_real_fourier_coeffs(f, N)
+    #AB contains the list of couples of (an, bn) coefficients for n in 1..N interval.
+
+    y_approx = fit_func_by_fourier_series_with_real_coeffs(t_range, AB)
+    #y_approx contains the discrete values of approximation obtained by the Fourier series
+
+plt.figure(figsize=(8,4)) # Plot-Größe
+
+plt.subplot(1,2,1)
+plt.title('N=' + str(N))
+plt.plot(t_range, f(t_range), color='k')
+plt.plot(t_range, y_approx, color='tab:blue')
+plt.xlabel('Zeit')
+plt.ylabel('Signalamplitude')
+
+plt.subplot(1,2,2)
+plt.plot(abs(AB[:,0]), 'o', label = '|a_k|')
+plt.plot(abs(AB[:,1]), 'o', label = '|b_k|')
+plt.legend()
+plt.xlabel('Vielfache der Grundfrequenz')
+plt.ylabel('Reelle Amplitude der Fourierreihe')
+plt.xticks(i)
+plt.suptitle('Reelle Fourierkoeffizienten für ein Dreicksignal')
+plt.tight_layout()
+plt.show()
+
+
 # Es kann übrigens folgendes gezeigt werden, was für die Praxis oft sehr hilfreich ist, da es die Anzahl von Integralberechnungen reduziert:
 # 
 # * für **gerade** Funktionen, also wenn $x(t) = x(-t)$ gilt, dann sind alle $b_k = 0$ (es existieren nur noch Cosinus-Terme)
 # * für **ungerade** Funktionen, also wenn $x(t) = -x(-t)$ gilt, dann sind alle $a_k = 0$ (es existieren nur noch Sinus-Terme)
 # * einen Gleichanteil $x_0$ kann es folglich bei ungeraden FUnktionen *nicht* geben. 
 # 
+# Das ist in den obigen Darstellungen bereits zu sehen. Für den Rechteckpuls sind die $a_k = 0$, während für das Dreiecksignal die $b_k = 0$ sind. 
+
+# ### Komplexe Fourierreihe
 # Eine alternative Schreibweise ist die **komplexe Darstellung**. 
 # 
 # $$x(t) = \sum_{k=-\infty}^{\infty} \underline{c}_k \mathrm e^{j 2\pi k f_0 t}$$
@@ -37,7 +209,7 @@
 # 
 # $$\underline {c}_k = \frac{1}{T}  \int_{-T/2}^{T/2} x(t) \mathrm e^{- j 2\pi k f_0 t} dt $$
 # 
-# Trotz der Rechnung mit komplexen Funktionen, anstelle von reellen Sinus- und Cosinus-Termen, handelt es sich immer noch um eine reelle Funktion. Für $k=0$ erhält man wieder den Gleichanteilm d.h.:
+# Trotz der Rechnung mit komplexen Funktionen, anstelle von reellen Sinus- und Cosinus-Termen, handelt es sich immer noch um eine reelle Funktion. Für $k=0$ erhält man wieder den Gleichanteil:
 # 
 # $$\underline c_0 = x_0$$
 # 
@@ -45,6 +217,7 @@
 # 
 # $$\underline {c}_{-k} = \underline {c}_k^*$$
 # 
+# ### Umrechnung zwischen reellen und komplexen Fourier-Koeffizienten
 # Mittels der Euler-Formel
 # 
 # $$e^{j\omega t} = \cos(\omega t) + j \sin(\omega t)$$
@@ -64,79 +237,6 @@
 # $$\underline c_{-k} = \frac{1}{2} (a_k + j b_k) = \underline c_k^*$$
 # 
 # An dieser Stelle wollen wir noch mal festhalten, dass die Koeffizienten der Fourierreihe eine Schwingung oder ein Messsignal im Frequenzbereich eindeutig beschreibt. In Ihrer Gesamtheit stellen diese Koeffizienten das **Spektrum** des Signals dar. Dies ist zumindest wahr für die hier dargestellte mathematische Betrachtung mittels Fourier-Transformation. Ein Spektrumanalysator wertet hingegen bei der jeder Einzelmessung in einem begrenzten Bereich Frequenzbereich das Signal aus, was häufig noch durch einen Bandpassfilter geschleust wurde. Dabei gehen Informationen über die Phasenlage verloren. 
-# 
-# ## Fourierreihe eines Rechteckpuls 
-# <a id="SubSec-Bsp_Fourier_rechteck"></a>
-# 
-# Gucken wir uns im folgenden Code-Block mal einige Überlagerungen von Sinusschwingungen und wie dieser zum Rechteckpuls, der Signumsfumktion, führen.
-
-# In[1]:
-
-
-# Defintion der Rechteckfunktion
-def rechteck(x):
-    out = 0
-    if x<0:
-        out = -1
-    if x>0:
-        out = 1
-    return out
-sig = []   
-x = np.linspace(-np.pi, np.pi, 1000)
-for i in x:
-    sig.append(rechteck(i))
-
-plt.plot(x,sig, 'k')
-plt.grid()
-plt.xlabel('Zeit t')
-plt.ylabel('Spannung U')
-plt.show()
-
-
-# In[ ]:
-
-
-# Berechnung der Fourier-Koeffizienten für diesen Rechteckpuls
-
-# Da die Funktion gerade ist sind alle Koeffzienten a_k = 0
-
-# Berechnung der b_k:
-def b(k):
-    return 2/np.pi * (-1/k * np.cos(np.pi*k) + 1/k)
-
-def fourier_reihe_rechteck(N,x):
-    out = 0
-    for i in range(1,N+1):
-        out = out + b(i) * np.sin(i*x)
-    return out
-
-plt.plot(x,sig, 'k')
-n = 5
-plt.plot(x,fourier_reihe_rechteck(n,x), label = 'N = %d'%(n))
-n = 10
-plt.plot(x,fourier_reihe_rechteck(n,x), label = 'N = %d'%(n))
-n = 20
-plt.plot(x,fourier_reihe_rechteck(n,x), label = 'N = %d'%(n))
-plt.grid()
-plt.legend()
-plt.xlabel('Zeit t')
-plt.ylabel('Spannung U')
-plt.show()
-
-for i in range(1,n+1):
-    plt.plot(x, b(i) * np.sin(i*x))
-plt.grid()
-plt.xlabel('Zeit t')
-plt.ylabel('Spannung U')
-plt.show()
-
-for i in range(1,n+1):
-    plt.plot(i, b(i),'o')
-plt.grid()
-plt.xlabel('Frequenz f')
-plt.ylabel('Amplitude b_k')
-plt.show()
-
 
 # ## Fourier-Transformation 
 # <a id="Sec-FFT"></a>
@@ -181,4 +281,4 @@ plt.show()
 # ### Anwendung
 # <a id="SubSec-Anwendung_FFT"></a>
 # 
-# Ein Spektralanalyse, wie sie die Fouriertransformation durchführt, eigenet sich besonders gut zur Zustandüberwachung. Hier können Motoren, Turbinen, Sägen, Kugellager uvm, im Prinzip alles was rotiert, überwacht werden. Die spezifischen Frequenz jedes Kugellagers kann beispielsweise überwacht werden. Sollte sich die Amplitude über die Zeit verändert, kann dies ein Indiz dafür sein, dass eine Kugel ins Lager gefallen ist oder das Lager einen Schaden bekommen hat. Verschlechtert sich das Verhalten kann frühzeitig gegengewirkt werden, indem das Kugellager ausgetauscht wird. Das heißt auch Fehlerfrüherkennung, Fehlerdiagnose und Trendanalysen ("predictive maintenance") werden häufig im Frequenzraum durchgeführt. 
+# Ein Spektralanalyse, wie sie die Fouriertransformation durchführt, eignet sich besonders gut zur Zustandsüberwachung. Hier können Motoren, Turbinen, Sägen, Kugellager uvm, im Prinzip alles was rotiert, überwacht werden. Die spezifischen Frequenz jedes Kugellagers kann beispielsweise überwacht werden. Sollte sich die Amplitude über die Zeit verändert, kann dies ein Indiz dafür sein, dass eine Kugel ins Lager gefallen ist oder das Lager einen Schaden bekommen hat. Verschlechtert sich das Verhalten kann frühzeitig gegengewirkt werden, indem das Kugellager ausgetauscht wird. Das heißt auch Fehlerfrüherkennung, Fehlerdiagnose und Trendanalysen ("predictive maintenance") werden häufig im Frequenzraum durchgeführt. 

@@ -5,7 +5,7 @@
 # 
 # ## Fourierreihen
 # 
-# Jedes periodische Signal kann als *Summe von Sinus- und Cosinusfunktionen* mit Frequenzen von ganzzahligen Vielfachen der Grundfrequenz des Signals beschrieben werden. Dies ist die sogenannten **Fourierreihe**, Fourierreihen-Entwicklung/oder -Zerlegung. Im folgenden Bild sehr ihr einen Rechteckpuls und die zugehörige Fourierreihe unter Einbeziehung verschiedener Anzahl von Sinus- bzw. Cosinusfunktionen. Je mehr Sinusfunktionen bei ganzzahligen Vielfachen der Grundfrequenz des Rectheckpulses miteinbezogen werden, desto genauer wird das ursprüngliche Rechtecksignal dargestellt.
+# Jedes periodische Signal kann als *Summe von Sinus- und Cosinusfunktionen* mit Frequenzen von ganzzahligen Vielfachen der Grundfrequenz des Signals beschrieben werden. Dies ist die sogenannten **Fourierreihe**, Fourierreihen-Entwicklung/oder -Zerlegung.
 
 # In[1]:
 
@@ -27,8 +27,84 @@ warnings.filterwarnings('ignore')
 
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.figure(figsize=(10,6)) # Plot-Größe
-plt.rcParams['font.size'] = 10; # Schriftgröße
+plt.figure(figsize=(10,5)) # Plot-Größe
+plt.rcParams['font.size'] = 12; # Schriftgröße
+
+T = 1
+t_range = np.linspace(-2*T, 2*T, 1000, endpoint = True)
+
+# Rechteckpuls:
+f = lambda t: signal.square(2 * np.pi * 1/T * t)
+
+y_true = f(t_range)
+
+#function that computes the real fourier couples of coefficients (a0, 0), (a1, b1)...(aN, bN)
+def compute_real_fourier_coeffs(func, N):
+    result = []
+    for n in range(N+1):
+        an = (2./T) * spi.quad(lambda t: func(t) * np.cos(2 * np.pi * n * t / T), 0, T)[0]
+        bn = (2./T) * spi.quad(lambda t: func(t) * np.sin(2 * np.pi * n * t / T), 0, T)[0]
+        result.append((an, bn))
+    return np.array(result)
+
+#function that computes the real form Fourier series using an and bn coefficients
+def fit_func_by_fourier_series_with_real_coeffs(t, AB):
+    result = 0.
+    A = AB[:,0]
+    B = AB[:,1]
+    for n in range(0, len(AB)):
+        if n > 0:
+            result +=  A[n] * np.cos(2. * np.pi * n * t / T) + B[n] * np.sin(2. * np.pi * n * t / T)
+        else:
+            result +=  A[0]/2.
+    return result
+
+N = 5
+COLs = 2 #cols of plt
+ROWs = 1 + (N-1) // COLs #rows of plt
+plt.rcParams['font.size'] = 8
+fig, axs = plt.subplots(ROWs, COLs)
+fig.suptitle('Rechteckpuls')
+
+AB = compute_real_fourier_coeffs(f, N)
+y_approx = fit_func_by_fourier_series_with_real_coeffs(t_range, AB)
+for n in range(1, N + 1):
+    row = (n-1) // COLs
+    col = (n-1) % COLs
+    axs[row, col].set_title('f=' + str(n) + ' x f_0')
+    axs[row, col].plot(t_range, AB[:,1][n] * np.sin(2. * np.pi * n * t_range / T))
+    y_approx = fit_func_by_fourier_series_with_real_coeffs(t_range, AB)
+axs[2, 1].plot(t_range, f(t_range),'--', color='k', lw = 1)
+axs[2, 1].plot(t_range, y_approx, color='tab:red')
+axs[2, 1].set_title('Überlagerung der 5 Sinusfunktionen')
+plt.tight_layout()   
+plt.show()
+
+
+# Im folgenden Bild seht ihr einen Rechteckpuls und die zugehörige Fourierreihe unter Einbeziehung verschiedener Anzahl von Sinus- bzw. Cosinusfunktionen. Je mehr Sinusfunktionen bei ganzzahligen Vielfachen der Grundfrequenz des Rechteckpulses miteinbezogen werden, desto genauer können Rechtecksignale rekonstruiert werden.
+
+# In[2]:
+
+
+#Benötigte Libraries:
+import numpy as np
+import pandas as pd
+from scipy import signal 
+import scipy.integrate as spi
+import matplotlib.pyplot as plt
+import plotly.offline as py
+py.init_notebook_mode(connected=True)
+import plotly.graph_objs as go
+import plotly.tools as tls
+import seaborn as sns
+import time
+import warnings
+warnings.filterwarnings('ignore')
+
+# MatplotLib Settings:
+plt.style.use('default') # Matplotlib Style wählen
+plt.figure(figsize=(10,5)) # Plot-Größe
+plt.rcParams['font.size'] = 12; # Schriftgröße
 
 T = 1
 t_range = np.linspace(-2*T, 2*T, 1000, endpoint = True)
@@ -104,17 +180,13 @@ plt.show()
 # 
 # Jedes Integral muss immer über eine Periode ausgeführt werden. Ob hier die Grenzen $\pm T/2$ gewählt werden, oder von $0$ bis $T$ integriert wird, ist jedem selber überlassen. 
 # 
-# Die Koeffizienten geben die Amplitude der Sinus- bzw. Cosinusfunktionen an, aus denen ein periodisches Signal rekonstruiert wird. Dargestellt über die Frequenz ergibt sich folgendes Bild, aus dem ersichtlich wird, dass für eine Rechtackfunktion auch noch bis zu 19. Harmonischen relevante Frequenzanteile zu erkennen sind. Bei einem Dreickecksignal sieht das anders aus.
-# 
-# `````{admonition} Aufgabe
-# :class: tip
-# Woran könnte es liegen, dass das Rechtecksignal höhere Harmonische benötigt als das Dreiecksignal? Im Python-Code könnt ihr die Flanke des Dreicksignals ändern indem ihr in `f = lambda t: signal.sawtooth(2 * np.pi * 1/T * t, 0.5)`den letzten Parameter, die 0.5, entfernt. Was ändert sich jetzt?
-# `````
+# Die Koeffizienten geben die Amplitude der Sinus- bzw. Cosinusfunktionen an, aus denen ein periodisches Signal rekonstruiert wird. Die Koeffizienten werden für die einzelnen Frequenzen berechnet und über die Vielzahl der Grundfrequenz in den folgenden Plots dargestellt. Um eine Rechteckfunktion in einer Fourierreihe zu entwickeln, werden viele höhere Harmonische benötigt. Bei einem Dreickecksignal sieht das anders aus.
 
-# In[2]:
+# In[3]:
 
 
-maxN = 20
+maxN = 16
+plt.figure(figsize=(10,5)) # Plot-Größe
 plt.rcParams['font.size'] = 10
 
 # Rechteckpuls:
@@ -134,29 +206,32 @@ plt.figure(figsize=(8,4)) # Plot-Größe
 
 plt.subplot(1,2,1)
 plt.title('N=' + str(N))
-plt.plot(t_range, f(t_range), color='k')
-plt.plot(t_range, y_approx, color='tab:blue')
+plt.plot(t_range, f(t_range),'--',lw=1, color='k', label = 'Original Rechteckpuls')
+plt.plot(t_range, y_approx, color='tab:blue', label = 'Fourierreihe Rechteckpuls')
+plt.legend()
 plt.xlabel('Zeit')
 plt.ylabel('Signalamplitude')
 
 plt.subplot(1,2,2)
 plt.plot(abs(AB[:,0]), 'o', label = '|a_k|')
-plt.plot(abs(AB[:,1]), 'o', label = '|b_b|')
+plt.plot(abs(AB[:,1]), 'o', label = '|b_k|')
 plt.legend()
 plt.xlabel('Vielfache der Grundfrequenz')
 plt.ylabel('Reelle Amplitude der Fourierreihe')
 plt.xticks(i)
+plt.xlim([0,N])
 plt.suptitle('Reelle Fourierkoeffizienten für einen Rechteckpuls')
 plt.tight_layout()
 plt.show()
 
 
-# In[3]:
+# In[4]:
 
 
 # Dreieckfunktion:
 f = lambda t: signal.sawtooth(2 * np.pi * 1/T * t, 0.5)
 
+plt.figure(figsize=(10,5)) # Plot-Größe
 maxN = 10
 plt.rcParams['font.size'] = 10
 
@@ -175,8 +250,9 @@ plt.figure(figsize=(8,4)) # Plot-Größe
 
 plt.subplot(1,2,1)
 plt.title('N=' + str(N))
-plt.plot(t_range, f(t_range), color='k')
-plt.plot(t_range, y_approx, color='tab:blue')
+plt.plot(t_range, f(t_range),'--',lw=1, color='k', label = 'Original Dreiecksignal')
+plt.plot(t_range, y_approx, color='tab:blue', label = 'Fourierreihe Dreiecksignal')
+plt.legend()
 plt.xlabel('Zeit')
 plt.ylabel('Signalamplitude')
 
@@ -187,10 +263,16 @@ plt.legend()
 plt.xlabel('Vielfache der Grundfrequenz')
 plt.ylabel('Reelle Amplitude der Fourierreihe')
 plt.xticks(i)
+plt.xlim([0,N])
 plt.suptitle('Reelle Fourierkoeffizienten für ein Dreicksignal')
 plt.tight_layout()
 plt.show()
 
+
+# `````{admonition} Aufgabe
+# :class: tip
+# Woran könnte es liegen, dass das Rechtecksignal höhere Harmonische benötigt als das Dreiecksignal? Im Python-Code könnt ihr die Flanke des Dreicksignals ändern indem ihr in `f = lambda t: signal.sawtooth(2 * np.pi * 1/T * t, 0.5)` den letzten Parameter, die 0.5, entfernt. Was ändert sich jetzt?
+# `````
 
 # Es kann übrigens folgendes gezeigt werden, was für die Praxis oft sehr hilfreich ist, da es die Anzahl von Integralberechnungen reduziert:
 # 
@@ -201,7 +283,7 @@ plt.show()
 # Das ist in den obigen Darstellungen bereits zu sehen. Für den Rechteckpuls sind die $a_k = 0$, während für das Dreiecksignal die $b_k = 0$ sind. 
 
 # ### Komplexe Fourierreihe
-# Eine alternative Schreibweise ist die **komplexe Darstellung**. 
+# Eine alternative Schreibweise ist die **komplexe Darstellung**. Hierbei wird eine periodische Funktion als eine Überlagerung von komplexen Exponentialfunktionen (anstelle von Sinus- und Cosinusfunktionen) dargestellt:
 # 
 # $$x(t) = \sum_{k=-\infty}^{\infty} \underline{c}_k \mathrm e^{j 2\pi k f_0 t}$$
 # 
@@ -209,7 +291,7 @@ plt.show()
 # 
 # $$\underline {c}_k = \frac{1}{T}  \int_{-T/2}^{T/2} x(t) \mathrm e^{- j 2\pi k f_0 t} dt $$
 # 
-# Trotz der Rechnung mit komplexen Funktionen, anstelle von reellen Sinus- und Cosinus-Termen, handelt es sich immer noch um eine reelle Funktion. Für $k=0$ erhält man wieder den Gleichanteil:
+# Trotz der Rechnung mit komplexen Funktionen handelt es sich immer noch um eine reelle Funktion. Für $k=0$ erhält man wieder den Gleichanteil:
 # 
 # $$\underline c_0 = x_0$$
 # 
@@ -237,6 +319,48 @@ plt.show()
 # $$\underline c_{-k} = \frac{1}{2} (a_k + j b_k) = \underline c_k^*$$
 # 
 # An dieser Stelle wollen wir noch mal festhalten, dass die Koeffizienten der Fourierreihe eine Schwingung oder ein Messsignal im Frequenzbereich eindeutig beschreibt. In Ihrer Gesamtheit stellen diese Koeffizienten das **Spektrum** des Signals dar. Dies ist zumindest wahr für die hier dargestellte mathematische Betrachtung mittels Fourier-Transformation. Ein Spektrumanalysator wertet hingegen bei der jeder Einzelmessung in einem begrenzten Bereich Frequenzbereich das Signal aus, was häufig noch durch einen Bandpassfilter geschleust wurde. Dabei gehen Informationen über die Phasenlage verloren. 
+
+# In[5]:
+
+
+# Dreieckfunktion:
+f_drei = lambda t: signal.sawtooth(2 * np.pi * 1/T * t, 0.5)
+f_saege = lambda t: signal.sawtooth(2 * np.pi * 1/T * t)
+f_eck = lambda t: signal.square(2 * np.pi * 1/T * t)
+
+maxN = 10
+plt.figure(figsize=(10,5)) # Plot-Größe
+plt.rcParams['font.size'] = 12; # Schriftgröße
+
+#plot, in the range from BT to ET, the true f(t) in blue and the approximation in red
+i = []
+AB_drei = []
+AB_saege = []
+AB_eck = []
+for N in range(1, maxN + 1):
+    i.append(N)
+    AB_drei = compute_real_fourier_coeffs(f_drei, N)
+    AB_saege = compute_real_fourier_coeffs(f_saege, N)
+    AB_eck = compute_real_fourier_coeffs(f_eck, N)
+
+    #AB contains the list of couples of (an, bn) coefficients for n in 1..N interval.
+
+plt.figure(figsize=(8,4)) # Plot-Größe
+
+plt.subplot(1,2,2)
+plt.plot(abs(AB_drei[:,0])**2+abs(AB_drei[:,1])**2, 'o', color='tab:blue', label = 'Dreieck')
+plt.plot(abs(AB_saege[:,0])**2+abs(AB_saege[:,1])**2, 'o', color='tab:red', label = 'Sägezahn')
+plt.plot(abs(AB_eck[:,0])**2+abs(AB_eck[:,1])**2, 'o', color='tab:green', label = 'Rechteck')
+
+plt.legend()
+plt.xlabel('Vielfache der Grundfrequenz')
+plt.ylabel('Reelle Amplitude der Fourierreihe')
+plt.xticks(i)
+plt.xlim([0,N])
+plt.title(r'Reelle Fourierkoeffizienten $|a_k|^2 + |b_k|^2$')
+plt.tight_layout()
+plt.show()
+
 
 # ## Fourier-Transformation 
 # <a id="Sec-FFT"></a>

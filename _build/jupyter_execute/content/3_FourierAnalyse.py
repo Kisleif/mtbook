@@ -213,8 +213,8 @@ plt.xlabel('Zeit')
 plt.ylabel('Signalamplitude')
 
 plt.subplot(1,2,2)
-plt.plot(abs(AB[:,0]), 'o', label = '|a_k|')
-plt.plot(abs(AB[:,1]), 'o', label = '|b_k|')
+plt.plot(abs(AB[:,0]), 'o', color='tab:red', label = '|a_k|')
+plt.plot(abs(AB[:,1]), 'o', color='tab:green', label = '|b_k|')
 plt.legend()
 plt.xlabel('Vielfache der Grundfrequenz')
 plt.ylabel('Reelle Amplitude der Fourierreihe')
@@ -257,8 +257,8 @@ plt.xlabel('Zeit')
 plt.ylabel('Signalamplitude')
 
 plt.subplot(1,2,2)
-plt.plot(abs(AB[:,0]), 'o', label = '|a_k|')
-plt.plot(abs(AB[:,1]), 'o', label = '|b_k|')
+plt.plot(abs(AB[:,0]), 'o', color='tab:red', label = '|a_k|')
+plt.plot(abs(AB[:,1]), 'o', color='tab:green', label = '|b_k|')
 plt.legend()
 plt.xlabel('Vielfache der Grundfrequenz')
 plt.ylabel('Reelle Amplitude der Fourierreihe')
@@ -365,9 +365,79 @@ plt.show()
 # ## Fourier-Transformation 
 # <a id="Sec-FFT"></a>
 # 
-# Die Fourier-Transformation ist Teil der Spektralanalyse in der Messtechnik. Sie basiert auf der Grundidee, dass, wie wir eben gesehen haben, sich jede periodische Funktion aus Sinus- und Cosinusfunktionen schreiben lässt. Das Ziel ist es, die Anteile dieser Schwingungen sichtbar zu machen. Die Fourier-Transformation ist eine mathematische Methode mit der nun auch aperiodische Signale in ein kontinuierliches Spektrum zerlegt werden. 
+# Die Fourier-Transformation ist Teil der Spektralanalyse in der Messtechnik. Sie basiert auf der Grundidee, dass, wie wir eben gesehen haben, sich jede periodische Funktion aus Sinus- und Cosinusfunktionen schreiben lässt. Das Ziel ist es, die Anteile dieser Schwingungen sichtbar zu machen. Die Fourier-Transformation ist eine mathematische Methode mit der nun auch aperiodische Signale in ein kontinuierliches Spektrum zerlegt werden. Die Fourier-Transformation ist ein Werkzeug, mit dem man ein Signal (siehe [Messsignale](Messsignale.ipynb)) nehmen und die Leistung jeder einzelnen Frequenz darin sehen kann. 
 # 
-# Die **diskrete Fourier-Transformation** (z.B. auf digitalisierte, abgetastete Messwerte angewendet) entspricht der Fourierreihen:
+# ### Anwendung
+# <a id="SubSec-Anwendung_FFT"></a>
+# 
+# Die Fourier-Transformation ist in vielen Anwendungen nützlich. 
+# 
+# Ein Spektralanalyse, wie sie die Fouriertransformation durchführt, eignet sich besonders gut zur Zustandsüberwachung. Hier können Motoren, Turbinen, Sägen, Kugellager uvm, im Prinzip alles was rotiert, überwacht werden. Die spezifischen Frequenz jedes Kugellagers kann beispielsweise überwacht werden. Sollte sich die Amplitude über die Zeit verändert, kann dies ein Indiz dafür sein, dass eine Kugel ins Lager gefallen ist oder das Lager einen Schaden bekommen hat. Verschlechtert sich das Verhalten kann frühzeitig gegengewirkt werden, indem das Kugellager ausgetauscht wird. Das heißt auch Fehlerfrüherkennung, Fehlerdiagnose und Trendanalysen ("predictive maintenance") werden häufig im Frequenzraum durchgeführt. 
+# 
+# Shazam und andere Musikerkennungsdienste verwenden beispielsweise die Fourier-Transformation, um Lieder zu erkennen. Bei der JPEG-Komprimierung wird eine Variante der Fourier-Transformation verwendet, um die hochfrequenten Komponenten von Bildern zu entfernen. Bei der Spracherkennung werden die Fourier-Transformation und verwandte Transformationen verwendet, um die gesprochenen Wörter aus dem Audiomaterial wiederherzustellen.
+# 
+# Im Allgemeinen benötigst du die Fourier-Transformation, wenn du die Frequenzen in einem Signal betrachten musst. Wenn die Arbeit mit einem Signal im Zeitbereich schwierig ist, lohnt es sich, die Fourier-Transformation zu verwenden, um es in den Frequenzbereich zu übertragen. Im nächsten Abschnitt werden Sie die Unterschiede zwischen dem Zeit- und dem Frequenzbereich kennen lernen.
+# 
+# ### Zeit- vs. Frequenzbereich
+# 
+# Du wirst im Folgenden immer wieder auf die Begriffe Zeitbereich und Frequenzbereich stoßen. Diese beiden Begriffe beziehen sich auf zwei verschiedene Arten der Betrachtung eines Signals, entweder als seine Frequenzkomponenten oder als Information, die sich über die Zeit verändert (siehe [Messsignale](Messsignale.ipynb)).
+# 
+# Im Zeitbereich ist ein Signal eine Welle, deren Amplitude (y-Achse) über die Zeit (x-Achse) variiert. Sie sind wahrscheinlich daran gewöhnt, Diagramme im Zeitbereich zu sehen, wie z. B. dieses hier:
+
+# In[6]:
+
+
+import IPython.display as ipd
+ipd.Audio('CantinaBand3.wav') # load a local WAV file
+
+from scipy.io.wavfile import read #import the required function from the module
+import matplotlib.pyplot as plt
+import numpy as np
+samplerate, data = read('CantinaBand3.wav')
+duration = len(data)/samplerate
+time = np.arange(0,duration,1/samplerate) #time vector
+
+# MatplotLib Settings:
+plt.style.use('default') # Matplotlib Style wählen
+plt.figure(figsize=(8,4)) # Plot-Größe
+plt.rcParams['font.size'] = 10; # Schriftgröße
+
+plt.plot(time,data, 'tab:blue')
+plt.xlabel('Zeit [s]')
+plt.ylabel('Amplitude')
+plt.title('Audio-Signal im Zeitbereich')
+plt.show()
+
+
+# Dies ist ein Bild eines Audiosignals, also eines Signals im Zeitbereich. Die horizontale Achse steht für die Zeit, die vertikale Achse für die Amplitude.
+# 
+# Im Frequenzbereich wird ein Signal als eine Reihe von Frequenzen (x-Achse) dargestellt, denen jeweils eine Leistung (y-Achse) zugeordnet ist. Das folgende Bild zeigt das obige Audiosignal nach der Fourier-Transformation:
+
+# In[7]:
+
+
+# faster FFT: returns only half output:
+from scipy.fft import rfft, rfftfreq
+
+# Note the extra 'r' at the front
+yf = rfft(data)
+xf = rfftfreq(len(data), 1 / samplerate)
+
+plt.plot(xf,np.abs(yf),'tab:red') # plotting the spectrum
+plt.xlabel('Frequenz (Hz)')
+plt.ylabel('Power')
+plt.title('Audio-Signal im  Frequenzbereich')
+plt.show()
+
+
+# Hier wird das Audiosignal von vorher durch seine einzelnen Frequenzen dargestellt. Jeder Frequenz entlang der Unterseite ist eine Leistung zugeordnet, wodurch das Spektrum entsteht.
+
+# ### Typen von Fourier-Transformationen
+# 
+# Die Fourier-Transformation kann in verschiedene Arten von Transformationen unterteilt werden. Die grundlegendste Unterteilung basiert auf der Art der Daten, mit denen die Transformation arbeitet: kontinuierliche Funktionen oder diskrete Funktionen. 
+# Die Begriffe DFT und FFT werden oft synonym verwendet. Sie sind jedoch nicht ganz dasselbe. Die **fast (kontinuierliche) Fourier-Transformation (FFT)** ist ein Algorithmus zur Berechnung der **diskreten Fourier-Transformation (DFT)**, während die DFT die Transformation selbst ist.
+# 
+# Die **diskrete Fourier-Transformation (DFT)** (z.B. auf digitalisierte, abgetastete Messwerte angewendet) entspricht der Fourierreihen:
 # 
 # $$X_\mathrm d (k \Delta f) = \sum_{i = 0}^{N-1} x(i\Delta t) \mathrm e^{-j 2\pi  k \Delta f i \Delta t}$$
 # 
@@ -402,7 +472,175 @@ plt.show()
 #     * Faltung im Zeichbereich ist zum Vergleich sehr kompliziert: $(x_1 \ast x_2)(t) = \int_{-\infty}^{\infty} x_1(\tau)x_2(t-\tau) \mathrm{d}\tau$
 # * **Zeitverschiebung**: $\mathcal F(x(t-\tau)) = \mathcal F(x(t)) \cdot \mathrm e^{-j\omega \tau}$
 # 
-# ### Anwendung
-# <a id="SubSec-Anwendung_FFT"></a>
 # 
-# Ein Spektralanalyse, wie sie die Fouriertransformation durchführt, eignet sich besonders gut zur Zustandsüberwachung. Hier können Motoren, Turbinen, Sägen, Kugellager uvm, im Prinzip alles was rotiert, überwacht werden. Die spezifischen Frequenz jedes Kugellagers kann beispielsweise überwacht werden. Sollte sich die Amplitude über die Zeit verändert, kann dies ein Indiz dafür sein, dass eine Kugel ins Lager gefallen ist oder das Lager einen Schaden bekommen hat. Verschlechtert sich das Verhalten kann frühzeitig gegengewirkt werden, indem das Kugellager ausgetauscht wird. Das heißt auch Fehlerfrüherkennung, Fehlerdiagnose und Trendanalysen ("predictive maintenance") werden häufig im Frequenzraum durchgeführt. 
+# ### Beispiele von FFTs
+
+# In[8]:
+
+
+# MatplotLib Settings:
+plt.style.use('default') # Matplotlib Style wählen
+plt.figure(figsize=(10,5)) # Plot-Größe
+plt.rcParams['font.size'] = 10; # Schriftgröße
+
+
+Fs = 150.0;  # sampling rate
+Ts = 1.0/Fs; # sampling interval
+t = np.arange(0,1,Ts) # time vector
+ff = 5;   # frequency of the signal
+
+# Sinusschwingung
+y = np.sin(2*np.pi*ff*t)
+
+y_normalized = np.int16((y / y.max()) * 32767)
+# Note the extra 'r' at the front
+yf = rfft(y_normalized)/5e6
+xf = rfftfreq(len(y), 1 / Fs)
+
+plt.figure(figsize=(8,2.5)) # Plot-Größe
+plt.subplot(1,2,1)
+plt.plot(t,y)
+plt.xlabel('Zeit')
+plt.ylabel('Amplitude')
+plt.title('Zeitsignal')
+plt.subplot(1,2,2)
+plt.plot(xf,abs(yf),'tab:red') # plotting the spectrum
+plt.xlabel('Frequenz (Hz)')
+plt.ylabel('Leistung')
+plt.title('FFT')
+plt.tight_layout()
+plt.show()
+
+
+# In[9]:
+
+
+# Rechteckschwingung
+Fs = 150.0;  # sampling rate
+Ts = 1.0/Fs; # sampling interval
+t = np.arange(0,1,Ts) # time vector
+ff = 5;   # frequency of the signal
+y = signal.square(2 * np.pi * ff * t)
+
+y_normalized = np.int16((y / y.max()) * 32767)
+# Note the extra 'r' at the front
+yf = rfft(y_normalized)/5e6
+xf = rfftfreq(len(y), 1 / Fs)
+
+plt.figure(figsize=(8,2.5)) # Plot-Größe
+plt.subplot(1,2,1)
+plt.plot(t,y)
+plt.xlabel('Zeit')
+plt.ylabel('Amplitude')
+plt.title('Zeitsignal')
+plt.subplot(1,2,2)
+plt.plot(xf,abs(yf),'tab:red') # plotting the spectrum
+plt.xlabel('Frequenz (Hz)')
+plt.ylabel('Leistung')
+plt.title('FFT')
+plt.tight_layout()
+plt.show()
+
+
+# In[10]:
+
+
+Fs = 150.0;  # sampling rate
+Ts = 1.0/Fs; # sampling interval
+t = np.arange(0,1,Ts) # time vector
+ff = 5;   # frequency of the signal
+y =  signal.sawtooth(2 * np.pi * ff * t, 0.5)
+
+y_normalized = np.int16((y / y.max()) * 32767)
+# Note the extra 'r' at the front
+yf = rfft(y_normalized)/5e6
+xf = rfftfreq(len(y), 1 / Fs)
+
+plt.figure(figsize=(8,2.5)) # Plot-Größe
+plt.subplot(1,2,1)
+plt.plot(t,y)
+plt.xlabel('Zeit')
+plt.ylabel('Amplitude')
+plt.title('Zeitsignal')
+plt.subplot(1,2,2)
+
+plt.plot(xf,abs(yf),'tab:red') # plotting the spectrum
+
+plt.xlabel('Frequenz (Hz)')
+plt.ylabel('Leistung')
+plt.title('FFT')
+plt.tight_layout()
+plt.show()
+
+
+# In[11]:
+
+
+Fs = 150.0;  # sampling rate
+Ts = 1.0/Fs; # sampling interval
+t = np.arange(0,1,Ts) # time vector
+ff = 5;   # frequency of the signal
+a1 = 4.
+a2 = 2.
+y =  a1 * np.sin(2 * np.pi * ff * t) + a2 * np.sin(10 * 2 * np.pi * ff * t)
+
+y_normalized = np.int16((y / y.max()) * 32767)
+yf = rfft(y_normalized)/5e6
+xf = rfftfreq(len(y), 1 / Fs)
+
+plt.figure(figsize=(8,2.5)) # Plot-Größe
+plt.subplot(1,2,1)
+plt.plot(t,y)
+plt.xlabel('Zeit')
+plt.ylabel('Amplitude')
+plt.title('Überlagerung zweier Sinusschwingungen')
+plt.subplot(1,2,2)
+plt.plot(xf,abs(yf),'tab:red') # plotting the spectrum
+plt.xlabel('Frequenz (Hz)')
+plt.ylabel('Leistung')
+plt.title('FFT Überlagerung')
+plt.tight_layout()
+plt.show()
+
+
+# In[12]:
+
+
+Fs = 150.0;  # sampling rate
+Ts = 1.0/Fs; # sampling interval
+t = np.arange(0,1,Ts) # time vector
+ff = 5;   # frequency of the signal
+## --- White noise generation ---------------------------------
+y_wn_0 = np.random.normal(scale=2, size=t.shape)
+y_wn_1 = np.random.normal(scale=2, size=t.shape)
+y_wn_2 = np.random.normal(scale=2, size=t.shape)
+a1 = 4.
+a2 = 2.
+y =  a1 * np.sin(2 * np.pi * ff * t) + a2 * np.sin(10 * 2 * np.pi * ff * t)
+
+a_wn = 1.0
+a_f1 = 1.0
+a_f2 = 0.0
+wn= y_wn_0*a_wn
+fn1 = np.cumsum(y_wn_1)/Fs*a_f1
+fn2 = np.cumsum(np.cumsum(y_wn_2))/(Fs*Fs)*a_f2
+combined = y+wn+fn1+fn2
+
+y_normalized = np.int16((combined / combined.max()) * 32767)
+yf = rfft(y_normalized)/5e6
+xf = rfftfreq(len(y), 1 / Fs)
+
+plt.figure(figsize=(8,2.5)) # Plot-Größe
+plt.subplot(1,2,1)
+plt.plot(t,combined)
+plt.xlabel('Zeit')
+plt.ylabel('Amplitude')
+plt.title('Überlagerung Sinusschwingungen mit Rauschen')
+plt.subplot(1,2,2)
+plt.plot(xf,abs(yf),'tab:red') # plotting the spectrum
+plt.xlabel('Frequenz (Hz)')
+plt.ylabel('')
+plt.title('FFT mit Rauschen')
+plt.tight_layout()
+plt.show()
+

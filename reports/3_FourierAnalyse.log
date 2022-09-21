@@ -21,8 +21,8 @@ from scipy.fft import rfft, rfftfreq
 from scipy.io.wavfile import read #import the required function from the module
 import matplotlib.pyplot as plt
 import numpy as np
-samplerate, data = read('CantinaBand3.wav')
-duration = len(data)/samplerate
+samplerate, y = read('CantinaBand3.wav')
+duration = len(y)/samplerate
 time = np.arange(0,duration,1/samplerate) #time vector
 
 # MatplotLib Settings:
@@ -36,7 +36,7 @@ yf = rfft(y_normalized)/5e6
 xf = rfftfreq(len(y), 1 / Fs)
 
 plt.subplot(1,2,1)
-plt.plot(time,data, 'tab:blue')
+plt.plot(time,y, 'tab:blue')
 plt.xlabel('Zeit (s)')
 plt.ylabel('Amplitude')
 plt.title('Audio-Signal im Zeitbereich')
@@ -52,13 +52,13 @@ plt.show()
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-Input [0;32mIn [7][0m, in [0;36m<cell line: 14>[0;34m()[0m
-[1;32m     11[0m plt[38;5;241m.[39mfigure(figsize[38;5;241m=[39m([38;5;241m8[39m,[38;5;241m3[39m)) [38;5;66;03m# Plot-Größe[39;00m
-[1;32m     12[0m plt[38;5;241m.[39mrcParams[[38;5;124m'[39m[38;5;124mfont.size[39m[38;5;124m'[39m] [38;5;241m=[39m [38;5;241m10[39m; [38;5;66;03m# Schriftgröße[39;00m
-[0;32m---> 14[0m y_normalized [38;5;241m=[39m np[38;5;241m.[39mint16(([43my[49m [38;5;241m/[39m y[38;5;241m.[39mmax()) [38;5;241m*[39m [38;5;241m32767[39m)
+Input [0;32mIn [7][0m, in [0;36m<cell line: 17>[0;34m()[0m
 [1;32m     15[0m [38;5;66;03m# Note the extra 'r' at the front[39;00m
 [1;32m     16[0m yf [38;5;241m=[39m rfft(y_normalized)[38;5;241m/[39m[38;5;241m5e6[39m
+[0;32m---> 17[0m xf [38;5;241m=[39m rfftfreq([38;5;28mlen[39m(y), [38;5;241m1[39m [38;5;241m/[39m [43mFs[49m)
+[1;32m     19[0m plt[38;5;241m.[39msubplot([38;5;241m1[39m,[38;5;241m2[39m,[38;5;241m1[39m)
+[1;32m     20[0m plt[38;5;241m.[39mplot(time,y, [38;5;124m'[39m[38;5;124mtab:blue[39m[38;5;124m'[39m)
 
-[0;31mNameError[0m: name 'y' is not defined
-NameError: name 'y' is not defined
+[0;31mNameError[0m: name 'Fs' is not defined
+NameError: name 'Fs' is not defined
 

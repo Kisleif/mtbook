@@ -921,7 +921,7 @@ require(['plotly'], function(Plotly) {
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">maxN</span> <span class="o">=</span> <span class="mi">16</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># Plot-Größ</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
 
 <span class="c1"># Rechteckpuls:</span>
@@ -936,8 +936,6 @@ require(['plotly'], function(Plotly) {
 
     <span class="n">y_approx</span> <span class="o">=</span> <span class="n">fit_func_by_fourier_series_with_real_coeffs</span><span class="p">(</span><span class="n">t_range</span><span class="p">,</span> <span class="n">AB</span><span class="p">)</span>
     <span class="c1">#y_approx contains the discrete values of approximation obtained by the Fourier series</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;N=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
@@ -962,10 +960,7 @@ require(['plotly'], function(Plotly) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1000x500 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/3_FourierAnalyse_5_1.png" src="../_images/3_FourierAnalyse_5_1.png" />
+<img alt="../_images/3_FourierAnalyse_5_0.png" src="../_images/3_FourierAnalyse_5_0.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -973,8 +968,8 @@ require(['plotly'], function(Plotly) {
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dreieckfunktion:</span>
 <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">signal</span><span class="o">.</span><span class="n">sawtooth</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mi">1</span><span class="o">/</span><span class="n">T</span> <span class="o">*</span> <span class="n">t</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
 <span class="n">maxN</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># Plot-Größ</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
 
 <span class="c1">#plot, in the range from BT to ET, the true f(t) in blue and the approximation in red</span>
@@ -988,7 +983,7 @@ require(['plotly'], function(Plotly) {
     <span class="n">y_approx</span> <span class="o">=</span> <span class="n">fit_func_by_fourier_series_with_real_coeffs</span><span class="p">(</span><span class="n">t_range</span><span class="p">,</span> <span class="n">AB</span><span class="p">)</span>
     <span class="c1">#y_approx contains the discrete values of approximation obtained by the Fourier series</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
+
 
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;N=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
@@ -1013,10 +1008,7 @@ require(['plotly'], function(Plotly) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1000x500 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/3_FourierAnalyse_6_1.png" src="../_images/3_FourierAnalyse_6_1.png" />
+<img alt="../_images/3_FourierAnalyse_6_0.png" src="../_images/3_FourierAnalyse_6_0.png" />
 </div>
 </div>
 <div class="tip admonition">
@@ -1071,8 +1063,8 @@ require(['plotly'], function(Plotly) {
 <span class="n">f_eck</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">signal</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mi">1</span><span class="o">/</span><span class="n">T</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
 
 <span class="n">maxN</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
 
 <span class="c1">#plot, in the range from BT to ET, the true f(t) in blue and the approximation in red</span>
 <span class="n">i</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1106,7 +1098,7 @@ require(['plotly'], function(Plotly) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1000x500 with 0 Axes&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 800x300 with 0 Axes&gt;
 </pre></div>
 </div>
 <img alt="../_images/3_FourierAnalyse_10_1.png" src="../_images/3_FourierAnalyse_10_1.png" />
@@ -1130,45 +1122,7 @@ require(['plotly'], function(Plotly) {
 <h3>Zeit- vs. Frequenzbereich<a class="headerlink" href="#zeit-vs-frequenzbereich" title="Permalink to this headline">#</a></h3>
 <p>Du wirst im Folgenden immer wieder auf die Begriffe Zeitbereich und Frequenzbereich stoßen. Diese beiden Begriffe beziehen sich auf zwei verschiedene Arten der Betrachtung eines Signals, entweder als seine Frequenzkomponenten oder als Information, die sich über die Zeit verändert (siehe <span class="xref myst">Messsignale</span>).</p>
 <p>Im Zeitbereich ist ein Signal eine Welle, deren Amplitude (y-Achse) über die Zeit (x-Achse) variiert. Sie sind wahrscheinlich daran gewöhnt, Diagramme im Zeitbereich zu sehen, wie z. B. dieses hier:</p>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.fft</span> <span class="kn">import</span> <span class="n">rfft</span><span class="p">,</span> <span class="n">rfftfreq</span>
-<span class="kn">from</span> <span class="nn">scipy.io.wavfile</span> <span class="kn">import</span> <span class="n">read</span> <span class="c1">#import the required function from the module</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">samplerate</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s1">&#39;CantinaBand3.wav&#39;</span><span class="p">)</span>
-<span class="n">duration</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">/</span><span class="n">samplerate</span>
-<span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">duration</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="n">samplerate</span><span class="p">)</span> <span class="c1">#time vector</span>
-
-<span class="c1"># MatplotLib Settings:</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
-
-<span class="c1"># Note the extra &#39;r&#39; at the front</span>
-<span class="n">yf</span> <span class="o">=</span> <span class="n">rfft</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="n">xf</span> <span class="o">=</span> <span class="n">rfftfreq</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">samplerate</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit (s)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Audio-Signal im Zeitbereich&#39;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xf</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">yf</span><span class="p">),</span><span class="s1">&#39;tab:red&#39;</span><span class="p">)</span> <span class="c1"># plotting the spectrum</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequenz (Hz)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Power&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Audio-Signal im  Frequenzbereich&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/3_FourierAnalyse_12_0.png" src="../_images/3_FourierAnalyse_12_0.png" />
-</div>
-</div>
-<div class="cell tag_hide-input docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">IPython.display</span> <span class="k">as</span> <span class="nn">ipd</span>
 <span class="n">ipd</span><span class="o">.</span><span class="n">Audio</span><span class="p">(</span><span class="s1">&#39;CantinaBand3.wav&#39;</span><span class="p">)</span> <span class="c1"># load a local WAV file</span>
@@ -1182,6 +1136,60 @@ require(['plotly'], function(Plotly) {
     Your browser does not support the audio element.
 </audio>
 </div></div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.fft</span> <span class="kn">import</span> <span class="n">rfft</span><span class="p">,</span> <span class="n">rfftfreq</span>
+<span class="kn">from</span> <span class="nn">scipy.io.wavfile</span> <span class="kn">import</span> <span class="n">read</span> <span class="c1">#import the required function from the module</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">samplerate</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s1">&#39;CantinaBand3.wav&#39;</span><span class="p">)</span>
+<span class="n">duration</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">/</span><span class="n">samplerate</span>
+<span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">duration</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="n">samplerate</span><span class="p">)</span> <span class="c1">#time vector</span>
+
+<span class="c1"># MatplotLib Settings:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
+
+<span class="n">y_normalized</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">((</span><span class="n">y</span> <span class="o">/</span> <span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> <span class="o">*</span> <span class="mi">32767</span><span class="p">)</span>
+<span class="c1"># Note the extra &#39;r&#39; at the front</span>
+<span class="n">yf</span> <span class="o">=</span> <span class="n">rfft</span><span class="p">(</span><span class="n">y_normalized</span><span class="p">)</span><span class="o">/</span><span class="mf">5e6</span>
+<span class="n">xf</span> <span class="o">=</span> <span class="n">rfftfreq</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">Fs</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Audio-Signal im Zeitbereich&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xf</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">yf</span><span class="p">),</span><span class="s1">&#39;tab:red&#39;</span><span class="p">)</span> <span class="c1"># plotting the spectrum</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequenz (Hz)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Power&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Audio-Signal im Frequenzbereich&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [7],</span> in <span class="ni">&lt;cell line: 14&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
+<span class="ne">---&gt; </span><span class="mi">14</span> <span class="n">y_normalized</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">((</span><span class="n">y</span> <span class="o">/</span> <span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> <span class="o">*</span> <span class="mi">32767</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="c1"># Note the extra &#39;r&#39; at the front</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="n">yf</span> <span class="o">=</span> <span class="n">rfft</span><span class="p">(</span><span class="n">y_normalized</span><span class="p">)</span><span class="o">/</span><span class="mf">5e6</span>
+
+<span class="ne">NameError</span>: name &#39;y&#39; is not defined
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 800x300 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
 </div>
 <p>Dies ist ein Bild eines Audiosignals, also eines Signals im Zeitbereich. Die horizontale Achse steht für die Zeit, die vertikale Achse für die Amplitude.</p>
 <p>Im Frequenzbereich wird ein Signal als eine Reihe von Frequenzen (x-Achse) dargestellt, denen jeweils eine Leistung (y-Achse) zugeordnet ist. Das Bild rechts zeigt das linke Audiosignal nach der Fourier-Transformation</p>
@@ -1246,7 +1254,7 @@ Die Begriffe DFT und FFT werden oft synonym verwendet. Sie sind jedoch nicht gan
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mf">2.5</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit (s)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Zeitsignal&#39;</span><span class="p">)</span>
@@ -1255,6 +1263,7 @@ Die Begriffe DFT und FFT werden oft synonym verwendet. Sie sind jedoch nicht gan
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequenz (Hz)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Leistung&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Frequenzbereich&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Sinuswelle&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>

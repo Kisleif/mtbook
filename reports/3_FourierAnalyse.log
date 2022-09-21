@@ -17,35 +17,48 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# Defintion der Rechteckfunktion
-def rechteck(x):
-    out = 0
-    if x<0:
-        out = -1
-    if x>0:
-        out = 1
-    return out
-sig = []   
-x = np.linspace(-np.pi, np.pi, 1000)
-for i in x:
-    sig.append(rechteck(i))
+from scipy.fft import rfft, rfftfreq
+from scipy.io.wavfile import read #import the required function from the module
+import matplotlib.pyplot as plt
+import numpy as np
+samplerate, data = read('CantinaBand3.wav')
+duration = len(data)/samplerate
+time = np.arange(0,duration,1/samplerate) #time vector
 
-plt.plot(x,sig, 'k')
-plt.grid()
-plt.xlabel('Zeit t')
-plt.ylabel('Spannung U')
+# MatplotLib Settings:
+plt.style.use('default') # Matplotlib Style wählen
+plt.figure(figsize=(8,3)) # Plot-Größe
+plt.rcParams['font.size'] = 10; # Schriftgröße
+
+y_normalized = np.int16((y / y.max()) * 32767)
+# Note the extra 'r' at the front
+yf = rfft(y_normalized)/5e6
+xf = rfftfreq(len(y), 1 / Fs)
+
+plt.subplot(1,2,1)
+plt.plot(time,data, 'tab:blue')
+plt.xlabel('Zeit (s)')
+plt.ylabel('Amplitude')
+plt.title('Audio-Signal im Zeitbereich')
+
+plt.subplot(1,2,2)
+plt.plot(xf,np.abs(yf),'tab:red') # plotting the spectrum
+plt.xlabel('Frequenz (Hz)')
+plt.ylabel('Power')
+plt.title('Audio-Signal im Frequenzbereich')
+plt.tight_layout()
 plt.show()
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-Input [0;32mIn [1][0m, in [0;36m<cell line: 10>[0;34m()[0m
-[1;32m      8[0m     [38;5;28;01mreturn[39;00m out
-[1;32m      9[0m sig [38;5;241m=[39m []   
-[0;32m---> 10[0m x [38;5;241m=[39m [43mnp[49m[38;5;241m.[39mlinspace([38;5;241m-[39mnp[38;5;241m.[39mpi, np[38;5;241m.[39mpi, [38;5;241m1000[39m)
-[1;32m     11[0m [38;5;28;01mfor[39;00m i [38;5;129;01min[39;00m x:
-[1;32m     12[0m     sig[38;5;241m.[39mappend(rechteck(i))
+Input [0;32mIn [7][0m, in [0;36m<cell line: 14>[0;34m()[0m
+[1;32m     11[0m plt[38;5;241m.[39mfigure(figsize[38;5;241m=[39m([38;5;241m8[39m,[38;5;241m3[39m)) [38;5;66;03m# Plot-Größe[39;00m
+[1;32m     12[0m plt[38;5;241m.[39mrcParams[[38;5;124m'[39m[38;5;124mfont.size[39m[38;5;124m'[39m] [38;5;241m=[39m [38;5;241m10[39m; [38;5;66;03m# Schriftgröße[39;00m
+[0;32m---> 14[0m y_normalized [38;5;241m=[39m np[38;5;241m.[39mint16(([43my[49m [38;5;241m/[39m y[38;5;241m.[39mmax()) [38;5;241m*[39m [38;5;241m32767[39m)
+[1;32m     15[0m [38;5;66;03m# Note the extra 'r' at the front[39;00m
+[1;32m     16[0m yf [38;5;241m=[39m rfft(y_normalized)[38;5;241m/[39m[38;5;241m5e6[39m
 
-[0;31mNameError[0m: name 'np' is not defined
-NameError: name 'np' is not defined
+[0;31mNameError[0m: name 'y' is not defined
+NameError: name 'y' is not defined
 

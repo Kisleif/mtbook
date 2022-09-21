@@ -186,7 +186,7 @@ plt.show()
 
 
 maxN = 16
-plt.figure(figsize=(10,5)) # Plot-Größe
+plt.figure(figsize=(8,3)) # Plot-Größ
 plt.rcParams['font.size'] = 10
 
 # Rechteckpuls:
@@ -201,8 +201,6 @@ for N in range(1, maxN + 1):
 
     y_approx = fit_func_by_fourier_series_with_real_coeffs(t_range, AB)
     #y_approx contains the discrete values of approximation obtained by the Fourier series
-
-plt.figure(figsize=(8,4)) # Plot-Größe
 
 plt.subplot(1,2,1)
 plt.title('N=' + str(N))
@@ -231,8 +229,8 @@ plt.show()
 # Dreieckfunktion:
 f = lambda t: signal.sawtooth(2 * np.pi * 1/T * t, 0.5)
 
-plt.figure(figsize=(10,5)) # Plot-Größe
 maxN = 10
+plt.figure(figsize=(8,3)) # Plot-Größ
 plt.rcParams['font.size'] = 10
 
 #plot, in the range from BT to ET, the true f(t) in blue and the approximation in red
@@ -246,7 +244,7 @@ for N in range(1, maxN + 1):
     y_approx = fit_func_by_fourier_series_with_real_coeffs(t_range, AB)
     #y_approx contains the discrete values of approximation obtained by the Fourier series
 
-plt.figure(figsize=(8,4)) # Plot-Größe
+
 
 plt.subplot(1,2,1)
 plt.title('N=' + str(N))
@@ -329,8 +327,8 @@ f_saege = lambda t: signal.sawtooth(2 * np.pi * 1/T * t)
 f_eck = lambda t: signal.square(2 * np.pi * 1/T * t)
 
 maxN = 10
-plt.figure(figsize=(10,5)) # Plot-Größe
-plt.rcParams['font.size'] = 12; # Schriftgröße
+plt.figure(figsize=(8,3)) # Plot-Größe
+plt.rcParams['font.size'] = 10; # Schriftgröße
 
 #plot, in the range from BT to ET, the true f(t) in blue and the approximation in red
 i = []
@@ -390,6 +388,11 @@ plt.show()
 import IPython.display as ipd
 ipd.Audio('CantinaBand3.wav') # load a local WAV file
 
+
+# In[7]:
+
+
+from scipy.fft import rfft, rfftfreq
 from scipy.io.wavfile import read #import the required function from the module
 import matplotlib.pyplot as plt
 import numpy as np
@@ -399,36 +402,32 @@ time = np.arange(0,duration,1/samplerate) #time vector
 
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.figure(figsize=(8,4)) # Plot-Größe
+plt.figure(figsize=(8,3)) # Plot-Größe
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
+y_normalized = np.int16((y / y.max()) * 32767)
+# Note the extra 'r' at the front
+yf = rfft(y_normalized)/5e6
+xf = rfftfreq(len(y), 1 / Fs)
+
+plt.subplot(1,2,1)
 plt.plot(time,data, 'tab:blue')
-plt.xlabel('Zeit [s]')
+plt.xlabel('Zeit (s)')
 plt.ylabel('Amplitude')
 plt.title('Audio-Signal im Zeitbereich')
+
+plt.subplot(1,2,2)
+plt.plot(xf,np.abs(yf),'tab:red') # plotting the spectrum
+plt.xlabel('Frequenz (Hz)')
+plt.ylabel('Power')
+plt.title('Audio-Signal im Frequenzbereich')
+plt.tight_layout()
 plt.show()
 
 
 # Dies ist ein Bild eines Audiosignals, also eines Signals im Zeitbereich. Die horizontale Achse steht für die Zeit, die vertikale Achse für die Amplitude.
 # 
-# Im Frequenzbereich wird ein Signal als eine Reihe von Frequenzen (x-Achse) dargestellt, denen jeweils eine Leistung (y-Achse) zugeordnet ist. Das folgende Bild zeigt das obige Audiosignal nach der Fourier-Transformation:
-
-# In[7]:
-
-
-# faster FFT: returns only half output:
-from scipy.fft import rfft, rfftfreq
-
-# Note the extra 'r' at the front
-yf = rfft(data)
-xf = rfftfreq(len(data), 1 / samplerate)
-
-plt.plot(xf,np.abs(yf),'tab:red') # plotting the spectrum
-plt.xlabel('Frequenz (Hz)')
-plt.ylabel('Power')
-plt.title('Audio-Signal im  Frequenzbereich')
-plt.show()
-
+# Im Frequenzbereich wird ein Signal als eine Reihe von Frequenzen (x-Achse) dargestellt, denen jeweils eine Leistung (y-Achse) zugeordnet ist. Das Bild rechts zeigt das linke Audiosignal nach der Fourier-Transformation
 
 # Hier wird das Audiosignal von vorher durch seine einzelnen Frequenzen dargestellt. Jeder Frequenz entlang der Unterseite ist eine Leistung zugeordnet, wodurch das Spektrum entsteht.
 
@@ -473,24 +472,20 @@ plt.show()
 # * **Zeitverschiebung**: $\mathcal F(x(t-\tau)) = \mathcal F(x(t)) \cdot \mathrm e^{-j\omega \tau}$
 # 
 # 
-# ### Beispiele von FFTs
+# ## Beispiele von FFTs und Fourier-Reihen-Koeffizienten
 
-# In[8]:
-
-
-# MatplotLib Settings:
-plt.style.use('default') # Matplotlib Style wählen
-plt.figure(figsize=(10,5)) # Plot-Größe
-plt.rcParams['font.size'] = 10; # Schriftgröße
+# In[52]:
 
 
-Fs = 150.0;  # sampling rate
+Fs = 100.0;  # sampling rate
 Ts = 1.0/Fs; # sampling interval
 t = np.arange(0,1,Ts) # time vector
 ff = 5;   # frequency of the signal
 
+maxN = int(Fs/2)
 # Sinusschwingung
-y = np.sin(2*np.pi*ff*t)
+f = lambda t: np.sin(2*np.pi*ff*t)
+y = f(t)
 
 y_normalized = np.int16((y / y.max()) * 32767)
 # Note the extra 'r' at the front
@@ -499,28 +494,33 @@ xf = rfftfreq(len(y), 1 / Fs)
 
 plt.figure(figsize=(8,2.5)) # Plot-Größe
 plt.subplot(1,2,1)
-plt.plot(t,y)
-plt.xlabel('Zeit')
+plt.plot(t,y, 'tab:blue')
+plt.xlabel('Zeit (s)')
 plt.ylabel('Amplitude')
 plt.title('Zeitsignal')
 plt.subplot(1,2,2)
-plt.plot(xf,abs(yf),'tab:red') # plotting the spectrum
+plt.plot(xf,abs(yf),'tab:red', label = 'FFT') # plotting the spectrum
 plt.xlabel('Frequenz (Hz)')
 plt.ylabel('Leistung')
-plt.title('FFT')
+plt.title('Frequenzbereich')
+plt.suptitle('Sinuswelle')
 plt.tight_layout()
 plt.show()
 
 
-# In[9]:
+# In[47]:
 
 
 # Rechteckschwingung
-Fs = 150.0;  # sampling rate
+Fs = 100.0;  # sampling rate
 Ts = 1.0/Fs; # sampling interval
 t = np.arange(0,1,Ts) # time vector
 ff = 5;   # frequency of the signal
-y = signal.square(2 * np.pi * ff * t)
+
+maxN = int(Fs/2)
+# Sinusschwingung
+f = lambda t: signal.square(2 * np.pi * ff * t)
+y = f(t)
 
 y_normalized = np.int16((y / y.max()) * 32767)
 # Note the extra 'r' at the front
@@ -530,26 +530,31 @@ xf = rfftfreq(len(y), 1 / Fs)
 plt.figure(figsize=(8,2.5)) # Plot-Größe
 plt.subplot(1,2,1)
 plt.plot(t,y)
-plt.xlabel('Zeit')
+plt.xlabel('Zeit (s)')
 plt.ylabel('Amplitude')
 plt.title('Zeitsignal')
 plt.subplot(1,2,2)
-plt.plot(xf,abs(yf),'tab:red') # plotting the spectrum
+plt.plot(xf,abs(yf),'tab:red', label = 'FFT') # plotting the spectrum
 plt.xlabel('Frequenz (Hz)')
 plt.ylabel('Leistung')
-plt.title('FFT')
+plt.title('Frequenzbereich')
+plt.suptitle('Rechtecksignal')
 plt.tight_layout()
 plt.show()
 
 
-# In[10]:
+# In[48]:
 
 
-Fs = 150.0;  # sampling rate
+Fs = 100.0;  # sampling rate
 Ts = 1.0/Fs; # sampling interval
 t = np.arange(0,1,Ts) # time vector
 ff = 5;   # frequency of the signal
-y =  signal.sawtooth(2 * np.pi * ff * t, 0.5)
+
+maxN = int(Fs/2)
+# Sinusschwingung
+f = lambda t: signal.sawtooth(2 * np.pi * ff * t, 0.5)
+y = f(t)
 
 y_normalized = np.int16((y / y.max()) * 32767)
 # Note the extra 'r' at the front
@@ -559,21 +564,20 @@ xf = rfftfreq(len(y), 1 / Fs)
 plt.figure(figsize=(8,2.5)) # Plot-Größe
 plt.subplot(1,2,1)
 plt.plot(t,y)
-plt.xlabel('Zeit')
+plt.xlabel('Zeit (s)')
 plt.ylabel('Amplitude')
 plt.title('Zeitsignal')
 plt.subplot(1,2,2)
-
-plt.plot(xf,abs(yf),'tab:red') # plotting the spectrum
-
+plt.plot(xf,abs(yf),'tab:red', label = 'FFT') # plotting the spectrum
 plt.xlabel('Frequenz (Hz)')
 plt.ylabel('Leistung')
-plt.title('FFT')
+plt.title('Frequenzbereich')
+plt.suptitle('Sägezahnspannung')
 plt.tight_layout()
 plt.show()
 
 
-# In[11]:
+# In[49]:
 
 
 Fs = 150.0;  # sampling rate
@@ -591,19 +595,20 @@ xf = rfftfreq(len(y), 1 / Fs)
 plt.figure(figsize=(8,2.5)) # Plot-Größe
 plt.subplot(1,2,1)
 plt.plot(t,y)
-plt.xlabel('Zeit')
+plt.xlabel('Zeit (s)')
 plt.ylabel('Amplitude')
-plt.title('Überlagerung zweier Sinusschwingungen')
+plt.title('Zeitsignal')
 plt.subplot(1,2,2)
 plt.plot(xf,abs(yf),'tab:red') # plotting the spectrum
 plt.xlabel('Frequenz (Hz)')
 plt.ylabel('Leistung')
-plt.title('FFT Überlagerung')
+plt.title('Frequenzbereich')
+plt.suptitle('Überlagerung zweier Sinuswellen')
 plt.tight_layout()
 plt.show()
 
 
-# In[12]:
+# In[50]:
 
 
 Fs = 150.0;  # sampling rate
@@ -620,11 +625,9 @@ y =  a1 * np.sin(2 * np.pi * ff * t) + a2 * np.sin(10 * 2 * np.pi * ff * t)
 
 a_wn = 1.0
 a_f1 = 1.0
-a_f2 = 0.0
-wn= y_wn_0*a_wn
-fn1 = np.cumsum(y_wn_1)/Fs*a_f1
-fn2 = np.cumsum(np.cumsum(y_wn_2))/(Fs*Fs)*a_f2
-combined = y+wn+fn1+fn2
+wn= y_wn_0*a_wn # white noise
+fn1 = np.cumsum(y_wn_1)/Fs*a_f1 # 1/f noise
+combined = y+wn+fn1
 
 y_normalized = np.int16((combined / combined.max()) * 32767)
 yf = rfft(y_normalized)/5e6
@@ -633,14 +636,21 @@ xf = rfftfreq(len(y), 1 / Fs)
 plt.figure(figsize=(8,2.5)) # Plot-Größe
 plt.subplot(1,2,1)
 plt.plot(t,combined)
-plt.xlabel('Zeit')
+plt.xlabel('Zeit (s)')
 plt.ylabel('Amplitude')
-plt.title('Überlagerung Sinusschwingungen mit Rauschen')
+plt.title('Zeitsignal')
 plt.subplot(1,2,2)
 plt.plot(xf,abs(yf),'tab:red') # plotting the spectrum
 plt.xlabel('Frequenz (Hz)')
 plt.ylabel('')
-plt.title('FFT mit Rauschen')
+plt.title('Frequenzbereich')
+plt.suptitle('2 Sinuswellen mit Rauschen')
 plt.tight_layout()
 plt.show()
+
+
+# In[ ]:
+
+
+
 

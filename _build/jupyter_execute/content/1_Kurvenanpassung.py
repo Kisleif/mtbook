@@ -223,7 +223,7 @@ print('Die Unsicherheit von y ist \t s_y = %5.4f s' %(s_y))
 # In[4]:
 
 
-s_m = s_t * np.sqrt(1 / (N*(np.mean(x**2) - np.mean(x)**2)))
+s_m = s_y * np.sqrt(1 / (N*(np.mean(x**2) - np.mean(x)**2)))
 print('Die Unsicherheit von m ist \t s_m = %5.4f s/m' %(s_m))
 
 
@@ -231,7 +231,7 @@ print('Die Unsicherheit von m ist \t s_m = %5.4f s/m' %(s_m))
 # 
 # $$s_b = s_y \cdot \sqrt{\frac{\sum x_i^2}{N\cdot \sum x_i^2 - \left(\sum x_i\right)^2}} = s_y \cdot \sqrt{\frac{1}{N}\frac{\sum x_i^2}{\sum x_i^2 - N\cdot \bar x^2}} = s_y \cdot \sqrt{\frac{1}{N}\frac{\sum x_i^2}{\sum \left(x_i - \bar x \right)^2}} = s_m \cdot \sqrt{\overline{x^2}}$$
 
-# In[ ]:
+# In[5]:
 
 
 s_b = s_m * np.sqrt(np.mean(x**2))
@@ -240,19 +240,19 @@ print('Die Unsicherheit von b ist \t s_b = %5.4f s' %(s_b))
 
 # ### Korrelationskoeffizient <a id="SubSec-Korrelationskoeffizient"></a>
 # 
-# Für lineare Zusammenhänge ist es häufig sinnvoll den Korrelationskoeffizient zu berechnen (siehe auch [hier](sec_korrelation_kovarianz)):
+# Für lineare Zusammenhänge ist es häufig sinnvoll den Korrelationskoeffizient zu berechnen:
 #     
 # $$r = \frac{\overline{x\cdot t} - \overline x \cdot \overline t}{\sqrt{\overline{x^2} - (\overline x)^2} \cdot {\sqrt{\overline{t^2} - (\overline t)^2}}} $$    
 
-# In[21]:
+# In[6]:
 
 
 # Analytische Methode:
-r = (np.mean(x*t)-np.mean(x)*np.mean(t))/(np.sqrt(np.mean(x**2) - np.mean(x)**2) * np.sqrt(np.mean(t**2) - np.mean(t)**2))
+r = (np.mean(x*y)-np.mean(x)*np.mean(y))/(np.sqrt(np.mean(x**2) - np.mean(x)**2) * np.sqrt(np.mean(y**2) - np.mean(y)**2))
 print('Der Korrelationskoeffizient zwischen x und t beträgt: %5.8f\n'%(r))
 
 # Python:
-r = np.corrcoef(x, t)
+r = np.corrcoef(x, y)
 print('Die Korrelationsmatrix zwischen x und t mittels numpy-Paket lautet:')
 print(r)
 

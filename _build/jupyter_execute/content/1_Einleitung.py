@@ -36,11 +36,13 @@
 # Verwende eine sinnvolle Software für die Datenanalyse und die grafische Darstellung, welche auch Fit-Analysen unterstützen. Wir werden hier im folgenden Beispiele in `python` aufführen und Jupyter Notebooks verwenden. Die Codes auf dieser Seite können direkt benutzt und sogar ausgeführt werden. 
 # Weitere Software ist Qti-Plot (kostenlos) oder Matlab (Lizenzen über HSU verfügbar).
 # 
+# ## Beispieldiagramme
+# 
 # ```{warning}
 # Alle Beispiele und Tutorials im *Metrology Lecture Book* benutzen `python`. 
 # ```
 # 
-# Im Folgenden sind zwei Diagramme dargestellt, wovon das zweite einige Defizite aufweist. Aufgrund der Darstellung wurde eine lineare Regression über einen anderen Messwertebereich durchgeführt, wodurch der Temperaturanstieg der letzten Jahre um einen Faktor 2 zu gering abgeschätzt wurde! 
+# Im Folgenden sind zwei Diagramme dargestellt, die jeweils die gleichen (!) Messdaten zeigen. Das zweite Diagram weist einige Defizite: Aufgrund der Darstellung wurde eine lineare Regression über den kompletten Messwertebereich durchgeführt, wodurch der Temperaturanstieg der letzten Jahre um einen Faktor 2 zu gering abgeschätzt wurde! 
 # 
 # `````{admonition} Aufgabe
 # :class: tip
@@ -48,7 +50,7 @@
 # `````
 # 
 # ```{seealso}
-# Wie du eine Kurve an deine Messdaten anpasst findet du unter [Kurvenanpassung](1_Kurvenanpassung.ipynb) und [Übungen in Python](1_Tutorials.ipynb).
+# Wie du eine Kurve an deine Messdaten anpasst findet du unter [Kurvenanpassung](1_Kurvenanpassung.ipynb) und [Übungen in Python](T_Tutorials.ipynb).
 # ```
 
 # In[1]:

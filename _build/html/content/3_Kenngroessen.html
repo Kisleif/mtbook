@@ -55,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Digitalisierung" href="2_Digital.html" />
+    <link rel="next" title="Modulation von Messsignalen" href="3_Modulationen.html" />
     <link rel="prev" title="Grundlagen" href="3_basics.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -216,6 +216,13 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Kenngrößen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3_Modulationen.html">
+     Modulation von Messsignalen
+     <a id="SubSec-Information">
+     </a>
     </a>
    </li>
    <li class="toctree-l2">
@@ -565,8 +572,33 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#kenngroszen-von-wechselgroszen">
-   Kenngrößen von Wechselgrößen
+  <a class="reference internal nav-link" href="#scheitelfaktor-amplitude">
+   Scheitelfaktor / Amplitude
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gleichanteil">
+   Gleichanteil
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gleichrichtwert">
+   Gleichrichtwert
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#effektivwert">
+   Effektivwert
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scheitelfaktor-und-formfaktor">
+   Scheitelfaktor und Formfaktor
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kenngroszen-bei-der-digitalisierung">
+   Kenngrößen bei der Digitalisierung
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -599,8 +631,33 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#kenngroszen-von-wechselgroszen">
-   Kenngrößen von Wechselgrößen
+  <a class="reference internal nav-link" href="#scheitelfaktor-amplitude">
+   Scheitelfaktor / Amplitude
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gleichanteil">
+   Gleichanteil
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gleichrichtwert">
+   Gleichrichtwert
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#effektivwert">
+   Effektivwert
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scheitelfaktor-und-formfaktor">
+   Scheitelfaktor und Formfaktor
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kenngroszen-bei-der-digitalisierung">
+   Kenngrößen bei der Digitalisierung
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -636,29 +693,41 @@ $<span class="math notranslate nohighlight">\(u(t) = \hat U \cdot \sin(\omega t)
 <li><p>Die <strong>Frequenz</strong> <span class="math notranslate nohighlight">\(f = \frac{1}{T}\)</span> ist der Kehrwert der <strong>Periodendauer</strong> <span class="math notranslate nohighlight">\(T\)</span>.</p></li>
 <li><p>Die <strong>Phase</strong> <span class="math notranslate nohighlight">\(\varphi\)</span> gibt die Phasenverschiebung oder Verzögerung des Messsignals an</p></li>
 </ul>
-<section id="kenngroszen-von-wechselgroszen">
-<h2>Kenngrößen von Wechselgrößen<a class="headerlink" href="#kenngroszen-von-wechselgroszen" title="Permalink to this headline">#</a></h2>
-<p><a id="SubSec-Kenngrößen"></a></p>
-<p>Bei einem Wechselsignal interessiert man sich häufig nicht für den Zeitverlauf, oder den einzelnen Wert zu einem bestimmten Zeitpunkt, den sogenannten Momentanwert. Dieser hat nämlich keine große Aussagekraft, da er sich gemäß der zugrundeliegenden Signalform ständig ändert. Für viele Fragestellungen sind Kenngrößen relevant, die sich aus der Periode des Wchselsignals ermitteln lassen:</p>
-<ul class="simple">
-<li><p>Mit <span class="math notranslate nohighlight">\(\hat U\)</span> bezeichnen wir den <strong>Scheitelfaktor</strong> oder die <strong>Amplitude</strong>. Dies ist der maximale Ausschlag eines Messsignals innerhalb einer Periode (oder Messzeit) <span class="math notranslate nohighlight">\(T\)</span>.</p></li>
-<li><p>Der <strong>Gleichanteil</strong> einer Wechselgröße wird über den arithmetischen Mittelwert über eine Perdiode <span class="math notranslate nohighlight">\(T\)</span> berechnet. Es ist nur dann aussagekräftig, wenn nicht gerade eine Signal vorliert was keinen Gleichanteil hat. Andernfalls ist der Wert immer 0.
-$<span class="math notranslate nohighlight">\(\overline u = \frac{1}{T}\int_{t}^{t+T} u(t)dt\)</span>$</p></li>
-<li><p>Wenn wir uns jetzt einen Förn oder Lampe, angeschlossen an eine normale Steckdose mit Wechselstrom vorstellen, so ist der Gleichanteil der Wechselspannung 0, aber trotzdem wirkt die Spannung, da Fön oder Lampe arbeiten. Das heißt es kommt offensichtlich nicht auf die Polarität der Spannung an, sondern nur darum, dass im Durchschnitt irgendeine Art von beliebig gepolter Spannung anliegt. Mathematisch gesehen entspricht dies einer Betragsbildung und wird durch den Gleichrichtwert definiert.  Das Signal wird mittels analoger Schaltung <em>gleichgerichtet</em> (das sehen wir uns später noch mal genauer an), bevor es zur Mittelwertbildung kommt. Daher auch der Name. Der Gleichrichtwert hat auch für Signale ohne Gleichanteil eine Aussagekraft. Der <strong>Gleichrichtwert</strong> einer Wechselgröße ist der Mittelwert des Absolutwertes einer Wechselgröße berechnet sich zu:
-$<span class="math notranslate nohighlight">\(\overline{|u|} = \frac{1}{T}\int_{t}^{t+T} |u(t)|dt\)</span>$</p></li>
-<li><p>Aus der Physik ist bekannt, dass die Berechnung der elektrischen Leistung <em>nicht</em> über den Einbezug von Gleichrichtwerten erfolgt. Vielmehr muss der <strong>Effektivwert</strong> (auch RMS genannt = root mean square) berechnet werden:
-$<span class="math notranslate nohighlight">\(U = u_\mathrm{eff} = \sqrt{\overline{u^2}} = \sqrt{\frac{1}{T}\int_{t}^{t+T}u(t)^2dt}\)</span>$</p></li>
-<li><p>Mittelwert, Gleichrichtwert und Effektivwert lassen sich für jede beliebige periodische Signalform berechnen und sind <em>unabhängig</em> von der Frequenz. Zwischen Ihnen sind Umrechnungsfaktoren definiert, Scheitelfaktoren oder Formfaktoren, welche das Verhältnis zwischen Effektivwert und anderen Kenngrößen angeben. Wir werden später noch sehen, dass die Messung von Effektivwerten sehr aufwendig ist (die mathematischen Operationen im Intergral zeigen dies auch). Es ist einfacher den Scheitel- oder Gleichrichtwert zu messen und mittels dieser Umrechnungs-Faktoren den Effektivwert anschließend zu berechnen. Die Faktoren sind jedoch für jede Signalform anders!</p>
-<ul>
-<li><p><strong>Scheitelfaktor (Crest-Faktor)</strong>:
-$<span class="math notranslate nohighlight">\(k_S = \frac{\hat u}{u_\mathrm{eff}}\)</span>$</p></li>
-<li><p><strong>Formfaktor</strong>:
-$<span class="math notranslate nohighlight">\(k_F = \frac{u_\mathrm{eff}}{\overline{|u|}}\)</span>$</p></li>
-</ul>
-</li>
-</ul>
+<p>Bei einem Wechselsignal interessiert man sich häufig nicht für den Zeitverlauf, oder den einzelnen Wert zu einem bestimmten Zeitpunkt, den sogenannten Momentanwert. Dieser hat nämlich keine große Aussagekraft, da er sich gemäß der zugrundeliegenden Signalform ständig ändert. Für viele Fragestellungen sind Kenngrößen relevant, die sich aus der Periode des Wchselsignals ermitteln lassen.</p>
+<section id="scheitelfaktor-amplitude">
+<h2>Scheitelfaktor / Amplitude<a class="headerlink" href="#scheitelfaktor-amplitude" title="Permalink to this headline">#</a></h2>
+<p>Mit <span class="math notranslate nohighlight">\(\hat U\)</span> bezeichnen wir den <strong>Scheitelfaktor</strong> oder die <strong>Amplitude</strong>. Dies ist der maximale Ausschlag eines Messsignals innerhalb einer Periode (oder Messzeit) <span class="math notranslate nohighlight">\(T\)</span>.</p>
+</section>
+<section id="gleichanteil">
+<h2>Gleichanteil<a class="headerlink" href="#gleichanteil" title="Permalink to this headline">#</a></h2>
+<p>Der <strong>Gleichanteil</strong> einer Wechselgröße wird über den arithmetischen Mittelwert über eine Perdiode <span class="math notranslate nohighlight">\(T\)</span> berechnet. Es ist nur dann aussagekräftig, wenn nicht gerade eine Signal vorliert was keinen Gleichanteil hat. Andernfalls ist der Wert immer 0.
+$<span class="math notranslate nohighlight">\(\overline u = \frac{1}{T}\int_{t}^{t+T} u(t)dt\)</span>$</p>
+</section>
+<section id="gleichrichtwert">
+<h2>Gleichrichtwert<a class="headerlink" href="#gleichrichtwert" title="Permalink to this headline">#</a></h2>
+<p>Wenn wir uns jetzt einen Förn oder Lampe, angeschlossen an eine normale Steckdose mit Wechselstrom vorstellen, so ist der Gleichanteil der Wechselspannung 0, aber trotzdem wirkt die Spannung, da Fön oder Lampe arbeiten. Das heißt es kommt offensichtlich nicht auf die Polarität der Spannung an, sondern nur darum, dass im Durchschnitt irgendeine Art von beliebig gepolter Spannung anliegt. Mathematisch gesehen entspricht dies einer Betragsbildung und wird durch den Gleichrichtwert definiert.  Das Signal wird mittels analoger Schaltung <em>gleichgerichtet</em> (das sehen wir uns später noch mal genauer an), bevor es zur Mittelwertbildung kommt. Daher auch der Name. Der Gleichrichtwert hat auch für Signale ohne Gleichanteil eine Aussagekraft. Der <strong>Gleichrichtwert</strong> einer Wechselgröße ist der Mittelwert des Absolutwertes einer Wechselgröße berechnet sich zu:
+$<span class="math notranslate nohighlight">\(\overline{|u|} = \frac{1}{T}\int_{t}^{t+T} |u(t)|dt\)</span>$</p>
+</section>
+<section id="effektivwert">
+<h2>Effektivwert<a class="headerlink" href="#effektivwert" title="Permalink to this headline">#</a></h2>
+<p>Aus der Physik ist bekannt, dass die Berechnung der elektrischen Leistung <em>nicht</em> über den Einbezug von Gleichrichtwerten erfolgt. Vielmehr muss der <strong>Effektivwert</strong> (auch RMS genannt = root mean square) berechnet werden:
+$<span class="math notranslate nohighlight">\(U = u_\mathrm{eff} = \sqrt{\overline{u^2}} = \sqrt{\frac{1}{T}\int_{t}^{t+T}u(t)^2dt}\)</span>$</p>
+</section>
+<section id="scheitelfaktor-und-formfaktor">
+<h2>Scheitelfaktor und Formfaktor<a class="headerlink" href="#scheitelfaktor-und-formfaktor" title="Permalink to this headline">#</a></h2>
+<p>Mittelwert, Gleichrichtwert und Effektivwert lassen sich für jede beliebige periodische Signalform berechnen und sind <em>unabhängig</em> von der Frequenz. Zwischen Ihnen sind Umrechnungsfaktoren definiert, Scheitelfaktoren oder Formfaktoren, welche das Verhältnis zwischen Effektivwert und anderen Kenngrößen angeben. Wir werden später noch sehen, dass die Messung von Effektivwerten sehr aufwendig ist (die mathematischen Operationen im Intergral zeigen dies auch). Es ist einfacher den Scheitel- oder Gleichrichtwert zu messen und mittels dieser Umrechnungs-Faktoren den Effektivwert anschließend zu berechnen. Die Faktoren sind jedoch für jede Signalform anders!</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* **Scheitelfaktor (Crest-Faktor)**: 
+$$k_S = \frac{\hat u}{u_\mathrm{eff}}$$
+
+* **Formfaktor**: 
+$$k_F = \frac{u_\mathrm{eff}}{\overline{|u|}}$$
+</pre></div>
+</div>
 <p>Allgemein kann man sagen, dass je größer der Scheitelfaktor, desto mehr übersteigt der Spitzenwert eines Signals den Effektivwert. Für die Praxis bedeutet dies, dass bei der Ermittlung eines Effektivwertes die Messeinrichtung aufgrund sehr hoher Spitzenwerte bereits übersteuert, obwohl der Effektivwert eigentlich noch ausreichend Aussteuerungsreserven aufweist. Besonders kritisch ist dieses Verhalten bei Pulsfolgen mit sehr kleinem Tastverhältnis. Hier kann der Scheitelfaktor unter Umständen Werte von 10 oder mehr annehmen. Messgeräte geben daher häufig Scheitelfaktoren vor, welche nicht überschritten werden sollten.</p>
-<p>Bei der digitalen Signalverarbeitung können die oben genannten Kenngrößen ebenfalls mathematisch ermittelt werden, indem die Integrale durch diskrete Summen ausgetauscht werden. Der Effektivwert  berechnet sich dann wie folgt:</p>
+</section>
+<section id="kenngroszen-bei-der-digitalisierung">
+<h2>Kenngrößen bei der Digitalisierung<a class="headerlink" href="#kenngroszen-bei-der-digitalisierung" title="Permalink to this headline">#</a></h2>
+<p>Bei der digitalen Signalverarbeitung können die oben genannten Kenngrößen ebenfalls mathematisch ermittelt werden, indem die Integrale durch diskrete Summen ausgetauscht werden. Der Effektivwert berechnet sich dann wie folgt:</p>
 <div class="math notranslate nohighlight">
 \[U = u_\mathrm{eff} = \sqrt{\overline{u^2}} = \sqrt{\frac{1}{T}\sum_{k = 1}^{n}T_\mathrm A \cdot  u_k^2}\]</div>
 <p>wobei <span class="math notranslate nohighlight">\(n\)</span> die Abtastwerte sind, <span class="math notranslate nohighlight">\(T_A\)</span> der Abstand zwischen zwei Messungen und <span class="math notranslate nohighlight">\(u_k\)</span> der einzelne Messwert zum Zeitpunkt <span class="math notranslate nohighlight">\(k\cdot T_A\)</span>.</p>
@@ -715,10 +784,10 @@ $<span class="math notranslate nohighlight">\(k_F = \frac{u_\mathrm{eff}}{\overl
             <p class="prev-next-title">Grundlagen</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="2_Digital.html" title="next page">
+    <a class='right-next' id="next-link" href="3_Modulationen.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Digitalisierung</p>
+        <p class="prev-next-title">Modulation von Messsignalen <a id="SubSec-Information"></a></p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

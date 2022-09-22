@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Python im Lecture Book
+# # Über dieses Skript
 # 
 # Das *Metrology Lecture Book* ist eine Mischung aus Vorlesungsskript, Praktikumshinweisen und Tutorials als Jupyter-Notebooks. Es handelt sich hierbei um ein Jupyter-Book was es ermöglicht `Python`-Code direkt einzubinden.
 # 
@@ -12,12 +12,14 @@
 # * **Anmerkungen, Textmarker und Vorlesungsnotizen** könnt ihr direkt auf der Seite machen (oben ganz rechter Seitenrand). Hierfür müsst ihr euch unter https://hypothes.is/ registrieren. Möchtet ihr die Notizen mit mir oder der Jahrgangs-Gruppe teilen, dann müsst ihr der entsprechenden Hypothes-Gruppe beitreten. Dadurch könnt ihr direkt Fragen zum Skript stellen (und Antworten bekommen) oder auf Fehler hinweisen. Den Link für eure Jahrgangsgruppe findet ihr im [ILIAS](https://ilias.hsu-hh.de/ilias.php?ref_id=429366&cmdClass=ilrepositorygui&cmdNode=zm&baseClass=ilrepositorygui). 
 # 
 # ## Praktikum
-# Für das **Praktikum** müsst ihr [Daten aufnehmen, auswerten und grafisch darstellen](1_Datenanalyse). Hierfür könnt ihr ein Programm eurer Wahl nehmen, wie z.B. 
+# Für das **Praktikum** müsst ihr [Daten aufnehmen, auswerten und grafisch darstellen](1_Datenanalyse). Hierfür könnt ihr prinzipiell ein Programm eurer Wahl nehmen, wie z.B. 
 # 
 # * [Matlab](https://de.mathworks.com/products/matlab.html) (Lizenzen sind über die HSU erhältlich) 
 # * [Python](https://www.python.org), frei-erhältlich und die [Tutorials](T_Tutorials) im *Lecture Book* nutzen Python ([Jupyter-Notebooks](https://docs.jupyter.org/en/latest/)). 
 # * [QtiPlot](https://qtiplot.com), freil erhältlich
 # * Von einer Datenanalyse in Excel rate ich ab.
+# 
+# Im *Metrology Lecture Book* findet ihr jedoch viele Beispiele zur Analyse und Darstellung von Messdaten in `python`. 
 # 
 # ## Tutorials
 # Die Tutorials sind freiwillig. Hiermit lernt ihr aber nicht nur die Auswertung und Darstellung von Messdaten, sondern gleichzeitig auch die Programmiersprache `Python`.
@@ -29,6 +31,7 @@
 # * **Basics:** Schleifen, Funktionen, Listen, Tuples, Sets, Dictionaries
 # * **Algebra:** [numpy](https://numpy.org), [scipy](https://scipy.org)
 #   * **Fit/Modellanpassungen:** [lmfit](https://pypi.org/project/lmfit/), [scipy](https://scipy.org) (z.B. curve_fit), [numpy](https://numpy.org) (z.B. polyfit)
+#   * **Spektralanalyse:** [scipy](https://scipy.org) (z.B. rfft)
 # * **Datenverarbeitung:** [pandas](https://pandas.pydata.org) (z.B. DataFrames)
 # * **Datenvisualisierung:** [matplotlib](https://matplotlib.org)
 # 

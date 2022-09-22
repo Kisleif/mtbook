@@ -363,7 +363,7 @@ plt.show()
 # ## Fourier-Transformation 
 # <a id="Sec-FFT"></a>
 # 
-# Die Fourier-Transformation ist Teil der Spektralanalyse in der Messtechnik. Sie basiert auf der Grundidee, dass, wie wir eben gesehen haben, sich jede periodische Funktion aus Sinus- und Cosinusfunktionen schreiben lässt. Das Ziel ist es, die Anteile dieser Schwingungen sichtbar zu machen. Die Fourier-Transformation ist eine mathematische Methode mit der nun auch aperiodische Signale in ein kontinuierliches Spektrum zerlegt werden. Die Fourier-Transformation ist ein Werkzeug, mit dem man ein Signal (siehe [Messsignale](Messsignale.ipynb)) nehmen und die Leistung jeder einzelnen Frequenz darin sehen kann. 
+# Die Fourier-Transformation ist Teil der Spektralanalyse in der Messtechnik. Sie basiert auf der Grundidee, dass, wie wir eben gesehen haben, sich jede periodische Funktion aus Sinus- und Cosinusfunktionen schreiben lässt. Das Ziel ist es, die Anteile dieser Schwingungen sichtbar zu machen. Die Fourier-Transformation ist eine mathematische Methode mit der nun auch aperiodische Signale in ein kontinuierliches Spektrum zerlegt werden. Die Fourier-Transformation ist ein Werkzeug, mit dem man ein Signal (siehe [Messsignale](3_Messsignale.ipynb)) nehmen und die Leistung jeder einzelnen Frequenz darin sehen kann. 
 # 
 # ### Anwendung
 # <a id="SubSec-Anwendung_FFT"></a>
@@ -378,7 +378,7 @@ plt.show()
 # 
 # ### Zeit- vs. Frequenzbereich
 # 
-# Du wirst im Folgenden immer wieder auf die Begriffe Zeitbereich und Frequenzbereich stoßen. Diese beiden Begriffe beziehen sich auf zwei verschiedene Arten der Betrachtung eines Signals, entweder als seine Frequenzkomponenten oder als Information, die sich über die Zeit verändert (siehe [Messsignale](Messsignale.ipynb)).
+# Du wirst im Folgenden immer wieder auf die Begriffe Zeitbereich und Frequenzbereich stoßen. Diese beiden Begriffe beziehen sich auf zwei verschiedene Arten der Betrachtung eines Signals, entweder als seine Frequenzkomponenten oder als Information, die sich über die Zeit verändert (siehe [Messsignale](3_Messsignale.ipynb)).
 # 
 # Im Zeitbereich ist ein Signal eine Welle, deren Amplitude (y-Achse) über die Zeit (x-Achse) variiert. Sie sind wahrscheinlich daran gewöhnt, Diagramme im Zeitbereich zu sehen, wie z. B. dieses hier:
 
@@ -396,8 +396,8 @@ from scipy.fft import rfft, rfftfreq
 from scipy.io.wavfile import read #import the required function from the module
 import matplotlib.pyplot as plt
 import numpy as np
-samplerate, data = read('CantinaBand3.wav')
-duration = len(data)/samplerate
+samplerate, y = read('CantinaBand3.wav')
+duration = len(y)/samplerate
 time = np.arange(0,duration,1/samplerate) #time vector
 
 # MatplotLib Settings:
@@ -408,10 +408,10 @@ plt.rcParams['font.size'] = 10; # Schriftgröße
 y_normalized = np.int16((y / y.max()) * 32767)
 # Note the extra 'r' at the front
 yf = rfft(y_normalized)/5e6
-xf = rfftfreq(len(y), 1 / Fs)
+xf = rfftfreq(len(y), 1 / samplerate)
 
 plt.subplot(1,2,1)
-plt.plot(time,data, 'tab:blue')
+plt.plot(time,y, 'tab:blue')
 plt.xlabel('Zeit (s)')
 plt.ylabel('Amplitude')
 plt.title('Audio-Signal im Zeitbereich')
@@ -474,7 +474,7 @@ plt.show()
 # 
 # ## Beispiele von FFTs und Fourier-Reihen-Koeffizienten
 
-# In[52]:
+# In[8]:
 
 
 Fs = 100.0;  # sampling rate
@@ -497,18 +497,16 @@ plt.subplot(1,2,1)
 plt.plot(t,y, 'tab:blue')
 plt.xlabel('Zeit (s)')
 plt.ylabel('Amplitude')
-plt.title('Zeitsignal')
 plt.subplot(1,2,2)
 plt.plot(xf,abs(yf),'tab:red', label = 'FFT') # plotting the spectrum
 plt.xlabel('Frequenz (Hz)')
 plt.ylabel('Leistung')
-plt.title('Frequenzbereich')
 plt.suptitle('Sinuswelle')
 plt.tight_layout()
 plt.show()
 
 
-# In[47]:
+# In[9]:
 
 
 # Rechteckschwingung
@@ -532,18 +530,16 @@ plt.subplot(1,2,1)
 plt.plot(t,y)
 plt.xlabel('Zeit (s)')
 plt.ylabel('Amplitude')
-plt.title('Zeitsignal')
 plt.subplot(1,2,2)
 plt.plot(xf,abs(yf),'tab:red', label = 'FFT') # plotting the spectrum
 plt.xlabel('Frequenz (Hz)')
 plt.ylabel('Leistung')
-plt.title('Frequenzbereich')
 plt.suptitle('Rechtecksignal')
 plt.tight_layout()
 plt.show()
 
 
-# In[48]:
+# In[10]:
 
 
 Fs = 100.0;  # sampling rate
@@ -566,18 +562,16 @@ plt.subplot(1,2,1)
 plt.plot(t,y)
 plt.xlabel('Zeit (s)')
 plt.ylabel('Amplitude')
-plt.title('Zeitsignal')
 plt.subplot(1,2,2)
 plt.plot(xf,abs(yf),'tab:red', label = 'FFT') # plotting the spectrum
 plt.xlabel('Frequenz (Hz)')
 plt.ylabel('Leistung')
-plt.title('Frequenzbereich')
 plt.suptitle('Sägezahnspannung')
 plt.tight_layout()
 plt.show()
 
 
-# In[49]:
+# In[11]:
 
 
 Fs = 150.0;  # sampling rate
@@ -597,18 +591,16 @@ plt.subplot(1,2,1)
 plt.plot(t,y)
 plt.xlabel('Zeit (s)')
 plt.ylabel('Amplitude')
-plt.title('Zeitsignal')
 plt.subplot(1,2,2)
 plt.plot(xf,abs(yf),'tab:red') # plotting the spectrum
 plt.xlabel('Frequenz (Hz)')
 plt.ylabel('Leistung')
-plt.title('Frequenzbereich')
 plt.suptitle('Überlagerung zweier Sinuswellen')
 plt.tight_layout()
 plt.show()
 
 
-# In[50]:
+# In[12]:
 
 
 Fs = 150.0;  # sampling rate
@@ -638,19 +630,11 @@ plt.subplot(1,2,1)
 plt.plot(t,combined)
 plt.xlabel('Zeit (s)')
 plt.ylabel('Amplitude')
-plt.title('Zeitsignal')
 plt.subplot(1,2,2)
 plt.plot(xf,abs(yf),'tab:red') # plotting the spectrum
 plt.xlabel('Frequenz (Hz)')
 plt.ylabel('')
-plt.title('Frequenzbereich')
 plt.suptitle('2 Sinuswellen mit Rauschen')
 plt.tight_layout()
 plt.show()
-
-
-# In[ ]:
-
-
-
 

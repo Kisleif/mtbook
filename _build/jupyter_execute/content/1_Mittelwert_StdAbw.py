@@ -29,7 +29,7 @@ warnings.filterwarnings('ignore')
 
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.figure(figsize=(10,5)) # Plot-Größe
+plt.figure(figsize=(6,4)) # Plot-Größe
 plt.rcParams['font.size'] = 12; # Schriftgröße
 
 x_volt = np.array([1.02, 1.04, 0.98, 1.00, 0.95, 0.99,0.97,0.99,1.00,0.98,0.99,1.01,0.97,1.00,1.02], dtype=float)
@@ -52,11 +52,14 @@ plt.show()
 # In[2]:
 
 
+plt.figure(figsize=(6,4)) # Plot-Größe
+plt.rcParams['font.size'] = 12; # Schriftgröße
+
 x_volt = np.array([1.02, 1.04, 0.98, 1.00, 0.95, 0.99,0.97,0.99,1.00,0.98,0.99,1.01,0.97,1.00,1.02], dtype=float)
 m = len(x_volt)
 
 bconts, bedges, _p = plt.hist(x_volt, density=True, bins=np.linspace(0.95, 1.05, 6))
-plt.ylabel('Häufigkeitsdichte h(x)')
+plt.ylabel('Häufigkeitsdichte h(x) in %')
 plt.xlabel('Klassenverteilung der Spannung (V)')
 plt.show()
 
@@ -97,7 +100,7 @@ std=data.std(ddof=1)
 print("Mittelwert der Messreihe: ", round(mean,5), 'V')
 print("Standardabweichung der Messungen: ", round(std,5), 'V')
 
-bconts, bedges, _p = plt.hist(x_volt, density=True, bins=np.linspace(0.95, 1.05, 6), label = "Messwerte")
+bconts, bedges, _p = plt.hist(x_volt, density=True, bins=np.linspace(0.95, 1.05, 6), label = "Messwerte", alpha = 0.5)
 #xmin, xmax = plt.xlim()
 xmin = mean-5*std
 xmax = mean+5*std

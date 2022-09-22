@@ -54,7 +54,7 @@ Einführung in Python und Jupyter-Notebooks.
 :gutter: 3
 
 :::{grid-item-card}
-:link: content/0_Basics
+:link: content/1_Messen_Einheit
 :link-type: doc
 :class-header: bg-light
 **Messen, Einheiten**

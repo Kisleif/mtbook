@@ -151,7 +151,7 @@ Messeingänge, Widerstandsbrücken, Wechselspannung, Messverstärker
 :::
 
 :::{grid-item-card}
-:link: content/4_Sensoren
+:link: content/6_Sensoren
 :link-type: doc
 :class-header: bg-light
 **Sensoren**

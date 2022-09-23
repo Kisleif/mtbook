@@ -55,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Dynamische Messsysteme" href="5_Dynamische_Messsysteme.html" />
+    <link rel="next" title="Rauschen und spektrale Dichte" href="3_Rauschen.html" />
     <link rel="prev" title="Digitalisierung" href="2_Digital.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -119,7 +119,12 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="00_jupyter.html">
-   Python im Lecture Book
+   Über dieses Skript
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="0_Praktikum.html">
+   Infos zum Praktikum
   </a>
  </li>
 </ul>
@@ -128,15 +133,10 @@ const thebe_selector_output = ".output, .cell_output"
   Grundlagen
  </span>
 </p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="0_Basics.html">
-   Grundlagen der Messtechnik
-  </a>
- </li>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="1_Datenanalyse.html">
-   Daten analysieren und präsentieren
+  <a class="reference internal" href="1_Messtechnik.html">
+   Messtechnik
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -145,10 +145,22 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="1_Einleitung.html">
-     Messdaten sammeln und darstellen
+    <a class="reference internal" href="1_Messen_Einheit.html">
+     Messen und Einheiten
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="1_Datenanalyse.html">
+   Messdaten analysieren
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="1_Messunsicherheiten.html">
      Quellen und Ursachen von Messunsicherheiten
@@ -171,12 +183,19 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Messsignale und -systeme
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="2_Stationaer.html">
    Stationäre Messsysteme
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -202,8 +221,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="3_Messsignale.html">
    Messsignale
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -235,14 +254,19 @@ const thebe_selector_output = ".output, .cell_output"
      Fourier-Analyse
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3_Rauschen.html">
+     Rauschen und spektrale Dichte
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="5_Dynamische_Messsysteme.html">
    Dynamische Messsysteme
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -267,6 +291,11 @@ const thebe_selector_output = ".output, .cell_output"
      Übertragungsfunktion
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5_faltung.html">
+     Faltung und Korrelation
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -276,15 +305,104 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="4_ElektrischeGroessen.html">
    Messen elektrischer Größen
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_Grundlagen_Elektronik.html">
+     Elektronische Minimum
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_U-Messeingang.html">
+     Spannungsmesseingang
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_I-Messeingang.html">
+     Strommesseingang
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_OP.html">
+     Operationsverstärker
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_P-Messung.html">
+     Leistungsmessung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_R-Messung.html">
+     Widerstandsmessung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_F-Messung.html">
+     Frequenzmessung
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="4_Sensoren.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="6_Sensoren.html">
    Sensoren
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_Einf%C3%BChrung.html">
+     Einführung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_DMS.html">
+     Dehnungsmessstreifen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_PZT.html">
+     Piezoelektrische Sensoren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_Kapazitiv.html">
+     Kapazitive Sensoren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_Druck.html">
+     Drucksensoren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_Temp.html">
+     Temperaturmessungen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_W%C3%A4rme.html">
+     Messung von Wärmestrahlung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_OMT.html">
+     Optische Sensoren
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
@@ -297,8 +415,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="T_Tutorials.html">
    Jupyter Notebooks
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -1450,10 +1568,10 @@ Die Begriffe DFT und FFT werden oft synonym verwendet. Sie sind jedoch nicht gan
             <p class="prev-next-title">Digitalisierung</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="5_Dynamische_Messsysteme.html" title="next page">
+    <a class='right-next' id="next-link" href="3_Rauschen.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Dynamische Messsysteme</p>
+        <p class="prev-next-title">Rauschen und spektrale Dichte</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

@@ -36,6 +36,7 @@ import numpy as np
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
 plt.figure(figsize=(8,3)) # Plot-Größe
+plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 samplerate, data = read('CantinaBand3.wav')
@@ -97,7 +98,10 @@ plt.show()
 # :::{admonition} Aufgabe
 # :class: tip
 # Beweise die obige Umformung mithilfe der trigonometrischen Umrechnungsformel 
-# $$\sin \alpha \sin \beta ={\frac {1}{2}}{\bigl (}\cos(\alpha -\beta )-\cos(\alpha +\beta ){\bigr )} !$$
+# 
+# $$\sin \alpha \sin \beta ={\frac {1}{2}}{\bigl (}\cos(\alpha -\beta )-\cos(\alpha +\beta ){\bigr )} !
+# $$
+# 
 # :::
 # 
 # Aus Formel kann man das entstandene Frequenzspektrum ablesen (siehe [Fourier-Analyse](3_FourierAnalyse.ipynb)). Vorne in der Formel steht das Trägersignal mit der Frequenz $f_c$ und hinten stehen zwei Terme, die sogenannten Seitenbänder, mit den Frequenzen $f_m-f_c$ und $f_m + f_c$. Diese einfachste Modulationsart der AM nennt man deshalb auch **Zweiseitenbandmodulation (ZSB oder englisch DSB)** mit Träger. Hier steckt die Information in den Seitenbändern, während der Träger selbst bei der Übertragung nur unnötigen Ballast darstellt. Wenn sich die Amplitude des Nutzsignals ändert, ändert sich auch die Amplitude der Seitenfrequenzen. Wenn sich die Frequenz des modulierenden Signals ändert, ändern sich auch die Frequenzen der Seitenbänder. 
@@ -107,7 +111,11 @@ plt.show()
 # In[2]:
 
 
+# MatplotLib Settings:
+plt.style.use('default') # Matplotlib Style wählen
 plt.figure(figsize=(7,3)) # Plot-Größe
+plt.xkcd()
+plt.rcParams['font.size'] = 10; # Schriftgröße
 A = 1.0
 M_a = 0.5
 AM = (A+M_a*y_nutz_norm)*f(ff,1.0,t)
@@ -115,7 +123,7 @@ AM = (A+M_a*y_nutz_norm)*f(ff,1.0,t)
 plt.plot(t*1000, y, 'k', ls=':', label = 'Träger')
 plt.plot(t*1000,AM, 'tab:red', lw=2, alpha = 0.65, label = 'AM')
 plt.plot(t*1000, (A+M_a*y_nutz_norm), 'tab:blue', label = 'Einhüllende')
-plt.title('AM')
+plt.title('Amplitudenmodulation (AM)')
 #plt.xlim([0.276,0.285])
 #plt.ylim([-1.5,1.5])
 plt.xlabel('Zeit (ms)')
@@ -130,14 +138,18 @@ plt.show()
 
 
 from scipy.fft import rfft, rfftfreq
+# MatplotLib Settings:
+plt.style.use('default') # Matplotlib Style wählen
+plt.figure(figsize=(4,4)) # Plot-Größe
+plt.xkcd()
+plt.rcParams['font.size'] = 10; # Schriftgröße
 # Note the extra 'r' at the front
 AMyf = rfft(AM)
 AMxf = rfftfreq(len(AM), 1 / Fs)
-plt.figure(figsize=(7,3)) # Plot-Größe
 markerline, stemlines, baseline = plt.stem(AMxf,np.abs(AMyf), markerfmt = 'D') # plotting the spectrum
 
 plt.xlabel('Frequenz (Hz)')
-plt.ylabel('Power')
+plt.ylabel('FFT')
 plt.title('AM im Frequenzbereich')
 plt.xlim([500,1500])
 plt.tight_layout()
@@ -151,15 +163,18 @@ plt.show()
 # 
 # Bei schwachen oder stark gestörten Signalen wird auf der Empfängerseite ein lokaler Träger benutzt, der in Phase zu Träger des empfangenen Signals ist. Beide Träger sind synchron und damit kohärent zu einander. Dieses Verfahren ist technisch gesehen aufwendiger als die zweite Option.
 # Zunächst wird das empfangene Signal, $y_\mathrm{AM}(t)$, bestehend aus den beiden Seitenfrequenzen und dem Träger, mit dem lokalen Träger multipliziert und anschließend werden die hohen Frequenzanteile $2f_c$ mit einem Tiefpass und der Gleichanteil mit einem Hochpass heraus gefiltert. Das gesuchte Nutzsignal bleibt übrig, jedoch nur mit halber Amplitude:
-#     $$\begin{align} 
+# 
+#     $$
+#     \begin{align} 
 #     y_\mathrm{AM,demod}(t) &= y_\mathrm{AM}(t) \cdot s(t) \\
 #     & = \left[ A_c \sin(2\pi  f_c  t)  + \frac{M_a A_m}{2} \left[ \cos\{2\pi(f_m-f_c)t \} - \cos\{2\pi(f_m+f_c)t \} \right] \right]  \cdot A_c \sin(2\pi f_c t + p_0) \\
 #     &= \frac{A_m}{2} \sin(2 \pi f_m t)
-#     \end{align}$$
+#     \end{align}
+#     $$
 #     
-#     :::{admonition} Aufgabe
+# :::{admonition} Aufgabe
 # :class: tip
-# Beweise die obige Umformung unter Vernachlässigung der hohen Frequenzanteile $2f_c$ und des Gleichanteils.$$
+# Beweise die obige Umformung unter Vernachlässigung der hohen Frequenzanteile $2f_c$ und des Gleichanteils.
 # :::
 # 
 # Diese einfachste Form der Demodulation kommt ohne die aufwendige Erzeugung eines lokalen Trägers aus und ermöglichte deshalb vor hundert Jahren die Verbreitung von Rundfunksendern. Das Verfahren ist allerdings nur bei ausreichend starken Signalen anwendbar und erfordert im Regelfall einen vorhergehenden Verstärker. Hier wird das gesuchte Frequenzband mit einem Bandpass herausgefiltert, anschließend mit einer Diode gleichgerichtet und zum Schluss mit einem Tiefpass geglättet. Der enthaltene Gleichanteil wird gegebenenfalls mit einem Hochpass entfernt.
@@ -233,7 +248,11 @@ plt.show()
 # In[4]:
 
 
+# MatplotLib Settings:
+plt.style.use('default') # Matplotlib Style wählen
 plt.figure(figsize=(8,3)) # Plot-Größe
+plt.xkcd()
+plt.rcParams['font.size'] = 10; # Schriftgröße
 A = 1.0
 M_p = 4.0
 PM = A * np.sin(2*np.pi*ff*t + M_p*y_nutz_norm)
@@ -241,8 +260,8 @@ plt.subplot(1,2,1)
 plt.plot(t, y, 'k', ls=':', label = 'Träger')
 plt.plot(t,PM, 'tab:red', lw=2, alpha = 0.65, label = 'AM')
 plt.plot(t, y_nutz_norm, 'tab:blue', label = 'Nachricht')
-plt.title('PM')
-#plt.xlim([0.276,0.285])
+plt.title('Phasenmodulation (PM)')
+plt.xlim([0.0,0.013])
 #plt.ylim([-1.5,1.5])
 plt.xlabel('Zeit (s)')
 plt.ylabel('Amplitude')
@@ -254,8 +273,8 @@ plt.subplot(1,2,2)
 plt.plot(t, y, 'k', ls=':', label = 'Träger')
 plt.plot(t,FM, 'tab:red', lw=2, alpha = 0.65, label = 'FM')
 plt.plot(t, y_nutz_norm, 'tab:blue', label = 'Nachricht')
-plt.title('FM')
-#plt.xlim([0.276,0.285])
+plt.title('Frequenzmodulation (FM)')
+plt.xlim([0.0,0.013])
 #plt.ylim([-1.5,1.5])
 plt.xlabel('Zeit (s)')
 plt.ylabel('Amplitude')

@@ -836,6 +836,7 @@ Beide Signale sind den folgenden Diagrammen für <span class="math notranslate n
 <span class="c1"># MatplotLib Settings:</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
 
 <span class="n">samplerate</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s1">&#39;CantinaBand3.wav&#39;</span><span class="p">)</span>
@@ -898,14 +899,20 @@ y_\mathrm{AM}(t) &amp; = \left[A_c + M_a \cdot A_\mathrm{m} \cdot \sin(2\pi f_\m
 \end{split}\]</div>
 <div class="tip admonition">
 <p class="admonition-title">Aufgabe</p>
-<p>Beweise die obige Umformung mithilfe der trigonometrischen Umrechnungsformel
-$<span class="math notranslate nohighlight">\(\sin \alpha \sin \beta ={\frac {1}{2}}{\bigl (}\cos(\alpha -\beta )-\cos(\alpha +\beta ){\bigr )} !\)</span>$</p>
+<p>Beweise die obige Umformung mithilfe der trigonometrischen Umrechnungsformel</p>
+<div class="math notranslate nohighlight">
+\[\sin \alpha \sin \beta ={\frac {1}{2}}{\bigl (}\cos(\alpha -\beta )-\cos(\alpha +\beta ){\bigr )} !
+\]</div>
 </div>
 <p>Aus Formel kann man das entstandene Frequenzspektrum ablesen (siehe <a class="reference internal" href="3_FourierAnalyse.html"><span class="doc std std-doc">Fourier-Analyse</span></a>). Vorne in der Formel steht das Trägersignal mit der Frequenz <span class="math notranslate nohighlight">\(f_c\)</span> und hinten stehen zwei Terme, die sogenannten Seitenbänder, mit den Frequenzen <span class="math notranslate nohighlight">\(f_m-f_c\)</span> und <span class="math notranslate nohighlight">\(f_m + f_c\)</span>. Diese einfachste Modulationsart der AM nennt man deshalb auch <strong>Zweiseitenbandmodulation (ZSB oder englisch DSB)</strong> mit Träger. Hier steckt die Information in den Seitenbändern, während der Träger selbst bei der Übertragung nur unnötigen Ballast darstellt. Wenn sich die Amplitude des Nutzsignals ändert, ändert sich auch die Amplitude der Seitenfrequenzen. Wenn sich die Frequenz des modulierenden Signals ändert, ändern sich auch die Frequenzen der Seitenbänder.</p>
 <p>Eine Amplitudenmodulation für einen Modulationsgrad von 0,5 sieht wiefolgt für die beiden oben definierten Nutz- und Trägersignale aus:</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># MatplotLib Settings:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
 <span class="n">A</span> <span class="o">=</span> <span class="mf">1.0</span>
 <span class="n">M_a</span> <span class="o">=</span> <span class="mf">0.5</span>
 <span class="n">AM</span> <span class="o">=</span> <span class="p">(</span><span class="n">A</span><span class="o">+</span><span class="n">M_a</span><span class="o">*</span><span class="n">y_nutz_norm</span><span class="p">)</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">ff</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
@@ -913,7 +920,7 @@ $<span class="math notranslate nohighlight">\(\sin \alpha \sin \beta ={\frac {1}
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Träger&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span><span class="n">AM</span><span class="p">,</span> <span class="s1">&#39;tab:red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.65</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;AM&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span> <span class="p">(</span><span class="n">A</span><span class="o">+</span><span class="n">M_a</span><span class="o">*</span><span class="n">y_nutz_norm</span><span class="p">),</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Einhüllende&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;AM&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Amplitudenmodulation (AM)&#39;</span><span class="p">)</span>
 <span class="c1">#plt.xlim([0.276,0.285])</span>
 <span class="c1">#plt.ylim([-1.5,1.5])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit (ms)&#39;</span><span class="p">)</span>
@@ -931,14 +938,18 @@ $<span class="math notranslate nohighlight">\(\sin \alpha \sin \beta ={\frac {1}
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.fft</span> <span class="kn">import</span> <span class="n">rfft</span><span class="p">,</span> <span class="n">rfftfreq</span>
+<span class="c1"># MatplotLib Settings:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
 <span class="c1"># Note the extra &#39;r&#39; at the front</span>
 <span class="n">AMyf</span> <span class="o">=</span> <span class="n">rfft</span><span class="p">(</span><span class="n">AM</span><span class="p">)</span>
 <span class="n">AMxf</span> <span class="o">=</span> <span class="n">rfftfreq</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">AM</span><span class="p">),</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">Fs</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
 <span class="n">markerline</span><span class="p">,</span> <span class="n">stemlines</span><span class="p">,</span> <span class="n">baseline</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">AMxf</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">AMyf</span><span class="p">),</span> <span class="n">markerfmt</span> <span class="o">=</span> <span class="s1">&#39;D&#39;</span><span class="p">)</span> <span class="c1"># plotting the spectrum</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequenz (Hz)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Power&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;FFT&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;AM im Frequenzbereich&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">500</span><span class="p">,</span><span class="mi">1500</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
@@ -955,23 +966,22 @@ $<span class="math notranslate nohighlight">\(\sin \alpha \sin \beta ={\frac {1}
 <h3>Demodulation<a class="headerlink" href="#demodulation" title="Permalink to this headline">#</a></h3>
 <p>Es gibt prinzipiell zwei Möglichkeiten die Modulation rückgängig zu machen um das ursprüngliche Nutzsignal zu rekonstruieren:</p>
 <p>Bei schwachen oder stark gestörten Signalen wird auf der Empfängerseite ein lokaler Träger benutzt, der in Phase zu Träger des empfangenen Signals ist. Beide Träger sind synchron und damit kohärent zu einander. Dieses Verfahren ist technisch gesehen aufwendiger als die zweite Option.
-Zunächst wird das empfangene Signal, <span class="math notranslate nohighlight">\(y_\mathrm{AM}(t)\)</span>, bestehend aus den beiden Seitenfrequenzen und dem Träger, mit dem lokalen Träger multipliziert und anschließend werden die hohen Frequenzanteile <span class="math notranslate nohighlight">\(2f_c\)</span> mit einem Tiefpass und der Gleichanteil mit einem Hochpass heraus gefiltert. Das gesuchte Nutzsignal bleibt übrig, jedoch nur mit halber Amplitude:
-$<span class="math notranslate nohighlight">\(\begin{align} 
-    y_\mathrm{AM,demod}(t) &amp;= y_\mathrm{AM}(t) \cdot s(t) \\
-    &amp; = \left[ A_c \sin(2\pi  f_c  t)  + \frac{M_a A_m}{2} \left[ \cos\{2\pi(f_m-f_c)t \} - \cos\{2\pi(f_m+f_c)t \} \right] \right]  \cdot A_c \sin(2\pi f_c t + p_0) \\
-    &amp;= \frac{A_m}{2} \sin(2 \pi f_m t)
-    \end{align}\)</span>$</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>:::{admonition} Aufgabe
+Zunächst wird das empfangene Signal, <span class="math notranslate nohighlight">\(y_\mathrm{AM}(t)\)</span>, bestehend aus den beiden Seitenfrequenzen und dem Träger, mit dem lokalen Träger multipliziert und anschließend werden die hohen Frequenzanteile <span class="math notranslate nohighlight">\(2f_c\)</span> mit einem Tiefpass und der Gleichanteil mit einem Hochpass heraus gefiltert. Das gesuchte Nutzsignal bleibt übrig, jedoch nur mit halber Amplitude:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$$
+\begin{align} 
+y_\mathrm{AM,demod}(t) &amp;= y_\mathrm{AM}(t) \cdot s(t) \\
+&amp; = \left[ A_c \sin(2\pi  f_c  t)  + \frac{M_a A_m}{2} \left[ \cos\{2\pi(f_m-f_c)t \} - \cos\{2\pi(f_m+f_c)t \} \right] \right]  \cdot A_c \sin(2\pi f_c t + p_0) \\
+&amp;= \frac{A_m}{2} \sin(2 \pi f_m t)
+\end{align}
+$$
 </pre></div>
 </div>
-<p>:class: tip
-Beweise die obige Umformung unter Vernachlässigung der hohen Frequenzanteile <span class="math notranslate nohighlight">\(2f_c\)</span> und des Gleichanteils.$$</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="n">Diese</span> <span class="n">einfachste</span> <span class="n">Form</span> <span class="n">der</span> <span class="n">Demodulation</span> <span class="n">kommt</span> <span class="n">ohne</span> <span class="n">die</span> <span class="n">aufwendige</span> <span class="n">Erzeugung</span> <span class="n">eines</span> <span class="n">lokalen</span> <span class="n">Trägers</span> <span class="n">aus</span> <span class="n">und</span> <span class="n">ermöglichte</span> <span class="n">deshalb</span> <span class="n">vor</span> <span class="n">hundert</span> <span class="n">Jahren</span> <span class="n">die</span> <span class="n">Verbreitung</span> <span class="n">von</span> <span class="n">Rundfunksendern</span><span class="o">.</span> <span class="n">Das</span> <span class="n">Verfahren</span> <span class="n">ist</span> <span class="n">allerdings</span> <span class="n">nur</span> <span class="n">bei</span> <span class="n">ausreichend</span> <span class="n">starken</span> <span class="n">Signalen</span> <span class="n">anwendbar</span> <span class="n">und</span> <span class="n">erfordert</span> <span class="n">im</span> <span class="n">Regelfall</span> <span class="n">einen</span> <span class="n">vorhergehenden</span> <span class="n">Verstärker</span><span class="o">.</span> <span class="n">Hier</span> <span class="n">wird</span> <span class="n">das</span> <span class="n">gesuchte</span> <span class="n">Frequenzband</span> <span class="n">mit</span> <span class="n">einem</span> <span class="n">Bandpass</span> <span class="n">herausgefiltert</span><span class="p">,</span> <span class="n">anschließend</span> <span class="n">mit</span> <span class="n">einer</span> <span class="n">Diode</span> <span class="n">gleichgerichtet</span> <span class="n">und</span> <span class="n">zum</span> <span class="n">Schluss</span> <span class="n">mit</span> <span class="n">einem</span> <span class="n">Tiefpass</span> <span class="n">geglättet</span><span class="o">.</span> <span class="n">Der</span> <span class="n">enthaltene</span> <span class="n">Gleichanteil</span> <span class="n">wird</span> <span class="n">gegebenenfalls</span> <span class="n">mit</span> <span class="n">einem</span> <span class="n">Hochpass</span> <span class="n">entfernt</span><span class="o">.</span>
-
-<span class="n">Auf</span> <span class="n">Grund</span> <span class="n">der</span> <span class="n">Einfachheit</span> <span class="n">dieses</span> <span class="n">Verfahrens</span> <span class="n">kann</span> <span class="n">das</span> <span class="n">empfangene</span> <span class="n">Signal</span> <span class="n">leicht</span> <span class="n">durch</span> <span class="n">Verzerrungen</span> <span class="n">gestört</span> <span class="n">werden</span><span class="o">.</span> 
-</pre></div>
+<div class="tip admonition">
+<p class="admonition-title">Aufgabe</p>
+<p>Beweise die obige Umformung unter Vernachlässigung der hohen Frequenzanteile <span class="math notranslate nohighlight">\(2f_c\)</span> und des Gleichanteils.</p>
 </div>
+<p>Diese einfachste Form der Demodulation kommt ohne die aufwendige Erzeugung eines lokalen Trägers aus und ermöglichte deshalb vor hundert Jahren die Verbreitung von Rundfunksendern. Das Verfahren ist allerdings nur bei ausreichend starken Signalen anwendbar und erfordert im Regelfall einen vorhergehenden Verstärker. Hier wird das gesuchte Frequenzband mit einem Bandpass herausgefiltert, anschließend mit einer Diode gleichgerichtet und zum Schluss mit einem Tiefpass geglättet. Der enthaltene Gleichanteil wird gegebenenfalls mit einem Hochpass entfernt.</p>
+<p>Auf Grund der Einfachheit dieses Verfahrens kann das empfangene Signal leicht durch Verzerrungen gestört werden.</p>
 </section>
 </section>
 <section id="phasenmodulation">
@@ -1028,7 +1038,11 @@ Beweise die obige Umformung unter Vernachlässigung der hohen Frequenzanteile <s
 <p>In beiden Fällen findet eine Modulation der Phase statt. Allerdings wirkt bei der Frequenzmodulation nicht der Modulator direkt auf die Phase ein, sondern es ist erst das Integral des Modulators zu rechnen. Das Integral hat eine Tiefpasswirkung. Der Phasenhub wird also bei der Frequenzmodulation mit zunehmender Frequenz des Modulators geringer. Umgekehrt wird der Frequenzhub bei der Phasenmodulation mit niedriger werdender Modulatorfrequenz immer geringer.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># MatplotLib Settings:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
 <span class="n">A</span> <span class="o">=</span> <span class="mf">1.0</span>
 <span class="n">M_p</span> <span class="o">=</span> <span class="mf">4.0</span>
 <span class="n">PM</span> <span class="o">=</span> <span class="n">A</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">ff</span><span class="o">*</span><span class="n">t</span> <span class="o">+</span> <span class="n">M_p</span><span class="o">*</span><span class="n">y_nutz_norm</span><span class="p">)</span>
@@ -1036,8 +1050,8 @@ Beweise die obige Umformung unter Vernachlässigung der hohen Frequenzanteile <s
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Träger&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">PM</span><span class="p">,</span> <span class="s1">&#39;tab:red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.65</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;AM&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y_nutz_norm</span><span class="p">,</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Nachricht&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;PM&#39;</span><span class="p">)</span>
-<span class="c1">#plt.xlim([0.276,0.285])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Phasenmodulation (PM)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.013</span><span class="p">])</span>
 <span class="c1">#plt.ylim([-1.5,1.5])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit (s)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>
@@ -1049,8 +1063,8 @@ Beweise die obige Umformung unter Vernachlässigung der hohen Frequenzanteile <s
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Träger&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">FM</span><span class="p">,</span> <span class="s1">&#39;tab:red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.65</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;FM&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y_nutz_norm</span><span class="p">,</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Nachricht&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;FM&#39;</span><span class="p">)</span>
-<span class="c1">#plt.xlim([0.276,0.285])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Frequenzmodulation (FM)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.013</span><span class="p">])</span>
 <span class="c1">#plt.ylim([-1.5,1.5])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit (s)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>

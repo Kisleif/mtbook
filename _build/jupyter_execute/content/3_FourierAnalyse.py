@@ -28,7 +28,8 @@ warnings.filterwarnings('ignore')
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
 plt.figure(figsize=(10,5)) # Plot-Größe
-plt.rcParams['font.size'] = 12; # Schriftgröße
+plt.xkcd()
+plt.rcParams['font.size'] = 10; # Schriftgröße
 
 T = 1
 t_range = np.linspace(-2*T, 2*T, 1000, endpoint = True)
@@ -74,7 +75,7 @@ for n in range(1, N + 1):
     axs[row, col].set_title('f=' + str(n) + ' x f_0')
     axs[row, col].plot(t_range, AB[:,1][n] * np.sin(2. * np.pi * n * t_range / T))
     y_approx = fit_func_by_fourier_series_with_real_coeffs(t_range, AB)
-axs[2, 1].plot(t_range, f(t_range),'--', color='k', lw = 1)
+axs[2, 1].plot(t_range, f(t_range),':', color='k', lw = 2)
 axs[2, 1].plot(t_range, y_approx, color='tab:red')
 axs[2, 1].set_title('Überlagerung der 5 Sinusfunktionen')
 plt.tight_layout()   
@@ -103,8 +104,9 @@ warnings.filterwarnings('ignore')
 
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.figure(figsize=(10,5)) # Plot-Größe
-plt.rcParams['font.size'] = 12; # Schriftgröße
+plt.figure(figsize=(10,4)) # Plot-Größe
+plt.xkcd()
+plt.rcParams['font.size'] = 10; # Schriftgröße
 
 T = 1
 t_range = np.linspace(-2*T, 2*T, 1000, endpoint = True)
@@ -186,8 +188,11 @@ plt.show()
 
 
 maxN = 16
-plt.figure(figsize=(8,3)) # Plot-Größ
-plt.rcParams['font.size'] = 10
+# MatplotLib Settings:
+plt.style.use('default') # Matplotlib Style wählen
+plt.figure(figsize=(8,3)) # Plot-Größe
+plt.xkcd()
+plt.rcParams['font.size'] = 10; # Schriftgröße
 
 # Rechteckpuls:
 f = lambda t: signal.square(2 * np.pi * 1/T * t)
@@ -215,10 +220,9 @@ plt.plot(abs(AB[:,0]), 'o', color='tab:red', label = '|a_k|')
 plt.plot(abs(AB[:,1]), 'o', color='tab:green', label = '|b_k|')
 plt.legend()
 plt.xlabel('Vielfache der Grundfrequenz')
-plt.ylabel('Reelle Amplitude der Fourierreihe')
+plt.ylabel('Reelle Fourierkoeffizient')
 plt.xticks(i)
 plt.xlim([0,N])
-plt.suptitle('Reelle Fourierkoeffizienten für einen Rechteckpuls')
 plt.tight_layout()
 plt.show()
 
@@ -230,8 +234,11 @@ plt.show()
 f = lambda t: signal.sawtooth(2 * np.pi * 1/T * t, 0.5)
 
 maxN = 10
-plt.figure(figsize=(8,3)) # Plot-Größ
-plt.rcParams['font.size'] = 10
+# MatplotLib Settings:
+plt.style.use('default') # Matplotlib Style wählen
+plt.figure(figsize=(8,3)) # Plot-Größe
+plt.xkcd()
+plt.rcParams['font.size'] = 10; # Schriftgröße
 
 #plot, in the range from BT to ET, the true f(t) in blue and the approximation in red
 i = []
@@ -259,10 +266,9 @@ plt.plot(abs(AB[:,0]), 'o', color='tab:red', label = '|a_k|')
 plt.plot(abs(AB[:,1]), 'o', color='tab:green', label = '|b_k|')
 plt.legend()
 plt.xlabel('Vielfache der Grundfrequenz')
-plt.ylabel('Reelle Amplitude der Fourierreihe')
+plt.ylabel('Reelle Fourierkoeffizient')
 plt.xticks(i)
 plt.xlim([0,N])
-plt.suptitle('Reelle Fourierkoeffizienten für ein Dreicksignal')
 plt.tight_layout()
 plt.show()
 
@@ -320,6 +326,12 @@ plt.show()
 
 # In[5]:
 
+
+# MatplotLib Settings:
+plt.style.use('default') # Matplotlib Style wählen
+plt.figure(figsize=(4,4)) # Plot-Größe
+plt.xkcd()
+plt.rcParams['font.size'] = 10; # Schriftgröße
 
 # Dreieckfunktion:
 f_drei = lambda t: signal.sawtooth(2 * np.pi * 1/T * t, 0.5)
@@ -403,6 +415,7 @@ time = np.arange(0,duration,1/samplerate) #time vector
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
 plt.figure(figsize=(8,3)) # Plot-Größe
+plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 y_normalized = np.int16((y / y.max()) * 32767)
@@ -477,6 +490,12 @@ plt.show()
 # In[8]:
 
 
+# MatplotLib Settings:
+plt.style.use('default') # Matplotlib Style wählen
+plt.figure(figsize=(8,3)) # Plot-Größe
+plt.xkcd()
+plt.rcParams['font.size'] = 10; # Schriftgröße
+
 Fs = 100.0;  # sampling rate
 Ts = 1.0/Fs; # sampling interval
 t = np.arange(0,1,Ts) # time vector
@@ -508,6 +527,12 @@ plt.show()
 
 # In[9]:
 
+
+# MatplotLib Settings:
+plt.style.use('default') # Matplotlib Style wählen
+plt.figure(figsize=(8,3)) # Plot-Größe
+plt.xkcd()
+plt.rcParams['font.size'] = 10; # Schriftgröße
 
 # Rechteckschwingung
 Fs = 100.0;  # sampling rate
@@ -542,6 +567,12 @@ plt.show()
 # In[10]:
 
 
+# MatplotLib Settings:
+plt.style.use('default') # Matplotlib Style wählen
+plt.figure(figsize=(8,3)) # Plot-Größe
+plt.xkcd()
+plt.rcParams['font.size'] = 10; # Schriftgröße
+
 Fs = 100.0;  # sampling rate
 Ts = 1.0/Fs; # sampling interval
 t = np.arange(0,1,Ts) # time vector
@@ -574,6 +605,12 @@ plt.show()
 # In[11]:
 
 
+# MatplotLib Settings:
+plt.style.use('default') # Matplotlib Style wählen
+plt.figure(figsize=(8,3)) # Plot-Größe
+plt.xkcd()
+plt.rcParams['font.size'] = 10; # Schriftgröße 
+
 Fs = 150.0;  # sampling rate
 Ts = 1.0/Fs; # sampling interval
 t = np.arange(0,1,Ts) # time vector
@@ -602,6 +639,12 @@ plt.show()
 
 # In[12]:
 
+
+# MatplotLib Settings:
+plt.style.use('default') # Matplotlib Style wählen
+plt.figure(figsize=(8,3)) # Plot-Größe
+plt.xkcd()
+plt.rcParams['font.size'] = 10; # Schriftgröße
 
 Fs = 150.0;  # sampling rate
 Ts = 1.0/Fs; # sampling interval

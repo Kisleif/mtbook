@@ -775,8 +775,13 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="ideale-kennlinie">
 <h1>Ideale Kennlinie<a class="headerlink" href="#ideale-kennlinie" title="Permalink to this headline">#</a></h1>
 <p><a id="Sec-Kennlinie"></a></p>
-<p>Jede einzelne der Komponenten führt die an ihr anliegenden Eingangssignal in Ausgangssignale über. Wie diese Überführung genau aussieht beschreibt die sogenannte <strong>Kennlinie</strong>, die für jede Komponente unterschiedlich aussehen kann. Im folgenden Bild ist beispielshaft eine lineare Kennlinie dargestellt:</p>
-<p><img alt="Bild" src="../_images/kennlinie.png" /></p>
+<p>Jede einzelne der Komponenten führt die an ihr anliegenden Eingangssignal in Ausgangssignale über. Wie diese Überführung genau aussieht beschreibt die sogenannte <strong>Kennlinie</strong>, die für jede Komponente unterschiedlich aussehen kann. In <a class="reference internal" href="#id1"><span class="std std-numref">Fig. 14</span></a> ist beispielshaft eine lineare, ideale Kennlinie dargestellt:</p>
+<figure class="align-default" id="id1">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/ideale_kennlinie.jpg"><img alt="ideale_kennlinie" class="bg-primary mb-1" src="../_images/ideale_kennlinie.jpg" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 14 </span><span class="caption-text">Ideale Messkennlinie.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <section id="statische-kenngroszen">
 <h2>Statische Kenngrößen<a class="headerlink" href="#statische-kenngroszen" title="Permalink to this headline">#</a></h2>
 <p><a id="SubSec-Statische_Kenngrößen"></a></p>
@@ -826,7 +831,7 @@ Sie weisen gegenüber Platin-Messwiderständen eine deutlich höhere Empfindlich
 \[ R(T)= \frac{a}{1 + \mathrm e^{-k(T-T_c)}} \]</div>
 <p>mit z.B. <span class="math notranslate nohighlight">\(k\)</span> = 1.86/mK, <span class="math notranslate nohighlight">\(a\)</span> = 0.224 Ohm und <span class="math notranslate nohighlight">\(T_c\)</span> = 103.2 mK</p>
 <p><img alt="Bild" src="../_images/bsp_kennlinie.png" /></p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Benötigte Libraries:</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -843,40 +848,39 @@ Sie weisen gegenüber Platin-Messwiderständen eine deutlich höhere Empfindlich
 
 <span class="c1"># MatplotLib Settings:</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
 
 <span class="c1">#--------- Kaltleiter PT100 -------------</span>
 <span class="n">T_PT</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">800</span><span class="p">)</span>
-<span class="n">R_0</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1"># in Ohm</span>
-<span class="n">A</span> <span class="o">=</span> <span class="mf">3.93e-3</span> <span class="c1"># in 1/°C</span>
-<span class="n">B</span> <span class="o">=</span> <span class="o">-</span><span class="mf">5.7e-7</span> <span class="c1"># in 1/^C^2</span>
 <span class="k">def</span> <span class="nf">R_PT</span><span class="p">(</span><span class="n">T_PT</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">R_0</span><span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">A</span><span class="o">*</span><span class="n">T_PT</span> <span class="o">+</span> <span class="n">B</span> <span class="o">*</span> <span class="n">T_PT</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">R_0</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1"># in Ohm</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="mf">3.93e-3</span> <span class="c1"># in 1/°C</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="o">-</span><span class="mf">5.7e-7</span> <span class="c1"># in 1/^C^2</span>
+    <span class="k">return</span> <span class="n">R_0</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">A</span><span class="o">*</span><span class="n">T_PT</span> <span class="o">+</span> <span class="n">B</span> <span class="o">*</span> <span class="n">T_PT</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="c1">#--------- Heißleiter NTC -------------</span>
 <span class="n">T_NTC</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="o">+</span><span class="mf">273.15</span><span class="p">,</span> <span class="mi">120</span><span class="o">+</span><span class="mf">273.15</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-<span class="n">R_25</span> <span class="o">=</span> <span class="mi">1000</span> <span class="c1"># in Ohm</span>
-<span class="n">T_25</span> <span class="o">=</span> <span class="mf">25.0</span> <span class="o">+</span> <span class="mf">273.15</span> <span class="c1"># in Kelvin</span>
-<span class="n">B</span> <span class="o">=</span> <span class="mi">3528</span>
 <span class="k">def</span> <span class="nf">R_NTC</span><span class="p">(</span><span class="n">T_NTC</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
+    <span class="n">R_25</span> <span class="o">=</span> <span class="mi">1000</span> <span class="c1"># in Ohm</span>
+    <span class="n">T_25</span> <span class="o">=</span> <span class="mf">25.0</span> <span class="o">+</span> <span class="mf">273.15</span> <span class="c1"># in Kelvin</span>
     <span class="k">return</span> <span class="n">R_25</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">B</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">T_NTC</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">T_25</span><span class="p">))</span>
 
 <span class="c1">#--------- Transition Edge Sensor -------------</span>
-<span class="n">k</span> <span class="o">=</span> <span class="mf">1.86</span> <span class="c1"># in 1/mK</span>
-<span class="n">a</span> <span class="o">=</span> <span class="mf">0.01</span> <span class="c1"># in Ohm</span>
-<span class="n">Tk</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1"># in mK</span>
 <span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">94</span><span class="p">,</span> <span class="mi">106</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">R</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="mf">1.86</span> <span class="c1"># in 1/mK</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mf">0.01</span> <span class="c1"># in Ohm</span>
+    <span class="n">Tk</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1"># in mK</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">k</span> <span class="o">*</span> <span class="p">(</span><span class="n">T</span><span class="o">-</span><span class="n">Tk</span><span class="p">)))</span>
 
 
 <span class="c1">#--------- Diagramme -------------</span>
-<span class="n">f</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 
 <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T_PT</span><span class="p">,</span><span class="n">R_PT</span><span class="p">(</span><span class="n">T_PT</span><span class="p">))</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;T/°C&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;R/k$\Omega$&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;R/$\Omega$&#39;</span><span class="p">)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Kaltleiter PT100&#39;</span><span class="p">)</span>
 
 <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T_NTC</span><span class="o">-</span><span class="mf">273.15</span><span class="p">,</span><span class="n">R_NTC</span><span class="p">(</span><span class="n">T_NTC</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;B = 2000K&quot;</span><span class="p">)</span>
@@ -913,10 +917,7 @@ require(['plotly'], function(Plotly) {
 });
 }
 </script>
-</div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1000x500 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/2_idealeKennlinie_1_2.png" src="../_images/2_idealeKennlinie_1_2.png" />
+</div><img alt="../_images/2_idealeKennlinie_1_1.png" src="../_images/2_idealeKennlinie_1_1.png" />
 </div>
 </div>
 </section>

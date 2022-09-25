@@ -35,7 +35,7 @@
 # 
 # :::{admonition} Aufgabe
 # :class: tip
-# Bestimme die Messabweichung von $u$, die bei der Spannungsmessung an einem Spannungsteiler mit $R_1 = R_2 = 100\,\mathrm{k\Omega}$ auftritt. Der Innenwiderstand beträgt $R_i = 1\,\mathrm{M\Omega}$. Die Ausgabe des folgenden Code-Blocks liefert bereits einige Hinweise dafür, was ihr hierfür berechnen solltet. DIe Lösung findet ihr weiter unten.
+# Bestimme die Messabweichung von $u$, die bei der Spannungsmessung an einem Spannungsteiler mit $R_1 = R_2 = 100\,\mathrm{k\Omega}$ auftritt. Der Innenwiderstand beträgt $R_i = 1\,\mathrm{M\Omega}$. Die Ausgabe des folgenden Code-Blocks liefert bereits einige Hinweise dafür, was ihr hierfür berechnen solltet. Die Lösung findet ihr weiter unten.
 # :::
 
 # In[1]:
@@ -118,6 +118,7 @@ from scipy import signal
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
 plt.figure(figsize=(7,3)) # Plot-Größe
+plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 R_1 = 100e3
@@ -181,6 +182,7 @@ from scipy.signal import butter, lfilter, freqz
 from scipy import signal 
 plt.style.use('default') # Matplotlib Style wählen
 plt.figure(figsize=(7,3)) # Plot-Größe
+plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 f = 100e3
@@ -222,20 +224,31 @@ plt.legend(loc='upper right')
 plt.tight_layout()
 
 
-# ## Messabweichungen
+# ## Innerer Aufbau und zu berücksichtigende Messabweichungen
 # 
 # Die oben genannten Messabweichungen resultieren lediglich daraus, dass ein Spannungsmesseingang an eine Schaltung angeschlossen wurde, um eben eine Spannung zu messen. Hinzu kommen aber noch weitere Messabweichungen, die wie schon in den vorangegangenen Kapiteln beschrieben, berücksichtig werden müssen. Viele Spannungsmesseingänge beinhalten weitere Komponenten, wie in {numref}`spannungsmesseingang_ADU` dargestellt. 
-# 
-# 
-# * Eine **Verstärkung** wird insbesondere bei kleinen Spannungssignalen ($<1\,\mathrm V$) benötigt. Verstärker besitzen häufig einen konkreten Frequenzgang, sodass insbesondere bei Wechselspannungen wieder besonders aufgepasst werden muss. Typischerweise nimmt der Verstärkungsfaktor mit zunehmender Frequenz ab. Auf vielen Messgeräten wird eine **Maximalfrequenz** spezifiziert, die unter anderem aufgrund der Verstärker-Komponente existiert.
-# * Die Angabe einer **Grenzfrequenz** oder **Bandbreite** eines Messsystems beinhaltet meistens nicht die Verstärkerstufe und Frequenzgänge müssen extra gemessen und abgeschätzt werden. 
-# * Eine **Dämpfung** wird bei der Messung von hohen Spannungssignalen eingebaut. Im einfachsten Fall wird ein Spannungeteiler, bestehend aus 2 ohmschen Widerständen, eingebaut. Auch hier treten wieder frequenzabhängige Verhaltensweisen auf.
-# * Bei Messgeräten für Wechselspannungen werden u.a. auch **Gleichrichter** und **Glättungen** eingebaut.
-# * Ein **Analog-Digital-Umsetzer (ADU)** wandelt das analog variierende Eingangssignal in ein Digitalwort um. Hier treten Messabweichungen infolge die Digitalisierung auf. Einmal wird der Wertebereich **diskret** und es können nicht mehr beliebig kleine Messwertsprünge gemessen werden. Zudem können **Aliasing**-Effekte auftreten, wenn die Abtastrate unterhalb der zweifachen Nyquist-Shannon-Frequenz fällt.
-# * Die Abweichungen, die wir in den vorangegegangenen Abschnitten berechnet werden, können vom Gerätehersteller gar nicht angegeben werden, da hierfür immer genaue Kenntnis der Schaltung benötigt wird, an der die Spannung gemessen werden soll. Lediglich die Innenwiderstände werden spezifiziert, mittels welcher dann die Messabweichung berechnet werden muss. 
 # 
 # :::{figure-md} spannungsmesseingang_ADU
 # <img src="draw/spannungsmesseingang_ADU.jpg" alt="Spannungsmesseingang" class="bg-primary mb-1" width="400px" label=spannungsmesseingang_ADU>
 # 
 # Grober interner Aufbau eines Spannungsmesseingangs.
 # :::
+# 
+# * Eine **Verstärkung** wird insbesondere bei kleinen Spannungssignalen ($<1\,\mathrm V$) benötigt. Verstärker besitzen häufig einen konkreten Frequenzgang, sodass insbesondere bei Wechselspannungen wieder besonders aufgepasst werden muss. Typischerweise nimmt der Verstärkungsfaktor mit zunehmender Frequenz ab. Auf vielen Messgeräten wird eine **Maximalfrequenz** spezifiziert, die unter anderem aufgrund der Verstärker-Komponente existiert.
+# * Die Angabe einer **Grenzfrequenz** oder **Bandbreite** eines Messsystems beinhaltet meistens nicht die Verstärkerstufe und Frequenzgänge müssen extra gemessen und abgeschätzt werden. 
+# * Eine **Dämpfung** wird bei der Messung von hohen Spannungssignalen eingebaut. Im einfachsten Fall wird ein Spannungeteiler, bestehend aus 2 ohmschen Widerständen, eingebaut. Auch hier treten wieder frequenzabhängige Verhaltensweisen auf.
+# * Bei Messgeräten für Wechselspannungen werden u.a. auch **Gleichrichter** und **Glättungen** eingebaut, wie in {numref}`spannungsmesseingang_glatt` dargestellt.
+# * Ein **Analog-Digital-Umsetzer (ADU)** wandelt das analog variierende Eingangssignal in ein Digitalwort um. Hier treten Messabweichungen infolge die Digitalisierung auf. Einmal wird der Wertebereich **diskret** und es können nicht mehr beliebig kleine Messwertsprünge gemessen werden. Zudem können **Aliasing**-Effekte auftreten, wenn die Abtastrate unterhalb der zweifachen Nyquist-Shannon-Frequenz fällt.
+# * Die Abweichungen, die wir in den vorangegegangenen Abschnitten berechnet werden, können vom Gerätehersteller gar nicht angegeben werden, da hierfür immer genaue Kenntnis der Schaltung benötigt wird, an der die Spannung gemessen werden soll. Lediglich die Innenwiderstände werden spezifiziert, mittels welcher dann die Messabweichung berechnet werden muss. 
+# 
+# :::{figure-md} spannungsmesseingang_glatt
+# <img src="draw/spannungsmesseingang_glatt.jpg" alt="Spannungsmesseingang" class="bg-primary mb-1" width="600px" label=spannungsmesseingang_glatt>
+# 
+# Grober interner Aufbau eines Verstärkermoduls in einem Spannungsmesseingangs.
+# :::
+
+# In[ ]:
+
+
+
+

@@ -51,6 +51,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Strommesseingang" href="4_I-Messeingang.html" />
@@ -665,12 +667,46 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gleichspannungsmessung">
+   Gleichspannungsmessung
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wechselspannungsmessung">
+   Wechselspannungsmessung
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#messabweichungen">
+   Messabweichungen
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -682,6 +718,29 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gleichspannungsmessung">
+   Gleichspannungsmessung
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wechselspannungsmessung">
+   Wechselspannungsmessung
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#messabweichungen">
+   Messabweichungen
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -691,31 +750,264 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="spannungsmesseingang">
 <h1>Spannungsmesseingang<a class="headerlink" href="#spannungsmesseingang" title="Permalink to this headline">#</a></h1>
-<p>Im Bild ist dargestellt, wie elektrische Spannungen gemessen werden.</p>
+<p>Im Bild ist dargestellt, wie elektrische Spannungen gemessen werden. <span class="math notranslate nohighlight">\(R_L\)</span> stellt hierbei einen Lastwiderstand, z.B. den einen Motors oder eines anderen Verbrauchers, dar.</p>
 <figure class="align-default" id="markdown-fig">
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/spannungsmesseingang_last.jpg"><img alt="Spannungsmesseingang" class="bg-primary mb-1" src="../_images/spannungsmesseingang_last.jpg" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">This is a caption in <strong>Markdown</strong>!</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Schaltung zur Messung elektrischer Spannungen.</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Unsere Betrachtungen gelten zunächst unabhängig davon, ob wir mit Gleichspannung oder Wechselspannung arbeiten.
-Die vom Motorsteuergerät generierte und an den Motor angelegte Spannung wird parallel an einen Spannungsmesseingang angeschlossen.</p>
-<p>von außen betrachtet: Spannungsmesseingang elektrisch gesehen als Parallelschaltung eines ohmschen Widerstandes Ri und einer Kapazität Ci gesehen werden. Man spricht hier auch vom elektrischen Ersatzschaltbild eines Spannungsmesseingangs.
-Ri wird auch als „Innenwiderstand“ bezeichnet. Ri und Ci sind nicht wirklich in dieser Anordnung so aufgebaut, sie resultieren vielmehr aus den elektrischen Eigenschaften der verbauten Bauelemente und werden durch den Hersteller des zugehörigen Messsystems spezifiziert.</p>
-<p>Ziel: durch den Spannungsmesseingang so gut wie kein Strom fließt, d.h. der Hersteller wird Ri möglichst hoch ausführen.
-Ri liegt bei qualitativ besseren Spannungsmesseingängen typischerweise bei z.B. 1 MΩ oder 10 MΩ.
-Für viele Anwendungen ist dies so hoch, dass die daraus resultierenden Messabweichungen vernachlässigbar sind.</p>
-<p>Ci spielt keine Rolle, sofern Gleichspannungen gemessen werden.
-recht kleine Kapazität lädt sich sofort nach Anlegen der zu messenden Spannung auf diese auf und hat ab dann keinerlei Einfluss mehr auf die Messung.
-Erst bei der Messung von Wechselspannungen wird sie relevant. Geht man von einer periodischen Sinusspannung aus, so besitzt sie einen von der Frequenz f abhängigen sog. Wechselstromwiderstand (auch „Blindwiderstand“, „Impedanz“) (hier ausschließlich den Betrag betrachten und deshalb auf das in der Formel zur Darstellung der korrekten Phase mitunter noch aufgeführte Minuszeichen verzichten.
-Ci wird nur für Wechselspannungsmesseingänge bzw. -bereiche spezifiziert.
-Etwas höherwertige Messsysteme geben hierbei z.B. 100 pF an, um eine typische Größenordnung zu nennen.
-Bei einer Frequenz f von 1 kHz ergibt dies einen Wechselstromwiderstand X von ca. 1,59 MΩ, also etwa in der Größenordnung auch von Ri.
-für Ri gemachte Aussage: hieraus resultieren keine nennenswerten Messabweichungen.
-wenn wir f erhöhen, z.B. auf 100 kHz:
-Sofern diese Frequenz überhaupt noch vom Messeingang laut Herstellerangaben unterstützt wird, beträgt X jetzt nur mehr etwa 15,9 kΩ.
-Deutlicher Stromfluss durch den Messeingang, verbunden mit einem signifikanten Abfall der zu messenden Spannung. E
-in konkretes Beispiel werden wir gleich betrachten.</p>
+<p>Um den Motor zu betreiben wird eine Spannung angelegt. <em>Parallel</em> zu dieser angelegten Spannung wird der Spannugnsmesseingang angelegt. Dies gilt immer, egal ob es sich um eine Wechsel- oder Gleichspannung handelt.</p>
+<p>Den Spannungsmesseingang wurde mittels eines <strong>Ersatzschaltbildes</strong> dargestellt und kann aus einer Parallelschaltung eines ohmschen Widerstands, <span class="math notranslate nohighlight">\(R_i\)</span>, und einer Kapazität, <span class="math notranslate nohighlight">\(C_i\)</span>, beschrieben werden.
+<span class="math notranslate nohighlight">\(R_i\)</span> wird auch als <strong>Innenwiderstand</strong> bezeichnet. <span class="math notranslate nohighlight">\(R_i\)</span> und <span class="math notranslate nohighlight">\(C_i\)</span> sind nicht wirklich in dieser Anordnung so aufgebaut, sie resultieren vielmehr aus den elektrischen Eigenschaften der verbauten Bauelemente und werden durch den Hersteller des zugehörigen Messsystems spezifiziert.</p>
+<p><strong>Ziel bei der Spannungsmessung</strong> ist es zu erreichen, dass möglichst <em>kein Strom</em> durch den Spannungsmesseingang ließt. Das bedeutet, dass der Hersteller des Spannungsmessgeräts einen möglichst <em>hohen Innenwiderstand</em> <span class="math notranslate nohighlight">\(R_i\)</span> wählen wird. Typischerweise liegt <span class="math notranslate nohighlight">\(R_i\)</span> zwischen <span class="math notranslate nohighlight">\(1-10\,\mathrm{M\Omega}\)</span>.</p>
+<section id="gleichspannungsmessung">
+<h2>Gleichspannungsmessung<a class="headerlink" href="#gleichspannungsmessung" title="Permalink to this headline">#</a></h2>
+<p>Bei Gleichspannungsmessungen spielt die <em>Innenkapazität</em> <span class="math notranslate nohighlight">\(C_i\)</span> keine Rolle.
+Die recht kleine Kapazität lädt sich sofort nach Anlegen der zu messenden Gleichspannung auf diese auf und hat ab dann keinerlei Einfluss mehr auf die Messung.</p>
+<p>Die Bedeutung der Innenwiderstände eines Messeingangs wollen wir anhand des Bildes und der Werte in <code class="xref std std-numref docutils literal notranslate"><span class="pre">spannungsmesseingang_last</span></code> zeigen.</p>
+<figure class="align-default" id="id1">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/spannungsmesseingang_gleich.jpg" id="spannungsmesseingang-gleich"><img alt="Spannungsmesseingang" class="bg-primary mb-1" id="spannungsmesseingang-gleich" src="../_images/spannungsmesseingang_gleich.jpg" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Spannungsmesseingang an einer Schaltung mit Gleichspannung.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Für diese Analyse muss stets die Schaltung und deren Komponenten berücksichtigt werden, an den der Spannungsmesseingang angeschlossen ist. In diesem Fall haben wir in <code class="xref std std-numref docutils literal notranslate"><span class="pre">spannungsmesseingang_last</span></code> eine Spannungsteiler-Schaltung vorgeschaltet, die aus den Widerständen <span class="math notranslate nohighlight">\(R_1\)</span> und <span class="math notranslate nohighlight">\(R_2\)</span> besteht. Die Spannung <span class="math notranslate nohighlight">\(u\)</span> soll mit einem Spannungsmesseingang bestimmt werden. Wie bereits erwähnt, spielt <span class="math notranslate nohighlight">\(C_i\)</span> bei Gleichspannungen keine Rolle. In der folgenden Aufgabe sollt ihr einmal die Messabweichung bestimmen, die nur aufgrund des unvermeidlichen Hinzunehmens eines Spannungsmesseingangs eine signifikante, aber <em>bekannte</em>, Unsicherheit produzieren wird.</p>
+<div class="tip admonition">
+<p class="admonition-title">Aufgabe</p>
+<p>Bestimme die Messabweichung von <span class="math notranslate nohighlight">\(u\)</span>, die bei der Spannungsmessung an einem Spannungsteiler mit <span class="math notranslate nohighlight">\(R_1 = R_2 = 100\,\mathrm{k\Omega}\)</span> auftritt. Der Innenwiderstand beträgt <span class="math notranslate nohighlight">\(R_i = 1\,\mathrm{M\Omega}\)</span>. Die Ausgabe des folgenden Code-Blocks liefert bereits einige Hinweise dafür, was ihr hierfür berechnen solltet. DIe Lösung findet ihr weiter unten.</p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R_1</span> <span class="o">=</span> <span class="mf">100e3</span>
+<span class="n">R_2</span> <span class="o">=</span> <span class="mf">100e3</span>
+<span class="n">R_i</span> <span class="o">=</span> <span class="mf">1e6</span>
+<span class="n">u</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="n">r_0</span> <span class="o">=</span> <span class="n">R_2</span> <span class="o">/</span> <span class="p">(</span><span class="n">R_1</span> <span class="o">+</span> <span class="n">R_2</span><span class="p">)</span>
+<span class="n">R_ges</span> <span class="o">=</span> <span class="p">(</span><span class="n">R_2</span> <span class="o">*</span> <span class="n">R_i</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">R_2</span> <span class="o">+</span> <span class="n">R_i</span><span class="p">)</span>
+<span class="n">r_1</span> <span class="o">=</span> <span class="n">R_ges</span> <span class="o">/</span> <span class="p">(</span><span class="n">R_1</span> <span class="o">+</span> <span class="n">R_ges</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Innenwiderstand der Parallelschaltung aus R_2 und R_i: &#39;</span><span class="p">,</span> <span class="n">R_ges</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span> <span class="s1">&#39;kOhm&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Klassisches Spannungsteilerverhältnis ohne Messeingang: &#39;</span><span class="p">,</span> <span class="n">r_0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Spannungsteilerverhältnis mit Messeingang: &#39;</span><span class="p">,</span> <span class="n">r_1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Verhältnis der beiden Verhältnisse zueinander: &#39;</span><span class="p">,</span>  <span class="n">r_1</span><span class="o">/</span><span class="n">r_0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Spannungsmessung bei &#39;</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="s1">&#39;V eigentlicher Spannung: &#39;</span><span class="p">,</span> <span class="n">r_1</span><span class="o">/</span><span class="n">r_0</span><span class="o">*</span><span class="n">u</span><span class="p">,</span> <span class="s1">&#39;V&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Messabweichung beträgt: &#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">r_1</span><span class="o">/</span><span class="n">r_0</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;% = &#39;</span><span class="p">,</span> <span class="n">r_1</span><span class="o">/</span><span class="n">r_0</span><span class="o">*</span><span class="n">u</span><span class="o">-</span><span class="n">u</span><span class="p">,</span><span class="s1">&#39;V&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Innenwiderstand der Parallelschaltung aus R_2 und R_i:  90.9090909090909 kOhm
+Klassisches Spannungsteilerverhältnis ohne Messeingang:  0.5
+Spannungsteilerverhältnis mit Messeingang:  0.4761904761904762
+Verhältnis der beiden Verhältnisse zueinander:  0.9523809523809524
+Spannungsmessung bei  10 V eigentlicher Spannung:  9.523809523809524 V
+Die Messabweichung beträgt:  4.761904761904756 % =  -0.4761904761904763 V
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Lösung</p>
+<p>Der Wert für <span class="math notranslate nohighlight">\(R_2\)</span>, nämlich <span class="math notranslate nohighlight">\(100\,\mathrm{k\Omega}\)</span> ist im Vergleich zum Innenwiderstand von <span class="math notranslate nohighlight">\(R_i = 1\,\mathrm{M\Omega}\)</span> sehr viel kleiner. D.h. wir bestimmen zunächst den Widerstandswert der Parallelschaltung bestehend aus <span class="math notranslate nohighlight">\(R_2\)</span> und <span class="math notranslate nohighlight">\(R_i\)</span>:
+$<span class="math notranslate nohighlight">\(R_\mathrm{2||i} = \frac{R_2 \cdot R_i}{R_2 + R_i} \approx 90,9\,\mathrm{k\Omega}\)</span><span class="math notranslate nohighlight">\(
+Dies ist schon mal etwas kleiner als der eigentlich Wert von \)</span>R_2<span class="math notranslate nohighlight">\(. 
+Ohne Anlegen eines Messeingangs liegt das klassische Spannungsteilerverhältnis von 
+\)</span><span class="math notranslate nohighlight">\(r_0 = \frac{R_2}{R_1+R_2} = 0,5\)</span><span class="math notranslate nohighlight">\(
+Mit Messeingang liegt es bei:
+\)</span><span class="math notranslate nohighlight">\(r_1 = \frac{R_\mathrm{2||i}}{R_1+R_\mathrm{2||i}} = 0,48\)</span><span class="math notranslate nohighlight">\(
+Eine zu messende Spannung von \)</span>u=10,\mathrm V<span class="math notranslate nohighlight">\( würde entsprechend verringert ausfallen: 
+\)</span><span class="math notranslate nohighlight">\(\frac{r_1}{r_0}\cdot u = 9,523\,\mathrm{V}\)</span>$
+Die Messabweichung beträgt -4,76% bzw. -0,476 V.</p>
+</div>
+</section>
+<section id="wechselspannungsmessung">
+<h2>Wechselspannungsmessung<a class="headerlink" href="#wechselspannungsmessung" title="Permalink to this headline">#</a></h2>
+<p>Erst bei der Messung von Wechselspannungen wird die Innenkapazität <span class="math notranslate nohighlight">\(C_i\)</span> relevant. Legt man beispielsweise eine periodische Sinusspannung an, so besitzt <span class="math notranslate nohighlight">\(C_i\)</span> einen <em>Wechselstromwiderstand</em> <span class="math notranslate nohighlight">\(X\)</span> (auch <strong>Blindwiderstand</strong>, <strong>Impedanz</strong>), der abhängig von der angelegten Frequenz <span class="math notranslate nohighlight">\(f\)</span> der Sinusspannung ist:</p>
+<div class="math notranslate nohighlight">
+\[X = \frac{1}{\omega C_i} = \frac{1}{2 \pi f C_i}\]</div>
+<p>(normalerweise steht hier noch ein Minuszeichen in der Gleichung, was wir vernachlässigen, da uns lediglich die Beträge interessieren.)</p>
+<figure class="align-default" id="id2">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/spannungsmesseingang_wechsel.jpg" id="spannungsmesseingang-wechsel"><img alt="Spannungsmesseingang" class="bg-primary mb-1" id="spannungsmesseingang-wechsel" src="../_images/spannungsmesseingang_wechsel.jpg" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Spannungsmesseingang an einer Schaltung mit Wechselspannung.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Typischerweise liegen die Werte von <span class="math notranslate nohighlight">\(C_i\)</span> bei etwa  <span class="math notranslate nohighlight">\(\approx 100\,\mathrm{pF}\)</span>, wenn es sich um höherwertige Messgeräte handelt.</p>
+<div class="tip admonition">
+<p class="admonition-title">Aufgabe</p>
+<p>Wie hoch ist der Wechselstromwiderstand <span class="math notranslate nohighlight">\(X\)</span> bei einer Frequenz von <span class="math notranslate nohighlight">\(1\,\mathrm{kHz}\)</span>?</p>
+</div>
+<p>Nach dem Lösen der letzten Aufgabe werdet ihr feststellen, dass der Wechselstromwiderstand bei <span class="math notranslate nohighlight">\(f=1\,\mathrm{kHz}\)</span> etwa in der Größenordnung von <span class="math notranslate nohighlight">\(R_i\)</span> liegt und somit keine nennentwerte Messabweichung verursachen wird.
+Ein anderes Ergebnis erhalten wir, wenn wir die Frequenz auf <span class="math notranslate nohighlight">\(f=100\,\mathrm{kHz}\)</span> erhöhen.</p>
+<div class="tip admonition">
+<p class="admonition-title">Aufgabe</p>
+<p>Wie hoch ist der Wechselstromwiderstand <span class="math notranslate nohighlight">\(X\)</span> bei einer Frequenz von <span class="math notranslate nohighlight">\(100\,\mathrm{kHz}\)</span>?</p>
+</div>
+<p>Bei Wechselspannungen sollte man zunächst immer sicherstellen, dass die Frequenz noch vom Messeingang laut Hersteller noch unterstützt wird. Da hierbei der Wechselstromwiderstand im <span class="math notranslate nohighlight">\(\mathrm{k\Omega}\)</span>-Bereich liegt, wird ein deutlicher Strom durch den Messeingang fließen und der Widerstand muss ebenfalls berücksichtig werden.</p>
+<div class="tip admonition">
+<p class="admonition-title">Aufgabe</p>
+<p>Bestimme die Messabweichung von <span class="math notranslate nohighlight">\(u\)</span>, die bei der Spannungsmessung an einem Spannungsteiler mit <span class="math notranslate nohighlight">\(R_1 = R_2 = 100\,\mathrm{k\Omega}\)</span> bei einer Wechselspannung mit einer Frequenz von <span class="math notranslate nohighlight">\(f = 50\,\mathrm{kHz}\)</span> und einer Amplitude von <span class="math notranslate nohighlight">\(10\,\mathrm V\)</span> auftritt. Der Innenwiderstand beträgt <span class="math notranslate nohighlight">\(R_i = 1\,\mathrm{M\Omega}\)</span> und die Innenkapazität <span class="math notranslate nohighlight">\(C_i = 100\,\mathrm{pF}\)</span>. Im folgende Code-Block findest du wieder Hinweise auf das Vorgehen, wobei hier mit komplexen Zahlen berechnet wurde um auch die Phasenverschiebung darzustellen.</p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="c1"># MatplotLib Settings:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
+
+<span class="n">R_1</span> <span class="o">=</span> <span class="mf">100e3</span>
+<span class="n">R_2</span> <span class="o">=</span> <span class="mf">100e3</span>
+<span class="n">R_i</span> <span class="o">=</span> <span class="mf">1e6</span>
+<span class="n">u</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">C_i</span> <span class="o">=</span> <span class="mf">100e-12</span>
+<span class="n">f</span> <span class="o">=</span> <span class="mf">100e3</span>
+
+<span class="n">SAMPLE_RATE</span> <span class="o">=</span> <span class="mf">10e6</span>  <span class="c1"># Hertz</span>
+<span class="n">DURATION</span> <span class="o">=</span> <span class="mf">1e-4</span>  <span class="c1"># mSeconds</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">DURATION</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">SAMPLE_RATE</span> <span class="o">*</span> <span class="n">DURATION</span><span class="p">),</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">u</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
+
+<span class="c1"># Widerstände berechnen:</span>
+<span class="n">X</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="n">C_i</span><span class="p">)</span>
+<span class="n">r_0</span> <span class="o">=</span> <span class="n">R_2</span> <span class="o">/</span> <span class="p">(</span><span class="n">R_1</span> <span class="o">+</span> <span class="n">R_2</span><span class="p">)</span>
+<span class="n">R_ges_1</span> <span class="o">=</span> <span class="p">(</span><span class="n">R_2</span> <span class="o">*</span> <span class="n">R_i</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">R_2</span> <span class="o">+</span> <span class="n">R_i</span><span class="p">)</span>
+<span class="n">R_ges</span> <span class="o">=</span> <span class="p">(</span><span class="n">R_ges_1</span> <span class="o">*</span> <span class="n">X</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">R_ges_1</span> <span class="o">+</span> <span class="n">X</span><span class="p">)</span>
+<span class="n">r_1</span> <span class="o">=</span> <span class="n">R_ges</span> <span class="o">/</span> <span class="p">(</span><span class="n">R_1</span> <span class="o">+</span> <span class="n">R_ges</span><span class="p">)</span>
+
+<span class="c1"># Frequenzgang berechnen für f</span>
+<span class="n">r_ampl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">r_1</span><span class="p">)</span>
+<span class="n">r_phase</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">r_1</span><span class="o">.</span><span class="n">imag</span><span class="o">/</span><span class="n">r_1</span><span class="o">.</span><span class="n">real</span><span class="p">)</span>
+
+<span class="c1"># Sinuswelle am Ausgang:</span>
+<span class="n">y_out</span> <span class="o">=</span> <span class="n">r_ampl</span><span class="o">/</span><span class="n">r_0</span> <span class="o">*</span> <span class="n">u</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f</span> <span class="o">*</span> <span class="n">t</span> <span class="o">+</span> <span class="n">r_phase</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;ohne Messeingang&#39;</span><span class="p">)</span>
+<span class="c1">#plt.xlim([0,0.1])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit (ms)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Spannung (V)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;ohne Messeingang&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span><span class="n">y_out</span><span class="p">,</span> <span class="s1">&#39;tab:red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;mit Messeingang&#39;</span><span class="p">)</span>
+<span class="c1">#plt.xlim([0,0.1])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit (ms)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Spannung (V)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Innenwiderstand der Parallelschaltung aus R_2, R_i und C_i: &#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">R_ges</span><span class="p">)</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span> <span class="s1">&#39;kOhm&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Klassisches Spannungsteilerverhältnis ohne Messeingang: &#39;</span><span class="p">,</span> <span class="n">r_0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Spannungsteilerverhältnis mit Messeingang: &#39;</span><span class="p">,</span> <span class="n">r_ampl</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Verhältnis der beiden Verhältnisse zueinander: &#39;</span><span class="p">,</span>  <span class="n">r_ampl</span><span class="o">/</span><span class="n">r_0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Spannungsmessung bei &#39;</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="s1">&#39;V eigentlicher Spannung: &#39;</span><span class="p">,</span> <span class="n">r_ampl</span><span class="o">/</span><span class="n">r_0</span><span class="o">*</span><span class="n">u</span><span class="p">,</span> <span class="s1">&#39;V&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Messabweichung beträgt: &#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">r_ampl</span><span class="o">/</span><span class="n">r_0</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;% = &#39;</span><span class="p">,</span> <span class="n">r_ampl</span><span class="o">/</span><span class="n">r_0</span><span class="o">*</span><span class="n">u</span><span class="o">-</span><span class="n">u</span><span class="p">,</span><span class="s1">&#39;V&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Innenwiderstand der Parallelschaltung aus R_2, R_i und C_i:  15.677059256043355 kOhm
+Klassisches Spannungsteilerverhältnis ohne Messeingang:  0.5
+Spannungsteilerverhältnis mit Messeingang:  0.1509471920753415
+Verhältnis der beiden Verhältnisse zueinander:  0.301894384150683
+Spannungsmessung bei  10 V eigentlicher Spannung:  3.0189438415068297 V
+Die Messabweichung beträgt:  69.8105615849317 % =  -6.98105615849317 V
+</pre></div>
+</div>
+<img alt="../_images/4_U-Messeingang_4_1.png" src="../_images/4_U-Messeingang_4_1.png" />
+</div>
+</div>
+<p>Die beiden obigen Plots zeigen, dass sich zwar wieder ein stationäres Sinussignal ergibt, die Amplitude jedoch deutlich kleiner als das ursprüngliche Signal ist. In einem realen Messsystem würde man außerdem einen <em>Einschwingvorgang</em> beobachten, der etwa eine Periode dauern kann. Das heißt man würde beobachten, wie die Amplitude zu Beginn noch etwas höher ist, bis sie sich auf einen konstanten Wert einpendelt. In diesem konkreten Fall erhalten eine Relativabweichung in der Spannungsmessung von 70% (!), bezogen auf den Messwert. Zusätzlich erhalten wir eine Phasenverschiebung. Dies wird aber erst wichtig, wenn Momentanmesswerte aufgenommen werden. Für die Messung eines Gleichrichtwerts oder Effektivwerts, wo ja über eine Periode gemittelt wird, ist eine Phasenverschiebung egal.</p>
+<p>Würde man anstelle einer Sinusspannung ein Rechtecksignal anlegen, so ändert sich auch Signalform signifikant, wie es in den folgenden Diagrammen dargestellt ist. Das Rechtecksignal ähnelt nun eher einem Dreiecksignal, die Amplitude ist etwas eingebrochen, allerdings ist kaum eine Phasenverschiebung ersichtlich.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">butter</span><span class="p">,</span> <span class="n">lfilter</span><span class="p">,</span> <span class="n">freqz</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="mf">100e3</span>
+<span class="n">SAMPLE_RATE</span> <span class="o">=</span> <span class="mf">10e6</span>  <span class="c1"># Hertz</span>
+<span class="n">DURATION</span> <span class="o">=</span> <span class="mf">1e-4</span>  <span class="c1"># mSeconds</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">DURATION</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">SAMPLE_RATE</span> <span class="o">*</span> <span class="n">DURATION</span><span class="p">),</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">butter_lowpass</span><span class="p">(</span><span class="n">cutoff</span><span class="p">,</span> <span class="n">FS</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">nyq</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span> <span class="n">FS</span>
+    <span class="n">normal_cutoff</span><span class="o">=</span> <span class="n">cutoff</span><span class="o">/</span><span class="n">nyq</span>
+    <span class="n">b</span><span class="p">,</span><span class="n">a</span> <span class="o">=</span> <span class="n">butter</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="n">normal_cutoff</span><span class="p">,</span> <span class="n">btype</span> <span class="o">=</span> <span class="s1">&#39;low&#39;</span><span class="p">,</span> <span class="n">analog</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">b</span><span class="p">,</span><span class="n">a</span>
+
+<span class="k">def</span> <span class="nf">butter_lowpass_filter</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">cutoff</span><span class="p">,</span> <span class="n">FS</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">b</span><span class="p">,</span><span class="n">a</span> <span class="o">=</span> <span class="n">butter_lowpass</span><span class="p">(</span><span class="n">cutoff</span><span class="p">,</span> <span class="n">FS</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">lfilter</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">y</span>
+
+<span class="n">order</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">cutoff</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">R_ges_1</span><span class="o">*</span><span class="n">C_i</span><span class="p">)</span>
+<span class="n">y_filt</span> <span class="o">=</span> <span class="n">butter_lowpass_filter</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">cutoff</span><span class="p">,</span> <span class="n">SAMPLE_RATE</span><span class="p">,</span> <span class="n">order</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;ohne Messeingang&#39;</span><span class="p">)</span>
+<span class="c1">#plt.xlim([0,0.1])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit (ms)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Spannung (V)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;ohne Messeingang&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span><span class="n">y_filt</span><span class="p">,</span> <span class="s1">&#39;tab:red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;mit Messeingang&#39;</span><span class="p">)</span>
+<span class="c1">#plt.xlim([0,0.1])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit (ms)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Spannung (V)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [3],</span> in <span class="ni">&lt;cell line: 11&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">DURATION</span> <span class="o">=</span> <span class="mf">1e-4</span>  <span class="c1"># mSeconds</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">DURATION</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">SAMPLE_RATE</span> <span class="o">*</span> <span class="n">DURATION</span><span class="p">),</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">11</span> <span class="n">y</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="k">def</span> <span class="nf">butter_lowpass</span><span class="p">(</span><span class="n">cutoff</span><span class="p">,</span> <span class="n">FS</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="n">nyq</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span> <span class="n">FS</span>
+
+<span class="ne">NameError</span>: name &#39;signal&#39; is not defined
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 700x300 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="messabweichungen">
+<h2>Messabweichungen<a class="headerlink" href="#messabweichungen" title="Permalink to this headline">#</a></h2>
+<p>Die oben genannten Messabweichungen resultieren lediglich daraus, dass ein Spannungsmesseingang an eine Schaltung angeschlossen wurde, um eben eine Spannung zu messen. Hinzu kommen aber noch weitere Messabweichungen, die wie schon in den vorangegangenen Kapiteln beschrieben, berücksichtig werden müssen. Viele Spannungsmesseingänge beinhalten weitere Komponenten, wie in <code class="xref std std-numref docutils literal notranslate"><span class="pre">spannungsmesseingang_ADU</span></code> dargestellt.</p>
+<ul class="simple">
+<li><p>Eine <strong>Verstärkung</strong> wird insbesondere bei kleinen Spannungssignalen (<span class="math notranslate nohighlight">\(&lt;1\,\mathrm V\)</span>) benötigt. Verstärker besitzen häufig einen konkreten Frequenzgang, sodass insbesondere bei Wechselspannungen wieder besonders aufgepasst werden muss. Typischerweise nimmt der Verstärkungsfaktor mit zunehmender Frequenz ab. Auf vielen Messgeräten wird eine <strong>Maximalfrequenz</strong> spezifiziert, die unter anderem aufgrund der Verstärker-Komponente existiert.</p></li>
+<li><p>Die Angabe einer <strong>Grenzfrequenz</strong> oder <strong>Bandbreite</strong> eines Messsystems beinhaltet meistens nicht die Verstärkerstufe und Frequenzgänge müssen extra gemessen und abgeschätzt werden.</p></li>
+<li><p>Eine <strong>Dämpfung</strong> wird bei der Messung von hohen Spannungssignalen eingebaut. Im einfachsten Fall wird ein Spannungeteiler, bestehend aus 2 ohmschen Widerständen, eingebaut. Auch hier treten wieder frequenzabhängige Verhaltensweisen auf.</p></li>
+<li><p>Bei Messgeräten für Wechselspannungen werden u.a. auch <strong>Gleichrichter</strong> und <strong>Glättungen</strong> eingebaut.</p></li>
+<li><p>Ein <strong>Analog-Digital-Umsetzer (ADU)</strong> wandelt das analog variierende Eingangssignal in ein Digitalwort um. Hier treten Messabweichungen infolge die Digitalisierung auf. Einmal wird der Wertebereich <strong>diskret</strong> und es können nicht mehr beliebig kleine Messwertsprünge gemessen werden. Zudem können <strong>Aliasing</strong>-Effekte auftreten, wenn die Abtastrate unterhalb der zweifachen Nyquist-Shannon-Frequenz fällt.</p></li>
+<li><p>Die Abweichungen, die wir in den vorangegegangenen Abschnitten berechnet werden, können vom Gerätehersteller gar nicht angegeben werden, da hierfür immer genaue Kenntnis der Schaltung benötigt wird, an der die Spannung gemessen werden soll. Lediglich die Innenwiderstände werden spezifiziert, mittels welcher dann die Messabweichung berechnet werden muss.</p></li>
+</ul>
+<figure class="align-default" id="id3">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/spannungsmesseingang_ADU.jpg" id="spannungsmesseingang-adu"><img alt="Spannungsmesseingang" class="bg-primary mb-1" id="spannungsmesseingang-adu" src="../_images/spannungsmesseingang_ADU.jpg" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Grober interner Aufbau eines Spannungsmesseingangs.</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
 </section>
 
     <script type="text/x-thebe-config">

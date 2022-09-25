@@ -3,10 +3,10 @@
 
 # # Spannungsmesseingang
 # 
-# Im Bild ist dargestellt, wie elektrische Spannungen gemessen werden. $R_L$ stellt hierbei einen Lastwiderstand, z.B. den einen Motors oder eines anderen Verbrauchers, dar. 
+# In {numref}`spannungsmesseingang_last` ist dargestellt, wie elektrische Spannungen gemessen werden. $R_L$ stellt hierbei einen Lastwiderstand, z.B. den einen Motors oder eines anderen Verbrauchers, dar. 
 # 
-# :::{figure-md} markdown-fig
-# <img src="draw/spannungsmesseingang_last.jpg" alt="Spannungsmesseingang" class="bg-primary mb-1" width="400px">
+# :::{figure-md} spannungsmesseingang_last
+# <img src="draw/spannungsmesseingang_last.jpg" alt="Spannungsmesseingang" class="bg-primary mb-1" width="400px" label = spannungsmesseingang_last>
 # 
 # Schaltung zur Messung elektrischer Spannungen.
 # :::
@@ -23,10 +23,10 @@
 # Bei Gleichspannungsmessungen spielt die *Innenkapazität* $C_i$ keine Rolle. 
 # Die recht kleine Kapazität lädt sich sofort nach Anlegen der zu messenden Gleichspannung auf diese auf und hat ab dann keinerlei Einfluss mehr auf die Messung. 
 # 
-# Die Bedeutung der Innenwiderstände eines Messeingangs wollen wir anhand des Bildes und der Werte in {numref}`spannungsmesseingang_last` zeigen. 
+# Die Bedeutung der Innenwiderstände eines Messeingangs wollen wir anhand des Bildes und der Werte in {numref}`spannungsmesseingang_gleich` zeigen. 
 # 
-# :::{figure-md} markdown-fig
-# <img src="draw/spannungsmesseingang_gleich.jpg" alt="Spannungsmesseingang" class="bg-primary mb-1" width="400px" name=spannungsmesseingang_gleich>
+# :::{figure-md} spannungsmesseingang_gleich
+# <img src="draw/spannungsmesseingang_gleich.jpg" alt="Spannungsmesseingang" class="bg-primary mb-1" width="400px" label=spannungsmesseingang_gleich>
 # 
 # Spannungsmesseingang an einer Schaltung mit Gleichspannung.
 # :::
@@ -80,8 +80,8 @@ print('Die Messabweichung beträgt: ', (1-r_1/r_0)*100, '% = ', r_1/r_0*u-u,'V')
 # 
 # (normalerweise steht hier noch ein Minuszeichen in der Gleichung, was wir vernachlässigen, da uns lediglich die Beträge interessieren.)
 # 
-# :::{figure-md} markdown-fig
-# <img src="draw/spannungsmesseingang_wechsel.jpg" alt="Spannungsmesseingang" class="bg-primary mb-1" width="400px" name=spannungsmesseingang_wechsel>
+# :::{figure-md} spannungsmesseingang_wechsel
+# <img src="draw/spannungsmesseingang_wechsel.jpg" alt="Spannungsmesseingang" class="bg-primary mb-1" width="400px" label=spannungsmesseingang_wechsel>
 # 
 # Spannungsmesseingang an einer Schaltung mit Wechselspannung.
 # :::
@@ -113,6 +113,8 @@ print('Die Messabweichung beträgt: ', (1-r_1/r_0)*100, '% = ', r_1/r_0*u-u,'V')
 
 import numpy as np
 import matplotlib.pyplot as plt
+from scipy import signal 
+
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
 plt.figure(figsize=(7,3)) # Plot-Größe
@@ -176,6 +178,7 @@ print('Die Messabweichung beträgt: ', (1-r_ampl/r_0)*100, '% = ', r_ampl/r_0*u-
 
 
 from scipy.signal import butter, lfilter, freqz
+from scipy import signal 
 plt.style.use('default') # Matplotlib Style wählen
 plt.figure(figsize=(7,3)) # Plot-Größe
 plt.rcParams['font.size'] = 10; # Schriftgröße
@@ -231,8 +234,8 @@ plt.tight_layout()
 # * Ein **Analog-Digital-Umsetzer (ADU)** wandelt das analog variierende Eingangssignal in ein Digitalwort um. Hier treten Messabweichungen infolge die Digitalisierung auf. Einmal wird der Wertebereich **diskret** und es können nicht mehr beliebig kleine Messwertsprünge gemessen werden. Zudem können **Aliasing**-Effekte auftreten, wenn die Abtastrate unterhalb der zweifachen Nyquist-Shannon-Frequenz fällt.
 # * Die Abweichungen, die wir in den vorangegegangenen Abschnitten berechnet werden, können vom Gerätehersteller gar nicht angegeben werden, da hierfür immer genaue Kenntnis der Schaltung benötigt wird, an der die Spannung gemessen werden soll. Lediglich die Innenwiderstände werden spezifiziert, mittels welcher dann die Messabweichung berechnet werden muss. 
 # 
-# :::{figure-md} markdown-fig
-# <img src="draw/spannungsmesseingang_ADU.jpg" alt="Spannungsmesseingang" class="bg-primary mb-1" width="400px" name=spannungsmesseingang_ADU>
+# :::{figure-md} spannungsmesseingang_ADU
+# <img src="draw/spannungsmesseingang_ADU.jpg" alt="Spannungsmesseingang" class="bg-primary mb-1" width="400px" label=spannungsmesseingang_ADU>
 # 
 # Grober interner Aufbau eines Spannungsmesseingangs.
 # :::

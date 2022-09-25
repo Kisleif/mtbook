@@ -690,6 +690,11 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#quellen-und-ursachen">
+   Quellen und Ursachen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#typ-a-unsicherheiten-zufallige-fehler">
    Typ A-Unsicherheiten (“Zufällige Fehler”)
   </a>
@@ -709,12 +714,12 @@ title="Print to PDF"
      Digitalstellenfehler
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#systematische-abweichung-aufgrund-von-verbindungskabel">
+     Systematische Abweichung aufgrund von Verbindungskabel
+    </a>
+   </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#weitere-unsicherheiten">
-   Weitere Unsicherheiten
-  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#schreibweise-eines-messwertes-mit-messabweichung">
@@ -758,6 +763,11 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#quellen-und-ursachen">
+   Quellen und Ursachen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#typ-a-unsicherheiten-zufallige-fehler">
    Typ A-Unsicherheiten (“Zufällige Fehler”)
   </a>
@@ -777,12 +787,12 @@ title="Print to PDF"
      Digitalstellenfehler
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#systematische-abweichung-aufgrund-von-verbindungskabel">
+     Systematische Abweichung aufgrund von Verbindungskabel
+    </a>
+   </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#weitere-unsicherheiten">
-   Weitere Unsicherheiten
-  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#schreibweise-eines-messwertes-mit-messabweichung">
@@ -818,27 +828,66 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="quellen-und-ursachen-von-messunsicherheiten">
 <h1>Quellen und Ursachen von Messunsicherheiten<a class="headerlink" href="#quellen-und-ursachen-von-messunsicherheiten" title="Permalink to this headline">#</a></h1>
-<p>Früher hat man statt <em>Abweichung</em> noch den Begriff <em>Messfehler</em> verwendet. Man dachte, dass man mit genügend Aufwand, Sorgfalt und bestmöglicher Technologie den Fehler vollständig eliminieren können. Spätestens seit der Theorie der <em>Quantenphysik</em> ist uns allerdings bekannt, dass zufällige Einflüsse auf die beobachteten Messgrößen  unvermeidlich sind und auch nicht vorhergesagt werden können. Statt eines einzig <em>wahren</em> Wertes werden in der Quantenphysik Messgrößen durch deren Erwartungswerte vorhergesagt. Diesen Messgrößen liegt eine Wahrscheinlichkeitsdichte zu Grunde, dessen Varianz (bzw. Standardabweichung) nicht verschwindet! Somit werden für ein und dieselbe physikalische Messgröße verschiedene Ergebnisse gemessen, obwohl nahezu identische Bedingungen herrschen. Das Eintreten eines bestimmten Messergebnisses ist an eine bestimmte Wahrscheinlichkeit gekoppelt, mit der dieses Ergebnis eintritt.</p>
-<p>Jede Messung einer physikalischen Größe <span class="math notranslate nohighlight">\(x\)</span> ist abhängig von den verwendeten Messgeräten, dem Messverfahren, dem Messobjekt, von Umwelteinflüssen (Temperatur, Feuchtigkeit, elektromagnetische Felder) und schließlich auch vom Beobachter (Müdigkeit, Sehschärfe, Übung). Messungen liefern daher lediglich Schätzwerte für die <em>wahren</em> Werte einer Größe. Es gibt prinzipiell keine Möglichkeit, den wahren Wert einer Messgröße zu messen. Im Rahmen internationaler Anstrengungen für eine einheitliche Bewertung von Einflussgrößen auf eine Messung werden zwei Kategorien von Methoden der Berechnung von Unsicherheiten unterschieden <a class="reference external" href="https://www.iso.org/sites/JCGM/GUM/JCGM100/C045315e-html/C045315e.html?csnumber=50461">[GUM]</a>:</p>
+<p>Früher hat man statt <em>Abweichung</em> noch den Begriff <em>Messfehler</em> verwendet. Man dachte, dass man mit genügend Aufwand, Sorgfalt und bestmöglicher Technologie den Fehler vollständig eliminieren können. Spätestens seit der Theorie der <em>Quantenphysik</em> ist uns allerdings bekannt, dass zufällige Einflüsse auf die beobachteten Messgrößen  unvermeidlich sind und auch nicht vorhergesagt werden können. Statt eines einzig <em>wahren</em> Wertes, <span class="math notranslate nohighlight">\(x_w\)</span>, werden in der Quantenphysik Messgrößen durch deren Erwartungswerte vorhergesagt. Diesen Messgrößen liegt eine Wahrscheinlichkeitsdichte zu Grunde, dessen Varianz (bzw. Standardabweichung) nicht verschwindet! Somit werden für ein und dieselbe physikalische Messgröße verschiedene Ergebnisse gemessen, obwohl nahezu identische Bedingungen herrschen. Das Eintreten eines bestimmten Messergebnisses ist an eine bestimmte Wahrscheinlichkeit gekoppelt, mit der dieses Ergebnis eintritt.</p>
+<p>Das bedeutet, dass ein Messwert, <span class="math notranslate nohighlight">\(x\)</span>, immer mit einer Messabweichung, <span class="math notranslate nohighlight">\(A\)</span>, behaftet ist und somit nur bedingt dem <em>wahren</em> Wert, <span class="math notranslate nohighlight">\(x_w\)</span>, entspricht.</p>
+<div class="math notranslate nohighlight">
+\[x = x_w + A\]</div>
+<section id="quellen-und-ursachen">
+<h2>Quellen und Ursachen<a class="headerlink" href="#quellen-und-ursachen" title="Permalink to this headline">#</a></h2>
+<p>Jede Messung einer physikalischen Größe <span class="math notranslate nohighlight">\(x\)</span> ist abhängig von den verwendeten Messgeräten, dem Messverfahren, dem Messobjekt, von Umwelteinflüssen (Temperatur, Feuchtigkeit, elektromagnetische Felder) und schließlich auch vom Beobachter (Müdigkeit, Sehschärfe, Übung), wie in <a class="reference internal" href="#fehlerklassen"><span class="std std-numref">Fig. 11</span></a> dargestellt.</p>
+<figure class="align-default" id="fehlerklassen">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/fehlerklassen.jpg"><img alt="fehlerklassen" class="bg-primary mb-1" src="../_images/fehlerklassen.jpg" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 11 </span><span class="caption-text">Vereinfachtes Modell eines Messsystems mit Störeinflüssen.</span><a class="headerlink" href="#fehlerklassen" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Folgende Störungen können während der Messung auftreten:</p>
+<ul class="simple">
+<li><p><strong>Innere Störgrößen:</strong> Hierbei handelt es sich um Störgrößen im Messgerät selbst. Beispiele dafür sind Alterungseffekte an für die Messung wichtigen Bauteilen. Bei Drehspulinstrumenten oder Waagen ist eine Feder eingebaut, deren Eigenschaften sich im Laufe der Lebensdauer verändert, was sich in einer fehlerhaften Anzeige bemerkbar macht.</p></li>
+<li><p><strong>Äußere Störgrößen:</strong> Messungen werden meist durch mehrere unerwünschte Einflüsse gestört. Eine Widerstandsbrückenschaltung ist beispielsweise temperaturabhängig. Hierbei gibt es sowohl systematische Abweichungen, d.h. man kann den Einfluss isolieren und deterministisch beschreiben und die Messung korrigieren. Eine andere Art von äußeren Störgrößen sind zufällige Einstreuungen, die man nicht kompensieren kann. Zu ihrer Unterdrückung kommen u. a. einfache Mittelwertfilter zum Einsatz.</p></li>
+<li><p><strong>Beobachtungsfehler:</strong> Wenn du eine Messung durchführst, kannst auch du, der Beobachter, zu einer Fehlerquelle werden, wenn z.B. die Anzeige falsch abgelesen wird.</p></li>
+<li><p><strong>Dynamische Fehler:</strong> Jedes Messsystem braucht eine bestimmte Zeit um sich einzupendeln. Daher sollte man immer einen Moment warten, bis man das Messsignal abliest. Die Abweichung entspricht hierbei der Größe des Toleranzbereichs. Optimalerweise wird das gemessene Signal der eigentliche Messgröße verzögerungsfrei folgen. Sollte dies nicht der Fall sein, wird dies als dynamischer Fehler bezeichnet.</p></li>
+<li><p><strong>Rückwirkung</strong> Jedes Messgerät braucht für den Messprozess Energie oder Leistung, die dem Prozess entzogen wird. Der Wert der Messgröße mit angeschlossener Messeinrichtung unterscheidet sich vom Wert, der ohne Messeinrichtung erreicht worden wäre. Auch bei externen Spannungsversorgungen entsteht eine Rückwirkung und Kopplung aufgrund von Wärme, die äußere Störgrößen antreibt.</p></li>
+<li><p><strong>Quantisierungsfehler</strong>: Diese Fehler entstehen bei der Digitalisierung. Es existiert nur eine endliche Anzahl von Möglichkeiten einen analogen Messwerte mittels Bits darzustellen.</p></li>
+</ul>
+<p>Um die Messunsicherheiten und Störungen zu reduzieren sollten immer die vom Hersteller spezifizierten Normalbedingungen (Messbereich, Messgenauigkeit, Betriebsbedingung, Einbauvorschrift, Energieversorgung, Abmessungen) eingehalten werden.</p>
+<p>Messungen liefern dennoch lediglich Schätzwerte für die <em>wahren</em> Werte einer Größe. Es gibt prinzipiell keine Möglichkeit, den wahren Wert einer Messgröße zu messen. Im Rahmen internationaler Anstrengungen für eine einheitliche Bewertung von Einflussgrößen auf eine Messung werden zwei Kategorien von Methoden der Berechnung von Unsicherheiten unterschieden <a class="reference external" href="https://www.iso.org/sites/JCGM/GUM/JCGM100/C045315e-html/C045315e.html?csnumber=50461">[GUM]</a>:</p>
 <ul class="simple">
 <li><p><strong>Typ A (“Zufällige Abweichung”):</strong> Berechnung der Messunsicherheit durch statistische Analyse der Messungen</p></li>
 <li><p><strong>Typ B (“Systematische Abweichung”):</strong> Berechnung der Messunsicherheit mit anderen Mitteln als der statistischen Analyse</p></li>
 </ul>
-<p><img alt="Messfehler" src="../_images/messfehler.png" /></p>
+<figure class="align-default" id="zielscheibe">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/zielscheibe.jpg"><img alt="zielscheibe" class="bg-primary mb-1" src="../_images/zielscheibe.jpg" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 12 </span><span class="caption-text">Darstellung von zufälligen und systematischen Fehlern anhand einer Zielscheibe. Die zufällige Abweichung gibt eine Art Streuung, die <em>Präzision</em>, der Messwerte an. Die systematische Abweichung gibt die <em>Genauigkeit</em> an.</span><a class="headerlink" href="#zielscheibe" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
 <section id="typ-a-unsicherheiten-zufallige-fehler">
 <h2>Typ A-Unsicherheiten (“Zufällige Fehler”)<a class="headerlink" href="#typ-a-unsicherheiten-zufallige-fehler" title="Permalink to this headline">#</a></h2>
-<p>Dies sind Messunsicherheiten, die nicht einseitig gerichtet sind, sondern einer zufälligen Streuung der Messwerte zugrunde liegen. Zur Behandlung dieser Messunsicherheiten nutzt man die Stochastik (Wahrscheinlichkeitslehre und Statistik).
-Zufällige Fehler kennt man nicht, er ist folglich nicht korrigierbar und lässt sich auch nicht reproduzieren unter gleichen Messbedingungen. Hier sind wiederholte Messungen und statistische Analysen notwendig, wodurch Mittelwert und Standardabweichung von sogenannten <em>Stichproben</em> ermittelt wird. Wie gewinnt man aus einer Messreihe <span class="math notranslate nohighlight">\(x_j\)</span> den besten Schätzewert, der mit maximaler Wahrscheinlichkeit am nähesten am <em>wahren</em> Wert, <span class="math notranslate nohighlight">\(x_w\)</span>, liegt? Mit welcher Wahrscheinlichkeit liegt das Messergebnis innerhalb eines bestimmten Intervalls um den wahren Wert, $<span class="math notranslate nohighlight">\(x = x_w + \Delta x ?\)</span>$</p>
+<p>Dies sind Messunsicherheiten, die nicht einseitig gerichtet sind, sondern einer zufälligen Streuung der Messwerte zugrunde liegen. Zur Behandlung dieser Messunsicherheiten nutzt man die Stochastik (Wahrscheinlichkeitslehre und Statistik).</p>
+<ul class="simple">
+<li><p>Zufällige Fehler kennt man nicht, er ist folglich <strong>nicht korrigierbar</strong></p></li>
+<li><p>Sie sind unter gleichen Messbedingungen auch <strong>nicht reproduzierbar</strong></p></li>
+<li><p>Sie machen ein Ergebnis <strong>unpräzise</strong></p></li>
+<li><p>Es sind <strong>wiederholte Messungen und statistische Analysen</strong> notwendig, wodurch Mittelwert und Standardabweichung von sogenannten <em>Stichproben</em> ermittelt wird.</p></li>
+</ul>
+<p>Wie gewinnt man aus einer Messreihe <span class="math notranslate nohighlight">\(x_j\)</span> den besten Schätzewert, der mit maximaler Wahrscheinlichkeit am nähesten am <em>wahren</em> Wert, <span class="math notranslate nohighlight">\(x_w\)</span>, liegt? Mit welcher Wahrscheinlichkeit liegt das Messergebnis innerhalb eines bestimmten Intervalls um den wahren Wert, <span class="math notranslate nohighlight">\(x = x_w + \Delta x ?\)</span> Hiermit befassen wir uns im Kapitel <a class="reference internal" href="1_Mittelwert_StdAbw.html"><span class="doc std std-doc">Statistische Größen</span></a>.</p>
 </section>
 <section id="typ-b-unsicherheiten-systematische-fehler">
 <h2>Typ B-Unsicherheiten (“Systematische Fehler”)<a class="headerlink" href="#typ-b-unsicherheiten-systematische-fehler" title="Permalink to this headline">#</a></h2>
-<p>Hierbei handelt es sich um reproduzierbare Messunsicherheiten.
-Sie kann durch Aufwand und Kalibration verbessert werden, was <em>nicht</em> für zufällige Messabweichungen gilt. Systematische Messabweichungen (z.B. Kennlinienfehler) sollten in aller Regel am besten korrigiert werden, wenn dies möglich ist. Ansonsten sollte mindestens eine Angabe der Messabweichung erfolgen.
-Es gibt keine allgemeingültige Definition oder allgemeine Verfahren zur Korrektur. Das heißt für jeden Fall müssen neue Verfahren entwickelt werden. Hier kommen ein paar Beispiele, wie man mit solchen <em>systematischen</em> Messunsicherheiten umgehen kann:</p>
+<ul class="simple">
+<li><p>Bei systematischen Unsicherheiten handelt es sich um <strong>reproduzierbare</strong> Messunsicherheiten.</p></li>
+<li><p>Sie werden durch <strong>Unvollkommenheit in den Messgeräten</strong> und Messverfahren verursacht.</p></li>
+<li><p>Sie können durch Aufwand und Kalibration verbessert werden, was <em>nicht</em> für zufällige Messabweichungen gilt.</p></li>
+<li><p>Sie machen ein Ergebnise <strong>unsichtig</strong></p></li>
+<li><p>Systematische Messabweichungen (z.B. Kennlinienfehler) sollten in aller Regel am besten <strong>korrigiert werden</strong>, wenn dies möglich ist. Ansonsten sollte mindestens eine Angabe der Messabweichung erfolgen.</p></li>
+</ul>
+<p>Es gibt keine allgemeingültige Definition oder allgemeine Verfahren zur Korrektur. Das heißt für jeden Fall müssen neue Verfahren entwickelt werden. Hier kommen ein paar Beispiele, wie man mit solchen <em>systematischen</em> Messunsicherheiten umgehen kann:</p>
 <section id="anzeigefehler-von-messgeraten">
 <h3>Anzeigefehler von Messgeräten<a class="headerlink" href="#anzeigefehler-von-messgeraten" title="Permalink to this headline">#</a></h3>
 <p>Messgeräte werden anhand ihrer Genauigkeit in Klassen eingruppiert. Die Klasse entspricht der relativen Messabweichung. Präzisionsmessgeräte besitzen somit Abweichungen die zwischen 0,001% und 0,05% liegen. Die Genauigkeitsklasse K 2,5 (Angabe auf der Mess- skala nach DIN EN 60051 Abb. 1) bedeutet: Ist der Endwert des eingestellten Messbereichs <span class="math notranslate nohighlight">\(U_\mathrm{end}\)</span>, dann beträgt die Typ B-Unsicherheit über den gesamten Messbereich <span class="math notranslate nohighlight">\(u(U) = 0,0025\cdot U_\mathrm{end}\)</span>. Für <span class="math notranslate nohighlight">\(U_\mathrm{end} = 15\,\mathrm V\)</span> erhält man also:</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">U_end</span> <span class="o">=</span> <span class="mi">15</span>
 <span class="n">u</span> <span class="o">=</span> <span class="mf">0.0025</span>
@@ -864,9 +913,10 @@ Es gibt keine allgemeingültige Definition oder allgemeine Verfahren zur Korrekt
 <div class="math notranslate nohighlight">
 \[u(U) = \frac{a}{\sqrt{3}} = \frac{38,235\,\mathrm{mV}}{\sqrt{3}} \approx 22\,\mathrm{mV}\]</div>
 <p>Ist nichts weiter bekannt, schätzt man die Unsicherheit über einen Mindestfehler von a = 1 Digit ab.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Messwert</span> <span class="o">=</span> <span class="mf">5.847</span> <span class="c1"># in V</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">Messwert</span> <span class="o">=</span> <span class="mf">5.847</span> <span class="c1"># in V</span>
 <span class="n">Nachkommastellen</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">A_rel</span> <span class="o">=</span> <span class="mf">0.005</span> <span class="c1"># = 0.5%</span>
 <span class="n">Digit</span> <span class="o">=</span> <span class="mf">0.001</span> <span class="c1"># in V </span>
@@ -878,27 +928,53 @@ Es gibt keine allgemeingültige Definition oder allgemeine Verfahren zur Korrekt
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Messtoleranz beträgt: +- 0.03824 V = +- 38.235 mV
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 7&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">A_total</span> <span class="o">=</span> <span class="n">A_rel</span> <span class="o">*</span> <span class="n">Messwert</span> <span class="o">+</span> <span class="mi">9</span> <span class="o">*</span> <span class="n">Digit</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Messtoleranz beträgt: +-&#39;</span><span class="p">,</span><span class="nb">round</span><span class="p">(</span><span class="n">A_total</span><span class="p">,</span><span class="n">Nachkommastellen</span><span class="p">),</span> <span class="s1">&#39;V = +-&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">A_total</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span><span class="n">Nachkommastellen</span><span class="p">),</span> <span class="s1">&#39;mV&#39;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">7</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Unsicherheit beträgt: +-&#39;</span><span class="p">,</span><span class="nb">round</span><span class="p">(</span><span class="n">A_total</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="n">Nachkommastellen</span><span class="p">),</span> <span class="s1">&#39;V = +-&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">A_total</span><span class="o">*</span><span class="mi">1000</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="n">Nachkommastellen</span><span class="p">),</span> <span class="s1">&#39;mV&#39;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;np&#39; is not defined
+Die Unsicherheit beträgt: +- 0.02207 V = +- 22.07499 mV
 </pre></div>
 </div>
 </div>
 </div>
 <p>Man merkt, dass systematische Fehler sehr unangenehm sein können, da Gegenmaßnahmen fallabhängig entwickelt werden müssen. In einigen Fällen gelangt man zu einer brauchbaren Abschätzung der Unsicherheit, wenn man den „worst case“ annimmt.</p>
 </section>
+<section id="systematische-abweichung-aufgrund-von-verbindungskabel">
+<h3>Systematische Abweichung aufgrund von Verbindungskabel<a class="headerlink" href="#systematische-abweichung-aufgrund-von-verbindungskabel" title="Permalink to this headline">#</a></h3>
+<p>Verbindungskabel besitzen Innenwiderstände, wo ebenfalls Spannungen abfallen:</p>
+<div class="math notranslate nohighlight">
+\[R_L = \frac{\zeta \cdot l}{A}\]</div>
+<p>Hierbei ist <span class="math notranslate nohighlight">\(\zeta\)</span> der spezifische Widerstand, der für Kupfer <span class="math notranslate nohighlight">\(0,0175\,\mathrm{\Omega mm^2/m}\)</span> beträgt. <span class="math notranslate nohighlight">\(l\)</span> ist die Länge der Zuleitung und <span class="math notranslate nohighlight">\(A\)</span> der Querschnittfläche des Kabels.</p>
+<p>Eine gemessene Spannung ist also zu hoch und muss korrigiert werden.</p>
+<div class="tip admonition">
+<p class="admonition-title">Aufgabe</p>
+<p>Angenommen man habe ein <span class="math notranslate nohighlight">\(2\,\mathrm m\)</span> langes Kabel, das einen Querschnitt von <span class="math notranslate nohighlight">\(0,5\,\mathrm{mm^2}\)</span> aufweist und aus Kupfer (mit einem spezifischen Widerstand von <span class="math notranslate nohighlight">\(0,0175\,\mathrm{\Omega mm^2/m}\)</span>) ist. Wie groß ist die systematische Messabweichung für eine Stromstärke von <span class="math notranslate nohighlight">\(I = 100\,\mathrm{mA}\)</span>, wenn jeweils ein solches Kabel zum Anschluss der Spannungsmessung genommen wird?</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Lösung</p>
+<p>Angenommen man habe keine Zuleitungskabeln, wo wäre die Spannung an einem Widerstand <span class="math notranslate nohighlight">\(R_x\)</span> durch <span class="math notranslate nohighlight">\(U_x = R_x \cdot I\)</span> gegeben.
+Bei Zuleitungskabeln werden die unvermeidbaren Zusatz-Widerstände in Reihe zu dem eigentlichen Widerstand <span class="math notranslate nohighlight">\(R_x\)</span> geschaltet. Das heißt die gemessene Spannung setzt sich nun aus der Spannung an <span class="math notranslate nohighlight">\(R_x\)</span> und an den jeweils 2 Kabeln, <span class="math notranslate nohighlight">\(U_L\)</span> zusammen: <span class="math notranslate nohighlight">\(U = U_x + 2\cdot U_L\)</span>.
+Der Wert für <span class="math notranslate nohighlight">\(U_L\)</span> beträgt:</p>
+<div class="math notranslate nohighlight">
+\[U_L = \frac{\zeta \cdot l}{A} \cdot I = 7\,\mathrm{mV}\]</div>
+<p>Damit wird die Spannung mit 2m-Kupferkabeln um <span class="math notranslate nohighlight">\(14\,\mathrm{mV}\)</span> zu hoch gemessen!</p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zeta</span> <span class="o">=</span> <span class="mf">0.0175</span> <span class="c1">#in Ohm mm^2 / m</span>
+<span class="n">l</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1">#in m</span>
+<span class="n">A</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="c1">#in mm^2</span>
+<span class="n">I</span> <span class="o">=</span> <span class="mf">100e-3</span> <span class="c1">#in A</span>
+
+<span class="c1"># Strom durch ein Zuleitungskabel</span>
+<span class="n">U</span> <span class="o">=</span> <span class="n">zeta</span> <span class="o">*</span> <span class="n">l</span> <span class="o">/</span> <span class="n">A</span> <span class="o">*</span> <span class="n">I</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Spannung wird um &#39;</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">U</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span> <span class="s1">&#39;mV zu hoch gemessen&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Spannung wird um  14.000000000000002 mV zu hoch gemessen
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-<section id="weitere-unsicherheiten">
-<h2>Weitere Unsicherheiten<a class="headerlink" href="#weitere-unsicherheiten" title="Permalink to this headline">#</a></h2>
-<p>Dann gibt es noch der Vollständigkeitshaler die <strong>dynamischen Fehler</strong>. Jedes Messsystem braucht eine bestimmte Zeit, um sich auf einen bestimmten Messwert einzupedeln. Dies nennt man auch die Latenzzeit, oder die Trägheit, eines Messsystems. Es besteht also die Möglichkeit, dass man <em>zu früh misst</em>, und das Messsystem den zu messenden Wert noch gar nicht richtig anzeigen kann.</p>
-<p><strong>Quantisierungsfehler</strong> entstehen beim Prozess des Digitalisierens der Messwerte. Da nur eine endliche Anzahl von Möglichkeiten besteht einen analogen Messwert darzustellen (abhängig von der Anzahl der verwendet Bits) gehen bei diesem Prozess <em>immer</em> Informationen verloren.</p>
 </section>
 <section id="schreibweise-eines-messwertes-mit-messabweichung">
 <h2>Schreibweise eines Messwertes mit Messabweichung<a class="headerlink" href="#schreibweise-eines-messwertes-mit-messabweichung" title="Permalink to this headline">#</a></h2>
@@ -952,7 +1028,8 @@ Es gibt keine allgemeingültige Definition oder allgemeine Verfahren zur Korrekt
 
 <span class="c1"># MatplotLib Settings:</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">]</span>  <span class="c1"># Datenwerte für x-Achse, hier Nr der Messung</span>
@@ -970,7 +1047,22 @@ Es gibt keine allgemeingültige Definition oder allgemeine Verfahren zur Korrekt
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1_Messunsicherheiten_5_0.png" src="../_images/1_Messunsicherheiten_5_0.png" />
+<div class="output text_html"><script type="text/javascript">
+window.PlotlyConfig = {MathJaxConfig: 'local'};
+if (window.MathJax) {MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+if (typeof require !== 'undefined') {
+require.undef("plotly");
+requirejs.config({
+    paths: {
+        'plotly': ['https://cdn.plot.ly/plotly-2.9.0.min']
+    }
+});
+require(['plotly'], function(Plotly) {
+    window._Plotly = Plotly;
+});
+}
+</script>
+</div><img alt="../_images/1_Messunsicherheiten_7_1.png" src="../_images/1_Messunsicherheiten_7_1.png" />
 </div>
 </div>
 </section>
@@ -983,7 +1075,12 @@ Es gibt keine allgemeingültige Definition oder allgemeine Verfahren zur Korrekt
 </ul>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="mf">9.73</span><span class="p">,</span> <span class="mf">9.76</span><span class="p">,</span> <span class="mf">9.71</span><span class="p">,</span> <span class="mf">9.76</span><span class="p">,</span> <span class="mf">8.9</span><span class="p">]</span> <span class="c1"># Messung </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
+
+<span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="mf">9.73</span><span class="p">,</span> <span class="mf">9.76</span><span class="p">,</span> <span class="mf">9.71</span><span class="p">,</span> <span class="mf">9.76</span><span class="p">,</span> <span class="mf">8.9</span><span class="p">]</span> <span class="c1"># Messung </span>
 <span class="n">u_y</span><span class="o">=</span><span class="p">[</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.04</span><span class="p">,</span><span class="mf">0.02</span><span class="p">,</span><span class="mf">0.04</span><span class="p">,</span><span class="mf">1.5</span><span class="p">]</span> <span class="c1"># Unsicherheit d</span>
 <span class="n">y_w</span><span class="o">=</span><span class="mf">9.81</span> <span class="c1"># wahrer / richtiger Wert </span>
 
@@ -1002,7 +1099,7 @@ Es gibt keine allgemeingültige Definition oder allgemeine Verfahren zur Korrekt
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1_Messunsicherheiten_7_0.png" src="../_images/1_Messunsicherheiten_7_0.png" />
+<img alt="../_images/1_Messunsicherheiten_9_0.png" src="../_images/1_Messunsicherheiten_9_0.png" />
 </div>
 </div>
 <p>Nur einer der Messwerte überlappt mit dem <em>wahren</em> Wert der Erdbeschleunigung Die Fehlerbalken der zweiten Messung hingegen sind davon entfernt, in den <em>wahren</em> Bereich überzulappen. D.h. es existiert hier ein Widerspruch zu vorherigen Messungen, die den wahren Wert kennzeichnete. Würde es sich hierbei nicht um die Messung der Erdbeschleunigung, sondern um die einer Natur<em>konstante</em> handeln, gäbe es sogar einen Widerspruch zum SI-Einheitensystem.</p>

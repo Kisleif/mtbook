@@ -4,9 +4,14 @@
 # # Ideale Kennlinie
 # <a id="Sec-Kennlinie"></a>
 # 
-# Jede einzelne der Komponenten führt die an ihr anliegenden Eingangssignal in Ausgangssignale über. Wie diese Überführung genau aussieht beschreibt die sogenannte **Kennlinie**, die für jede Komponente unterschiedlich aussehen kann. Im folgenden Bild ist beispielshaft eine lineare Kennlinie dargestellt:
+# Jede einzelne der Komponenten führt die an ihr anliegenden Eingangssignal in Ausgangssignale über. Wie diese Überführung genau aussieht beschreibt die sogenannte **Kennlinie**, die für jede Komponente unterschiedlich aussehen kann. In {numref}`ideale_kennlinie` ist beispielshaft eine lineare, ideale Kennlinie dargestellt:
 # 
-# ![Bild](pictures/kennlinie.png)
+# 
+# :::{figure-md} ideale_kennlinie
+# <img src="draw/ideale_kennlinie.jpg" alt="ideale_kennlinie" class="bg-primary mb-1" width="400px" label = ideale_kennlinie>
+# 
+# Ideale Messkennlinie.
+# :::
 # 
 # ## Statische Kenngrößen
 # <a id="SubSec-Statische_Kenngrößen"></a>
@@ -79,40 +84,39 @@ warnings.filterwarnings('ignore')
 
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.figure(figsize=(10,5)) # Plot-Größe
+plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 #--------- Kaltleiter PT100 -------------
 T_PT = np.linspace(0, 800, num=800)
-R_0 = 100 # in Ohm
-A = 3.93e-3 # in 1/°C
-B = -5.7e-7 # in 1/^C^2
 def R_PT(T_PT):
-    return R_0* (1 + A*T_PT + B * T_PT**2)
+    R_0 = 100 # in Ohm
+    A = 3.93e-3 # in 1/°C
+    B = -5.7e-7 # in 1/^C^2
+    return R_0 * (1 + A*T_PT + B * T_PT**2)
 
 #--------- Heißleiter NTC -------------
 T_NTC = np.linspace(0+273.15, 120+273.15, num=50)
-R_25 = 1000 # in Ohm
-T_25 = 25.0 + 273.15 # in Kelvin
-B = 3528
 def R_NTC(T_NTC, B):
+    R_25 = 1000 # in Ohm
+    T_25 = 25.0 + 273.15 # in Kelvin
     return R_25 * np.exp(B * (1/(T_NTC) - 1/T_25))
 
 #--------- Transition Edge Sensor -------------
-k = 1.86 # in 1/mK
-a = 0.01 # in Ohm
-Tk = 100 # in mK
 T = np.linspace(94, 106, num=50)
 def R(T):
+    k = 1.86 # in 1/mK
+    a = 0.01 # in Ohm
+    Tk = 100 # in mK
     return a / (1+ np.exp(-k * (T-Tk)))
 
 
 #--------- Diagramme -------------
-f, axs = plt.subplots(1,3,figsize=(10,4))
+f, axs = plt.subplots(1,3,figsize=(10,3))
 
 axs[0].plot(T_PT,R_PT(T_PT))
 axs[0].set_xlabel('T/°C')
-axs[0].set_ylabel(r'R/k$\Omega$')
+axs[0].set_ylabel(r'R/$\Omega$')
 axs[0].set_title('Kaltleiter PT100')
 
 axs[1].plot(T_NTC-273.15,R_NTC(T_NTC, 2000)/1000, label = "B = 2000K")

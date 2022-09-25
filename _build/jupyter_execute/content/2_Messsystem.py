@@ -1,12 +1,15 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# ## Grundstruktur eines Messsystems
-# <a id="Sec-Grundstruktur"></a>
+# # Grundstruktur eines Messsystems
 # 
-# Die generelle Struktur eines Messsystems kann wiefolgt dargestellt werden:
+# {numref}`grundstruktur` zeigt die generelle Struktur eines Messsystems.
 # 
-# ![Bild](pictures/grundstruktur.png)
+# :::{figure-md} grundstruktur
+# <img src="draw/grundstruktur.jpg" alt="grundstruktur" class="bg-primary mb-1" width="800px" label = grundstruktur>
+# 
+# Generelle Grundstruktur eines Messsystems, bzw Messkette.
+# :::
 # 
 # Dies ist einer der ersten Messketten, die wir kennenlernen. Allgemein findet man immer wieder die gleichen Komponenten in solchen Ketten, die im folgenden aufgelistet werden:
 # 
@@ -16,9 +19,7 @@
 # * **Messwertausgabe** (diverse): Anzeige, Registrierung, Speicherung, Dokumentation in analoger oder digitaler Form können an dieser Stelle in die Messkette implementiert werden.
 # * **Digitalisierung**: Dies ist die häufigste Art der *Messwertausgabe*. Das analog vorliegende elektrische Signal wird in ein Digitalwort umgewandelt. 
 # * **Digitale Signalverarbeitung**: Durch Algorithmik wird der Messwert digital weiterverarbeitet. Häufig können an dieser Stelle auch Korrekturen vorgenommen werden, um beispielsweise Kennenlinienfehler zu minimieren und zu korrigieren. Dies werden wir gleich noch genauer betrachten. Ausgegeben wird schließlich ein Messwert $y$.
-
-# In[ ]:
-
-
-
-
+# 
+# Jede einzelne der Komponenten führt das jeweilige Eingangssignal in ein Ausgangssignal über. Im Folgenden werden wir die wichtigste statische Kenngröße, nämlich den **Übertragungsfaktor** $k$ kennenlernen. Dieser gilt auch für dynamische Systeme, sobald diese sich in einem eingeschwungenen Zustand befinden und als stationär angenommen werden können. 
+# Der Übertragungsfaktor $k$ wird auch *Verstärkungsfaktor* genannt. 
+# Über den gesamten Eingangsbereich der Messeinrichtung wird der Übertragungsfaktor durch die statische **Kennlinie** beschrieben. Danach ergibt sich mit einem bestimmten Eingangsbereich der Messeinrichtung ein korrespondierender Ausgangssbereich. 

@@ -5,12 +5,16 @@
 # 
 # Ein Messobjekt hat eine bestimmte Messgröße (physikalische Größe, Temperatur, Stormstärke, …) von welcher der Messwert bestimmt werden soll. Hierfür wird ein Verfahren benötigt, um die Größe zu extrahieren, was durch ein passendes Messgerät geschieht. 
 # 
-# Im Bild wird ist das Beispiel einer Temperaturmessung gezeigt. An einem bestimmten Ort herrschende **Messgröße**, hier 24,1286941…°C, wird mittels eines geeigneten Aufbaus in einen **Messwert** von 25,01°C überführt. 
+# In {numref}`messgroesse` wird ist das Beispiel einer Temperaturmessung gezeigt. An einem bestimmten Ort herrschende **Messgröße**, hier 24,1286941…°C, wird mittels eines geeigneten Aufbaus in einen **Messwert** von 25,01°C überführt. 
 # Der Messwert kann uns direkt angezeigt werden oder er kann in nachfolgenden elektronischen Systemen zur Weiterverarbeitung in geeigneter Form zugeführt werden. 
 # 
-# Von einem **Messsignal**, $x_1$ (im Gegensatz zur Begrifflichkeit *Messgröße*) spricht man, wenn direkt mit der Messgröße zusammenhängende elektrische Signale zwischen den beiden Stellen, an denen Messgröße und Messwert anfallen, gemessen werden (zum Beispiel das Kabel in der Skizze). Messsignale tragen die Information über die Messgröße, welche auf unterschiedlichste Weise realisiert werden z.B. als analoger Spanungs- oder Stromwert, als frequenzmoduliertes Signal, als Digitalwort oder ähnliches.
+# :::{figure-md} messgroesse
+# <img src="draw/messgroesse.jpg" alt="messgroesse" class="bg-primary mb-1" width="600px" label = messgroesse>
 # 
-# ![Bild](draw/messgroesse.jpg)
+# Darstellung der Messkette.
+# :::
+# 
+# Von einem **Messsignal**, $x_1$ (im Gegensatz zur Begrifflichkeit *Messgröße*) spricht man, wenn direkt mit der Messgröße zusammenhängende elektrische Signale zwischen den beiden Stellen, an denen Messgröße und Messwert anfallen, gemessen werden (zum Beispiel das Kabel in der Skizze). Messsignale tragen die Information über die Messgröße, welche auf unterschiedlichste Weise realisiert werden z.B. als analoger Spanungs- oder Stromwert, als frequenzmoduliertes Signal, als Digitalwort oder ähnliches.
 # 
 # Wird ein Messwert, $y$, bestimmt, so entspricht dieser im Rahmen der Messtechnik einem Vielfachen, $n$, von einer Einheit, $E$:
 # 
@@ -19,9 +23,14 @@
 # Ein Messgerät bestimmt ein Vielfaches einer Einheit. Damit dies überall auf der Welt gleich gut funktioniert muss ein Messgerät entsprechend *geeicht* oder *kalibriert* werden. 
 # Außerdem gibt es auch noch den Begriff des *Justierens*. Dieser beschreibt die Anpassung eines Messgerät an verschiedene Umgebungen. Evtl. müssen Messgeräte bei unterschiedlichen Temperaturen anders behandelt werden und entsprechend *einjustiert* werden.
 # 
-# Häufig werden Prozesse in der Messtechnik mittels **Blockdiagrammen** dargestellt:
+# Häufig werden Prozesse in der Messtechnik mittels **Blockdiagrammen** dargestellt, wie {numref}`messsystem_block` in dargestellt.
 # 
-# ![Bild](draw/messsystem.jpg)
+# :::{figure-md} messsystem_block
+# <img src="draw/messsystem.jpg" alt="messsystem" class="bg-primary mb-1" width="600px" label = messsystem_block>
+# 
+# Blockdiagramm der Messkette.
+# :::
+# 
 # 
 # Wie man an der oben dargestellten Temperaturmessung sieht, sind die Werte, die gemessen werden, nicht unbedingt *exakt*. Später befassen wir uns noch mal genauer mit den so genannten [Messabweichungen](1_Messunsicherheiten.ipynb).
 
@@ -64,12 +73,16 @@ relative_abweichung = abweichung / laenge_pyramide
 print('relative Messabweichung der Cheops-Pyramide: ', relative_abweichung*100, '%')
 
 
-# ![Bild](pictures/massstab.png)
-# 
 # Bis zum 18. Jhd.  orientierten sich die meisten Maßeinheiten weiterhin am Menschen, wobei natürlich regionale Abweichungen beachtet werden mussten! Die Regensburger Elle war etwa $81,1\,\mathrm{cm}$ lang, während die Bremer Elle dagegen nur $54,7\,\mathrm{cm}$ aufwies.
 # 
-# ```{admonition} Wunder an Präzision (2600 v. Chr.): Cheops-Pyramide
+# ```{admonition} Weitere regionale Maßstäbe
 # :class: dropdown
+# 
+# :::{figure-md} massstab
+# <img src="pictures/massstab.png" alt="massstab" class="bg-primary mb-1" width="400px" label = massstab>
+# 
+# Maßstäbe in der Vergangenheit.
+# :::
 # 
 # * Die Griechen übernahmen beispielsweise die ägyptischen Längenmaße und führten das Stadion ein (die Länge, die ein geübter Läufer schnell zurücklegen kann, etwa $180\,\mathrm m$).
 # * Die Römer führten zur Messung der großen Entfernungen in ihrem Straßennetz die Meile als neues Längenmaß hinzu.
@@ -92,17 +105,20 @@ print('relative Messabweichung der Cheops-Pyramide: ', relative_abweichung*100, 
 # * Man fertigte einen Maßstab aus Platin an, der als Urmeterstab in Paris aufbewahrt wurde
 # * 1889 wurde der Platinstab durch einen Platin-Iridium-Körper mit X-förmigem Querschnitt ersetzt (90% Platin und 10% Iridium). Auf diesem wurden 2 Mittelstriche markiert, welche den Meter angeben. Bei Temperaturverändungern von 0°C auf 20°C verlängert sich das "Meter" um 0,3 mm,  wobei die Ablesegenauigkeit hierbei 0,01 mm betrug.
 # 
-# ![Bild](pictures/meter.png)
+# :::{figure-md} meter
+# <img src="pictures/meter.png" alt="meter" class="bg-primary mb-1" width="400px" label = meter>
 # 
+# Die anfängliche Definition des *Meters*.
+# :::
 
 # ### SI-Einheiten 
 # 
 # Im Rahmen der Meterkonvention im Jahr 1960 wurde das **Internationale Einheitensystem**, kurz SI, benannt nach „le Système Internationale d’unités“, eingeführt. Die Definitionen der Basiseinheiten basierten nach wie vor teilweise auf materiellen Prototypen (bis 2019 war dies tatsächlich beim Kilogramm der Fall). Das SI basiert auf der Idee, dass sich im Prinzip alle relevanten Messgrößen über physikalische Gesetze auf genau 7 Basisgrößen zurückführen lassen. Diese 7 Basisgrößen sind die Basiseinheiten, aus denen alle weiteren Einheiten abgeleitet werden können:
 # 
 # 
-# ::::{grid} 2
+# :::::{grid} 2
 # 
-# :::{grid-item}
+# ::::{grid-item}
 # * **Meter (m)** als Einheit für die Länge
 # * **Kilogramm (kg)** als Einheit für die Masse
 # * **Sekunde (s)** als Einheit für die Zeit
@@ -110,12 +126,16 @@ print('relative Messabweichung der Cheops-Pyramide: ', relative_abweichung*100, 
 # * **Kelvin (K)** als Einheit für die thermodynamische Temperatur
 # * **Candela (Cd)** als Einheit für die Lichtstärke und 
 # * **Mol (mol)** als Einheit für die Stoffmenge
-# :::
+# ::::
 # 
-# :::{grid-item}
-# ![Bild](draw/SI.jpg)
+# ::::{grid-item}
+# :::{figure-md} SI
+# <img src="draw/SI.jpg" alt="SI" class="bg-primary mb-1" width="300px" label = SI>
+# 
+# Die sieben SI-Einheiten.
 # :::
 # ::::
+# :::::
 # 
 # 
 # ```{admonition} Das Ur-Kilo in Paris
@@ -130,7 +150,11 @@ print('relative Messabweichung der Cheops-Pyramide: ', relative_abweichung*100, 
 # * keine Lösung für die Ewigkeit, denn - keiner weiß warum - aber das Ur-Kilo wird immer leichter
 # * 50 Mikrogramm hat es in den letzten 129 Jahren im Vergleich zu seinen 70 offiziellen Kopien weltweit verloren
 # 
-# ![Bild](pictures/ur-kilo.png)
+# :::{figure-md} ur_kilo
+# <img src="pictures/ur-kilo.png" alt="ur_kilo" class="bg-primary mb-1" width="400px" label = ur_kilo>
+# 
+# Bericht zur Ablösung des Ur-Kilogramms.
+# :::
 # 
 # Das klingt erstmal nicht viel, wird aber in unserer Hightech-Welt, in der schon in Nanometern (Millionstel Millimeter) oder Femtosekunden (Millionstel einer Milliardstel Sekunde) gemessen wird, mehr und mehr zum Problem.
 # ```
@@ -168,7 +192,11 @@ print('relative Messabweichung der Cheops-Pyramide: ', relative_abweichung*100, 
 # 
 # $N_A$ ist die Zahl, der in einem Mol enthaltenen Atome. Sie ist so definiert, dass 12 g Kohlenstoff (12C) genau einem Mol entspricht.
 # 
-# ![Bild](draw/SI-konst.jpg)
+# :::{figure-md} SI_konst
+# <img src="draw/SI-konst.jpg" alt="SI_konst" class="bg-primary mb-1" width="600px" label = SI_konst>
+# 
+# Die Definition der SI-Einheiten mittels Naturkonstanten und wie sich diese voneinander ableiten.
+# :::
 
 # ### Abgeleitete / Ergänzende SI-Einheiten
 # <a id="SubSec-Abgeleitete_Ergänzende_SI-Einheiten"></a>
@@ -219,7 +247,11 @@ print('relative Messabweichung der Cheops-Pyramide: ', relative_abweichung*100, 
 # 
 # Zum SI, bzw. prinzipiell angewendet in allen anderen Einheiten, sind sogenannte Präfixe / Vorsätze definiert. Teile oder Vielfach von SI-Einheiten können in Kurzform geschrieben werden, was das Lesen erleichtert. So können besonders große oder besonders kleine Zahlen übersichtlicher dargestellt werden. Dafür muss der oder die Forschende oder Ingeneur:in lediglich ein paar Vokabeln können: 
 # 
-# ![Bild](pictures/praefix.png)
+# :::{figure-md} praefix
+# <img src="pictures/praefix.png" alt="praefix" class="bg-primary mb-1" width="600px" label = praefix>
+# 
+# Präfixe / Vorsätze für Einheiten.
+# :::
 
 # ### Logarithmische Einheiten
 # 
@@ -235,10 +267,10 @@ print('relative Messabweichung der Cheops-Pyramide: ', relative_abweichung*100, 
 # 
 # $$1\,\mathrm{dB} = 20 \cdot \log\frac{U}{U_\mathrm{ref}}$$
 # 
-# ```{admonition} Aufgabe
+# :::{admonition} Aufgabe
 # :class: tip
 # Beweise die Umformung von Leistungsgröße in Feldgröße! Hinweise: Es gilt $P \propto U^2$
-# ```
+# :::
 # 
 # Logarithmische Darstellungen finden meistens nur bei elektrischen Leistungen und Spannungen statt. Häufig wird das Dezibel z.B. in der Hochfrequenztechnik verwendet oder bei der Charakterisierung von Frequenzgängen (dazu kommen wir später noch). Im Allgemeinen spricht man von **Pegeln**, sobald die Messwerte logarithmisch angegeben sind. Bei der Angabe von Messwerten in der Einheit Dezibel **muss** stets darauf geachtet werden den Refrenzwert mitanzugeben. Typische Schreibweisen hierzu sind z.B.
 # * dB(mW): es handelt sich um einen Leistungspegel und der Referenzwert ist 1 mW
@@ -275,7 +307,11 @@ print('Pegel in dB: ', P_dB, '(%.3f)' %(P_ref))# In diesem Code Block können Um
 # 
 # Messsysteme haben bekannterweise Messgenauigkeiten (darauf kommen wir später noch mal zurück), welche eine Messung limitieren. Die erzielbare Messgenauigkeit kann werksseitig während des Herstellprozesses oder später, in der gewünschten Testumgebung, verbessert werden. Hierzu benötigt man eine *bekannte* Referenz, die an das Messgerät angeschlossen werden kann. Nun kann das Messsystem entweder eingestellt werden, sodass der angezeigt Messwert möglichst genau dem *bekannten* Referenzwert entspricht. Dieses Verfahren nennent man auch **Justieren** oder **Kalibrieren**.
 # 
-# ![Bild](draw/eichung.jpg)
+# :::{figure-md} eichung
+# <img src="draw/eichung.jpg" alt="eichung" class="bg-primary mb-1" width="600px" label = eichung>
+# 
+# Die Kalibrierung eines Messystems kann auf zwei Arten und Weisen entstehen: Entweder durch den Vergleich mit einem zusätzlichem Präzisionsmessgerät (links) oder durch Vermessung eines *Normals*, was den *wahren* Wert wiederspiegelt (rechts). 
+# :::
 # 
 # Unter dem Begriff **Eichen** hingegen versteht man die Prüfung und Stempelung eines Messgeräts, welches nach gesetzlichen Eichvorschriften erfolgt ist. Geeicht werden müssen Messsysteme, die im gewerblichen Verkehr oder Handel eingesetzt werden sollen, wie z.B. eine Obst- und Gemüsewaage an der Kasse eines Supermarktes. Dem Verbraucher wird damit eine bestimmte Sicherheit gegeben, dass die Waage - innerhalb bestimmter Grenzen - genau arbeitet. In Deutschland existiert dafür die sogenannten *Eichordnung*.
 # Da das Eichen ein hoheitlicher Akt ist, kann es nur in vom Statt autorisierten Behörden durchgeführt werden, in den sogenannten Eichämtern, und muss in bestimmten Abständen wiederholt werden. Um generell eine möglichst gute Genauigkeit und hohe Manipulationssicherheit sicherzustellen, werden die meisten Messgeräte bereits während des Herstellungsprozesses kalibirert oder geeicht. In Deutschland macht dies häufig die Physikalisch-Technische Bundesanstalt (PTB) in Braunschweig und Berlin. 
@@ -289,4 +325,15 @@ print('Pegel in dB: ', P_dB, '(%.3f)' %(P_ref))# In diesem Code Block können Um
 # Alle Staaten, die damals bei der Generalkonferenz für Maß und Gewicht den Vertrag unterzeichnet haben, erhalten jeweils ein solches Primärnormal. Von diesen werden dann sogenannte **Sekundärnormale** innerhalb der Staaten abgeleitet, welche dann wiederum zur Eichung von betrieblichen Arbeitsnormalen in Eichlaboren (oder Behören oder Ämtern) zur Verfügung stehen. 
 # **Arbeitsnormale**, abgeleitet von den Skundärnormalen, werden in Firmen verwendet, um ihre betrieblichen Messmittel eigenhändig kalibrieren zu können. 
 # 
-# ![Bild](draw/normal.jpg)
+# :::{figure-md} normal
+# <img src="draw/normal.jpg" alt="normal" class="bg-primary mb-1" width="600px" label = normal>
+# 
+# Die verschiedenen Stadien eines *Normals* für verschiedene Anwendungen und Benutzer. 
+# :::
+# 
+
+# In[ ]:
+
+
+
+

@@ -127,7 +127,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.figure(figsize=(7,5)) # Plot-Größe
+plt.figure(figsize=(4,4)) # Plot-Größe
+plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 x = [12, 24, 36, 42, 60, 72, 84, 96, 108, 120] # Messwerte der Strecke x in m
@@ -185,6 +186,12 @@ plt.show()
 # In[2]:
 
 
+# MatplotLib Settings:
+plt.style.use('default') # Matplotlib Style wählen
+plt.figure(figsize=(4,4)) # Plot-Größe
+plt.xkcd()
+plt.rcParams['font.size'] = 10; # Schriftgröße
+
 m = (np.mean(x*y) - np.mean(x)*np.mean(y))/(np.mean(x**2) - np.mean(x)**2)
 b = np.mean(y) - m * np.mean(x)
 print('Die Steigung ist \t\t m = %5.4f s/m' %(m))
@@ -194,7 +201,7 @@ plt.plot(x,y, 'o', label = 'Messwerte', ms=6, color="tab:gray")
 plt.plot(x,m*x+b,lw=3, color="tab:red", label = 'analytische lineare Regression: y = %5.3f*x+%5.3f' %(m,b))  # plot Ausgleichsgerade mit m und b
 plt.xlabel('x')
 plt.ylabel('y')
-plt.legend()
+plt.legend(bbox_to_anchor=(1,1), loc="upper left")
 plt.show()
 
 

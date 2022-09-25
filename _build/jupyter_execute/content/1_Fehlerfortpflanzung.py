@@ -35,8 +35,9 @@ warnings.filterwarnings('ignore')
 
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.figure(figsize=(10,5)) # Plot-Größe
-plt.rcParams['font.size'] = 12; # Schriftgröße
+plt.figure(figsize=(6,4)) # Plot-Größe
+plt.xkcd()
+plt.rcParams['font.size'] = 10; # Schriftgröße
 
 link = 'data/graph.csv' # Beispieldatei mit Klimadaten
 global_mean = pd.read_csv(link, header = 1) # Daten einlesen
@@ -233,6 +234,9 @@ def scatterplot(x, y):
     plt.ylim([0,10])
     
 plt.figure(figsize=(10,6)) # Plot-Größe
+# MatplotLib Settings:
+plt.style.use('default') # Matplotlib Style wählen
+plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 # Zufallszahlen erzeugen

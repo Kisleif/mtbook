@@ -7,7 +7,7 @@
 # 
 # Statistische, oder zufällige, Einflüsse auf einen Messwert lassen sich durch Wiederholungen der eigentlichen Messung bestimmen. Dies nennt man auch Messreihe und bedeutet, dass $m$ Messungen für ein und denselben Messwert durchgeführt werden. Die einzelnen Messwerte $x_j$ unterscheiden sich, da der *wahre* Wert, $x_w$, immer mit einer zufälligen Abweichung, $A_j$,  versehen wird:
 # 
-# $$x_j = x_R + A_j$$
+# $$x_j = x_w + A_j$$
 # 
 # Bei genügend vielen Wiederholungen der Messung kann in vielen Fällen beobachtet werden, dass sich die Messwerte $x_j$ um einen zentralen Werte, $\overline x$ scharen. Die Häufigkeit, einen Messwert in einem bestimmten Abstand zu diesem zentralen Werte zu finden, $|x_j - \overline x$, ist umso kleiner, je größer der Abstand ist. Man spricht hierbei von einer Häufigkeitsverteilung der $x_j$. Die grafische Darstellung einer solchen Messreihe erfolgt in einem **Histogramm**. Diese Darstellung wird insbesondere dann häufig benutzt, wenn Messreihen mit vielen Messwerten vorliegen. An einer solchen Darstellung erkennt häufig schon die Art der zugrundeliegenden Verteilung der Messwerten. In nachfolgendem Code-Block wird für die Messreihe die **absolute Häufigkeit** der einzelnen Werte in einer bestimmten Klasse grafisch dargestellt.
 
@@ -29,8 +29,9 @@ warnings.filterwarnings('ignore')
 
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.figure(figsize=(6,4)) # Plot-Größe
-plt.rcParams['font.size'] = 12; # Schriftgröße
+plt.figure(figsize=(4,4)) # Plot-Größe
+plt.xkcd()
+plt.rcParams['font.size'] = 10; # Schriftgröße
 
 x_volt = np.array([1.02, 1.04, 0.98, 1.00, 0.95, 0.99,0.97,0.99,1.00,0.98,0.99,1.01,0.97,1.00,1.02], dtype=float)
 bconts, bedges, _p = plt.hist(x_volt, bins=np.linspace(0.95, 1.05, 6))
@@ -52,8 +53,11 @@ plt.show()
 # In[2]:
 
 
-plt.figure(figsize=(6,4)) # Plot-Größe
-plt.rcParams['font.size'] = 12; # Schriftgröße
+# MatplotLib Settings:
+plt.style.use('default') # Matplotlib Style wählen
+plt.figure(figsize=(4,4)) # Plot-Größe
+plt.xkcd()
+plt.rcParams['font.size'] = 10; # Schriftgröße
 
 x_volt = np.array([1.02, 1.04, 0.98, 1.00, 0.95, 0.99,0.97,0.99,1.00,0.98,0.99,1.01,0.97,1.00,1.02], dtype=float)
 m = len(x_volt)
@@ -91,6 +95,12 @@ print('Integral über die Häufigkeitsdichte: ',(bconts * np.diff(bedges)).sum()
 
 
 from scipy.stats import norm
+# MatplotLib Settings:
+plt.style.use('default') # Matplotlib Style wählen
+plt.figure(figsize=(6,4)) # Plot-Größe
+plt.xkcd()
+plt.rcParams['font.size'] = 10; # Schriftgröße
+
 x_volt=[1.02, 1.04, 0.98, 1.00, 0.95, 0.99,0.97,0.99,1.00,0.98,0.99,1.01,0.97,1.00,1.02] # Messergebnisse in Volt
 n = len(x_volt)
 data=np.array(x_volt)
@@ -133,6 +143,12 @@ plt.show()
 
 # In[4]:
 
+
+# MatplotLib Settings:
+plt.style.use('default') # Matplotlib Style wählen
+plt.figure(figsize=(6,4)) # Plot-Größe
+plt.xkcd()
+plt.rcParams['font.size'] = 10; # Schriftgröße
 
 x_volt=[1.02, 1.04, 0.98, 1.00, 0.95, 0.99,0.97,0.99,1.00,0.98,0.99,1.01,0.97,1.00,1.02] # Messergebnisse in Volt
 

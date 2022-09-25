@@ -198,6 +198,21 @@ Explore this book {fas}`arrow-right`
 +++
 Explore this book {fas}`arrow-right`
 :::
+
+:::{grid-item-card}
+:link: https://www.hugendubel.de/de/ebook_epub/joerg_boettcher-kompendium_messtechnik_und_sensorik-39585264-produkt-details.html?utm_source=zxp&utm_medium=pdm&utm_campaign=pd&utm_campaign=RedBrainCSS&adCode=720R10B11W11A&utm_medium=af&awc=9362_1664124494_2a569d96f1d670a143e920798d1426c7&utm_source=zx&utm_content=Lkg
+:link-type: url
+:class-header: bg-light
+**Böttcher 2020 {cite}`boettcher2020`**
+^^^
+```{image} content/pictures/2020_Book_Boettcher.png
+:height: 150
+```
+**Kompendium**: Messtechnik und Sensorik
++++
+Explore this book {fas}`arrow-right`
+:::
+
 ::::
 
 

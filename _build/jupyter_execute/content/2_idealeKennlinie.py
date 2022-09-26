@@ -6,7 +6,6 @@
 # 
 # Jede einzelne der Komponenten führt die an ihr anliegenden Eingangssignal in Ausgangssignale über. Wie diese Überführung genau aussieht beschreibt die sogenannte **Kennlinie**, die für jede Komponente unterschiedlich aussehen kann. In {numref}`ideale_kennlinie` ist beispielshaft eine lineare, ideale Kennlinie dargestellt:
 # 
-# 
 # :::{figure-md} ideale_kennlinie
 # <img src="draw/ideale_kennlinie.jpg" alt="ideale_kennlinie" class="bg-primary mb-1" width="400px" label = ideale_kennlinie>
 # 

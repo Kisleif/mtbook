@@ -245,11 +245,6 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="2_Digital.html">
-     Digitalisierung
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="3_FourierAnalyse.html">
      Fourier-Analyse
     </a>
@@ -260,6 +255,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Digital.html">
+   Digitalisierung
+  </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="5_Dynamische_Messsysteme.html">
@@ -720,14 +720,21 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sinusschwingung">
-   Sinusschwingung
+  <a class="reference internal nav-link" href="#beispiele">
+   Beispiele
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pulsweitenmodulation">
-   Pulsweitenmodulation
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sinussignal-mit-und-ohne-gleichanteil">
+     Sinussignal mit und ohne Gleichanteil
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pulsweitenmodulation">
+     Pulsweitenmodulation
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -779,14 +786,21 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sinusschwingung">
-   Sinusschwingung
+  <a class="reference internal nav-link" href="#beispiele">
+   Beispiele
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pulsweitenmodulation">
-   Pulsweitenmodulation
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sinussignal-mit-und-ohne-gleichanteil">
+     Sinussignal mit und ohne Gleichanteil
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pulsweitenmodulation">
+     Pulsweitenmodulation
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -800,17 +814,13 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="kenngroszen">
 <h1>Kenngrößen<a class="headerlink" href="#kenngroszen" title="Permalink to this headline">#</a></h1>
-<p>Eine Wechselgröße, z.B. eine Wechselspannung, liegt in der allgemein Form als Sinusschwingung vor. Die Form wollen wir im folgenden wiefolgt bescheiben:
-$<span class="math notranslate nohighlight">\(u(t) = \hat U \cdot \sin(\omega t)\)</span>$</p>
+<p>Eine Wechselgröße, z.B. eine Wechselspannung, liegt in der allgemein Form als Sinusschwingung vor. Die Form wollen wir im folgenden wiefolgt bescheiben:</p>
+<div class="math notranslate nohighlight">
+\[u(t) = \hat u \cdot \sin(\omega t)\]</div>
 <p>In elektronischen Schaltungen hat man dazu eine Stromstärke, der dieser Wechselspannung zugehörig ist, und sich allgemein wiefolgt schreiben lässt:</p>
 <div class="math notranslate nohighlight">
-\[i(t) = \hat I \cdot \sin(\omega t + \varphi)\]</div>
+\[i(t) = \hat i \cdot \sin(\omega t + \varphi)\]</div>
 <p>Der Stromstärke haben wir die Phase <span class="math notranslate nohighlight">\(\varphi\)</span> hinzugefügt, da durch besondere Komponenten in der Schaltung, wie z.B. ein Kondensator oder eine Spule, eine Verzögerung zwischen Spannung und Stromstärke auftritt. Im klassischen Stromkreis, mit lediglich einem Widerstand, ist so eine Verzögerung meist vernachlässigbar.</p>
-<ul class="simple">
-<li><p>Mit <span class="math notranslate nohighlight">\(\omega = 2\pi f\)</span> wird die <strong>Kreisfrequenz</strong> bezeichnet, welche ebenfalls die Einheit Hz hat. Genauso wie die Frequenz <span class="math notranslate nohighlight">\(f\)</span>.</p></li>
-<li><p>Die <strong>Frequenz</strong> <span class="math notranslate nohighlight">\(f = \frac{1}{T}\)</span> ist der Kehrwert der <strong>Periodendauer</strong> <span class="math notranslate nohighlight">\(T\)</span>.</p></li>
-<li><p>Die <strong>Phase</strong> <span class="math notranslate nohighlight">\(\varphi\)</span> gibt die Phasenverschiebung oder Verzögerung des Messsignals an</p></li>
-</ul>
 <p>Bei einem Wechselsignal interessiert man sich häufig nicht für den Zeitverlauf, oder den einzelnen Wert zu einem bestimmten Zeitpunkt, den sogenannten Momentanwert. Dieser hat nämlich keine große Aussagekraft, da er sich gemäß der zugrundeliegenden Signalform ständig ändert. Für viele Fragestellungen sind Kenngrößen relevant, die sich aus der Periode des Wchselsignals ermitteln lassen.</p>
 <section id="scheitelfaktor-amplitude">
 <h2>Scheitelfaktor / Amplitude<a class="headerlink" href="#scheitelfaktor-amplitude" title="Permalink to this headline">#</a></h2>
@@ -818,29 +828,35 @@ $<span class="math notranslate nohighlight">\(u(t) = \hat U \cdot \sin(\omega t)
 </section>
 <section id="gleichanteil">
 <h2>Gleichanteil<a class="headerlink" href="#gleichanteil" title="Permalink to this headline">#</a></h2>
-<p>Der <strong>Gleichanteil</strong> einer Wechselgröße wird über den arithmetischen Mittelwert über eine Perdiode <span class="math notranslate nohighlight">\(T\)</span> berechnet. Es ist nur dann aussagekräftig, wenn nicht gerade eine Signal vorliert was keinen Gleichanteil hat. Andernfalls ist der Wert immer 0.
-$<span class="math notranslate nohighlight">\(\overline u = \frac{1}{T}\int_{t}^{t+T} u(t)dt\)</span>$</p>
+<p>Der <strong>Gleichanteil</strong> einer Wechselgröße wird über den arithmetischen Mittelwert über eine Perdiode <span class="math notranslate nohighlight">\(T\)</span> berechnet. Es ist nur dann aussagekräftig, wenn nicht gerade eine Signal vorliert was keinen Gleichanteil hat. Andernfalls ist der Wert immer 0.</p>
+<div class="math notranslate nohighlight">
+\[\overline u = \frac{1}{T}\int_{t}^{t+T} u(t)dt\]</div>
 </section>
 <section id="gleichrichtwert">
 <h2>Gleichrichtwert<a class="headerlink" href="#gleichrichtwert" title="Permalink to this headline">#</a></h2>
-<p>Wenn wir uns jetzt einen Förn oder Lampe, angeschlossen an eine normale Steckdose mit Wechselstrom vorstellen, so ist der Gleichanteil der Wechselspannung 0, aber trotzdem wirkt die Spannung, da Fön oder Lampe arbeiten. Das heißt es kommt offensichtlich nicht auf die Polarität der Spannung an, sondern nur darum, dass im Durchschnitt irgendeine Art von beliebig gepolter Spannung anliegt. Mathematisch gesehen entspricht dies einer Betragsbildung und wird durch den Gleichrichtwert definiert.  Das Signal wird mittels analoger Schaltung <em>gleichgerichtet</em> (das sehen wir uns später noch mal genauer an), bevor es zur Mittelwertbildung kommt. Daher auch der Name. Der Gleichrichtwert hat auch für Signale ohne Gleichanteil eine Aussagekraft. Der <strong>Gleichrichtwert</strong> einer Wechselgröße ist der Mittelwert des Absolutwertes einer Wechselgröße berechnet sich zu:
-$<span class="math notranslate nohighlight">\(\overline{|u|} = \frac{1}{T}\int_{t}^{t+T} |u(t)|dt\)</span>$</p>
+<p>Wenn wir uns jetzt einen Förn oder Lampe, angeschlossen an eine normale Steckdose mit Wechselstrom vorstellen, so ist der Gleichanteil der Wechselspannung 0, aber trotzdem wirkt die Spannung, da Fön oder Lampe arbeiten. Das heißt es kommt offensichtlich nicht auf die Polarität der Spannung an, sondern nur darum, dass im Durchschnitt irgendeine Art von beliebig gepolter Spannung anliegt. Mathematisch gesehen entspricht dies einer Betragsbildung und wird durch den Gleichrichtwert definiert.  Das Signal wird mittels analoger Schaltung <em>gleichgerichtet</em> (das sehen wir uns später noch mal genauer an), bevor es zur Mittelwertbildung kommt. Daher auch der Name. Der Gleichrichtwert hat auch für Signale ohne Gleichanteil eine Aussagekraft. Der <strong>Gleichrichtwert</strong> einer Wechselgröße ist der Mittelwert des Absolutwertes einer Wechselgröße berechnet sich zu:</p>
+<div class="math notranslate nohighlight">
+\[\overline{|u|} = \frac{1}{T}\int_{t}^{t+T} |u(t)|dt\]</div>
 </section>
 <section id="effektivwert">
 <h2>Effektivwert<a class="headerlink" href="#effektivwert" title="Permalink to this headline">#</a></h2>
-<p>Aus der Physik ist bekannt, dass die Berechnung der elektrischen Leistung <em>nicht</em> über den Einbezug von Gleichrichtwerten erfolgt. Vielmehr muss der <strong>Effektivwert</strong> (auch RMS genannt = root mean square) berechnet werden:
-$<span class="math notranslate nohighlight">\(U = u_\mathrm{eff} = \sqrt{\overline{u^2}} = \sqrt{\frac{1}{T}\int_{t}^{t+T}u(t)^2dt}\)</span>$</p>
+<p>Aus der Physik ist bekannt, dass die Berechnung der elektrischen Leistung <em>nicht</em> über den Einbezug von Gleichrichtwerten erfolgt. Vielmehr muss der <strong>Effektivwert</strong> (auch RMS genannt = root mean square) berechnet werden:</p>
+<div class="math notranslate nohighlight">
+\[U = u_\mathrm{eff} = \sqrt{\overline{u^2}} = \sqrt{\frac{1}{T}\int_{t}^{t+T}u(t)^2dt}\]</div>
 </section>
 <section id="scheitelfaktor-und-formfaktor">
 <h2>Scheitelfaktor und Formfaktor<a class="headerlink" href="#scheitelfaktor-und-formfaktor" title="Permalink to this headline">#</a></h2>
 <p>Mittelwert, Gleichrichtwert und Effektivwert lassen sich für jede beliebige periodische Signalform berechnen und sind <em>unabhängig</em> von der Frequenz. Zwischen Ihnen sind Umrechnungsfaktoren definiert, Scheitelfaktoren oder Formfaktoren, welche das Verhältnis zwischen Effektivwert und anderen Kenngrößen angeben. Wir werden später noch sehen, dass die Messung von Effektivwerten sehr aufwendig ist (die mathematischen Operationen im Intergral zeigen dies auch). Es ist einfacher den Scheitel- oder Gleichrichtwert zu messen und mittels dieser Umrechnungs-Faktoren den Effektivwert anschließend zu berechnen. Die Faktoren sind jedoch für jede Signalform anders!</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* **Scheitelfaktor (Crest-Faktor)**: 
-$$k_S = \frac{\hat u}{u_\mathrm{eff}}$$
-
-* **Formfaktor**: 
-$$k_F = \frac{u_\mathrm{eff}}{\overline{|u|}}$$
-</pre></div>
-</div>
+<ul>
+<li><p><strong>Scheitelfaktor (Crest-Faktor)</strong>:</p>
+<div class="math notranslate nohighlight">
+\[k_S = \frac{\hat u}{u_\mathrm{eff}}\]</div>
+</li>
+<li><p><strong>Formfaktor</strong>:</p>
+<div class="math notranslate nohighlight">
+\[k_F = \frac{u_\mathrm{eff}}{\overline{|u|}}\]</div>
+</li>
+</ul>
 <p>Allgemein kann man sagen, dass je größer der Scheitelfaktor, desto mehr übersteigt der Spitzenwert eines Signals den Effektivwert. Für die Praxis bedeutet dies, dass bei der Ermittlung eines Effektivwertes die Messeinrichtung aufgrund sehr hoher Spitzenwerte bereits übersteuert, obwohl der Effektivwert eigentlich noch ausreichend Aussteuerungsreserven aufweist. Besonders kritisch ist dieses Verhalten bei Pulsfolgen mit sehr kleinem Tastverhältnis. Hier kann der Scheitelfaktor unter Umständen Werte von 10 oder mehr annehmen. Messgeräte geben daher häufig Scheitelfaktoren vor, welche nicht überschritten werden sollten.</p>
 </section>
 <section id="kenngroszen-bei-der-digitalisierung">
@@ -851,20 +867,281 @@ $$k_F = \frac{u_\mathrm{eff}}{\overline{|u|}}$$
 <p>wobei <span class="math notranslate nohighlight">\(n\)</span> die Abtastwerte sind, <span class="math notranslate nohighlight">\(T_A\)</span> der Abstand zwischen zwei Messungen und <span class="math notranslate nohighlight">\(u_k\)</span> der einzelne Messwert zum Zeitpunkt <span class="math notranslate nohighlight">\(k\cdot T_A\)</span>.</p>
 <p><img alt="Bild" src="../_images/digital_eff.png" /></p>
 </section>
-<section id="sinusschwingung">
-<h2>Sinusschwingung<a class="headerlink" href="#sinusschwingung" title="Permalink to this headline">#</a></h2>
-<p>Beispiel eines Sinussignals mit und ohne Gleichanteil ist im folgenden Bild einmal dargestellt. Für beide Fälle wurden die Integrale von oben gelöst und aus den entsprechenden Ergebnissen die Formeln für Scheitelfaktor und Formfaktor abgeleitet.</p>
-<p><img alt="Bild" src="../_images/bsp_eff_sin.png" /></p>
+<section id="beispiele">
+<h2>Beispiele<a class="headerlink" href="#beispiele" title="Permalink to this headline">#</a></h2>
+<section id="sinussignal-mit-und-ohne-gleichanteil">
+<h3>Sinussignal mit und ohne Gleichanteil<a class="headerlink" href="#sinussignal-mit-und-ohne-gleichanteil" title="Permalink to this headline">#</a></h3>
+<p>Beispiel eines Sinussignals mit und ohne Gleichanteil ist im folgenden Plot dargestellt.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Benötigte Libraries:</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">plotly.offline</span> <span class="k">as</span> <span class="nn">py</span>
+<span class="n">py</span><span class="o">.</span><span class="n">init_notebook_mode</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">plotly.graph_objs</span> <span class="k">as</span> <span class="nn">go</span>
+<span class="kn">import</span> <span class="nn">plotly.tools</span> <span class="k">as</span> <span class="nn">tls</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="c1"># MatplotLib Settings:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="mf">1.0</span>   <span class="c1"># Amplitude</span>
+<span class="n">f</span> <span class="o">=</span> <span class="mi">10</span>    <span class="c1"># Frequenz in Hz</span>
+<span class="n">phi</span> <span class="o">=</span> <span class="mf">0.</span>  <span class="c1"># Phase in radian</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">f</span>   <span class="c1"># Perdiodendauer</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">T</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># Zeitwerte der Sinusfunktion in sec</span>
+<span class="n">A_0</span> <span class="o">=</span> <span class="mf">0.5</span>
+
+<span class="n">y_ohne</span> <span class="o">=</span> <span class="n">A</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="n">t</span> <span class="o">+</span> <span class="n">phi</span><span class="p">)</span>
+<span class="n">y_mit</span> <span class="o">=</span> <span class="n">A_0</span> <span class="o">+</span> <span class="n">A</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="n">t</span> <span class="o">+</span> <span class="n">phi</span><span class="p">)</span>
+
+<span class="n">Gleichanteil</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y_ohne</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y_mit</span><span class="p">)]</span>
+<span class="n">Gleichrichtwert</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">y_ohne</span><span class="p">)),</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">y_mit</span><span class="p">))]</span>
+<span class="n">Effektivwert</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y_ohne</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y_mit</span><span class="o">**</span><span class="mi">2</span><span class="p">)]</span>
+<span class="n">Scheitelfaktor</span> <span class="o">=</span> <span class="p">[</span><span class="n">A</span><span class="o">/</span><span class="n">Effektivwert</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">A</span><span class="o">/</span><span class="n">Effektivwert</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+<span class="n">Formfaktor</span> <span class="o">=</span> <span class="p">[</span><span class="n">Effektivwert</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">Gleichrichtwert</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">Effektivwert</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">Gleichrichtwert</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> 
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y_ohne</span><span class="p">,</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">A</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="n">A</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">Gleichanteil</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Gleichanteil&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;:&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">Gleichrichtwert</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Gleichrichtwert&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">Effektivwert</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Effektivwert&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;-.&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude (a.u.)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">T</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">T</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">A</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">A</span><span class="p">)</span>
+<span class="c1">#plt.set_xticklabels([&#39;0&#39;,&#39;T&#39;,&#39;2T&#39;])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">A</span><span class="p">,</span> <span class="o">-</span><span class="n">A</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">A</span><span class="p">])</span>
+<span class="c1">#plt.yticklabel([&#39;-A&#39;,&#39;0&#39;,&#39;A&#39;])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;u(t) =</span><span class="si">%5.1f</span><span class="s1"> $\cdot$ sin(</span><span class="si">%5.1f</span><span class="s1"> Hz $\cdot t$)&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y_mit</span><span class="p">,</span> <span class="s1">&#39;tab:red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">A</span><span class="o">+</span><span class="n">A_0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="n">A</span><span class="o">+</span><span class="n">A_0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">Gleichanteil</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Gleichanteil&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;:&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">Gleichrichtwert</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Gleichrichtwert&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">Effektivwert</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Effektivwert&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;-.&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude (a.u.)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">T</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">A</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">A</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">T</span><span class="p">])</span>
+<span class="c1">#plt.set_xticklabels([&#39;0&#39;,&#39;T&#39;,&#39;2T&#39;])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">A</span><span class="p">,</span> <span class="o">-</span><span class="n">A</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">A</span><span class="p">])</span>
+<span class="c1">#plt.yticklabel([&#39;-A&#39;,&#39;0&#39;,&#39;A&#39;])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;u(t) =</span><span class="si">%5.1f</span><span class="s1"> +</span><span class="si">%5.1f</span><span class="s1"> $\cdot$ sin(</span><span class="si">%5.1f</span><span class="s1"> Hz $\cdot t$)&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">A_0</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t\t</span><span class="s1"> ohne Gleichanteil </span><span class="se">\t\t</span><span class="s1"> mit Gleichanteil&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-------------------------------------------------------------------&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Gleichanteil</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">Gleichanteil</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">Gleichanteil</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Gleichrichtwert</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">Gleichrichtwert</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;</span><span class="se">\t\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">Gleichrichtwert</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Effektivwert</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">Effektivwert</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;</span><span class="se">\t\t\t\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">Effektivwert</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Scheitelfaktor</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">Scheitelfaktor</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;</span><span class="se">\t\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">Scheitelfaktor</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Formfaktor</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">Formfaktor</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;</span><span class="se">\t\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">Formfaktor</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><script type="text/javascript">
+window.PlotlyConfig = {MathJaxConfig: 'local'};
+if (window.MathJax) {MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+if (typeof require !== 'undefined') {
+require.undef("plotly");
+requirejs.config({
+    paths: {
+        'plotly': ['https://cdn.plot.ly/plotly-2.9.0.min']
+    }
+});
+require(['plotly'], function(Plotly) {
+    window._Plotly = Plotly;
+});
+}
+</script>
+</div><img alt="../_images/3_Kenngroessen_3_1.png" src="../_images/3_Kenngroessen_3_1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>		 ohne Gleichanteil 		 mit Gleichanteil
+-------------------------------------------------------------------
+Gleichanteil	 -6.286365977370858e-18 	 0.5
+Gleichrichtwert	 0.6302006849910228 		 0.7158385086473522
+Effektivwert	 0.495 				 0.745
+Scheitelfaktor	 2.0202020202020203 		 1.342281879194631
+Formfaktor	 0.7854640780135795 		 1.0407375280882154
+</pre></div>
+</div>
+</div>
+</div>
+<p>Für beide Fälle kann man die Integrale von oben lösen und erhält vereinfachte Zusammenhänge, die allgemein für <strong>Sinussignale</strong> mit oder ohne Gleichanteil gelten:</p>
+<p><strong>Sinussignal ohne Gleichanteil</strong>: <span class="math notranslate nohighlight">\(u(t) = \hat{u}\cdot \sin(\omega t + \varphi )\)</span></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Beschreibung</p></th>
+<th class="text-align:left head"><p>Formel</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>Linearer Mittelwert / Gleichanteil</p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\overline u = 0\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Gleichrichtwert</p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\overline{\lvert u \rvert} = \frac{2}{\pi}\cdot \hat u \approx 0,64 \cdot \hat u\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Effektivwert (RMS</p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(U = u_\mathrm{eff} = \frac{\hat u}{\sqrt{2}} \approx 0,71 \cdot \hat u\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Scheitelfaktor</p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(k_S = \frac{\hat u}{u_\mathrm{eff}} = \sqrt{2} \approx 1,41\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Formfaktor</p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(k_F = \frac{u_\mathrm{eff}}{\overline{\lvert u \rvert}} = \frac{\pi}{2\sqrt{2}} \approx 1,11\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sinussignal mit Gleichanteil</strong>: <span class="math notranslate nohighlight">\(u(t) = u_0 + \hat{u}\cdot \sin(\omega t + \varphi )\)</span></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Beschreibung</p></th>
+<th class="text-align:left head"><p>Formel</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>Linearer Mittelwert / Gleichanteil</p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\overline u = u_0\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Gleichrichtwert</p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\overline{\lvert u \rvert} = u_0 + \frac{2}{\pi}\cdot \hat u\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Effektivwert (RMS)</p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(U = u_\mathrm{eff} = \sqrt{u_0^2 + \left(\frac{\hat u}{\sqrt{2}}\right)^2}\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<div class="tip admonition">
+<p class="admonition-title">Aufgabe</p>
+<p>Beweise die eben genannten Formeln für Sinussignale mit und ohne Gleichanteil und vergleiche die Zahlenwerte mit den Simulations-Ergebnissen in Python aus dem oberen Code-Block.</p>
+</div>
 <p>Die Angabe von Scheitel- und Formfaktor haben für Signale mit Gleichanteil keine größere Bedeutung und müssen nicht berechnet werden. Im Vergleich der beiden Beispiele zeigt sich, dass der Effektivwert eines Sinussignals mit Gleichanteil der quadratische Mittelwert der Effektivwerte des Gleichanteils und dem Wert des Gleichanteils <span class="math notranslate nohighlight">\(u_0\)</span> entspricht.</p>
 </section>
 <section id="pulsweitenmodulation">
-<h2>Pulsweitenmodulation<a class="headerlink" href="#pulsweitenmodulation" title="Permalink to this headline">#</a></h2>
-<p><a id="SubsubSec-Kenngrößen_bsp_puls"></a></p>
+<h3>Pulsweitenmodulation<a class="headerlink" href="#pulsweitenmodulation" title="Permalink to this headline">#</a></h3>
 <p>Ein weiteres Beispiel ist für eine Pulsweitenmodulation berechnet und die Formeln können aus folgendem Bild abgelesen werden. Er handelt sich um ein unsymmetrisches Rechtecksignal. In diesem Fall sprechen wir von einem Pulsweitenmodulierten Signal, da die ‘An’-Zeit innerhalb einer bestimmten Anwendung nicht immer gleich groß sein muss. Das Verhältnis</p>
 <div class="math notranslate nohighlight">
 \[\tau = \frac{\Delta t}{T}\]</div>
 <p>wird auch Tastverhältnis genannt. Hierüber kann ein Messwert analog codiert und übertragen werden, während das Signal selber digital ist.</p>
-<p><img alt="Bild" src="../_images/bsp_eff_puls.png" /></p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Benötigte Libraries:</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span> 
+<span class="kn">import</span> <span class="nn">plotly.offline</span> <span class="k">as</span> <span class="nn">py</span>
+<span class="n">py</span><span class="o">.</span><span class="n">init_notebook_mode</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">plotly.graph_objs</span> <span class="k">as</span> <span class="nn">go</span>
+<span class="kn">import</span> <span class="nn">plotly.tools</span> <span class="k">as</span> <span class="nn">tls</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="c1"># MatplotLib Settings:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="mf">1.0</span>   <span class="c1"># Amplitude</span>
+<span class="n">f</span> <span class="o">=</span> <span class="mi">10</span>    <span class="c1"># Frequenz in Hz</span>
+<span class="n">phi</span> <span class="o">=</span> <span class="mf">0.</span>  <span class="c1"># Phase in radian</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">f</span>   <span class="c1"># Perdiodendauer</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">T</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># Zeitwerte der Sinusfunktion in sec</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">A</span> <span class="o">*</span> <span class="n">signal</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mi">1</span><span class="o">/</span><span class="n">T</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">A</span><span class="p">,</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;$\phi = 0.0\,\mathrm</span><span class="si">{rad}</span><span class="s1">$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">A</span> <span class="o">*</span> <span class="n">signal</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mi">1</span><span class="o">/</span><span class="n">T</span> <span class="o">*</span> <span class="n">t</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">A</span><span class="p">,</span> <span class="s1">&#39;tab:red&#39;</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;$\phi = 0.5\,\mathrm</span><span class="si">{rad}</span><span class="s1">$&#39;</span><span class="p">)</span>
+<span class="c1">#plt.arrow(0.5*T, 0.5*A, 0.5*T, 0)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="n">T</span><span class="p">,</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">A</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">A</span><span class="p">),</span> <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s1">&#39;&lt;-&gt;&#39;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\Delta t$&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="n">T</span><span class="p">,</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">A</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mf">0.72</span><span class="o">*</span><span class="n">T</span><span class="p">,</span> <span class="mf">0.48</span><span class="o">*</span><span class="n">A</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude (a.u.)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">T</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">T</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="s1">&#39;2T&#39;</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">A</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="sa">r</span><span class="s1">&#39;$\hat u$&#39;</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;u(t) = $\hat u \cdot \mathrm</span><span class="si">{rect}</span><span class="s1">(t + \phi) $&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><script type="text/javascript">
+window.PlotlyConfig = {MathJaxConfig: 'local'};
+if (window.MathJax) {MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+if (typeof require !== 'undefined') {
+require.undef("plotly");
+requirejs.config({
+    paths: {
+        'plotly': ['https://cdn.plot.ly/plotly-2.9.0.min']
+    }
+});
+require(['plotly'], function(Plotly) {
+    window._Plotly = Plotly;
+});
+}
+</script>
+</div><img alt="../_images/3_Kenngroessen_6_1.png" src="../_images/3_Kenngroessen_6_1.png" />
+</div>
+</div>
+<p><strong>Pulssignal</strong>:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Beschreibung</p></th>
+<th class="text-align:left head"><p>Formel</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>Linearer Mittelwert / Gleichanteil</p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\overline u = 0,5 \cdot \hat u \)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Gleichrichtwert</p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\overline u = \overline{\lvert u \rvert} = \frac{\Delta t}{T}\cdot \hat u\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Effektivwert (RMS</p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(U = u_\mathrm{eff} = \sqrt{\overline{u^2}} = \sqrt{\frac{\Delta t}{T}}\cdot \hat u\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Scheitelfaktor</p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(k_S = \sqrt{ \frac{T}{\Delta t}}\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Formfaktor</p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(k_F = \sqrt{\frac{T}{\Delta t}}\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<div class="tip admonition">
+<p class="admonition-title">Aufgabe</p>
+<p>Beweise die eben genannten Formeln für das Pulssignal in der Abbildung.</p>
+</div>
+</section>
 </section>
 </section>
 

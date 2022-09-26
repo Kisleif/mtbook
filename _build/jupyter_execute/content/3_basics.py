@@ -5,7 +5,7 @@
 # 
 # Wir wissen also bereits, dass Messwerte die gesuchten Informationen über eine physikalische Größe beinhalten. Häufig findet die Übertragung dieser Information in Form eines Messsignals statt. Die Frage ist nun: Was ist denn überhaupt ein *Signal*? Dieser Begriff wird umgangssprachlich häufig mehrdeutig benutzt. In unserem Falle, also im technischen Gebrauch, sprechen wir von einem *Zeitverlauf* einer physikalischen Größe. Damit es eindeutig wird, wollen wir statt des Begriffs *Signal* einfach das Wort *Messsignal* einführen. Das bedeutet, dass ein Signal nicht an eine bestimmte physikalische Größe gebunden ist. Ein Signal besteht nämlich in der Regel aus mehreren Parametern (*Informationsparameter*), die die *Träger* von physikalischen Informationen sein können. Das einfachste Beispiel kann ein Messsignal in Form einer sinusförmigen Spannung sein, z.B.:
 # 
-# $$u(t) = A \cdot \sin(\omega t + \varphi)$$
+# $$u(t) = \hat u \cdot \sin(\omega t + \varphi)$$
 
 # In[1]:
 
@@ -25,6 +25,7 @@ warnings.filterwarnings('ignore')
 
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
+plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 A = 1.0   # Amplitude
@@ -35,8 +36,8 @@ t = np.linspace(0,2*T,100) # Zeitwerte der Sinusfunktion in sec
 
 fig = plt.figure(figsize=(7,3))
 ax = fig.add_axes([0.1, 0.1, 0.8, 0.8])
-ax.plot(t,A * np.sin(2*np.pi*f*t + phi), label = r'$\phi = 0.0\,\mathrm{rad}$')
-ax.plot(t,A * np.sin(2*np.pi*f*t + 0.5), label = r'$\phi = 0.5\,\mathrm{rad}$')
+ax.plot(t,A * np.sin(2*np.pi*f*t + phi), 'tab:blue',label = r'$\phi = 0.0\,\mathrm{rad}$')
+ax.plot(t,A * np.sin(2*np.pi*f*t + 0.5), 'tab:red', label = r'$\phi = 0.5\,\mathrm{rad}$')
 ax.set_xlabel('Zeit')
 ax.set_ylabel('Amplitude (a.u.)')
 ax.set_xlim(0,2*T)
@@ -44,16 +45,18 @@ ax.set_xticks([0, T, 2*T])
 ax.set_xticklabels(['0','T','2T'])
 ax.set_yticks([-A, 0, A])
 ax.set_yticklabels(['-A','0','A'])
-ax.set_title(r'u(t) =%5.1f $\cdot$ sin(%5.1f Hz $\cdot t$ + $\phi$)' %(A, 2*np.pi*f))
+#ax.set_title(r'u(t) =%5.1f $\cdot$ sin(%5.1f Hz $\cdot t$ + $\phi$)' %(A, 2*np.pi*f))
+ax.set_title(r'u(t) = $\hat u \cdot sin(2 \pi f t + \phi)$')
 ax.grid()
 ax.legend()
 plt.show()
 
 
 # Die Funktion hängt von drei Parametern ab:
-# * der Amplitude $A$
-# * der Frequenz $f$, bzw. Kreisfrequenz $\omega = 2\pi f$
-# * der Phase (Phasenwinkel) $\phi$
+# * der Amplitude $\hat u$, z.B. in der Einheit Volt oder Ampere
+# * der Frequenz $f$, bzw. Kreisfrequenz $\omega = 2\pi f$, beides in der Einheit Hz
+#     * die Frequenz $f = \frac{1}{T}$ ist der Kehrwert der Periodendauer $T$ mit der Einheit s. 
+# * der Phase (Phasenwinkel) $\phi$, die die Phasenverschiebung oder Verzögerung des Messsignals angibt, typischerweise in radian oder °
 # 
 # Je nach Aufgabe können wir das Messsignal auswerten indem wir entweder die Amplitude messen, oder die Frequenz, oder den Phasenwinkel (oder alle zusammen). 
 # 
@@ -117,10 +120,9 @@ print('Die Wellenlänge einer Schwingung mit Frequenz f = %5.2f MHz beträgt %5.
 # 
 # ![Bild](pictures/EM_spectrum.png)
 
-# ```{note} Funkwellen in der Ionosphäre
+# ```{admonition} Ausbreitung von Funkwellen in der Ionosphäre
 # :class: dropdown
 # 
-# **Exkurs: Funkwellen in der Ionosphäre**
 # 
 # Radiowellen unterschiedlicher Frequenz und Einfallswinkel werden an der Ionosphäre reflektiert und auf die Erde zurück geworden, oder durchgelassen, wodruch Satellitenkommunikation ermöglich wird. Ob und wie Funkwellen reflektiert werden, hängt von der Dichte und Höhe der Ionosphärenschicht ab, und von der Frequenz der einfallenden Funkwelle. 
 # 
@@ -170,3 +172,9 @@ print('Die Wellenlänge einer Schwingung mit Frequenz f = %5.2f MHz beträgt %5.
 # wobei $\alpha$ der Winkel ist, der die Strahlung zum Horizont bildet, $f_\mathrm{krit}$ die kritische Frequenz ist, unter welcher die Strahlung vollständig reflektiert werden würde, $d$ ist die Entfernung zwischen Sender und Empfänger und $h_\mathrm{krit}$ die virtuelle Höhe der Reflektion. Hier ist $f_\mathrm{MUF}$ die **Grenzfrequenz** der Funkwelle, welche gerade noch von der Schicht reflektiert wird. MUF steht hierbei für *maximum usable frequency*. Analog gibt es auch die LUF-Frequenz, die *lowest usable frequency*. 
 # 
 # ```
+
+# In[ ]:
+
+
+
+

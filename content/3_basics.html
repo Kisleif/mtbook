@@ -245,11 +245,6 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="2_Digital.html">
-     Digitalisierung
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="3_FourierAnalyse.html">
      Fourier-Analyse
     </a>
@@ -260,6 +255,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Digital.html">
+   Digitalisierung
+  </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="5_Dynamische_Messsysteme.html">
@@ -764,6 +764,8 @@ title="Print to PDF"
 
 <span class="c1"># MatplotLib Settings:</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
 
 <span class="n">A</span> <span class="o">=</span> <span class="mf">1.0</span>   <span class="c1"># Amplitude</span>
@@ -774,8 +776,8 @@ title="Print to PDF"
 
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">A</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="n">t</span> <span class="o">+</span> <span class="n">phi</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;$\phi = 0.0\,\mathrm</span><span class="si">{rad}</span><span class="s1">$&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">A</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="n">t</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;$\phi = 0.5\,\mathrm</span><span class="si">{rad}</span><span class="s1">$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">A</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="n">t</span> <span class="o">+</span> <span class="n">phi</span><span class="p">),</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;$\phi = 0.0\,\mathrm</span><span class="si">{rad}</span><span class="s1">$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">A</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="n">t</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">),</span> <span class="s1">&#39;tab:red&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;$\phi = 0.5\,\mathrm</span><span class="si">{rad}</span><span class="s1">$&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude (a.u.)&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">T</span><span class="p">)</span>
@@ -806,7 +808,10 @@ require(['plotly'], function(Plotly) {
 });
 }
 </script>
-</div><img alt="../_images/3_basics_1_1.png" src="../_images/3_basics_1_1.png" />
+</div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1000x500 with 0 Axes&gt;
+</pre></div>
+</div>
+<img alt="../_images/3_basics_1_2.png" src="../_images/3_basics_1_2.png" />
 </div>
 </div>
 <p>Die Funktion hängt von drei Parametern ab:</p>
@@ -879,9 +884,8 @@ require(['plotly'], function(Plotly) {
 \[E = h \cdot f \]</div>
 <p>mit <span class="math notranslate nohighlight">\(h = 6.626\cdot 10^{-34}\,\mathrm{Js}\)</span> dem Planck’schen Wirkungsquantum.</p>
 <p><img alt="Bild" src="../_images/EM_spectrum.png" /></p>
-<div class="dropdown admonition note">
-<p class="admonition-title">Note</p>
-<p><strong>Exkurs: Funkwellen in der Ionosphäre</strong></p>
+<div class="dropdown admonition">
+<p class="admonition-title">Ausbreitung von Funkwellen in der Ionosphäre</p>
 <p>Radiowellen unterschiedlicher Frequenz und Einfallswinkel werden an der Ionosphäre reflektiert und auf die Erde zurück geworden, oder durchgelassen, wodruch Satellitenkommunikation ermöglich wird. Ob und wie Funkwellen reflektiert werden, hängt von der Dichte und Höhe der Ionosphärenschicht ab, und von der Frequenz der einfallenden Funkwelle.</p>
 <p>Durch Sonneneinstrahlung im ultravioletten Bereich werden Elektronen in der Ionosphäre von ihren Luftatomen getrennt. Dadurch entstehen freie Elektronen und postiv geladene Ionenrümpfe bleiben zurück. Je stärker die Sonneneinstrahlung (je mehr UV-Lichtteilchen), desto mehr Elektronen frei gesetzt und die Elektronendichte, <span class="math notranslate nohighlight">\(N_e\)</span>, steigt an.</p>
 <ul class="simple">

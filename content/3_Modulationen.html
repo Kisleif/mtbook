@@ -55,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Digitalisierung" href="2_Digital.html" />
+    <link rel="next" title="Fourier-Analyse" href="3_FourierAnalyse.html" />
     <link rel="prev" title="Kenngrößen" href="3_Kenngroessen.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -245,11 +245,6 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="2_Digital.html">
-     Digitalisierung
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="3_FourierAnalyse.html">
      Fourier-Analyse
     </a>
@@ -260,6 +255,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Digital.html">
+   Digitalisierung
+  </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="5_Dynamische_Messsysteme.html">
@@ -967,15 +967,14 @@ y_\mathrm{AM}(t) &amp; = \left[A_c + M_a \cdot A_\mathrm{m} \cdot \sin(2\pi f_\m
 <p>Es gibt prinzipiell zwei Möglichkeiten die Modulation rückgängig zu machen um das ursprüngliche Nutzsignal zu rekonstruieren:</p>
 <p>Bei schwachen oder stark gestörten Signalen wird auf der Empfängerseite ein lokaler Träger benutzt, der in Phase zu Träger des empfangenen Signals ist. Beide Träger sind synchron und damit kohärent zu einander. Dieses Verfahren ist technisch gesehen aufwendiger als die zweite Option.
 Zunächst wird das empfangene Signal, <span class="math notranslate nohighlight">\(y_\mathrm{AM}(t)\)</span>, bestehend aus den beiden Seitenfrequenzen und dem Träger, mit dem lokalen Träger multipliziert und anschließend werden die hohen Frequenzanteile <span class="math notranslate nohighlight">\(2f_c\)</span> mit einem Tiefpass und der Gleichanteil mit einem Hochpass heraus gefiltert. Das gesuchte Nutzsignal bleibt übrig, jedoch nur mit halber Amplitude:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$$
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{align} 
 y_\mathrm{AM,demod}(t) &amp;= y_\mathrm{AM}(t) \cdot s(t) \\
 &amp; = \left[ A_c \sin(2\pi  f_c  t)  + \frac{M_a A_m}{2} \left[ \cos\{2\pi(f_m-f_c)t \} - \cos\{2\pi(f_m+f_c)t \} \right] \right]  \cdot A_c \sin(2\pi f_c t + p_0) \\
 &amp;= \frac{A_m}{2} \sin(2 \pi f_m t)
 \end{align}
-$$
-</pre></div>
-</div>
+\end{split}\]</div>
 <div class="tip admonition">
 <p class="admonition-title">Aufgabe</p>
 <p>Beweise die obige Umformung unter Vernachlässigung der hohen Frequenzanteile <span class="math notranslate nohighlight">\(2f_c\)</span> und des Gleichanteils.</p>
@@ -1145,10 +1144,10 @@ Determinierte Signale liefern hingegen zu jedem Zeitpunkt einen festen Zusammenh
             <p class="prev-next-title">Kenngrößen</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="2_Digital.html" title="next page">
+    <a class='right-next' id="next-link" href="3_FourierAnalyse.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Digitalisierung</p>
+        <p class="prev-next-title">Fourier-Analyse</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

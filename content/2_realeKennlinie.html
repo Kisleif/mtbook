@@ -693,6 +693,23 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#kennlinienkorrektur">
    Kennlinienkorrektur
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nullpunktkorrektur">
+     Nullpunktkorrektur
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#toleranzbandjustierung">
+     Toleranzbandjustierung
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#steigungskorrektur">
+     Steigungskorrektur
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#kennlinienfehler">
@@ -737,6 +754,23 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#kennlinienkorrektur">
    Kennlinienkorrektur
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nullpunktkorrektur">
+     Nullpunktkorrektur
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#toleranzbandjustierung">
+     Toleranzbandjustierung
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#steigungskorrektur">
+     Steigungskorrektur
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#kennlinienfehler">
@@ -773,17 +807,23 @@ title="Print to PDF"
 <p>Nun hängt allerdings der Verlauf einer Kennlinie nicht nur von der Herstellung ab, sondern auch von (äußeren) Einflusseffekten während des Messprozesses.
 Es hängt folglich immer von der Herstellung <em>und</em> Anwendung eines Messsystems ab, wie genau man wirklich messen kann.
 Womit wir beim einem anderen Aspekt unserer Betrachtungen wären, den <em>Messabweichungen</em>, die im nächsten Jupyter Notebook erläutert werden.</p>
-<p>Im nebenstehenden Bild ist eine ideale und eine reale Kennlinie gezeigt. Zu jeder Messgröße existiert eine Messabweichung.
+<p>In <a class="reference internal" href="#id1"><span class="std std-numref">Fig. 15</span></a> sind eine ideale und eine reale Kennlinie gezeigt. Zu jeder Messgröße existiert eine Messabweichung.
 In der bereits zitierten einschlägigen deutschen Norm DIN 1319 wurde die früher hierfür enthaltene Bezeichnung <em>Fehler</em> bereits vor längerer Zeit durch <em>Abweichung</em> ersetzt. Der Grund liegt darin, dass im üblichen Sprachgebrauch unter einem <em>Fehler</em> eine Fehlfunktion eines technischen Systems verstanden wird, was hier jedoch nicht gemeint ist.
 Für eine Messeinrichtung mit linearer Kennlinie sind demzufolge Empfindlichkeit <span class="math notranslate nohighlight">\(S\)</span> und Übertragungsfunktion <span class="math notranslate nohighlight">\(k\)</span> identisch.
 Zu jeder Messgröße, <span class="math notranslate nohighlight">\(y\)</span>, existiert eine bestimmte Messabweichung, <span class="math notranslate nohighlight">\(A\)</span>, in Bezug auf ihren <em>realen</em> oder <em>idealen</em> Wert, <span class="math notranslate nohighlight">\(y_i\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[A = y - y_i\]</div>
-<p><img alt="Bild" src="../_images/reale_kennlinie.png" /></p>
+<figure class="align-default" id="id1">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/reale_kennlinie.jpg"><img alt="reale_kennlinie" class="bg-primary mb-1" src="../_images/reale_kennlinie.jpg" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 15 </span><span class="caption-text">Reale Messkennlinie.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <section id="kennlinienkorrektur">
 <h2>Kennlinienkorrektur<a class="headerlink" href="#kennlinienkorrektur" title="Permalink to this headline">#</a></h2>
-<p><a id="Sec-Kennlinienkorrektur"></a></p>
-<p>Die Korrektur von systematischen Messabweichung erfolt über Kalibrierung von Kennlinien. Am häufigste und am einfachsten kann eine <strong>Nullpunktkorrektur</strong> vorgenommen werden. Die Abweichung vom Nullpunkt wird hierbei korrgiert, wobei zum Zeitpunkt der Kalibrierung bestimmte Umgebungsbedingungen herrschen müssen. Störgrößen, wie Temperatur und Feuchte, müssen den allgemeinen Betriebsedingungen folgen. Was man mit dieser Nullpunktkorrektur besonders gut korrigieren kann sind Nullpunktabweichungen, die durch Streuungen im Fertigungsprozess entstanden sind.</p>
+<section id="nullpunktkorrektur">
+<h3>Nullpunktkorrektur<a class="headerlink" href="#nullpunktkorrektur" title="Permalink to this headline">#</a></h3>
+<p>Die Korrektur von systematischen Messabweichung erfolt über Kalibrierung von Kennlinien. Am häufigste und am einfachsten kann eine <strong>Nullpunktkorrektur</strong> (auch Fixpunktjustierung oder Offsetkorrektur genannt) vorgenommen werden. Die Abweichung vom Nullpunkt wird hierbei korrgiert, wobei zum Zeitpunkt der Kalibrierung bestimmte Umgebungsbedingungen herrschen müssen. Störgrößen, wie Temperatur und Feuchte, müssen den allgemeinen Betriebsedingungen folgen. Was man mit dieser Nullpunktkorrektur besonders gut korrigieren kann sind Nullpunktabweichungen, die durch Streuungen im Fertigungsprozess entstanden sind.</p>
 <p>Grundsätzlich gilt, dass eine Referenz benötigt, entweder in Form einer definierten Messgröße, oder in Form eines Referenz-Messgeräts, welches seinerseits vorher kalibriert wurde. Bei der Erstinbetriebnahme an einem Kalibrierpunkt wird einmalig also beispielsweise eine wohlbekannte Messgröße angelegt. Das Messgerät wird nun mit einem Messwert antworten, der von der aktuell herrschenden realen Kennlinie bestimmt wird. Er wird vermutlich leicht über oder unter der idealen (gestrichelten) Kennlinie verschoben sein. Im nachfolgenden Bild ist der Kalibrierpunkt am Nullpunkt des Messbereichs. Für viele Messgeräte ist der Nullpunkt ein geeigneter Kalibrierpunkt, Beispiele sind:</p>
 <ul class="simple">
 <li><p>Wägesystem: hier wird schlichtweg einfach kein Wägegut aufgebracht. Auch Leergewichte von Wägebehältern können so <em>wegkalibriert</em> werden.</p></li>
@@ -793,7 +833,53 @@ Zu jeder Messgröße, <span class="math notranslate nohighlight">\(y\)</span>, e
 <li><p>Temperaturmessungen: hier ist es tatsächlich schwierig. Für 0°C müssten gefrierendes Wasser oder eine Klimakammer genutzt werden.
 Wurde die Nullpunktabweichung einmal bestimmt, müssen alle nachfolgenden Messungen vorzeichenrichtig korrigiert werden. Fällt die Nullpunktabweichung positiv aus (es wird immer ein zu hoher Messwert ausgegeben), muss der Betrag später vom Messwert abgezogen werden. In der Regel verfügt das Messgerät über eine eingebaute Funktion, sodass die Kalibrierung nicht in der Nachverarbeitung berücksichtigt werden muss. Sollten sich Betriebsbedingungen ändern, ist eine Rekalibrierung nötig.</p></li>
 </ul>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<ul class="simple">
+<li><p><strong>Fixpunktjustierung</strong> oder auch Fixpunktjustierung oder Offsetkorrektur genannt</p></li>
+<li><p>Nach der Fixpunktjustierung geht die Kennlinie durch den Anfangspunkt und durch den Endpunkt.</p></li>
+<li><p>Der Messbereich wird auf den Anzeigebereich abgebildet.</p></li>
+<li><p>Im Messanfang und Messende ist damit der Fehler null.</p></li>
+</ul>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<figure class="align-default" id="reale-kl-offsetkorr">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/reale_KL_offsetkorr.jpg"><img alt="reale_KL_offsetkorr" class="bg-primary mb-1" src="../_images/reale_KL_offsetkorr.jpg" style="width: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 16 </span><span class="caption-text">Offset-Korrektur einer realen Kennlinie.</span><a class="headerlink" href="#reale-kl-offsetkorr" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="toleranzbandjustierung">
+<h3>Toleranzbandjustierung<a class="headerlink" href="#toleranzbandjustierung" title="Permalink to this headline">#</a></h3>
 <p>Eine Erweiterung der Nullpunktkorrekt ist die <strong>Toleranzbandjustierung</strong>, die den Fehler um einen Faktor 2 gegenüber der Nullpunktkorrektur reduziert, indem die Kennlinie einfach noch weiter additiv verschoben wird. Trotz der Fehlerreduktion hast die Methode den Nachteil, dass die Kennlinie nicht mehr durch den Nullpunkt geht.</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<ul class="simple">
+<li><p>Die <strong>Toleranzbandjustierung</strong> entsteht durch eine zusätzliche additive Verschiebung der Fixpunktjustierung.</p></li>
+<li><p>Ziel ist es, den maximalen Fehler im Messbereich möglichst klein zu gestalten.</p></li>
+<li><p>Der maximale Fehler wird im Vergleich zur Fixpunktjustierung auf die Hälfte reduziert.</p></li>
+<li><p>Kennlinie geht allerdings nicht mehr zwangsläufig durch Anfangs- und den Endpunkt.</p></li>
+</ul>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<figure class="align-default" id="reale-kl-toleranzbandkorr">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/reale_KL_toleranzbandkorr.jpg"><img alt="reale_KL_toleranzbandkorr" class="bg-primary mb-1" src="../_images/reale_KL_toleranzbandkorr.jpg" style="width: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 17 </span><span class="caption-text">Toleranzband-Justierung einer realen Kennlinie.</span><a class="headerlink" href="#reale-kl-toleranzbandkorr" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="steigungskorrektur">
+<h3>Steigungskorrektur<a class="headerlink" href="#steigungskorrektur" title="Permalink to this headline">#</a></h3>
 <p>Die Nullpunktkorrektur kann auch mit einer sogenannten <strong>Steigungskorrektur</strong> vorgenommen werden, wie es im nachfolgenden Bild dargestellt ist. Für die Steigungskorrektur sind zwei Kalibriermessungen notwendig, d.h. es werden zwei Datenpunkte benötigt. Häufig ist der eine Datenpunkt der Messwert der Nullpunktkalibrierung. Der zweite Datenpunkt sollte möglichst nah am Messbereichsendwert liegen, sodass eine große Spanne abgedeckt wird. Die reale Kennlinie wird nun wieder unter Betriebsbedingungen in zwei Schritten korrigiert: Sie wird einerseits vertikal verschoben und zusätzlich um ihren Nullpunkt gedreht, sodass in beiden Kalibrierpunkte keine Messabweichung mehr besteht (siehe Bild).
 Anschaulich kann man sich Hilfsgeraden durch die Kalibrierpunkte vorstellen. Die Steigung einer Hilfsgerade durch die Kalibrierpunkte weicht von der Steigung der idealen Kennlinie ab (im Bild ist sie steiler). Mittels Korrektur werden die beiden Steigungen einander angepasst.</p>
 <p>Am ersten Kalibrierpunkt, dem Nullpunkt <span class="math notranslate nohighlight">\(x_0 = 0\)</span> wird folgender Wert gemessen:</p>
@@ -812,33 +898,27 @@ Anschaulich kann man sich Hilfsgeraden durch die Kalibrierpunkte vorstellen. Die
 Für alle Messwerte dazwischen, ändert sich die Messabweichung linear. Wir berechnen also eine Gerade durch die beiden Kalibrierpunkte und können alle anderen Messabweichungen interpolieren:</p>
 <div class="math notranslate nohighlight">
 \[\Delta y(x) = \Delta y(x_0) + \frac{(\Delta y(x_1) - \Delta y(x_0))}{x_1} x = y_0 + \frac{y_1 - y_r - y_0}{x_1} x\]</div>
-<p><img alt="Bild" src="../_images/kennlinienkorrektur.png" /></p>
-<p>Zusammenfassung:</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-column docutils">
 <ul class="simple">
-<li><p><strong>Fixpunktjustierung (auch Nullpunktjustierung oder Offsetkorrektur genannt)</strong>:</p>
-<ul>
-<li><p>Nach der Fixpunktjustierung geht die Kennlinie durch den Anfangspunkt und durch den Endpunkt.</p></li>
-<li><p>Der Messbereich wird auf den Anzeigebereich abgebildet.</p></li>
-<li><p>Im Messanfang und Messende ist damit der Fehler null.</p></li>
-</ul>
-</li>
-<li><p><strong>Toleranzbandjustierung</strong>:</p>
-<ul>
-<li><p>Die Toleranzbandjustierung entsteht durch eine zusätzliche additive Verschiebung der Fixpunktjustierung.</p></li>
-<li><p>Ziel ist es, den maximalen Fehler im Messbereich möglichst klein zu gestalten.</p></li>
-<li><p>Der maximale Fehler wird im Vergleich zur Fixpunktjustierung auf die Hälfte reduziert.</p></li>
-<li><p>Kennlinie geht allerdings nicht mehr zwangsläufig durch Anfangs- und den Endpunkt.</p></li>
-</ul>
-</li>
-<li><p><strong>Nullpunkt und Steigungskorrektur:</strong></p>
-<ul>
-<li><p>Nullpunkt und Steugungskorrektur ist sehr aufwendig: Es werden zwei Kalibriermessungen benötigt.</p></li>
+<li><p>Die <strong>Nullpunkt und Steigungskorrektur</strong> ist sehr aufwendig: Es werden zwei Kalibriermessungen benötigt.</p></li>
 <li><p>Zweiter Kalibrierpunkt ist meist der Messbereichsendwert (MBE), da hier die größte Spanne erreicht wird.</p></li>
-<li><p>DIe reale Kennlinie geht durch Nullpunkt und wird anschließend noch rotiert</p></li>
+<li><p>Die reale Kennlinie geht durch Nullpunkt und wird anschließend noch rotiert</p></li>
 <li><p>Korrigierte Kennlinie hat eine kleinere Steigung und ist somit weniger empfindlich!</p></li>
 </ul>
-</li>
-</ul>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<figure class="align-default" id="reale-kl-steigungskorr">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/reale_KL_steigungskorr.jpg"><img alt="reale_KL_steigungskorr" class="bg-primary mb-1" src="../_images/reale_KL_steigungskorr.jpg" style="width: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 18 </span><span class="caption-text">Offset und Steigungskorrektur einer realen Kennlinie.</span><a class="headerlink" href="#reale-kl-steigungskorr" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="kennlinienfehler">
 <h2>Kennlinienfehler<a class="headerlink" href="#kennlinienfehler" title="Permalink to this headline">#</a></h2>
@@ -847,28 +927,85 @@ Für alle Messwerte dazwischen, ändert sich die Messabweichung linear. Wir bere
 Es hängt dabei sehr stark von der konkreten Situation ab, ob ein einzelner Einflusseffekt sich primär in nur einer Art der Kennlinienabweichung zeigt oder in mehreren, d.h. es entstehen Abhängigkeiten zwischen den Komponenten.
 Auch wirken derartige Einflusseffekte meist auf jede einzelne Komponente eines Messsystems mit ihrer zugehörigen Einzelkennlinie. Summiert man alle diese Einflusseffekte auf alle Teilkomponenten auf, dann ergibt sich für ein konkretes Messsystem unter einer bestimmten Kombination und Anzahl von Störungen, eine ganz bestimmte <em>reale</em> Kennlinie.</p>
 <p>Nach der Justierung sind alle systematischen Fehler Kennlinienfehler. Hierzu gehören Nichtlinearitäten (Abweichungen von der idealen Kennlinie) und Einfluss von Störgrößen. In Summe aller Einflüsse auf alle Teilkomponenten ergibt sich eine ganz bestimmte reale Kennlinie.</p>
-<ul class="simple">
-<li><p><strong>Nullpunktabweichung</strong>: Dieser Kennlinienfehler ist additiv und somit absolute Messgeräteabweichung unabhängig von der Aussteuerung einer Messeinrichtung und wird auch Offset (-fehler) genannt. An jeder Stelle des Messbereiches wird eine Abweichung mit gleichem Betrag und Vorzeichen sowohl durch systematische, als auch durch zufällige Fehlerwirkungen verursacht. Die Beschreibung der <em>idealen</em> Übertragungsfunktion wird durch den additiven Fehler verändert. Man erkennt, dass der <em>relativer</em> Fehler für kleine Messwerte steigt, d.h. man möchte diese Messeinrichtungen möglichst groß aussteuern.</p></li>
-<li><p><strong>Multiplikativ</strong>: Hierbei handelt es sich um eine absolute Abweichung der Anzeigegröße als Funktion ihrer Aussteuerung. Technisch wird dieser Fehlertyp auch als Verstärkungsfehler bezeichnet, d.h. man beobachtet unerwünschte Veränderung des Übertragungsfaktors, also die Verstärkung einer Messeinrichtung ändert sich! Auch der multiplikative Fehler kann systematische und zufällige Ursachen besitzen. Diese Art von Abweichungen verlaufen aber immer durch den Nullpunkt und sind daher eher tolerierbar, auch bei kleinen Aussteuerungen.</p></li>
-<li><p><strong>Nichtlineatität</strong>: Die oben genannten zwei Fehlertypen werden bei realen Messeinrichtungen fast immer gleichzeitig auftreten. Überlagerung der beiden Kurven führt immer zu unerwünschten Nichtlinearitäten im System.</p></li>
-<li><p><strong>Hysterese</strong>: Die Kennlinie unterscheidet sich, je nachdem ob die Messgröße ansteigt oder abfällt. Die Komponente hat damit gewissermaßen ein Gedächtnis. Hier sollte man sich einmal vor Augen führen, dass dies <em>nicht</em> bedeutet, dass das System zwei Kennlinien bestitzt. Es hat vielmehr unendlich viele Kennlinien, da die Kennlinie nicht nur von der Richtung, in die sich die Messgröße ändert, variiert, sondern sie hängt auch von der aktuellen Position der Messgröße ab. Je nachdem, von welchem Umkehrpunkt aus sich die Messgröße in die jeweils andere Richtung weiter bewegt, muss man eine andere Kennlinie erwarten. Dieses Verhalten beobachtet man häuft bei mechanischen Sensorkonstruktionen (Beispiel: Druckmembran in einem Drucksensor) oder wenn magnetische Werkstoffe verbaut sind. In reinen Analogelektroniken ist die Hysterese meist nicht relevant bzw. eher relativ gering ausgeprägt.</p></li>
-</ul>
-<p><img alt="Bild" src="../_images/kennlinienfehler.png" /></p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<p><strong>Nullpunktabweichung</strong>: Dieser Kennlinienfehler ist additiv und somit absolute Messgeräteabweichung unabhängig von der Aussteuerung einer Messeinrichtung und wird auch Offset (-fehler) genannt. An jeder Stelle des Messbereiches wird eine Abweichung mit gleichem Betrag und Vorzeichen sowohl durch systematische, als auch durch zufällige Fehlerwirkungen verursacht. Die Beschreibung der <em>idealen</em> Übertragungsfunktion wird durch den additiven Fehler verändert. Man erkennt, dass der <em>relativer</em> Fehler für kleine Messwerte steigt, d.h. man möchte diese Messeinrichtungen möglichst groß aussteuern.</p>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<figure class="align-default" id="nullpktabw">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/nullpktabw.jpg"><img alt="nullpktabw" class="bg-primary mb-1" src="../_images/nullpktabw.jpg" style="width: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 19 </span><span class="caption-text">Abweichung von der Idealkennlinie aufgrund eines Nullpunkt-Offsets.</span><a class="headerlink" href="#nullpktabw" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<p><strong>Multiplikativ</strong>: Hierbei handelt es sich um eine absolute Abweichung der Anzeigegröße als Funktion ihrer Aussteuerung. Technisch wird dieser Fehlertyp auch als Verstärkungsfehler bezeichnet, d.h. man beobachtet unerwünschte Veränderung des Übertragungsfaktors, also die Verstärkung einer Messeinrichtung ändert sich! Auch der multiplikative Fehler kann systematische und zufällige Ursachen besitzen. Diese Art von Abweichungen verlaufen aber immer durch den Nullpunkt und sind daher eher tolerierbar, auch bei kleinen Aussteuerungen.</p>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<figure class="align-default" id="steigungsabw">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/steigungsabw.jpg"><img alt="steigungsabw" class="bg-primary mb-1" src="../_images/steigungsabw.jpg" style="width: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 20 </span><span class="caption-text">Abweichung von der Idealkennlinie aufgrund einer verfälschten Steigung.</span><a class="headerlink" href="#steigungsabw" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<p><strong>Nichtlineatität</strong>: Die oben genannten zwei Fehlertypen werden bei realen Messeinrichtungen fast immer gleichzeitig auftreten. Überlagerung der beiden Kurven führt immer zu unerwünschten Nichtlinearitäten im System.</p>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<figure class="align-default" id="nichtlinear">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/nichtlinear.jpg"><img alt="nichtlinear" class="bg-primary mb-1" src="../_images/nichtlinear.jpg" style="width: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 21 </span><span class="caption-text">Eine Kombination von Nullpunktabweichung und Steigungsabweichung führen zu Nichtlinearitäten.</span><a class="headerlink" href="#nichtlinear" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<p><strong>Hysterese</strong>: Die Kennlinie unterscheidet sich, je nachdem ob die Messgröße ansteigt oder abfällt. Die Komponente hat damit gewissermaßen ein Gedächtnis. Hier sollte man sich einmal vor Augen führen, dass dies <em>nicht</em> bedeutet, dass das System zwei Kennlinien bestitzt. Es hat vielmehr unendlich viele Kennlinien, da die Kennlinie nicht nur von der Richtung, in die sich die Messgröße ändert, variiert, sondern sie hängt auch von der aktuellen Position der Messgröße ab. Je nachdem, von welchem Umkehrpunkt aus sich die Messgröße in die jeweils andere Richtung weiter bewegt, muss man eine andere Kennlinie erwarten. Dieses Verhalten beobachtet man häuft bei mechanischen Sensorkonstruktionen (Beispiel: Druckmembran in einem Drucksensor) oder wenn magnetische Werkstoffe verbaut sind. In reinen Analogelektroniken ist die Hysterese meist nicht relevant bzw. eher relativ gering ausgeprägt.</p>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<figure class="align-default" id="hysterese">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/hysterese.jpg"><img alt="hysterese" class="bg-primary mb-1" src="../_images/hysterese.jpg" style="width: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 22 </span><span class="caption-text">Bei der Hyterese existieren unendlich viele Kennlinien, je nachdem <em>wo</em> man startet mit der Messung.</span><a class="headerlink" href="#hysterese" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="gesamtkennlinie">
 <h2>Gesamtkennlinie<a class="headerlink" href="#gesamtkennlinie" title="Permalink to this headline">#</a></h2>
-<p><a id="Sec-Gesamtkennlinie"></a></p>
-<p>Nachdem wir uns einige Image(“pictures/gesamtkennlinie.png”, width=900)Beispiele von Kennlinien, also Empfindlichkeitskurven, angesehen haben, können wir diese natürlich auch hintereinander schalten. Dies ist insbesondere wichtig, da Messsysteme eigentlich immer aus mehreren Komponenten bestehen, wie wir am Anfang des Kapitels in der <em>Grundstruktur</em> bereits gesehen haben.
-Jede einzelner Komponenten hat ihre eigene Kennlinie und wandelt eine Eingangsgröße in eine Ausgangsgröße um.
+<p>Nachdem wir uns einige Beispiele von Kennlinien, also Empfindlichkeitskurven, angesehen haben, können wir diese natürlich auch hintereinander schalten. Dies ist insbesondere wichtig, da Messsysteme eigentlich immer aus mehreren Komponenten bestehen, wie wir am Anfang des Kapitels in der <em>Grundstruktur</em> bereits gesehen haben.
+Wie in <a class="reference internal" href="#id2"><span class="std std-numref">Fig. 23</span></a> dargestellt, hat jede einzelne Komponenten ihre eigene Kennlinie und wandelt eine Eingangsgröße in eine Ausgangsgröße um.
 Diese Kennlinien werden nun hintereinander geschaltet, sodass daraus eine Kennlinie resultiert, die das gesamte Messsystem beschreibt. Die einzelnen Kennlinien werden hierfür einfach aneinander <em>multipliziert</em>.</p>
-<p><img alt="Bild" src="../_images/gesamtkennlinie.png" /></p>
+<figure class="align-default" id="id2">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/gesamtkennlinie.jpg"><img alt="gesamtkennlinie" class="bg-primary mb-1" src="../_images/gesamtkennlinie.jpg" style="width: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 23 </span><span class="caption-text">Gesamtkennlinie eines Messsystems ergibt sich aus der Muliplikation der Einzelkennlinien</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Optimalerweise möchte man erreichen, dass die Gesamtkennlinie eines System über einen möglichst großen Eingangsbereich für <span class="math notranslate nohighlight">\(u\)</span> linear ist, d.h. dass die einer Geraden entspricht. Dafür müssen die individuellen Kennlinien der Komponenten nicht zwangsläufig alle linear sein, sondern können sich am Ende kompensieren. Dies ist die große Kunst des Herstellenes von Messsystemen.</p>
 <p>Nun hängt allerdings der Verlauf einer Kennlinie nicht nur von der Herstellung ab, sondern auch von (äußeren) Einflusseffekten während des Messprozesses. Es hängt folglich immer von der Herstellung und Anwendung eines Messsystems ab, wie genau man wirklich messen kann. Womit wir beim einem anderen Aspekt unserer Betrachtungen wären, den Messabweichungen, die im nächsten Jupyter Notebook erläutert werden.</p>
 <div class="tip admonition">
 <p class="admonition-title">Aufgabe</p>
 <p><em>Aufgabe: Versuche im nächsten Code-Block eine ideale Gesamtkennlinienfunktion in einem bestimmten Bereich zu erhalten, ohne dass alle einzelnen Kennlinien linear sind. Verändere hierfür die Funktionen f1, f2, f3 und deren Parameter a_i, b_i, c_i</em>.</p>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Benötigte Libraries:</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -885,6 +1022,7 @@ Diese Kennlinien werden nun hintereinander geschaltet, sodass daraus eine Kennli
 
 <span class="c1"># MatplotLib Settings:</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
 
 <span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -912,7 +1050,7 @@ Diese Kennlinien werden nun hintereinander geschaltet, sodass daraus eine Kennli
 <span class="n">x2</span> <span class="o">=</span> <span class="n">f2</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
 <span class="n">x3</span> <span class="o">=</span> <span class="n">f3</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span>
 
-<span class="n">f</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">x1</span><span class="p">)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;u&#39;</span><span class="p">)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;f1(u) = x1&#39;</span><span class="p">)</span>
@@ -931,7 +1069,7 @@ Diese Kennlinien werden nun hintereinander geschaltet, sodass daraus eine Kennli
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 <span class="c1">## Gesamtkennlinie:</span>
-<span class="n">f</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="n">axs</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">x1</span><span class="o">*</span><span class="n">x2</span><span class="o">*</span><span class="n">x3</span><span class="p">)</span>
 <span class="n">axs</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;u&#39;</span><span class="p">)</span>
 <span class="n">axs</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;f1(u) * f2(x1) * f3(x2)&#39;</span><span class="p">)</span>
@@ -964,14 +1102,27 @@ require(['plotly'], function(Plotly) {
 <section id="messketten-empfindlichkeit-und-auflosung">
 <h2>Messketten-Empfindlichkeit und Auflösung<a class="headerlink" href="#messketten-empfindlichkeit-und-auflosung" title="Permalink to this headline">#</a></h2>
 <p><a id="SubSec-Messketten-Empfindlichkeit"></a></p>
-<p>Die wichtigste Kenngröße, die Empfindlichkeit der Messkette, kann analog einfach über Multiplikation berechnet werden. Das folgende Beispiel, im Bild dargestellt, zeigt, wie eine Temperatur über die Umwandlung in zuerst eine Spannung und dann in Stromstärke am Ende in eine analoge Anzeige gewandelt wird. Die Messketten-Empfindlichkeit ist, dass sich der Zeiger um 10 Skaleneinheiten weiter bewegt, wenn sich die Temperatur um 1°C verändert. Die <strong>Auflösung</strong> des Messsystems, also 0,5 Skaleneinheiten (was man typischerweise per Auge noch ablesen könnte) beträgt somit 0,05°C = 50mK.</p>
-<p><img alt="Bild" src="../_images/messketten_empf.png" /></p>
+<p>Die wichtigste Kenngröße, die Empfindlichkeit der Messkette, kann analog einfach über Multiplikation berechnet werden. Das folgende Beispiel, in <a class="reference internal" href="#gesamtkennlinie-bsp"><span class="std std-numref">Fig. 24</span></a> dargestellt, zeigt, wie eine Temperatur über die Umwandlung in zuerst eine Spannung und dann in Stromstärke am Ende in eine analoge Anzeige gewandelt wird. Die <strong>Messketten-Empfindlichkeit</strong> ist</p>
+<div class="math notranslate nohighlight">
+\[S = S_1\cdot S_2 \cdot ... S_n = \prod_{k=1}^n S_k\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(n\)</span> die Anzahl der Messglieder ist. Im Beispiel in <a class="reference internal" href="#gesamtkennlinie-bsp"><span class="std std-numref">Fig. 24</span></a> bewegt sich der Zeiger um 10 Skaleneinheiten weiter bewegt, wenn sich die Temperatur um 1°C verändert. Die <strong>Auflösung</strong> des Messsystems, also 0,5 Skaleneinheiten (was man typischerweise per Auge noch ablesen könnte) beträgt somit 0,05°C = 50mK.</p>
+<figure class="align-default" id="gesamtkennlinie-bsp">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/gesamtkennlinie_bsp.jpg"><img alt="gesamtkennlinie_bsp" class="bg-primary mb-1" src="../_images/gesamtkennlinie_bsp.jpg" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 24 </span><span class="caption-text">Beispiel für die kombinierte Empfindlichkeit einer Messkette.</span><a class="headerlink" href="#gesamtkennlinie-bsp" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 <section id="herabsetzen-des-messbereichs">
 <h2>Herabsetzen des Messbereichs<a class="headerlink" href="#herabsetzen-des-messbereichs" title="Permalink to this headline">#</a></h2>
 <p><a id="SubSec-Herabsetzen_des_Messbereichs"></a></p>
-<p>Ziel ist es, eine möglichst optimale Kennlinie zu erhalten, welche einer Geraden entspricht. Dadurch entstehen auch die wenigsten Kennenlinienfehler. Am Beispiel des Dehnungsmessstreifens (DMSs) soll dies einmal erläutert werden. Ein DMS ist nur für kleine Ausrenkungen linear, das heißt er zeigt ein stark nicht-lineares Verhalten wenn er über 1 mm ausgelenkt wird. Die Idee ist nun, den DMS ausschließlich in diesem Bereich zu benutzen. Dafür wird eine weitere Komponente in der Messkette benötigt, die an den DMS angelegte Eingsangsgröße auf einem bestimmten Bereich limitiert. Sollen auch größere Auslenkungen als 1 mm gemessen werden, so wird diese Komponente außerdem dafür sorgen, dass eine Verminderung der Auslenkung statt findet. Dies kann beispielsweise über eine Blattfeder realisiert werden. Diese nimmt große Auslenkungen auf und projiziert sie auf kleine Auslenkungen (in nachfolgender Grafik verkörper durch eine Komponenten mit Empfindlichkeit <span class="math notranslate nohighlight">\(S_0\)</span> &lt;&lt; 1), die dann mittels DMS gemessen werden können. Damit die Messgröße unverändert bleibt, dürfen wir am Ende die Verstärkung (<span class="math notranslate nohighlight">\(S_1\)</span> &gt;&gt; 1) nicht vergessen, sodass <span class="math notranslate nohighlight">\(S_0 \cdot S_1 = 1\)</span>. Dies nennt man auch <em>Kompensations-Bedingung</em>.</p>
-<p><img alt="Bild" src="../_images/messbereich.png" /></p>
+<p>Ziel ist es, eine möglichst optimale Kennlinie zu erhalten, welche einer Geraden entspricht. Dadurch entstehen auch die wenigsten Kennenlinienfehler. Am Beispiel des Dehnungsmessstreifens (DMSs) soll dies einmal erläutert werden. Ein DMS ist nur für kleine Ausrenkungen linear, das heißt er zeigt ein stark nicht-lineares Verhalten wenn er über 1 mm ausgelenkt wird. Die Idee ist nun, den DMS ausschließlich in diesem Bereich zu benutzen. Dafür wird eine weitere Komponente in der Messkette benötigt, die an den DMS angelegte Eingsangsgröße auf einem bestimmten Bereich limitiert. Sollen auch größere Auslenkungen als 1 mm gemessen werden, so wird diese Komponente außerdem dafür sorgen, dass eine Verminderung der Auslenkung statt findet. Dies kann beispielsweise über eine Blattfeder realisiert werden. Diese nimmt große Auslenkungen auf und projiziert sie auf kleine Auslenkungen (in <a class="reference internal" href="#messbereich-herabsetzen"><span class="std std-numref">Fig. 25</span></a> verkörpert durch eine Komponenten mit Empfindlichkeit <span class="math notranslate nohighlight">\(S_0\)</span> &lt;&lt; 1), die dann mittels DMS gemessen werden können. Damit die Messgröße unverändert bleibt, dürfen wir am Ende die Verstärkung (<span class="math notranslate nohighlight">\(S_1\)</span> &gt;&gt; 1) nicht vergessen, sodass <span class="math notranslate nohighlight">\(S_0 \cdot S_1 = 1\)</span>. Dies nennt man auch <em>Kompensations-Bedingung</em>.</p>
+<figure class="align-default" id="messbereich-herabsetzen">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/messbereich_herabsetzen.jpg"><img alt="messbereich_herabsetzen" class="bg-primary mb-1" src="../_images/messbereich_herabsetzen.jpg" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 25 </span><span class="caption-text">Beispiel für das Herabsetzen des Messbereichs. Die Messung mit einem Dehnungsmessstreifend (DMS) ist nur für kleine relative Längenänderungen <span class="math notranslate nohighlight">\(\Delta l / l\)</span> linear. Zusätzliche Komponenten, <span class="math notranslate nohighlight">\(S_1, S_2\)</span>, in der Messkette können so gewählt werden, dass auch größere Änderungen in <span class="math notranslate nohighlight">\(x\)</span> messbar werden, z.B. indem der DMS an eine Blattfeder angebracht wird, der die Messgröße <span class="math notranslate nohighlight">\(x\)</span> aufnimmt und in eine Änderung <span class="math notranslate nohighlight">\(\varepsilon\)</span> überführt. Eine Verstärker-Stufe sorgt für die Kompensation, sodass <span class="math notranslate nohighlight">\(S_0 \cdot S_1 = 1\)</span> gilt.</span><a class="headerlink" href="#messbereich-herabsetzen" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 </section>
 

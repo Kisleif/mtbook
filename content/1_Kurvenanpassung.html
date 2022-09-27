@@ -245,11 +245,6 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="2_Digital.html">
-     Digitalisierung
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="3_FourierAnalyse.html">
      Fourier-Analyse
     </a>
@@ -260,6 +255,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Digital.html">
+   Digitalisierung
+  </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="5_Dynamische_Messsysteme.html">
@@ -273,7 +273,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="5_LTI.html">
-     Linear zeitinvariante (LZI) Systeme
+     Linear zeitinvariante (LZI/LTI) Systeme
     </a>
    </li>
    <li class="toctree-l2">
@@ -844,9 +844,10 @@ title="Print to PDF"
 <h3>Least-Squares: Methode der kleinsten Quadrate <a id="SubSec-least_squares"></a><a class="headerlink" href="#least-squares-methode-der-kleinsten-quadrate-a-id-subsec-least-squares-a" title="Permalink to this headline">#</a></h3>
 <p>Laut Carl Friedrich Gauß kann also der Abstand der Funktionswerte zu den Messwerten wievolgt definiert werden:</p>
 <blockquote>
-<div><p>Methode der Gauß’schen Fehlerquadrate (Gütefunktion):
-$<span class="math notranslate nohighlight">\(Q := \sum_{i=1}^N \left( f(x_i) - y_i\right)^2 :=  \sum_{i=1}^N \epsilon_i^2 = \mathrm{min!}\)</span>$</p>
+<div><p>Methode der Gauß’schen Fehlerquadrate (Gütefunktion):</p>
 </div></blockquote>
+<div class="math notranslate nohighlight">
+\[Q := \sum_{i=1}^N \left( f(x_i) - y_i\right)^2 :=  \sum_{i=1}^N \epsilon_i^2 = \mathrm{min!}\]</div>
 <p>Die Gütefunktion, die gleichbedeutend mit den SQT ist, ist wieder so gewählt, dass sich Abweichungen aufgrund unterschiedliche Vorzeichen nicht aufheben können und dass größere Abweichungen stärker gewichtet werden (durch die Quadrierung). Die Modellfunktion <span class="math notranslate nohighlight">\(f(x)\)</span> wird bestimmt, indem das Minimierungsproblem gelöst wird. Dies kann entwedet analytisch geschehen (siehe <a class="reference external" href="#SubSec-Lineare_Modellanpassung">Lineare Modellanpassung</a>) oder man lässt sich die Regression mittels Software berechnen.</p>
 <p>Es handelt sich um ein <em>Minimierungsproblem</em> welches je nach Art der Modellfunktion unterschiedlich gelöst wird. Man sollte stets die Regressionsgerade zusammen mit den Datenpunkten in ein Diagramm zeichnen, um zu sehen, wie “gut” die Messdaten durch die Kurvenanpassung beschrieben werden.
 Je enger die Datenpunkte um die Regressionsgerade herum konzentriert sind, d. h. je kleiner also die Residuenquadrate sind, desto „besser“. Die Residuenquadrate sind meistens relativ klein, insbesondere dann, wenn die abhängige Variable sehr konstant ist. Das heißt man möchte eigentlich auch die Streuung der abhängigen Variablen mit ins Spiel bringen.
@@ -877,8 +878,11 @@ Sowohl die Streuung der Messwerte zum Mittelwert, als auch die der geschätzten 
 <p>Für das <strong>Bestimmtheitsmaß</strong> gelten folgenden Punkte:</p>
 <ul class="simple">
 <li><p>Es beschreibt den Anteil der Varianz einer abhängigen Variablen <span class="math notranslate nohighlight">\(y\)</span> durch ein statistisches Modell</p></li>
-<li><p>Es ist nur für lineare Regressionen eindeutig definiert:
-$<span class="math notranslate nohighlight">\(\mathit{R}^2 = r^2 (=\textrm{Korrelation}^2)\)</span>$</p></li>
+<li><p>Es ist nur für lineare Regressionen eindeutig definiert:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\mathit{R}^2 = r^2 (=\textrm{Korrelation}^2)\]</div>
+<ul class="simple">
 <li><p>Es kann bedingt zur Beschreibung der Güte einer Regression verwendet werden.</p></li>
 <li><p>Das Verhältnis der beiden Größen SQE und SQT wird das <strong>Bestimmtheitsmaß</strong> der Regression genannt und gibt an, wie gut die gefundene geschätzte Modellfunktion zu den Messdaten passt, oder wie gut sich die Regression an die Daten annähert.</p></li>
 </ul>

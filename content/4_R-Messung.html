@@ -709,6 +709,28 @@ title="Print to PDF"
    Messabweichungen aufgrund von Kabeln
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bruckenschaltungen">
+   Brückenschaltungen
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#viertelbrucke-ausschlagsbrucke">
+     Viertelbrücke / Ausschlagsbrücke
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#halbbrucke">
+     Halbbrücke
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vollbrucke">
+     Vollbrücke
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
     </nav>
@@ -748,6 +770,28 @@ title="Print to PDF"
    Messabweichungen aufgrund von Kabeln
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bruckenschaltungen">
+   Brückenschaltungen
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#viertelbrucke-ausschlagsbrucke">
+     Viertelbrücke / Ausschlagsbrücke
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#halbbrucke">
+     Halbbrücke
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vollbrucke">
+     Vollbrücke
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
                         </nav>
@@ -767,7 +811,7 @@ Für die Messung eines ohmschen Widerstands nutzen wir folgende Formal</p>
 <p>Das heißt genau wie bei der Leistungsmessung, müssen wir auch hier Strom und Spannung gleichzeitig messen. Wie auch bei der Leistungsmessung gibt es hier strom- bzw. spannungsrichtige Anschaltungen der beiden Messeingänge.</p>
 <section id="stromrichtige-widerstandsmessung">
 <h2>Stromrichtige Widerstandsmessung<a class="headerlink" href="#stromrichtige-widerstandsmessung" title="Permalink to this headline">#</a></h2>
-<p>In <code class="xref std std-numref docutils literal notranslate"><span class="pre">messung_stromrichtig</span></code> ist die stromrichtige Anschaltung zur Messung eines Widerstandswert gezeigt.</p>
+<p>In <a class="reference internal" href="#r-messung-stromrichtig"><span class="std std-numref">Fig. 52</span></a> ist die stromrichtige Anschaltung zur Messung eines Widerstandswert gezeigt.</p>
 <figure class="align-default" id="r-messung-stromrichtig">
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/R-messung_stromrichtig.jpg"><img alt="R-messung_stromrichtig" class="bg-primary mb-1" src="../_images/R-messung_stromrichtig.jpg" style="width: 200px;" /></a>
 <figcaption>
@@ -792,20 +836,28 @@ Bei der stromrichtigen Anschaltung wird also der Innenwiderstand des Strommessei
 <p>Angenommen der Strommesseingang hat einen Innenwiderstand <span class="math notranslate nohighlight">\(R_A\)</span> und der Spannungsmesseingang <span class="math notranslate nohighlight">\(R_V\)</span>, dann gilt für die Messung:</p>
 <div class="math notranslate nohighlight">
 \[R = \frac{U}{I} = \frac{U_{R_x}}{I_{R_V} + I_{R_x}} = \frac{R_x}{\frac{I_{R_V}}{I_{R_x}} + 1} = \frac{R_x}{\frac{R_x}{R_V} + 1}\]</div>
-<p>Jetzt wird ein <strong>zu kleiner</strong> Widerstandwert gemessen, der wieder korrigiert werden muss.
-Ist der gesuchte Widerstandswert <span class="math notranslate nohighlight">\(R_x\)</span> sehr viel kleiner als <span class="math notranslate nohighlight">\(R_V\)</span>, so liefert die spannungsrichtige Anschaltung kleinere Messabweichungen. Dies ist bei den meisten resistiven Sensoren der Fall, aber nicht immer.</p>
+<p>Jetzt wird ein <strong>zu kleiner</strong> Widerstandwert gemessen, der wieder korrigiert werden muss.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ist der gesuchte Widerstandswert <span class="math notranslate nohighlight">\(R_x\)</span> sehr viel kleiner als <span class="math notranslate nohighlight">\(R_V\)</span>, so liefert die spannungsrichtige Anschaltung kleinere Messabweichungen. Dies ist bei den meisten resistiven Sensoren der Fall, aber nicht immer.</p>
+</div>
 </section>
 <section id="widerstandsmessung-mittels-2-spannungsmessungen">
 <h2>Widerstandsmessung mittels 2 Spannungsmessungen<a class="headerlink" href="#widerstandsmessung-mittels-2-spannungsmessungen" title="Permalink to this headline">#</a></h2>
 <p>Für diese Methode benötigt man einen Referenzwiderstand <span class="math notranslate nohighlight">\(R\)</span>, der in Reihe zu dem gesuchten Widerstand geschaltet wird, wie in <a class="reference internal" href="#r-messung-2"><span class="std std-numref">Fig. 54</span></a> dargestellt, und zwei Spannungsmesseingänge.</p>
 <figure class="align-default" id="r-messung-2">
-<a class="bg-primary mb-1 reference internal image-reference" href="../_images/R-messung_2.jpg"><img alt="R-messung_2" class="bg-primary mb-1" src="../_images/R-messung_2.jpg" style="width: 200px;" /></a>
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/R-messung_2.jpg"><img alt="R-messung_2" class="bg-primary mb-1" src="../_images/R-messung_2.jpg" style="width: 300px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 54 </span><span class="caption-text">Spannungsrichtige Schaltung zur Messung elektrischer Widerstände.</span><a class="headerlink" href="#r-messung-2" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 54 </span><span class="caption-text">Widerstandsmessung mittels 2 Spannungsmessungen (ohne Strommesseingang).</span><a class="headerlink" href="#r-messung-2" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Dies hat den Vorteil, dass auf eine Strommessung verzichtet werden kann, die meistens ungenauer ist als eine Spannungsmessung, da der Strom durch Umformung erstmal in eine Spannung gewandelt werden muss. Zudem ist es schwierig kleine Innenwiderstände in Strommesseingängen zu realisieren.</p>
-<p>Angenommen, beide Spannungsmesseingänge habe einen Innenwiderstand von <span class="math notranslate nohighlight">\(R_V\)</span>, so kann das Verhältnis der beiden Spannungsmessungen wiefolgt berechnet werden:</p>
+<p>Angenommen, beide Spannungsmesseingänge habe einen Innenwiderstand von <span class="math notranslate nohighlight">\(R_V\)</span>, so kann die Spannung in jedem System bestimmt werden:</p>
+<div class="math notranslate nohighlight">
+\[U_x = \frac{R_x \cdot R_V}{R_x + R_v}\]</div>
+<div class="math notranslate nohighlight">
+\[U_R = \frac{R \cdot R_V}{R + R_v}\]</div>
+<p>Für das Verhältnis der beiden Spannungen folgt:</p>
 <div class="math notranslate nohighlight">
 \[\frac{U_R}{U_x} = \frac{ \frac{R R_V}{R + R_V} }{\frac{R_x R_V}{R_x + R_V}} = \frac{R}{R_x} \cdot \frac{\frac{R_x}{R_V}+1}{\frac{R}{R_V}+1} \approx \frac{R}{R_x}\]</div>
 <p>wodurch man für den gesuchten Wert folgenden zusammenhang erhält:</p>
@@ -816,6 +868,214 @@ Ist <span class="math notranslate nohighlight">\(R_V\)</span> unbekannt, so lief
 </section>
 <section id="messabweichungen-aufgrund-von-kabeln">
 <h2>Messabweichungen aufgrund von Kabeln<a class="headerlink" href="#messabweichungen-aufgrund-von-kabeln" title="Permalink to this headline">#</a></h2>
+<p>Dieses Beispiel haben wir bereit im Kapitel <a class="reference internal" href="1_Messunsicherheiten.html"><span class="doc std std-doc">Messunsicherheiten</span></a> behandelt und wollen wir der Vollständigkeitshalber hier nur noch einmal aufführen.</p>
+<p>Aufgrund der Innenwiderstände von Kabeln wird ein zu hoher Widerstandswert bemessen, der entsprechen korrigiert werden muss:</p>
+<div class="math notranslate nohighlight">
+\[R_L = \frac{\zeta \cdot l}{A}\]</div>
+<p>Hierbei ist <span class="math notranslate nohighlight">\(\zeta\)</span> der spezifische Widerstand, der für Kupfer <span class="math notranslate nohighlight">\(0,0175\,\mathrm{\Omega mm^2/m}\)</span> beträgt. <span class="math notranslate nohighlight">\(l\)</span> ist die Länge der Zuleitung und <span class="math notranslate nohighlight">\(A\)</span> der Querschnittfläche des Kabels.</p>
+<p>Eine weitere Korrekturmöglichkeit ist hierbei die <strong>Vierleitertechnik</strong>, die eine Bestimmung des Kabelwiderstands nicht mehr benötigt. Das Kabel weist hier 4 Adern auf. An zwei Adern wird der Sensor/Widerstand mit einer Spannungsquelle verbunden, wodurch ein Stromfluss <span class="math notranslate nohighlight">\(I\)</span> generiert wird. An die anderen beiden Adern wird ein Spannungsmesseingang angeschlossen, um den Spannungsabfalll am Sensor/Widerstand zu messen. Aufgrund der hohen Innenwiderstands im Spannungsmesseingang fließt hier praktisch kein Strom, wodruch auch über die Kabellänge keine zusätzliche Spannung abfällt. Trotzdem wird Spannung direkt am Sensor/Widerstand gemessen und der Messwert <span class="math notranslate nohighlight">\(R_x\)</span> kann bestimmt werden:</p>
+<div class="math notranslate nohighlight">
+\[R_x = \frac{U}{I}\]</div>
+</section>
+<section id="bruckenschaltungen">
+<h2>Brückenschaltungen<a class="headerlink" href="#bruckenschaltungen" title="Permalink to this headline">#</a></h2>
+<p>Um Messabweichungen bei der Widerstandsmessung zu vermeiden, kommen häufig Brückenschaltungen zum Einsatz. In <code class="xref std std-numref docutils literal notranslate"><span class="pre">R-bruecke</span></code> ist eine Wheatstone’sche Messbrücke gezeigt, die aus zwei parallelgeschalteten Spannungsteilern, <span class="math notranslate nohighlight">\(R_1, R_2\)</span> und <span class="math notranslate nohighlight">\(R_3, R_4\)</span> besteht. Die Verbindung zwischen dem <em>oberen</em> und <em>unteren</em> Spannungsteiler wird <strong>Brücke</strong> genannt. Die Gesamtspannung teilt sich an den Widerständen auf. Ist das Verhältnis in beiden Spannungsteilern gleich, dann haben beide das gleiche Potential und an der Brücke fällt keine Spannung ab. Gibt es hingegen einen Potentialunterschied, so fließt ein Strom zwischen den beiden Spannungsteilern und es fällt die sogenannte <strong>Brückenspannung, oder auch Diagonalspannung <span class="math notranslate nohighlight">\(U_d\)</span></strong> ab.</p>
+<figure class="align-default" id="r-bruecke">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/R-bruecke.jpg"><img alt="R-bruecke" class="bg-primary mb-1" src="../_images/R-bruecke.jpg" style="width: 200px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 55 </span><span class="caption-text">Widerstandsbrücke.</span><a class="headerlink" href="#r-bruecke" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Für die Einzelspannungen in den Spannungsteilern gilt:</p>
+<div class="math notranslate nohighlight">
+\[U_1 = \frac{R_1}{R_1+R_2}U_0\]</div>
+<div class="math notranslate nohighlight">
+\[U_3 = \frac{R_3}{R_3+R_4}U_0\]</div>
+<p>Hieraus kann die Diagonalspannung berechnet werden, die zugleich auch die <strong>Kennlinie</strong> der Messbrücke ist:</p>
+<div class="math notranslate nohighlight">
+\[U_d = U_3-U_1 = \frac{R_2R_3-R_1R_4}{(R_1+R_2)(R_3+R_4)}U_0\]</div>
+<p>Damit die Brücke im Gleichgewicht ist muss <span class="math notranslate nohighlight">\(U_d = 0\)</span> gelten:</p>
+<div class="math notranslate nohighlight">
+\[U_d = \frac{R_2R_3-R_1R_4}{(R_1+R_2)(R_3+R_4)}U_0 = 0\]</div>
+<p>Es folgt also:</p>
+<div class="math notranslate nohighlight">
+\[R_2R_3-R_1R_4 = 0\]</div>
+<p>und daraus die Abgleichbedingung:</p>
+<div class="math notranslate nohighlight">
+\[\frac{R_1}{R_2} = \frac{R_3}{R_4}\]</div>
+<p>In beiden Spannungsteilern muss also das gleiche Widerstandsverhältnis gelten. Sollte sich einer der Widerstandswerte ändern, so ist die Brücke nicht mehr im Gleichgewicht und es fließt ein Ausgleichsstrom.</p>
+<p>Dies ist eine sehr empfindliche Anordnung, die auf kleinste Widerstandsänderungen reagiert und sofort einen messbaren Stromfluss bzw. Spannung generiert. Daher wird sie in der Messtechnik sehr häufig benutzt, in dem beispielsweise einer der Widerstände durch einen Sensor/Halbleiterbauelement ausgetauscht wird. Der Halbleiter reagiert auf Temperatur, Luftfeuchte, Licht oder ähnliches und ein Stromfluss, oder Potentialdifferenz, ist sofort messbar.</p>
+<p><strong>Limitierungen</strong> bestehen in der Genauigkeit der Spannungsmessung und es kann unter Umständen aufwendig sein die Widerstandswerte anzupassen und zu wechseln.</p>
+<section id="viertelbrucke-ausschlagsbrucke">
+<h3>Viertelbrücke / Ausschlagsbrücke<a class="headerlink" href="#viertelbrucke-ausschlagsbrucke" title="Permalink to this headline">#</a></h3>
+<p>Die einfachste Brückenschaltung ist die Viertelbrücke. Nur ein Vertiel aller vier Widerstände ist hierbei veränderlich, nämlich genau einer. Hier wird dann z.B. ein Sensor eingebaut, dessen Widerstand <span class="math notranslate nohighlight">\(R_x\)</span> sich in Abhängigkeit von einer Messgröße <span class="math notranslate nohighlight">\(x\)</span> ändert. Die anderen drei Widerstände haben feste, gleiche Widerstandswerte <span class="math notranslate nohighlight">\(R\)</span>. Der genaue Wert von <span class="math notranslate nohighlight">\(R\)</span> muss richtig bestimmt werden. Eine Gleichspannungsquelle wird an diese Brücke angelegt und erzeugt die Brückenspannung <span class="math notranslate nohighlight">\(U_d\)</span>.</p>
+<figure class="align-default" id="id1">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/R-bruecke.jpg"><img alt="R-bruecke" class="bg-primary mb-1" src="../_images/R-bruecke.jpg" style="width: 200px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 56 </span><span class="caption-text">Widerstandsmessung mittels 2 Spannungsmessungen (ohne Strommesseingang).</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Angenommen, der zu messende Widerstandswert <span class="math notranslate nohighlight">\(R_x = R(x)\)</span> setzt sich aus einem Grundwert <span class="math notranslate nohighlight">\(R\)</span> und einer kleinen Widerstandsänderung <span class="math notranslate nohighlight">\(\Delta R(x)\)</span> zusammen. Die Widerstandsänderung <span class="math notranslate nohighlight">\(\Delta R(x)\)</span> ändert sich in Abhängigkeit von der zu messenden Messgröße <span class="math notranslate nohighlight">\(x\)</span>. Wenn keine Messgröße angelegt ist, also <span class="math notranslate nohighlight">\(x=0\)</span>, nimmt <span class="math notranslate nohighlight">\(R(x)\)</span> den Grundwert <span class="math notranslate nohighlight">\(R\)</span> an. Es gilt:</p>
+<div class="math notranslate nohighlight">
+\[R(x) = R + \Delta R(x)\]</div>
+<p>Für die Brücke selber können wir wieder die Kennlinie auffschreiben. Hierfür benutzen wir die obige Formel und setzen die Widerstandswerte
+<span class="math notranslate nohighlight">\(R_2 = R(x) = R + \Delta R(x)\)</span> und <span class="math notranslate nohighlight">\(R_1 = R_3 = R_4 = R\)</span> ein. Die drei Brückenwiderstände müssen dabei immer dem Grundwert <span class="math notranslate nohighlight">\(R\)</span> des zu messen Widerstands entsprechen, <span class="math notranslate nohighlight">\(R(x)\)</span>! Dadurch erhalten wir:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+U((x)) &amp;= U_0 \cdot \left( \frac{R(x)}{R(x) + R} - \frac{1}{2} \right) \\
+&amp;= U_0 \cdot \frac{\Delta R(x)}{2 \cdot (2R + \Delta R(x))}
+\end{align}
+\end{split}\]</div>
+<p>beziehungsweise nach Umstellen:</p>
+<div class="math notranslate nohighlight">
+\[\frac{U(x)}{U_0} = \frac{\frac{\Delta R(x)}{R}}{2 \cdot \left( 2 + \frac{\Delta R(x)}{R}\right)}\]</div>
+<p>Der Zusammenhang ist im folgenden Plot dargestellt:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Benötigte Libraries:</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="c1"># MatplotLib Settings:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
+
+<span class="n">ratio_R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># Zeitwerte der Sinusfunktion in sec</span>
+<span class="n">ratio_U</span> <span class="o">=</span> <span class="n">ratio_R</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="n">ratio_R</span><span class="p">))</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ratio_R</span><span class="p">,</span><span class="n">ratio_U</span><span class="p">,</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\Delta R / R$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$U/U_0$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/4_R-Messung_3_0.png" src="../_images/4_R-Messung_3_0.png" />
+</div>
+</div>
+<p>Ist kein Messeffekt vorhanden, d.h. <span class="math notranslate nohighlight">\(\Delta R = 0\)</span>, dann ist <span class="math notranslate nohighlight">\(U_d = 0\)</span>. Dadurch kann die Brücke gut auf den Nullpunkt <em>kalibriert</em> werden. Außerdem sieht man, dass für eine postive Änderung von <span class="math notranslate nohighlight">\(\Delta R\)</span> sich auch die Spannung in positive Richtung ändert. Das Vorzeichen kann man umkehren, indem man beispielsweise statt des Widerstands <em>oben recht</em> den <em>unten links</em> durch <span class="math notranslate nohighlight">\(R(x)\)</span> ersetzt oder die Versorgungsspannung <span class="math notranslate nohighlight">\(U_0\)</span>, oder Brückenspannung <span class="math notranslate nohighlight">\(U_d\)</span>, umpolt. Die Kennlinie ist allerdings <strong>nicht linear</strong>. Solange die Änderungen in klein sind, <span class="math notranslate nohighlight">\(\levert \Delta R \revert &lt;&lt; R\)</span>, ist dies nicht schlimm. Auf kleinen Skalen verhält sie sich fast linear, wie z.B. Nahe des Nullpunkts und es gilt:</p>
+<div class="math notranslate nohighlight">
+\[U(x) \approx \frac{U_0}{4R}\cdot \Delta R(x)\]</div>
+<p>Gilt die Bedingung <span class="math notranslate nohighlight">\(\levert \Delta R \revert &lt;&lt; R\)</span> nicht mehr, da die Dynamiken der Messgröße zu groß sind, müssen Korrekturstufen nachgeschaltet werden.</p>
+</section>
+<section id="halbbrucke">
+<h3>Halbbrücke<a class="headerlink" href="#halbbrucke" title="Permalink to this headline">#</a></h3>
+<p>Stehen einem zwei baugleiche zu messende Widerstände/Sensoren zur Verfügung, die die Messgröße <span class="math notranslate nohighlight">\(x\)</span> in jeweils entgegensetzter Richtung aussteuert, können diese mit einer Halbbrücken-Schaltung ausgelesen werden. Betragsmäßig führt <span class="math notranslate nohighlight">\(x\)</span> zu der gleichen Widerstandsänderung, jedoch mit entgegengesetztem Vorzeichen.
+Das heißt als Ausgangsspannung, bzw. Kennlinie, erhalten wir nun</p>
+<div class="math notranslate nohighlight">
+\[\frac{U(x)}{U_0} = \frac{\Delta R(x)}{2R}\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Aufgabe</p>
+<p>Leite die Gleicung für die Kennlinie einer Halbbrücke her.</p>
+</div>
+<p>Der Zusammenhang ist im folgenden Plot dargestellt:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Benötigte Libraries:</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="c1"># MatplotLib Settings:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
+
+<span class="n">ratio_R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># Zeitwerte der Sinusfunktion in sec</span>
+<span class="n">ratio_U</span> <span class="o">=</span> <span class="n">ratio_R</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ratio_R</span><span class="p">,</span><span class="n">ratio_U</span><span class="p">,</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\Delta R / R$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$U/U_0$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/4_R-Messung_6_0.png" src="../_images/4_R-Messung_6_0.png" />
+</div>
+</div>
+<p>Dadurch erhält man drei Vorteile:</p>
+<ul class="simple">
+<li><p>die Kennlinie ist über den kompletten Bereich linear</p></li>
+<li><p>die Ausgangsspannung ist doppelt so groß wie bei der Viertelbrücke und liefert somit bessere Signalqualität</p></li>
+<li><p>Störgrößen, die auf die zu messenden Widerstände/Sensoren <span class="math notranslate nohighlight">\(R(x)\)</span> wirken haben keinen großen Einfluss auf die Kennlinie, solange es sich um kleine Widerstandsänderungen (<span class="math notranslate nohighlight">\(&lt;&lt; R\)</span>) handelt</p></li>
+</ul>
+<div class="tip admonition">
+<p class="admonition-title">Aufgabe</p>
+<p>Nimm an, dass eine Temperaturänderung in gleicher Weise auf die Widerstandswerte/Sensoren einwirkt:</p>
+<div class="math notranslate nohighlight">
+\[R_1(x) = R + \Delta R(x) + \Delta R(T)\]</div>
+<div class="math notranslate nohighlight">
+\[R_2(x) = R - \Delta R(x) + \Delta R(T)\]</div>
+<p>Was folgt dann für die Aussgangsspannung <span class="math notranslate nohighlight">\(U(x)\)</span>, insbesondere für kleine Temperatureinflüsse <span class="math notranslate nohighlight">\(\lvert \Delta R(T) &lt;&lt; R \rvert\)</span>?</p>
+</div>
+<p>Aufgrund der Störgrößenunterdrückung sollte man eine Halbbrücke immer der Viertelbrücke vorziehen, insofern eine entgegengesetzt Aussteuerung der Widerstände/Sensoren möglich ist. Häufig werden Dehnungsmessstreifen in einer solchen Halbbrücke betrieben.</p>
+</section>
+<section id="vollbrucke">
+<h3>Vollbrücke<a class="headerlink" href="#vollbrucke" title="Permalink to this headline">#</a></h3>
+<p>Bringt man nun an jeden der 4 Positionen einen Sensor an, so nennt man dies die Vollbrücke. Für die Kennlinie gilt</p>
+<div class="math notranslate nohighlight">
+\[\frac{U(x)}{U_0} = \frac{\Delta R(x)}{R}\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Aufgabe</p>
+<p>Leite die Gleicung für die Kennlinie einer Vollbrücke her.</p>
+</div>
+<p>Der Zusammenhang ist im folgenden Plot dargestellt:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Benötigte Libraries:</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="c1"># MatplotLib Settings:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
+
+<span class="n">ratio_R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># Zeitwerte der Sinusfunktion in sec</span>
+<span class="n">ratio_U</span> <span class="o">=</span> <span class="n">ratio_R</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ratio_R</span><span class="p">,</span><span class="n">ratio_U</span><span class="p">,</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\Delta R / R$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$U/U_0$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/4_R-Messung_8_0.png" src="../_images/4_R-Messung_8_0.png" />
+</div>
+</div>
+<p>Die Ausgangsspannung ist gegenüber der Halbbrücke noch ein weiteres mal verdoppelt. Mit einer externen Störgröße, <span class="math notranslate nohighlight">\(\Delta R(T)\)</span>, <span class="math notranslate nohighlight">\(R(x) = R + \pm \Delta R(x) + \Delta R(T)\)</span> ergibt sich folgender Zusammenhang:</p>
+<div class="math notranslate nohighlight">
+\[\frac{U(x)}{U_0} = \frac{\Delta R(x)}{R + \Delta R(T)} \approx \frac{\Delta R(x)}{R}\]</div>
+<p>wobei im letzten Schritt wieder angenommen wurdem dass es sich um kleine Störeffekte handelt, <span class="math notranslate nohighlight">\(\Delta R(T) &lt;&lt; R\)</span>.
+Störgrößen werden also auch in einer Vollbrücke kompensiert.</p>
+</section>
 </section>
 </section>
 

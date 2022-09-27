@@ -51,6 +51,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Frequenzmessung" href="4_F-Messung.html" />
@@ -243,11 +245,6 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="2_Digital.html">
-     Digitalisierung
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="3_FourierAnalyse.html">
      Fourier-Analyse
     </a>
@@ -258,6 +255,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Digital.html">
+   Digitalisierung
+  </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="5_Dynamische_Messsysteme.html">
@@ -271,7 +273,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="5_LTI.html">
-     Linear zeitinvariante (LZI) Systeme
+     Linear zeitinvariante (LZI/LTI) Systeme
     </a>
    </li>
    <li class="toctree-l2">
@@ -665,12 +667,51 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stromrichtige-widerstandsmessung">
+   Stromrichtige Widerstandsmessung
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spannungsrichtige-widerstandsmessung">
+   Spannungsrichtige Widerstandsmessung
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#widerstandsmessung-mittels-2-spannungsmessungen">
+   Widerstandsmessung mittels 2 Spannungsmessungen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#messabweichungen-aufgrund-von-kabeln">
+   Messabweichungen aufgrund von Kabeln
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -682,6 +723,34 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stromrichtige-widerstandsmessung">
+   Stromrichtige Widerstandsmessung
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spannungsrichtige-widerstandsmessung">
+   Spannungsrichtige Widerstandsmessung
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#widerstandsmessung-mittels-2-spannungsmessungen">
+   Widerstandsmessung mittels 2 Spannungsmessungen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#messabweichungen-aufgrund-von-kabeln">
+   Messabweichungen aufgrund von Kabeln
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -691,6 +760,63 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="widerstandsmessung">
 <h1>Widerstandsmessung<a class="headerlink" href="#widerstandsmessung" title="Permalink to this headline">#</a></h1>
+<p>Vielen Sensoren, die wir auch noch im Kapitel <a class="reference internal" href="6_Einf%C3%BChrung.html"><span class="doc std std-doc">Sensoren</span></a> kennenlernen werden, sind <strong>resistive Sensoren</strong>. Das heißt deren Widerstandverhalten ändert sich aufgrund der zu messenden Größe, wie z.B. Temperatur, Luftfeuchtigkeit oder Einstrahlung.
+Für die Messung eines ohmschen Widerstands nutzen wir folgende Formal</p>
+<div class="math notranslate nohighlight">
+\[R = \frac{U}{I}\]</div>
+<p>Das heißt genau wie bei der Leistungsmessung, müssen wir auch hier Strom und Spannung gleichzeitig messen. Wie auch bei der Leistungsmessung gibt es hier strom- bzw. spannungsrichtige Anschaltungen der beiden Messeingänge.</p>
+<section id="stromrichtige-widerstandsmessung">
+<h2>Stromrichtige Widerstandsmessung<a class="headerlink" href="#stromrichtige-widerstandsmessung" title="Permalink to this headline">#</a></h2>
+<p>In <code class="xref std std-numref docutils literal notranslate"><span class="pre">messung_stromrichtig</span></code> ist die stromrichtige Anschaltung zur Messung eines Widerstandswert gezeigt.</p>
+<figure class="align-default" id="r-messung-stromrichtig">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/R-messung_stromrichtig.jpg"><img alt="R-messung_stromrichtig" class="bg-primary mb-1" src="../_images/R-messung_stromrichtig.jpg" style="width: 200px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 52 </span><span class="caption-text">Stromrichtige Schaltung zur Messung elektrischer Widerstände.</span><a class="headerlink" href="#r-messung-stromrichtig" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Angenommen der Strommesseingang hat einen Innenwiderstand <span class="math notranslate nohighlight">\(R_A\)</span> und der Spannungsmesseingang <span class="math notranslate nohighlight">\(R_V\)</span>, dann gilt für die Messung:</p>
+<div class="math notranslate nohighlight">
+\[R = \frac{U}{I} = \frac{U_{R_A} + U_{R_x}}{I} = R_A + R_x\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(R_x\)</span> der gesuchte Messwert ist.
+Bei der stromrichtigen Anschaltung wird also der Innenwiderstand des Strommesseingangs <span class="math notranslate nohighlight">\(R_A\)</span> mitgemessen. Wie schon vorher bei der Leistungsmessung erläutert, handelt es sich auch hierbei um einen systematischen Fehler, der korrigiert werden sollte. Mittels Testmessung oder Herstellerangaben sollte <span class="math notranslate nohighlight">\(R_A\)</span> bekannt sein und vom Messergebnis subtrahiert werden.</p>
+</section>
+<section id="spannungsrichtige-widerstandsmessung">
+<h2>Spannungsrichtige Widerstandsmessung<a class="headerlink" href="#spannungsrichtige-widerstandsmessung" title="Permalink to this headline">#</a></h2>
+<p>In <a class="reference internal" href="#r-messung-spannungsrichtig"><span class="std std-numref">Fig. 53</span></a> ist die stromrichtige Anschaltung zur Messung eines Widerstandswert gezeigt.</p>
+<figure class="align-default" id="r-messung-spannungsrichtig">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/R-messung_spannungsrichtig.jpg"><img alt="R-messung_spannungsrichtig" class="bg-primary mb-1" src="../_images/R-messung_spannungsrichtig.jpg" style="width: 200px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 53 </span><span class="caption-text">Spannungsrichtige Schaltung zur Messung elektrischer Widerstände.</span><a class="headerlink" href="#r-messung-spannungsrichtig" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Angenommen der Strommesseingang hat einen Innenwiderstand <span class="math notranslate nohighlight">\(R_A\)</span> und der Spannungsmesseingang <span class="math notranslate nohighlight">\(R_V\)</span>, dann gilt für die Messung:</p>
+<div class="math notranslate nohighlight">
+\[R = \frac{U}{I} = \frac{U_{R_x}}{I_{R_V} + I_{R_x}} = \frac{R_x}{\frac{I_{R_V}}{I_{R_x}} + 1} = \frac{R_x}{\frac{R_x}{R_V} + 1}\]</div>
+<p>Jetzt wird ein <strong>zu kleiner</strong> Widerstandwert gemessen, der wieder korrigiert werden muss.
+Ist der gesuchte Widerstandswert <span class="math notranslate nohighlight">\(R_x\)</span> sehr viel kleiner als <span class="math notranslate nohighlight">\(R_V\)</span>, so liefert die spannungsrichtige Anschaltung kleinere Messabweichungen. Dies ist bei den meisten resistiven Sensoren der Fall, aber nicht immer.</p>
+</section>
+<section id="widerstandsmessung-mittels-2-spannungsmessungen">
+<h2>Widerstandsmessung mittels 2 Spannungsmessungen<a class="headerlink" href="#widerstandsmessung-mittels-2-spannungsmessungen" title="Permalink to this headline">#</a></h2>
+<p>Für diese Methode benötigt man einen Referenzwiderstand <span class="math notranslate nohighlight">\(R\)</span>, der in Reihe zu dem gesuchten Widerstand geschaltet wird, wie in <a class="reference internal" href="#r-messung-2"><span class="std std-numref">Fig. 54</span></a> dargestellt, und zwei Spannungsmesseingänge.</p>
+<figure class="align-default" id="r-messung-2">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/R-messung_2.jpg"><img alt="R-messung_2" class="bg-primary mb-1" src="../_images/R-messung_2.jpg" style="width: 200px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 54 </span><span class="caption-text">Spannungsrichtige Schaltung zur Messung elektrischer Widerstände.</span><a class="headerlink" href="#r-messung-2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Dies hat den Vorteil, dass auf eine Strommessung verzichtet werden kann, die meistens ungenauer ist als eine Spannungsmessung, da der Strom durch Umformung erstmal in eine Spannung gewandelt werden muss. Zudem ist es schwierig kleine Innenwiderstände in Strommesseingängen zu realisieren.</p>
+<p>Angenommen, beide Spannungsmesseingänge habe einen Innenwiderstand von <span class="math notranslate nohighlight">\(R_V\)</span>, so kann das Verhältnis der beiden Spannungsmessungen wiefolgt berechnet werden:</p>
+<div class="math notranslate nohighlight">
+\[\frac{U_R}{U_x} = \frac{ \frac{R R_V}{R + R_V} }{\frac{R_x R_V}{R_x + R_V}} = \frac{R}{R_x} \cdot \frac{\frac{R_x}{R_V}+1}{\frac{R}{R_V}+1} \approx \frac{R}{R_x}\]</div>
+<p>wodurch man für den gesuchten Wert folgenden zusammenhang erhält:</p>
+<div class="math notranslate nohighlight">
+\[R_x \approx R \cdot \frac{U_x}{U_R}\]</div>
+<p>Die beiden Widerstände <span class="math notranslate nohighlight">\(R\)</span> und <span class="math notranslate nohighlight">\(R_x\)</span> sollten hierbei ähnliche Werte haben. Je größe der Innenwiderstand <span class="math notranslate nohighlight">\(R_V\)</span> ist, desto besser gilt diese Näherungsformel.
+Ist <span class="math notranslate nohighlight">\(R_V\)</span> unbekannt, so liefert diese Methode deutlich kleine Messabweichungen im Vergleich zu den Methoden mit Strommessungen. Ist <span class="math notranslate nohighlight">\(R_V\)</span> bekannt, so können auch hier systematische Abweichungen korrigiert werden.</p>
+</section>
+<section id="messabweichungen-aufgrund-von-kabeln">
+<h2>Messabweichungen aufgrund von Kabeln<a class="headerlink" href="#messabweichungen-aufgrund-von-kabeln" title="Permalink to this headline">#</a></h2>
+</section>
 </section>
 
     <script type="text/x-thebe-config">

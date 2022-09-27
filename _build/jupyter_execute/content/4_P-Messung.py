@@ -53,7 +53,7 @@
 # In {numref}`spannungsrichtig_innen` ist die *spannungsrichtige* Beschaltung der Leistungsmessung gezeigt, wobei die Innenwiderstände der einzelnen Messgeräte, $R_V$ und $R_A$ angegeben sind. Der Verbraucher hat den Widerstand $R_L$ (Last-Widerstand). Rechts daneben ist ein Ersatzschaltbild der spannungsrichtigen Leistungsmessung skizziert. Die Spannung wird nun direkt (*richtig*) am Motor, an der Last, gemessen. 
 # 
 # :::{figure-md} spannungsrichtig_innen
-# <img src="draw/spannungsrichtig_innen.jpg" alt="spannungsrichtig_innen" class="bg-primary mb-1" width="500px" label = spannungsrichtig_innen>
+# <img src="draw/spannungsrichtig_innen.jpg" alt="spannungsrichtig_innen" class="bg-primary mb-1" width="550px" label = spannungsrichtig_innen>
 # 
 # Spannungsrichtige Schaltung zur Messung elektrischer Leistungen.
 # :::
@@ -260,7 +260,7 @@ plt.show()
 # Wenn man einen Verbraucher hat, der einen etwas höheren Leistungsverbrauch hat, wie z.B. Kochherde, werden diese üblicherweise nicht mit dem 230V-Wechselstromnetz betrieben. Statt dessen nutzt man den sogenannten **Drehtstrom (oder auch Dreiphasenwechselstrom, oder Kraftstrom)**. Maschinen in der Industrie werden fast nur mit Drehstrom betrieben. 
 # 
 # :::{figure-md} drehstrom_netz
-# <img src="draw/drehstrom_netz.jpg" alt="drehstrom_netz" class="bg-primary mb-1" width="200px" label = drehstrom_netz>
+# <img src="draw/drehstrom_netz.jpg" alt="drehstrom_netz" class="bg-primary mb-1" width="300px" label = drehstrom_netz>
 # 
 # Anschluss eines Verbrauchers, einer Last, an ein Drehtstromnetzwerk.
 # :::
@@ -336,7 +336,7 @@ plt.show()
 # In {numref}`drehstrom_wirk` ist dargestellt, wie die Wirkleistung in einem Drehstromnetzwerk gemessen wird. 
 # 
 # :::{figure-md} drehstrom_wirk
-# <img src="draw/drehstrom_wirk.jpg" alt="drehstrom_wirk" class="bg-primary mb-1" width="400px" label = drehstrom_wirk>
+# <img src="draw/drehstrom_wirk.jpg" alt="drehstrom_wirk" class="bg-primary mb-1" width="500px" label = drehstrom_wirk>
 # 
 # Messung der Wirkleistung in einem Drehstromnetzwerk.
 # :::

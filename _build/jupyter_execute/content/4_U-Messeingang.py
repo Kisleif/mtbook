@@ -31,7 +31,7 @@
 # Spannungsmesseingang an einer Schaltung mit Gleichspannung.
 # :::
 # 
-# Für diese Analyse muss stets die Schaltung und deren Komponenten berücksichtigt werden, an den der Spannungsmesseingang angeschlossen ist. In diesem Fall haben wir in {numref}`spannungsmesseingang_last` eine Spannungsteiler-Schaltung vorgeschaltet, die aus den Widerständen $R_1$ und $R_2$ besteht. Die Spannung $u$ soll mit einem Spannungsmesseingang bestimmt werden. Wie bereits erwähnt, spielt $C_i$ bei Gleichspannungen keine Rolle. In der folgenden Aufgabe sollt ihr einmal die Messabweichung bestimmen, die nur aufgrund des unvermeidlichen Hinzunehmens eines Spannungsmesseingangs eine signifikante, aber *bekannte*, Unsicherheit produzieren wird.
+# Für diese Analyse muss stets die Schaltung und deren Komponenten berücksichtigt werden, an den der Spannungsmesseingang angeschlossen ist. In diesem Fall haben wir in {numref}`spannungsmesseingang_gleich` eine Spannungsteiler-Schaltung vorgeschaltet, die aus den Widerständen $R_1$ und $R_2$ besteht. Die Spannung $u$ soll mit einem Spannungsmesseingang bestimmt werden. Wie bereits erwähnt, spielt $C_i$ bei Gleichspannungen keine Rolle. In der folgenden Aufgabe sollt ihr einmal die Messabweichung bestimmen, die nur aufgrund des unvermeidlichen Hinzunehmens eines Spannungsmesseingangs eine signifikante, aber *bekannte*, Unsicherheit produzieren wird.
 # 
 # :::{admonition} Aufgabe
 # :class: tip
@@ -61,14 +61,22 @@ print('Die Messabweichung beträgt: ', (1-r_1/r_0)*100, '% = ', r_1/r_0*u-u,'V')
 # :::{admonition} Lösung
 # :class: tip, dropdown
 # Der Wert für $R_2$, nämlich $100\,\mathrm{k\Omega}$ ist im Vergleich zum Innenwiderstand von $R_i = 1\,\mathrm{M\Omega}$ sehr viel kleiner. D.h. wir bestimmen zunächst den Widerstandswert der Parallelschaltung bestehend aus $R_2$ und $R_i$:
+# 
 # $$R_\mathrm{2||i} = \frac{R_2 \cdot R_i}{R_2 + R_i} \approx 90,9\,\mathrm{k\Omega}$$
+# 
 # Dies ist schon mal etwas kleiner als der eigentlich Wert von $R_2$. 
 # Ohne Anlegen eines Messeingangs liegt das klassische Spannungsteilerverhältnis von 
+# 
 # $$r_0 = \frac{R_2}{R_1+R_2} = 0,5$$
+# 
 # Mit Messeingang liegt es bei:
+# 
 # $$r_1 = \frac{R_\mathrm{2||i}}{R_1+R_\mathrm{2||i}} = 0,48$$
+# 
 # Eine zu messende Spannung von $u=10\,\mathrm V$ würde entsprechend verringert ausfallen: 
+# 
 # $$\frac{r_1}{r_0}\cdot u = 9,523\,\mathrm{V}$$
+# 
 # Die Messabweichung beträgt -4,76% bzw. -0,476 V.
 # :::
 

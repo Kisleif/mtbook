@@ -85,10 +85,13 @@ print('Integral über die Häufigkeitsdichte: ',(bconts * np.diff(bedges)).sum()
 # 
 # - Der *Erwartungswert der quadratischen Abweichung der Einzelmessungen vom Mittelwert*, die **Varianz** $s^2$, 
 # lässt sich allgemein wie folgt schreiben:
+# 
 # $$\sigma^2  =  \frac{1}{m} \sum_{j=1}^m \left( x_j - \mu \right)^2$$
+# 
 # Der arithmetische Mittelwert zeichnet sich dadurch aus, dass für diesen Wert die Summe der Abweichungsquadrate minimal ist. Die Varianz hängt nicht von der Anzahl der Messungen ab. Die Streuung kann allein durch ein besseres Messverfahren verkleinert werden. Anschaulich ist das direkt nachvoll- ziehbar: Die „Punktwolke“ der Messergebnisse um den Mittelwert schmiegt sich nicht enger an den Mittelwert, nur weil häufiger gemessen wurde. Ein stark streuendes Messverfahren streut durch seine Wiederholung nicht weniger. 
 # 
 # - Unabhängig von der zugrundeliegenden Verteilung der Messwerte kann nun ein Maß für die Abweichung definiert werden, welche als **empirische Standardabweichung der Einzelmessungen** bekannt ist und sich aus der Quadratwurzel der Varianz berechnen lässt:
+# 
 # $$\sigma = \sqrt{\frac{1}{m} \sum_{j=1}^m (x_j - \mu)^2}$$
 # 
 # Man nehme beispielhaft die Messung einer Spannung. Die Messreihe ist im nachstehenden Bode-Block gegeben. Es wurden 15 wiederholte Messungen durchgeführt in denen 15x der Wert 1V gemessen werden sollte. Mittelwert, Standardabweichung der Einzelmessungen und Unsicherheit des Mittelwertes werden berechnet. 
@@ -127,8 +130,11 @@ plt.show()
 
 
 # - Du wirst bei deinen Messungen in der Regel weniger an der Streuung um den Mittelwert sondern mehr an der (geschätzten) Streuung der Messwerte um den (unbekannten) *wahren* Wert interessiert sein. Man schätzt diese Unsicherheit durch die empirische Varianz $s^2(x)$ der Messwerte der $x_j$ ab. Diese ist etwas größer, um den Faktor $m/(m − 1)$:
+# 
 # $$s^2 = \frac{1}{m-1} \sum_{j=1}^m (x_j - \overline x)^2$$
+# 
 # - Die empirische Standardabweichung $s(x)$ der Messwerte ist die Wurzel aus der empirischen Varianz:
+# 
 # $$s = \sqrt{\frac{1}{m-1} \sum_{j=1}^m (x_j - \overline x)^2}$$
 # 
 # > Welche der Größen s oder $\sigma$ du sinnvoll verwendest, hängt vom Einzelfall ab − wichtig ist, dass du dazu schreibst, welcher Wert verwendet wurde, damit die Leser die Argumentation nachvollziehen kann. Ein wenig spricht für die Verwendung $s$, da damit auch der etwas seltsame Fall einer Einzelmessung abgedeckt wird. Für m = 1 wäre $\sigma$ = 0, $s$ dagegen nicht definiert. Die zweite Aussage ist, bezogen auf die statistische Interpretation, sicher sinnvoller. Deshalb wird in diesem Skript $s$ verwendet.
@@ -137,7 +143,6 @@ plt.show()
 # Laut *Grenzertsatz* sind folglich auch die Mittelwerte (sollte man mehrere Stichproben aufnehmen) normalverteilt. Das heißt aus den verschiedenen Mittelwerten von $k$ Stichproben könnte theoretisch wieder ein Mitelwert berechnet werden. Außerdem kann analog die Standardabweichung der Mittelwerte berechnet werden:
 # 
 # $$s(\overline x) = \frac{s}{\sqrt{m}} = u_{\overline x}  = \sqrt{\frac{1}{m(m-1)} \sum_{j=1}^m (x_j - \overline x)^2}$$
-# 
 # 
 # Der Grenzwertsatz sagt aus, wenn man eine ausreichend große Stichprobe aus einer *Grundgesamtheit* nimmt, so wird der **Mittelwert der Stichprobe** näherungsweise dem **Mittelwert der Grundgesamtheit** entsprechen und sich somit dem *wahren* Wert annähern.  Die **Unsicherheit des Mittelwertes** einer Messreihe ist gegenüber der Abweichung der Einzelmessungen um den Faktor $\sqrt{m}$ reduziert. Der Grund dafür ist, dass sich statistisch ermittelte Unsicherheiten teilweise herausmitteln. 
 # 
@@ -272,13 +277,16 @@ print("Messergebnis (95%): (", round(mean,3), '+-',round(2*std/np.sqrt(m),3),') 
 # Ist die Zahl der Messwerte nur klein ($m \leq 25$) werden die aus der Normalverteilung berechneten Parameter ziemlich unsicher. Anfang des 20. Jh. veröffentlichte WILLIAM SEALY GOSSET unter dem Pseudonym „Student“ eine Verteilungsfunktion, die eine zuverlässigere Parameterschätzung auch für kleine Stichprobengrößen erlaubt. Für die Messwertanalyse ist folgender Teilaspekt von Bedeutung: Aus der Zahl $m$ der Messwerte und einem vorgegebenen Vertrauensbereich berechnen Sie einen Faktor $t(s=m-1, p=1-\alpha/2)$, der die Unsicherheitsintervalle aus der Normalverteilung korrigiert. 
 # Die unten stehende Quantil-Tabelle zeigt die zugehörigen Werte von $t$ in Abhängigkeit von der Messwertanzahl, und dem gewählten Vertrauensniveau, dass die geforderte statistische Sicherheit beschreibt:
 # 
+# :::{admonition} Tabelle der $s-p$-Quantile
+# :class: tip, dropdown
 # ![Bild](pictures/student-t.png)
+# :::
 # 
 # Die Interpretation der Quantil-Tabelle der Student-t Verteilung kann verwirrend sein. Statt der Anzahl der Messwerte $m$ wird die Anzahl der Freiheitsgrade $s = m-1$ angegeben. Und statt des zweiseitigen Vertrauensbereich $P = 1-\alpha$ wird der halbseitige Vertrauensbereich $p = 1-\alpha/2$ gewählt. Beide *Quantile* können aber über die eben angegebenen Formel einfach bestimmt werden.
 # 
 # Aus der empirischen Standardabweichung des Mittelwertes $s(\overline x)$ berechnet man beispielsweise:
 # 
-# $$u(\overline x) = t(s,p)\cdot s(\overline x) = t(s,p)\cdot \frac{s(x)}{\sqrt{m}}$$.
+# $$u(\overline x) = t(s,p) \cdot s(\overline x) = t(s,p) \cdot \frac{s(x)}{\sqrt{m}}$$
 # 
 # Desweiteren können Vertrauensbereiche unterschiedlicher Wahrscheinlichkeiten ineinander umgerechnet werden:
 # 
@@ -286,7 +294,9 @@ print("Messergebnis (95%): (", round(mean,3), '+-',round(2*std/np.sqrt(m),3),') 
 # 
 # Hierbei ist $\alpha$ das Signifikanzniveau, also die Irrtumswahrscheinlichkeit $\alpha = 1-P$, wobei $P$ die Wahrscheinlichkeit bzw. die geforderte statistische Sicherheit ist.
 # 
-# ### Beispiel: Student-t Verteilung <a id="SubSec-Beispiel_Student-t_Verteilung"></a>
+# 
+# :::{admonition} Beispiel zur Berechnung der Messabweichung einer Messreihe mittels Student-t Verteilung
+# :class: tip, dropdown
 # 
 # Für die Spannung-Messreihe aus dem oben aufgeführten Beispiel waren folgende Parameter gegeben:
 # * Anzahl der Messwerte $m=15$
@@ -310,18 +320,11 @@ print("Messergebnis (95%): (", round(mean,3), '+-',round(2*std/np.sqrt(m),3),') 
 # 
 # > $s = m-1 = 15-1 = 14$
 # 
-# Der $t$-Wert des korrigierten Vertrauebnsbereichs wird aus der Tabelle abgelesen:
+# Der $t$-Wert des korrigierten Vertrauensbereichs wird aus der Tabelle abgelesen:
 # 
 # $$t_{s;p} = t_{m-1; 1-\alpha/2} = t_{14; 0,975} = 2,145$$
 # 
 # Der Unterschied zum Vertrauensbereich, der aus der Normalverteilung hervorgeht, ist ein über 7% höherer Fehler.
-
-# In[6]:
-
-
-print((2.145-2)/2*100,'%')
-
-
 # Die Umrechnung dieses Vertrauensbereich in einen Vertrauensbereich mit einem anderen Vertrauenzniveau, z.B. von 95% zu 99%, wird im folgenden anhand dieses Beispiels verdeutlicht. Die Ergebnisse für 95% sind bekannt. Nun muss das Quantil für 99% (also $\alpha = $1%) bestimmt werden. Analog werden die $s = m-1 = 14$ und $p = 1-\alpha/2 = 1-0,005 = 0,995$ Quantile bestimmt und der $t-Wert$ aus der Tabelle abgelesen: 
 # 
 # $$t_{s;p} = t_{m-1; 1-\alpha/2} = t_{14; 0,995} = 2,977$$
@@ -336,13 +339,7 @@ print((2.145-2)/2*100,'%')
 # 
 # $$U = (0,994 \pm 0,018)\,\mathrm V \quad (99\%)$$
 
-# In[7]:
-
-
-print(0.013*2.977/2.145)
-
-
-# ## Normierte Normalverteilung
+# ## Normierte Normalverteilung 
 # 
 # Jede Normalverteilung kann in eine normierte Gaußverteilung transformiert werden. Der Übergang erfolgt mit einer Transformation, die die Messwerte normiert. Dadurch können die Verteilungen verschiedener Messwerte miteinander verglichen werden, unabhängig von deren physikalischen Einheit. 
 # 
@@ -353,15 +350,17 @@ print(0.013*2.977/2.145)
 # $$h(z) = \frac{1}{\sqrt{2\pi}}\mathrm e^{-\frac{z^2}{2 ^2}} $$
 # 
 # Der Flächeninhalt unterhalb dieser Verteilungsfunktion ist wieder auf 100% normiert, wenn von $\pm \infty$ integriert wird. Die Maximale Amplitude ist jetzt $1/\sqrt{2 \pi}$. Die $z$-Achse (vorher Messwerte $x$) ist jetzt dimensionslos (einheitenlos). Somit können mit normierten Gaußverteilungen verschiedene physikalische Größen auch von verschiedenen Messgeräten bezüglich ihrer Streuung verglichen werden. 
-# Folgende Tabelle zeigt die Wahrscheinlichkeiten für verschiedene $z-$Werte. Die Spalten geben die erste Nachkommastelle von $z$ an, die Zeilen die zweite:
+# Die Tabelle kann im folgenden Block angezeigt werden und gibt die Wahrscheinlichkeiten für verschiedene $z-$Werte. Die Spalten geben die erste Nachkommastelle von $z$ an, die Zeilen die zweite.
 # 
+# :::{admonition} Tabelle der normierten Wahrscheinlichkeiten in Abhängigkeit von $z$
+# :class: tip, dropdown
 # ![Bild](pictures/normalverteilung_tabelle.png)
-# 
-# :::{note} Beispiel: Wahrscheinlichkeit für Zutreffen eines Ereignisses mittels Gauß-Test 
-# :class: dropdown
+# :::
 # 
 # Als wichtigste Erkenntnis gilt es festzuhalten, dass zu jeder Aussage zu zufälligen Abweichungen die zugehörige Wahrscheinlichkeit für das Zutreffen dieser Aussage zwingend erforderlich ist. Dies sollte immer mit angegeben werden, wenn die Messabweichung angegeben wird. 
 # Messwertangaben ohne Aussage zur Wahrscheinlichkeit bezüglich der zufälligen Abweichungen sind in der betrieblichen Praxis nicht brauchbar!
+# 
+# ### Wahrscheinlichkeit für das Zutreffen eines Ereignisses mittels Gauß-Test 
 # 
 # Es soll im Folgenden ein Messsystem einer Abfüllanlage überprüft werden, die Flaschen sind jeweils mit 0,7 l Saftgetränk befüllt.
 # Aus Kalibrierungen ist bekannt, dass die Messwerte des Messsystems der Abfüllanlage normalverteilt mit einem Erwartungswert $\mu$ = 0,7 l und Standardabweichung $\sigma$ = 5 ml sind. 
@@ -385,16 +384,8 @@ print(0.013*2.977/2.145)
 # > $\phi(2) - \phi(-2) = 0,97725-0,02275 = 0,9545$
 # 
 # Mit einer Wahrscheinlichkeit von 95,45 % werden die Flaschen in der Abfüllanlage mit einem Inhalt von 0,69 l – 0,71 l befüllt. Dies entspricht auch genau der Wahrscheinlichkeit der $2\sigma$-Umgebung (siehe vorheriges Kapitel), was für $z = \pm 2$ natürlich auch so sein sollte. 
-# ::: 
-# 
 # 
 # 
 # ## Zusammenfassung zufälliger Unsicherheiten
 # 
 # ![Bild](pictures/zusammenfassung_zufaellig.png)
-
-# In[ ]:
-
-
-
-

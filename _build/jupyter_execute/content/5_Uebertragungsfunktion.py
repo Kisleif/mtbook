@@ -62,7 +62,14 @@
 # 
 # Nachdem wir nun die Übertragungsfunktion hergeleitet haben, wollen wir wissen, was wir aus dieser Funktion ableiten, bzw. von ihr lernen können. Zunächst einmal sehen wir, dass es sich um eine komplexe Zahl handelt. Wir für jede andere komplexe Zahl können wir also hier Amplitude und Phase bestimmen. Dazu formen wir $G$ in die typische Schreibe einer komplexen Zahl um, sodass Real- ($\mathrm{Re}$) und Imaginärteil ($\mathrm{Im}$) direkt abgelesen werden können. Hierfür erweitern wir $G$ typischer mit dem komplex Konjugierten:
 # 
-# $$G(j \omega) = \frac{1}{1+RC j \omega} = \frac{1}{1+RC j \omega} \cdot \frac{1-RC j \omega}{1-RC j \omega} = \frac{1-RC j \omega}{1- (RC \omega)^2} = \frac{1}{1- (RC \omega)^2} - j\frac{ RC \omega}{1- (RC \omega)^2}$$
+# $$
+# \begin{align}
+# G(j \omega) &= \frac{1}{1+RC j \omega} \\
+# &= \frac{1}{1+RC j \omega} \cdot \frac{1-RC j \omega}{1-RC j \omega}\\
+# &= \frac{1-RC j \omega}{1- (RC \omega)^2} \\
+# &= \frac{1}{1- (RC \omega)^2} - j\frac{ RC \omega}{1- (RC \omega)^2}
+# \end{align}
+# $$
 # 
 # * Die Amplitude wird wiefolgt berechnet, wobei $\tau = RC =: 1/\omega_0$
 # 

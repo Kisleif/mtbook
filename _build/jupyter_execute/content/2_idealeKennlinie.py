@@ -62,8 +62,6 @@
 # $$ R(T)= \frac{a}{1 + \mathrm e^{-k(T-T_c)}} $$
 # 
 # mit z.B. $k$ = 1.86/mK, $a$ = 0.224 Ohm und $T_c$ = 103.2 mK
-# 
-# ![Bild](pictures/bsp_kennlinie.png)
 
 # In[1]:
 
@@ -113,20 +111,20 @@ def R(T):
 #--------- Diagramme -------------
 f, axs = plt.subplots(1,3,figsize=(10,3))
 
-axs[0].plot(T_PT,R_PT(T_PT))
+axs[0].plot(T_PT,R_PT(T_PT), color = 'tab:blue')
 axs[0].set_xlabel('T/°C')
 axs[0].set_ylabel(r'R/$\Omega$')
 axs[0].set_title('Kaltleiter PT100')
 
-axs[1].plot(T_NTC-273.15,R_NTC(T_NTC, 2000)/1000, label = "B = 2000K")
-axs[1].plot(T_NTC-273.15,R_NTC(T_NTC, 4000)/1000, label = "B = 4000K")
-axs[1].plot(T_NTC-273.15,R_NTC(T_NTC, 6000)/1000, label = "B = 6000K")
+axs[1].plot(T_NTC-273.15,R_NTC(T_NTC, 2000)/1000, label = "B = 2000K", color = 'tab:blue')
+axs[1].plot(T_NTC-273.15,R_NTC(T_NTC, 4000)/1000, label = "B = 4000K", color = 'tab:red')
+axs[1].plot(T_NTC-273.15,R_NTC(T_NTC, 6000)/1000, label = "B = 6000K", color = 'tab:orange')
 axs[1].set_xlabel('T/°C')
 axs[1].set_ylabel(r'R/k$\Omega$')
 axs[1].set_title('Heißleiter NTC')
 axs[1].legend()
 
-axs[2].plot(T,R(T)*1000)
+axs[2].plot(T,R(T)*1000, color = 'tab:blue')
 axs[2].set_xlabel('T/mK')
 axs[2].set_ylabel(r'R/m$\Omega$')
 axs[2].set_title('Transition Edge Sensor')

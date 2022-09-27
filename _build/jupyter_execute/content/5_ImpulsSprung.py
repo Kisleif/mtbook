@@ -6,6 +6,8 @@
 # 
 # Bei dem Prinzip der black box kenne ich das Innenleben meines Messsystems nicht, und ich kann lediglich mittels Messungen darauf zurück schließen. Je nachdem, welches Signal an den Eingang angelegt wird, erhalte ich ein andere Ausgangssignal. Dies ist in den beiden Bildern aus dem vorausgegangenen Kapitel deutlich zu erkenne. In einem Fall wurde ein Sprung angelegt, im anderen Fall ein Impuls. 
 # 
+# ## Testfunktionen
+# 
 # In der Messtechnik ist es hingegen häufig viel aussagekräftiger das Übertragungsverhalten einer Messeinrichtung mittels Testfunktionen zu überprüfen. Sprung und Impuls gehören zu des Testfunktionen, doch auch eine Rampenfunktion (ein sich kontinuierlich erhöhendes Eingangssignal) oder ein Sweep (hier werden verschiedene Frequenzen direkt nacheinander durchgefahren) haben sich bewährt. 
 # 
 # ![Bild](pictures/testfunktionen.png)
@@ -55,15 +57,27 @@
 # 
 # ![Bild](pictures/faltung_zeit.png)
 # 
+# ## Faltung vs. Korrelation vs. Autokorrelation
+# 
 # Die Faltung ist nicht zu verwechseln mit der Kross-Korrelation von zwei Messsignalen. Obwohl die Integrale sehr ähnlich aussehen, so besteht ein signifikanter Unterschied zwischen diesen beiden Methoden, der sich im Minuszeichen der Verzögerung aufzeigt. Grafisch bedeutet dies, dass das zu faltende Signal im Falle der Kreuz-Korrelation *nicht* gespiegelt wird, wohingegen es bei der grafischen Faltung zeitlich gespiegelt werden muss. 
-# Die *Faltung* berechnet man in der Regel, wenn man die Antwort eines Messsystems berechnen möchte.
+# Die **Faltung** berechnet man in der Regel, wenn man die Antwort eines Messsystems berechnen möchte.
+# 
 # $$(f \ast g)(t) = \int_{-\infty}^{\infty} f(\tau)g(t-\tau) \mathrm{d}\tau$$
-# Die *Kreuz-Korrelation* berechnet man um zu untersuchen, ob Rauschanteile von Signal $f$ auch in Signal $g$ vorkommen (Stichwort ist hier der *Korrelationsbegriff*, welcher häufig auf zwei *Signale* und nicht Messsysteme angewendet wird).
+# 
+# Die **Kreuz-Korrelation** berechnet man um zu untersuchen, ob Rauschanteile von Signal $f$ auch in Signal $g$ vorkommen (Stichwort ist hier der *Korrelationsbegriff*, welcher häufig auf zwei *Signale* und nicht Messsysteme angewendet wird).
+# 
 # $$(f \star g)(t) = \int_{-\infty}^{\infty} f(\tau)g(t+\tau) \mathrm{d}\tau$$
-# Die *Auto-Korrelation* soll hier der vollständigkeitshalber noch einmal als Spezialfall der Kreuz-Korrelation aufgeführt werden. Hier berechnet man, wie ähnlich ein zeit-verschobenes Signal zu sich selbst ist (*zeitliche Korrelation*). 
+# 
+# Die **Auto-Korrelation** soll hier der vollständigkeitshalber noch einmal als Spezialfall der Kreuz-Korrelation aufgeführt werden. Hier berechnet man, wie ähnlich ein zeit-verschobenes Signal zu sich selbst ist (*zeitliche Korrelation*). 
+# 
 # $$(g \star g)(t) = \int_{-\infty}^{\infty} g(\tau)g(t+\tau) \mathrm{d}\tau$$
 # 
-# ![Bild](pictures/faltung_kreuzkorr.png)
+# :::{figure-md} faltung_korr_auto
+# <img src="draw/faltung_korr_auto.jpg" alt="faltung_korr_auto" class="bg-primary mb-1" width="700px" label = faltung_korr_auto>
+# 
+# Vergleich von Faltung, Korrelation und Autokorrelation.
+# :::
+# 
 
 # ## Interpretation im Frequenzraum
 # <a id="Sec-Interpretation_im_Frequenzraum"></a>

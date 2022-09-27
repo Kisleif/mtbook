@@ -50,10 +50,14 @@ print('Die Messabweichung beträgt: ', R_0/R_ges*I_0 - I_0, 'A = ', (1-R_0/R_ges
 
 # :::{admonition} Lösung
 # :class: tip, dropdown
-# Es gilt 
+# Es gilt
+# 
 # $$u = R_0 \cdot I_0 = R_\mathrm{mess} \cdot I_\mathrm{mess}$$
+# 
 # Für die gemessene Stromstärke nach Anlegen des Messeingangs gilt also:
+# 
 # $$I_\mathrm{mess} = \frac{R_0}{R_\mathrm{mess}} \cdot I_0 = \frac{200\,\mathrm{k\Omega}}{200,001\,\mathrm{k\Omega}} \cdot 1\,\mathrm A = 0,99999\,\mathrm A$$
+# 
 # :::
 
 # Ihr werdet nach dem Lösen der Aufgabe feststellen, dass es bei dem Anlegen eines Strommesseingangs zu einer vernachlässigbaren Messabweichung kommt. Wenn sich allerdings die Widerstände in unserer Schaltung stark ändern, wird dies Messabweichung beeinflussen. Sollten sich die Werte für $R_1$ und $R_2$ in der Größenordnung von $R_i$ bewegen, wird die Messabweichung einen signifikanten Einfluss auf die Strommessung haben. 
@@ -115,7 +119,7 @@ print('Die Messabweichung beträgt: ', R_0/R_ges*I_0 - I_0, 'A = ', (1-R_0/R_ges
 # 
 # Die Spannung wird dann mittels Spannungsmesseingang aus dem vorangenenen Kapitel gemessen. Der hohe Innenwiderstand des nachgeschalteten Spannungsmesseingangs ist gegenüber dem kleinen Shunt-Widerstand vernachlässigbar. 
 # Die Wahl eines korrekten Wertes für den Shunt-Widerstand ist wichtig und kann unter Umständen auch zu Abweichungen kommen:
-# * Ein **hoher Shunt-Widerstandswert** liefert einen hohen Spannungswert, was gut für die nachfolgende Spannungsmessung ist. Allerdings ist $R_s$ gleichzeitig der Innenwiderstand $R_i$ der Strommessung und sollte eigentlich möglichst kein sein, um die Strommessung $i$ nicht zu verfälschen (siehe {numref}`strommesseingang`).
+# * Ein **hoher Shunt-Widerstandswert** liefert einen hohen Spannungswert, was gut für die nachfolgende Spannungsmessung ist. Allerdings ist $R_s$ gleichzeitig der Innenwiderstand $R_i$ der Strommessung und sollte eigentlich möglichst kein sein, um die Strommessung $i$ nicht zu verfälschen.
 # * Als Kompromiss findet man häufig $R_s \approx 1\,\Omega$.
 # * Der Shunt-Widerstandswert sollte außerdem möglichst **genau bekannt** sein, da bereits kleinste Abweichung von $R_s \approx 1\,\Omega$ ansonsten zu verfälschten Ergebnissen führen. Daher verwendet man häufig **Präzisionswiderstände**. Diese weisen weniger Toleranzen, geringe Fertigungsstreuung und eine kleinere Temperaturabhängigkeit im Vergleich zu üblichen Widerständen auf. Alternativ kann den Widerstandswert vorher auch *kalibrieren*.
 # * Shunt-Widerstände zur Messung **höherer Ströme** haben außerdem mehr Anschlüsse, an jedem Ende zwei statt einem. An zwei wird der Strom geleitet, die anderen beiden dienen dem Strommesseingang. Dadurch können Kontaktspannungen, die typischerweise bei den Kontakten abfallen, nach innen verlegt werden und fließen nicht mehr in die Messung mit ein. 

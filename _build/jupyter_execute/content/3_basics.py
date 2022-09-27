@@ -178,14 +178,6 @@ print('Die Wellenlänge einer Schwingung mit Frequenz f = %5.2f MHz beträgt %5.
 # Für eine ausreichende Charakterisierung von Messsignalen werden diese noch nach dem Wertevorrat der Informationsparameter (analog oder diskret) und dem zeitlichen Auftreten (kontinuierlich oder diskontinuierlich/diskret) unterschieden. Oft kommt dazu noch eine weitere Signalart, nämlich *stochastische* Signale, auch bekannt als *Rauschen*, bei welchem die Werte zufallsbehaftet sind. In diesem Fall können erst bei einer großen Anzahl von Ereignissen gesicherte Aussagen über die Qualität einer Messung geliefert werden (damit haben wir uns ja schon innerhalb der Messunsicherheiten und der Statistik befasst). 
 # Determinierte Signale liefern hingegen zu jedem Zeitpunkt einen festen Zusammenhang zwischen zu analysierenden und den erhaltenene Messwerten. Allgemein finden wir in technischen Messsystemen eigentlich immer deterministische Signale. Das heißt es gilt Determiniertheit.
 # 
-# Das folgende Bild zeigt, wie der Wertevorrat und deren zeitliche Verfügbarkeit aussehen könnte. Hierbei können kontinuierliche und diskrete sowohl im Wertebereich, also auch im Zeitbereich, kombiniert werden.
-# 
-# :::{figure-md} klassifizierung_signal
-# <img src="draw/klassifizierung_signal.jpg" alt="klassifizierung_signal" class="bg-primary mb-1" width="500px" label = klassifizierung_signal>
-# 
-# Klassifizierung von Messsignalen
-# :::
-# 
 # Folgende Klassifizierungen von Messsignalen existieren:
 # * **analog**: Der Wertebereich (also die Werte auf der y-Achse) ist kontinuierlich. Theoretisch kann der Informationsparameter $y$ jeden beliebigen Wert innerhalb seines Wertebereichs annehmen. Dadurch erhält man eine proportional Abbildung zwischen Messsignal und Parameter. Allerdings ist dieses System sehr störanfällig und reagiert auf Störsignale, Rauschen oder Temperaturdrifts. 
 # * **diskret (wertdiskret)**: Diskret kann man sowohl der Werte- als auch den Zeitbereich bezeichnen. Für die Eindeutigkeit können wir den Begriff wertdiskret benutzen. Hierbei kann der Informationsparameter nur endlich viele Werte annehmen und wird nicht mehr vollständig proportional abgebildet. Dadurch ist das System zwar etwas weniger empfindlich gegenüber Störeinflüssen (erst nach Überschreiten von Grenzwerten wird der nächste *diskrete* Messwert angezeigt), doch bei der Abbildung analoger Messwerte auf einen diskreten Informationsparameter gehen Informationen verloren. 
@@ -196,6 +188,14 @@ print('Die Wellenlänge einer Schwingung mit Frequenz f = %5.2f MHz beträgt %5.
 # 
 # Bei *digitalen* Signalen sind die diskreten Werte einem bestimmten Alphabet zugeordnet. Im *binären* System kann der Informationsparameter dann nur noch zwei Werte annehmen. 
 # 
+# Das folgende Bild zeigt, wie der Wertevorrat und deren zeitliche Verfügbarkeit aussehen könnte. Hierbei können kontinuierliche und diskrete sowohl im Wertebereich, also auch im Zeitbereich, kombiniert werden.
+# 
+# :::{figure-md} klassifizierung_signal
+# <img src="draw/klassifizierung_signal.jpg" alt="klassifizierung_signal" class="bg-primary mb-1" width="500px" label = klassifizierung_signal>
+# 
+# Klassifizierung von Messsignalen
+# :::
+# 
 # Beispiele zum Bild in {numref}`klassifizierung_signal` sind:
 # * **analog kontinuierlich**: Manometer am Druckkessel, Aufgesetzte Messuhr (Wärmeausdehnung), Analoge Spannungs- oder Strommessung
 # * **analog zeitdiskret**: Abgetastetes System. Informationen gehen verloren.
@@ -203,3 +203,9 @@ print('Die Wellenlänge einer Schwingung mit Frequenz f = %5.2f MHz beträgt %5.
 # * **wertdiskret und zeitdiskret**: Digitalisierung
 # 
 # Nur bei analogen kontinuierlichen Signalen sind informationsverlustfreie Signalübertragungen möglich. 
+
+# In[ ]:
+
+
+
+

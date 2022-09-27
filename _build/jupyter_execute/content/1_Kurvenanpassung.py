@@ -201,7 +201,7 @@ print('Die Steigung ist \t\t m = %5.4f s/m' %(m))
 print('Der Ordinatenabschnitt ist \t b = %5.4f s' %(b))
 
 plt.plot(x,y, 'o', label = 'Messwerte', ms=6, color="tab:gray")
-plt.plot(x,m*x+b,lw=3, color="tab:red", label = 'analytische lineare Regression: y = %5.3f*x+%5.3f' %(m,b))  # plot Ausgleichsgerade mit m und b
+plt.plot(x,m*x+b,lw=3, color="tab:blue", label = 'analytische lineare Regression: y = %5.3f*x+%5.3f' %(m,b))  # plot Ausgleichsgerade mit m und b
 plt.xlabel('x')
 plt.ylabel('y')
 plt.legend(bbox_to_anchor=(1,1), loc="upper left")

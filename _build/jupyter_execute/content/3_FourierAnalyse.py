@@ -27,7 +27,6 @@ warnings.filterwarnings('ignore')
 
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.figure(figsize=(10,5)) # Plot-Größe
 plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
@@ -329,7 +328,6 @@ plt.show()
 
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.figure(figsize=(4,4)) # Plot-Größe
 plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
@@ -339,7 +337,6 @@ f_saege = lambda t: signal.sawtooth(2 * np.pi * 1/T * t)
 f_eck = lambda t: signal.square(2 * np.pi * 1/T * t)
 
 maxN = 10
-plt.figure(figsize=(8,3)) # Plot-Größe
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 #plot, in the range from BT to ET, the true f(t) in blue and the approximation in red
@@ -375,12 +372,10 @@ plt.show()
 # ## Fourier-Transformation 
 # <a id="Sec-FFT"></a>
 # 
-# Die Fourier-Transformation ist Teil der Spektralanalyse in der Messtechnik. Sie basiert auf der Grundidee, dass, wie wir eben gesehen haben, sich jede periodische Funktion aus Sinus- und Cosinusfunktionen schreiben lässt. Das Ziel ist es, die Anteile dieser Schwingungen sichtbar zu machen. Die Fourier-Transformation ist eine mathematische Methode mit der nun auch aperiodische Signale in ein kontinuierliches Spektrum zerlegt werden. Die Fourier-Transformation ist ein Werkzeug, mit dem man ein Signal (siehe [Messsignale](3_Messsignale.ipynb)) nehmen und die Leistung jeder einzelnen Frequenz darin sehen kann. 
+# Die Fourier-Transformation ist Teil der Spektralanalyse in der Messtechnik. Sie basiert auf der Grundidee, dass, wie wir eben gesehen haben, sich jede periodische Funktion aus Sinus- und Cosinusfunktionen schreiben lässt. Das Ziel ist es, die Anteile dieser Schwingungen sichtbar zu machen. Die Fourier-Transformation ist eine mathematische Methode mit der nun auch **aperiodische Signale** in ein kontinuierliches Spektrum zerlegt werden. Die Fourier-Transformation ist ein Werkzeug, mit dem man ein Signal (siehe [Messsignale](3_Messsignale.ipynb)) nehmen und die Leistung jeder einzelnen Frequenz darin sehen kann. 
 # 
 # ### Anwendung
 # <a id="SubSec-Anwendung_FFT"></a>
-# 
-# Die Fourier-Transformation ist in vielen Anwendungen nützlich. 
 # 
 # Ein Spektralanalyse, wie sie die Fouriertransformation durchführt, eignet sich besonders gut zur Zustandsüberwachung. Hier können Motoren, Turbinen, Sägen, Kugellager uvm, im Prinzip alles was rotiert, überwacht werden. Die spezifischen Frequenz jedes Kugellagers kann beispielsweise überwacht werden. Sollte sich die Amplitude über die Zeit verändert, kann dies ein Indiz dafür sein, dass eine Kugel ins Lager gefallen ist oder das Lager einen Schaden bekommen hat. Verschlechtert sich das Verhalten kann frühzeitig gegengewirkt werden, indem das Kugellager ausgetauscht wird. Das heißt auch Fehlerfrüherkennung, Fehlerdiagnose und Trendanalysen ("predictive maintenance") werden häufig im Frequenzraum durchgeführt. 
 # 
@@ -391,8 +386,6 @@ plt.show()
 # ### Zeit- vs. Frequenzbereich
 # 
 # Du wirst im Folgenden immer wieder auf die Begriffe Zeitbereich und Frequenzbereich stoßen. Diese beiden Begriffe beziehen sich auf zwei verschiedene Arten der Betrachtung eines Signals, entweder als seine Frequenzkomponenten oder als Information, die sich über die Zeit verändert (siehe [Messsignale](3_Messsignale.ipynb)).
-# 
-# Im Zeitbereich ist ein Signal eine Welle, deren Amplitude (y-Achse) über die Zeit (x-Achse) variiert. Sie sind wahrscheinlich daran gewöhnt, Diagramme im Zeitbereich zu sehen, wie z. B. dieses hier:
 
 # In[6]:
 
@@ -432,17 +425,13 @@ plt.title('Audio-Signal im Zeitbereich')
 plt.subplot(1,2,2)
 plt.plot(xf,np.abs(yf),'tab:red') # plotting the spectrum
 plt.xlabel('Frequenz (Hz)')
-plt.ylabel('Power')
+plt.ylabel('Leistung')
 plt.title('Audio-Signal im Frequenzbereich')
 plt.tight_layout()
 plt.show()
 
 
-# Dies ist ein Bild eines Audiosignals, also eines Signals im Zeitbereich. Die horizontale Achse steht für die Zeit, die vertikale Achse für die Amplitude.
-# 
-# Im Frequenzbereich wird ein Signal als eine Reihe von Frequenzen (x-Achse) dargestellt, denen jeweils eine Leistung (y-Achse) zugeordnet ist. Das Bild rechts zeigt das linke Audiosignal nach der Fourier-Transformation
-
-# Hier wird das Audiosignal von vorher durch seine einzelnen Frequenzen dargestellt. Jeder Frequenz entlang der Unterseite ist eine Leistung zugeordnet, wodurch das Spektrum entsteht.
+# Im vorangegangenen Plot wurde ein Audiosignal, also eines Signal im Zeitbereich einmal im Zeit- und einmal im Frequenzbereich dargestellt. Das Bild rechts zeigt das linke Audiosignal nach der Fourier-Transformation. Jeder Frequenz entlang der x-Achse ist eine Leistung zugeordnet, wodurch das Spektrum entsteht. 
 
 # ### Typen von Fourier-Transformationen
 # 

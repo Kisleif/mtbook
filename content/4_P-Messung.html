@@ -752,6 +752,18 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#leistungsmessung-in-drehstromsystemen">
    Leistungsmessung in Drehstromsystemen
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#effektivwert">
+     Effektivwert
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Wirkleistung
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -835,6 +847,18 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#leistungsmessung-in-drehstromsystemen">
    Leistungsmessung in Drehstromsystemen
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#effektivwert">
+     Effektivwert
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Wirkleistung
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -911,11 +935,11 @@ Anhand dieser Gleichung für die Messabweichung erkennt man, dass <strong>je kle
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">U</span> <span class="o">=</span> <span class="mi">22</span> <span class="c1">#V Gleichspannung</span>
 <span class="n">I</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1">#A Nennstrom</span>
 <span class="n">R_L</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1">#Ohm, Innenwiderstand Gleichstrommotor</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Ein Gleichstrommotor mit Innenwiderstand R_L =&#39;</span><span class="p">,</span><span class="n">R_L</span><span class="p">,</span><span class="s1">&#39;Ohm wird mit&#39;</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="s1">&#39;V Gleichspannung und&#39;</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="s1">&#39;A Nennenstrom betrieben.&#39;</span><span class="p">)</span>
+<span class="c1">#print(&#39;Ein Gleichstrommotor mit Innenwiderstand R_L =&#39;,R_L,&#39;Ohm wird mit&#39;, U, &#39;V Gleichspannung und&#39;, I, &#39;A Nennenstrom betrieben.&#39;)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Leistungsaufnahme am Gleichstrommotor beträgt demnach P =&#39;</span><span class="p">,</span> <span class="n">U</span><span class="o">*</span><span class="n">I</span><span class="p">,</span> <span class="s1">&#39;W.&#39;</span><span class="p">)</span>
 <span class="n">R_V</span> <span class="o">=</span> <span class="mf">2e6</span> <span class="c1">#Ohm, Innenwiderstand Spannungsmesseingang</span>
 <span class="n">R_A</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">#Ohm, Innenwiderstand Strommesseingang</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Zur Leistungsbestimmung benutzen wir einen Spannungsmesseingang mit einem Innenwiderstand von R_V=&#39;</span><span class="p">,</span><span class="n">R_V</span><span class="o">/</span><span class="mf">1e6</span><span class="p">,</span><span class="s1">&#39;MOhm und einen Strommesseingang mit einem Innenwiderstand von R_A=&#39;</span><span class="p">,</span><span class="n">R_A</span><span class="p">,</span><span class="s1">&#39;Ohm.&#39;</span><span class="p">)</span>
+<span class="c1">#print(&#39;Zur Leistungsbestimmung benutzen wir einen Spannungsmesseingang mit einem Innenwiderstand von R_V=&#39;,R_V/1e6,&#39;MOhm und einen Strommesseingang mit einem Innenwiderstand von R_A=&#39;,R_A,&#39;Ohm.&#39;)</span>
 
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">-------- Messabweichung bei gutem Strommesseingang (R_A =&#39;</span><span class="p">,</span><span class="n">R_A</span><span class="p">,</span><span class="s1">&#39;Ohm): ------------&#39;</span><span class="p">)</span>
@@ -931,7 +955,7 @@ Anhand dieser Gleichung für die Messabweichung erkennt man, dass <strong>je kle
 
 
 <span class="n">R_A</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1">#Ohm, Innenwiderstand Strommesseingang</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">-------- Messabweichung bei schlechterem Strommesseingang (R_A =&#39;</span><span class="p">,</span><span class="n">R_A</span><span class="p">,</span><span class="s1">&#39;Ohm): ------------&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">-------- Messabweichung bei schlechtem Strommesseingang (R_A =&#39;</span><span class="p">,</span><span class="n">R_A</span><span class="p">,</span><span class="s1">&#39;Ohm): ------------&#39;</span><span class="p">)</span>
 
 <span class="c1"># Stromrichtige Anschaltung:</span>
 <span class="n">A_stromrichtig</span> <span class="o">=</span> <span class="n">R_A</span> <span class="o">*</span> <span class="n">I</span><span class="o">**</span><span class="mi">2</span>
@@ -945,15 +969,13 @@ Anhand dieser Gleichung für die Messabweichung erkennt man, dass <strong>je kle
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ein Gleichstrommotor mit Innenwiderstand R_L = 10 Ohm wird mit 22 V Gleichspannung und 5 A Nennenstrom betrieben.
-Die Leistungsaufnahme am Gleichstrommotor beträgt demnach P = 110 W.
-Zur Leistungsbestimmung benutzen wir einen Spannungsmesseingang mit einem Innenwiderstand von R_V= 2.0 MOhm und einen Strommesseingang mit einem Innenwiderstand von R_A= 1 Ohm.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Leistungsaufnahme am Gleichstrommotor beträgt demnach P = 110 W.
 
 -------- Messabweichung bei gutem Strommesseingang (R_A = 1 Ohm): ------------
 Stromrichtige Anschaltung: 	 P_A= 25 W
 Spannungsrichtige Anschaltung: 	 P_A= 0.000242 W
 
--------- Messabweichung bei schlechterem Strommesseingang (R_A = 10 Ohm): ------------
+-------- Messabweichung bei schlechtem Strommesseingang (R_A = 10 Ohm): ------------
 Stromrichtige Anschaltung: 	 P_A= 250 W
 Spannungsrichtige Anschaltung: 	 P_A= 0.000242 W
 </pre></div>
@@ -1116,6 +1138,106 @@ P &amp;= \frac{1}{T} \int_0^T \hat u \cdot \sin(\omega t) \cdot \hat i \cdot \si
 </section>
 <section id="leistungsmessung-in-drehstromsystemen">
 <h2>Leistungsmessung in Drehstromsystemen<a class="headerlink" href="#leistungsmessung-in-drehstromsystemen" title="Permalink to this headline">#</a></h2>
+<p>Wenn man einen Verbraucher hat, der einen etwas höheren Leistungsverbrauch hat, wie z.B. Kochherde, werden diese üblicherweise nicht mit dem 230V-Wechselstromnetz betrieben. Statt dessen nutzt man den sogenannten <strong>Drehtstrom (oder auch Dreiphasenwechselstrom, oder Kraftstrom)</strong>. Maschinen in der Industrie werden fast nur mit Drehstrom betrieben.</p>
+<figure class="align-default" id="drehstrom-netz">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/drehstrom_netz.jpg"><img alt="drehstrom_netz" class="bg-primary mb-1" src="../_images/drehstrom_netz.jpg" style="width: 200px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 50 </span><span class="caption-text">Anschluss eines Verbrauchers, einer Last, an ein Drehtstromnetzwerk.</span><a class="headerlink" href="#drehstrom-netz" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>In <a class="reference internal" href="#drehstrom-netz"><span class="std std-numref">Fig. 50</span></a> der Anschluss eines Verbrauchers an das Drehstromnetzwerk dagestellt. Über drei <strong>Außenleiter <span class="math notranslate nohighlight">\(L_1, L_2, L_3\)</span></strong> wird der Verbraucher versorgt und  der <strong>Neutralleiter <span class="math notranslate nohighlight">\(N\)</span></strong> dient als gemeinsame Rückführung.</p>
+<p>Der Verlauf der <em>drei Phasen</em> mit jeweils 50Hz Netzfrequenz ist in folgendem Diagramm in Bezug auf den Neutralleiter dargestellt:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Benötigte Libraries:</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">plotly.offline</span> <span class="k">as</span> <span class="nn">py</span>
+<span class="n">py</span><span class="o">.</span><span class="n">init_notebook_mode</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">plotly.graph_objs</span> <span class="k">as</span> <span class="nn">go</span>
+<span class="kn">import</span> <span class="nn">plotly.tools</span> <span class="k">as</span> <span class="nn">tls</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="c1"># MatplotLib Settings:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="mf">1.0</span>   <span class="c1"># Amplitude</span>
+<span class="n">f</span> <span class="o">=</span> <span class="mi">50</span>    <span class="c1"># Frequenz in Hz</span>
+<span class="n">phi</span> <span class="o">=</span> <span class="mf">0.</span>  <span class="c1"># Phase in radian</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">f</span>   <span class="c1"># Perdiodendauer</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">T</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># Zeitwerte der Sinusfunktion in sec</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">A</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="n">t</span> <span class="o">+</span> <span class="n">phi</span><span class="p">),</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;$u_</span><span class="si">{1N}</span><span class="s1">(t) = \hat u \cdot \sin(\omega t)$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">A</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="n">t</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">3</span><span class="p">),</span> <span class="s1">&#39;tab:red&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;$u_</span><span class="si">{2N}</span><span class="s1">(t) = \hat u \cdot \sin(\omega t - 120^\circ)$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">A</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="n">t</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">3</span><span class="p">),</span> <span class="s1">&#39;tab:orange&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;$u_</span><span class="si">{3N}</span><span class="s1">(t) = \hat u \cdot \sin(\omega t - 240^\circ)$&#39;</span><span class="p">)</span>
+<span class="c1">#plt.annotate(r&#39;&#39;, xy=(0.87*T, 0.25*A), xytext=(1.05*T, 0.25*A), arrowprops=dict(arrowstyle=&#39;-&gt;&#39;))</span>
+<span class="c1">#plt.annotate(r&#39;$+ \phi$&#39;, xy=(0.25*T, 0.25*A), xytext=(0.94*T, 0.35*A))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit (s)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Spannung (V)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">T</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">T</span><span class="p">])</span>
+<span class="c1">#ax.set_xticklabels([&#39;0&#39;,&#39;T&#39;,&#39;2T&#39;])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="o">-</span><span class="n">A</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">A</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([</span><span class="sa">r</span><span class="s1">&#39;$-\hat u$&#39;</span><span class="p">,</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="s1">&#39;$\hat u$&#39;</span><span class="p">])</span>
+<span class="c1">#ax.set_title(r&#39;u(t) =%5.1f $\cdot$ sin(%5.1f Hz $\cdot t$ + $\phi$)&#39; %(A, 2*np.pi*f))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><script type="text/javascript">
+window.PlotlyConfig = {MathJaxConfig: 'local'};
+if (window.MathJax) {MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+if (typeof require !== 'undefined') {
+require.undef("plotly");
+requirejs.config({
+    paths: {
+        'plotly': ['https://cdn.plot.ly/plotly-2.9.0.min']
+    }
+});
+require(['plotly'], function(Plotly) {
+    window._Plotly = Plotly;
+});
+}
+</script>
+</div><img alt="../_images/4_P-Messung_8_1.png" src="../_images/4_P-Messung_8_1.png" />
+</div>
+</div>
+<p>Diese Spannungen werden auch häufig <strong>Sternspannungen</strong> genannt und liegen jeweils 120° außer Phase zueinander. Diese Phasenverschiebung hat einen historischen Hintergrund. Damals hat man klassische Drehstromgeneratoren aus drei, um 120° versetzte, Spulen realisiert. Durch einen rotierbaren Magneten wurde dann sinusförmig Spannungen induziert, mit halt 120° Phasenverschiebung.</p>
+<section id="effektivwert">
+<h3>Effektivwert<a class="headerlink" href="#effektivwert" title="Permalink to this headline">#</a></h3>
+<p>In Deutschland und den meisten anderen europäischen Ländern beträgt der Effektivwert der Sternspannung 230V, also genau der gleiche Wert wie im klassichen 230V Haushaltsnetz. Allerdings ist die Strombelastbarkeit deutlich erhöht, indem Leitungen mit größeren Querschnitten verwendet werden. Die <strong>Effektivwerte</strong> zwischen zwei beliebigen Außenleitern betragen immer:</p>
+<div class="math notranslate nohighlight">
+\[u_{12} = u_{23} = u_{31} = 230\,\mathrm V \cdot \sqrt{3} \approx 400\,\mathrm V\]</div>
+<p>Daher kommt auch der umgangssprachliche Begriff 400V-Drehstrom.</p>
+</section>
+<section id="id2">
+<h3>Wirkleistung<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<p>In <a class="reference internal" href="#drehstrom-wirk"><span class="std std-numref">Fig. 51</span></a> ist dargestellt, wie die Wirkleistung in einem Drehstromnetzwerk gemessen wird.</p>
+<figure class="align-default" id="drehstrom-wirk">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/drehstrom_wirk.jpg"><img alt="drehstrom_wirk" class="bg-primary mb-1" src="../_images/drehstrom_wirk.jpg" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 51 </span><span class="caption-text">Messung der Wirkleistung in einem Drehstromnetzwerk.</span><a class="headerlink" href="#drehstrom-wirk" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Wie auch bei der klassichen Wirkleistungsmessung wird parallel Strom und Spannung gemessen, bzw. deren Effektivwerte natürlich. Aus den Effektivwerten wird dann jeweils die Wirkleistung in jedem Außenleiter bestimmt:</p>
+<div class="math notranslate nohighlight">
+\[P = u_\mathrm{eff} \cdot i_\mathrm{eff} \cdot \cos(\phi)\]</div>
+<p>Die Gesamtleistung ergibt sich aus der Summe der Einzelmessungen:</p>
+<div class="math notranslate nohighlight">
+\[P = P_1 + P_2 + P_3\]</div>
+<p>Auch hier gelten wieder die Regeln und abweichungen für strom- bzw. spannungsrichtige Anschaltung der Messinstrumente während der Leistungsmessung.</p>
+</section>
 </section>
 </section>
 

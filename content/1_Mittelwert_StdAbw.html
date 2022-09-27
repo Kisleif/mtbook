@@ -891,12 +891,16 @@ Die Häufigkeitsdichte gibt bei einem Histogramm die Höhe des Rechtecks an. Mit
 <p>Für den Erwartungswert findet man in der Literatur unterschiedliche Bezeichnungen, unter anderem zum Beispiel <span class="math notranslate nohighlight">\(\overline x = E(x) = \left&lt; x \right&gt; = \mu\)</span>.</p>
 <ul class="simple">
 <li><p>Der <em>Erwartungswert der quadratischen Abweichung der Einzelmessungen vom Mittelwert</em>, die <strong>Varianz</strong> <span class="math notranslate nohighlight">\(s^2\)</span>,
-lässt sich allgemein wie folgt schreiben:
-$<span class="math notranslate nohighlight">\(\sigma^2  =  \frac{1}{m} \sum_{j=1}^m \left( x_j - \mu \right)^2\)</span>$
-Der arithmetische Mittelwert zeichnet sich dadurch aus, dass für diesen Wert die Summe der Abweichungsquadrate minimal ist. Die Varianz hängt nicht von der Anzahl der Messungen ab. Die Streuung kann allein durch ein besseres Messverfahren verkleinert werden. Anschaulich ist das direkt nachvoll- ziehbar: Die „Punktwolke“ der Messergebnisse um den Mittelwert schmiegt sich nicht enger an den Mittelwert, nur weil häufiger gemessen wurde. Ein stark streuendes Messverfahren streut durch seine Wiederholung nicht weniger.</p></li>
-<li><p>Unabhängig von der zugrundeliegenden Verteilung der Messwerte kann nun ein Maß für die Abweichung definiert werden, welche als <strong>empirische Standardabweichung der Einzelmessungen</strong> bekannt ist und sich aus der Quadratwurzel der Varianz berechnen lässt:
-$<span class="math notranslate nohighlight">\(\sigma = \sqrt{\frac{1}{m} \sum_{j=1}^m (x_j - \mu)^2}\)</span>$</p></li>
+lässt sich allgemein wie folgt schreiben:</p></li>
 </ul>
+<div class="math notranslate nohighlight">
+\[\sigma^2  =  \frac{1}{m} \sum_{j=1}^m \left( x_j - \mu \right)^2\]</div>
+<p>Der arithmetische Mittelwert zeichnet sich dadurch aus, dass für diesen Wert die Summe der Abweichungsquadrate minimal ist. Die Varianz hängt nicht von der Anzahl der Messungen ab. Die Streuung kann allein durch ein besseres Messverfahren verkleinert werden. Anschaulich ist das direkt nachvoll- ziehbar: Die „Punktwolke“ der Messergebnisse um den Mittelwert schmiegt sich nicht enger an den Mittelwert, nur weil häufiger gemessen wurde. Ein stark streuendes Messverfahren streut durch seine Wiederholung nicht weniger.</p>
+<ul class="simple">
+<li><p>Unabhängig von der zugrundeliegenden Verteilung der Messwerte kann nun ein Maß für die Abweichung definiert werden, welche als <strong>empirische Standardabweichung der Einzelmessungen</strong> bekannt ist und sich aus der Quadratwurzel der Varianz berechnen lässt:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\sigma = \sqrt{\frac{1}{m} \sum_{j=1}^m (x_j - \mu)^2}\]</div>
 <p>Man nehme beispielhaft die Messung einer Spannung. Die Messreihe ist im nachstehenden Bode-Block gegeben. Es wurden 15 wiederholte Messungen durchgeführt in denen 15x der Wert 1V gemessen werden sollte. Mittelwert, Standardabweichung der Einzelmessungen und Unsicherheit des Mittelwertes werden berechnet.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -940,11 +944,15 @@ Standardabweichung der Messungen:  0.02293 V
 </div>
 </div>
 <ul class="simple">
-<li><p>Du wirst bei deinen Messungen in der Regel weniger an der Streuung um den Mittelwert sondern mehr an der (geschätzten) Streuung der Messwerte um den (unbekannten) <em>wahren</em> Wert interessiert sein. Man schätzt diese Unsicherheit durch die empirische Varianz <span class="math notranslate nohighlight">\(s^2(x)\)</span> der Messwerte der <span class="math notranslate nohighlight">\(x_j\)</span> ab. Diese ist etwas größer, um den Faktor <span class="math notranslate nohighlight">\(m/(m − 1)\)</span>:
-$<span class="math notranslate nohighlight">\(s^2 = \frac{1}{m-1} \sum_{j=1}^m (x_j - \overline x)^2\)</span>$</p></li>
-<li><p>Die empirische Standardabweichung <span class="math notranslate nohighlight">\(s(x)\)</span> der Messwerte ist die Wurzel aus der empirischen Varianz:
-$<span class="math notranslate nohighlight">\(s = \sqrt{\frac{1}{m-1} \sum_{j=1}^m (x_j - \overline x)^2}\)</span>$</p></li>
+<li><p>Du wirst bei deinen Messungen in der Regel weniger an der Streuung um den Mittelwert sondern mehr an der (geschätzten) Streuung der Messwerte um den (unbekannten) <em>wahren</em> Wert interessiert sein. Man schätzt diese Unsicherheit durch die empirische Varianz <span class="math notranslate nohighlight">\(s^2(x)\)</span> der Messwerte der <span class="math notranslate nohighlight">\(x_j\)</span> ab. Diese ist etwas größer, um den Faktor <span class="math notranslate nohighlight">\(m/(m − 1)\)</span>:</p></li>
 </ul>
+<div class="math notranslate nohighlight">
+\[s^2 = \frac{1}{m-1} \sum_{j=1}^m (x_j - \overline x)^2\]</div>
+<ul class="simple">
+<li><p>Die empirische Standardabweichung <span class="math notranslate nohighlight">\(s(x)\)</span> der Messwerte ist die Wurzel aus der empirischen Varianz:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[s = \sqrt{\frac{1}{m-1} \sum_{j=1}^m (x_j - \overline x)^2}\]</div>
 <blockquote>
 <div><p>Welche der Größen s oder <span class="math notranslate nohighlight">\(\sigma\)</span> du sinnvoll verwendest, hängt vom Einzelfall ab − wichtig ist, dass du dazu schreibst, welcher Wert verwendet wurde, damit die Leser die Argumentation nachvollziehen kann. Ein wenig spricht für die Verwendung <span class="math notranslate nohighlight">\(s\)</span>, da damit auch der etwas seltsame Fall einer Einzelmessung abgedeckt wird. Für m = 1 wäre <span class="math notranslate nohighlight">\(\sigma\)</span> = 0, <span class="math notranslate nohighlight">\(s\)</span> dagegen nicht definiert. Die zweite Aussage ist, bezogen auf die statistische Interpretation, sicher sinnvoller. Deshalb wird in diesem Skript <span class="math notranslate nohighlight">\(s\)</span> verwendet.</p>
 </div></blockquote>
@@ -1099,7 +1107,10 @@ Die unten stehende Quantil-Tabelle zeigt die zugehörigen Werte von <span class=
 <p>Die Interpretation der Quantil-Tabelle der Student-t Verteilung kann verwirrend sein. Statt der Anzahl der Messwerte <span class="math notranslate nohighlight">\(m\)</span> wird die Anzahl der Freiheitsgrade <span class="math notranslate nohighlight">\(s = m-1\)</span> angegeben. Und statt des zweiseitigen Vertrauensbereich <span class="math notranslate nohighlight">\(P = 1-\alpha\)</span> wird der halbseitige Vertrauensbereich <span class="math notranslate nohighlight">\(p = 1-\alpha/2\)</span> gewählt. Beide <em>Quantile</em> können aber über die eben angegebenen Formel einfach bestimmt werden.</p>
 <p>Aus der empirischen Standardabweichung des Mittelwertes <span class="math notranslate nohighlight">\(s(\overline x)\)</span> berechnet man beispielsweise:</p>
 <div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned}u(\overline x) = t(s,p)\cdot s(\overline x) = t(s,p)\cdot \frac{s(x)}{\sqrt{m}}$$.\\Desweiteren können Vertrauensbereiche unterschiedlicher Wahrscheinlichkeiten ineinander umgerechnet werden:\\$$\frac{u_{\alpha 1}}{t_{m-1; 1-\frac{\alpha_1}{2}}} =  \frac{u_{\alpha 2}}{t_{m-1; 1-\frac{\alpha_2}{2}}}\end{aligned}\end{align} \]</div>
+\[u(\overline x) = t(s,p) \cdot s(\overline x) = t(s,p) \cdot \frac{s(x)}{\sqrt{m}}\]</div>
+<p>Desweiteren können Vertrauensbereiche unterschiedlicher Wahrscheinlichkeiten ineinander umgerechnet werden:</p>
+<div class="math notranslate nohighlight">
+\[\frac{u_{\alpha 1}}{t_{m-1; 1-\frac{\alpha_1}{2}}} =  \frac{u_{\alpha 2}}{t_{m-1; 1-\frac{\alpha_2}{2}}}\]</div>
 <p>Hierbei ist <span class="math notranslate nohighlight">\(\alpha\)</span> das Signifikanzniveau, also die Irrtumswahrscheinlichkeit <span class="math notranslate nohighlight">\(\alpha = 1-P\)</span>, wobei <span class="math notranslate nohighlight">\(P\)</span> die Wahrscheinlichkeit bzw. die geforderte statistische Sicherheit ist.</p>
 <section id="beispiel-student-t-verteilung-a-id-subsec-beispiel-student-t-verteilung-a">
 <h3>Beispiel: Student-t Verteilung <a id="SubSec-Beispiel_Student-t_Verteilung"></a><a class="headerlink" href="#beispiel-student-t-verteilung-a-id-subsec-beispiel-student-t-verteilung-a" title="Permalink to this headline">#</a></h3>

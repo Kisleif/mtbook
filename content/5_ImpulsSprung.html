@@ -245,11 +245,6 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="2_Digital.html">
-     Digitalisierung
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="3_FourierAnalyse.html">
      Fourier-Analyse
     </a>
@@ -260,6 +255,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Digital.html">
+   Digitalisierung
+  </a>
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="5_Dynamische_Messsysteme.html">
@@ -273,7 +273,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="5_LTI.html">
-     Linear zeitinvariante (LZI) Systeme
+     Linear zeitinvariante (LZI/LTI) Systeme
     </a>
    </li>
    <li class="toctree-l2">
@@ -289,11 +289,6 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="5_Uebertragungsfunktion.html">
      Übertragungsfunktion
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="5_faltung.html">
-     Faltung und Korrelation
     </a>
    </li>
   </ul>
@@ -690,6 +685,11 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testfunktionen">
+   Testfunktionen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#interpretation-der-sprungantwort">
    Interpretation der Sprungantwort
   </a>
@@ -697,6 +697,11 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#impulsantwort-und-faltung-im-zeitraum">
    Impulsantwort und Faltung im Zeitraum
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#faltung-vs-korrelation-vs-autokorrelation">
+   Faltung vs. Korrelation vs. Autokorrelation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -724,6 +729,11 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testfunktionen">
+   Testfunktionen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#interpretation-der-sprungantwort">
    Interpretation der Sprungantwort
   </a>
@@ -731,6 +741,11 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#impulsantwort-und-faltung-im-zeitraum">
    Impulsantwort und Faltung im Zeitraum
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#faltung-vs-korrelation-vs-autokorrelation">
+   Faltung vs. Korrelation vs. Autokorrelation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -752,9 +767,12 @@ title="Print to PDF"
 <h1>Impuls- und Sprungantwort<a class="headerlink" href="#impuls-und-sprungantwort" title="Permalink to this headline">#</a></h1>
 <p><a id="SubSec-white_box"></a></p>
 <p>Bei dem Prinzip der black box kenne ich das Innenleben meines Messsystems nicht, und ich kann lediglich mittels Messungen darauf zurück schließen. Je nachdem, welches Signal an den Eingang angelegt wird, erhalte ich ein andere Ausgangssignal. Dies ist in den beiden Bildern aus dem vorausgegangenen Kapitel deutlich zu erkenne. In einem Fall wurde ein Sprung angelegt, im anderen Fall ein Impuls.</p>
+<section id="testfunktionen">
+<h2>Testfunktionen<a class="headerlink" href="#testfunktionen" title="Permalink to this headline">#</a></h2>
 <p>In der Messtechnik ist es hingegen häufig viel aussagekräftiger das Übertragungsverhalten einer Messeinrichtung mittels Testfunktionen zu überprüfen. Sprung und Impuls gehören zu des Testfunktionen, doch auch eine Rampenfunktion (ein sich kontinuierlich erhöhendes Eingangssignal) oder ein Sweep (hier werden verschiedene Frequenzen direkt nacheinander durchgefahren) haben sich bewährt.</p>
 <p><img alt="Bild" src="../_images/testfunktionen.png" /></p>
 <p>Das Vorgehen ist wiefolgt: Es wird eine Testfunktion angelegt und gemessen. Der Ausgang des Systems wird abgegriffen und ebenfalls gemessen. Ein Vergleich aus angelegtem Eingangssignal und gemessener Systemantwort (Ausgangssignal) können Rückschlüsse für das System getroffen werden.</p>
+</section>
 <section id="interpretation-der-sprungantwort">
 <h2>Interpretation der Sprungantwort<a class="headerlink" href="#interpretation-der-sprungantwort" title="Permalink to this headline">#</a></h2>
 <p><a id="SubSubSec-Interpretation_der_Sprungantwort"></a></p>
@@ -800,14 +818,25 @@ Um den <em>realen</em> Werteverlauf der Eingangsfunktion sicher zu stellen, muss
 Die <em>Homogenitätsbedingung</em> stellt jetzt sicher, dass wir den Ausgang auch entsprechend skalieren dürfen.
 Mathematisch betrachtet resultiert dies direkt darin, dass wir Antworten von beliebigen Anregungsfunktionen hervorsagen können, indem die Anregungsfunktion <span class="math notranslate nohighlight">\(f(t)\)</span> mit der Impulsantwort gefaltet wird.</p>
 <p><img alt="Bild" src="../_images/faltung_zeit.png" /></p>
+</section>
+<section id="faltung-vs-korrelation-vs-autokorrelation">
+<h2>Faltung vs. Korrelation vs. Autokorrelation<a class="headerlink" href="#faltung-vs-korrelation-vs-autokorrelation" title="Permalink to this headline">#</a></h2>
 <p>Die Faltung ist nicht zu verwechseln mit der Kross-Korrelation von zwei Messsignalen. Obwohl die Integrale sehr ähnlich aussehen, so besteht ein signifikanter Unterschied zwischen diesen beiden Methoden, der sich im Minuszeichen der Verzögerung aufzeigt. Grafisch bedeutet dies, dass das zu faltende Signal im Falle der Kreuz-Korrelation <em>nicht</em> gespiegelt wird, wohingegen es bei der grafischen Faltung zeitlich gespiegelt werden muss.
-Die <em>Faltung</em> berechnet man in der Regel, wenn man die Antwort eines Messsystems berechnen möchte.
-$<span class="math notranslate nohighlight">\((f \ast g)(t) = \int_{-\infty}^{\infty} f(\tau)g(t-\tau) \mathrm{d}\tau\)</span><span class="math notranslate nohighlight">\(
-Die *Kreuz-Korrelation* berechnet man um zu untersuchen, ob Rauschanteile von Signal \)</span>f<span class="math notranslate nohighlight">\( auch in Signal \)</span>g<span class="math notranslate nohighlight">\( vorkommen (Stichwort ist hier der *Korrelationsbegriff*, welcher häufig auf zwei *Signale* und nicht Messsysteme angewendet wird).
-\)</span><span class="math notranslate nohighlight">\((f \star g)(t) = \int_{-\infty}^{\infty} f(\tau)g(t+\tau) \mathrm{d}\tau\)</span><span class="math notranslate nohighlight">\(
-Die *Auto-Korrelation* soll hier der vollständigkeitshalber noch einmal als Spezialfall der Kreuz-Korrelation aufgeführt werden. Hier berechnet man, wie ähnlich ein zeit-verschobenes Signal zu sich selbst ist (*zeitliche Korrelation*). 
-\)</span><span class="math notranslate nohighlight">\((g \star g)(t) = \int_{-\infty}^{\infty} g(\tau)g(t+\tau) \mathrm{d}\tau\)</span>$</p>
-<p><img alt="Bild" src="../_images/faltung_kreuzkorr.png" /></p>
+Die <strong>Faltung</strong> berechnet man in der Regel, wenn man die Antwort eines Messsystems berechnen möchte.</p>
+<div class="math notranslate nohighlight">
+\[(f \ast g)(t) = \int_{-\infty}^{\infty} f(\tau)g(t-\tau) \mathrm{d}\tau\]</div>
+<p>Die <strong>Kreuz-Korrelation</strong> berechnet man um zu untersuchen, ob Rauschanteile von Signal <span class="math notranslate nohighlight">\(f\)</span> auch in Signal <span class="math notranslate nohighlight">\(g\)</span> vorkommen (Stichwort ist hier der <em>Korrelationsbegriff</em>, welcher häufig auf zwei <em>Signale</em> und nicht Messsysteme angewendet wird).</p>
+<div class="math notranslate nohighlight">
+\[(f \star g)(t) = \int_{-\infty}^{\infty} f(\tau)g(t+\tau) \mathrm{d}\tau\]</div>
+<p>Die <strong>Auto-Korrelation</strong> soll hier der vollständigkeitshalber noch einmal als Spezialfall der Kreuz-Korrelation aufgeführt werden. Hier berechnet man, wie ähnlich ein zeit-verschobenes Signal zu sich selbst ist (<em>zeitliche Korrelation</em>).</p>
+<div class="math notranslate nohighlight">
+\[(g \star g)(t) = \int_{-\infty}^{\infty} g(\tau)g(t+\tau) \mathrm{d}\tau\]</div>
+<figure class="align-default" id="faltung-korr-auto">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/faltung_korr_auto.jpg"><img alt="faltung_korr_auto" class="bg-primary mb-1" src="../_images/faltung_korr_auto.jpg" style="width: 700px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 35 </span><span class="caption-text">Vergleich von Faltung, Korrelation und Autokorrelation.</span><a class="headerlink" href="#faltung-korr-auto" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 <section id="interpretation-im-frequenzraum">
 <h2>Interpretation im Frequenzraum<a class="headerlink" href="#interpretation-im-frequenzraum" title="Permalink to this headline">#</a></h2>

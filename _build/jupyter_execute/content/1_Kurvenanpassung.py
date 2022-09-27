@@ -44,6 +44,7 @@
 # Laut Carl Friedrich Gauß kann also der Abstand der Funktionswerte zu den Messwerten wievolgt definiert werden:
 # 
 # > Methode der Gauß'schen Fehlerquadrate (Gütefunktion): 
+# 
 # $$Q := \sum_{i=1}^N \left( f(x_i) - y_i\right)^2 :=  \sum_{i=1}^N \epsilon_i^2 = \mathrm{min!}$$
 # 
 # Die Gütefunktion, die gleichbedeutend mit den SQT ist, ist wieder so gewählt, dass sich Abweichungen aufgrund unterschiedliche Vorzeichen nicht aufheben können und dass größere Abweichungen stärker gewichtet werden (durch die Quadrierung). Die Modellfunktion $f(x)$ wird bestimmt, indem das Minimierungsproblem gelöst wird. Dies kann entwedet analytisch geschehen (siehe [Lineare Modellanpassung](#SubSec-Lineare_Modellanpassung)) oder man lässt sich die Regression mittels Software berechnen. 
@@ -73,7 +74,9 @@
 # Für das **Bestimmtheitsmaß** gelten folgenden Punkte:
 # * Es beschreibt den Anteil der Varianz einer abhängigen Variablen $y$ durch ein statistisches Modell
 # * Es ist nur für lineare Regressionen eindeutig definiert:
+# 
 # $$\mathit{R}^2 = r^2 (=\textrm{Korrelation}^2)$$
+# 
 # * Es kann bedingt zur Beschreibung der Güte einer Regression verwendet werden. 
 # 
 # * Das Verhältnis der beiden Größen SQE und SQT wird das **Bestimmtheitsmaß** der Regression genannt und gibt an, wie gut die gefundene geschätzte Modellfunktion zu den Messdaten passt, oder wie gut sich die Regression an die Daten annähert. 

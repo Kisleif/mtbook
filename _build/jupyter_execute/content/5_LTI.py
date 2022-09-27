@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Linear zeitinvariante (LZI) Systeme 
+# # Linear zeitinvariante (LZI/LTI) Systeme 
 # <a id="Sec-LZI_system"></a>
 # 
 # LTI Systeme sind wichtig, da sie zwar sehr vereinfacht sind, aber gut zu lösen sind. Sie sind in der Tat die einzigen Systeme, die wir lösen können (mittels Differentialgleichungen). 
@@ -11,20 +11,69 @@
 # ## Eigenschaften
 # 
 # Das liegt daran, dass LTIs bestimmte Eigenschaften haben: *Superposition, Homogenität und Zeitinvarianz*.
-# Im Folgenden sei $h$ ein Operator, der eine lineare Abbildung zwischen Eingangsvektor $x(t)$ und dem Ausgang eines Systems, Vektor $y(t)$, darstellt. 
-# Für ein **lineares System** gelten allgemein folgende Eigenschaften:
+# Im Folgenden sei $h$ ein Operator, der eine lineare Abbildung zwischen Eingangsvektor $x(t)$ und dem Ausgang eines Systems, Vektor $y(t)$, darstellt (siehe {numref}`LTI`).
+# 
+# :::{figure-md} LTI
+# <img src="draw/LTI.jpg" alt="LTI" class="bg-primary mb-1" width="400px" label = LTI>
+# 
+# Linear zeitinvariantes (LZI) System $h(x)$ mit Eingangsfunktion $x(t)$ und Ausgangsfunktion $y(t) = h(x(t))$. 
+# :::
+# 
+# Für ein **lineares System** gelten allgemein folgende Eigenschaften.
+# 
+# 
+# :::::{grid} 2
+# 
+# ::::{grid-item}
 # * **Homogenität**: Wenn $x(t)$ mit Faktor $a$ skaliert wird, dann wird $y(t)$ ebenso skaliert
 #     * Ein Sprung der Größe $A$ produziert eine Schwingung mit Größe $B$
 #     * Da h(x) linear ist, wird ein verdoppelter Sprung am Eingang, also $2A$ zu einer Verdopplung am Ausgang, $2B$, führen
+# ::::
+# 
+# ::::{grid-item}
+# :::{figure-md} LTI_homo
+# <img src="draw/LTI_homo.jpg" alt="LTI_homo" class="bg-primary mb-1" width="400px" label = LTI_homo>
+# 
+# Homogenität
+# :::
+# ::::
+# :::::
+# 
+# :::::{grid} 2
+# 
+# ::::{grid-item}
 # * **Superposition** bedeutet Additivität: Addiere zwei Eingangssignale, $A$ und $B$ zusammen, sprich $A+B$, dann ist die Antwort des linearen Systems auch die Summe der individuellen Ausgänge ($a$ und $b$), also $a+b$. 
+# ::::
+# 
+# ::::{grid-item}
+# :::{figure-md} LTI_super
+# <img src="draw/LTI_super.jpg" alt="LTI_super" class="bg-primary mb-1" width="400px" label = LTI_super>
+# 
+# Superposition
+# :::
+# ::::
+# :::::
+# 
+# 
+# :::::{grid} 2
+# 
+# ::::{grid-item}
 # * **Zeitinvariant**: Das Systeme verhält sich immer gleich, egal wann in der Zeit es durchgeführt wird.
-#     * Wird das Eingangssignal $$x(t) um $T$ verschoben, dann ist auch das Ausgangssignal um $T$ verschoben.
+#     * Wird das Eingangssignal $x(t)$ um $T$ verschoben, dann ist auch das Ausgangssignal um $T$ verschoben.
+# ::::
+# 
+# ::::{grid-item}
+# :::{figure-md} LTI_zeit
+# <img src="draw/LTI_zeit.jpg" alt="LTI_zeit" class="bg-primary mb-1" width="400px" label = LTI_zeit>
+# 
+# Zeitinvariant
+# :::
+# ::::
+# :::::
 # 
 # In Realität gibt es fast immer Abweichungen von diesen Idealvorstellungen. D.h. wir können mit LTIs Eingänge eines Signals skalieren, verschieben und summieren, aber sie entsprechen niemals einem realen System. Warum sind sie dann so wichtig? Richard Feynman sagte damals: „Linear Systems are important, because we can solve them“. 
 # Selbst wenn LTI nicht real ist, so können wir reale Probleme sehr gut *annähern* indem wir LTI Analysen durchführen.
 # Das heißt, stell immer sicher, dass dein System für einen bestimmten Bereich linear funktioniert. 
-# 
-# ![Bild](pictures/LZI.png)
 
 # ## System-Identifizierung
 # <a id="Sec-System-Identifizierung"></a>
@@ -42,4 +91,14 @@
 # 
 # In allen Kapiteln wird der Inhalt am Beispiel eines Tiefpasses 1. Ordnung noch einmal konkreter erläutert.
 # 
-# ![Bild](pictures/3probleme.png)
+# :::{figure-md} black_white_box
+# <img src="draw/black_white_box.jpg" alt="black_white_box" class="bg-primary mb-1" width="800px" label = black_white_box>
+# 
+# System-Identifizierung mittels black und white Box-Verfahren. Beides führt zur Bestimmung der Übertragungsfunktion des gesuchten Systems $h(x)$, bzw. $G(f)$ im Fourier-Raum.
+# :::
+
+# In[ ]:
+
+
+
+

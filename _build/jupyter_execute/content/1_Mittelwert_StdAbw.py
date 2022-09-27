@@ -78,7 +78,9 @@ print('Integral über die Häufigkeitsdichte: ',(bconts * np.diff(bedges)).sum()
 # > **Zentraler Grenzwertsatz der Wahrscheinlichkeitstheorie**: Der Durchschnitt einer großen Anzahl von Zufallsvariablen aus derselben Verteilung sind annäherend normalverteilt, unabhängig von der Verteilungsfunktion aus der sie herausgenommen wurden. 
 # 
 # - Normalverteilte Zufallsgrößen werden also von den beiden Paraemtern $\overline x$ und $s$ beschrieben. Der **arithmetische Mittelwert**, der das **arithmetische Mittel** aus $m$ Beobachtungen ist:
+# 
 # $$\overline x = \frac{1}{m}\sum_{j=1}^m x_j$$
+# 
 # Für den Erwartungswert findet man in der Literatur unterschiedliche Bezeichnungen, unter anderem zum Beispiel $\overline x = E(x) = \left< x \right> = \mu$.
 # 
 # - Der *Erwartungswert der quadratischen Abweichung der Einzelmessungen vom Mittelwert*, die **Varianz** $s^2$, 
@@ -212,9 +214,17 @@ plt.show()
 # ## Vertrauensintervalle
 # 
 # Wir haben eben bereits erwähnt, dass 68% der Messwerte innerhalb des Intervalls $\pm s(x)$ liegen. Bei bekannter  Wahrscheinlichkeitsverteilung $p(x)$ der Messwerte $x$ um den Mittelwert $\overline x$, lässt sich die Wahrscheinlichkeit dafür berechnen, einen Messwert im Intervall $[x_1, x_2]$ um den Mittelwert zu finden. Wir nehmen im Folgenden eine Normalverteilung, mit Standardabweichung $\sigma$, der Messwerte an, dann ist die Wahrscheinlichkeit für
-# - einen Messwert $x\pm dx$: $$h(x)dx = \frac{1}{\sigma \sqrt{2\pi}}\mathrm{exp}\left(-\frac{(x-\overline x)^2}{2\sigma^2}\right) dx$$
-# - irgendeinen Messwerte zwischen $\pm \infty:$ $$P(-\infty < x < \infty) = \int_{-\infty}^\infty h(x)dx = 1$$
-# - einen Messwert im Intervall $[x_1, x_2]$: $$P(x_1 < x < x_2) = \int_{x_1}^{x_2} h(x)dx =  \frac{1}{\sigma \sqrt{2\pi}}\int_{x_1}^{x_2} \mathrm{exp}\left(-\frac{(x-\overline x)^2}{2\sigma^2}\right) dx$$
+# - einen Messwert $x\pm dx$: 
+# 
+# $$h(x)dx = \frac{1}{\sigma \sqrt{2\pi}}\mathrm{exp}\left(-\frac{(x-\overline x)^2}{2\sigma^2}\right) dx$$
+# 
+# - irgendeinen Messwerte zwischen $\pm \infty:$ 
+# 
+# $$P(-\infty < x < \infty) = \int_{-\infty}^\infty h(x)dx = 1$$
+# 
+# - einen Messwert im Intervall $[x_1, x_2]$: 
+# 
+# $$P(x_1 < x < x_2) = \int_{x_1}^{x_2} h(x)dx =  \frac{1}{\sigma \sqrt{2\pi}}\int_{x_1}^{x_2} \mathrm{exp}\left(-\frac{(x-\overline x)^2}{2\sigma^2}\right) dx$$
 # 
 # Das hier auftretende Integral ist nicht elementar berechenbar und man findet statt dessen Tabellen, die man hierfür benutzen kann. Mit $x_1 = \mu - r\cdot \sigma$ und $x_2 = \mu + r\cdot \sigma$ findet man die Wahrscheinlichkeit $P(\mu-r\cdot\sigma \leq x \leq \mu+r\cdot\sigma)$ dafür, dass der Messwert innerhalb einer $t\cdot\sigma$-Umgebung um den Mittelwert liegt. 
 # Bei einer echten Normalverteilung gilt folgendes:
@@ -232,6 +242,7 @@ plt.show()
 # Als Messtechniker gehen wir immer daher davon aus, dass innerhalb $\pm 3\sigma$ alle Messwerte liegen. Auf dieser Basis wird entsprechend auch die Messabweichung berechnet, also A = $\pm 3\sigma$.
 # 
 # Das **Endergebnis** der oben dargestellten Messreihe von $m = 15$ Messwerten wird in der Regel wiefolgt angegeben. Als Messwert wird nicht das Ergebnis einer Einzelmessung angegeben, sondern stets der Mittelwert der Messreihe inkl. seiner Unsicherheit:
+# 
 # $$ s(\overline x) = \frac{s}{\sqrt{m}} = u_{\overline x} $$
 # 
 # Der Mittelwert ist der beste Schätzwert, den wir für den *wahren* Wert ermitteln können. Die Angabe des Messergebnisses erfolgt also wiefolgt:
@@ -266,8 +277,11 @@ print("Messergebnis (95%): (", round(mean,3), '+-',round(2*std/np.sqrt(m),3),') 
 # Die Interpretation der Quantil-Tabelle der Student-t Verteilung kann verwirrend sein. Statt der Anzahl der Messwerte $m$ wird die Anzahl der Freiheitsgrade $s = m-1$ angegeben. Und statt des zweiseitigen Vertrauensbereich $P = 1-\alpha$ wird der halbseitige Vertrauensbereich $p = 1-\alpha/2$ gewählt. Beide *Quantile* können aber über die eben angegebenen Formel einfach bestimmt werden.
 # 
 # Aus der empirischen Standardabweichung des Mittelwertes $s(\overline x)$ berechnet man beispielsweise:
+# 
 # $$u(\overline x) = t(s,p)\cdot s(\overline x) = t(s,p)\cdot \frac{s(x)}{\sqrt{m}}$$.
+# 
 # Desweiteren können Vertrauensbereiche unterschiedlicher Wahrscheinlichkeiten ineinander umgerechnet werden:
+# 
 # $$\frac{u_{\alpha 1}}{t_{m-1; 1-\frac{\alpha_1}{2}}} =  \frac{u_{\alpha 2}}{t_{m-1; 1-\frac{\alpha_2}{2}}}$$
 # 
 # Hierbei ist $\alpha$ das Signifikanzniveau, also die Irrtumswahrscheinlichkeit $\alpha = 1-P$, wobei $P$ die Wahrscheinlichkeit bzw. die geforderte statistische Sicherheit ist.
@@ -343,7 +357,8 @@ print(0.013*2.977/2.145)
 # 
 # ![Bild](pictures/normalverteilung_tabelle.png)
 # 
-# ### Beispiel: Wahrscheinlichkeit für Zutreffen eines Ereignisses mittels Gauß-Test 
+# :::{note} Beispiel: Wahrscheinlichkeit für Zutreffen eines Ereignisses mittels Gauß-Test 
+# :class: dropdown
 # 
 # Als wichtigste Erkenntnis gilt es festzuhalten, dass zu jeder Aussage zu zufälligen Abweichungen die zugehörige Wahrscheinlichkeit für das Zutreffen dieser Aussage zwingend erforderlich ist. Dies sollte immer mit angegeben werden, wenn die Messabweichung angegeben wird. 
 # Messwertangaben ohne Aussage zur Wahrscheinlichkeit bezüglich der zufälligen Abweichungen sind in der betrieblichen Praxis nicht brauchbar!
@@ -370,7 +385,16 @@ print(0.013*2.977/2.145)
 # > $\phi(2) - \phi(-2) = 0,97725-0,02275 = 0,9545$
 # 
 # Mit einer Wahrscheinlichkeit von 95,45 % werden die Flaschen in der Abfüllanlage mit einem Inhalt von 0,69 l – 0,71 l befüllt. Dies entspricht auch genau der Wahrscheinlichkeit der $2\sigma$-Umgebung (siehe vorheriges Kapitel), was für $z = \pm 2$ natürlich auch so sein sollte. 
+# ::: 
+# 
+# 
 # 
 # ## Zusammenfassung zufälliger Unsicherheiten
 # 
 # ![Bild](pictures/zusammenfassung_zufaellig.png)
+
+# In[ ]:
+
+
+
+

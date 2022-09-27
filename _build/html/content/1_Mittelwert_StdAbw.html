@@ -245,11 +245,6 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="2_Digital.html">
-     Digitalisierung
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="3_FourierAnalyse.html">
      Fourier-Analyse
     </a>
@@ -260,6 +255,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Digital.html">
+   Digitalisierung
+  </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="5_Dynamische_Messsysteme.html">
@@ -273,7 +273,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="5_LTI.html">
-     Linear zeitinvariante (LZI) Systeme
+     Linear zeitinvariante (LZI/LTI) Systeme
     </a>
    </li>
    <li class="toctree-l2">
@@ -717,13 +717,6 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#normierte-normalverteilung">
    Normierte Normalverteilung
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#beispiel-wahrscheinlichkeit-fur-zutreffen-eines-ereignisses-mittels-gausz-test">
-     Beispiel: Wahrscheinlichkeit für Zutreffen eines Ereignisses mittels Gauß-Test
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#zusammenfassung-zufalliger-unsicherheiten">
@@ -777,13 +770,6 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#normierte-normalverteilung">
    Normierte Normalverteilung
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#beispiel-wahrscheinlichkeit-fur-zutreffen-eines-ereignisses-mittels-gausz-test">
-     Beispiel: Wahrscheinlichkeit für Zutreffen eines Ereignisses mittels Gauß-Test
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#zusammenfassung-zufalliger-unsicherheiten">
@@ -898,9 +884,12 @@ Die Häufigkeitsdichte gibt bei einem Histogramm die Höhe des Rechtecks an. Mit
 <div><p><strong>Zentraler Grenzwertsatz der Wahrscheinlichkeitstheorie</strong>: Der Durchschnitt einer großen Anzahl von Zufallsvariablen aus derselben Verteilung sind annäherend normalverteilt, unabhängig von der Verteilungsfunktion aus der sie herausgenommen wurden.</p>
 </div></blockquote>
 <ul class="simple">
-<li><p>Normalverteilte Zufallsgrößen werden also von den beiden Paraemtern <span class="math notranslate nohighlight">\(\overline x\)</span> und <span class="math notranslate nohighlight">\(s\)</span> beschrieben. Der <strong>arithmetische Mittelwert</strong>, der das <strong>arithmetische Mittel</strong> aus <span class="math notranslate nohighlight">\(m\)</span> Beobachtungen ist:
-$<span class="math notranslate nohighlight">\(\overline x = \frac{1}{m}\sum_{j=1}^m x_j\)</span><span class="math notranslate nohighlight">\(
-Für den Erwartungswert findet man in der Literatur unterschiedliche Bezeichnungen, unter anderem zum Beispiel \)</span>\overline x = E(x) = \left&lt; x \right&gt; = \mu$.</p></li>
+<li><p>Normalverteilte Zufallsgrößen werden also von den beiden Paraemtern <span class="math notranslate nohighlight">\(\overline x\)</span> und <span class="math notranslate nohighlight">\(s\)</span> beschrieben. Der <strong>arithmetische Mittelwert</strong>, der das <strong>arithmetische Mittel</strong> aus <span class="math notranslate nohighlight">\(m\)</span> Beobachtungen ist:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\overline x = \frac{1}{m}\sum_{j=1}^m x_j\]</div>
+<p>Für den Erwartungswert findet man in der Literatur unterschiedliche Bezeichnungen, unter anderem zum Beispiel <span class="math notranslate nohighlight">\(\overline x = E(x) = \left&lt; x \right&gt; = \mu\)</span>.</p>
+<ul class="simple">
 <li><p>Der <em>Erwartungswert der quadratischen Abweichung der Einzelmessungen vom Mittelwert</em>, die <strong>Varianz</strong> <span class="math notranslate nohighlight">\(s^2\)</span>,
 lässt sich allgemein wie folgt schreiben:
 $<span class="math notranslate nohighlight">\(\sigma^2  =  \frac{1}{m} \sum_{j=1}^m \left( x_j - \mu \right)^2\)</span>$
@@ -1042,10 +1031,20 @@ Laut <em>Grenzertsatz</em> sind folglich auch die Mittelwerte (sollte man mehrer
 <h2>Vertrauensintervalle<a class="headerlink" href="#vertrauensintervalle" title="Permalink to this headline">#</a></h2>
 <p>Wir haben eben bereits erwähnt, dass 68% der Messwerte innerhalb des Intervalls <span class="math notranslate nohighlight">\(\pm s(x)\)</span> liegen. Bei bekannter  Wahrscheinlichkeitsverteilung <span class="math notranslate nohighlight">\(p(x)\)</span> der Messwerte <span class="math notranslate nohighlight">\(x\)</span> um den Mittelwert <span class="math notranslate nohighlight">\(\overline x\)</span>, lässt sich die Wahrscheinlichkeit dafür berechnen, einen Messwert im Intervall <span class="math notranslate nohighlight">\([x_1, x_2]\)</span> um den Mittelwert zu finden. Wir nehmen im Folgenden eine Normalverteilung, mit Standardabweichung <span class="math notranslate nohighlight">\(\sigma\)</span>, der Messwerte an, dann ist die Wahrscheinlichkeit für</p>
 <ul class="simple">
-<li><p>einen Messwert <span class="math notranslate nohighlight">\(x\pm dx\)</span>: $<span class="math notranslate nohighlight">\(h(x)dx = \frac{1}{\sigma \sqrt{2\pi}}\mathrm{exp}\left(-\frac{(x-\overline x)^2}{2\sigma^2}\right) dx\)</span>$</p></li>
-<li><p>irgendeinen Messwerte zwischen <span class="math notranslate nohighlight">\(\pm \infty:\)</span> $<span class="math notranslate nohighlight">\(P(-\infty &lt; x &lt; \infty) = \int_{-\infty}^\infty h(x)dx = 1\)</span>$</p></li>
-<li><p>einen Messwert im Intervall <span class="math notranslate nohighlight">\([x_1, x_2]\)</span>: $<span class="math notranslate nohighlight">\(P(x_1 &lt; x &lt; x_2) = \int_{x_1}^{x_2} h(x)dx =  \frac{1}{\sigma \sqrt{2\pi}}\int_{x_1}^{x_2} \mathrm{exp}\left(-\frac{(x-\overline x)^2}{2\sigma^2}\right) dx\)</span>$</p></li>
+<li><p>einen Messwert <span class="math notranslate nohighlight">\(x\pm dx\)</span>:</p></li>
 </ul>
+<div class="math notranslate nohighlight">
+\[h(x)dx = \frac{1}{\sigma \sqrt{2\pi}}\mathrm{exp}\left(-\frac{(x-\overline x)^2}{2\sigma^2}\right) dx\]</div>
+<ul class="simple">
+<li><p>irgendeinen Messwerte zwischen <span class="math notranslate nohighlight">\(\pm \infty:\)</span></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[P(-\infty &lt; x &lt; \infty) = \int_{-\infty}^\infty h(x)dx = 1\]</div>
+<ul class="simple">
+<li><p>einen Messwert im Intervall <span class="math notranslate nohighlight">\([x_1, x_2]\)</span>:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[P(x_1 &lt; x &lt; x_2) = \int_{x_1}^{x_2} h(x)dx =  \frac{1}{\sigma \sqrt{2\pi}}\int_{x_1}^{x_2} \mathrm{exp}\left(-\frac{(x-\overline x)^2}{2\sigma^2}\right) dx\]</div>
 <p>Das hier auftretende Integral ist nicht elementar berechenbar und man findet statt dessen Tabellen, die man hierfür benutzen kann. Mit <span class="math notranslate nohighlight">\(x_1 = \mu - r\cdot \sigma\)</span> und <span class="math notranslate nohighlight">\(x_2 = \mu + r\cdot \sigma\)</span> findet man die Wahrscheinlichkeit <span class="math notranslate nohighlight">\(P(\mu-r\cdot\sigma \leq x \leq \mu+r\cdot\sigma)\)</span> dafür, dass der Messwert innerhalb einer <span class="math notranslate nohighlight">\(t\cdot\sigma\)</span>-Umgebung um den Mittelwert liegt.
 Bei einer echten Normalverteilung gilt folgendes:</p>
 <ul class="simple">
@@ -1059,8 +1058,9 @@ Bei einer echten Normalverteilung gilt folgendes:</p>
 Der Messtechniker kann somit mit der gegebenen Wahrscheinlichkeit abschätzen, ob ermittelte Messwerte innerhalb einer durch Fertigungsunterlagen zugelassenen Toleranz für die Maße eines Werkstücks liegen. Übliche Werte für Invervallgrenzen (meist symmetrisch, also Abweichungen sowohl nach unten als auch nach oben im gleichen Maße) und die zugehörigen Wahrscheinlichkeiten sind der nachfolgenden Tabelle angegeben:</p>
 <p><img alt="Bild" src="../_images/tab_norm_grenzen.png" /></p>
 <p>Als Messtechniker gehen wir immer daher davon aus, dass innerhalb <span class="math notranslate nohighlight">\(\pm 3\sigma\)</span> alle Messwerte liegen. Auf dieser Basis wird entsprechend auch die Messabweichung berechnet, also A = <span class="math notranslate nohighlight">\(\pm 3\sigma\)</span>.</p>
-<p>Das <strong>Endergebnis</strong> der oben dargestellten Messreihe von <span class="math notranslate nohighlight">\(m = 15\)</span> Messwerten wird in der Regel wiefolgt angegeben. Als Messwert wird nicht das Ergebnis einer Einzelmessung angegeben, sondern stets der Mittelwert der Messreihe inkl. seiner Unsicherheit:
-$<span class="math notranslate nohighlight">\( s(\overline x) = \frac{s}{\sqrt{m}} = u_{\overline x} \)</span>$</p>
+<p>Das <strong>Endergebnis</strong> der oben dargestellten Messreihe von <span class="math notranslate nohighlight">\(m = 15\)</span> Messwerten wird in der Regel wiefolgt angegeben. Als Messwert wird nicht das Ergebnis einer Einzelmessung angegeben, sondern stets der Mittelwert der Messreihe inkl. seiner Unsicherheit:</p>
+<div class="math notranslate nohighlight">
+\[ s(\overline x) = \frac{s}{\sqrt{m}} = u_{\overline x} \]</div>
 <p>Der Mittelwert ist der beste Schätzwert, den wir für den <em>wahren</em> Wert ermitteln können. Die Angabe des Messergebnisses erfolgt also wiefolgt:</p>
 <div class="math notranslate nohighlight">
 \[x = \overline x \pm r \cdot u_{\overline x}\]</div>
@@ -1097,10 +1097,9 @@ Messergebnis (95%): ( 0.994 +- 0.012 ) V
 Die unten stehende Quantil-Tabelle zeigt die zugehörigen Werte von <span class="math notranslate nohighlight">\(t\)</span> in Abhängigkeit von der Messwertanzahl, und dem gewählten Vertrauensniveau, dass die geforderte statistische Sicherheit beschreibt:</p>
 <p><img alt="Bild" src="../_images/student-t.png" /></p>
 <p>Die Interpretation der Quantil-Tabelle der Student-t Verteilung kann verwirrend sein. Statt der Anzahl der Messwerte <span class="math notranslate nohighlight">\(m\)</span> wird die Anzahl der Freiheitsgrade <span class="math notranslate nohighlight">\(s = m-1\)</span> angegeben. Und statt des zweiseitigen Vertrauensbereich <span class="math notranslate nohighlight">\(P = 1-\alpha\)</span> wird der halbseitige Vertrauensbereich <span class="math notranslate nohighlight">\(p = 1-\alpha/2\)</span> gewählt. Beide <em>Quantile</em> können aber über die eben angegebenen Formel einfach bestimmt werden.</p>
-<p>Aus der empirischen Standardabweichung des Mittelwertes <span class="math notranslate nohighlight">\(s(\overline x)\)</span> berechnet man beispielsweise:
-$<span class="math notranslate nohighlight">\(u(\overline x) = t(s,p)\cdot s(\overline x) = t(s,p)\cdot \frac{s(x)}{\sqrt{m}}\)</span><span class="math notranslate nohighlight">\(.
-Desweiteren können Vertrauensbereiche unterschiedlicher Wahrscheinlichkeiten ineinander umgerechnet werden:
-\)</span><span class="math notranslate nohighlight">\(\frac{u_{\alpha 1}}{t_{m-1; 1-\frac{\alpha_1}{2}}} =  \frac{u_{\alpha 2}}{t_{m-1; 1-\frac{\alpha_2}{2}}}\)</span>$</p>
+<p>Aus der empirischen Standardabweichung des Mittelwertes <span class="math notranslate nohighlight">\(s(\overline x)\)</span> berechnet man beispielsweise:</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}u(\overline x) = t(s,p)\cdot s(\overline x) = t(s,p)\cdot \frac{s(x)}{\sqrt{m}}$$.\\Desweiteren können Vertrauensbereiche unterschiedlicher Wahrscheinlichkeiten ineinander umgerechnet werden:\\$$\frac{u_{\alpha 1}}{t_{m-1; 1-\frac{\alpha_1}{2}}} =  \frac{u_{\alpha 2}}{t_{m-1; 1-\frac{\alpha_2}{2}}}\end{aligned}\end{align} \]</div>
 <p>Hierbei ist <span class="math notranslate nohighlight">\(\alpha\)</span> das Signifikanzniveau, also die Irrtumswahrscheinlichkeit <span class="math notranslate nohighlight">\(\alpha = 1-P\)</span>, wobei <span class="math notranslate nohighlight">\(P\)</span> die Wahrscheinlichkeit bzw. die geforderte statistische Sicherheit ist.</p>
 <section id="beispiel-student-t-verteilung-a-id-subsec-beispiel-student-t-verteilung-a">
 <h3>Beispiel: Student-t Verteilung <a id="SubSec-Beispiel_Student-t_Verteilung"></a><a class="headerlink" href="#beispiel-student-t-verteilung-a-id-subsec-beispiel-student-t-verteilung-a" title="Permalink to this headline">#</a></h3>
@@ -1183,8 +1182,8 @@ Desweiteren können Vertrauensbereiche unterschiedlicher Wahrscheinlichkeiten in
 <p>Der Flächeninhalt unterhalb dieser Verteilungsfunktion ist wieder auf 100% normiert, wenn von <span class="math notranslate nohighlight">\(\pm \infty\)</span> integriert wird. Die Maximale Amplitude ist jetzt <span class="math notranslate nohighlight">\(1/\sqrt{2 \pi}\)</span>. Die <span class="math notranslate nohighlight">\(z\)</span>-Achse (vorher Messwerte <span class="math notranslate nohighlight">\(x\)</span>) ist jetzt dimensionslos (einheitenlos). Somit können mit normierten Gaußverteilungen verschiedene physikalische Größen auch von verschiedenen Messgeräten bezüglich ihrer Streuung verglichen werden.
 Folgende Tabelle zeigt die Wahrscheinlichkeiten für verschiedene <span class="math notranslate nohighlight">\(z-\)</span>Werte. Die Spalten geben die erste Nachkommastelle von <span class="math notranslate nohighlight">\(z\)</span> an, die Zeilen die zweite:</p>
 <p><img alt="Bild" src="../_images/normalverteilung_tabelle.png" /></p>
-<section id="beispiel-wahrscheinlichkeit-fur-zutreffen-eines-ereignisses-mittels-gausz-test">
-<h3>Beispiel: Wahrscheinlichkeit für Zutreffen eines Ereignisses mittels Gauß-Test<a class="headerlink" href="#beispiel-wahrscheinlichkeit-fur-zutreffen-eines-ereignisses-mittels-gausz-test" title="Permalink to this headline">#</a></h3>
+<div class="dropdown admonition note">
+<p class="admonition-title">Note</p>
 <p>Als wichtigste Erkenntnis gilt es festzuhalten, dass zu jeder Aussage zu zufälligen Abweichungen die zugehörige Wahrscheinlichkeit für das Zutreffen dieser Aussage zwingend erforderlich ist. Dies sollte immer mit angegeben werden, wenn die Messabweichung angegeben wird.
 Messwertangaben ohne Aussage zur Wahrscheinlichkeit bezüglich der zufälligen Abweichungen sind in der betrieblichen Praxis nicht brauchbar!</p>
 <p>Es soll im Folgenden ein Messsystem einer Abfüllanlage überprüft werden, die Flaschen sind jeweils mit 0,7 l Saftgetränk befüllt.
@@ -1216,7 +1215,7 @@ Wie groß ist die Wahrscheinlichkeit, dass die Saftflaschen mit einen Inhalt zwi
 <div><p><span class="math notranslate nohighlight">\(\phi(2) - \phi(-2) = 0,97725-0,02275 = 0,9545\)</span></p>
 </div></blockquote>
 <p>Mit einer Wahrscheinlichkeit von 95,45 % werden die Flaschen in der Abfüllanlage mit einem Inhalt von 0,69 l – 0,71 l befüllt. Dies entspricht auch genau der Wahrscheinlichkeit der <span class="math notranslate nohighlight">\(2\sigma\)</span>-Umgebung (siehe vorheriges Kapitel), was für <span class="math notranslate nohighlight">\(z = \pm 2\)</span> natürlich auch so sein sollte.</p>
-</section>
+</div>
 </section>
 <section id="zusammenfassung-zufalliger-unsicherheiten">
 <h2>Zusammenfassung zufälliger Unsicherheiten<a class="headerlink" href="#zusammenfassung-zufalliger-unsicherheiten" title="Permalink to this headline">#</a></h2>

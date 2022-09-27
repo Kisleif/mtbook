@@ -3,10 +3,10 @@
 
 # # Strommesseingang
 # 
-# Im Bild {numref}`strommesseingang` ist dargestellt, wie elektrische Ströme gemessen werden. $R_L$ stellt hierbei einen Lastwiderstand, z.B. den einen Motors oder eines anderen Verbrauchers, dar. 
+# Im Bild {numref}`strommesseingang_motor` ist dargestellt, wie elektrische Ströme gemessen werden. $R_L$ stellt hierbei einen Lastwiderstand, z.B. den einen Motors oder eines anderen Verbrauchers, dar. 
 # 
-# :::{figure-md} strommesseingang
-# <img src="draw/strommesseingang.jpg" alt="strommesseingang" class="bg-primary mb-1" width="400px" label = strommesseingang>
+# :::{figure-md} strommesseingang_motor
+# <img src="draw/strommesseingang_motor.jpg" alt="strommesseingang_motor" class="bg-primary mb-1" width="600px" label = strommesseingang_motor>
 # 
 # Schaltung zur Messung elektrischer Ströme.
 # :::

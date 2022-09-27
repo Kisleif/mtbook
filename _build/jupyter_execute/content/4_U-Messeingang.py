@@ -3,10 +3,10 @@
 
 # # Spannungsmesseingang
 # 
-# In {numref}`spannungsmesseingang_last` ist dargestellt, wie elektrische Spannungen gemessen werden. $R_L$ stellt hierbei einen Lastwiderstand, z.B. den einen Motors oder eines anderen Verbrauchers, dar. 
+# In {numref}`spannungsmesseingang_motor` ist dargestellt, wie elektrische Spannungen gemessen werden. $R_L$ stellt hierbei einen Lastwiderstand, z.B. den einen Motors oder eines anderen Verbrauchers, dar. 
 # 
-# :::{figure-md} spannungsmesseingang_last
-# <img src="draw/spannungsmesseingang_last.jpg" alt="Spannungsmesseingang" class="bg-primary mb-1" width="400px" label = spannungsmesseingang_last>
+# :::{figure-md} spannungsmesseingang_motor
+# <img src="draw/spannungsmesseingang_motor.jpg" alt="spannungsmesseingang_motor" class="bg-primary mb-1" width="600px" label = spannungsmesseingang_motor>
 # 
 # Schaltung zur Messung elektrischer Spannungen.
 # :::
@@ -247,8 +247,73 @@ plt.tight_layout()
 # Grober interner Aufbau eines Verstärkermoduls in einem Spannungsmesseingangs.
 # :::
 
-# In[ ]:
+# ## Messung des Gleichrichtswerts
+# 
+# Zur Messung des Gleichrichtwerts einer Wechselspannung kann eine Diodenspannung wie in {numref}`spannungsmesseingang_glatt` benutzt werden. 
+# 
+# ### Funktionsweise einer Diode
+# 
+# Die Diode ist ein Halbleiterbauelement, welches aus p- und n-dotierten Schichten besteht. Im Schaltbild sieht das Symbol aus wie ein Pfeil. Sie hat eine Durchlass- (in *Pfeilrichtung*) und eine Sperrichtung (*gegen Pfeil*). 
+# So ist eine Diode beispielsweise erst für 0,7V leitend, unterhalb die **Schwellspannung** ist sie gesperrt und leitet keinen Strom. 
+# Dies liegt an den n- und p-dotierten Schichten. Um eine Silizum-Diode herzustellen, wird Silizium zum Halbleiter verarbeitet:
+# 
+# * Die **Anode** wird mit Bor verunreinigt, wodurch dem Bor Elektronen fehlen und somit eine **p-dotierte** Schicht mit **Elektronenmangel** entsteht. 
+# * Die **Kathode** wird mit Phosphor verunreinigt, welches ein Elektron mehr in der Hülle besitzt, wodurch eine **n-dotierte** Schicht mit **Elektronüberschuss **entsteht. 
+# 
+# Freie Elektronen können jetzt in Richtung der Löcher diffundieren, und die Löcher diffundieren in Richtung des Elektronenüberschuss. Elektronen und Löcher treffen sich also in der Mitte und rekombinieren, wodurch dieser Bereich neutral ist. Die Ränder werden jedoch positiv bzw. negativ geladen. Durch diese Ladung am Rand werden wiederum Elektronen bzw. Löcher angezogen. 
+# Außerdem entsteht in der zentralen Zone ein elektrisches Feld, wie zwischen zwei geladenen Kondensatorplatten. Die Größe der elektrischen Feldes hängt davon ab, wie viele Elektronen und Löcher rekombiniert sind. Außerdem verstärkt das äußere elektrische Feld das elektrische Feld. Ab 0,7V wird das elektrische Feld gebrochen und aufgehoben. 
+# 
+# 
+# ### Schwellspannung
+# Die Schwellspannung (Diffusionsspannung, Durchbruchspannung) ist die wichtigste Kenngröße einer Diode. Sie gibt an, ab welcher Spannung eine Halbleiterdiode in Durchlassrichtung leitend wird. Das bedeutet auch, dass eine Diode in Durchlassrichtung nicht immer leitend ist, sondern erst ab einer bestimmten Schwellspannung.
+# Es spielt dabei keine Rolle, in welchem Spannungsbereich sich eine Diode befindet: Die Anode der Diode muss in Durchlassrichtung nur um die Schwellspannung positiver sein als die Kathode. Die Schwellspannung ist also als Potential zu sehen. 
+# Die Schwellspannung ist abhängig vom Halbleitermaterial und entspricht nur einem ungefähren Wert. 
+# Ein paar Beispiele häufiger Halbleitermaterialien sind:
+# * Germanium ~ 0,3V
+# * Silizium ~ 0,7V
+# * Selen ~ 0,6V
+# * Kupferoxydul ~ 0,2V
+# In {numref}`diode_kennlinie` sind zwei Beispiele für Dioden-Kennlinien grafisch dargestellt.
+# 
+# :::{figure-md} diode_kennlinie
+# <img src="draw/diode_kennlinie.jpg" alt="diode_kennlinie" class="bg-primary mb-1" width="400px" label = diode_kennlinie>
+# 
+# Kennlinie einer Silizium und Germanium-Diode. 
+# :::
+# 
+# Hinweis: Schwellspannungen gelten nicht nur für Halbleiterdioden, sondern zum Beispiel auch für Transistoren. Hier gibt es auch einen pn-Übergang.
+# 
+# Bei der Silizium-Diode haben wir einen sehr kleinen Sperrstrom $i_R$. 
+# Ab einer bestimmten Sperrspannung $u_R$ werden die Elektronen aus ihren Kristallbindungen gelöst. 
+# Dann kommt es zum so genannten Zenerdurchbruch (Durchbruchspannung). 
+# Dabei steigt der Strom schlagartig an. Wird dieser Strom nicht begrenzt, dann zerstört sich die Diode.
+# Bei Germanium-Dioden kommt der Zenerdurchbruch nicht zum Tragen. Dafür steigt der Sperrstrom $i_R$ bei steigender Spannung langsam an. Ab einer bestimmten Spannung erhitzen sich die Halbleiterkristalle so stark, dass es zum Wärme-Durchbruch und zur Zerstörung kommt. Die Zerstörung der Halbleiterkristalle ist auch im Durchlassbereich möglich, wenn der maximale Strom überschritten wird.
+# 
+# ### Dioden-Brückenschaltung
+# 
+# Nachfolgend in {numref}`diode_gleichricht` ist Strom für eine Wechselspannung durch eine Dioden-Brückenschaltung skizziert. 
+# 
+# :::{figure-md} diode_gleichricht
+# <img src="draw/diode_gleichricht.jpg" alt="diode_gleichricht" class="bg-primary mb-1" width="600px" label = diode_gleichricht>
+# 
+# Dioden-Brückenschaltung zur Messung des Gleichrichtswerts
+# :::
+# 
+# Eine positive Eingangsspannung führt zu einem Durchfluss durch die rechte obere Diode, geht durch den Ausgang von *oben* nach *unten* und abschließend über die Diode unten links zurück. Eine negative Eingangsspannung durchfließt die anderen beiden Dioden, wobei sie den Ausgang jedoch in der gleichen Richtung verlässt, wie bei einer positiven Eingangsspannung. Der Ausgang gibt also nur positive Spannungen aus. 
+# Aufgrund der Durchbruchspannung werden außerdem kleine Spannung *abgeschnitten*, wodruch bei einer eingehenden Wechselspannung nur noch die Spitze der *Berge*, bzw. umgekehrten *Täler*, ausgegeben werden. 
+# 
+# Für einen Präzisions-Gleichrichter würde man diese Grundschaltung optimieren und Operationsverstärker verwenden. 
 
-
-
-
+# ## Glättung
+# 
+# Um ein Signale zu glätten, wie z.B. eine Wechselspannung, möchte man die *tiefpass* los werden. Die einfachste Möglichkeit um hohe Frequenzen, also schnelle Schwingungen, abzuschwächen oder komplett loszuwerden, ist die Benutzung eines Tiefpassfilters, wie in dargestellt. Dieser besteht aus einem Widerstand $R$ und einem Kondensator mit der Kapazität $C$. 
+# 
+# :::{figure-md} tiefpass
+# <img src="draw/tiefpass.jpg" alt="tiefpass" class="bg-primary mb-1" width="300px" label = tiefpass>
+# 
+# Tiefpass aus R und C zur Unterdrückung hoher Frequenzen. 
+# :::
+# 
+# Diese Schaltung verzögert den Eingangsspannungsverlauf $u_e$. Die Kondensatorspannung $u_a$ passt sich mit einer Verzögerung aufgrund von Lade- und Entladeströme dem Eingangssignal $u_e$ an. Die Verzögerung ist eine Art Mittelung der Eingangsspannung. Die Lade- und Entlade-Prozesse der Kondensators sind nicht beliebig schnell und können schnellen Änderungen in der Eingangsspannung nur bedingt folgen. Je schneller die Änderungen der Eingangsspannung sind, desto weniger können diese hoch-frequenten Anteile von dem System weitergegeben werden. Nur langsame Änderungen, tief-frequente Anteile, bleiben erhalten (**Tiefpass**). 
+# 
+# Mit komplexere Schaltungen, bestehend aus mehreren passiven Tiefpässen (**Tiefpass höherer Ordnung**) oder aus aktiven Tiefpässen mit Operationsverstärken, kann der Mittelungseffekt optimiert werden. 

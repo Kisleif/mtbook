@@ -51,6 +51,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Sensoren" href="6_Sensoren.html" />
@@ -243,11 +245,6 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="2_Digital.html">
-     Digitalisierung
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="3_FourierAnalyse.html">
      Fourier-Analyse
     </a>
@@ -258,6 +255,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Digital.html">
+   Digitalisierung
+  </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="5_Dynamische_Messsysteme.html">
@@ -271,7 +273,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="5_LTI.html">
-     Linear zeitinvariante (LZI) Systeme
+     Linear zeitinvariante (LZI/LTI) Systeme
     </a>
    </li>
    <li class="toctree-l2">
@@ -691,6 +693,50 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="frequenzmessung">
 <h1>Frequenzmessung<a class="headerlink" href="#frequenzmessung" title="Permalink to this headline">#</a></h1>
+<p>Häufig liegen uns frequenzmodulierte Spannungssignale vor. Die Frequenz ist hierbei der Informationsträger und muss ausgelesen werden, um die Messgröße <span class="math notranslate nohighlight">\(x\)</span> zu bestimmen.
+Das Grundprinzip der Frequenzmessung ist in <a class="reference internal" href="#f-messung"><span class="std std-numref">Fig. 61</span></a> dargestellt.</p>
+<figure class="align-default" id="f-messung">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/F_messung.jpg"><img alt="F_messung" class="bg-primary mb-1" src="../_images/F_messung.jpg" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 61 </span><span class="caption-text">Grundprinzip der Frequenzmessung.</span><a class="headerlink" href="#f-messung" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>In der ersten Stufe wird das periodische Eingangssignal in eine binäres Signal mit der gleichen Frequenz umgewandelt. Hierfür werden üblicherweise Operationsverstärker benutzt</p></li>
+<li><p>Dann zählt über eine bestimmte Zeit, die <strong>Torzeit <span class="math notranslate nohighlight">\(T\)</span></strong> die <strong>Anzahl <span class="math notranslate nohighlight">\(z\)</span></strong> der Perioden.</p></li>
+<li><p>Der Messwert ergibt sich aus dem Verhältnis von gezählten Perioden und der Torzeit:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[f_a = \frac{z}{T}\]</div>
+<p>Hierbei können <strong>Zählfehler</strong> passieren, da die Torzeit <span class="math notranslate nohighlight">\(T\)</span> unabhängig von der Periodendauer und dem Messsignal ist. D.h. im schlimmsten Fall kann man sich um eine ganze Periode verzählen, weshalb die Messabweichung der Zählung <span class="math notranslate nohighlight">\(\Delta z = 1\)</span> ist. Dieses Phänomen ist in <a class="reference internal" href="#f-zahlung"><span class="std std-numref">Fig. 62</span></a> dargestellt.</p>
+<figure class="align-default" id="f-zahlung">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/F_zählung.jpg"><img alt="F_zählung" class="bg-primary mb-1" src="../_images/F_zählung.jpg" style="width: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 62 </span><span class="caption-text">Zählfehler</span><a class="headerlink" href="#f-zahlung" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Die maximal zu erwartende Quantisierungsabweichung bezogen auf der Frequenzmessung beträgt also</p>
+<div class="math notranslate nohighlight">
+\[A = f_a - f_w = \frac{1}{T}\]</div>
+<p>Wenn wir also die Frequenz eines <span class="math notranslate nohighlight">\(100\,\mathrm{Hz}\)</span>-Signals über eine Torzeit von <span class="math notranslate nohighlight">\(1\,\mathrm{s}\)</span> bestimmen (was schon eine verdammt lange Messzeit ist) erhalten wir eine Maximalabweichung von <span class="math notranslate nohighlight">\(1\,\mathrm{Hz}\)</span>, also 1% bezogen auf den Messwert. Je niederiger die Frequenz, desto länger müssen wir messen, um ein genaues Ergebnise zu erhalten.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="mf">1000e-3</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die maximale Messabweichung beträgt:&#39;</span> <span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="n">T</span><span class="p">,</span> <span class="s1">&#39;Hz&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die maximale Messabweichung beträgt: 1.0 Hz
+</pre></div>
+</div>
+</div>
+</div>
+<p>Bei ganz niedrigen Frequenzen wird deshalb die Periodendauer gemessen, also z.B. von einem Nulldurchgang zum nächsten.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Macht euch vorher Gedanken darüber, welche signifikanten Messabweichungen auftreten können, wenn ihr in bestimmten Frequenzbereichen Messungen vornehmt. Wählt eine sinnvolle Messzeit!</p>
+</div>
 </section>
 
     <script type="text/x-thebe-config">

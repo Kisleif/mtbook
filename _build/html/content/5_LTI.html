@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Linear zeitinvariante (LZI) Systeme &#8212; Metrology Lecture Book</title>
+    <title>Linear zeitinvariante (LZI/LTI) Systeme &#8212; Metrology Lecture Book</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -245,11 +245,6 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="2_Digital.html">
-     Digitalisierung
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="3_FourierAnalyse.html">
      Fourier-Analyse
     </a>
@@ -260,6 +255,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Digital.html">
+   Digitalisierung
+  </a>
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="5_Dynamische_Messsysteme.html">
@@ -273,7 +273,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="current">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Linear zeitinvariante (LZI) Systeme
+     Linear zeitinvariante (LZI/LTI) Systeme
     </a>
    </li>
    <li class="toctree-l2">
@@ -708,7 +708,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Linear zeitinvariante (LZI) Systeme</h1>
+                <h1>Linear zeitinvariante (LZI/LTI) Systeme</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -738,16 +738,25 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="linear-zeitinvariante-lzi-systeme">
-<h1>Linear zeitinvariante (LZI) Systeme<a class="headerlink" href="#linear-zeitinvariante-lzi-systeme" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="linear-zeitinvariante-lzi-lti-systeme">
+<h1>Linear zeitinvariante (LZI/LTI) Systeme<a class="headerlink" href="#linear-zeitinvariante-lzi-lti-systeme" title="Permalink to this headline">#</a></h1>
 <p><a id="Sec-LZI_system"></a></p>
 <p>LTI Systeme sind wichtig, da sie zwar sehr vereinfacht sind, aber gut zu lösen sind. Sie sind in der Tat die einzigen Systeme, die wir lösen können (mittels Differentialgleichungen).</p>
 <p>Für ein LTI System können Ausgangssignale vorhergesagt werden, die man für ein bestimmtes Eingangssignale erwarten würde. Das gleiche gilt auch für <em>Veränderungen</em> von Eingangssignalen.</p>
 <section id="eigenschaften">
 <h2>Eigenschaften<a class="headerlink" href="#eigenschaften" title="Permalink to this headline">#</a></h2>
 <p>Das liegt daran, dass LTIs bestimmte Eigenschaften haben: <em>Superposition, Homogenität und Zeitinvarianz</em>.
-Im Folgenden sei <span class="math notranslate nohighlight">\(h\)</span> ein Operator, der eine lineare Abbildung zwischen Eingangsvektor <span class="math notranslate nohighlight">\(x(t)\)</span> und dem Ausgang eines Systems, Vektor <span class="math notranslate nohighlight">\(y(t)\)</span>, darstellt.
-Für ein <strong>lineares System</strong> gelten allgemein folgende Eigenschaften:</p>
+Im Folgenden sei <span class="math notranslate nohighlight">\(h\)</span> ein Operator, der eine lineare Abbildung zwischen Eingangsvektor <span class="math notranslate nohighlight">\(x(t)\)</span> und dem Ausgang eines Systems, Vektor <span class="math notranslate nohighlight">\(y(t)\)</span>, darstellt (siehe <a class="reference internal" href="#lti"><span class="std std-numref">Fig. 30</span></a>).</p>
+<figure class="align-default" id="lti">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/LTI.jpg"><img alt="LTI" class="bg-primary mb-1" src="../_images/LTI.jpg" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 30 </span><span class="caption-text">Linear zeitinvariantes (LZI) System <span class="math notranslate nohighlight">\(h(x)\)</span> mit Eingangsfunktion <span class="math notranslate nohighlight">\(x(t)\)</span> und Ausgangsfunktion <span class="math notranslate nohighlight">\(y(t) = h(x(t))\)</span>.</span><a class="headerlink" href="#lti" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Für ein <strong>lineares System</strong> gelten allgemein folgende Eigenschaften.</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-column docutils">
 <ul class="simple">
 <li><p><strong>Homogenität</strong>: Wenn <span class="math notranslate nohighlight">\(x(t)\)</span> mit Faktor <span class="math notranslate nohighlight">\(a\)</span> skaliert wird, dann wird <span class="math notranslate nohighlight">\(y(t)\)</span> ebenso skaliert</p>
 <ul>
@@ -755,17 +764,59 @@ Für ein <strong>lineares System</strong> gelten allgemein folgende Eigenschafte
 <li><p>Da h(x) linear ist, wird ein verdoppelter Sprung am Eingang, also <span class="math notranslate nohighlight">\(2A\)</span> zu einer Verdopplung am Ausgang, <span class="math notranslate nohighlight">\(2B\)</span>, führen</p></li>
 </ul>
 </li>
+</ul>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<figure class="align-default" id="lti-homo">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/LTI_homo.jpg"><img alt="LTI_homo" class="bg-primary mb-1" src="../_images/LTI_homo.jpg" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 31 </span><span class="caption-text">Homogenität</span><a class="headerlink" href="#lti-homo" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<ul class="simple">
 <li><p><strong>Superposition</strong> bedeutet Additivität: Addiere zwei Eingangssignale, <span class="math notranslate nohighlight">\(A\)</span> und <span class="math notranslate nohighlight">\(B\)</span> zusammen, sprich <span class="math notranslate nohighlight">\(A+B\)</span>, dann ist die Antwort des linearen Systems auch die Summe der individuellen Ausgänge (<span class="math notranslate nohighlight">\(a\)</span> und <span class="math notranslate nohighlight">\(b\)</span>), also <span class="math notranslate nohighlight">\(a+b\)</span>.</p></li>
+</ul>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<figure class="align-default" id="lti-super">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/LTI_super.jpg"><img alt="LTI_super" class="bg-primary mb-1" src="../_images/LTI_super.jpg" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 32 </span><span class="caption-text">Superposition</span><a class="headerlink" href="#lti-super" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<ul class="simple">
 <li><p><strong>Zeitinvariant</strong>: Das Systeme verhält sich immer gleich, egal wann in der Zeit es durchgeführt wird.</p>
 <ul>
-<li><p>Wird das Eingangssignal $<span class="math notranslate nohighlight">\(x(t) um \)</span>T<span class="math notranslate nohighlight">\( verschoben, dann ist auch das Ausgangssignal um \)</span>T$ verschoben.</p></li>
+<li><p>Wird das Eingangssignal <span class="math notranslate nohighlight">\(x(t)\)</span> um <span class="math notranslate nohighlight">\(T\)</span> verschoben, dann ist auch das Ausgangssignal um <span class="math notranslate nohighlight">\(T\)</span> verschoben.</p></li>
 </ul>
 </li>
 </ul>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<figure class="align-default" id="lti-zeit">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/LTI_zeit.jpg"><img alt="LTI_zeit" class="bg-primary mb-1" src="../_images/LTI_zeit.jpg" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 33 </span><span class="caption-text">Zeitinvariant</span><a class="headerlink" href="#lti-zeit" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 <p>In Realität gibt es fast immer Abweichungen von diesen Idealvorstellungen. D.h. wir können mit LTIs Eingänge eines Signals skalieren, verschieben und summieren, aber sie entsprechen niemals einem realen System. Warum sind sie dann so wichtig? Richard Feynman sagte damals: „Linear Systems are important, because we can solve them“.
 Selbst wenn LTI nicht real ist, so können wir reale Probleme sehr gut <em>annähern</em> indem wir LTI Analysen durchführen.
 Das heißt, stell immer sicher, dass dein System für einen bestimmten Bereich linear funktioniert.</p>
-<p><img alt="Bild" src="../_images/LZI.png" /></p>
 </section>
 <section id="system-identifizierung">
 <h2>System-Identifizierung<a class="headerlink" href="#system-identifizierung" title="Permalink to this headline">#</a></h2>
@@ -790,7 +841,12 @@ Das heißt, stell immer sicher, dass dein System für einen bestimmten Bereich l
 </ol>
 <p>Während Problem 1 und 2 Bestandteil anderer Vorlesungen oder Themengebiete ist, wollen wir uns im Folgenden mit dem Problem 3 befassen. Hier wollen wir im Folgenden zwei Möglichkeiten betrachten, mittels welcher <span class="math notranslate nohighlight">\(h(t)\)</span> bestimmt werden kann. Die beiden Methoden werden im folgenden mit <strong>black box</strong> und <strong>white box</strong> bezeichnet.</p>
 <p>In allen Kapiteln wird der Inhalt am Beispiel eines Tiefpasses 1. Ordnung noch einmal konkreter erläutert.</p>
-<p><img alt="Bild" src="../_images/3probleme.png" /></p>
+<figure class="align-default" id="black-white-box">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/black_white_box.jpg"><img alt="black_white_box" class="bg-primary mb-1" src="../_images/black_white_box.jpg" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 34 </span><span class="caption-text">System-Identifizierung mittels black und white Box-Verfahren. Beides führt zur Bestimmung der Übertragungsfunktion des gesuchten Systems <span class="math notranslate nohighlight">\(h(x)\)</span>, bzw. <span class="math notranslate nohighlight">\(G(f)\)</span> im Fourier-Raum.</span><a class="headerlink" href="#black-white-box" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 </section>
 

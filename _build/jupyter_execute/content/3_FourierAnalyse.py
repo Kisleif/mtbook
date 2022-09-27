@@ -104,7 +104,7 @@ warnings.filterwarnings('ignore')
 
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.figure(figsize=(10,4)) # Plot-Größe
+#plt.figure(figsize=(10,4)) # Plot-Größe
 plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
@@ -492,7 +492,6 @@ plt.show()
 
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.figure(figsize=(8,3)) # Plot-Größe
 plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
@@ -530,7 +529,6 @@ plt.show()
 
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.figure(figsize=(8,3)) # Plot-Größe
 plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
@@ -569,7 +567,6 @@ plt.show()
 
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.figure(figsize=(8,3)) # Plot-Größe
 plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
@@ -607,7 +604,6 @@ plt.show()
 
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.figure(figsize=(8,3)) # Plot-Größe
 plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße 
 
@@ -642,7 +638,6 @@ plt.show()
 
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.figure(figsize=(8,3)) # Plot-Größe
 plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 

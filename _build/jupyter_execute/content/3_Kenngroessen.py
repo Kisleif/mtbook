@@ -9,9 +9,53 @@
 # 
 # In elektronischen Schaltungen hat man dazu eine Stromstärke, der dieser Wechselspannung zugehörig ist, und sich allgemein wiefolgt schreiben lässt:
 # 
-# $$i(t) = \hat i \cdot \sin(\omega t + \varphi)$$
+# $$i(t) = \hat i \cdot \sin(\omega t + \phi)$$
 # 
-# Der Stromstärke haben wir die Phase $\varphi$ hinzugefügt, da durch besondere Komponenten in der Schaltung, wie z.B. ein Kondensator oder eine Spule, eine Verzögerung zwischen Spannung und Stromstärke auftritt. Im klassischen Stromkreis, mit lediglich einem Widerstand, ist so eine Verzögerung meist vernachlässigbar. 
+# Der Stromstärke haben wir die Phase $\phi$ hinzugefügt, da durch besondere Komponenten in der Schaltung, wie z.B. ein Kondensator oder eine Spule, eine Verzögerung zwischen Spannung und Stromstärke auftritt. Im klassischen Stromkreis, mit lediglich einem Widerstand, ist so eine Verzögerung meist vernachlässigbar. 
+
+# In[1]:
+
+
+#Benötigte Libraries:
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import plotly.offline as py
+py.init_notebook_mode(connected=True)
+import plotly.graph_objs as go
+import plotly.tools as tls
+import seaborn as sns
+import time
+import warnings
+warnings.filterwarnings('ignore')
+
+# MatplotLib Settings:
+plt.style.use('default') # Matplotlib Style wählen
+plt.xkcd()
+plt.rcParams['font.size'] = 10; # Schriftgröße
+
+A = 1.0   # Amplitude
+f = 10    # Frequenz in Hz
+phi = 0.  # Phase in radian
+T = 1/f   # Perdiodendauer
+t = np.linspace(0,2*T,100) # Zeitwerte der Sinusfunktion in sec
+
+fig = plt.figure(figsize=(7,3))
+ax = fig.add_axes([0.1, 0.1, 0.8, 0.8])
+ax.plot(t,A * np.sin(2*np.pi*f*t + phi), 'tab:blue',label = r'$u(t) = \hat u \cdot \sin(\omega t)$')
+ax.plot(t,A * np.sin(2*np.pi*f*t + 0.5), 'tab:red', label = r'$i(t) = \hat i \cdot \sin(\omega t + \phi)$')
+ax.set_xlabel('Zeit')
+ax.set_ylabel('Amplitude (a.u.)')
+ax.set_xlim(0,2*T)
+ax.set_xticks([0, T, 2*T])
+ax.set_xticklabels(['0','T','2T'])
+ax.set_yticks([-A, 0, A])
+ax.set_yticklabels(['-A','0','A'])
+#ax.set_title(r'u(t) =%5.1f $\cdot$ sin(%5.1f Hz $\cdot t$ + $\phi$)' %(A, 2*np.pi*f))
+ax.grid()
+ax.legend()
+plt.show()
+
 
 # Bei einem Wechselsignal interessiert man sich häufig nicht für den Zeitverlauf, oder den einzelnen Wert zu einem bestimmten Zeitpunkt, den sogenannten Momentanwert. Dieser hat nämlich keine große Aussagekraft, da er sich gemäß der zugrundeliegenden Signalform ständig ändert. Für viele Fragestellungen sind Kenngrößen relevant, die sich aus der Periode des Wchselsignals ermitteln lassen.
 # 
@@ -60,7 +104,13 @@
 # 
 # wobei $n$ die Abtastwerte sind, $T_A$ der Abstand zwischen zwei Messungen und $u_k$ der einzelne Messwert zum Zeitpunkt $k\cdot T_A$.
 # 
-# ![Bild](pictures/digital_eff.png)
+# 
+# :::{figure-md} abtastung
+# <img src="draw/abtastung.jpg" alt="abtastung" class="bg-primary mb-1" width="400px" label = abtastung>
+# 
+# Abtastung während der Digitalisierung. Die Abtastung von Messwerten $u_k$ erfolgt in äquidistanten Abständen $T_A$. 
+# :::
+# 
 
 # ## Beispiele
 # 
@@ -68,7 +118,7 @@
 # 
 # Beispiel eines Sinussignals mit und ohne Gleichanteil ist im folgenden Plot dargestellt. 
 
-# In[1]:
+# In[2]:
 
 
 #Benötigte Libraries:
@@ -158,7 +208,7 @@ print('Formfaktor\t', Formfaktor[0], '\t\t', Formfaktor[1])
 
 # Für beide Fälle kann man die Integrale von oben lösen und erhält vereinfachte Zusammenhänge, die allgemein für **Sinussignale** mit oder ohne Gleichanteil gelten:
 # 
-# **Sinussignal ohne Gleichanteil**: $u(t) = \hat{u}\cdot \sin(\omega t + \varphi )$
+# **Sinussignal ohne Gleichanteil**: $u(t) = \hat{u}\cdot \sin(\omega t + \phi )$
 # | Beschreibung | Formel |
 # |:--------------------|:----------------------------------------|
 # |Linearer Mittelwert / Gleichanteil | $\overline u = 0$ |
@@ -168,7 +218,7 @@ print('Formfaktor\t', Formfaktor[0], '\t\t', Formfaktor[1])
 # |Formfaktor | $k_F = \frac{u_\mathrm{eff}}{\overline{\lvert u \rvert}} = \frac{\pi}{2\sqrt{2}} \approx 1,11$ |
 #     
 #     
-# **Sinussignal mit Gleichanteil**: $u(t) = u_0 + \hat{u}\cdot \sin(\omega t + \varphi )$
+# **Sinussignal mit Gleichanteil**: $u(t) = u_0 + \hat{u}\cdot \sin(\omega t + \phi )$
 # | Beschreibung | Formel |
 # |:--------------------|:----------------------------------------|
 # |Linearer Mittelwert / Gleichanteil | $\overline u = u_0$ |
@@ -190,7 +240,7 @@ print('Formfaktor\t', Formfaktor[0], '\t\t', Formfaktor[1])
 # 
 # wird auch Tastverhältnis genannt. Hierüber kann ein Messwert analog codiert und übertragen werden, während das Signal selber digital ist.
 
-# In[2]:
+# In[3]:
 
 
 #Benötigte Libraries:

@@ -56,7 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="Rauschen und spektrale Dichte" href="3_Rauschen.html" />
+    <link rel="next" title="Digitalisierung" href="3_Digital.html" />
     <link rel="prev" title="Modulation von Messsignalen" href="3_Modulationen.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="de">
@@ -251,16 +251,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="3_Rauschen.html">
-     Rauschen und spektrale Dichte
+    <a class="reference internal" href="3_Digital.html">
+     Digitalisierung
     </a>
    </li>
   </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="2_Digital.html">
-   Digitalisierung
-  </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="5_Dynamische_Messsysteme.html">
@@ -339,6 +334,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="4_R-Messung.html">
      Widerstandsmessung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_CL-Messung.html">
+     Messung von Kapazitäten und Induktivitäten
     </a>
    </li>
    <li class="toctree-l2">
@@ -735,8 +735,20 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#beispiele-von-ffts-und-fourier-reihen-koeffizienten">
-   Beispiele von FFTs und Fourier-Reihen-Koeffizienten
+  <a class="reference internal nav-link" href="#fourier-transformation-eines-rechteckpulses">
+   Fourier-Transformation eines Rechteckpulses
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dirac-delta-impuls">
+     Dirac-Delta-Impuls
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fourier-transformierte-von-messsignalen">
+   Fourier-Transformierte von Messsignalen
   </a>
  </li>
 </ul>
@@ -808,8 +820,20 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#beispiele-von-ffts-und-fourier-reihen-koeffizienten">
-   Beispiele von FFTs und Fourier-Reihen-Koeffizienten
+  <a class="reference internal nav-link" href="#fourier-transformation-eines-rechteckpulses">
+   Fourier-Transformation eines Rechteckpulses
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dirac-delta-impuls">
+     Dirac-Delta-Impuls
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fourier-transformierte-von-messsignalen">
+   Fourier-Transformierte von Messsignalen
   </a>
  </li>
 </ul>
@@ -1334,11 +1358,61 @@ Die Begriffe DFT und FFT werden oft synonym verwendet. Sie sind jedoch nicht gan
 </ul>
 </li>
 <li><p><strong>Zeitverschiebung</strong>: <span class="math notranslate nohighlight">\(\mathcal F(x(t-\tau)) = \mathcal F(x(t)) \cdot \mathrm e^{-j\omega \tau}\)</span></p></li>
+<li><p><strong>Integralt</strong>: <span class="math notranslate nohighlight">\(\mathcal F(\omega = 0)\)</span> liefert das Integral der Funktion im Zeitbereich.</p></li>
 </ul>
 </section>
 </section>
-<section id="beispiele-von-ffts-und-fourier-reihen-koeffizienten">
-<h2>Beispiele von FFTs und Fourier-Reihen-Koeffizienten<a class="headerlink" href="#beispiele-von-ffts-und-fourier-reihen-koeffizienten" title="Link zu dieser Überschrift">#</a></h2>
+<section id="fourier-transformation-eines-rechteckpulses">
+<h2>Fourier-Transformation eines Rechteckpulses<a class="headerlink" href="#fourier-transformation-eines-rechteckpulses" title="Link zu dieser Überschrift">#</a></h2>
+<p>Es sei eine Rechteckfunktion mit Amplitude 1 und der Breite <span class="math notranslate nohighlight">\(T=2\tau\)</span> gegeben:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}h(t) = \left\{\begin{array}{cl} 1 &amp;\textrm{für}\,\,\left| t \right|\leq \tau = T/2\\  0&amp;\textrm{für}\,\, \left| t \right| &gt; \tau = T/2 \end{array}\right.
+\end{split}\]</div>
+<p>Für die Fourier-Tranformierte folgt:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+H(\omega) &amp;= \int_{-\infty}^{\infty} h(t)  \mathrm e^{-j \omega t} dt = \int_{-\tau}^{\tau} 1  \mathrm e^{-j \omega t} dt\\
+&amp;= \int_{-\tau}^{\tau} \cos{\omega t} dt = \frac{1}{\omega}\sin{\omega t}\left|_{-\tau}^{\tau} \right. = 2 \frac{\sin{\omega \tau}}{\omega}\\
+&amp;= T \cdot \frac{\sin(\pi T f)}{\pi T f} = T \cdot \mathrm{sinc}(\pi T f)
+\end{align}
+\end{split}\]</div>
+<p>wobei wir im 2. Schritt angenommen haben, dass <span class="math notranslate nohighlight">\(h(t)\)</span> reell und gerade ist und die Euler-Formal entsprechend vereinfachen konnten. In der dritten Zeile wurde mit <span class="math notranslate nohighlight">\(\tau/\tau\)</span> erweitert und substitutiert (<span class="math notranslate nohighlight">\(\tau = T/2\)</span>, <span class="math notranslate nohighlight">\(\omega = 2\pi f\)</span>).</p>
+<p>Folgende Eigenschaften gelten:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(H(f = 0)\)</span> ist gleich der Fläche unter dem Rechteck, also gleich dem Integral der Rechteckfunktion.</p></li>
+<li><p>Die Nulldurchgänge von <span class="math notranslate nohighlight">\(H(f)\)</span> sind bei <span class="math notranslate nohighlight">\(\pi T f_n = n \pi\)</span>, für <span class="math notranslate nohighlight">\(\lvert n \rvert = 1,2,3...\)</span></p></li>
+<li><p>Es gilt also <span class="math notranslate nohighlight">\(f_n = n/T\)</span>. Für <span class="math notranslate nohighlight">\(n=1\)</span> sieht man, dass je kürzer der Rechteckpuls ist, desto breiter (unschärfer) wird das Spektrum (<strong>Unschärferelation der Fourier-Transformation</strong>)</p></li>
+</ul>
+<section id="dirac-delta-impuls">
+<h3>Dirac-Delta-Impuls<a class="headerlink" href="#dirac-delta-impuls" title="Link zu dieser Überschrift">#</a></h3>
+<p>Wir können den klassischen Rechteckpuls nun anpassen. Die Höhe beträgt statt 1 nun <span class="math notranslate nohighlight">\(1/2\tau\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}h(t) = \left\{\begin{array}{cl} 1/2\tau &amp;\textrm{für}\,\,\left| t \right|\leq \tau = T/2\\  0&amp;\textrm{für}\,\, \left| t \right| &gt; \tau = T/2 \end{array}\right.
+\end{split}\]</div>
+<p>wodurch die Fläche unter dem <em>Quadrat</em> nun 1 wird.
+Für die Fourier-Transformierte gilt:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+H(\omega) &amp;= \frac{2}{2\tau} \frac{\sin{\omega \tau}}{\omega} = \frac{\sin{\omega \tau}}{\omega \tau}\\
+\lim_{\tau \rightarrow 0}  H(\omega) &amp;= \lim_{\tau \rightarrow 0} \frac{\sin{\omega \tau}}{\omega \tau}\ = 1
+\end{align}
+\end{split}\]</div>
+<p>Der Grenzwert, <span class="math notranslate nohighlight">\(\tau \rightarrow 0\)</span> führt direkt zu der Definition des <strong>Dirac-Delta-Impuls</strong>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\delta(t) = \left\{\begin{array}{cl} \infty &amp;\textrm{für}\,\, t = 0\\  0&amp;\textrm{für}\,\, t  \neq 0 \end{array}\right.
+\end{split}\]</div>
+<p>Dirac-Delta-Impuls hat folgende Eigenschaften:</p>
+<ul class="simple">
+<li><p>Das Integral ist 1: <span class="math notranslate nohighlight">\(\int_{-\infty}^{\infty} \delta(t) dt = 1\)</span></p></li>
+<li><p>Die Fourier-Transformierte ist: <span class="math notranslate nohighlight">\(\int_{-\infty}^{\infty} \delta(t) \mathrm e^{-j \omega t} dt = 1\)</span></p></li>
+<li><p>Mit <span class="math notranslate nohighlight">\(g(\tau) = \mathrm e^{-j \omega t}\)</span> kann der Delta-Impuls wiefolgt definiert werden: <span class="math notranslate nohighlight">\(\int_{\infty}^{\infty} \delta(0-\tau)g(\tau) d\tau = g(0)\)</span></p></li>
+</ul>
+</section>
+</section>
+<section id="fourier-transformierte-von-messsignalen">
+<h2>Fourier-Transformierte von Messsignalen<a class="headerlink" href="#fourier-transformierte-von-messsignalen" title="Link zu dieser Überschrift">#</a></h2>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># MatplotLib Settings:</span>
@@ -1377,7 +1451,7 @@ Die Begriffe DFT und FFT werden oft synonym verwendet. Sie sind jedoch nicht gan
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3_FourierAnalyse_16_0.png" src="../_images/3_FourierAnalyse_16_0.png" />
+<img alt="../_images/3_FourierAnalyse_18_0.png" src="../_images/3_FourierAnalyse_18_0.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1419,7 +1493,48 @@ Die Begriffe DFT und FFT werden oft synonym verwendet. Sie sind jedoch nicht gan
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3_FourierAnalyse_17_0.png" src="../_images/3_FourierAnalyse_17_0.png" />
+<img alt="../_images/3_FourierAnalyse_19_0.png" src="../_images/3_FourierAnalyse_19_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.fft</span> <span class="kn">import</span> <span class="n">fft</span><span class="p">,</span> <span class="n">fftfreq</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
+
+<span class="k">def</span> <span class="nf">ddf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">sig</span><span class="p">):</span>
+    <span class="n">val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">val</span><span class="p">[(</span><span class="o">-</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sig</span><span class="p">))</span><span class="o">&lt;=</span><span class="n">x</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">x</span><span class="o">&lt;=</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sig</span><span class="p">)))]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">val</span>
+
+<span class="n">X</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">ddf</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="mf">2.</span><span class="p">)</span>
+
+<span class="n">y_normalized</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">((</span><span class="n">y</span> <span class="o">/</span> <span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> <span class="o">*</span> <span class="mi">32767</span><span class="p">)</span>
+<span class="c1"># Note the extra &#39;r&#39; at the front</span>
+<span class="n">yf</span> <span class="o">=</span> <span class="n">fft</span><span class="p">(</span><span class="n">y_normalized</span><span class="p">)</span><span class="o">/</span><span class="mf">5e6</span>
+<span class="n">xf</span> <span class="o">=</span> <span class="n">fftfreq</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">Fs</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mf">2.5</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xf</span><span class="p">,</span><span class="nb">abs</span><span class="p">(</span><span class="n">yf</span><span class="p">),</span><span class="s1">&#39;tab:red&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;FFT&#39;</span><span class="p">)</span> <span class="c1"># plotting the spectrum</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequenz (Hz)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Leistung&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Dirac-Puls&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3_FourierAnalyse_20_0.png" src="../_images/3_FourierAnalyse_20_0.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1460,7 +1575,7 @@ Die Begriffe DFT und FFT werden oft synonym verwendet. Sie sind jedoch nicht gan
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3_FourierAnalyse_18_0.png" src="../_images/3_FourierAnalyse_18_0.png" />
+<img alt="../_images/3_FourierAnalyse_21_0.png" src="../_images/3_FourierAnalyse_21_0.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1498,7 +1613,7 @@ Die Begriffe DFT und FFT werden oft synonym verwendet. Sie sind jedoch nicht gan
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3_FourierAnalyse_19_0.png" src="../_images/3_FourierAnalyse_19_0.png" />
+<img alt="../_images/3_FourierAnalyse_22_0.png" src="../_images/3_FourierAnalyse_22_0.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1546,7 +1661,7 @@ Die Begriffe DFT und FFT werden oft synonym verwendet. Sie sind jedoch nicht gan
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3_FourierAnalyse_20_0.png" src="../_images/3_FourierAnalyse_20_0.png" />
+<img alt="../_images/3_FourierAnalyse_23_0.png" src="../_images/3_FourierAnalyse_23_0.png" />
 </div>
 </div>
 </section>
@@ -1586,10 +1701,10 @@ Die Begriffe DFT und FFT werden oft synonym verwendet. Sie sind jedoch nicht gan
             <p class="prev-next-title">Modulation von Messsignalen <a id="SubSec-Information"></a></p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="3_Rauschen.html" title="weiter Seite">
+    <a class='right-next' id="next-link" href="3_Digital.html" title="weiter Seite">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title">Rauschen und spektrale Dichte</p>
+        <p class="prev-next-title">Digitalisierung</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

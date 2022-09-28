@@ -980,7 +980,7 @@ Das Integral über die PSD über alle Frequenzen ergibt die Gesamtleistung des S
 <span class="n">signal</span> <span class="o">+=</span> <span class="n">noise</span>
 
 <span class="c1"># PSD:</span>
-<span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">S</span><span class="p">)</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">periodogram</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="mf">1.</span><span class="o">/</span><span class="n">dt</span><span class="p">,</span> <span class="n">scaling</span><span class="o">=</span><span class="s1">&#39;density&#39;</span><span class="p">)</span>
+<span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">S</span><span class="p">)</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">periodogram</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">scaling</span><span class="o">=</span><span class="s1">&#39;density&#39;</span><span class="p">)</span>
 <span class="n">S_peak</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
@@ -1013,19 +1013,8 @@ Das Integral über die PSD über alle Frequenzen ergibt die Gesamtleistung des S
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [3],</span> in <span class="ni">&lt;cell line: 24&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="n">signal</span> <span class="o">+=</span> <span class="n">noise</span>
-<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="c1"># PSD:</span>
-<span class="ne">---&gt; </span><span class="mi">24</span> <span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">S</span><span class="p">)</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">periodogram</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="mf">1.</span><span class="o">/</span><span class="n">dt</span><span class="p">,</span> <span class="n">scaling</span><span class="o">=</span><span class="s1">&#39;density&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="n">S_peak</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;dt&#39; is not defined
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 800x300 with 0 Axes&gt;
+<img alt="../_images/3_Rauschen_6_0.png" src="../_images/3_Rauschen_6_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Das SNR beträgt circa:  85.12603351345 dB
 </pre></div>
 </div>
 </div>

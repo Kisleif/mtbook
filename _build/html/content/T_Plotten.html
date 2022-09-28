@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="de">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -43,6 +43,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script src="../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -51,12 +52,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
+    <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
+    <link rel="search" title="Suche" href="../search.html" />
     <link rel="next" title="Fehlerfortpflanzung" href="T_Fehlerfortpflanzung.html" />
     <link rel="prev" title="Jupyter Notebooks" href="T_Tutorials.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="de">
     
 
     <!-- Google Analytics -->
@@ -243,11 +244,6 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="2_Digital.html">
-     Digitalisierung
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="3_FourierAnalyse.html">
      Fourier-Analyse
     </a>
@@ -258,6 +254,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Digital.html">
+   Digitalisierung
+  </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="5_Dynamische_Messsysteme.html">
@@ -271,7 +272,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="5_LTI.html">
-     Linear zeitinvariante (LZI) Systeme
+     Linear zeitinvariante (LZI/LTI) Systeme
     </a>
    </li>
    <li class="toctree-l2">
@@ -287,11 +288,6 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="5_Uebertragungsfunktion.html">
      Übertragungsfunktion
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="5_faltung.html">
-     Faltung und Korrelation
     </a>
    </li>
   </ul>
@@ -765,7 +761,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="klimadatei-csv-einlesen-und-analysieren">
-<h1>Klimadatei (.csv) einlesen und analysieren<a class="headerlink" href="#klimadatei-csv-einlesen-und-analysieren" title="Permalink to this headline">#</a></h1>
+<h1>Klimadatei (.csv) einlesen und analysieren<a class="headerlink" href="#klimadatei-csv-einlesen-und-analysieren" title="Link zu dieser Überschrift">#</a></h1>
 <p>Zunächst werden die für dieses Jupyter Notebook benötigten Libraries geladen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -811,7 +807,7 @@ require(['plotly'], function(Plotly) {
 </div>
 </div>
 <section id="csv-datei-als-dataframe-einlesen">
-<h2>.csv-Datei als <em>DataFrame</em> einlesen<a class="headerlink" href="#csv-datei-als-dataframe-einlesen" title="Permalink to this headline">#</a></h2>
+<h2>.csv-Datei als <em>DataFrame</em> einlesen<a class="headerlink" href="#csv-datei-als-dataframe-einlesen" title="Link zu dieser Überschrift">#</a></h2>
 <p>Im Folgenden Nutzen wir globale Klimadaten, die auf der Webseite der NASA zu finden sind: <a class="reference external" href="https://data.giss.nasa.gov/gistemp/">https://data.giss.nasa.gov/gistemp/</a>. Hierbei handelt es sich um Temperaturdaten, die Anomalien gegenüber dem Mittelwert in den Jahren 1951-1980 aufweisen.
 Es werden Daten von Dateien (online oder offline) eingelesen mit der Python Bilbiothek <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. Die Daten werden in sogenannten <em>DataFrames</em> hier mit dem Namen <code class="docutils literal notranslate"><span class="pre">global_mean</span></code> abgespeichert.</p>
 <div class="cell docutils container">
@@ -924,7 +920,7 @@ Name: Year, Length: 142, dtype: int64
 </div>
 </section>
 <section id="daten-plotten-mit-matplotlib">
-<h2>Daten plotten mit ‘matplotlib’<a class="headerlink" href="#daten-plotten-mit-matplotlib" title="Permalink to this headline">#</a></h2>
+<h2>Daten plotten mit ‘matplotlib’<a class="headerlink" href="#daten-plotten-mit-matplotlib" title="Link zu dieser Überschrift">#</a></h2>
 <p>Als Beispiel für eine gelungene grafische Darstellung wollen wir die beiden Spalten, <em>No_Smoothing</em> and <em>Lowess(5)</em> gegenüber der Zeitachse <em>Year</em> plotten. Hierfür benützen wir die Python Library <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -947,7 +943,7 @@ Name: Year, Length: 142, dtype: int64
 </div>
 </section>
 <section id="messunsicherheiten-als-fehlerbalken-hinzufugen">
-<h2>Messunsicherheiten als Fehlerbalken hinzufügen<a class="headerlink" href="#messunsicherheiten-als-fehlerbalken-hinzufugen" title="Permalink to this headline">#</a></h2>
+<h2>Messunsicherheiten als Fehlerbalken hinzufügen<a class="headerlink" href="#messunsicherheiten-als-fehlerbalken-hinzufugen" title="Link zu dieser Überschrift">#</a></h2>
 <p>Bei diesem Datenset stehen uns leider keine Messunsicherheiten zur Verfügung. Um Sie jedoch als Fehlerbalken miteinzubeziehen, wollen wir im Folgenden annehmen, dass der Temperaturunterschied auf 0.25K genau messen werden konnte und fügen die unserem Datensatz hinzu:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -993,7 +989,7 @@ Name: Year, Length: 142, dtype: int64
 </div>
 </section>
 <section id="ausgleichsgerade-berechnen-und-plotten">
-<h2>Ausgleichsgerade berechnen und plotten<a class="headerlink" href="#ausgleichsgerade-berechnen-und-plotten" title="Permalink to this headline">#</a></h2>
+<h2>Ausgleichsgerade berechnen und plotten<a class="headerlink" href="#ausgleichsgerade-berechnen-und-plotten" title="Link zu dieser Überschrift">#</a></h2>
 <p>Mittels linearer Regression kann der Temperaturanstieg aus den Daten berechnet werden. Hierfür wird die Python Library <code class="docutils literal notranslate"><span class="pre">numpy</span></code> benutzt und die Funktion <code class="docutils literal notranslate"><span class="pre">polyfit</span></code> aufgerufen und in als <code class="docutils literal notranslate"><span class="pre">model</span></code> gespeichert. Diese Funktion benutzt die Least-Square Methode für polynomische Modelle. Weitere Informationen zu der Funktion findet ihr <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.polyfit.html">hier</a>. Mit der Option <code class="docutils literal notranslate"><span class="pre">cov=True</span></code> wird die Kovarianz-Matrix berechnet, welche die Unsicherheiten für die Fit-Parameter beinhaltet.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1052,7 +1048,7 @@ Temperaturanstieg seit Beginn der Messung: 1.090°C
 </div>
 </div>
 <div class="admonition warning">
-<p class="admonition-title">Warning</p>
+<p class="admonition-title">Warnung</p>
 <p>Die lineare Regression bezieht hier den ganzen Zeitraum mit ein! Im folgenden betrachten wir für den Temperaturgradienten nur die Daten von 1980 bis 2020!</p>
 </div>
 <div class="cell docutils container">
@@ -1118,16 +1114,16 @@ Temperaturanstieg seit Beginn der Messung: 1.090°C
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="T_Tutorials.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="T_Tutorials.html" title="zurück Seite">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-subtitle">zurück</p>
             <p class="prev-next-title">Jupyter Notebooks</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="T_Fehlerfortpflanzung.html" title="next page">
+    <a class='right-next' id="next-link" href="T_Fehlerfortpflanzung.html" title="weiter Seite">
     <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-subtitle">weiter</p>
         <p class="prev-next-title">Fehlerfortpflanzung</p>
     </div>
     <i class="fas fa-angle-right"></i>

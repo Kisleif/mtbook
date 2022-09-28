@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="de">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -43,6 +43,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script src="../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -53,12 +54,12 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
+    <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
+    <link rel="search" title="Suche" href="../search.html" />
     <link rel="next" title="Fourier-Transformation: Entfernung von Hintegrundrauschen in einem Audiosignal" href="T_Spektralanalyse_Audio.html" />
     <link rel="prev" title="Vergleich verschiedener Fit-Funktionen" href="T_LinReg.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="de">
     
 
     <!-- Google Analytics -->
@@ -245,11 +246,6 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="2_Digital.html">
-     Digitalisierung
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="3_FourierAnalyse.html">
      Fourier-Analyse
     </a>
@@ -260,6 +256,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Digital.html">
+   Digitalisierung
+  </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="5_Dynamische_Messsysteme.html">
@@ -273,7 +274,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="5_LTI.html">
-     Linear zeitinvariante (LZI) Systeme
+     Linear zeitinvariante (LZI/LTI) Systeme
     </a>
    </li>
    <li class="toctree-l2">
@@ -289,11 +290,6 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="5_Uebertragungsfunktion.html">
      Übertragungsfunktion
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="5_faltung.html">
-     Faltung und Korrelation
     </a>
    </li>
   </ul>
@@ -761,7 +757,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="lineare-regression-mit-berucksichtigung-von-fehlerbalken">
-<h1>Lineare Regression mit Berücksichtigung von Fehlerbalken<a class="headerlink" href="#lineare-regression-mit-berucksichtigung-von-fehlerbalken" title="Permalink to this headline">#</a></h1>
+<h1>Lineare Regression mit Berücksichtigung von Fehlerbalken<a class="headerlink" href="#lineare-regression-mit-berucksichtigung-von-fehlerbalken" title="Link zu dieser Überschrift">#</a></h1>
 <p>Gegeben sei eine Messreihe von 10 Messwerten mit annäherend konstanten Verhalten. In diesem sollen nun Kurvenanpassungen vorgenommen werden, unter Berücksichtung von Fehlerbalken. Folgende Messdaten inkl. Unsicherheiten wurden aufgenommen. Die Unsicherheit der <span class="math notranslate nohighlight">\(x\)</span>-Achse vernachlässen wir hier der Einfachheit halber.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -794,7 +790,7 @@ title="Print to PDF"
 </div>
 </div>
 <section id="der-einfluss-von-fehlerbalken-auf-den-fit-a-id-subsec-ausprobieren-a">
-<h2>Der Einfluss von Fehlerbalken auf den Fit <a id="SubSec-Ausprobieren"></a><a class="headerlink" href="#der-einfluss-von-fehlerbalken-auf-den-fit-a-id-subsec-ausprobieren-a" title="Permalink to this headline">#</a></h2>
+<h2>Der Einfluss von Fehlerbalken auf den Fit <a id="SubSec-Ausprobieren"></a><a class="headerlink" href="#der-einfluss-von-fehlerbalken-auf-den-fit-a-id-subsec-ausprobieren-a" title="Link zu dieser Überschrift">#</a></h2>
 <p>Im Allgemeinen gilt, je kleiner die Unsicherheit eines Messwertes ist, desto wichtiger ist dieser Messwert für die Mittelwertbildung. Die analytische Lösung würde wiefolgt aussehen:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(S(c) = \displaystyle\sum_{i=1}^{N} \frac{(y_i -c)^2}{{s_i}^2}\)</span></p></li>
@@ -867,7 +863,7 @@ Minimum ohne  Einbezug von Unsicherheiten ist bei c = 10.06060606060606
 <p>Schon bei dieser schnellen Analyse sehen wir, dass es einen Unterschied gibt, ob wir die Fehlerbalken miteinbeziehen, oder ob keine Unsicherheiten vorhanden sind. Sind die absoluten Unsicherheiten für alle Messwerte die gleichen, so trifft der Fall <em>ohne</em> Unsicherheiten zu.</p>
 </section>
 <section id="kurvenanpassung-mit-python-scipy-a-id-subsec-scipy-bsp2-a">
-<h2>Kurvenanpassung mit Python: scipy <a id="SubSec-scipy_bsp2"></a><a class="headerlink" href="#kurvenanpassung-mit-python-scipy-a-id-subsec-scipy-bsp2-a" title="Permalink to this headline">#</a></h2>
+<h2>Kurvenanpassung mit Python: scipy <a id="SubSec-scipy_bsp2"></a><a class="headerlink" href="#kurvenanpassung-mit-python-scipy-a-id-subsec-scipy-bsp2-a" title="Link zu dieser Überschrift">#</a></h2>
 <p>Im Folgenden Code-Block wollen wir die Analyse dieser einfachen Messreihe noch einmal mittel scipy-Paket wiederholen und eine lineare Regression und konstante Regression auf die Messdaten anwenden. Wir definieren also zwei Fit-Funktionen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -929,7 +925,7 @@ Minimum ohne  Einbezug von Unsicherheiten ist bei c = 10.06060606060606
 </div>
 </section>
 <section id="kurvenanpassung-mit-python-lmfit-a-id-subsec-lmfit-bsp2-a">
-<h2>Kurvenanpassung mit Python: lmfit <a id="SubSec-lmfit_bsp2"></a><a class="headerlink" href="#kurvenanpassung-mit-python-lmfit-a-id-subsec-lmfit-bsp2-a" title="Permalink to this headline">#</a></h2>
+<h2>Kurvenanpassung mit Python: lmfit <a id="SubSec-lmfit_bsp2"></a><a class="headerlink" href="#kurvenanpassung-mit-python-lmfit-a-id-subsec-lmfit-bsp2-a" title="Link zu dieser Überschrift">#</a></h2>
 <p>Das vorangegangene Beispiel mit scipy zeigt auf, wie aufwändig es ist eine Fitparameter zu fixieren. Es muss eine neue Funktion mit weniger Freiheitsgeraden definiert werden. Wie oben schon angeükndigt, lässt sich dies mit dem lmfit-Paket etwas einfacher lösen und soll hier anhand des Beispiels noch einmal visualisiert werden.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1103,16 +1099,16 @@ steigung          0     -inf      inf        0    False     None     None
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="T_LinReg.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="T_LinReg.html" title="zurück Seite">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-subtitle">zurück</p>
             <p class="prev-next-title">Vergleich verschiedener Fit-Funktionen</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="T_Spektralanalyse_Audio.html" title="next page">
+    <a class='right-next' id="next-link" href="T_Spektralanalyse_Audio.html" title="weiter Seite">
     <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-subtitle">weiter</p>
         <p class="prev-next-title">Fourier-Transformation: Entfernung von Hintegrundrauschen in einem Audiosignal</p>
     </div>
     <i class="fas fa-angle-right"></i>

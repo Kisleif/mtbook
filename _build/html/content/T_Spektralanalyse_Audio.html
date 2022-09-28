@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="de">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -43,6 +43,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script src="../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -53,11 +54,11 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
+    <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
+    <link rel="search" title="Suche" href="../search.html" />
     <link rel="prev" title="Lineare Regression mit Berücksichtigung von Fehlerbalken" href="T_FitmitFehlerbalken.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="de">
     
 
     <!-- Google Analytics -->
@@ -244,11 +245,6 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="2_Digital.html">
-     Digitalisierung
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="3_FourierAnalyse.html">
      Fourier-Analyse
     </a>
@@ -259,6 +255,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Digital.html">
+   Digitalisierung
+  </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="5_Dynamische_Messsysteme.html">
@@ -272,7 +273,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="5_LTI.html">
-     Linear zeitinvariante (LZI) Systeme
+     Linear zeitinvariante (LZI/LTI) Systeme
     </a>
    </li>
    <li class="toctree-l2">
@@ -288,11 +289,6 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="5_Uebertragungsfunktion.html">
      Übertragungsfunktion
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="5_faltung.html">
-     Faltung und Korrelation
     </a>
    </li>
   </ul>
@@ -796,10 +792,10 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="fourier-transformation-entfernung-von-hintegrundrauschen-in-einem-audiosignal">
-<h1>Fourier-Transformation: Entfernung von Hintegrundrauschen in einem Audiosignal<a class="headerlink" href="#fourier-transformation-entfernung-von-hintegrundrauschen-in-einem-audiosignal" title="Permalink to this headline">#</a></h1>
+<h1>Fourier-Transformation: Entfernung von Hintegrundrauschen in einem Audiosignal<a class="headerlink" href="#fourier-transformation-entfernung-von-hintegrundrauschen-in-einem-audiosignal" title="Link zu dieser Überschrift">#</a></h1>
 <p>Um das Verständnis für die Fourier-Transformation und ihre Möglichkeiten zu vertiefen, werden wir hier einige Audiosignale filtern. Zuerst wirst du ein Audiosignal mit einem hohen Brummton erzeugen und dann den Brummton mit Hilfe der Fourier-Transformation entfernen.</p>
 <section id="signal-erstellen">
-<h2>Signal erstellen<a class="headerlink" href="#signal-erstellen" title="Permalink to this headline">#</a></h2>
+<h2>Signal erstellen<a class="headerlink" href="#signal-erstellen" title="Link zu dieser Überschrift">#</a></h2>
 <p>Sinuswellen werden manchmal als reine Töne bezeichnet, weil sie eine einzige Frequenz darstellen. Hier werden wir werden Sinuswellen verwenden, um das Audio zu erzeugen, da diese deutliche Spitzen im resultierenden Frequenzspektrum bilden.
 Ein weiterer Vorteil von Sinuswellen ist, dass sie mit ‘NumPy’ einfach zu erzeugen sind.</p>
 <p>Als erstes laden wir einige Libraries und Einstellung:</p>
@@ -890,7 +886,7 @@ require(['plotly'], function(Plotly) {
 <p>Die x-Achse stellt die Zeit in Sekunden dar, und da es zwei Spitzen für jede Sekunde gibt, kann man sehen, dass die Sinuswelle zweimal pro Sekunde schwingt. Diese Sinuswelle hat eine zu niedrige Frequenz, um hörbar zu sein. Im nächsten Abschnitt werden wir daher einige Sinuswellen mit höherer Frequenz erzeugen und sehen, wie Sie diese mischen können.</p>
 </section>
 <section id="audiosignale-mischen">
-<h2>Audiosignale mischen<a class="headerlink" href="#audiosignale-mischen" title="Permalink to this headline">#</a></h2>
+<h2>Audiosignale mischen<a class="headerlink" href="#audiosignale-mischen" title="Link zu dieser Überschrift">#</a></h2>
 <p>Die gute Nachricht ist, dass das Mischen von Audiosignalen aus nur zwei Schritten besteht:</p>
 <ul class="simple">
 <li><p>Addieren der Signale</p></li>
@@ -956,7 +952,7 @@ require(['plotly'], function(Plotly) {
 <p>Wenn du diesen Schritt abgeschlossen hast, hast du deinAudiobeispiel fertig. Der nächste Schritt ist das Entfernen des hohen Tons mithilfe der Fourier-Transformation!</p>
 </section>
 <section id="fast-fourier-transformation-fft">
-<h2>Fast Fourier-Transformation (FFT)<a class="headerlink" href="#fast-fourier-transformation-fft" title="Permalink to this headline">#</a></h2>
+<h2>Fast Fourier-Transformation (FFT)<a class="headerlink" href="#fast-fourier-transformation-fft" title="Link zu dieser Überschrift">#</a></h2>
 <p>Die FFT ist ein Algorithmus, der die Fourier-Transformation implementiert und ein Frequenzspektrum für ein Signal im Zeitbereich, z. B. dein Audiosignal, berechnen kann:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -990,13 +986,13 @@ require(['plotly'], function(Plotly) {
 <p>Ein Bin ist ein Bereich von Werten, die gruppiert wurden, wie in einem Histogramm. Für die Zwecke dieses Tutorials kannst du sie dir als einzelne Werte vorstellen.</p>
 <p>Außerdem wird <code class="docutils literal notranslate"><span class="pre">np.abs()</span></code> für <code class="docutils literal notranslate"><span class="pre">yf</span></code> aufgerufen, weil die Werte der FFT komplex sind.</p>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
+<p class="admonition-title">Bemerkung</p>
 <p>Nebenbei bemerkt, hast du vielleicht bemerkt, dass <code class="docutils literal notranslate"><span class="pre">fft()</span></code> eine maximale Frequenz von knapp über 20 Tausend Hertz zurückgibt, 22050Hz, um genau zu sein. Dieser Wert ist genau die Hälfte unserer Abtastrate und wird als Nyquist-Frequenz bezeichnet.
 Dies ist ein grundlegendes Konzept in der Signalverarbeitung und bedeutet, dass die Abtastrate mindestens das Doppelte der höchsten Frequenz des Signals betragen muss.</p>
 </div>
 </section>
 <section id="schnellere-fast-ft-mittels-rfft">
-<h2>Schnellere <em>fast</em> FT mittels <code class="docutils literal notranslate"><span class="pre">rfft()</span></code><a class="headerlink" href="#schnellere-fast-ft-mittels-rfft" title="Permalink to this headline">#</a></h2>
+<h2>Schnellere <em>fast</em> FT mittels <code class="docutils literal notranslate"><span class="pre">rfft()</span></code><a class="headerlink" href="#schnellere-fast-ft-mittels-rfft" title="Link zu dieser Überschrift">#</a></h2>
 <p>Das von <code class="docutils literal notranslate"><span class="pre">fft()</span></code> ausgegebene Frequenzspektrum wurde an der y-Achse gespiegelt, so dass die negative Hälfte ein Spiegelbild der positiven Hälfte war. Diese Symmetrie wurde durch die Eingabe von reellen Zahlen (nicht von komplexen Zahlen) in die Transformation verursacht.</p>
 <p>Wir können diese Symmetrie nutzen, um unsere Fourier-Transformation schneller zu machen, indem wir nur die Hälfte davon berechnen. <code class="docutils literal notranslate"><span class="pre">scipy.fft</span></code> implementiert diesen Speed-Hack in Form von <code class="docutils literal notranslate"><span class="pre">rfft()</span></code>.</p>
 <p>Das Tolle an <code class="docutils literal notranslate"><span class="pre">rfft()</span></code> ist, dass es ein sofortiger Ersatz für <code class="docutils literal notranslate"><span class="pre">fft()</span></code> ist. Durch das Einfügen von <code class="docutils literal notranslate"><span class="pre">rfft()</span></code> bleibt der Code größtenteils derselbe, nur mit ein paar wichtigen Änderungen:</p>
@@ -1026,10 +1022,10 @@ Sie kann bis zu doppelt so schnell sein, aber einige Eingabelängen sind schnell
 <p>Jetzt, da du das Frequenzspektrum des Signals hast, kannst du mit der Filterung fortfahren.</p>
 </section>
 <section id="filtern-des-signals">
-<h2>Filtern des Signals<a class="headerlink" href="#filtern-des-signals" title="Permalink to this headline">#</a></h2>
+<h2>Filtern des Signals<a class="headerlink" href="#filtern-des-signals" title="Link zu dieser Überschrift">#</a></h2>
 <p>Ein großer Vorteil der Fourier-Transformation ist, dass sie umkehrbar ist. Das bedeutet, dass alle Änderungen, die du am Signal im Frequenzbereich vornimmst, auch bei der Rücktransformation in den Zeitbereich gelten. Das kannst du dir zunutze machen, um dein Audiosignal zu filtern und die hohen Frequenzen loszuwerden.</p>
 <div class="admonition warning">
-<p class="admonition-title">Warning</p>
+<p class="admonition-title">Warnung</p>
 <p>Die in diesem Abschnitt gezeigte Filtertechnik ist für reale Signale nicht geeignet. Es wird ein weiteres Tutorial erstellt, wo digitale Signalverarbeitung und Filtertechniken eingeführt werden.</p>
 </div>
 <p>Die von <code class="docutils literal notranslate"><span class="pre">rfft()</span></code> zurückgegebenen Werte stellen die Leistung der einzelnen Frequenzbereiche dar. Wenn wir die Leistung eines bestimmten Bins auf Null setzen, werden die Frequenzen in diesem Bin im resultierenden Zeitsignal nicht mehr vorhanden sein.</p>
@@ -1063,7 +1059,7 @@ Sie kann bis zu doppelt so schnell sein, aber einige Eingabelängen sind schnell
 <p>Da es nur eine Spitze gibt, sieht es so aus, als hätte es funktioniert!</p>
 </section>
 <section id="die-inverse-fft-anwenden">
-<h2>Die inverse FFT anwenden<a class="headerlink" href="#die-inverse-fft-anwenden" title="Permalink to this headline">#</a></h2>
+<h2>Die inverse FFT anwenden<a class="headerlink" href="#die-inverse-fft-anwenden" title="Link zu dieser Überschrift">#</a></h2>
 <p>Als nächstes wenden wir die inverse Fourier-Transformation an, um in den Zeitbereich zurückzukehren. Da du <code class="docutils literal notranslate"><span class="pre">rfft()</span></code> verwendest, musst du <code class="docutils literal notranslate"><span class="pre">irfft()</span></code> verwenden, um die Umkehrung anzuwenden. Hätten wir <code class="docutils literal notranslate"><span class="pre">fft()</span></code> verwendet, dann wäre die inverse Funktion <code class="docutils literal notranslate"><span class="pre">ifft()</span></code> gewesen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1130,10 +1126,10 @@ Sie kann bis zu doppelt so schnell sein, aber einige Eingabelängen sind schnell
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="T_FitmitFehlerbalken.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="T_FitmitFehlerbalken.html" title="zurück Seite">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-subtitle">zurück</p>
             <p class="prev-next-title">Lineare Regression mit Berücksichtigung von Fehlerbalken</p>
         </div>
     </a>

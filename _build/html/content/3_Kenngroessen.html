@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="de">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -43,6 +43,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script src="../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -53,12 +54,12 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
+    <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
+    <link rel="search" title="Suche" href="../search.html" />
     <link rel="next" title="Modulation von Messsignalen" href="3_Modulationen.html" />
     <link rel="prev" title="Grundlagen" href="3_basics.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="de">
     
 
     <!-- Google Analytics -->
@@ -289,11 +290,6 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="5_Uebertragungsfunktion.html">
      Übertragungsfunktion
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="5_faltung.html">
-     Faltung und Korrelation
     </a>
    </li>
   </ul>
@@ -813,7 +809,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="kenngroszen">
-<h1>Kenngrößen<a class="headerlink" href="#kenngroszen" title="Permalink to this headline">#</a></h1>
+<h1>Kenngrößen<a class="headerlink" href="#kenngroszen" title="Link zu dieser Überschrift">#</a></h1>
 <p>Eine Wechselgröße, z.B. eine Wechselspannung, liegt in der allgemein Form als Sinusschwingung vor. Die Form wollen wir im folgenden wiefolgt bescheiben:</p>
 <div class="math notranslate nohighlight">
 \[u(t) = \hat u \cdot \sin(\omega t)\]</div>
@@ -886,29 +882,29 @@ require(['plotly'], function(Plotly) {
 </div>
 <p>Bei einem Wechselsignal interessiert man sich häufig nicht für den Zeitverlauf, oder den einzelnen Wert zu einem bestimmten Zeitpunkt, den sogenannten Momentanwert. Dieser hat nämlich keine große Aussagekraft, da er sich gemäß der zugrundeliegenden Signalform ständig ändert. Für viele Fragestellungen sind Kenngrößen relevant, die sich aus der Periode des Wchselsignals ermitteln lassen.</p>
 <section id="scheitelfaktor-amplitude">
-<h2>Scheitelfaktor / Amplitude<a class="headerlink" href="#scheitelfaktor-amplitude" title="Permalink to this headline">#</a></h2>
+<h2>Scheitelfaktor / Amplitude<a class="headerlink" href="#scheitelfaktor-amplitude" title="Link zu dieser Überschrift">#</a></h2>
 <p>Mit <span class="math notranslate nohighlight">\(\hat U\)</span> bezeichnen wir den <strong>Scheitelfaktor</strong> oder die <strong>Amplitude</strong>. Dies ist der maximale Ausschlag eines Messsignals innerhalb einer Periode (oder Messzeit) <span class="math notranslate nohighlight">\(T\)</span>.</p>
 </section>
 <section id="gleichanteil">
-<h2>Gleichanteil<a class="headerlink" href="#gleichanteil" title="Permalink to this headline">#</a></h2>
+<h2>Gleichanteil<a class="headerlink" href="#gleichanteil" title="Link zu dieser Überschrift">#</a></h2>
 <p>Der <strong>Gleichanteil</strong> einer Wechselgröße wird über den arithmetischen Mittelwert über eine Perdiode <span class="math notranslate nohighlight">\(T\)</span> berechnet. Es ist nur dann aussagekräftig, wenn nicht gerade eine Signal vorliert was keinen Gleichanteil hat. Andernfalls ist der Wert immer 0.</p>
 <div class="math notranslate nohighlight">
 \[\overline u = \frac{1}{T}\int_{t}^{t+T} u(t)dt\]</div>
 </section>
 <section id="gleichrichtwert">
-<h2>Gleichrichtwert<a class="headerlink" href="#gleichrichtwert" title="Permalink to this headline">#</a></h2>
+<h2>Gleichrichtwert<a class="headerlink" href="#gleichrichtwert" title="Link zu dieser Überschrift">#</a></h2>
 <p>Wenn wir uns jetzt einen Förn oder Lampe, angeschlossen an eine normale Steckdose mit Wechselstrom vorstellen, so ist der Gleichanteil der Wechselspannung 0, aber trotzdem wirkt die Spannung, da Fön oder Lampe arbeiten. Das heißt es kommt offensichtlich nicht auf die Polarität der Spannung an, sondern nur darum, dass im Durchschnitt irgendeine Art von beliebig gepolter Spannung anliegt. Mathematisch gesehen entspricht dies einer Betragsbildung und wird durch den Gleichrichtwert definiert.  Das Signal wird mittels analoger Schaltung <em>gleichgerichtet</em> (das sehen wir uns später noch mal genauer an), bevor es zur Mittelwertbildung kommt. Daher auch der Name. Der Gleichrichtwert hat auch für Signale ohne Gleichanteil eine Aussagekraft. Der <strong>Gleichrichtwert</strong> einer Wechselgröße ist der Mittelwert des Absolutwertes einer Wechselgröße berechnet sich zu:</p>
 <div class="math notranslate nohighlight">
 \[\overline{|u|} = \frac{1}{T}\int_{t}^{t+T} |u(t)|dt\]</div>
 </section>
 <section id="effektivwert">
-<h2>Effektivwert<a class="headerlink" href="#effektivwert" title="Permalink to this headline">#</a></h2>
+<h2>Effektivwert<a class="headerlink" href="#effektivwert" title="Link zu dieser Überschrift">#</a></h2>
 <p>Aus der Physik ist bekannt, dass die Berechnung der elektrischen Leistung <em>nicht</em> über den Einbezug von Gleichrichtwerten erfolgt. Vielmehr muss der <strong>Effektivwert</strong> (auch RMS genannt = root mean square) berechnet werden:</p>
 <div class="math notranslate nohighlight">
 \[U = u_\mathrm{eff} = \sqrt{\overline{u^2}} = \sqrt{\frac{1}{T}\int_{t}^{t+T}u(t)^2dt}\]</div>
 </section>
 <section id="scheitelfaktor-und-formfaktor">
-<h2>Scheitelfaktor und Formfaktor<a class="headerlink" href="#scheitelfaktor-und-formfaktor" title="Permalink to this headline">#</a></h2>
+<h2>Scheitelfaktor und Formfaktor<a class="headerlink" href="#scheitelfaktor-und-formfaktor" title="Link zu dieser Überschrift">#</a></h2>
 <p>Mittelwert, Gleichrichtwert und Effektivwert lassen sich für jede beliebige periodische Signalform berechnen und sind <em>unabhängig</em> von der Frequenz. Zwischen Ihnen sind Umrechnungsfaktoren definiert, Scheitelfaktoren oder Formfaktoren, welche das Verhältnis zwischen Effektivwert und anderen Kenngrößen angeben. Wir werden später noch sehen, dass die Messung von Effektivwerten sehr aufwendig ist (die mathematischen Operationen im Intergral zeigen dies auch). Es ist einfacher den Scheitel- oder Gleichrichtwert zu messen und mittels dieser Umrechnungs-Faktoren den Effektivwert anschließend zu berechnen. Die Faktoren sind jedoch für jede Signalform anders!</p>
 <ul>
 <li><p><strong>Scheitelfaktor (Crest-Faktor)</strong>:</p>
@@ -923,7 +919,7 @@ require(['plotly'], function(Plotly) {
 <p>Allgemein kann man sagen, dass je größer der Scheitelfaktor, desto mehr übersteigt der Spitzenwert eines Signals den Effektivwert. Für die Praxis bedeutet dies, dass bei der Ermittlung eines Effektivwertes die Messeinrichtung aufgrund sehr hoher Spitzenwerte bereits übersteuert, obwohl der Effektivwert eigentlich noch ausreichend Aussteuerungsreserven aufweist. Besonders kritisch ist dieses Verhalten bei Pulsfolgen mit sehr kleinem Tastverhältnis. Hier kann der Scheitelfaktor unter Umständen Werte von 10 oder mehr annehmen. Messgeräte geben daher häufig Scheitelfaktoren vor, welche nicht überschritten werden sollten.</p>
 </section>
 <section id="kenngroszen-bei-der-digitalisierung">
-<h2>Kenngrößen bei der Digitalisierung<a class="headerlink" href="#kenngroszen-bei-der-digitalisierung" title="Permalink to this headline">#</a></h2>
+<h2>Kenngrößen bei der Digitalisierung<a class="headerlink" href="#kenngroszen-bei-der-digitalisierung" title="Link zu dieser Überschrift">#</a></h2>
 <p>Bei der digitalen Signalverarbeitung können die oben genannten Kenngrößen ebenfalls mathematisch ermittelt werden, indem die Integrale durch diskrete Summen ausgetauscht werden. Der Effektivwert berechnet sich dann wie folgt:</p>
 <div class="math notranslate nohighlight">
 \[U = u_\mathrm{eff} = \sqrt{\overline{u^2}} = \sqrt{\frac{1}{T}\sum_{k = 1}^{n}T_\mathrm A \cdot  u_k^2}\]</div>
@@ -931,14 +927,14 @@ require(['plotly'], function(Plotly) {
 <figure class="align-default" id="abtastung">
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/abtastung.jpg"><img alt="abtastung" class="bg-primary mb-1" src="../_images/abtastung.jpg" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 27 </span><span class="caption-text">Abtastung während der Digitalisierung. Die Abtastung von Messwerten <span class="math notranslate nohighlight">\(u_k\)</span> erfolgt in äquidistanten Abständen <span class="math notranslate nohighlight">\(T_A\)</span>.</span><a class="headerlink" href="#abtastung" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Abb. 27 </span><span class="caption-text">Abtastung während der Digitalisierung. Die Abtastung von Messwerten <span class="math notranslate nohighlight">\(u_k\)</span> erfolgt in äquidistanten Abständen <span class="math notranslate nohighlight">\(T_A\)</span>.</span><a class="headerlink" href="#abtastung" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="beispiele">
-<h2>Beispiele<a class="headerlink" href="#beispiele" title="Permalink to this headline">#</a></h2>
+<h2>Beispiele<a class="headerlink" href="#beispiele" title="Link zu dieser Überschrift">#</a></h2>
 <section id="sinussignal-mit-und-ohne-gleichanteil">
-<h3>Sinussignal mit und ohne Gleichanteil<a class="headerlink" href="#sinussignal-mit-und-ohne-gleichanteil" title="Permalink to this headline">#</a></h3>
+<h3>Sinussignal mit und ohne Gleichanteil<a class="headerlink" href="#sinussignal-mit-und-ohne-gleichanteil" title="Link zu dieser Überschrift">#</a></h3>
 <p>Beispiel eines Sinussignals mit und ohne Gleichanteil ist im folgenden Plot dargestellt.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -1108,7 +1104,7 @@ Formfaktor	 0.7854640780135795 		 1.0407375280882154
 <p>Die Angabe von Scheitel- und Formfaktor haben für Signale mit Gleichanteil keine größere Bedeutung und müssen nicht berechnet werden. Im Vergleich der beiden Beispiele zeigt sich, dass der Effektivwert eines Sinussignals mit Gleichanteil der quadratische Mittelwert der Effektivwerte des Gleichanteils und dem Wert des Gleichanteils <span class="math notranslate nohighlight">\(u_0\)</span> entspricht.</p>
 </section>
 <section id="pulsweitenmodulation">
-<h3>Pulsweitenmodulation<a class="headerlink" href="#pulsweitenmodulation" title="Permalink to this headline">#</a></h3>
+<h3>Pulsweitenmodulation<a class="headerlink" href="#pulsweitenmodulation" title="Link zu dieser Überschrift">#</a></h3>
 <p>Ein weiteres Beispiel ist für eine Pulsweitenmodulation berechnet und die Formeln können aus folgendem Bild abgelesen werden. Er handelt sich um ein unsymmetrisches Rechtecksignal. In diesem Fall sprechen wir von einem Pulsweitenmodulierten Signal, da die ‘An’-Zeit innerhalb einer bestimmten Anwendung nicht immer gleich groß sein muss. Das Verhältnis</p>
 <div class="math notranslate nohighlight">
 \[\tau = \frac{\Delta t}{T}\]</div>
@@ -1240,16 +1236,16 @@ require(['plotly'], function(Plotly) {
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="3_basics.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="3_basics.html" title="zurück Seite">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-subtitle">zurück</p>
             <p class="prev-next-title">Grundlagen</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="3_Modulationen.html" title="next page">
+    <a class='right-next' id="next-link" href="3_Modulationen.html" title="weiter Seite">
     <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-subtitle">weiter</p>
         <p class="prev-next-title">Modulation von Messsignalen <a id="SubSec-Information"></a></p>
     </div>
     <i class="fas fa-angle-right"></i>

@@ -29,8 +29,6 @@
 # Signale und Messsystem im Zeit- bzw. Frequenzraum.
 # :::
 # 
-# {numref}`strommesseingang`
-# 
 # Die Übertragungsfunktion eines Messsystems, $G(j \omega)$ bzw. $G(s)$, kann also wiefolgt aus den Fourier-Transformierten der Ein- und Ausgangssignale ausgedrückt werden:
 # 
 # $$G(j \omega) = \frac{Y(j \omega)}{X(j \omega)}$$
@@ -366,14 +364,293 @@ fig.tight_layout()
 # Bei Systemen 1. Ordnung handelt es sich um Systeme mit Energiespeicher, also alle Systeme die irgendwie warm werden. Bei Systemen 2. Ordnung hat man zwei gekoppelte Energiespeicher, die Energie unter Umständen periodisch austauschen können. Hier findet man dann immer einen zusätzlichen Term in der DGL der die Dämpfung des Systems beschreibt. 
 # 
 # Um ein System 1. Ordnung von einem System 2. Ordnung zu unterscheiden, kann man sich das Bode-Diagramm (links im nachfolgenden Bild) ansehen. Bei Systemen 1. Ordnung fällt die Amplitude innerhalb einer Frequenzdekade (also ein Faktor 10) um -20 dB ab, bei Systemen 2. Ordnung  um -40 dB (*Übung: Warum?*). Auch die zeitliche Verzögerung, also die Phase des Eingangssignals, erfährt ebenfalls einen steileren Abfall.  
+
+# In[3]:
+
+
+import numpy as np
+import scipy.signal as signal
+import matplotlib.pyplot as plt
+# MatplotLib Settings:
+plt.style.use('default') # Matplotlib Style wählen
+plt.xkcd()
+plt.rcParams['axes.grid']= True     # defaults to False but xkcd() makes it False
+plt.rcParams['grid.linewidth']= 0.8  # defaults to 0.8
+plt.rcParams['font.size'] = 10; # Schriftgröße
+
+fig, ax = plt.subplots(figsize=(8,5))
+ax1 = plt.subplot2grid((2,2), (0,0)) # topleft
+ax3 = plt.subplot2grid((2,2), (0,1), rowspan=1)            # right
+ax2 = plt.subplot2grid((2,2), (1,0))  
+ax4 = plt.subplot2grid((2,2), (1,1))  
+
+for i, ax in enumerate(fig.axes):
+    ax.set_xlim(1e-2,100)
+        
+w2 = np.logspace(-3,2,200)
+
+# Transfer Funktion Tiefpass 1. Ordnung:
+K = 1
+T = 1
+num = np.array([K])
+den = np.array([T , 1])
+H = signal.TransferFunction(num , den)
+w, mag, phase = signal.bode(H,w2)
+ax1.semilogx(w, mag, color='tab:blue')
+ax1.set_yticks([0, -20, -40, -60],['$0$','-20', '-40', '-60'])
+ax1.set_xticks([0.01/T,0.1/T,1/T,10/T,100/T], ['0.01','0.1','1','10','100'])
+ax1.grid(True, lw=0.5, zorder=0, ls = '--', which='major', axis='both')
+ax1.set_ylabel("Amplitude (dB)")
+ax1.set_ylim(-80,10)
+ax1.set_title('Tiefpass 1. Ordg.')
+
+ax2.semilogx(w, phase, color='tab:blue')
+ax2.set_yticks([0,-90, -180])
+ax2.set_xticks([0.01/T,0.1/T,1/T,10/T,100/T], ['0.01','0.1','1','10','100'])
+ax2.grid(True, lw=0.5, zorder=0, ls = '--', which='major', axis='both')
+ax2.set_xlabel("Frequenz $f/f_0$")
+ax2.set_ylabel('Phase (deg)')
+
+# Transfer Funktion Tiefpass 2. Ordnung:
+K = 1
+T = 1
+D = 0.2
+num = np.array([K])
+den = np.array([T ,2*D*T, 1])
+H = signal.TransferFunction(num , den)
+w, mag, phase = signal.bode(H,w2)
+
+ax3.semilogx(w, mag, color='tab:red')
+ax3.set_yticks([0, -20, -40, -60],['$0$','-20', '-40', '-60'])
+ax3.set_xticks([0.01/T,0.1/T,1/T,10/T,100/T], ['0.01','0.1','1','10','100'])
+ax3.grid(True, lw=0.5, zorder=0, ls = '--', which='major', axis='both')
+ax3.set_ylabel("Amplitude (dB)")
+ax3.set_ylim(-80,10)
+ax3.set_title('Tiefpass 2. Ordg.')
+
+ax4.semilogx(w, phase, color='tab:red')
+ax4.set_yticks([0,-90, -180])
+ax4.set_xticks([0.01/T,0.1/T,1/T,10/T,100/T], ['0.01','0.1','1','10','100'])
+ax4.grid(True, lw=0.5, zorder=0, ls = '--', which='major', axis='both')
+ax4.set_xlabel("Frequenz $f/f_0$")
+ax4.set_ylabel('Phase (deg)')
+
+plt.tight_layout()
+
+
+# ### Dynamische Fehler
 # 
-# Rechts im Bild ist das Zeitliche Verhalten einer Sprungantwort dargestellt. Je nach Dämpfung erhält man ein Überschwingen, ein langsames Annähern (aperiodische Einstellung in b)) oder sogar ein oszillierendes Verhalten (schwingende Einstellung in a)) des Ausgangssignals um das Endsignal. Aufgrund dieser Dynamik entstehen Fehler und es ist ratsam eine gewisse Zeit zu warten, bis der Endwert auch hier ein 1% Toleranzband erreicht, ähnlich wie bei Systemen 1. Ordnung. Hieraus kann man außerdem schlussfolgern, dass man in der Tat immer eine gewisse Dämpfung haben möchte, damit die Oszillationen frühzeitig abklingen. Eine zu hohe Dämpfung verursacht jedoch lange Wartezeiten, bis das Ausgangssignal sich dem endgültigem Wert endlich angenähert hat. 
+# In den folgenden Plots ist das zeitliche Verhalten der von möglichen **Sprungantworten eines Systems 2. Ordnung** dargestellt. Je nach Dämpfung erhält man ein Überschwingen, ein langsames Annähern (aperiodische Einstellung links)) oder sogar ein oszillierendes Verhalten (schwingende Einstellung rechts)) des Ausgangssignals um das Endsignal. 
+# Dies führt zu **dynamischen Fehlern**, hier in hellblau als Fläche unter den Kurven gekennzeichnet. Man sollte stets eine bestimmte Zeit warten, bis sich das System eingependelt hat. Typischerweise möchte man einen Endwert erreichen, der innerhalb eines **1% Toleranzbandes** liegt. Hieraus folgt z.B., dass man tatsächlich eine gewisse Dämpfung haben möchte, damit die Schwingungen frühzeitig abklingen. Sollte die Dämpfung jedoch zu hoch werden, können lange Wartezeiten entstehen, bis das Aussgangssignal näherungseise dem Eingangssignal entspricht, bzw. sich diesem angenähert hat. 
+
+# In[4]:
+
+
+fig, ax = plt.subplots(figsize=(8,4))
+ax1 = plt.subplot2grid((1,2), (0,0)) # topleft
+ax3 = plt.subplot2grid((1,2), (0,1), rowspan=1)            # right
+
+# Transfer Funktion Tiefpass:
+T1=0.9
+D= 1# aperiodischer grenzfall
+T2=2*D*T1
+num = np.array([K])
+den = np.array([T1, T2 , 1])
+H = signal.TransferFunction(num , den)
+
+# Sprungantwort:
+t, y = signal.step(H)
+
+# Plotting
+#  ax3.axhline(y=K, ls='--', color='k')
+ax1.axhline(y=K*0.95, ls='--', color='k', lw=1, label = '99% des Messwerts')
+ax1.plot(t, y, color='tab:blue')
+ax1.fill_between(t,y,1,color='tab:blue',alpha=0.5, label = 'dynamischer Fehler')
+ax1.set_yticks([K],['$K \cdot u_e$'])
+ax1.set_title("Aperiodische Einstellung")
+ax1.set_xlabel("Zeit t")
+ax1.set_xticks([])
+ax1.set_xlim(0,7)
+#ax3.set_ylabel(r'$u_a(t)$')
+ax1.grid(True, lw=0.5, zorder=0, ls = '--', which='minor', axis='both')
+ax1.grid(True, lw=0.5, zorder=0, ls = '--', which='major', axis='both')
+ax1.legend(loc=4)
+# Transfer Funktion Tiefpass:
+T1=0.9
+D= 0.25# stabiler Schwingfall
+T2=2*D*T1
+num = np.array([K])
+den = np.array([T1, T2 , 1])
+H = signal.TransferFunction(num , den)
+
+# Sprungantwort:
+t, y = signal.step(H)
+
+# Plotting
+ax3.axhline(y=K*1.05, ls='--', color='k', lw=1, label = '1% Toleranzband')
+ax3.axhline(y=K*0.95, ls='--', color='k', lw=1)
+ax3.plot(t, y, color='tab:blue')
+ax3.fill_between(t,y,1,color='tab:blue',alpha=0.5, label = 'dynamischer Fehler')
+ax3.set_yticks([K],['$K \cdot u_e$'])
+ax3.set_xticks([])
+ax3.set_title("Schwingende Einstellung")
+ax3.set_xlabel("Zeit t ")
+ax3.set_xlim(0,25)
+#ax3.set_ylabel(r'$u_a(t)$')
+ax3.grid(True, lw=0.5, zorder=0, ls = '--', which='minor', axis='both')
+ax3.grid(True, lw=0.5, zorder=0, ls = '--', which='major', axis='both')
+ax3.legend(loc=4)
+
+plt.tight_layout()
+
+
+# ## Sammlung von Bode-Diagrammen und Sprungantworten
 # 
-# ![Bild](pictures/TP_2ndorder.png)
-# 
-# Einige Beispiele zu Systemen mit Verzögerungs, Dämpfungs bzw. auch integrierendem Verhalten sind in nachfolgender Tabelle dargestellt. In der Literatur findet man häufig diese tabellarischen Zusammenfassungen verschiedener Messsysteme inklusive Übertragungsfunktion und Bode-Diagramm, damit die DGL nicht jedes mal neu hergeleitet werden müssen. Die Hintereinanderschaltung einzelner Komponenten kann auch hier wieder ganz einfach im logarithmischen Bode-Diagramm per Addition der Übertragungsfunktionen abgeschätzt werden. 
-# 
-# ![Bild](pictures/wichtigste_regelkreisglieder.png)
+# Einige Beispiele zu Systemen mit Verzögerungs, Dämpfungs bzw. auch integrierendem Verhalten sind in nachfolgenden Plots dargestellt. In der Literatur findet man häufig tabellarische Zusammenfassungen verschiedener Messsysteme inklusive Übertragungsfunktion und Bode-Diagramm, damit die DGL nicht jedes mal neu hergeleitet werden müssen. Die Hintereinanderschaltung einzelner Komponenten kann auch hier wieder ganz einfach im logarithmischen Bode-Diagramm per Addition der Übertragungsfunktionen abgeschätzt werden. 
+
+# In[5]:
+
+
+import numpy as np
+import scipy.signal as signal
+import matplotlib.pyplot as plt
+# MatplotLib Settings:
+plt.style.use('default') # Matplotlib Style wählen
+plt.xkcd()
+plt.rcParams['axes.grid']= True     # defaults to False but xkcd() makes it False
+plt.rcParams['grid.linewidth']= 0.8  # defaults to 0.8
+plt.rcParams['font.size'] = 10; # Schriftgröße
+
+def plot_bode_sprung(H, label_name, label_bode, label_sprung):
+    # Bode-Plot:
+    w, mag, phase = signal.bode(H)
+
+    # Plotting
+    # Supplot2grid approach
+    fig, ax = plt.subplots(figsize=(10,5))
+    ax1 = plt.subplot2grid((2,2), (0,0)) # topleft
+    ax3 = plt.subplot2grid((2,2), (0,1), rowspan=2)            # right
+    ax2 = plt.subplot2grid((2,2), (1,0))  
+    
+  #  ax1.axhline(y=10*np.log10(K), ls='--', color='k')
+    ax1.semilogx(w, mag, color='tab:blue', label = label_bode)
+    ax1.set_yticks([10*np.log10(K)],['$K$'])
+  #  ax1.set_xticks([1e-2, 1e-1, 0.5, 1, 10], labels = [r'$10^{-2}$', r'$10^{-1}$', '0.5', '1', '10'])
+    ax1.set_title("Bode Plot")
+    ax1.grid(True, lw=0.5, zorder=0, ls = '--', which='major', axis='both')
+    ax1.grid(True, lw=0.5, zorder=0, ls = '--', which='minor', axis='both')
+    ax1.set_ylabel("Amplitude (dB)")
+    ax1.legend(fontsize=14,loc=3)
+
+
+    # Plotting
+    ax2.semilogx(w, phase, color='tab:blue')
+    ax2.set_yticks([180,90,0,-90, -180])
+   # ax2.set_xticks([1e-2, 1e-1, 0.5, 1, 10], labels = [r'$10^{-2}$', r'$10^{-1}$', '0.5', '1', '10'])
+    ax2.grid(True, lw=0.5, zorder=0, ls = '--', which='minor', axis='both')
+    ax2.grid(True, lw=0.5, zorder=0, ls = '--', which='major', axis='both')
+    ax2.set_xlabel("Frequenz (Hz)")
+    ax2.set_ylabel('Phase (deg)')
+
+
+    # Sprungantwort:
+    t, y = signal.step(H)
+
+    # Plotting
+  #  ax3.axhline(y=K, ls='--', color='k')
+    ax3.plot(t, y, color='tab:blue', label = label_sprung)
+    ax3.set_yticks([K],['$K \cdot u_e$'])
+    ax3.set_title("Sprungantwort")
+    ax3.set_xlabel("Zeit t (s)")
+    #ax3.set_ylabel(r'$u_a(t)$')
+    ax3.grid(True, lw=0.5, zorder=0, ls = '--', which='minor', axis='both')
+    ax3.grid(True, lw=0.5, zorder=0, ls = '--', which='major', axis='both')
+    ax3.legend(fontsize=14, loc=4)
+
+    fig.suptitle(label_name, fontsize=16)
+    fig.tight_layout()
+
+
+# In[6]:
+
+
+# Transfer Funktion Tiefpass:
+
+K = 1
+num = np.array([K])
+den = np.array([1])
+H = signal.TransferFunction(num , den)
+
+plot_bode_sprung(H, 'Verstärker P\n DGL: $u_a = K \cdot u_e$', r'$G(s) = K $',r'$\frac{u_a(t)}{K\cdot u_e} = 1$')
+
+# Transfer Funktion Tiefpass:
+num = np.array([1])
+den = np.array([1 , 1])
+H = signal.TransferFunction(num , den)
+
+plot_bode_sprung(H, 'Tiefpass PT$_1$\n DGL: $T \cdot \dot u_a + u_a = K \cdot u_e$', r'$G(s) = \frac{K}{T \cdot s+1} $',r'$\frac{u_a(t)}{K\cdot u_e} = 1- e^{-\left(\frac{t}{T}\right)}$')
+
+
+# Transfer Funktion Tiefpass:
+T1=0.9
+D= 3# Kriechfall
+T2=2*D*T1
+num = np.array([K])
+den = np.array([T1, T2 , 1])
+H = signal.TransferFunction(num , den)
+
+plot_bode_sprung(H, 'Tiefpass PT$_2$\n DGL: $T \cdot \ddot u_a + 2DT \cdot \dot u_a + u_a = K \cdot u_e$', r'$G(s) = \frac{K}{T s^2 + 2DT s+1} $',r'Kriechfall, D>1 ')
+
+# Transfer Funktion Tiefpass:
+T1=0.9
+D= 1# aperiodischer grenzfall
+T2=2*D*T1
+num = np.array([K])
+den = np.array([T1, T2 , 1])
+H = signal.TransferFunction(num , den)
+
+plot_bode_sprung(H, 'Tiefpass PT$_2$\n DGL: $T \cdot \ddot u_a + 2DT \cdot \dot u_a + u_a = K \cdot u_e$', r'$G(s) = \frac{K}{T s^2 + 2DT s+1} $',r'aperiodischer Grenzfall, D=1 ')
+
+# Transfer Funktion Tiefpass:
+T1=0.9
+D= 0.15# stabiler Schwingfall
+T2=2*D*T1
+num = np.array([K])
+den = np.array([T1, T2 , 1])
+H = signal.TransferFunction(num , den)
+
+plot_bode_sprung(H, 'Tiefpass PT$_2$\n DGL: $T \cdot \ddot u_a + 2DT \cdot \dot u_a + u_a = K \cdot u_e$', r'$G(s) = \frac{K}{T s^2 + 2DT s+1} $',r'stabiler Schwingfall, 0<D<1 ')
+
+# Transfer Funktion Tiefpass:
+T1=0.25
+D= 0.# grenzstabiler schwingfall
+T2=2*D*T1
+num = np.array([K])
+den = np.array([T1, T2 , 1])
+H = signal.TransferFunction(num , den)
+
+plot_bode_sprung(H, 'Tiefpass PT$_2$\n DGL: $T \cdot \ddot u_a + 2DT \cdot \dot u_a + u_a = K \cdot u_e$', r'$G(s) = \frac{K}{T s^2 + 2DT s+1} $',r'grenzstabiler Schwingfall, D=0 ')
+
+# Transfer Funktion Tiefpass:
+T1=0.25
+D= -0.1# instabiler schwingfall
+T2=2*D*T1
+num = np.array([K])
+den = np.array([T1, T2 , 1])
+H = signal.TransferFunction(num , den)
+
+plot_bode_sprung(H, 'Tiefpass PT$_2$\n DGL: $T \cdot \ddot u_a + 2DT \cdot \dot u_a + u_a = K \cdot u_e$', r'$G(s) = \frac{K}{T s^2 + 2DT s+1} $',r'instabiler Schwingfall, -1<D<0 ')
+
+# Transfer Funktion Tiefpass:
+T1=1
+D= -1.1# instabiler kriechfall
+T2=2*D*T1
+num = np.array([K])
+den = np.array([T1, T2 , 1])
+H = signal.TransferFunction(num , den)
+
+plot_bode_sprung(H, 'Tiefpass PT$_2$\n DGL: $T \cdot \ddot u_a + 2DT \cdot \dot u_a + u_a = K \cdot u_e$', r'$G(s) = \frac{K}{T s^2 + 2DT s+1} $',r'instabiler Kriechfall, D<-1')
+
 
 # ## Zusammenfassung
 # <a id="Sec-Zusammenfassung"></a>
@@ -392,3 +669,9 @@ fig.tight_layout()
 #     * Die Faltung hilft bei allen drei Problemen: System-Indentifizierungsproblem, Simulationsproblem und Kontrollproblem
 #     
 # ![Bild](pictures/t_s_draw.png)
+
+# In[ ]:
+
+
+
+

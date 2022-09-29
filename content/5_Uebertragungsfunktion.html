@@ -831,7 +831,6 @@ Die DGL im Frequenz- oder Laplaceraum kann direkt benutzt werden, um die sogenan
 <p><span class="caption-number">Abb. 39 </span><span class="caption-text">Signale und Messsystem im Zeit- bzw. Frequenzraum.</span><a class="headerlink" href="#zeit-f-block" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
-<p><code class="xref std std-numref docutils literal notranslate"><span class="pre">strommesseingang</span></code></p>
 <p>Die Übertragungsfunktion eines Messsystems, <span class="math notranslate nohighlight">\(G(j \omega)\)</span> bzw. <span class="math notranslate nohighlight">\(G(s)\)</span>, kann also wiefolgt aus den Fourier-Transformierten der Ein- und Ausgangssignale ausgedrückt werden:</p>
 <div class="math notranslate nohighlight">
 \[G(j \omega) = \frac{Y(j \omega)}{X(j \omega)}\]</div>
@@ -1151,6 +1150,162 @@ In der Messtechnik bei der Überwachung von schwingenden Maschinenteilen oder de
 <p><img alt="Bild" src="../_images/TP_2ndorder.png" /></p>
 <p>Einige Beispiele zu Systemen mit Verzögerungs, Dämpfungs bzw. auch integrierendem Verhalten sind in nachfolgender Tabelle dargestellt. In der Literatur findet man häufig diese tabellarischen Zusammenfassungen verschiedener Messsysteme inklusive Übertragungsfunktion und Bode-Diagramm, damit die DGL nicht jedes mal neu hergeleitet werden müssen. Die Hintereinanderschaltung einzelner Komponenten kann auch hier wieder ganz einfach im logarithmischen Bode-Diagramm per Addition der Übertragungsfunktionen abgeschätzt werden.</p>
 <p><img alt="Bild" src="../_images/wichtigste_regelkreisglieder.png" /></p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.signal</span> <span class="k">as</span> <span class="nn">signal</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="c1"># MatplotLib Settings:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.grid&#39;</span><span class="p">]</span><span class="o">=</span> <span class="kc">True</span>     <span class="c1"># defaults to False but xkcd() makes it False</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;grid.linewidth&#39;</span><span class="p">]</span><span class="o">=</span> <span class="mf">0.8</span>  <span class="c1"># defaults to 0.8</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
+
+<span class="k">def</span> <span class="nf">plot_bode_sprung</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">label_name</span><span class="p">,</span> <span class="n">label_bode</span><span class="p">,</span> <span class="n">label_sprung</span><span class="p">):</span>
+    <span class="c1"># Bode-Plot:</span>
+    <span class="n">w</span><span class="p">,</span> <span class="n">mag</span><span class="p">,</span> <span class="n">phase</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">bode</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
+
+    <span class="c1"># Plotting</span>
+    <span class="c1"># Supplot2grid approach</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+    <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span> <span class="c1"># topleft</span>
+    <span class="n">ax3</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">rowspan</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>            <span class="c1"># right</span>
+    <span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>  
+    
+  <span class="c1">#  ax1.axhline(y=10*np.log10(K), ls=&#39;--&#39;, color=&#39;k&#39;)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">mag</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="n">label_bode</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mi">10</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">K</span><span class="p">)],[</span><span class="s1">&#39;$K$&#39;</span><span class="p">])</span>
+  <span class="c1">#  ax1.set_xticks([1e-2, 1e-1, 0.5, 1, 10], labels = [r&#39;$10^{-2}$&#39;, r&#39;$10^{-1}$&#39;, &#39;0.5&#39;, &#39;1&#39;, &#39;10&#39;])</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Bode Plot&quot;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Amplitude (dB)&quot;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span><span class="n">loc</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+
+    <span class="c1"># Plotting</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">phase</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mi">180</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="o">-</span><span class="mi">180</span><span class="p">])</span>
+   <span class="c1"># ax2.set_xticks([1e-2, 1e-1, 0.5, 1, 10], labels = [r&#39;$10^{-2}$&#39;, r&#39;$10^{-1}$&#39;, &#39;0.5&#39;, &#39;1&#39;, &#39;10&#39;])</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Frequenz (Hz)&quot;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Phase (deg)&#39;</span><span class="p">)</span>
+
+
+    <span class="c1"># Sprungantwort:</span>
+    <span class="n">t</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
+
+    <span class="c1"># Plotting</span>
+  <span class="c1">#  ax3.axhline(y=K, ls=&#39;--&#39;, color=&#39;k&#39;)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="n">label_sprung</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="n">K</span><span class="p">],[</span><span class="s1">&#39;$K \cdot u_e$&#39;</span><span class="p">])</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Sprungantwort&quot;</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Zeit t (s)&quot;</span><span class="p">)</span>
+    <span class="c1">#ax3.set_ylabel(r&#39;$u_a(t)$&#39;)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="n">label_name</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Transfer Funktion Tiefpass:</span>
+
+<span class="n">K</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">num</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">K</span><span class="p">])</span>
+<span class="n">den</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">H</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">TransferFunction</span><span class="p">(</span><span class="n">num</span> <span class="p">,</span> <span class="n">den</span><span class="p">)</span>
+
+<span class="n">plot_bode_sprung</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="s1">&#39;Verstärker P</span><span class="se">\n</span><span class="s1"> DGL: $u_a = K \cdot u_e$&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$G(s) = K $&#39;</span><span class="p">,</span><span class="sa">r</span><span class="s1">&#39;$\frac{u_a(t)}{K\cdot u_e} = 1$&#39;</span><span class="p">)</span>
+
+<span class="c1"># Transfer Funktion Tiefpass:</span>
+<span class="n">num</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">den</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span> <span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">H</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">TransferFunction</span><span class="p">(</span><span class="n">num</span> <span class="p">,</span> <span class="n">den</span><span class="p">)</span>
+
+<span class="n">plot_bode_sprung</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="s1">&#39;Tiefpass PT$_1$</span><span class="se">\n</span><span class="s1"> DGL: $T \cdot \dot u_a + u_a = K \cdot u_e$&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$G(s) = \frac</span><span class="si">{K}</span><span class="s1">{T \cdot s+1} $&#39;</span><span class="p">,</span><span class="sa">r</span><span class="s1">&#39;$\frac{u_a(t)}{K\cdot u_e} = 1- e^{-\left(\frac</span><span class="si">{t}{T}</span><span class="s1">\right)}$&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># Transfer Funktion Tiefpass:</span>
+<span class="n">T1</span><span class="o">=</span><span class="mf">0.9</span>
+<span class="n">D</span><span class="o">=</span> <span class="mi">3</span><span class="c1"># Kriechfall</span>
+<span class="n">T2</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">D</span><span class="o">*</span><span class="n">T1</span>
+<span class="n">num</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">K</span><span class="p">])</span>
+<span class="n">den</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">T1</span><span class="p">,</span> <span class="n">T2</span> <span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">H</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">TransferFunction</span><span class="p">(</span><span class="n">num</span> <span class="p">,</span> <span class="n">den</span><span class="p">)</span>
+
+<span class="n">plot_bode_sprung</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="s1">&#39;Tiefpass PT$_2$</span><span class="se">\n</span><span class="s1"> DGL: $T \cdot \ddot u_a + 2DT \cdot \dot u_a + u_a = K \cdot u_e$&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$G(s) = \frac</span><span class="si">{K}</span><span class="s1">{T s^2 + 2DT s+1} $&#39;</span><span class="p">,</span><span class="sa">r</span><span class="s1">&#39;Kriechfall, D&gt;1 &#39;</span><span class="p">)</span>
+
+<span class="c1"># Transfer Funktion Tiefpass:</span>
+<span class="n">T1</span><span class="o">=</span><span class="mf">0.9</span>
+<span class="n">D</span><span class="o">=</span> <span class="mi">1</span><span class="c1"># aperiodischer grenzfall</span>
+<span class="n">T2</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">D</span><span class="o">*</span><span class="n">T1</span>
+<span class="n">num</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">K</span><span class="p">])</span>
+<span class="n">den</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">T1</span><span class="p">,</span> <span class="n">T2</span> <span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">H</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">TransferFunction</span><span class="p">(</span><span class="n">num</span> <span class="p">,</span> <span class="n">den</span><span class="p">)</span>
+
+<span class="n">plot_bode_sprung</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="s1">&#39;Tiefpass PT$_2$</span><span class="se">\n</span><span class="s1"> DGL: $T \cdot \ddot u_a + 2DT \cdot \dot u_a + u_a = K \cdot u_e$&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$G(s) = \frac</span><span class="si">{K}</span><span class="s1">{T s^2 + 2DT s+1} $&#39;</span><span class="p">,</span><span class="sa">r</span><span class="s1">&#39;aperiodischer Grenzfall, D=1 &#39;</span><span class="p">)</span>
+
+<span class="c1"># Transfer Funktion Tiefpass:</span>
+<span class="n">T1</span><span class="o">=</span><span class="mf">0.9</span>
+<span class="n">D</span><span class="o">=</span> <span class="mf">0.15</span><span class="c1"># stabiler Schwingfall</span>
+<span class="n">T2</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">D</span><span class="o">*</span><span class="n">T1</span>
+<span class="n">num</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">K</span><span class="p">])</span>
+<span class="n">den</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">T1</span><span class="p">,</span> <span class="n">T2</span> <span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">H</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">TransferFunction</span><span class="p">(</span><span class="n">num</span> <span class="p">,</span> <span class="n">den</span><span class="p">)</span>
+
+<span class="n">plot_bode_sprung</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="s1">&#39;Tiefpass PT$_2$</span><span class="se">\n</span><span class="s1"> DGL: $T \cdot \ddot u_a + 2DT \cdot \dot u_a + u_a = K \cdot u_e$&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$G(s) = \frac</span><span class="si">{K}</span><span class="s1">{T s^2 + 2DT s+1} $&#39;</span><span class="p">,</span><span class="sa">r</span><span class="s1">&#39;stabiler Schwingfall, 0&lt;D&lt;1 &#39;</span><span class="p">)</span>
+
+<span class="c1"># Transfer Funktion Tiefpass:</span>
+<span class="n">T1</span><span class="o">=</span><span class="mf">0.25</span>
+<span class="n">D</span><span class="o">=</span> <span class="mf">0.</span><span class="c1"># grenzstabiler schwingfall</span>
+<span class="n">T2</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">D</span><span class="o">*</span><span class="n">T1</span>
+<span class="n">num</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">K</span><span class="p">])</span>
+<span class="n">den</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">T1</span><span class="p">,</span> <span class="n">T2</span> <span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">H</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">TransferFunction</span><span class="p">(</span><span class="n">num</span> <span class="p">,</span> <span class="n">den</span><span class="p">)</span>
+
+<span class="n">plot_bode_sprung</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="s1">&#39;Tiefpass PT$_2$</span><span class="se">\n</span><span class="s1"> DGL: $T \cdot \ddot u_a + 2DT \cdot \dot u_a + u_a = K \cdot u_e$&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$G(s) = \frac</span><span class="si">{K}</span><span class="s1">{T s^2 + 2DT s+1} $&#39;</span><span class="p">,</span><span class="sa">r</span><span class="s1">&#39;grenzstabiler Schwingfall, D=0 &#39;</span><span class="p">)</span>
+
+<span class="c1"># Transfer Funktion Tiefpass:</span>
+<span class="n">T1</span><span class="o">=</span><span class="mf">0.25</span>
+<span class="n">D</span><span class="o">=</span> <span class="o">-</span><span class="mf">0.1</span><span class="c1"># instabiler schwingfall</span>
+<span class="n">T2</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">D</span><span class="o">*</span><span class="n">T1</span>
+<span class="n">num</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">K</span><span class="p">])</span>
+<span class="n">den</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">T1</span><span class="p">,</span> <span class="n">T2</span> <span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">H</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">TransferFunction</span><span class="p">(</span><span class="n">num</span> <span class="p">,</span> <span class="n">den</span><span class="p">)</span>
+
+<span class="n">plot_bode_sprung</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="s1">&#39;Tiefpass PT$_2$</span><span class="se">\n</span><span class="s1"> DGL: $T \cdot \ddot u_a + 2DT \cdot \dot u_a + u_a = K \cdot u_e$&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$G(s) = \frac</span><span class="si">{K}</span><span class="s1">{T s^2 + 2DT s+1} $&#39;</span><span class="p">,</span><span class="sa">r</span><span class="s1">&#39;instabiler Schwingfall, -1&lt;D&lt;0 &#39;</span><span class="p">)</span>
+
+<span class="c1"># Transfer Funktion Tiefpass:</span>
+<span class="n">T1</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">D</span><span class="o">=</span> <span class="o">-</span><span class="mf">1.1</span><span class="c1"># instabiler kriechfall</span>
+<span class="n">T2</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">D</span><span class="o">*</span><span class="n">T1</span>
+<span class="n">num</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">K</span><span class="p">])</span>
+<span class="n">den</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">T1</span><span class="p">,</span> <span class="n">T2</span> <span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">H</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">TransferFunction</span><span class="p">(</span><span class="n">num</span> <span class="p">,</span> <span class="n">den</span><span class="p">)</span>
+
+<span class="n">plot_bode_sprung</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="s1">&#39;Tiefpass PT$_2$</span><span class="se">\n</span><span class="s1"> DGL: $T \cdot \ddot u_a + 2DT \cdot \dot u_a + u_a = K \cdot u_e$&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$G(s) = \frac</span><span class="si">{K}</span><span class="s1">{T s^2 + 2DT s+1} $&#39;</span><span class="p">,</span><span class="sa">r</span><span class="s1">&#39;instabiler Kriechfall, D&lt;-1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/5_Uebertragungsfunktion_11_0.png" src="../_images/5_Uebertragungsfunktion_11_0.png" />
+<img alt="../_images/5_Uebertragungsfunktion_11_1.png" src="../_images/5_Uebertragungsfunktion_11_1.png" />
+<img alt="../_images/5_Uebertragungsfunktion_11_2.png" src="../_images/5_Uebertragungsfunktion_11_2.png" />
+<img alt="../_images/5_Uebertragungsfunktion_11_3.png" src="../_images/5_Uebertragungsfunktion_11_3.png" />
+<img alt="../_images/5_Uebertragungsfunktion_11_4.png" src="../_images/5_Uebertragungsfunktion_11_4.png" />
+<img alt="../_images/5_Uebertragungsfunktion_11_5.png" src="../_images/5_Uebertragungsfunktion_11_5.png" />
+<img alt="../_images/5_Uebertragungsfunktion_11_6.png" src="../_images/5_Uebertragungsfunktion_11_6.png" />
+<img alt="../_images/5_Uebertragungsfunktion_11_7.png" src="../_images/5_Uebertragungsfunktion_11_7.png" />
+</div>
+</div>
 </section>
 <section id="zusammenfassung">
 <h2>Zusammenfassung<a class="headerlink" href="#zusammenfassung" title="Link zu dieser Überschrift">#</a></h2>

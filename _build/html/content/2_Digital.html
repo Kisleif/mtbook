@@ -56,8 +56,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="Dynamische Messsysteme" href="5_Dynamische_Messsysteme.html" />
-    <link rel="prev" title="Rauschen und spektrale Dichte" href="3_Rauschen.html" />
+    <link rel="next" title="Modulation von Messsignalen" href="3_Modulationen.html" />
+    <link rel="prev" title="Kenngrößen" href="3_Kenngroessen.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="de">
     
@@ -218,16 +218,16 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="3_Messsignale.html">
    Messsignale
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="3_basics.html">
      Grundlagen
@@ -236,6 +236,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="3_Kenngroessen.html">
      Kenngrößen
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Digitalisierung
     </a>
    </li>
    <li class="toctree-l2">
@@ -256,11 +261,6 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Digitalisierung
-  </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="5_Dynamische_Messsysteme.html">
@@ -339,6 +339,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="4_R-Messung.html">
      Widerstandsmessung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_CL-Messung.html">
+     Messung von Kapazitäten und Induktivitäten
     </a>
    </li>
    <li class="toctree-l2">
@@ -691,15 +696,35 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#auflosung">
+   Auflösung
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#quantisierungsabweichung">
    Quantisierungsabweichung
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#nyquist-shannon-abtasttheorem-aliasing-a-id-subsec-nyquist-shannon-abtasttheorem-a">
-   Nyquist-Shannon-Abtasttheorem (Aliasing)
-   <a id="SubSec-Nyquist-Shannon-Abtasttheorem">
-   </a>
+  <a class="reference internal nav-link" href="#nyquist-shannon-abtasttheorem">
+   Nyquist-Shannon-Abtasttheorem
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aliasing">
+   Aliasing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#anti-aliasing-filter">
+     Anti-Aliasing-Filter
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vorteile">
+   Vorteile
   </a>
  </li>
 </ul>
@@ -727,15 +752,35 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#auflosung">
+   Auflösung
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#quantisierungsabweichung">
    Quantisierungsabweichung
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#nyquist-shannon-abtasttheorem-aliasing-a-id-subsec-nyquist-shannon-abtasttheorem-a">
-   Nyquist-Shannon-Abtasttheorem (Aliasing)
-   <a id="SubSec-Nyquist-Shannon-Abtasttheorem">
-   </a>
+  <a class="reference internal nav-link" href="#nyquist-shannon-abtasttheorem">
+   Nyquist-Shannon-Abtasttheorem
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aliasing">
+   Aliasing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#anti-aliasing-filter">
+     Anti-Aliasing-Filter
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vorteile">
+   Vorteile
   </a>
  </li>
 </ul>
@@ -750,48 +795,102 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="digitalisierung">
 <h1>Digitalisierung<a class="headerlink" href="#digitalisierung" title="Link zu dieser Überschrift">#</a></h1>
+<p>Viele Messungen, wie z.B. Spannungs- und Strommessungen werden am Ende mittels Analog-Digital-Umsetzer (ADU) digitalsiert, weshalb wir hier das Grundprinzip einmal erläutern möchten.</p>
 <section id="kennlinie">
 <h2>Kennlinie<a class="headerlink" href="#kennlinie" title="Link zu dieser Überschrift">#</a></h2>
-<p>In Folge der Digitalisierung wird der unendliche Wertevorrat einer analogen Größen, z.B. eine elektrischen Spannung, auf einen endlichen Wertevorrat abgebildet. Dadurch erhält man eine stufenförmige Kennlinien. Infolge dieser Quantisierung kann man sich vorstellen, dass Informationen verloren gegangen werden. Ein beliebig genauer analoger Spannungswert, mit unendlich vielen Ziffern, kann nur mit einem endlichen Speichervorrat im Computer verarbeitet und dargestellt werden. Erst wenn ein Grenzwert überschritten wird, wird die nächste <em>Stufe</em> erreicht und der Computer zeigt einen neuen Spannungswert an. Nicht aber die inkrementalen Zwischenschritte.</p>
-<p><img alt="Bild" src="../_images/digitalisierung.png" /></p>
-<p>Die gestufte (Treppen-)Kurve im dargestellten Bild ist die reale Übertragungskurve eines 3-Bit-Analog-Digital-Wandlers (ADW).
-Das digitale Ausgangssignal ist so lange konstant bei einem festen Wert, wie sich das analoge Eingangssignal innerhalb eines Inkrements, also 1 LSB (least significant bit), verändert. An diesem Beispiel hier stellen wir Eingangssignale zwischen 0V und 7V mit einem 3-Bit-Wandler dar. Variiert die Eingangsspannung nur minimal, also beispielsweise zwischen 1,1V und 1,9V, so würde sich der digitale Ausgangswert tatsächlich nicht ändern und konstant <em>001</em> ausgeben.</p>
-<p>Je feiner die Stufen (also je mehr Bits), desto besser wird die Auflösung.
-In der Praxis wird man die Stufung und damit die Auflösung eines ADW nur so fein wie für die zu lösende (Mess-) Aufgabe notwendig wählen, da der technische Aufwand sonst ernorm steigt und manchmal gar nicht notwendig ist, da die Auflösung auch von der Genauigkeit der Referenzinformation limitiert sein könnte (i. Allg. der Referenzspannung zur Darstellung des LSB-Intervalls).</p>
-<p>Der diskrete Wertebereich kann wiefolgt angegeben werden:</p>
+<p>In Folge der Digitalisierung wird der unendliche Wertebereich einer analogen Größen, z.B. eine elektrischen Spannung, auf einen endlichen, diskreten <strong>Wertebereich</strong> abgebildet:</p>
 <div class="math notranslate nohighlight">
 \[W_B = (2^n-1) \cdot 1\,\mathrm{LSB}\]</div>
+<figure class="align-default" id="digi-3bit">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/digi_3bit.jpg"><img alt="digi_3bit" class="bg-primary mb-1" src="../_images/digi_3bit.jpg" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Abb. 28 </span><span class="caption-text">Kennlinie bei der Digitalisierung unter Benutzung eines 3bit-ADU. Die Eingangssignale liegen zwischen 0-7V.</span><a class="headerlink" href="#digi-3bit" title="Link zu diesem Bild">#</a></p>
+</figcaption>
+</figure>
+<p>Ein kontinuierlicher analoger Spannungsmessbereich wird in viele kleine Stufen unterteilt.
+Diese gestufte <strong>(Treppen-)Kurve</strong> ist in <a class="reference internal" href="#digi-3bit"><span class="std std-numref">Abb. 28</span></a> dargestellt. Sie ist die reale Übertragungskurve eines 3-Bit-Analog-Digital-Umsetzers (ADU).
+Das digitale Ausgangssignal ist so lange konstant bei einem festen Wert, wie sich das analoge Eingangssignal innerhalb eines Inkrements, also 1 <strong>LSB (least significant bit)</strong>, verändert. An diesem Beispiel hier stellen wir Eingangssignale zwischen 0V und 7V mit einem 3-Bit-Wandler dar. Variiert die Eingangsspannung nur minimal, also beispielsweise zwischen 1,1V und 1,9V, so würde sich der digitale Ausgangswert tatsächlich nicht ändern und konstant <em>001</em> ausgeben.</p>
+</section>
+<section id="auflosung">
+<h2>Auflösung<a class="headerlink" href="#auflosung" title="Link zu dieser Überschrift">#</a></h2>
+<p>Es ist offentsichtlich, dass bei der Digitalisierung Informationen verloren gehen. Die analogen Spannungswerte sind beliebig genau, mit unendlich vielen Nachkommastellen, werden jedoch nur auf einen sehr begrenzten, diskreten Wertebereich mit einer limitierten Anzahl von Stufen projiziert.
+Je feiner die Stufen (also je mehr Bits), desto besser wird die <strong>Auflösung</strong>.
+Erst wenn ein Grenzwert überschritten wird, wird die nächste <em>Stufe</em> erreicht und der Computer zeigt einen neuen Spannungswert an. Nicht aber die inkrementalen Zwischenschritte.
+Beliebig viele Bits sind jedoch nicht möglich. Außerdem wird man in der Praxis die minimal nötige Anzahl von Bits wählen, da sonst der technische Aufwand enorm ansteigt. Es ist also wichtig sich vor der Messaufgabe zu überlegen, welche Auflösung benötigt wird. Insbesondere wenn die Auflösung z.B. durch andere Parameter limitiert wird, wie z.B. die Genauigkeit der Referenzmessung und Kalibrierung.</p>
 </section>
 <section id="quantisierungsabweichung">
 <h2>Quantisierungsabweichung<a class="headerlink" href="#quantisierungsabweichung" title="Link zu dieser Überschrift">#</a></h2>
-<p>Aufgrund des begrenzten (diskreten) Wertebereichs ergibt sich eine absolute Messabweichung infolge der Quantisierung, die oft als absoluter Quantisierungsfehler bezeichnet wird. Diese bildet sich aus der Differenz zwischen dem digitalen Ist-Wert und dem idealisierten Kennenlinienwert (linear verlaufende ideale Kennlinie, im Bild blau gekennzeichnet).</p>
-<p>Die maximale Abweichung beträgt hier 1LSB, wodruch die relative Messabweichung, bezogen auf den Wertebereich, wiefolgt abgeschätzt werden kann:</p>
+<p>Dadurch dass der Wertebereich begrenzt ist, ergeben sich absolute Messabweichungen beim Digitalisierungsprozess. Dies wird auch <strong>absoluter Digitalisierungsfehler</strong> genannt.
+Aus der Kennlinie kann man diesen Fehler ablesen, er ergibt sich aus dem Digitalwert und dem idealisierten Kennlinienwert. Im <em>worst case</em> beträgt die maximale Abweichung:</p>
 <div class="math notranslate nohighlight">
-\[A_\mathrm{rel} = \frac{A_\mathrm{max}}{W_B} = \frac{1\,\mathrm{LSB}}{(2^n-1)\cdot 1\,\mathrm{LSB}} \approx \frac{1}{2^n}\]</div>
-<p><strong>Beispiel:</strong> Für einen A-D-Wandler mit einer Wortbreite von 10 Bit ist die relative Abweichung infolge der Quantisierung anzugeben:</p>
+\[A = 1\,\mathrm{LSB}\]</div>
+<p>Die relative Messabweichung bezogen auf den Wertebereich ist dadurch:</p>
+<div class="math notranslate nohighlight">
+\[A_\mathrm{rel} = \frac{A}{W_B} = \frac{1\,\mathrm{LSB}}{(2^n-1)\cdot 1\,\mathrm{LSB}} \approx \frac{1}{2^n}\]</div>
+<p>Für einen A-D-Wandler mit einer Auflösung von 10 Bit ist die relative Abweichung infolge der Quantisierung anzugeben:</p>
 <div class="math notranslate nohighlight">
 \[A_\mathrm{rel} = \frac{1}{2^{10}} = 0,00097 = 0,001 = 0,1\% \]</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_bits</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;rel. Abweichung: </span><span class="se">\t\t\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">n_bits</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;%&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;rel. Abweichung (Näherungsformel): </span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">**</span><span class="n">n_bits</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;%&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rel. Abweichung: 			 0.09775171065493646 %
+rel. Abweichung (Näherungsformel): 	 0.09765625 %
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warnung</p>
+<p>Für kleine Spannungen, die den Wertebereich des ADUs nicht ausnutzen, sollte zuerst eine Verstärkerstufe so vorgeschaltet werden, dass der komplette diskrete Wertebereich ausgenutzt wird. Befindet sich die analoge Messgröße nur innerhalb eines LSB’s, wäre dies sehr ungünstig.</p>
+</div>
 </section>
-<section id="nyquist-shannon-abtasttheorem-aliasing-a-id-subsec-nyquist-shannon-abtasttheorem-a">
-<h2>Nyquist-Shannon-Abtasttheorem (Aliasing) <a id="SubSec-Nyquist-Shannon-Abtasttheorem"></a><a class="headerlink" href="#nyquist-shannon-abtasttheorem-aliasing-a-id-subsec-nyquist-shannon-abtasttheorem-a" title="Link zu dieser Überschrift">#</a></h2>
-<p>Im zeitlichen Verlauf weist der ADW ebenfalls eine Diskretisierung auf.
-Das heißt, dass nicht nur der Wertebereich eingegrenzt wird, sondern auch die Zeitpunkte, zu welchen Informationen abgerufen werden können. Dem kontinuierlichen Eingangssignal wird also nur eine endliche Zahl von Proben (Samples) entnommen.
-Jeder ADW benötigt für die Wandlung eines analogen Signals in ein digitales eine bestimmte Zeit und reagiert relativ spät. Diese Zeit ist endlich und kann nicht beliebig klein werden. Aus dem kontinuierlichen, analogen Signal wird also nur eine Schnittmenge von Messwerten zu bestimmten Zeitpunkten entnommen. Was zwischen zwei Zeitpunkte (Samples) mit dem analogen Signal passiert, wird nicht mitaufgezeichnet. Diese Zeitdiskretisierung muss allerdings nicht zwangsläufig mit einem Informationsverlust einhergehen.</p>
-<p>Unter bestimmten Voraussetzungen, die im Abtasttheorem festgelegt sind, kann man die Signalwerte zwischen den festen Abtastzeitpunkten wieder vollständig rekonstruieren. Das Shannon’sche Abtasttheorem gibt an, wie oft eine Sinusschwingung mit Frequenz <span class="math notranslate nohighlight">\(f\)</span> abgetastet werden muss, damit sie aus dem digitalisieren Signal extrahiert werden kann:</p>
+<section id="nyquist-shannon-abtasttheorem">
+<h2>Nyquist-Shannon-Abtasttheorem<a class="headerlink" href="#nyquist-shannon-abtasttheorem" title="Link zu dieser Überschrift">#</a></h2>
+<p>Nicht nur im Wertebereich, sondern auch bei der zeitlichen Diskretisierung können Abweichungen und Fehler auftreten.</p>
+<figure class="align-default" id="abtastung2">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/abtastung.jpg"><img alt="abtastung" class="bg-primary mb-1" src="../_images/abtastung.jpg" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Abb. 29 </span><span class="caption-text">Aliasing Effekt in einem sinusförmigen Messsignal aufgrund der Wahl einer zu kleinen Abtastfrequenz.</span><a class="headerlink" href="#abtastung2" title="Link zu diesem Bild">#</a></p>
+</figcaption>
+</figure>
+<p>Wie in <a class="reference internal" href="#abtastung2"><span class="std std-numref">Abb. 29</span></a> werden nur zu bestimmten, diskreten Zeitpunkten <span class="math notranslate nohighlight">\(T_A\)</span> die Messdaten <span class="math notranslate nohighlight">\(u_k\)</span> abgespeichert, wodurch nur eine endliche Zahl von <em>Proben</em> genommen wird.
+Ein ADU kann nicht beliebig schnell werden wodurch der Zeitpunkt zwischen zwei Messwertaufnahmen nicht beliebig klein werden kann und wir entnehmen lediglich eine <em>Stichprobe</em> zu ganz bestimmten Zeitpunkten. Dazwischen wird kein Messsignal aufgezeichnet. Diese Art die Diskretisierung muss jedoch nicht immer zu Informationsverlusten führen, wenn man das <strong>Nyquist-Shannon Abtasttheorem</strong></p>
 <div class="math notranslate nohighlight">
 \[f_\mathrm{ab} &gt; 2f\]</div>
-<p>Eine Schwingung muss innerhalb einer Periode mindestens 2-mal abgetastet werden.
-Nur wenn diese Bedingung erfüllt ist, entstehen durch die Abtastung keine Signalfehler.
-Diese Bedingung ist ebenfalls auf beliebe periodische Signale anwendbar. Hierbei betrachtet man die höchste Frequenz, die noch in dem Signal vorkommt, und wählt entsprechend die <em>Nyquist</em>-Frequenz.</p>
-<p>Bestimmte Signale, wie z.B. Rechteckpulse oder Einzelpulse, haben eine unendlich hohe Flanke. Mathematisch werden wir im nächsten Kapitel dieser Vorlesung noch sehen, dass das bedeutet, dass deren Frequenzanteile bis ins Unendliche gehen. Das heißt eine Rechteckspannung hat unendliche hohe Frequenzen. Diese können durch Digitalisierung <em>nicht</em> mehr berücksichtigt werden, da keine Abtastfrequenzen von <span class="math notranslate nohighlight">\(2\cdot \infty\)</span>, also Zeitintervallen von 0 Sekunden, erreichbar sind. In diesem Falle findet ein Informationsverlust statt.</p>
-<p>Andersherum kann man analysieren, welche Art von Signalen mit bestimmten ADWs noch analysiert werden können. Hat mein Messsystem eine Abtastfrequenz (auch Sampling-Frequenz oder Bandbreite genannt) von <span class="math notranslate nohighlight">\(f_\mathrm{ab} = 100\,\mathrm{MHz}\)</span>, so können nur Signale mit Frequenzanteilen bis zu <span class="math notranslate nohighlight">\(f = 50\,\mathrm{MHz}\)</span> verlustfrei analysiert werden.</p>
-<p>Außerdem sollte man als Messtechniker:in stets vermeiden, dass höhere Frequenzen als diese Grenzfrequenz in den ADW gelangen.
-Dadurch können nämlich hässliche Effekte entstehen, die Mehrdeutigkeiten des gewonnenen Ausgangssignals zulassen. Diesen Effekt nennt man auch <strong>Aliasing</strong>. Angenommen man speist hohe Frequenzen in einen ADW ein, für die der ADW nicht mehr ausgelegt ist. Dies hat zu Folge, dass die Kurve nicht mehr mit mehr als 2 Punkten innerhalb einer Periode abgetastet wird (Nyquist-Shannon ist nicht erfüllt). Dadurch kann der ursprüngliche Kurvenverlauf nicht reproduziert werden. Man erhält irgendeinen anderen Kurvenverlauf (siehe Bild), der keinerlei Rückschlüsse auf den wahren Verlauf aufweist.
-Um diese Effekte zu vermeiden, werden Filter, so genannten <em>Anti-Aliasing-Filter</em> verwendet. Diese sind im Prinzip nur sehr steilflankige Tiefpass-Filter, welche Signalanteile bei hohen Frequenzen (&gt; <span class="math notranslate nohighlight">\(f_\mathrm{ab}/2\)</span>) rausfiltern und unterdrücken.
-Das Signal sollte hierbei allerdings möglichst nicht in seinem Frequenzverlauf beeinflusst oder gestört werden, weshalb man bei dem Filterdesign sehr sorgfältig vorgehen muss.</p>
-<p>Im Bild sieht man das Beispiel für 2,6 Abtastungen pro Periode (oben links), 1,4 Abtastungen (oben rechts), 2 Abtastungen (unten links) und 0,8 Abtastungen (unten rechts). Abtastungenspunkte, die 2 pro Periode unterschreiten, zeigen eine falsch-rekonstruierte Wellenform auf, was durch die rot gestrichelte Linie verdeutlicht werden soll.</p>
-<p><img alt="Bild" src="../_images/aliasing.png" /></p>
-<p>Digitale Methoden haben den großen Vorteil, dass die Genaugkeit erhalten bleibt, auch wenn die Daten über große Entfernungen übertragen werden und digitale Messwerte sind einfacher weiterverarbeitbar. Die Güte der Übertragung von elektrischen Spannungen oder allgemeinen Analogsignalen ist hingegen stark von äußeren Einwirkungen abhängig, wie Drift- und Rauscheigenschaften von elektronischen Komponenten. Allerdings sind analoge Messwertausgaben häufig angenehmer und übersichtlicher, als digitale Zahlenkolonnen und analoge Verfahren arbeiten kontinuierlich, simultan und haben daher auch häufig bessere dynamische Eigenschaften, wenn man sich zeitlich veränderliche Größen ansieht.</p>
+<p>einhält. Dies besagt, dass eine Schwingung innerhalb einer Periode mindestens 2-mal abgetastet werden soll. Dann kann man das Signal wieder vollständig rekonstruieren. Wenn dies eingehalten wird, entstehen keine Messabweichungen bei der besagten Signalfrequenz!</p>
+<p>Sollte ein Signal aus mehreren Frequenzen bestimmen, so ist immer die höchste zu erwartende Frequenz im Signal als Anhaltspunkt für das Abtasttheorem zu nehmen. Die <strong>Nyquist-(Abtast-) Frequenz</strong> <span class="math notranslate nohighlight">\(f_\mathrm{ab}\)</span> wird entsprechend dieser höchsten Frequenz gewählt.</p>
+<p>In Kapitel <a class="reference internal" href="3_FourierAnalyse.html"><span class="doc std std-doc">Fourier-Analyse</span></a> ist gezeigt, dass bestimmte Signale wie z.B. Rechteckpulse, aber auch Einzelpulse, in der Theorie beliebig steile Flanken haben. Das heißt eine Rechteckspannung hat unendliche hohe Frequenzen, welches mit Zeitintervallen von 0 Skeunden Länge abgetastet werden müsste um die benötigte Abtastfrequenz <span class="math notranslate nohighlight">\(2\cdot \infty\)</span> zu erreichen. Dies ist durch die Digitalisierung nicht möglich und in diesem Fall ist zwangsläufig mit einem Informationsverlust zu rechnen.</p>
+<p>Andersherum gibt der vorliegende ADU vor, welche Signale und Signalfrequenzen mit diesem Gerät noch verlustfrei analysiert werden können. Hat das vorliegende Messsystem eine Abtastfrequenz (auch Sampling-Frequenz oder Bandbreite genannt) von <span class="math notranslate nohighlight">\(f_\mathrm{ab} = 100\,\mathrm{MHz}\)</span>, so können nur Signale mit Frequenzanteilen bis zu <span class="math notranslate nohighlight">\(f = 50\,\mathrm{MHz}\)</span> verlustfrei analysiert werden.</p>
+</section>
+<section id="aliasing">
+<h2>Aliasing<a class="headerlink" href="#aliasing" title="Link zu dieser Überschrift">#</a></h2>
+<p>Sollte ein zu digitalisierendes Messsignale bekannterweise aus höheren Frequenzen bestehen, sollten diese vor derm Digitalisierungsprozess heraus gefiltert werden, da ansonsten <strong>Aliasing</strong> auftreten wird.</p>
+<p>Nehmen wir im Folgenden an, dass wir ein Signal in einen ADU einspeisen, was höhere Frequenzanteile besitzt als der ADU theoretisch abtasten kann. Das bedeutet, dass bei diesen Schwingungen nicht mehr 2 Punkte pro Periode abgetastet werden können und das Nyquist-Shannon-Theorem wird verletzt.
+Der eigentliche Signalverlauf kann also nicht eindeutig rekonstruiert werden und man erhält <em>irgendeinen</em> anderen Verlauf.
+In <a class="reference internal" href="#alisaing"><span class="std std-numref">Abb. 30</span></a> sieht man das Beispiel für 2,6 Abtastungen pro Periode (oben links), 1,4 Abtastungen (oben rechts), 2 Abtastungen (unten links) und 0,8 Abtastungen (unten rechts). Abtastungenspunkte, die 2 pro Periode unterschreiten, zeigen eine falsch-rekonstruierte Wellenform auf, was durch die rote Linie verdeutlicht werden soll.</p>
+<figure class="align-default" id="alisaing">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/alisaing.jpg"><img alt="alisaing" class="bg-primary mb-1" src="../_images/alisaing.jpg" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Abb. 30 </span><span class="caption-text">Aliasing Effekt in einem sinusförmigen Messsignal aufgrund der Wahl einer zu kleinen Abtastfrequenz.</span><a class="headerlink" href="#alisaing" title="Link zu diesem Bild">#</a></p>
+</figcaption>
+</figure>
+<section id="anti-aliasing-filter">
+<h3>Anti-Aliasing-Filter<a class="headerlink" href="#anti-aliasing-filter" title="Link zu dieser Überschrift">#</a></h3>
+<p>Zur Vermeidung von Alisaing werden Filter verwendet, um hohe Frequenzen im Signal vor der Digitalisierung rauszufiltern. Hierbei handelt es um steile Tiefpass-Filter höherer Ordnung um eine möglichst große Uterdrückung bei hohen Frequenzen zu erreichen. Das eigentliche, zu digitalisierende Signal sollte in seinem Frequenzverlauf jedoch möglichst nicht verändert werden durch den Filter. Daher muss man bei dem Filterdesign sehr vorsichtig sein.</p>
+</section>
+</section>
+<section id="vorteile">
+<h2>Vorteile<a class="headerlink" href="#vorteile" title="Link zu dieser Überschrift">#</a></h2>
+<p>Digitalisierte Messsignale haben den Vorteil, dass die Genauigkeit auch über große Distanzen erhalten bleiben und sie somit gut übertragen werden können. Außerdem ist die Weiterverarbeitung und Datenanalyse einfacher.
+Bei analogen Messsignalen hat man das Problem, dass äußere Störungen das Messsignal stark verändern können, wie z.B. Drift- oder Rauscheigenschaften von elektronischen Komponenten.
+Viele empfinden analoge Messwerte jedoch angenehmer und übersichtlicher, als Reihen von Zahlen auf dem Computer.
+Der wichtigste Vorteil von analogen Messwerten ist jedoch die große Bandbreite und großer Wertebereich und die simultane Verarbeitung. Gerade bei dynamischen Systen kann dies ein großer Vorteil sein, wenn man sich schnell verändernde zeitliche Messgrößen hat.</p>
 </section>
 </section>
 
@@ -822,17 +921,17 @@ Das Signal sollte hierbei allerdings möglichst nicht in seinem Frequenzverlauf 
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="3_Rauschen.html" title="zurück Seite">
+    <a class='left-prev' id="prev-link" href="3_Kenngroessen.html" title="zurück Seite">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">zurück</p>
-            <p class="prev-next-title">Rauschen und spektrale Dichte</p>
+            <p class="prev-next-title">Kenngrößen</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="5_Dynamische_Messsysteme.html" title="weiter Seite">
+    <a class='right-next' id="next-link" href="3_Modulationen.html" title="weiter Seite">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title">Dynamische Messsysteme</p>
+        <p class="prev-next-title">Modulation von Messsignalen <a id="SubSec-Information"></a></p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

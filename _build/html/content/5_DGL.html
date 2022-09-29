@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Differentialgleichung &#8212; Metrology Lecture Book</title>
+    <title>Systeme chatakterisieren im Zeitraum &#8212; Metrology Lecture Book</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -56,7 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="Impuls- und Sprungantwort" href="5_ImpulsSprung.html" />
+    <link rel="next" title="Übertragungsfunktion" href="5_Uebertragungsfunktion.html" />
     <link rel="prev" title="Linear zeitinvariante (LZI/LTI) Systeme" href="5_LTI.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="de">
@@ -251,16 +251,16 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="3_Digital.html">
+     Digitalisierung
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="3_Rauschen.html">
      Rauschen und spektrale Dichte
     </a>
    </li>
   </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="2_Digital.html">
-   Digitalisierung
-  </a>
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="5_Dynamische_Messsysteme.html">
@@ -279,17 +279,17 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Differentialgleichung
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="5_ImpulsSprung.html">
-     Impuls- und Sprungantwort
+     Systeme chatakterisieren im Zeitraum
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="5_Uebertragungsfunktion.html">
      Übertragungsfunktion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5_ImpulsSprung.html">
+     Impuls- und Sprungantwort
     </a>
    </li>
   </ul>
@@ -339,6 +339,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="4_R-Messung.html">
      Widerstandsmessung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_CL-Messung.html">
+     Messung von Kapazitäten und Induktivitäten
     </a>
    </li>
    <li class="toctree-l2">
@@ -686,13 +691,30 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#aufstellen-der-differentialgleichung">
-   Aufstellen der Differentialgleichung
+  <a class="reference internal nav-link" href="#differentialgleichung-aufstellen">
+   Differentialgleichung aufstellen
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#losen-der-differentialgleichung">
-   Lösen der Differentialgleichung
+  <a class="reference internal nav-link" href="#losung-der-dgl-fur-sprunganregung-im-zeitbereich">
+   Lösung der DGL für Sprunganregung im Zeitbereich
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testfunktionen-sprungantwort-impulsantwort">
+   Testfunktionen: Sprungantwort, Impulsantwort
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#eigenschaften-von-sprung-und-impulsantwort">
+     Eigenschaften von Sprung- und Impulsantwort
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#losung-der-dgl-fur-sprunganregung-im-frequenzbereich">
+   Lösung der DGL für Sprunganregung im Frequenzbereich
   </a>
  </li>
 </ul>
@@ -704,7 +726,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Differentialgleichung</h1>
+                <h1>Systeme chatakterisieren im Zeitraum</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -715,13 +737,30 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#aufstellen-der-differentialgleichung">
-   Aufstellen der Differentialgleichung
+  <a class="reference internal nav-link" href="#differentialgleichung-aufstellen">
+   Differentialgleichung aufstellen
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#losen-der-differentialgleichung">
-   Lösen der Differentialgleichung
+  <a class="reference internal nav-link" href="#losung-der-dgl-fur-sprunganregung-im-zeitbereich">
+   Lösung der DGL für Sprunganregung im Zeitbereich
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testfunktionen-sprungantwort-impulsantwort">
+   Testfunktionen: Sprungantwort, Impulsantwort
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#eigenschaften-von-sprung-und-impulsantwort">
+     Eigenschaften von Sprung- und Impulsantwort
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#losung-der-dgl-fur-sprunganregung-im-frequenzbereich">
+   Lösung der DGL für Sprunganregung im Frequenzbereich
   </a>
  </li>
 </ul>
@@ -734,13 +773,19 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="differentialgleichung">
-<h1>Differentialgleichung<a class="headerlink" href="#differentialgleichung" title="Link zu dieser Überschrift">#</a></h1>
-<p>Mit dem <em>white box</em>-Verfahren lösen wir das System-Identifizierungsproblem indem wir genau analysieren, aus welchen Komponenten unser System besteht. Anhand eines Tiefpasses 1. Ordnung wollen wir uns die Vorgehensweise einmal ansehen.</p>
-<section id="aufstellen-der-differentialgleichung">
-<h2>Aufstellen der Differentialgleichung<a class="headerlink" href="#aufstellen-der-differentialgleichung" title="Link zu dieser Überschrift">#</a></h2>
-<p><a id="SubSubSec-Aufstellen_der_Differentialgleichung"></a>
-In diesem Falle gucken wir in unser System rein. Wir sehen die elektronische Schaltung bestehend aus einer Reihenschaltung von Widerstand mit Wert <span class="math notranslate nohighlight">\(R\)</span> und Kondensator mit Kapazität <span class="math notranslate nohighlight">\(C\)</span>. Am Eingang liegt die Spannung <span class="math notranslate nohighlight">\(u_e(t)\)</span> an. Über <span class="math notranslate nohighlight">\(C\)</span> kann die Ausgangsspannung <span class="math notranslate nohighlight">\(u_a(t)\)</span> gemessen werden. Der Strom, mit dem der Kodensator aufgeladen ist bekanntlich</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="systeme-chatakterisieren-im-zeitraum">
+<h1>Systeme chatakterisieren im Zeitraum<a class="headerlink" href="#systeme-chatakterisieren-im-zeitraum" title="Link zu dieser Überschrift">#</a></h1>
+<p>Mit dem <em>white box</em>-Verfahren lösen wir das System-Identifizierungsproblem indem wir genau analysieren, aus welchen Komponenten unser System besteht. Anhand eines Tiefpasses 1. Ordnung, wie in <a class="reference internal" href="#lp"><span class="std std-numref">Abb. 38</span></a> dargestellt, wollen wir uns die Vorgehensweise einmal ansehen.</p>
+<figure class="align-default" id="lp">
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/LP.jpg"><img alt="LP" class="bg-primary mb-1" src="../_images/LP.jpg" style="width: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Abb. 38 </span><span class="caption-text">Schaltbild eines passiven Tiefpasses 1. Ordnung.</span><a class="headerlink" href="#lp" title="Link zu diesem Bild">#</a></p>
+</figcaption>
+</figure>
+<section id="differentialgleichung-aufstellen">
+<h2>Differentialgleichung aufstellen<a class="headerlink" href="#differentialgleichung-aufstellen" title="Link zu dieser Überschrift">#</a></h2>
+<p>In diesem Falle gucken wir in unser System rein. Wir sehen die elektronische Schaltung bestehend aus einer Reihenschaltung von Widerstand mit Wert <span class="math notranslate nohighlight">\(R\)</span> und Kondensator mit Kapazität <span class="math notranslate nohighlight">\(C\)</span>.</p>
+<p>Am Eingang liegt die Spannung <span class="math notranslate nohighlight">\(u_e(t)\)</span> an. Über <span class="math notranslate nohighlight">\(C\)</span> kann die Ausgangsspannung <span class="math notranslate nohighlight">\(u_a(t)\)</span> gemessen werden. Der Strom, mit dem der Kodensator aufgeladen ist bekanntlich</p>
 <div class="math notranslate nohighlight">
 \[i_C(t) = C\cdot \frac{du_a}{dt}\]</div>
 <p>wobei <span class="math notranslate nohighlight">\(u_a(t)\)</span> im allgemeinen die Spannung ist, die am Kondensator anfällt und in diesem Falle gleich der Ausgangsspannung ist.</p>
@@ -752,14 +797,14 @@ In diesem Falle gucken wir in unser System rein. Wir sehen die elektronische Sch
 \[RC \frac{du_\mathrm a (t)}{dt} + u_\mathrm a (t) = u_\mathrm e (t)\]</div>
 <p>Dies ist eine <strong>Differentialgleichung (DGL) 1. Ordnung</strong>. Die Differentialgleichung erkannt man daran, dass auch eine zeitliche Ableitung der Ausgangsgröße (also ein Differential) in der Formel auftritt. Da allerdings nur die 1. zeitliche Ableitung auftritt, handelt es sich um eine DGL 1. Ordnung. Würde Ausgangs oder Eingangsgröße zweimal zeitliche abgeleitet werden, würde es sich um eine DGL 2. Ordnung handeln usw.</p>
 <p>Systeme 1. Ordnung beschreiben <em>Energiespeicher</em>, also z.B. Temperaturmesser, die warm werden, oder auch Operationsverstärker, Kapazitäten und Elektromagneten. Im Prinzip ist jedes System, was sich erwärmt, ein Energiespeicher und wird somit ein System 1. Ordnung sein. Systeme 2. Ordnung haben einen zusätzlichen Dämpfungsterm. In diesen Systeme findet auch eine Umlagerung von Energien statt, wie es z.B. in einem LC-Schwingkreis passiert. Kondensator und Spule tauschen ständig Energien aus, wodurch es zu einer periodischen Schwingung kommt. Dieses System wir durch eine DGL 2. Ordnung beschrieben.</p>
-<p><img alt="Bild" src="../_images/white_box.png" /></p>
 </section>
-<section id="losen-der-differentialgleichung">
-<h2>Lösen der Differentialgleichung<a class="headerlink" href="#losen-der-differentialgleichung" title="Link zu dieser Überschrift">#</a></h2>
-<p><a id="SubSubSec-Lösen_der_Differentialgleichung"></a></p>
+<section id="losung-der-dgl-fur-sprunganregung-im-zeitbereich">
+<h2>Lösung der DGL für Sprunganregung im Zeitbereich<a class="headerlink" href="#losung-der-dgl-fur-sprunganregung-im-zeitbereich" title="Link zu dieser Überschrift">#</a></h2>
 <p>Ziel ist es jetzt, eine Funktion für Eingangs- und Ausgangsspannung zu finden, die diese Gleichung erfüllt. Hierfür geht man im Allgemeinen in 5 Schritten vor. Wie werden später in diesem Kapitel noch sehen, dass DGL im Frequenz- bzw. Laplaceraum viel einfacher gelöst werden können als wir es hier, im Zeitraum, jetzt machen.</p>
-<p><strong>1. Homogener Ansatz:</strong>
-Unter homogenen Ansatz verstehen wir das Eingangssignal auf Null zu setzen: <span class="math notranslate nohighlight">\(u_e(t) = 0\)</span>. Das heißt das System wird nicht belastet. Die DGL vereinfacht sich zu</p>
+<ul class="simple">
+<li><p><strong>1. Homogener Ansatz</strong>
+Unter homogenen Ansatz verstehen wir das Eingangssignal auf Null zu setzen: <span class="math notranslate nohighlight">\(u_e(t) = 0\)</span>. Das heißt das System wird nicht belastet. Die DGL vereinfacht sich zu</p></li>
+</ul>
 <div class="math notranslate nohighlight">
 \[RC \frac{du_\mathrm a (t)}{dt} + u_\mathrm a (t) = 0\]</div>
 <p>und kann umgeformt werden zu</p>
@@ -774,26 +819,267 @@ Unter homogenen Ansatz verstehen wir das Eingangssignal auf Null zu setzen: <spa
 <p>Daraus folgt für die erste Konstante</p>
 <div class="math notranslate nohighlight">
 \[\gamma = \frac{1}{RC} := \frac{1}{\tau}\]</div>
-<p><strong>2. Spezieller Ansatz für Anfangsbedingung:</strong>
-Jetzt legen wir statt Null einen <em>Sprung</em> an den Eingang <span class="math notranslate nohighlight">\(u_e(t)\)</span> an: <span class="math notranslate nohighlight">\(u_e(t) = u_0\)</span> für <span class="math notranslate nohighlight">\(t = 0\)</span>. Für lange Zeiten wird sich der Kondensator komplett aufgeladen haben, sodass der Ausgang ein konstantes Signal liefert. Das heißt unsere Lösung für ein spezielles Eingangssignal ist</p>
+<ul class="simple">
+<li><p><strong>2. Spezieller Ansatz eine Sprunganregung</strong>
+Jetzt legen wir statt Null einen <em>Sprung</em> an den Eingang <span class="math notranslate nohighlight">\(u_e(t)\)</span> an: <span class="math notranslate nohighlight">\(u_e(t) = u_0\)</span> für <span class="math notranslate nohighlight">\(t = 0\)</span>. Für lange Zeiten wird sich der Kondensator komplett aufgeladen haben, sodass der Ausgang ein konstantes Signal liefert. Das heißt unsere Lösung für ein spezielles Eingangssignal ist</p></li>
+</ul>
 <div class="math notranslate nohighlight">
 \[u_{a,\mathrm{speziell}}(t) = u_0 \quad \mathrm{für} \quad t \rightarrow \infty\]</div>
-<p><strong>3. Allgemeiner Ansatz:</strong>
-Nun kann der allgemeine Ansatz formuliert werden. Diese ist einfach die Addition von homogener und spezieller Ansatz:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Benötigte Libraries:</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span> 
+<span class="kn">import</span> <span class="nn">scipy.integrate</span> <span class="k">as</span> <span class="nn">spi</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">plotly.offline</span> <span class="k">as</span> <span class="nn">py</span>
+<span class="n">py</span><span class="o">.</span><span class="n">init_notebook_mode</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">plotly.graph_objs</span> <span class="k">as</span> <span class="nn">go</span>
+<span class="kn">import</span> <span class="nn">plotly.tools</span> <span class="k">as</span> <span class="nn">tls</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
+
+
+<span class="k">def</span> <span class="nf">heaviside_step_function</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">res</span>
+
+
+<span class="n">T</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">T</span><span class="p">,</span> <span class="mi">7</span><span class="o">*</span><span class="n">T</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">endpoint</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">y_step</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">t2</span><span class="p">:</span>
+    <span class="n">y_step</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">heaviside_step_function</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+    
+<span class="c1"># Plotting</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span><span class="n">y_step</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$u_0$&#39;</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sprungsanregung bei t = 0s&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit t&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$u_e$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><script type="text/javascript">
+window.PlotlyConfig = {MathJaxConfig: 'local'};
+if (window.MathJax) {MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+if (typeof require !== 'undefined') {
+require.undef("plotly");
+requirejs.config({
+    paths: {
+        'plotly': ['https://cdn.plot.ly/plotly-2.9.0.min']
+    }
+});
+require(['plotly'], function(Plotly) {
+    window._Plotly = Plotly;
+});
+}
+</script>
+</div><img alt="../_images/5_DGL_3_1.png" src="../_images/5_DGL_3_1.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p><strong>3. Allgemeiner Ansatz</strong>
+Nun kann der allgemeine Ansatz formuliert werden. Diese ist einfach die Addition von homogener und spezieller Ansatz:</p></li>
+</ul>
 <div class="math notranslate nohighlight">
 \[u_a(t) = u_{a,\mathrm{homogen}}(t) + u_{a,\mathrm{speziell}}(t) = u_0 + K \cdot \mathrm e^{-t/\tau}\]</div>
-<p><strong>4. Konstante bestimmen:</strong>
-Eine Konstante war schon bestimmt, nämlich <span class="math notranslate nohighlight">\(\gamma = \frac{1}{RC} := \frac{1}{\tau}\)</span>. Diese Zeitkonstante wurde bereits in den allgemeinen Ansatz unter 3. eingefügt. Um <span class="math notranslate nohighlight">\(K\)</span> zu bestimmen, setzen wir unsere Anfangsbedingung von Schritt 2. ein: Zum Zeitpunkt <span class="math notranslate nohighlight">\(t=0\)</span> ist das System zwar am Eingang mit <span class="math notranslate nohighlight">\(u_0\)</span> belastet, der Ausgang ist jedoch noch Null, solange der Kondensator nicht vollständig aufgeladen ist. Wir setzen also <span class="math notranslate nohighlight">\(t=0\)</span>, <span class="math notranslate nohighlight">\(u_e(t=0) = u_0\)</span> und <span class="math notranslate nohighlight">\(u_a(t = 0) = 0\)</span> in den allgemein Ansatz ein:</p>
+<ul class="simple">
+<li><p><strong>4. Konstante bestimmen</strong>
+Eine Konstante war schon bestimmt, nämlich <span class="math notranslate nohighlight">\(\gamma = \frac{1}{RC} := \frac{1}{\tau}\)</span>. Diese Zeitkonstante wurde bereits in den allgemeinen Ansatz unter 3. eingefügt. Um <span class="math notranslate nohighlight">\(K\)</span> zu bestimmen, setzen wir unsere Anfangsbedingung von Schritt 2. ein: Zum Zeitpunkt <span class="math notranslate nohighlight">\(t=0\)</span> ist das System zwar am Eingang mit <span class="math notranslate nohighlight">\(u_0\)</span> belastet, der Ausgang ist jedoch noch Null, solange der Kondensator nicht vollständig aufgeladen ist. Wir setzen also <span class="math notranslate nohighlight">\(t=0\)</span>, <span class="math notranslate nohighlight">\(u_e(t=0) = u_0\)</span> und <span class="math notranslate nohighlight">\(u_a(t = 0) = 0\)</span> in den allgemein Ansatz ein:</p></li>
+</ul>
 <div class="math notranslate nohighlight">
 \[u_a(0) = u_0 + K \cdot \mathrm e^{-0/\tau}\]</div>
 <div class="math notranslate nohighlight">
 \[0 = u_0 + K \cdot 1 \quad \Rightarrow \quad K = -u_0\]</div>
-<p><strong>5. Lösung hinschreiben:</strong>
-Für die Lösung setzen wir alle unsere bestimmten Konstanten in den allgemeinen Ansatz ein und erhalten:</p>
+<ul class="simple">
+<li><p><strong>5. Lösung hinschreiben</strong>
+Für die Lösung setzen wir alle unsere bestimmten Konstanten in den allgemeinen Ansatz ein und erhalten:</p></li>
+</ul>
 <div class="math notranslate nohighlight">
 \[u_a(t) = u_0 \left(1- \mathrm e^{-\frac{t}{RC}}\right)\]</div>
 <p>Dies ist auch die sogenannte <strong>Sprungantwort</strong> eines Systems 1. Ordnung, da wir in Schritt 2. einen <em>Sprung</em> angelegt haben. Hätten wir uns als Eingangssignal einen Impuls (eine Delta-Funktion) ausgesucht, hätten wir die <strong>Impulsantwort</strong> des Systems bestimmt.</p>
-<p><img alt="Bild" src="../_images/sprungantwort.png" /></p>
+</section>
+<section id="testfunktionen-sprungantwort-impulsantwort">
+<h2>Testfunktionen: Sprungantwort, Impulsantwort<a class="headerlink" href="#testfunktionen-sprungantwort-impulsantwort" title="Link zu dieser Überschrift">#</a></h2>
+<p>In der Messtechnik wird das Übertragungsverhalten einer Messeinrichtung mittels Testfunktionen im Labor überprüft. <strong>Sprung</strong> und <strong>Impuls</strong> gehören zu den meist benutzten Testfunktionen, doch auch eine <strong>Rampen</strong>funktion (ein sich kontinuierlich erhöhendes Eingangssignal) oder ein <strong>Sweep</strong> (hier werden verschiedene Frequenzen direkt nacheinander durchgefahren) haben sich bewährt.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Impuls:</span>
+<span class="k">def</span> <span class="nf">ddf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">sig</span><span class="p">):</span>
+    <span class="n">val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">val</span><span class="p">[(</span><span class="o">-</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sig</span><span class="p">))</span><span class="o">&lt;=</span><span class="n">x</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">x</span><span class="o">&lt;=</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sig</span><span class="p">)))]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">val</span>
+
+<span class="n">y_impuls</span> <span class="o">=</span> <span class="n">ddf</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span><span class="mf">6.</span><span class="p">)</span>
+
+<span class="c1"># Plotting</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span><span class="n">y_step</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;tab:red&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Sprunganregung&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Sprung $\sigma(t)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span><span class="n">y_impuls</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;tab:orange&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Impuls&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Impuls $\delta(t)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span><span class="n">t2</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">t2</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;tab:green&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Rampe&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Rampe $t\cdot \sigma(t)$ &#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Zeit t&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span><span class="n">signal</span><span class="o">.</span><span class="n">chirp</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">f0</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">f1</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">t1</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;tab:olive&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Shirp&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Sweep $f(t)$ &#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Zeit t&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/5_DGL_6_0.png" src="../_images/5_DGL_6_0.png" />
+</div>
+</div>
+<p>Das Vorgehen ist wiefolgt: Es wird eine Testfunktion als Eingangssignal <span class="math notranslate nohighlight">\(u_e(t)\)</span> angelegt und gemessen. Der Ausgang des Systems wird abgegriffen und das Ausgangssignal <span class="math notranslate nohighlight">\(u_a(t)\)</span> ebenfalls gemessen. Ein Vergleich aus angelegtem Eingangssignal und gemessener Systemantwort (Ausgangssignal) können Rückschlüsse für das System getroffen werden.</p>
+<section id="eigenschaften-von-sprung-und-impulsantwort">
+<h3>Eigenschaften von Sprung- und Impulsantwort<a class="headerlink" href="#eigenschaften-von-sprung-und-impulsantwort" title="Link zu dieser Überschrift">#</a></h3>
+<p>Um ein vorliegendes Messsystem im Labor zu charakterisieren kann man beispielsweise das System mit einem Sprung anregen und die Sprungantwort messen.</p>
+<p>Im nachfolgenden Bild ist die Sprungsantwort des Tiefpasses 1. Ordnung gezeichnet. Was kann man aus der Sprungsantwort direkt alles ablesen?</p>
+<ul class="simple">
+<li><p>Geplottet im nachfolgenden Bild ist die normalisierte Sprungantwort, d.h. das Ausgangssignal wurde durch <span class="math notranslate nohighlight">\(u_0\)</span> dividiert. Nach langer Einpendelzeit folgt der Ausgang dem Eingangssignal.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\tau\)</span> ist die Zeitkonstante, die die <em>Trägheit</em> eines Systems bestimmt.</p>
+<ul>
+<li><p>Aus der Theorie ist bekannt: <span class="math notranslate nohighlight">\(\tau = RC\)</span></p></li>
+<li><p>Nach der Zeit <span class="math notranslate nohighlight">\(\tau\)</span> ist das Ausgangssignal auf 63% seines maximal möglichen Wertes angestiegen. Es ist noch kein stationärer Zustand erreicht.</p></li>
+</ul>
+</li>
+<li><p>Einstellzeit <span class="math notranslate nohighlight">\(t_e\)</span>: Dies ist das <em>95%-Kriterium</em>:</p>
+<ul>
+<li><p>Für ein System 1. Ordnung muss die Sprungantwort <span class="math notranslate nohighlight">\(h(t)\)</span> nach der Zeit <span class="math notranslate nohighlight">\(t = 3\tau\)</span> 95% des Endwertes erreicht haben.</p></li>
+<li><p>Nur wenn dies der Fall ist, handelt es sich um ein System mit Ausgleich 1. Ordnung</p></li>
+<li><p>Für ein System 2. Ordnung ist häufig ein Überschwingungen oder Einpendeln zubeoachten. Dann ist <span class="math notranslate nohighlight">\(t_e\)</span> Zeit vom Anlegen der Sprungfunktion bis zum Erreichen des Toleranzbandes innerhalb von 0,95 und 1,05.</p></li>
+</ul>
+</li>
+<li><p><em>Anstiegszeit</em> <span class="math notranslate nohighlight">\(t_r\)</span>: Dies ist die Dauer für einen Signalanstieg von 10% auf 90% am Ausgang des Systems.</p></li>
+</ul>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.signal</span> <span class="k">as</span> <span class="nn">signal</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="c1"># MatplotLib Settings:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
+
+<span class="c1"># Transfer Funktion Tiefpass:</span>
+<span class="n">K</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># Verstärkungsfaktor</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># Zeit nach der 63% des Signals erreicht ist</span>
+<span class="n">num</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">K</span><span class="p">])</span>
+<span class="n">den</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">T</span> <span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">H</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">TransferFunction</span><span class="p">(</span><span class="n">num</span> <span class="p">,</span> <span class="n">den</span><span class="p">)</span>
+
+<span class="c1"># Sprungantwort:</span>
+<span class="n">t</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
+
+<span class="c1"># Impulsantwort</span>
+<span class="n">t_imp</span><span class="p">,</span> <span class="n">y_imp</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">impulse</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
+
+<span class="c1"># Plotting</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.95</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.63</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">T</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="n">T</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span><span class="n">y_step</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;tab:red&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;Sprunganregung $\sigma(t)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;Sprungantwort $h(t)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span><span class="mf">0.63</span><span class="p">],</span> <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;100%&#39;</span><span class="p">,</span><span class="s1">&#39;95%&#39;</span><span class="p">,</span> <span class="s1">&#39;63%&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="mi">3</span><span class="o">*</span><span class="n">T</span><span class="p">],</span> <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="sa">r</span><span class="s1">&#39;$\tau$&#39;</span><span class="p">,</span><span class="sa">r</span><span class="s1">&#39;$3\tau$&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Sprungantwort eines Tiefpasses&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Zeit t&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$u_a(t)/u_0$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span><span class="n">y_impuls</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;tab:orange&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;Impulsanregung $\delta(t)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_imp</span><span class="p">,</span> <span class="n">y_imp</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;Impulsantwort $g(t)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span><span class="mf">0.0</span><span class="p">],</span> <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;100%&#39;</span><span class="p">,</span><span class="s1">&#39;50%&#39;</span><span class="p">,</span> <span class="s1">&#39;0%&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Impulsantwort eines Tiefpasses&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Zeit t&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="c1">#plt.ylabel(r&#39;$u_a(t)/u_0$&#39;)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/5_DGL_9_0.png" src="../_images/5_DGL_9_0.png" />
+</div>
+</div>
+<p>Folgende Eigenschaften bestehen zwischen Sprung- und Impulsantwort:</p>
+<ul>
+<li><p>Die Sprunganregung <span class="math notranslate nohighlight">\(\sigma(t)\)</span> liefert die Sprungantwort <span class="math notranslate nohighlight">\(h(t)\)</span></p></li>
+<li><p>Die Impulsanregung <span class="math notranslate nohighlight">\(\delta(t)\)</span> liefert die Impulsanregung <span class="math notranslate nohighlight">\(g(t)\)</span></p></li>
+<li><p>Die Ableitung der Sprunganregung <span class="math notranslate nohighlight">\(\sigma(t)\)</span> ist die Impulsanregung <span class="math notranslate nohighlight">\(\delta(t)\)</span>, d.h. es gilt:</p>
+<div class="math notranslate nohighlight">
+\[\dot \sigma(t) = \frac{d\sigma(t)}{dt} = \delta(t)\]</div>
+</li>
+<li><p>Für LTI Systeme gilt, dass auch die Ableitung der Sprungantwort <span class="math notranslate nohighlight">\(h(t)\)</span> die Impulsantwort <span class="math notranslate nohighlight">\(g(t)\)</span> liefert:</p>
+<div class="math notranslate nohighlight">
+\[\dot h(t) = \frac{dh(t)}{dt} = g(t)\]</div>
+</li>
+<li><p>D.h. Sprung und Impulsverhalten eines Messsystems können mittels Ableitung bzw. Integration direkt ineinaner umgerechnet werden, ohne eines neues Testsignal anlegen zu müssen (oder die DGL neu zu lösen)</p></li>
+</ul>
+</section>
+</section>
+<section id="losung-der-dgl-fur-sprunganregung-im-frequenzbereich">
+<h2>Lösung der DGL für Sprunganregung im Frequenzbereich<a class="headerlink" href="#losung-der-dgl-fur-sprunganregung-im-frequenzbereich" title="Link zu dieser Überschrift">#</a></h2>
+<p>Eine handlichere Methode DGL’s zu lösen ist es diese zuerst in den Frequenzbereich zu transformieren.</p>
+<ul>
+<li><p><strong>1. DGL transformieren:</strong> Die Signale werden in den Frequenzraum transformiert.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(u_\mathrm e (t) \rightarrow U_e(j \omega)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(u_\mathrm a (t) \rightarrow U_a(j \omega)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\dot u_\mathrm a (t) \rightarrow j \omega U_a(j \omega)\)</span></p></li>
+</ul>
+<p>Der letzte Punkt resultiert aus den Eigenschaften von Fourier-Transformationen für zeitliche Ableitungen von Zeitsignalen:</p>
+<p>In der DGL werden die Zeitsignale durch die Fourier-Transformierten ersetzt:</p>
+<div class="math notranslate nohighlight">
+\[\tau j \omega U_\mathrm a(j \omega) + U_\mathrm a (j \omega) = U_\mathrm e (j \omega)\]</div>
+</li>
+<li><p><strong>2. Sprunganregung einsetzen:</strong> Die Fourier-Transformierte der Sprunganregung ist:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal F(u_e(t)) = \frac{1}{j\omega} =: U_\mathrm e (j \omega)\]</div>
+<p>Die wird oben in die transformierte DGL eingesetzt:</p>
+<div class="math notranslate nohighlight">
+\[\tau j \omega U_\mathrm a(j \omega) + U_\mathrm a (j \omega) = \frac{1}{j\omega} \]</div>
+</li>
+<li><p><strong>3. Lösung hinschreiben:</strong> Die letze Gleichung wird nach <span class="math notranslate nohighlight">\(U_\mathrm a (j \omega)\)</span> aufgelöst:</p>
+<div class="math notranslate nohighlight">
+\[\Rightarrow U_\mathrm a (j \omega) = \frac{1}{j\omega \cdot (1 + \tau j \omega)}\]</div>
+</li>
+</ul>
+<p>Hierbei handelt es sich um die Lösung im Frequenzraum, die nach einer Rück-Transformation die gleich Sprungantwort liefert wie oben bereits hergeleitet.
+In allgemeiner Form, also ohne das Einsetzen einer Sprunganregung, führt uns dieser Ansatz jedoch zu der sogenannten <strong>Übertragungsfunktion</strong>, mit der wir uns im nächsten Kapitel beschäftigen wollen.</p>
 </section>
 </section>
 
@@ -831,10 +1117,10 @@ Für die Lösung setzen wir alle unsere bestimmten Konstanten in den allgemeinen
             <p class="prev-next-title">Linear zeitinvariante (LZI/LTI) Systeme</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="5_ImpulsSprung.html" title="weiter Seite">
+    <a class='right-next' id="next-link" href="5_Uebertragungsfunktion.html" title="weiter Seite">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title">Impuls- und Sprungantwort</p>
+        <p class="prev-next-title">Übertragungsfunktion</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

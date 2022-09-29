@@ -472,9 +472,62 @@ plt.show()
 # * **Faltung**:$ \mathcal F(x_1*x_2) = \mathcal F(x_1) \cdot \mathcal F(x_1)$
 #     * Faltung im Zeichbereich ist zum Vergleich sehr kompliziert: $(x_1 \ast x_2)(t) = \int_{-\infty}^{\infty} x_1(\tau)x_2(t-\tau) \mathrm{d}\tau$
 # * **Zeitverschiebung**: $\mathcal F(x(t-\tau)) = \mathcal F(x(t)) \cdot \mathrm e^{-j\omega \tau}$
+# * **Integralt**: $\mathcal F(\omega = 0)$ liefert das Integral der Funktion im Zeitbereich.
+
+# ## Fourier-Transformation eines Rechteckpulses
 # 
+# Es sei eine Rechteckfunktion mit Amplitude 1 und der Breite $T=2\tau$ gegeben:
 # 
-# ## Beispiele von FFTs und Fourier-Reihen-Koeffizienten
+# $$h(t) = \left\{\begin{array}{cl} 1 &\textrm{für}\,\,\left| t \right|\leq \tau = T/2\\  0&\textrm{für}\,\, \left| t \right| > \tau = T/2 \end{array}\right.
+# $$
+# 
+# Für die Fourier-Tranformierte folgt:
+# 
+# $$
+# \begin{align}
+# H(\omega) &= \int_{-\infty}^{\infty} h(t)  \mathrm e^{-j \omega t} dt = \int_{-\tau}^{\tau} 1  \mathrm e^{-j \omega t} dt\\
+# &= \int_{-\tau}^{\tau} \cos{\omega t} dt = \frac{1}{\omega}\sin{\omega t}\left|_{-\tau}^{\tau} \right. = 2 \frac{\sin{\omega \tau}}{\omega}\\
+# &= T \cdot \frac{\sin(\pi T f)}{\pi T f} = T \cdot \mathrm{sinc}(\pi T f)
+# \end{align}
+# $$
+# 
+# wobei wir im 2. Schritt angenommen haben, dass $h(t)$ reell und gerade ist und die Euler-Formal entsprechend vereinfachen konnten. In der dritten Zeile wurde mit $\tau/\tau$ erweitert und substitutiert ($\tau = T/2$, $\omega = 2\pi f$). 
+# 
+# Folgende Eigenschaften gelten:
+# 
+# * $H(f = 0)$ ist gleich der Fläche unter dem Rechteck, also gleich dem Integral der Rechteckfunktion. 
+# * Die Nulldurchgänge von $H(f)$ sind bei $\pi T f_n = n \pi$, für $\lvert n \rvert = 1,2,3...$
+# * Es gilt also $f_n = n/T$. Für $n=1$ sieht man, dass je kürzer der Rechteckpuls ist, desto breiter (unschärfer) wird das Spektrum (**Unschärferelation der Fourier-Transformation**)
+# 
+# ### Dirac-Delta-Impuls
+# 
+# Wir können den klassischen Rechteckpuls nun anpassen. Die Höhe beträgt statt 1 nun $1/2\tau$:
+# 
+# $$h(t) = \left\{\begin{array}{cl} 1/2\tau &\textrm{für}\,\,\left| t \right|\leq \tau = T/2\\  0&\textrm{für}\,\, \left| t \right| > \tau = T/2 \end{array}\right.
+# $$
+# 
+# wodurch die Fläche unter dem *Quadrat* nun 1 wird.
+# Für die Fourier-Transformierte gilt:
+# 
+# $$
+# \begin{align}
+# H(\omega) &= \frac{2}{2\tau} \frac{\sin{\omega \tau}}{\omega} = \frac{\sin{\omega \tau}}{\omega \tau}\\
+# \lim_{\tau \rightarrow 0}  H(\omega) &= \lim_{\tau \rightarrow 0} \frac{\sin{\omega \tau}}{\omega \tau}\ = 1
+# \end{align}
+# $$
+# 
+# Der Grenzwert, $\tau \rightarrow 0$ führt direkt zu der Definition des **Dirac-Delta-Impuls**:
+# 
+# $$\delta(t) = \left\{\begin{array}{cl} \infty &\textrm{für}\,\, t = 0\\  0&\textrm{für}\,\, t  \neq 0 \end{array}\right.
+# $$
+# 
+# Dirac-Delta-Impuls hat folgende Eigenschaften:
+# 
+# * Das Integral ist 1: $\int_{-\infty}^{\infty} \delta(t) dt = 1$
+# * Die Fourier-Transformierte ist: $\int_{-\infty}^{\infty} \delta(t) \mathrm e^{-j \omega t} dt = 1$
+# * Mit $g(\tau) = \mathrm e^{-j \omega t}$ kann der Delta-Impuls wiefolgt definiert werden: $\int_{\infty}^{\infty} \delta(0-\tau)g(\tau) d\tau = g(0)$
+
+# ## Fourier-Transformierte von Messsignalen
 
 # In[8]:
 
@@ -554,6 +607,43 @@ plt.show()
 # In[10]:
 
 
+from scipy.fft import fft, fftfreq
+
+plt.style.use('default') # Matplotlib Style wählen
+plt.xkcd()
+plt.rcParams['font.size'] = 10; # Schriftgröße
+
+def ddf(x,sig):
+    val = np.zeros_like(x)
+    val[(-(1/(2*sig))<=x) & (x<=(1/(2*sig)))] = 1
+    return val
+
+X=np.linspace(-5,5,1000)
+y = ddf(X,2.)
+
+y_normalized = np.int16((y / y.max()) * 32767)
+# Note the extra 'r' at the front
+yf = fft(y_normalized)/5e6
+xf = fftfreq(len(y), 1 / Fs)
+
+plt.figure(figsize=(8,2.5)) # Plot-Größe
+plt.subplot(1,2,1)
+plt.plot(X,y, 'tab:blue')
+plt.xlabel('Zeit (s)')
+plt.ylabel('Amplitude')
+plt.subplot(1,2,2)
+plt.plot(xf,abs(yf),'tab:red', label = 'FFT') # plotting the spectrum
+plt.xlabel('Frequenz (Hz)')
+plt.ylabel('Leistung')
+plt.xlim(-10,10)
+plt.suptitle('Dirac-Puls')
+plt.tight_layout()
+plt.show()
+
+
+# In[11]:
+
+
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
 plt.xkcd()
@@ -588,7 +678,7 @@ plt.tight_layout()
 plt.show()
 
 
-# In[11]:
+# In[12]:
 
 
 # MatplotLib Settings:
@@ -622,7 +712,7 @@ plt.tight_layout()
 plt.show()
 
 
-# In[12]:
+# In[13]:
 
 
 # MatplotLib Settings:
@@ -664,4 +754,25 @@ plt.ylabel('')
 plt.suptitle('2 Sinuswellen mit Rauschen')
 plt.tight_layout()
 plt.show()
+
+
+# ## Referenztabellen für die Laplace-Transformation
+# 
+# $h(t)$ ist die Sprungfunktion. 
+# 
+# |Originalfunktion $u(t)$ | Bildfunktion $U(s)$ |
+# |---|---|
+# | $$h(t)$$ | $$\frac{1}{s}$$ |
+# | $$\mathrm e^{-at} h(t)$$ | $$\frac{1}{s+a}$$ |
+# | $$\cos(\omega_0 t)$$ | $$\frac{s}{s^2 + \omega_0^2}$$ |
+# | $$\sin(\omega_0 t)$$ | $$\frac{\omega_0}{s^2 + \omega_0^2}$$ |
+# | $$(1-\mathrm e^{-at}) h(t)$$ | $$\frac{a}{s(s+a)}$$ |
+# | $$\mathrm e^{-at} \cos(\omega_0 t)$$ | $$\frac{s+a}{(s+a)^2 + \omega_0^2}$$ |
+# | $$\mathrm e^{-at} \sin(\omega_0 t)$$ | $$\frac{\omega_0}{(s+a)^2 + \omega_0^2}$$ |
+# | $$h(t)t$$ | $$\frac{1}{s^2}$$ |
+
+# In[ ]:
+
+
+
 

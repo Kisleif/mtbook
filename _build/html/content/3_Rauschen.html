@@ -52,10 +52,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="Digitalisierung" href="2_Digital.html" />
-    <link rel="prev" title="Fourier-Analyse" href="3_FourierAnalyse.html" />
+    <link rel="next" title="Dynamische Messsysteme" href="5_Dynamische_Messsysteme.html" />
+    <link rel="prev" title="Digitalisierung" href="3_Digital.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="de">
     
@@ -248,17 +250,17 @@ const thebe_selector_output = ".output, .cell_output"
      Fourier-Analyse
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3_Digital.html">
+     Digitalisierung
+    </a>
+   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Rauschen und spektrale Dichte
     </a>
    </li>
   </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="2_Digital.html">
-   Digitalisierung
-  </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="5_Dynamische_Messsysteme.html">
@@ -277,7 +279,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="5_DGL.html">
-     Differentialgleichung
+     Systeme identifizieren
     </a>
    </li>
    <li class="toctree-l2">
@@ -337,6 +339,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="4_R-Messung.html">
      Widerstandsmessung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_CL-Messung.html">
+     Messung von Kapazitäten und Induktivitäten
     </a>
    </li>
    <li class="toctree-l2">
@@ -661,12 +668,82 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gauszsches-rauschen">
+   Gauß’sches Rauschen
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#zeitbereich">
+     Zeitbereich
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rauschleistung">
+     Rauschleistung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spektrale-leistungsdichte-psd">
+   Spektrale Leistungsdichte (PSD)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#definition">
+     Definition
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#signal-rausch-verhaltnis">
+   Signal-Rausch-Verhältnis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Definition
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#trager-rausch-verhaltnis">
+     Träger-Rausch-Verhältnis
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#welchs-methode">
+   Welch’s Methode
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -678,6 +755,65 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gauszsches-rauschen">
+   Gauß’sches Rauschen
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#zeitbereich">
+     Zeitbereich
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rauschleistung">
+     Rauschleistung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spektrale-leistungsdichte-psd">
+   Spektrale Leistungsdichte (PSD)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#definition">
+     Definition
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#signal-rausch-verhaltnis">
+   Signal-Rausch-Verhältnis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Definition
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#trager-rausch-verhaltnis">
+     Träger-Rausch-Verhältnis
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#welchs-methode">
+   Welch’s Methode
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -687,6 +823,253 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="rauschen-und-spektrale-dichte">
 <h1>Rauschen und spektrale Dichte<a class="headerlink" href="#rauschen-und-spektrale-dichte" title="Link zu dieser Überschrift">#</a></h1>
+<p>In diesem Kapitel befassen wir uns mit Rauschen und werden Methoden zur Analyse betrachten. Als Vorkenntnisse solltest du die Einheit decibel (dB) mitbringen.</p>
+<section id="gauszsches-rauschen">
+<h2>Gauß’sches Rauschen<a class="headerlink" href="#gauszsches-rauschen" title="Link zu dieser Überschrift">#</a></h2>
+<section id="zeitbereich">
+<h3>Zeitbereich<a class="headerlink" href="#zeitbereich" title="Link zu dieser Überschrift">#</a></h3>
+<p>Rauschen ist nichts anderes als ungewünschte Fluktuationen in unserem Signal und sieht z.B. folgendermaßen aus:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Benötigte Libraries:</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span> 
+<span class="kn">import</span> <span class="nn">scipy.integrate</span> <span class="k">as</span> <span class="nn">spi</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">plotly.offline</span> <span class="k">as</span> <span class="nn">py</span>
+<span class="n">py</span><span class="o">.</span><span class="n">init_notebook_mode</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">plotly.graph_objs</span> <span class="k">as</span> <span class="nn">go</span>
+<span class="kn">import</span> <span class="nn">plotly.tools</span> <span class="k">as</span> <span class="nn">tls</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="c1"># MatplotLib Settings:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
+
+<span class="c1">## --- Weißes / Gauß&#39;sches Rauschen ---------------------------------</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">endpoint</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">y_wn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y_wn</span><span class="p">,</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><script type="text/javascript">
+window.PlotlyConfig = {MathJaxConfig: 'local'};
+if (window.MathJax) {MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+if (typeof require !== 'undefined') {
+require.undef("plotly");
+requirejs.config({
+    paths: {
+        'plotly': ['https://cdn.plot.ly/plotly-2.9.0.min']
+    }
+});
+require(['plotly'], function(Plotly) {
+    window._Plotly = Plotly;
+});
+}
+</script>
+</div><img alt="../_images/3_Rauschen_1_1.png" src="../_images/3_Rauschen_1_1.png" />
+</div>
+</div>
+<p>In diesem Beispiel-Plot ist der Mittelwert Null. Wäre er von Null verschieden, so könnte man ihn von der Messung abziehen. Dies nennt man in der Messtechnik auch <em>offset</em> oder <em>bias</em>. Außerdem fällt auf, dass die einzelnen Messpunkte nicht <em>uniform zufällig</em> sind. Größere Amplituden findet man seltener als Messpunkte, deren Amplituden nah an der Null liegen. Daher wird diese Art von Rauschen auch <strong>Gauß’sches (oder weißes) Rauschen</strong> genannt. Diese Art von Rauschen findet man bei jeder Messung und ist dient als Modell um natürliche Rauschquellen zu beschreiben (thermische Vibrationen von Atomen in <em>Gauß-verteilt</em>).</p>
+<p>Der <strong>zentrale Grenzwertsatz</strong> im Kapitel <a class="reference internal" href="1_Mittelwert_StdAbw.html"><span class="doc std std-doc">Statistische Größen</span></a> sagt uns, dass die Summe von vielen zufälligen Prozessen wieder eine Gauß-Verteilung ergibt. Selbst wenn die einzelnen Prozesse einer anderen Verteilung folgen. Das heißt selbst wenn eine Menge Mist während der Messung passiert, ist das zugrundeliegende Rauschen höchstwahrscheinlich Gauß’sches / weiß.</p>
+</section>
+<section id="rauschleistung">
+<h3>Rauschleistung<a class="headerlink" href="#rauschleistung" title="Link zu dieser Überschrift">#</a></h3>
+<p>Da das Rauschen einer Gauß-Verteilung folgt können auch hierfür die bekannten Kenngrößen <em>Mittelwert</em> und <em>Varianz</em> berechnet werden.
+Die <strong>Varianz</strong> des Rauschens ist ein Maß für die <strong>Stärke des Rauschens</strong>. Daher definiert die Varianz auch die <strong>Rauschleistung</strong>.</p>
+</section>
+</section>
+<section id="spektrale-leistungsdichte-psd">
+<h2>Spektrale Leistungsdichte (PSD)<a class="headerlink" href="#spektrale-leistungsdichte-psd" title="Link zu dieser Überschrift">#</a></h2>
+<p>Für stochastische Prozesse, also Rauschen, existieren weder Definitionen für <em>Energie</em> noch die Fourier-Transformierte. Die spektrale Leistungsdichte (auf engl. power spectral density, PSD) kann jedoch verwendet werden um stochastische Rauschen im Frequenzbereich zu untersuchen.</p>
+<p>PSD ist die Leistung eines Signals auf eine bestimmte Bandbreite bzw. Frequenz bezogen. Im Gegensatz zur Fourier-Transformation wird hierbei also noch einmal durch die Frequenz geteilt, wobei die Bandbreite immer schmaler, also besonders klein, gewählt wird. Sie hat also die Einheit W/Hz oder dBm/Hz.
+Das Integral über die PSD über alle Frequenzen ergibt die Gesamtleistung des Signals.</p>
+<p>Klassische Messgeräte, so genannte Spektralanalysatoren, zeigen nicht die mathematisch ideale PSD an, sondern nur das Spektrum über eine vorher ausgewählte, endliche Bandreite.</p>
+<section id="definition">
+<h3>Definition<a class="headerlink" href="#definition" title="Link zu dieser Überschrift">#</a></h3>
+<p>Die PSD wird nach dem Wiener-Chintschin-Theorem definiert und wird häufig als Fourier-Transformierte der Autokorrelationsfunktion,</p>
+<div class="math notranslate nohighlight">
+\[r_{xx}(t) = \lim_{T\rightarrow\infty} \frac{1}{2T} \int_{-T}^T f(\tau) \overline{f(t+\tau)} d\tau\]</div>
+<p>des Zeitsignals <span class="math notranslate nohighlight">\(f(t)\)</span> definiert als:</p>
+<div class="math notranslate nohighlight">
+\[S_{XX}(\omega) = \frac{1}{\sqrt{2\pi}} \mathcal F(r_{xx})(\omega) = \frac{1}{2\pi} \int_{\infty}^{\infty} r_{xx}(t) \mathrm e^{-j\omega t} dt\]</div>
+<p>In Kapitel <a class="reference internal" href="5_Uebertragungsfunktion.html"><span class="doc std std-doc">Übertragungsfunktion</span></a> befassen wir uns mit linear, zeitinvarianten System die eine Übertragungsfunktion <span class="math notranslate nohighlight">\(H(\omega)\)</span> aufweisen. Rauschprozesse mit PSD propagieren anders als Signale durch dieses System, da es sich um eine <strong>Leistungs</strong>größe handelt. Den Ausgang eines Messsystems, mit einem Eingangsrauschen von <span class="math notranslate nohighlight">\(S_{XX}(\omega)\)</span>, berechnet sich also mittels:</p>
+<div class="math notranslate nohighlight">
+\[S_{YY}(\omega) = \left| H(\omega) \right|^2 \cdot S_{XX}(\omega)\]</div>
+<p>Strom und Spannung werden weiterhin nur mit <span class="math notranslate nohighlight">\(H(\omega)\)</span> multipliziert.</p>
+<p>Für die obige Zeitreihe von Gauß’schem Rauschen erhalten wir folgende PSD:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># MatplotLib Settings:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
+
+<span class="n">Fs</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">T</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">psd</span><span class="p">(</span><span class="n">y_wn</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="n">Fs</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s2">&quot;tab:red&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequenz (Hz)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;PSD (dB/Hz)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3_Rauschen_4_0.png" src="../_images/3_Rauschen_4_0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="signal-rausch-verhaltnis">
+<h2>Signal-Rausch-Verhältnis<a class="headerlink" href="#signal-rausch-verhaltnis" title="Link zu dieser Überschrift">#</a></h2>
+<p>Die PSD ist wesentlicher Bestandteil zur Berechnung des Signal-Rausch-Verhältnises (engl: signal-to-noise-ratio, SNR).</p>
+<ul class="simple">
+<li><p>Der SNR ist ein <strong>Maß für die Qualität</strong> eines Nutzsignals (Audio, Messsignal, …) das in einem Rauschsignal eingebettet ist.</p></li>
+<li><p>Es dient außerdem als <strong>Grenzwert</strong>, ab wann ein Empfänger das Signal vom Rauschen unterscheiden kann. Damit ein Mensch in einer verrauschten Umgebung Sprache heraus hören kann wird ein SNR von 6dB benötigt.</p></li>
+<li><p>Mit dem SNR werden ADUs bewertet. Das Rauschen ist hier die <strong>Quantisierungsabweichung</strong>.</p></li>
+</ul>
+<section id="id1">
+<h3>Definition<a class="headerlink" href="#id1" title="Link zu dieser Überschrift">#</a></h3>
+<p>Der SNR berechnet sich aus den Verhältnissen der mittleren Leistungen von Signal, <span class="math notranslate nohighlight">\(P\)</span> und Rauschen, <span class="math notranslate nohighlight">\(P_\mathrm{Rauschen}\)</span> (PSD):</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{SNR} = \frac{P}{P_\mathrm{Rauschen}} = 10 \log \left(\frac{P}{P_\mathrm{Rauschen}} \right)\]</div>
+<p>Im letzten Schritt wurde der logarithmische Maßstab benutzt um den SNR darzustellen. Dies ist wichtig da Signal- und Rauschleistung meistens (hoffentlich) mehrere Größenordnungen auseinander liegen.</p>
+<p>Da die Leistung auch durch die Varianz des Signals gegeben ist, kann man auch folgende Formel benutzen:</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{SNR} = \frac{\sigma^2}{\sigma^2_\mathrm{Rauschen}} \]</div>
+<p>In der Spektroskopie oder Bildbearbeitung definiert man den sNR auch häufig über die Signal<em>amplitude</em> <span class="math notranslate nohighlight">\(A\)</span> und der Standardabweichung des Rauschens <span class="math notranslate nohighlight">\(\sigma_\mathrm{Rauschen}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{SNR} = \frac{A}{\sigma_\mathrm{Rauschen}}\]</div>
+<p>Für zwei Sinussignale, die mit Rauschen, <span class="math notranslate nohighlight">\(\tilde u(t)\)</span>, überlagert werden, definieren wir folgende Zeitserie und plotten das PSD:</p>
+<div class="math notranslate nohighlight">
+\[u(t) = \sin(2\pi \cdot 10\,\mathrm{Hz} \cdot t) + \sin(2\pi \cdot 60\,\mathrm{Hz} \cdot t) + \tilde u(t)\]</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.signal</span>
+<span class="c1"># MatplotLib Settings:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
+
+<span class="n">fs</span> <span class="o">=</span> <span class="mf">1000.0</span> <span class="c1"># 1 kHz sampling frequency</span>
+<span class="n">F1</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># First signal component at 10 Hz</span>
+<span class="n">F2</span> <span class="o">=</span> <span class="mi">60</span> <span class="c1"># Second signal component at 60 Hz</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># 10s signal length</span>
+<span class="n">N0</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span> <span class="c1"># Noise level (dB)</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">T</span><span class="p">:(</span><span class="mi">1</span><span class="o">/</span><span class="n">fs</span><span class="p">)]</span> <span class="c1"># Sample times</span>
+
+<span class="c1"># Zwei Sinussignale bei den Frequenzen F1 und F2</span>
+<span class="n">signal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">F1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">F2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span> 
+
+<span class="c1"># Weißes Rauschen mit der Leistung N0</span>
+<span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">signal</span><span class="p">))</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="n">N0</span><span class="o">/</span><span class="mf">20.0</span><span class="p">)</span> 
+<span class="n">signal</span> <span class="o">+=</span> <span class="n">noise</span>
+
+<span class="c1"># PSD:</span>
+<span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">S</span><span class="p">)</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">periodogram</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">scaling</span><span class="o">=</span><span class="s1">&#39;density&#39;</span><span class="p">)</span>
+<span class="n">S_peak</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">signal</span><span class="p">,</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">S</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s2">&quot;tab:red&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">S_peak</span><span class="p">,</span>  <span class="n">color</span> <span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="mf">1e-3</span><span class="p">,</span>  <span class="n">color</span> <span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequenz (Hz) &#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;PSD $(\mathrm{V^2/Hz})$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;SNR&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">),</span>
+            <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span>
+            <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">),</span>
+            <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span>
+            <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;&lt;-&gt;&quot;</span><span class="p">,</span>
+                            <span class="n">connectionstyle</span><span class="o">=</span><span class="s2">&quot;arc3&quot;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+            <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mf">1e-7</span><span class="p">,</span> <span class="mf">2e1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Das SNR beträgt circa: &#39;</span><span class="p">,</span> <span class="mi">10</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">S_peak</span> <span class="o">/</span> <span class="mf">1e-3</span><span class="p">),</span> <span class="s1">&#39;dB&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3_Rauschen_6_0.png" src="../_images/3_Rauschen_6_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Das SNR beträgt circa:  85.07798293913095 dB
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="trager-rausch-verhaltnis">
+<h3>Träger-Rausch-Verhältnis<a class="headerlink" href="#trager-rausch-verhaltnis" title="Link zu dieser Überschrift">#</a></h3>
+<p>Bei Modulationsverfahren wie wir sie in Kapitel <a class="reference internal" href="3_Modulationen.html"><span class="doc std std-doc">Modulationen</span></a> behandeln bezieht man das Rauschen nicht auf das Signal, sondern auf den Träger (engl. <em>carrier</em>). Bei der PM oder FM lassen sich nämlich Träger- und Signalleistung nicht voneinander trennen.</p>
+</section>
+</section>
+<section id="welchs-methode">
+<h2>Welch’s Methode<a class="headerlink" href="#welchs-methode" title="Link zu dieser Überschrift">#</a></h2>
+<p>Es kann mitunter sehr lange dauern eine PSD zu berechnen. Daher bietet es sich an eine Näherung zu nutzen, die <strong>Welch’s Methode</strong>.
+Hierfür wird der vorliegende Datensatz in <span class="math notranslate nohighlight">\(N\)</span> Segmente einer festen Länge <span class="math notranslate nohighlight">\(M\)</span> aufgeteilt. Für jedes dieser Segmente wird anschließend die diskrete Fourier-Transformierte berechnet (die Version bei der <em>nicht</em> durch <span class="math notranslate nohighlight">\(M\)</span> geteilt wird). Die berechneten Amplituden werden quadriert und anschließend durch <span class="math notranslate nohighlight">\(M\)</span> geteilt. Die DFTs der <span class="math notranslate nohighlight">\(N\)</span> Segmente werden anschließend gemittelt. Durch die Mittelung wird die Varianz und somit das Rauschen reduziert. Ausgegeben werden Leistungsmessungen gegenüber Frequenz-Bins.</p>
+<p>Die Frequenzkomponenten werden auch hiermit noch genug angenähert. Durch die Vergrößerung der Segmentlänge, kann das Ergebnis verbessert werden:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># MatplotLib Settings:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
+
+<span class="c1"># PSD:</span>
+<span class="n">length</span><span class="o">=</span><span class="mi">1024</span>
+<span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">S</span><span class="p">)</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">welch</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="n">length</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">S</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s2">&quot;tab:red&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequenz (Hz) &#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;PSD $(\mathrm{V^2/Hz})$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Länge der Segmente M = </span><span class="si">%5.0f</span><span class="s1"> Samples&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">length</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mf">1e-5</span><span class="p">,</span> <span class="mf">1e1</span><span class="p">])</span>
+
+<span class="n">length</span><span class="o">=</span><span class="mi">4</span><span class="o">*</span><span class="mi">1024</span>
+<span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">S</span><span class="p">)</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">welch</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="n">length</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">S</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s2">&quot;tab:red&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequenz (Hz) &#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;PSD $(\mathrm{V^2/Hz})$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mf">1e-5</span><span class="p">,</span> <span class="mf">1e1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Länge der Segmente M = </span><span class="si">%5.0f</span><span class="s1"> Samples&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">length</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3_Rauschen_9_0.png" src="../_images/3_Rauschen_9_0.png" />
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -716,17 +1099,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="3_FourierAnalyse.html" title="zurück Seite">
+    <a class='left-prev' id="prev-link" href="3_Digital.html" title="zurück Seite">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">zurück</p>
-            <p class="prev-next-title">Fourier-Analyse</p>
+            <p class="prev-next-title">Digitalisierung</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="2_Digital.html" title="weiter Seite">
+    <a class='right-next' id="next-link" href="5_Dynamische_Messsysteme.html" title="weiter Seite">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title">Digitalisierung</p>
+        <p class="prev-next-title">Dynamische Messsysteme</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

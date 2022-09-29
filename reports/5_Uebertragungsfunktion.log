@@ -1,0 +1,113 @@
+Traceback (most recent call last):
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import numpy as np
+import scipy.signal as signal
+import matplotlib.pyplot as plt
+# MatplotLib Settings:
+plt.style.use('default') # Matplotlib Style wählen
+plt.xkcd()
+plt.rcParams['axes.grid']= True     # defaults to False but xkcd() makes it False
+plt.rcParams['grid.linewidth']= 0.8  # defaults to 0.8
+plt.rcParams['font.size'] = 10; # Schriftgröße
+
+# Transfer Funktion Tiefpass:
+num = np.array([1])
+den = np.array([1 , 1])
+H = signal.TransferFunction(num , den)
+num = np.array([1])
+den = np.array([2 , 1])
+H2 = signal.TransferFunction(num , den)
+
+# Bode-Plot:
+w, mag, phase = signal.bode(H)
+w2, mag2, phase2 = signal.bode(H2)
+
+# Plotting
+# Supplot2grid approach
+fig, ax = plt.subplots(figsize=(10,5))
+ax1 = plt.subplot2grid((2,2), (0,0)) # topleft
+ax3 = plt.subplot2grid((2,2), (0,1), rowspan=2)            # right
+ax2 = plt.subplot2grid((2,2), (1,0))                       # bottom left
+
+ax1.semilogx(w, mag, color='tab:blue', label = r'$G_1(s) = \frac{1}{s+1} \rightarrow \tau_1 = 1\, s $')
+ax1.semilogx(w2, mag2, color='tab:red', label = r'$G_2(s) = \frac{1}{2s+1} \rightarrow \tau_2 = 2\, s $')
+
+ax1.axhline(y = -3, color='k', ls = '--', lw = 1)
+ax1.axvline(x = 1, color='tab:blue', ls = '--', lw = 1)
+ax1.axvline(x = 0.5, color='tab:red', ls = '--', lw = 1)
+ax1.set_xticks([1e-2, 1e-1, 0.5, 1, 10], labels = [r'$10^{-2}$', r'$10^{-1}$', '0.5', '1', '10'])
+ax1.set_title("Bode Plot")
+ax1.grid(True, lw=0.5, zorder=0, ls = '--', which='major', axis='both')
+ax1.grid(True, lw=0.5, zorder=0, ls = '--', which='minor', axis='both')
+ax1.set_ylabel("Amplitude (dB)")
+ax1.legend()
+
+
+# Plotting
+ax2.semilogx(w, phase, color='tab:blue')
+ax2.semilogx(w2, phase2, color='tab:red')
+ax2.axhline(y = -45, color='k', ls = '--', lw = 1)
+ax2.axvline(x = 1, color='tab:blue', ls = '--', lw = 1)
+ax2.axvline(x = 0.5, color='tab:red', ls = '--', lw = 1)
+ax2.set_yticks([0,-45,-90])
+ax2.set_xticks([1e-2, 1e-1, 0.5, 1, 10], labels = [r'$10^{-2}$', r'$10^{-1}$', '0.5', '1', '10'])
+ax2.grid(True, lw=0.5, zorder=0, ls = '--', which='minor', axis='both')
+ax2.grid(True, lw=0.5, zorder=0, ls = '--', which='major', axis='both')
+ax2.set_xlabel("Frequenz (Hz)")
+ax2.set_ylabel('Phase (deg)')
+
+
+# Sprungantwort:
+t, y = signal.step(H)
+t2, y2 = signal.step(H2)
+
+# Plotting
+ax3.plot(t, y, color='tab:blue', label = r'$\frac{u_a(t)}{u_0} = 1- e^{-\left(\frac{t}{\tau = 1\, s}\right)}$')
+ax3.plot(t2, y2, color='tab:red', label = r'$\frac{u_a(t)}{u_0} = 1- e^{-\left(\frac{t}{\tau = 2\, s}\right)}$')
+ax3.axhline(y = 1.0, color='k', ls = '--', lw = 1)
+ax3.axhline(y = 0.63, color='k', ls = '--', lw = 1)
+ax3.axvline(x = 1, color='tab:blue', ls = '--', lw = 1)
+ax3.axvline(x = 2, color='tab:red', ls = '--', lw = 1)
+ax3.set_yticks([1.0, 0.63])
+ax3.set_yticklabels(['100%', '63%'])
+ax3.set_xticks([T,2*T])
+ax3.set_xticklabels([r'$\tau_1$',r'$\tau_2$'])
+ax3.set_title("Sprungantwort eines Tiefpasses")
+ax3.set_xlabel("Zeit t")
+ax3.set_ylabel(r'$u_a(t)/u_0$')
+ax3.grid(True, lw=0.5, zorder=0, ls = '--', which='minor', axis='both')
+ax3.grid(True, lw=0.5, zorder=0, ls = '--', which='major', axis='both')
+ax3.legend()
+
+fig.tight_layout()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+Input [0;32mIn [1][0m, in [0;36m<cell line: 71>[0;34m()[0m
+[1;32m     69[0m ax3[38;5;241m.[39mset_yticks([[38;5;241m1.0[39m, [38;5;241m0.63[39m])
+[1;32m     70[0m ax3[38;5;241m.[39mset_yticklabels([[38;5;124m'[39m[38;5;124m100[39m[38;5;124m%[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124m63[39m[38;5;124m%[39m[38;5;124m'[39m])
+[0;32m---> 71[0m ax3[38;5;241m.[39mset_xticks([[43mT[49m,[38;5;241m2[39m[38;5;241m*[39mT])
+[1;32m     72[0m ax3[38;5;241m.[39mset_xticklabels([[38;5;124mr[39m[38;5;124m'[39m[38;5;124m$[39m[38;5;124m\[39m[38;5;124mtau_1$[39m[38;5;124m'[39m,[38;5;124mr[39m[38;5;124m'[39m[38;5;124m$[39m[38;5;124m\[39m[38;5;124mtau_2$[39m[38;5;124m'[39m])
+[1;32m     73[0m ax3[38;5;241m.[39mset_title([38;5;124m"[39m[38;5;124mSprungantwort eines Tiefpasses[39m[38;5;124m"[39m)
+
+[0;31mNameError[0m: name 'T' is not defined
+NameError: name 'T' is not defined
+

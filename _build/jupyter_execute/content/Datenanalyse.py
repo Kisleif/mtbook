@@ -71,13 +71,16 @@ plt.legend();
 plt.grid();
 
 
+# 
+
 # ## Daten verarbeiten
-
 # Die Bibliothek `pandas` ist sehr umfangreich und wird viel zur Datenverarbeitung genutzt. Im folgenden dazu einige Beispiele:
-
+# 
 # ### Statistische Größen: Mittelwert, Standardabweichung, Min, Max
 # 
 # Für jede Spalte lassen sich statistische Größen wie z.B. die Anzahl der Einträge pro Spalte, deren Mittelwert, Standardabweichung, Minimal- und Maximalwert bestimmen:
+
+# 
 
 # In[6]:
 

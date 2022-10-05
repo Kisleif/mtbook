@@ -249,16 +249,16 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="3_Digital.html">
+     Digitalisierung
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="3_Rauschen.html">
      Rauschen und spektrale Dichte
     </a>
    </li>
   </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="2_Digital.html">
-   Digitalisierung
-  </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="5_Dynamische_Messsysteme.html">
@@ -277,17 +277,17 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="5_DGL.html">
-     Differentialgleichung
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="5_ImpulsSprung.html">
-     Impuls- und Sprungantwort
+     Systeme chatakterisieren im Zeitraum
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="5_Uebertragungsfunktion.html">
      Übertragungsfunktion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5_Faltung.html">
+     Faltung
     </a>
    </li>
   </ul>
@@ -337,6 +337,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="4_R-Messung.html">
      Widerstandsmessung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_CL-Messung.html">
+     Messung von Kapazitäten und Induktivitäten
     </a>
    </li>
    <li class="toctree-l2">
@@ -698,6 +703,33 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#daten-verarbeiten">
+   Daten verarbeiten
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#statistische-groszen-mittelwert-standardabweichung-min-max">
+     Statistische Größen: Mittelwert, Standardabweichung, Min, Max
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#maximum-und-zugehoriges-jahr-ausgeben">
+     Maximum und zugehöriges Jahr ausgeben
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#daten-aufsteigend-absteigend-sortieren">
+     Daten aufsteigend/absteigend sortieren
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#daten-glatten">
+   Daten glätten
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#messunsicherheiten-als-fehlerbalken-hinzufugen">
    Messunsicherheiten als Fehlerbalken hinzufügen
   </a>
@@ -738,6 +770,33 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#daten-plotten-mit-matplotlib">
    Daten plotten mit ‘matplotlib’
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#daten-verarbeiten">
+   Daten verarbeiten
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#statistische-groszen-mittelwert-standardabweichung-min-max">
+     Statistische Größen: Mittelwert, Standardabweichung, Min, Max
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#maximum-und-zugehoriges-jahr-ausgeben">
+     Maximum und zugehöriges Jahr ausgeben
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#daten-aufsteigend-absteigend-sortieren">
+     Daten aufsteigend/absteigend sortieren
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#daten-glatten">
+   Daten glätten
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -942,6 +1001,506 @@ Name: Year, Length: 142, dtype: int64
 </div>
 </div>
 </section>
+<section id="daten-verarbeiten">
+<h2>Daten verarbeiten<a class="headerlink" href="#daten-verarbeiten" title="Link zu dieser Überschrift">#</a></h2>
+<p>Die Bibliothek <code class="docutils literal notranslate"><span class="pre">pandas</span></code> ist sehr umfangreich und wird viel zur Datenverarbeitung genutzt. Im folgenden dazu einige Beispiele:</p>
+<section id="statistische-groszen-mittelwert-standardabweichung-min-max">
+<h3>Statistische Größen: Mittelwert, Standardabweichung, Min, Max<a class="headerlink" href="#statistische-groszen-mittelwert-standardabweichung-min-max" title="Link zu dieser Überschrift">#</a></h3>
+<p>Für jede Spalte lassen sich statistische Größen wie z.B. die Anzahl der Einträge pro Spalte, deren Mittelwert, Standardabweichung, Minimal- und Maximalwert bestimmen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">global_mean</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>No_Smoothing</th>
+      <th>Lowess(5)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>142.000000</td>
+      <td>142.000000</td>
+      <td>142.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>1950.500000</td>
+      <td>0.053169</td>
+      <td>0.053169</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>41.135953</td>
+      <td>0.364161</td>
+      <td>0.352324</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1880.000000</td>
+      <td>-0.490000</td>
+      <td>-0.420000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>1915.250000</td>
+      <td>-0.200000</td>
+      <td>-0.227500</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>1950.500000</td>
+      <td>-0.065000</td>
+      <td>-0.040000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>1985.750000</td>
+      <td>0.252500</td>
+      <td>0.235000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>2021.000000</td>
+      <td>1.010000</td>
+      <td>0.930000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="maximum-und-zugehoriges-jahr-ausgeben">
+<h3>Maximum und zugehöriges Jahr ausgeben<a class="headerlink" href="#maximum-und-zugehoriges-jahr-ausgeben" title="Link zu dieser Überschrift">#</a></h3>
+<p>Dies können wir benutzen, um beispielsweise die <em>maximale Temperaturdifferenz</em> zu ermitteln:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.01
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wenn wir wissen wollen, <em>wann</em> diese <em>maximale Temperaturdifferenz</em> auftrat, muss der zugehörige Index dieses Events gespeichert werden:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">index_max</span> <span class="o">=</span> <span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">index_max</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>136
+</pre></div>
+</div>
+</div>
+</div>
+<p>Diesen Index können wir nun benutzen, um mittels <code class="docutils literal notranslate"><span class="pre">.loc</span></code> Befehl den Eintrag zu diesem Index auszugeben:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">global_mean</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">index_max</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Year            2016.00
+No_Smoothing       1.01
+Lowess(5)          0.87
+Name: 136, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="daten-aufsteigend-absteigend-sortieren">
+<h3>Daten aufsteigend/absteigend sortieren<a class="headerlink" href="#daten-aufsteigend-absteigend-sortieren" title="Link zu dieser Überschrift">#</a></h3>
+<p>Mit <code class="docutils literal notranslate"><span class="pre">.sort_values(&quot;Spaltenname&quot;)</span></code> können wir auch die Tabelle nach dem definierten Spaltennamen sortieren (standardmäßig in <strong>ansteigender</strong> Reihenfolge):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">global_mean</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>No_Smoothing</th>
+      <th>Lowess(5)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>29</th>
+      <td>1909</td>
+      <td>-0.49</td>
+      <td>-0.41</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>1904</td>
+      <td>-0.47</td>
+      <td>-0.31</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>1917</td>
+      <td>-0.47</td>
+      <td>-0.30</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>1911</td>
+      <td>-0.45</td>
+      <td>-0.40</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>1910</td>
+      <td>-0.44</td>
+      <td>-0.42</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>135</th>
+      <td>2015</td>
+      <td>0.90</td>
+      <td>0.83</td>
+    </tr>
+    <tr>
+      <th>137</th>
+      <td>2017</td>
+      <td>0.92</td>
+      <td>0.91</td>
+    </tr>
+    <tr>
+      <th>139</th>
+      <td>2019</td>
+      <td>0.98</td>
+      <td>0.93</td>
+    </tr>
+    <tr>
+      <th>140</th>
+      <td>2020</td>
+      <td>1.01</td>
+      <td>0.93</td>
+    </tr>
+    <tr>
+      <th>136</th>
+      <td>2016</td>
+      <td>1.01</td>
+      <td>0.87</td>
+    </tr>
+  </tbody>
+</table>
+<p>142 rows × 3 columns</p>
+</div></div></div>
+</div>
+<p>Mit <code class="docutils literal notranslate"><span class="pre">ascending=False</span></code> wird absteigend sortiert:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">global_mean</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">,</span> <span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>No_Smoothing</th>
+      <th>Lowess(5)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>140</th>
+      <td>2020</td>
+      <td>1.01</td>
+      <td>0.93</td>
+    </tr>
+    <tr>
+      <th>136</th>
+      <td>2016</td>
+      <td>1.01</td>
+      <td>0.87</td>
+    </tr>
+    <tr>
+      <th>139</th>
+      <td>2019</td>
+      <td>0.98</td>
+      <td>0.93</td>
+    </tr>
+    <tr>
+      <th>137</th>
+      <td>2017</td>
+      <td>0.92</td>
+      <td>0.91</td>
+    </tr>
+    <tr>
+      <th>135</th>
+      <td>2015</td>
+      <td>0.90</td>
+      <td>0.83</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>1910</td>
+      <td>-0.44</td>
+      <td>-0.42</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>1911</td>
+      <td>-0.45</td>
+      <td>-0.40</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>1904</td>
+      <td>-0.47</td>
+      <td>-0.31</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>1917</td>
+      <td>-0.47</td>
+      <td>-0.30</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>1909</td>
+      <td>-0.49</td>
+      <td>-0.41</td>
+    </tr>
+  </tbody>
+</table>
+<p>142 rows × 3 columns</p>
+</div></div></div>
+</div>
+<p><strong>WICHTIG</strong>: Der Dataframe <code class="docutils literal notranslate"><span class="pre">global_mean</span></code> wird dadurch nicht verändert, es handelt sich nur um eine Anzeige!</p>
+</section>
+</section>
+<section id="daten-glatten">
+<h2>Daten glätten<a class="headerlink" href="#daten-glatten" title="Link zu dieser Überschrift">#</a></h2>
+<p>Die von der NASA verwendete Glättung ist die <strong>LO</strong>cally <strong>WE</strong>ighted <strong>S</strong>catter-plot <strong>S</strong>moother (LOWESS). Dabei wird in einem lokal zu definierenden Bereich eine lineare Regression durchgeführt. Eine genauere Erklärung zur Methode findet ihr auf <a class="reference external" href="https://youtu.be/b7oryuMP3r8">Youtube</a>.</p>
+<p>Es gibt natürlich viele Methoden und Filter, um Daten zu glätten. Wir wollen nun versuchen, die Methode der NASA zu rekonstruieren. Hierfür benutzen wir die Python Library <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> und erstellen eine weitere Spalte <code class="docutils literal notranslate"><span class="pre">Lowess(own)</span></code> in unserem DataFrame <code class="docutils literal notranslate"><span class="pre">global_mean</span></code>. In diese Spalte schreiben wir die geglätteten Werte von den Rohdaten <code class="docutils literal notranslate"><span class="pre">global_mean[&quot;No_Smoothing&quot;]</span></code> indem wir die Funktion <code class="docutils literal notranslate"><span class="pre">lowess</span></code>aufrufen. Details zu Nutzung der Funktion findet ihr <a class="reference external" href="https://www.statsmodels.org/devel/generated/statsmodels.nonparametric.smoothers_lowess.lowess.html">https://www.statsmodels.org</a>:</p>
+<ul class="simple">
+<li><p>an erster Stelle in der Funktion werden die Y-Werte eingegeben, hier <code class="docutils literal notranslate"><span class="pre">global_mean[&quot;No_Smoothing&quot;]</span></code></p></li>
+<li><p>an zweiter Stelle in der Funktion werden die X-Werte eingegeben, hier <code class="docutils literal notranslate"><span class="pre">global_mean[&quot;Year&quot;]</span></code></p></li>
+<li><p>die Option <code class="docutils literal notranslate"><span class="pre">frac</span></code> ist eine Zahl zwischen 0 und 1. Dies ist der Anteil der Daten, der bei der Schätzung der einzelnen y-Werte verwendet wird.</p></li>
+<li><p>Ausgegeben wird zweidimensionalas Array. Die erste Spalte enthält die sortierten x-Werte und die zweite Spalte die zugehörigen geschätzten y-Werte. Um die zweite Spalte in den DataFrame zu speichern, wählen wir diese mit <code class="docutils literal notranslate"><span class="pre">[:,1]</span></code> aus.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.nonparametric.smoothers_lowess</span> <span class="kn">import</span> <span class="n">lowess</span>
+<span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Lowess(own)&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lowess</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span> <span class="n">frac</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">14</span><span class="p">)[:,</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">global_mean</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>No_Smoothing</th>
+      <th>Lowess(5)</th>
+      <th>Lowess(own)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1880</td>
+      <td>-0.17</td>
+      <td>-0.09</td>
+      <td>-0.092698</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1881</td>
+      <td>-0.08</td>
+      <td>-0.13</td>
+      <td>-0.129873</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1882</td>
+      <td>-0.11</td>
+      <td>-0.17</td>
+      <td>-0.167172</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1883</td>
+      <td>-0.18</td>
+      <td>-0.20</td>
+      <td>-0.203172</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1884</td>
+      <td>-0.28</td>
+      <td>-0.24</td>
+      <td>-0.239029</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>137</th>
+      <td>2017</td>
+      <td>0.92</td>
+      <td>0.91</td>
+      <td>0.911976</td>
+    </tr>
+    <tr>
+      <th>138</th>
+      <td>2018</td>
+      <td>0.85</td>
+      <td>0.92</td>
+      <td>0.921410</td>
+    </tr>
+    <tr>
+      <th>139</th>
+      <td>2019</td>
+      <td>0.98</td>
+      <td>0.93</td>
+      <td>0.926072</td>
+    </tr>
+    <tr>
+      <th>140</th>
+      <td>2020</td>
+      <td>1.01</td>
+      <td>0.93</td>
+      <td>0.929365</td>
+    </tr>
+    <tr>
+      <th>141</th>
+      <td>2021</td>
+      <td>0.84</td>
+      <td>0.93</td>
+      <td>0.931468</td>
+    </tr>
+  </tbody>
+</table>
+<p>142 rows × 4 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">],</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:gray&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Werte&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Lowess(5)&quot;</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>  <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Glättung (NASA)&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Lowess(own)&quot;</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;-&#39;</span> <span class="p">,</span>  <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Glättung (eigene)&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Jahr&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Jahresmitteltemperaturabweichung [°C]&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/T_Plotten_26_0.png" src="../_images/T_Plotten_26_0.png" />
+</div>
+</div>
+</section>
 <section id="messunsicherheiten-als-fehlerbalken-hinzufugen">
 <h2>Messunsicherheiten als Fehlerbalken hinzufügen<a class="headerlink" href="#messunsicherheiten-als-fehlerbalken-hinzufugen" title="Link zu dieser Überschrift">#</a></h2>
 <p>Bei diesem Datenset stehen uns leider keine Messunsicherheiten zur Verfügung. Um Sie jedoch als Fehlerbalken miteinzubeziehen, wollen wir im Folgenden annehmen, dass der Temperaturunterschied auf 0.25K genau messen werden konnte und fügen die unserem Datensatz hinzu:</p>
@@ -953,20 +1512,20 @@ Name: Year, Length: 142, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     Year  No_Smoothing  Lowess(5)  uncertainty
-0    1880         -0.17      -0.09         0.25
-1    1881         -0.08      -0.13         0.25
-2    1882         -0.11      -0.17         0.25
-3    1883         -0.18      -0.20         0.25
-4    1884         -0.28      -0.24         0.25
-..    ...           ...        ...          ...
-137  2017          0.92       0.91         0.25
-138  2018          0.85       0.92         0.25
-139  2019          0.98       0.93         0.25
-140  2020          1.01       0.93         0.25
-141  2021          0.84       0.93         0.25
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     Year  No_Smoothing  Lowess(5)  Lowess(own)  uncertainty
+0    1880         -0.17      -0.09    -0.092698         0.25
+1    1881         -0.08      -0.13    -0.129873         0.25
+2    1882         -0.11      -0.17    -0.167172         0.25
+3    1883         -0.18      -0.20    -0.203172         0.25
+4    1884         -0.28      -0.24    -0.239029         0.25
+..    ...           ...        ...          ...          ...
+137  2017          0.92       0.91     0.911976         0.25
+138  2018          0.85       0.92     0.921410         0.25
+139  2019          0.98       0.93     0.926072         0.25
+140  2020          1.01       0.93     0.929365         0.25
+141  2021          0.84       0.93     0.931468         0.25
 
-[142 rows x 4 columns]
+[142 rows x 5 columns]
 </pre></div>
 </div>
 </div>
@@ -984,7 +1543,7 @@ Name: Year, Length: 142, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/T_Plotten_13_0.png" src="../_images/T_Plotten_13_0.png" />
+<img alt="../_images/T_Plotten_30_0.png" src="../_images/T_Plotten_30_0.png" />
 </div>
 </div>
 </section>
@@ -1012,7 +1571,7 @@ Name: Year, Length: 142, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/T_Plotten_15_0.png" src="../_images/T_Plotten_15_0.png" />
+<img alt="../_images/T_Plotten_32_0.png" src="../_images/T_Plotten_32_0.png" />
 </div>
 </div>
 <p>Das Model beinhaltet zwei Matrizen:</p>
@@ -1081,7 +1640,7 @@ Temperaturanstieg seit Beginn der Messung: 1.090°C
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/T_Plotten_22_0.png" src="../_images/T_Plotten_22_0.png" />
+<img alt="../_images/T_Plotten_39_0.png" src="../_images/T_Plotten_39_0.png" />
 </div>
 </div>
 </section>

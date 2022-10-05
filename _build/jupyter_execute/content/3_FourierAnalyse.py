@@ -758,18 +758,19 @@ plt.show()
 
 # ## Referenztabellen für die Laplace-Transformation
 # 
-# $h(t)$ ist die Sprungfunktion. 
+# $\sigma(t)$ ist die Sprungfunktion und $\delta(t)$ der Delta-Dirac-Puls.
 # 
 # |Originalfunktion $u(t)$ | Bildfunktion $U(s)$ |
 # |---|---|
-# | $$h(t)$$ | $$\frac{1}{s}$$ |
+# | $$\delta(t)$$ | $$1$$ |
+# | $$\sigma(t)$$ | $$\frac{1}{s}$$ |
 # | $$\mathrm e^{-at} h(t)$$ | $$\frac{1}{s+a}$$ |
 # | $$\cos(\omega_0 t)$$ | $$\frac{s}{s^2 + \omega_0^2}$$ |
 # | $$\sin(\omega_0 t)$$ | $$\frac{\omega_0}{s^2 + \omega_0^2}$$ |
 # | $$(1-\mathrm e^{-at}) h(t)$$ | $$\frac{a}{s(s+a)}$$ |
 # | $$\mathrm e^{-at} \cos(\omega_0 t)$$ | $$\frac{s+a}{(s+a)^2 + \omega_0^2}$$ |
 # | $$\mathrm e^{-at} \sin(\omega_0 t)$$ | $$\frac{\omega_0}{(s+a)^2 + \omega_0^2}$$ |
-# | $$h(t)t$$ | $$\frac{1}{s^2}$$ |
+# | $$\delta(t)t$$ | $$\frac{1}{s^2}$$ |
 
 # In[ ]:
 

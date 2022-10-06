@@ -980,7 +980,7 @@ Name: Year, Length: 142, dtype: int64
 </section>
 <section id="daten-plotten-mit-matplotlib">
 <h2>Daten plotten mit ‘matplotlib’<a class="headerlink" href="#daten-plotten-mit-matplotlib" title="Link zu dieser Überschrift">#</a></h2>
-<p>Als Beispiel für eine gelungene grafische Darstellung wollen wir die beiden Spalten, <em>No_Smoothing</em> and <em>Lowess(5)</em> gegenüber der Zeitachse <em>Year</em> plotten. Hierfür benützen wir die Python Library <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>:</p>
+<p>Als Beispiel für eine gelungene grafische Darstellung wollen wir die beiden Spalten, <em>No_Smoothing</em> and <em>Lowess(5)</em> gegenüber der Zeitachse <em>Year</em> plotten. Hierfür benützen wir die Python Library <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>. Einmal geplottet kann das zuletzt angezeigte Diagramm in verschiedenen Formaten mit <code class="docutils literal notranslate"><span class="pre">plt.savefig('klima_plot1.png')</span></code> abgespeichert werden. Wenn nicht anders angegeben, wird die Datei im gleichen Ordner angelegt.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -993,6 +993,8 @@ Name: Year, Length: 142, dtype: int64
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Jahresmitteltemperaturabweichung [°C]&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;klima_plot1.png&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;klima_plot1.pdf&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1351,7 +1353,7 @@ Name: 136, dtype: float64
 <section id="daten-glatten">
 <h2>Daten glätten<a class="headerlink" href="#daten-glatten" title="Link zu dieser Überschrift">#</a></h2>
 <p>Die von der NASA verwendete Glättung ist die <strong>LO</strong>cally <strong>WE</strong>ighted <strong>S</strong>catter-plot <strong>S</strong>moother (LOWESS). Dabei wird in einem lokal zu definierenden Bereich eine lineare Regression durchgeführt. Eine genauere Erklärung zur Methode findet ihr auf <a class="reference external" href="https://youtu.be/b7oryuMP3r8">Youtube</a>.</p>
-<p>Es gibt natürlich viele Methoden und Filter, um Daten zu glätten. Wir wollen nun versuchen, die Methode der NASA zu rekonstruieren. Hierfür benutzen wir die Python Library <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> und erstellen eine weitere Spalte <code class="docutils literal notranslate"><span class="pre">Lowess(own)</span></code> in unserem DataFrame <code class="docutils literal notranslate"><span class="pre">global_mean</span></code>. In diese Spalte schreiben wir die geglätteten Werte von den Rohdaten <code class="docutils literal notranslate"><span class="pre">global_mean[&quot;No_Smoothing&quot;]</span></code> indem wir die Funktion <code class="docutils literal notranslate"><span class="pre">lowess</span></code>aufrufen. Details zu Nutzung der Funktion findet ihr <a class="reference external" href="https://www.statsmodels.org/devel/generated/statsmodels.nonparametric.smoothers_lowess.lowess.html">https://www.statsmodels.org</a>:</p>
+<p>Es gibt natürlich viele Methoden und Filter, um Daten zu glätten. Wir wollen nun versuchen, die Methode der NASA zu rekonstruieren. Hierfür benutzen wir die Python Library <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> und erstellen eine weitere Spalte <code class="docutils literal notranslate"><span class="pre">Lowess(own)</span></code> in unserem DataFrame <code class="docutils literal notranslate"><span class="pre">global_mean</span></code>. In diese Spalte schreiben wir die geglätteten Werte von den Rohdaten <code class="docutils literal notranslate"><span class="pre">global_mean[&quot;No_Smoothing&quot;]</span></code> indem wir die Funktion <code class="docutils literal notranslate"><span class="pre">lowess</span></code> aufrufen. Details zu Nutzung der Funktion findet ihr <a class="reference external" href="https://www.statsmodels.org/devel/generated/statsmodels.nonparametric.smoothers_lowess.lowess.html">https://www.statsmodels.org</a>:</p>
 <ul class="simple">
 <li><p>an erster Stelle in der Funktion werden die Y-Werte eingegeben, hier <code class="docutils literal notranslate"><span class="pre">global_mean[&quot;No_Smoothing&quot;]</span></code></p></li>
 <li><p>an zweiter Stelle in der Funktion werden die X-Werte eingegeben, hier <code class="docutils literal notranslate"><span class="pre">global_mean[&quot;Year&quot;]</span></code></p></li>

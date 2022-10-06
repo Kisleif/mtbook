@@ -739,6 +739,28 @@ title="Print to PDF"
    Ausgleichsgerade berechnen und plotten
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#logarithmische-darstellung">
+   Logarithmische Darstellung
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#synthetische-daten-generieren">
+     Synthetische Daten generieren
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#halb-logarithmische-darstellung">
+     Halb-Logarithmische Darstellung
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#doppellogarithmische-darstellung">
+     Doppellogarithmische Darstellung
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
     </nav>
@@ -808,6 +830,28 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#ausgleichsgerade-berechnen-und-plotten">
    Ausgleichsgerade berechnen und plotten
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#logarithmische-darstellung">
+   Logarithmische Darstellung
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#synthetische-daten-generieren">
+     Synthetische Daten generieren
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#halb-logarithmische-darstellung">
+     Halb-Logarithmische Darstellung
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#doppellogarithmische-darstellung">
+     Doppellogarithmische Darstellung
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -1645,6 +1689,178 @@ Temperaturanstieg seit Beginn der Messung: 1.090°C
 <img alt="../_images/T_Plotten_39_0.png" src="../_images/T_Plotten_39_0.png" />
 </div>
 </div>
+</section>
+<section id="logarithmische-darstellung">
+<h2>Logarithmische Darstellung<a class="headerlink" href="#logarithmische-darstellung" title="Link zu dieser Überschrift">#</a></h2>
+<p>In der Messtechnik können unter Umständen Messwerte in ganz unterschiedlichen Größenordnungen anfallen. Für eine Darstellung im Diagramm, bei dem die Achsen typischerweise eine feste Einheit besitzen, nutzt man die logarithmischen Darstellung. Hierfür gibt es zwei Möglichkeiten:</p>
+<ul class="simple">
+<li><p>die Achsen können doppel- oder halb-logarithmisch eingestellt</p></li>
+<li><p>die Messwerte werden in logarithmische Einheiten umgerechnet und dann linear aufgetragen</p></li>
+</ul>
+<section id="synthetische-daten-generieren">
+<h3>Synthetische Daten generieren<a class="headerlink" href="#synthetische-daten-generieren" title="Link zu dieser Überschrift">#</a></h3>
+<p>Um dies zu veranschaulichen zeichnen wir Bode Plots (kommt noch später in der Vorlesung). Jetzt muss erst mal nur bekannt sein, dass es sich hierbei um 2 Datensätzen handelt, Amplitude und Phase, die jeweils über die Frequenz grafisch dargestellt werden. Solche Art von Diagrammen sind eventuell schon aus der Mechanik bekannt.</p>
+<p>Um die Daten, die wir plotten möchten, zu modellieren, muss dafür die Library <code class="docutils literal notranslate"><span class="pre">scipy.signal</span></code> importiert werden:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.signal</span> <span class="k">as</span> <span class="nn">signal</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wir erstellen 1 Datensatz für ein bestimmtes Messsystem, hier einen Tiefpass:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">w</span></code> gibt die Frequenz in Hz an</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mag</span></code> gibt die Amplitude in dB an</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">phase</span></code> gibt die Phase in Grad an</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Transfer Funktion für das Model eines Tiefpasses:</span>
+<span class="n">num</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">den</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span> <span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">H</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">TransferFunction</span><span class="p">(</span><span class="n">num</span> <span class="p">,</span> <span class="n">den</span><span class="p">)</span>
+
+<span class="c1"># Bode-Plot Daten:</span>
+<span class="n">w</span><span class="p">,</span> <span class="n">mag</span><span class="p">,</span> <span class="n">phase</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">bode</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Die Daten können wir wieder in <code class="docutils literal notranslate"><span class="pre">dataframes</span></code> abspeichern, wenn das Arbeiten mit den Objekten für euch angenehmer ist.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;frequenz&quot;</span><span class="p">:</span> <span class="n">w</span><span class="p">,</span> <span class="s2">&quot;amplitude&quot;</span><span class="p">:</span> <span class="n">mag</span><span class="p">,</span> <span class="s2">&quot;phase&quot;</span><span class="p">:</span> <span class="n">phase</span><span class="p">}</span>
+<span class="n">data_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     frequenz  amplitude      phase
+0    0.010000  -0.000434  -0.572939
+1    0.010723  -0.000499  -0.614340
+2    0.011498  -0.000574  -0.658733
+3    0.012328  -0.000660  -0.706333
+4    0.013219  -0.000759  -0.757372
+..        ...        ...        ...
+95   7.564633 -17.650996 -82.469498
+96   8.111308 -18.247330 -82.971773
+97   8.697490 -18.844914 -83.441178
+98   9.326033 -19.443588 -83.879746
+99  10.000000 -20.043214 -84.289407
+
+[100 rows x 3 columns]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="halb-logarithmische-darstellung">
+<h3>Halb-Logarithmische Darstellung<a class="headerlink" href="#halb-logarithmische-darstellung" title="Link zu dieser Überschrift">#</a></h3>
+<ul class="simple">
+<li><p><strong>Subplots:</strong> Für das Bode Diagramm benötigen wir zwei Diagramme untereinander. Dafür erzeugen wir ein Figure mit Unterdiagrammen, so genannten <code class="docutils literal notranslate"><span class="pre">subplots</span></code>. Hier benutzen wir den <code class="docutils literal notranslate"><span class="pre">subplot(2,1,1)</span></code>-Befehl. An erster Stelle steht die Anzahl der Reihen, an zweiter Stelle die Anzahl der Spalten und an dritter Stelle in der Funktion die Nummer des Diagramms.</p></li>
+<li><p><strong>Halblogarithmische Darstellung:</strong> Da die Daten der Amplitude bereits in der Einheit dB vorliegen, reicht uns nun eine halblogarithmische Darstellung für beide Diagramme. Nur die Frequenzachse, also die x-Achse, soll logarithmisch aufgetragen werden und wir benutzen den <code class="docutils literal notranslate"><span class="pre">plt.semilogx</span></code>-Befehl. Würde man nur die Y-Achse logarithmisch wählen, würde man den <code class="docutils literal notranslate"><span class="pre">plt.semilogy</span></code>-Befehl nutzen.</p></li>
+<li><p><strong>Gitter:</strong> Bei logarithmischen Darstellungen bietet es sich häufig an ein Hintergrund-Gitter zu zeichnen. Dies erhalten wir mit dem Befehle <code class="docutils literal notranslate"><span class="pre">plt.grid()</span></code>. Im Beispiel unten sind noch Optionen angegeben:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">lw=0.5</span></code> setzt die Linienweite auf 0.5</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zorder=0</span></code> setzt das Gitter in den 0. Layer (in den Hintergrund)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ls='--'</span></code> setzt den Linienstil auf gestrichelt (Alternativen: <code class="docutils literal notranslate"><span class="pre">=':'</span></code> für gepunktet, <code class="docutils literal notranslate"><span class="pre">='-'</span></code> für durchgezogen, <code class="docutils literal notranslate"><span class="pre">='.-'</span></code> für abwechselnd Punkt-Strich)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">which='minor'</span></code> (bzw. <code class="docutils literal notranslate"><span class="pre">='major'</span></code>) wählt aus welche Gitterlinien gerade angesprochen werden (Hauptgitternetz mit Achsenbeschriftung oder Nebengitternetz)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">axis='both'</span></code> legt fest, ob das Gitter sowohl auf der x- als auch auf der y-Achse gezeichnet wird. (Alternativen: <code class="docutils literal notranslate"><span class="pre">axis='x'</span></code>)</p></li>
+</ul>
+</li>
+</ul>
+<p>Zusätzliche dazu findest du unten noch weitere vertikale (<code class="docutils literal notranslate"><span class="pre">axvline</span></code>) und horizontale (<code class="docutils literal notranslate"><span class="pre">axhline</span></code>) Linien, die gezeichnet werden.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting</span>
+<span class="c1"># Supplot2grid approach</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># Nutze DataFrames:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">data_df</span><span class="p">[</span><span class="s2">&quot;frequenz&quot;</span><span class="p">],</span> <span class="n">data_df</span><span class="p">[</span><span class="s2">&quot;amplitude&quot;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;$G_1(s) = \frac</span><span class="si">{1}</span><span class="s1">{s+1} \rightarrow \tau_1 = 1\, s $&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="mf">1e-2</span><span class="p">,</span> <span class="mf">1e-1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="sa">r</span><span class="s1">&#39;$10^{-2}$&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$10^{-1}$&#39;</span><span class="p">,</span> <span class="s1">&#39;0.5&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;10&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Bode Plot&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Amplitude (dB)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># Nutze die Array-Daten statt des Dataframes (genau das gleiche...)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">phase</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mi">45</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">45</span><span class="p">,</span><span class="o">-</span><span class="mi">90</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="mf">1e-2</span><span class="p">,</span> <span class="mf">1e-1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="sa">r</span><span class="s1">&#39;$10^{-2}$&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$10^{-1}$&#39;</span><span class="p">,</span> <span class="s1">&#39;0.5&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;10&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Frequenz (Hz)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Phase (deg)&#39;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/T_Plotten_47_0.png" src="../_images/T_Plotten_47_0.png" />
+</div>
+</div>
+</section>
+<section id="doppellogarithmische-darstellung">
+<h3>Doppellogarithmische Darstellung<a class="headerlink" href="#doppellogarithmische-darstellung" title="Link zu dieser Überschrift">#</a></h3>
+<p>Zur Übung rechnen wir die dB Daten in Volt um…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_df</span><span class="p">[</span><span class="s2">&quot;amplitude_V&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="n">data_df</span><span class="p">[</span><span class="s2">&quot;amplitude&quot;</span><span class="p">]</span><span class="o">/</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>… und zeichnen die Amplitude mit dem <code class="docutils literal notranslate"><span class="pre">plt.loglog</span></code>-Befehl in ein doppelogarithmisches Diagramm:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting</span>
+<span class="c1"># Supplot2grid approach</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># Nutze DataFrames:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">data_df</span><span class="p">[</span><span class="s2">&quot;frequenz&quot;</span><span class="p">],</span> <span class="n">data_df</span><span class="p">[</span><span class="s2">&quot;amplitude_V&quot;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;$G_1(s) = \frac</span><span class="si">{1}</span><span class="s1">{s+1} \rightarrow \tau_1 = 1\, s $&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="c1">#plt.xticks([1e-2, 1e-1, 0.5, 1, 10], labels = [r&#39;$10^{-2}$&#39;, r&#39;$10^{-1}$&#39;, &#39;0.5&#39;, &#39;1&#39;, &#39;10&#39;])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Bode Plot&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Amplitude (dB)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># Nutze die Array-Daten statt des Dataframes (genau das gleiche...)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">phase</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mi">45</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">45</span><span class="p">,</span><span class="o">-</span><span class="mi">90</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="mf">1e-2</span><span class="p">,</span> <span class="mf">1e-1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="sa">r</span><span class="s1">&#39;$10^{-2}$&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$10^{-1}$&#39;</span><span class="p">,</span> <span class="s1">&#39;0.5&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;10&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Frequenz (Hz)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Phase (deg)&#39;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/T_Plotten_51_0.png" src="../_images/T_Plotten_51_0.png" />
+</div>
+</div>
+</section>
 </section>
 </section>
 

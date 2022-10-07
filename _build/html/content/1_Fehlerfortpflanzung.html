@@ -154,7 +154,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="1_Datenanalyse.html">
-   Messdaten analysieren
+   Messabweichung
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -177,12 +177,12 @@ const thebe_selector_output = ".output, .cell_output"
      Fortpflanzung von Messunsicherheiten
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="1_Kurvenanpassung.html">
-     Kurvenanpassung
-    </a>
-   </li>
   </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_Kurvenanpassung.html">
+   Kurvenanpassung
+  </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
@@ -251,16 +251,16 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="3_Digital.html">
+     Digitalisierung
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="3_Rauschen.html">
      Rauschen und spektrale Dichte
     </a>
    </li>
   </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="2_Digital.html">
-   Digitalisierung
-  </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="5_Dynamische_Messsysteme.html">
@@ -279,17 +279,17 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="5_DGL.html">
-     Differentialgleichung
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="5_ImpulsSprung.html">
-     Impuls- und Sprungantwort
+     Systeme chatakterisieren im Zeitraum
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="5_Uebertragungsfunktion.html">
      Übertragungsfunktion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5_Faltung.html">
+     Faltung
     </a>
    </li>
   </ul>
@@ -339,6 +339,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="4_R-Messung.html">
      Widerstandsmessung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_CL-Messung.html">
+     Messung von Kapazitäten und Induktivitäten
     </a>
    </li>
    <li class="toctree-l2">
@@ -419,7 +424,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="T_Plotten.html">
-     Klimadatei (.csv) einlesen und analysieren
+     Messdaten analysieren
     </a>
    </li>
    <li class="toctree-l2">
@@ -819,6 +824,30 @@ title="Print to PDF"
 <li><p>Das <strong>direkte Messverfahren</strong>: der gesuchte Messwert wird unmittelbar durch den Vergleich mit einem Bezugswert derselben Messgröße gewonnen. Als Beispiel eignet sich hier die Balkenwaage, die die unbekannte Masse <span class="math notranslate nohighlight">\(m\)</span> mit der bekannten Masse eines Gewichtssteins vergleicht.</p></li>
 <li><p>Das <strong>indirekt Messerverfahren</strong>: Die meisten physikalischen Größen werden so ermittelt, da sie nur indirekt ermittelt werden können. Die gesuchte Messgröße wird hierbei über physikalische Zusammenhänge auf andere Größen zurückgeführt und anschließend aus diesen ermittelt. Die Federwaage ist ein Beispiel hierfür, bei der eine unbekannte Masse <span class="math notranslate nohighlight">\(m\)</span> über die Auslenkung <span class="math notranslate nohighlight">\(x\)</span> einer Feder (Federkonstante <span class="math notranslate nohighlight">\(k\)</span>) ermittelt werden soll. Gravitationskraft wird der Rückstellkraft der Feder gleichgesetzt und man erhält folgenden Zusammenhang, wobei <span class="math notranslate nohighlight">\(g\)</span> die Schwerebeschleunigung ist.</p></li>
 </ul>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<figure class="align-default" id="waage">
+<a class="reference internal image-reference" href="../_images/waage.jpg"><img alt="waage" src="../_images/waage.jpg" style="width: 200px;" /></a>
+<figcaption>
+<p><span class="caption-number">Abb. 13 </span><span class="caption-text">Direktes Messverfahren</span><a class="headerlink" href="#waage" title="Link zu diesem Bild">#</a></p>
+</figcaption>
+</figure>
+<div class="math notranslate nohighlight">
+\[m_\mathrm{unbekannt}  \overset{?}= m_\mathrm{bekannt}\]</div>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<figure class="align-default" id="waage2">
+<a class="reference internal image-reference" href="../_images/waage2.jpg"><img alt="waage2" src="../_images/waage2.jpg" style="width: 200px;" /></a>
+<figcaption>
+<p><span class="caption-number">Abb. 14 </span><span class="caption-text">Indirektes Messverfahren, hier Federkonstante <span class="math notranslate nohighlight">\(k\)</span>.</span><a class="headerlink" href="#waage2" title="Link zu diesem Bild">#</a></p>
+</figcaption>
+</figure>
+<div class="math notranslate nohighlight">
+\[\Rightarrow m = \frac{k \cdot x}{g}\]</div>
+</div>
+</div>
+</div>
 <p><img alt="Bild" src="../_images/direkt_indirekt.png" /></p>
 <p>Durch dieses Beispiel wird klar, dass Messgrößen <span class="math notranslate nohighlight">\(y\)</span> oft nicht direkt ermittelt werden, sondern über funktionelle Zusammenhänge von <span class="math notranslate nohighlight">\(n\)</span> Messgrößen <span class="math notranslate nohighlight">\(x_i\)</span> bestimmt werden:</p>
 <div class="math notranslate nohighlight">

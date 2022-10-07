@@ -7,6 +7,32 @@
 # * Das **direkte Messverfahren**: der gesuchte Messwert wird unmittelbar durch den Vergleich mit einem Bezugswert derselben Messgröße gewonnen. Als Beispiel eignet sich hier die Balkenwaage, die die unbekannte Masse $m$ mit der bekannten Masse eines Gewichtssteins vergleicht.
 # * Das **indirekt Messerverfahren**: Die meisten physikalischen Größen werden so ermittelt, da sie nur indirekt ermittelt werden können. Die gesuchte Messgröße wird hierbei über physikalische Zusammenhänge auf andere Größen zurückgeführt und anschließend aus diesen ermittelt. Die Federwaage ist ein Beispiel hierfür, bei der eine unbekannte Masse $m$ über die Auslenkung $x$ einer Feder (Federkonstante $k$) ermittelt werden soll. Gravitationskraft wird der Rückstellkraft der Feder gleichgesetzt und man erhält folgenden Zusammenhang, wobei $g$ die Schwerebeschleunigung ist. 
 # 
+# :::::{grid} 2
+# 
+# ::::{grid-item}
+# :::{figure-md} waage
+# <img src="draw/waage.jpg" alt="waage" width="200px" label = waage>
+# 
+# Direktes Messverfahren
+# :::
+# 
+# $$m_\mathrm{unbekannt}  \overset{?}= m_\mathrm{bekannt}$$
+# 
+# ::::
+# 
+# ::::{grid-item}
+# :::{figure-md} waage2
+# <img src="draw/waage2.jpg" alt="waage2" width="200px" label = waage2>
+# 
+# Indirektes Messverfahren, hier Federkonstante $k$.
+# :::
+# 
+# $$\Rightarrow m = \frac{k \cdot x}{g}$$
+# 
+# ::::
+# 
+# :::::
+# 
 # ![Bild](pictures/direkt_indirekt.png)
 # 
 # Durch dieses Beispiel wird klar, dass Messgrößen $y$ oft nicht direkt ermittelt werden, sondern über funktionelle Zusammenhänge von $n$ Messgrößen $x_i$ bestimmt werden:

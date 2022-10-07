@@ -14,7 +14,7 @@
 # Jede Messung einer physikalischen Größe $x$ ist abhängig von den verwendeten Messgeräten, dem Messverfahren, dem Messobjekt, von Umwelteinflüssen (Temperatur, Feuchtigkeit, elektromagnetische Felder) und schließlich auch vom Beobachter (Müdigkeit, Sehschärfe, Übung), wie in {numref}`fehlerklassen` dargestellt.
 # 
 # :::{figure-md} fehlerklassen
-# <img src="draw/fehlerklassen.jpg" alt="fehlerklassen" class="bg-primary mb-1" width="600px" label = fehlerklassen>
+# <img src="draw/fehlerklassen.jpg" alt="fehlerklassen" width="600px" label = fehlerklassen>
 # 
 # Vereinfachtes Modell eines Messsystems mit Störeinflüssen.
 # :::
@@ -76,7 +76,34 @@ print('eine absolute Unsicherheit von ', u*U_end, 'V')
 # 
 # ### Digitalstellenfehler
 # 
-# ![Bild](pictures/hersteller_abweichung.png)
+# :::::{grid} 2
+# 
+# ::::{grid-item}
+# | Messgerätekategorie | Genauigkeitsklasse (%) |
+# |:--------------------|:-------------------|
+# |Präzisionsmessgeräte | 0.001 |
+# | | 0.002|
+# | | 0.005|
+# | | 0.01|
+# | | 0.05|
+# | Feinmessgeräte | 0.1|
+# | | 0.2|
+# | | 0.5|
+# | Betriebsmessgeräte | 1.0|
+# | | 1.5|
+# | | 2.5|
+# | | 5.0|
+# ::::     
+#         
+# ::::{grid-item}
+# :::{figure-md} voltmeter
+# <img src="draw/voltmeter.jpg" alt="voltmeter" width="175px" label = voltmeter>
+# 
+# Voltmeter mit Digitalanzeige.
+# :::
+# ::::
+# :::::
+# 
 # 
 # Das Gerät im Bild zeigt den Messwert 5.847V an. Laut Hersteller ist die Maximalabweichung (unter Referenzbedingungen) $a = \pm$ (0,5% vom *Messwert* + 9 Digit). Die Anzahl der Nachkommastellen (also der Digits) ist in diesem Falle 3, also 0,001V. Genauer kann das Messgerät keine Spannung angeben. Die Messabweichung setzt sich also wiefolgt zusammen (zwei signifikante Stellen reichen hierbei, da der Messwert selber nicht genauer angezeigt wird):
 # 

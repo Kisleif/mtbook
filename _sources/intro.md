@@ -16,7 +16,7 @@ Weitere Infos zum [*Lecture Book*](content/00_jupyter).
 :gutter: 3
 
 :::{grid-item-card}
-:link: content/1_Datenanalyse
+:link: content/01_Datenanalyse
 :link-type: doc
 :class-header: bg-light
 **Tips für's Praktikum** 👩‍🔬

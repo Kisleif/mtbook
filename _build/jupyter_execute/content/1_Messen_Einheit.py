@@ -284,7 +284,73 @@ print('relative Messabweichung der Cheops-Pyramide: ', relative_abweichung*100, 
 # ### Logarithmische Einheiten
 # 
 # In der Messtechnik können unter Umständen Messwerte in ganz unterschiedlichen Größenordnungen anfallen. Daher haben wir uns ja im Kapitel vorher die Präfixe bzw. Vorsätze angesehen. Für eine Darstellung im Diagramm, bei dem die Achsen typischerweise eine feste Einheit besitzen, wird es dennoch schwierig, die Gesamtheit der Messreihe übersichtlich darzustellen. Daher bedient man sich häufig der logarithmischen Darstellung, welche im ersten Moment relativ umständlich und kompliziert erscheint, aber einen hohen Nutzen hat. Diese Darstellung ist auch im SI-System vorgesehen.
-# 
+
+# In[2]:
+
+
+import scipy.signal as signal
+#Benötigte Libraries:
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import plotly.offline as py
+py.init_notebook_mode(connected=True)
+import plotly.graph_objs as go
+import plotly.tools as tls
+import seaborn as sns
+import time
+import warnings
+warnings.filterwarnings('ignore')
+
+# MatplotLib Settings:
+plt.style.use('default') # Matplotlib Style wählen
+plt.xkcd()
+plt.figure(figsize=(8,5)) # Plot-Größe
+plt.rcParams['font.size'] = 10; # Schriftgröße
+
+# Transfer Funktion für das Model eines Tiefpasses:
+num = np.array([1])
+den = np.array([1 , 1, 1])
+H = signal.TransferFunction(num , den)
+
+# Bode-Plot Daten:
+w2 = np.logspace(-3,2,200)
+w, mag, phase = signal.bode(H,w2)
+data = {"frequenz": w, "amplitude": mag, "phase": phase}
+data_df = pd.DataFrame(data)
+data_df["amplitude_V"] = 10**(data_df["amplitude"]/20)
+
+plt.subplot(2,2,1)
+plt.plot(data_df["frequenz"], data_df["amplitude_V"])
+plt.fill_between(data_df["frequenz"],data_df["amplitude_V"],0,color='tab:blue', alpha=0.2)
+plt.ylabel("Amplitude (V)")
+plt.xlabel("Frequenz (Hz)")
+plt.title('Lineare Achsen')
+
+plt.subplot(2,2,2)
+plt.semilogx(data_df["frequenz"], data_df["amplitude_V"])
+plt.fill_between(data_df["frequenz"],data_df["amplitude_V"],0,color='tab:blue', alpha=0.2)
+plt.ylabel("Amplitude (V)")
+plt.xlabel("Frequenz (Hz)")
+plt.title('x-Achse logarithmisch')
+
+plt.subplot(2,2,3)
+plt.plot(data_df["frequenz"], data_df["amplitude"])
+plt.fill_between(data_df["frequenz"],data_df["amplitude"],-80,color='tab:blue', alpha=0.2)
+plt.ylabel("Amplitude (dB)")
+plt.xlabel("Frequenz (Hz)")
+plt.title('y-Achse logarithmisch: dB')
+
+plt.subplot(2,2,4)
+plt.semilogx(data_df["frequenz"], data_df["amplitude"])
+plt.fill_between(data_df["frequenz"],data_df["amplitude"],-80,color='tab:blue', alpha=0.2)
+plt.ylabel("Amplitude (dB)")
+plt.xlabel("Frequenz (Hz)")
+plt.title('Doppel-logarithmisch')
+
+plt.tight_layout()
+
+
 # Der eigentlich Messwert auf einen wohl definierten Referenzwert bezogen wird. Man bildet also den Quotienten aus Messwert und Referenzwert, $P/P_\mathrm{ref}$ (bei Leistungen) oder $U/U_\mathrm{ref}$ bei Spannungen. Danach werden diese Quotienten logarithmiert, *fast ausschließlich* mit der 10er-Logarithmus (log). Der neue Wert ist per Definition einheitenlos, wird aber die Einheit **Dezibel** (dB) zugeordnet, also das Zehntel eines **Bels**. Ganz selten wird der natürlich Logarithmus benutzt, dann wird die Einheit Neper (Np) angewendet. 
 # 
 # In der Messtechnik hat es sich etabliert (ungeschriebenes Gesetz), dass in erster Linie Leistungen gemäß der eben beschriebenen Gesetzmäßigkeit in der Einheit dB umgewandelt werden, man spricht hierbei von der **Leistungsgröße**:
@@ -314,7 +380,7 @@ print('relative Messabweichung der Cheops-Pyramide: ', relative_abweichung*100, 
 # In folgendem Code-Block können Umrechungen für verschiedene Messwerte ausprobiert werden:
 # ```
 
-# In[2]:
+# In[3]:
 
 
 import numpy as np

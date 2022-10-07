@@ -6,15 +6,83 @@
 # Bei der Kurvenanpassung handelt es sich um ein statistisches Analyseverfahren zur Feststellung funktionaler Beziehungen zwischen einer abhängigen und einer oder mehreren unabhängigen Variablen. Der Begriff **lineare Regression** ist weit verbreitet, doch dies ist nur der einfachste Fall eines Modells, nämlich der einer Geraden: $y = a \cdot x +b$. Grundsätzlich sollte man den Typ der Fit-Funktion $y = f(x)$ immer vorher festlegen und auch begründen können. Es ist keine wissenschaftlicher oder messtechnische Vorgehensweise alle möglichen Funktionen nur auf Verdacht *auszuprobieren* und sich für die besten entscheiden. Hierbei wäre es möglich, dass unbrauchbare Näherungen pder sogar falsche (unsinnige) und nicht-wissenschaftlicher Ergebnisinterpretationen auftreten könnten, was es zu vermeiden gilt. 
 # 
 # Zusammengefasst suchen wir nun also ein bestimmtes Modell für ein bestimmtes Set an Daten und wollen die Modellparameter bestimmen. Dabei soll das Modell möglichst gut die Messdaten vorhersagen. Die Modellanpassung wird häufig über die Methode der kleinsten Quadrate verwendet, mit welcher sich fast alle Messdaten modellieren lassen (auch kompliziertere Situationen wie beispielsweise korrelierte Unsicherheiten). 
+
+# ## Interpolation vs. Anpassung/Approximation
 # 
-# Hinweis zur Begrifflichkeit:
+# Man unterscheidet allgmein zwischen Interpolation und Anpassung/Approximation/Regression:
 # 
 # * **Regression**: Untersuchung der *Korrelation* von Datenpunkten ohne Messfehler mit angenommenen Zusammenhang
 # * **Fit/Anpassung**: wie die Regression, allerdings unter Berücksichtigung von Messfehlern. 
 # * **Interpolation**: Hierbei handelt es sich nicht um eine Regression bzw. Approximation. Anstelle eines funktionalen Zusammenhangs, der an die Messwerte angenähert wird, verwendert man Polynome hohen Grades, um eine analytische Kennlinie zu beschreiben, die *exakt* durch alle Messpunkte geht. Für eine große Anzahl von Messwerten wird die Interpolationsfunktion sehr schnell unhandlich. 
 # 
-# ![Bild](pictures/interpol_approx.png)
+# Was benutzt man wann und warum?
 # 
+# * **Interpolation**...
+#     * benutzt man bei wenigen Messwerten
+#     * benutzt man wenn keine Störung die Messung überlagert
+#     * ist eine analytische Kennlinie, die exakt durch die Messpunkte verläuft (siehe [Kennlinie](2_idealeKennlinie.ipynb))
+#     * berechnet man unter der Verwendung von z.B. Polynomen (z.B. spline-Methode)
+#     * ist bei großen Datenmengen sehr unhandlich
+# * **Approximation/Anpassung/Regression:**...
+#     * benutzt man bei vielen Messwerten
+#     * benutzt man bei überlagerten Störungen
+#     * benutzt man wenn die Interpolation unpraktisch ist
+#     * ist eine Linearkombination geeigneter analytischer Basisfunktionen
+#     * ist eine Anpassung eines physikalischen Modells an die Daten
+
+# In[1]:
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.optimize import curve_fit
+from scipy import interpolate
+
+# MatplotLib Settings:
+plt.style.use('default') # Matplotlib Style wählen
+plt.figure(figsize=(6,3)) # Plot-Größe
+plt.xkcd()
+plt.rcParams['font.size'] = 10; # Schriftgröße
+
+# INTERPOLATION:
+plt.subplot(1,2,1)
+x = np.arange(10, 200, 40)
+y = np.sqrt(x)
+plt.plot(x,y,'o', color='tab:gray')
+
+tck = interpolate.splrep(x, y, s=0)
+yfit = interpolate.splev(x, tck, der=0)
+
+plt.plot(x,yfit, zorder=0, color = 'tab:blue')
+
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Interpolation')
+plt.xticks([])
+plt.yticks([])
+
+# ANPASSUNG:
+plt.subplot(1,2,2)
+x = np.arange(10, 200, 10)
+stoerung = np.random.normal(scale=0.6, size=x.shape)
+y = np.sqrt(x)+stoerung
+plt.plot(x,y,'o', color='tab:gray')
+
+# Anpassung / Fit:
+def anpassung(x, a):
+    return a*np.sqrt(x)
+popt, pcov = curve_fit(anpassung, x, y)
+plt.plot(x,anpassung(x,*popt), zorder=0, color = 'tab:blue')
+
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Approximation/Fit')
+plt.xticks([])
+plt.yticks([])
+
+plt.tight_layout()
+
+
 # :::{admonition} Tutorial
 # :class: tip
 # Python-Beispiele für Kurvenanpassungen findet ihr hier:
@@ -36,8 +104,32 @@
 # $$\epsilon = \left( f(x_i) - y_i\right)$$
 # 
 # soll möglichst klein werden. 
-# 
-# ![Bild](pictures/kleinste_quadrate.png)
+
+# In[2]:
+
+
+plt.figure(figsize=(5,4)) # Plot-Größe
+
+# ANPASSUNG:
+x = np.arange(10, 200, 10)
+stoerung = np.random.normal(scale=1.4, size=x.shape)
+y = np.sqrt(x)+stoerung
+plt.plot(x,y,'o', color='tab:gray', zorder=3)
+
+# Anpassung / Fit:
+def anpassung(x, a):
+    return a*np.sqrt(x)
+popt, pcov = curve_fit(anpassung, x, y)
+plt.plot(x,anpassung(x,*popt), zorder=0, color = 'tab:blue')
+plt.plot((x,x),([i for i in y], [j for (j) in anpassung(x,*popt)]),c='tab:red', zorder=1)
+plt.xlabel('x')
+plt.ylabel('y')
+plt.xticks([])
+plt.yticks([])
+plt.title('Residuum')
+plt.legend(['Messwerte', 'Modellfunktion', 'Residuum'])
+plt.show()
+
 
 # ### Least-Squares: Methode der kleinsten Quadrate <a id="SubSec-least_squares"></a>
 # 
@@ -123,7 +215,7 @@
 # 
 # Da wir als Messtechniker immer danach streben möglichst lineare Kennlinien zu erreichen, ist die Gerade eine häufig auftretende Kurve, die angepasst werden soll. Daher wollen wir uns in diesem Abschnitt mit der Herleitung der linearen Regression befassen. Die Herleitung für andere Modellfunktionen, welche quadratische Terme, noch höhere Terme oder ganz andere Zusammenhänge beinhalten, ist auch deutlich schwieriger.
 
-# In[1]:
+# In[3]:
 
 
 import numpy as np
@@ -186,7 +278,7 @@ plt.show()
 # 
 # Wir sind hier in der verrückten Situation, dass tatsächlich  Mittelwerte für $x$ und $y$ bestimmt werden müssen, obwohl die $x$-Werte absichtlich während der Versuchsreihe verändert werden, sich also die Grössen $x$ und $y$ laufend ändern.
 
-# In[2]:
+# In[4]:
 
 
 # MatplotLib Settings:
@@ -212,7 +304,7 @@ plt.show()
 # 
 # $$s_y = \sqrt{\frac{1}{N-2}\sum(y_i - mx_i - b)^2 }$$
 
-# In[3]:
+# In[5]:
 
 
 N = len(y)
@@ -230,7 +322,7 @@ print('Die Unsicherheit von y ist \t s_y = %5.4f s' %(s_y))
 # 
 # $$s_m = s_y \cdot \sqrt{\frac{N}{N\cdot \sum x_i^2 - \left(\sum x_i\right)^2}} = s_y \cdot \sqrt{\frac{1}{\sum x_i^2 - N\cdot \bar x^2}} = s_y \cdot \sqrt{\frac{1}{\sum \left(x_i - \bar x \right)^2}} = s_y \cdot \sqrt{\frac{1}{N\cdot (\overline{x^2} - (\overline x)^2)}}$$
 
-# In[4]:
+# In[6]:
 
 
 s_m = s_y * np.sqrt(1 / (N*(np.mean(x**2) - np.mean(x)**2)))
@@ -241,7 +333,7 @@ print('Die Unsicherheit von m ist \t s_m = %5.4f s/m' %(s_m))
 # 
 # $$s_b = s_y \cdot \sqrt{\frac{\sum x_i^2}{N\cdot \sum x_i^2 - \left(\sum x_i\right)^2}} = s_y \cdot \sqrt{\frac{1}{N}\frac{\sum x_i^2}{\sum x_i^2 - N\cdot \bar x^2}} = s_y \cdot \sqrt{\frac{1}{N}\frac{\sum x_i^2}{\sum \left(x_i - \bar x \right)^2}} = s_m \cdot \sqrt{\overline{x^2}}$$
 
-# In[5]:
+# In[7]:
 
 
 s_b = s_m * np.sqrt(np.mean(x**2))
@@ -254,7 +346,7 @@ print('Die Unsicherheit von b ist \t s_b = %5.4f s' %(s_b))
 #     
 # $$r = \frac{\overline{x\cdot t} - \overline x \cdot \overline t}{\sqrt{\overline{x^2} - (\overline x)^2} \cdot {\sqrt{\overline{t^2} - (\overline t)^2}}} $$    
 
-# In[6]:
+# In[8]:
 
 
 # Analytische Methode:

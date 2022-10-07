@@ -11,9 +11,9 @@
 # 
 # ::::{grid-item}
 # :::{figure-md} waage
-# <img src="draw/waage.jpg" alt="waage" width="200px" label = waage>
+# <img src="draw/waage.jpg" alt="waage" height="100px" label = waage>
 # 
-# Direktes Messverfahren
+# Direktes Messverfahren, hier über Massenvergleich.
 # :::
 # 
 # $$m_\mathrm{unbekannt}  \overset{?}= m_\mathrm{bekannt}$$
@@ -22,18 +22,16 @@
 # 
 # ::::{grid-item}
 # :::{figure-md} waage2
-# <img src="draw/waage2.jpg" alt="waage2" width="200px" label = waage2>
+# <img src="draw/waage2.jpg" alt="waage2" height="100px" label = waage2>
 # 
-# Indirektes Messverfahren, hier Federkonstante $k$.
+# Indirektes Messverfahren, hier über Federkonstante $k$.
 # :::
 # 
-# $$\Rightarrow m = \frac{k \cdot x}{g}$$
+# $$m \cdot g = k \cdot x \Rightarrow m = \frac{k \cdot x}{g}$$
 # 
 # ::::
 # 
 # :::::
-# 
-# ![Bild](pictures/direkt_indirekt.png)
 # 
 # Durch dieses Beispiel wird klar, dass Messgrößen $y$ oft nicht direkt ermittelt werden, sondern über funktionelle Zusammenhänge von $n$ Messgrößen $x_i$ bestimmt werden:
 # 

@@ -189,6 +189,12 @@ print('Die Spannung wird um ', 2*U*1000, 'mV zu hoch gemessen')
 # 
 # $$ A_\mathrm{rel} = \frac{A}{r} = \frac{\Delta x}{r}$$
 # 
+# :::{figure-md} messabw
+# <img src="draw/zusammenfassung_abw.jpg" alt="messabw" width="600px" label = messabw>
+# 
+# Korrektur und Angabe des Messergebnisses
+# :::
+# 
 # ### Signifikante Stellen 
 # 
 # Die **Anzahl der Nachkommastellen** eines Messwertes ist niemals größer als die der angegebenen Messabweichung oder Unsicherheit. Die Anzahl der Nachkommastellen der Messabweichung wird über **signifikante Stellen** (= angegebene Ziffern ohne führende Nullen) definiert. Je mehr signifikante Stellen angegeben werden, desto größer ist die Genuigkeit, die reklamiert wird. Es gelten folgende Rechenoperationen nach DIN1333:

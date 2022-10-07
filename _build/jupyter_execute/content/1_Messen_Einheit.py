@@ -79,7 +79,7 @@ print('relative Messabweichung der Cheops-Pyramide: ', relative_abweichung*100, 
 # :class: dropdown
 # 
 # :::{figure-md} massstab
-# <img src="pictures/massstab.png" alt="massstab" class="bg-primary mb-1" width="400px" label = massstab>
+# <img src="pictures/massstab.png" alt="massstab" width="400px" label = massstab>
 # 
 # Maßstäbe in der Vergangenheit.
 # :::
@@ -151,7 +151,7 @@ print('relative Messabweichung der Cheops-Pyramide: ', relative_abweichung*100, 
 # * 50 Mikrogramm hat es in den letzten 129 Jahren im Vergleich zu seinen 70 offiziellen Kopien weltweit verloren
 # 
 # :::{figure-md} ur_kilo
-# <img src="pictures/ur-kilo.png" alt="ur_kilo" class="bg-primary mb-1" width="400px" label = ur_kilo>
+# <img src="pictures/ur-kilo.png" alt="ur_kilo" width="400px" label = ur_kilo>
 # 
 # Bericht zur Ablösung des Ur-Kilogramms.
 # :::

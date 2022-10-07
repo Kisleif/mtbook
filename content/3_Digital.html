@@ -56,7 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="Dynamische Messsysteme" href="5_Dynamische_Messsysteme.html" />
+    <link rel="next" title="Rauschen und spektrale Dichte" href="3_Rauschen.html" />
     <link rel="prev" title="Fourier-Analyse" href="3_FourierAnalyse.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="de">
@@ -255,6 +255,11 @@ const thebe_selector_output = ".output, .cell_output"
      Digitalisierung
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3_Rauschen.html">
+     Rauschen und spektrale Dichte
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -274,17 +279,17 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="5_DGL.html">
-     Differentialgleichung
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="5_ImpulsSprung.html">
-     Impuls- und Sprungantwort
+     Systeme chatakterisieren im Zeitraum
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="5_Uebertragungsfunktion.html">
      Übertragungsfunktion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5_Faltung.html">
+     Faltung
     </a>
    </li>
   </ul>
@@ -419,7 +424,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="T_Plotten.html">
-     Klimadatei (.csv) einlesen und analysieren
+     Messdaten analysieren
     </a>
    </li>
    <li class="toctree-l2">
@@ -799,11 +804,11 @@ title="Print to PDF"
 <figure class="align-default" id="digi-3bit">
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/digi_3bit.jpg"><img alt="digi_3bit" class="bg-primary mb-1" src="../_images/digi_3bit.jpg" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 30 </span><span class="caption-text">Kennlinie bei der Digitalisierung unter Benutzung eines 3bit-ADU. Die Eingangssignale liegen zwischen 0-7V.</span><a class="headerlink" href="#digi-3bit" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-number">Abb. 29 </span><span class="caption-text">Kennlinie bei der Digitalisierung unter Benutzung eines 3bit-ADU. Die Eingangssignale liegen zwischen 0-7V.</span><a class="headerlink" href="#digi-3bit" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
 <p>Ein kontinuierlicher analoger Spannungsmessbereich wird in viele kleine Stufen unterteilt.
-Diese gestufte <strong>(Treppen-)Kurve</strong> ist in <a class="reference internal" href="#digi-3bit"><span class="std std-numref">Abb. 30</span></a> dargestellt. Sie ist die reale Übertragungskurve eines 3-Bit-Analog-Digital-Umsetzers (ADU).
+Diese gestufte <strong>(Treppen-)Kurve</strong> ist in <a class="reference internal" href="#digi-3bit"><span class="std std-numref">Abb. 29</span></a> dargestellt. Sie ist die reale Übertragungskurve eines 3-Bit-Analog-Digital-Umsetzers (ADU).
 Das digitale Ausgangssignal ist so lange konstant bei einem festen Wert, wie sich das analoge Eingangssignal innerhalb eines Inkrements, also 1 <strong>LSB (least significant bit)</strong>, verändert. An diesem Beispiel hier stellen wir Eingangssignale zwischen 0V und 7V mit einem 3-Bit-Wandler dar. Variiert die Eingangsspannung nur minimal, also beispielsweise zwischen 1,1V und 1,9V, so würde sich der digitale Ausgangswert tatsächlich nicht ändern und konstant <em>001</em> ausgeben.</p>
 </section>
 <section id="auflosung">
@@ -851,10 +856,10 @@ rel. Abweichung (Näherungsformel): 	 0.09765625 %
 <figure class="align-default" id="abtastung2">
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/abtastung.jpg"><img alt="abtastung" class="bg-primary mb-1" src="../_images/abtastung.jpg" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 31 </span><span class="caption-text">Aliasing Effekt in einem sinusförmigen Messsignal aufgrund der Wahl einer zu kleinen Abtastfrequenz.</span><a class="headerlink" href="#abtastung2" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-number">Abb. 30 </span><span class="caption-text">Aliasing Effekt in einem sinusförmigen Messsignal aufgrund der Wahl einer zu kleinen Abtastfrequenz.</span><a class="headerlink" href="#abtastung2" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
-<p>Wie in <a class="reference internal" href="#abtastung2"><span class="std std-numref">Abb. 31</span></a> werden nur zu bestimmten, diskreten Zeitpunkten <span class="math notranslate nohighlight">\(T_A\)</span> die Messdaten <span class="math notranslate nohighlight">\(u_k\)</span> abgespeichert, wodurch nur eine endliche Zahl von <em>Proben</em> genommen wird.
+<p>Wie in <a class="reference internal" href="#abtastung2"><span class="std std-numref">Abb. 30</span></a> werden nur zu bestimmten, diskreten Zeitpunkten <span class="math notranslate nohighlight">\(T_A\)</span> die Messdaten <span class="math notranslate nohighlight">\(u_k\)</span> abgespeichert, wodurch nur eine endliche Zahl von <em>Proben</em> genommen wird.
 Ein ADU kann nicht beliebig schnell werden wodurch der Zeitpunkt zwischen zwei Messwertaufnahmen nicht beliebig klein werden kann und wir entnehmen lediglich eine <em>Stichprobe</em> zu ganz bestimmten Zeitpunkten. Dazwischen wird kein Messsignal aufgezeichnet. Diese Art die Diskretisierung muss jedoch nicht immer zu Informationsverlusten führen, wenn man das <strong>Nyquist-Shannon Abtasttheorem</strong></p>
 <div class="math notranslate nohighlight">
 \[f_\mathrm{ab} &gt; 2f\]</div>
@@ -868,11 +873,11 @@ Ein ADU kann nicht beliebig schnell werden wodurch der Zeitpunkt zwischen zwei M
 <p>Sollte ein zu digitalisierendes Messsignale bekannterweise aus höheren Frequenzen bestehen, sollten diese vor derm Digitalisierungsprozess heraus gefiltert werden, da ansonsten <strong>Aliasing</strong> auftreten wird.</p>
 <p>Nehmen wir im Folgenden an, dass wir ein Signal in einen ADU einspeisen, was höhere Frequenzanteile besitzt als der ADU theoretisch abtasten kann. Das bedeutet, dass bei diesen Schwingungen nicht mehr 2 Punkte pro Periode abgetastet werden können und das Nyquist-Shannon-Theorem wird verletzt.
 Der eigentliche Signalverlauf kann also nicht eindeutig rekonstruiert werden und man erhält <em>irgendeinen</em> anderen Verlauf.
-In <a class="reference internal" href="#alisaing"><span class="std std-numref">Abb. 32</span></a> sieht man das Beispiel für 2,6 Abtastungen pro Periode (oben links), 1,4 Abtastungen (oben rechts), 2 Abtastungen (unten links) und 0,8 Abtastungen (unten rechts). Abtastungenspunkte, die 2 pro Periode unterschreiten, zeigen eine falsch-rekonstruierte Wellenform auf, was durch die rote Linie verdeutlicht werden soll.</p>
+In <a class="reference internal" href="#alisaing"><span class="std std-numref">Abb. 31</span></a> sieht man das Beispiel für 2,6 Abtastungen pro Periode (oben links), 1,4 Abtastungen (oben rechts), 2 Abtastungen (unten links) und 0,8 Abtastungen (unten rechts). Abtastungenspunkte, die 2 pro Periode unterschreiten, zeigen eine falsch-rekonstruierte Wellenform auf, was durch die rote Linie verdeutlicht werden soll.</p>
 <figure class="align-default" id="alisaing">
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/alisaing.jpg"><img alt="alisaing" class="bg-primary mb-1" src="../_images/alisaing.jpg" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 32 </span><span class="caption-text">Aliasing Effekt in einem sinusförmigen Messsignal aufgrund der Wahl einer zu kleinen Abtastfrequenz.</span><a class="headerlink" href="#alisaing" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-number">Abb. 31 </span><span class="caption-text">Aliasing Effekt in einem sinusförmigen Messsignal aufgrund der Wahl einer zu kleinen Abtastfrequenz.</span><a class="headerlink" href="#alisaing" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
 <p>Im Folgenden untersuchen wir eine Überlagerung von zwei Sinussignalen für unterschiedliche Abtastfrequenzen:</p>
@@ -1009,10 +1014,10 @@ Der wichtigste Vorteil von analogen Messwerten ist jedoch die große Bandbreite 
             <p class="prev-next-title">Fourier-Analyse</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="5_Dynamische_Messsysteme.html" title="weiter Seite">
+    <a class='right-next' id="next-link" href="3_Rauschen.html" title="weiter Seite">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title">Dynamische Messsysteme</p>
+        <p class="prev-next-title">Rauschen und spektrale Dichte</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

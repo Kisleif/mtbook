@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Klimadatei (.csv) einlesen und analysieren
+# # Messdaten analysieren
 # 
 # Zunächst werden die für dieses Jupyter Notebook benötigten Libraries geladen:
 
@@ -274,6 +274,48 @@ plt.legend(fontsize=12);
 plt.grid();
 
 
+# ### Beliebige Funktion fitten
+# 
+# Mit der Polyfit Funktion können in erster Linie Polynome gefittet werden.
+# Für beliebige Modellierung, wie z.B. Exponential-Funktionen, werden die Funktionen in aller Regel selber definiert. Hierfür eignet sich die scipy-Funktion `curve_fit`. 
+
+# In[22]:
+
+
+import pandas as pd
+from scipy.optimize import curve_fit
+
+
+# Als erstes wird die Funktion deklariert, hier nutzen wird wieder eine lineare Regression:
+
+# In[23]:
+
+
+def lin_reg(x, a, b):
+    return a*x + b
+
+
+# Die wir anschließend an die Daten anpassen:
+
+# In[24]:
+
+
+popt, pcov = curve_fit(lin_reg, x, y)
+print('a und b sind:', popt)
+print('Mit der Kovarianz-Matrix', pcov)
+
+
+# In[25]:
+
+
+plt.ylabel("Jahresmitteltemperaturabweichung [°C]")
+plt.xlabel("Jahr")
+plt.errorbar(global_mean["Year"],global_mean["No_Smoothing"], yerr=global_mean["uncertainty"], ls="-", lw=1, marker="s", ms=3, color="tab:gray", alpha=0.5, label="Werte");
+plt.plot(x,lin_reg(x,*popt), ls="-", lw=3, color="tab:red", label="lineare Regression y=( %5.3f * x + %5.3f)" % tuple(popt));
+plt.legend(fontsize=12);
+plt.grid();
+
+
 # ## Logarithmische Darstellung
 # 
 # In der Messtechnik können unter Umständen Messwerte in ganz unterschiedlichen Größenordnungen anfallen. Für eine Darstellung im Diagramm, bei dem die Achsen typischerweise eine feste Einheit besitzen, nutzt man die logarithmischen Darstellung. Hierfür gibt es zwei Möglichkeiten:
@@ -286,7 +328,7 @@ plt.grid();
 # 
 # Um die Daten, die wir plotten möchten, zu modellieren, muss dafür die Library `scipy.signal` importiert werden:
 
-# In[22]:
+# In[26]:
 
 
 import scipy.signal as signal
@@ -297,7 +339,7 @@ import scipy.signal as signal
 # * `mag` gibt die Amplitude in dB an
 # * `phase` gibt die Phase in Grad an
 
-# In[23]:
+# In[27]:
 
 
 # Transfer Funktion für das Model eines Tiefpasses:
@@ -311,7 +353,7 @@ w, mag, phase = signal.bode(H)
 
 # Die Daten können wir wieder in `dataframes` abspeichern, wenn das Arbeiten mit den Objekten für euch angenehmer ist.
 
-# In[24]:
+# In[28]:
 
 
 data = {"frequenz": w, "amplitude": mag, "phase": phase}
@@ -332,7 +374,7 @@ print(data_df)
 # 
 # Zusätzliche dazu findest du unten noch weitere vertikale (`axvline`) und horizontale (`axhline`) Linien, die gezeichnet werden. 
 
-# In[25]:
+# In[29]:
 
 
 # Plotting
@@ -370,7 +412,7 @@ fig.tight_layout()
 # 
 # Zur Übung rechnen wir die dB Daten in Volt um...
 
-# In[26]:
+# In[30]:
 
 
 data_df["amplitude_V"] = 10**(data_df["amplitude"]/20)
@@ -378,7 +420,7 @@ data_df["amplitude_V"] = 10**(data_df["amplitude"]/20)
 
 # ... und zeichnen die Amplitude mit dem `plt.loglog`-Befehl in ein doppelogarithmisches Diagramm:
 
-# In[27]:
+# In[31]:
 
 
 # Plotting

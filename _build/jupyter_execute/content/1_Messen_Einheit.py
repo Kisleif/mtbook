@@ -106,7 +106,7 @@ print('relative Messabweichung der Cheops-Pyramide: ', relative_abweichung*100, 
 # * 1889 wurde der Platinstab durch einen Platin-Iridium-Körper mit X-förmigem Querschnitt ersetzt (90% Platin und 10% Iridium). Auf diesem wurden 2 Mittelstriche markiert, welche den Meter angeben. Bei Temperaturverändungern von 0°C auf 20°C verlängert sich das "Meter" um 0,3 mm,  wobei die Ablesegenauigkeit hierbei 0,01 mm betrug.
 # 
 # :::{figure-md} meter
-# <img src="pictures/meter.png" alt="meter" class="bg-primary mb-1" width="400px" label = meter>
+# <img src="draw/erde_platin.jpg" alt="meter" class="bg-primary mb-1" width="400px" label = meter>
 # 
 # Die anfängliche Definition des *Meters*.
 # :::
@@ -247,11 +247,39 @@ print('relative Messabweichung der Cheops-Pyramide: ', relative_abweichung*100, 
 # 
 # Zum SI, bzw. prinzipiell angewendet in allen anderen Einheiten, sind sogenannte Präfixe / Vorsätze definiert. Teile oder Vielfach von SI-Einheiten können in Kurzform geschrieben werden, was das Lesen erleichtert. So können besonders große oder besonders kleine Zahlen übersichtlicher dargestellt werden. Dafür muss der oder die Forschende oder Ingeneur:in lediglich ein paar Vokabeln können: 
 # 
-# :::{figure-md} praefix
-# <img src="pictures/praefix.png" alt="praefix" class="bg-primary mb-1" width="600px" label = praefix>
+# ::::{grid} 2
 # 
-# Präfixe / Vorsätze für Einheiten.
+# :::{grid-item}
+# | Zeichen | Name | Multiplikator
+# |:-------|:-------|:-------|
+# | Y | Yotta | $10^{24}$|
+# | Z | Zetta | $10^{21}$|
+# | E | Exa | $10^{18}$|
+# | P | Peta | $10^{15}$|
+# | T | Tera | $10^{12}$|
+# | G | Giga | $10^{9}$|
+# | M | Mega | $10^{6}$|
+# | k | Kilo | $10^{3}$|
+# | h | Hekto | $10^{2}$|
+# | da | Deka | $10^{1}$|
 # :::
+# 
+# :::{grid-item}
+# | Zeichen | Name | Multiplikator
+# |:-------|:-------|:-------|
+# | d | Dezi | $10^{-1}$|
+# | c | Zenti | $10^{-2}$|
+# | m | Milli | $10^{-3}$|
+# | μ | Mikro | $10^{-6}$|
+# | n | Nano | $10^{-9}$|
+# | p | Pico | $10^{-12}$|
+# | f | Femto | $10^{-15}$|
+# | a | Atto | $10^{-18}$|
+# | z | Zepto | $10^{-21}$|
+# | y | Yokto | $10^{-24}$|
+# :::
+# 
+# ::::
 
 # ### Logarithmische Einheiten
 # 

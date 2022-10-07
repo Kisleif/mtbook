@@ -11,7 +11,7 @@
 # 
 # ::::{grid-item}
 # :::{figure-md} waage
-# <img src="draw/waage.jpg" alt="waage" height="100px" label = waage>
+# <img src="draw/waage.jpg" alt="waage" height="200px" label = waage>
 # 
 # Direktes Messverfahren, hier über Massenvergleich.
 # :::
@@ -22,7 +22,7 @@
 # 
 # ::::{grid-item}
 # :::{figure-md} waage2
-# <img src="draw/waage2.jpg" alt="waage2" height="100px" label = waage2>
+# <img src="draw/waage2.jpg" alt="waage2" height="200px" label = waage2>
 # 
 # Indirektes Messverfahren, hier über Federkonstante $k$.
 # :::

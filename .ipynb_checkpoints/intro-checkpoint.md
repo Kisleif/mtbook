@@ -90,7 +90,7 @@ Regression, Fit, Korrelation, Kovarianz, Least-Squares
 :::
 
 :::{grid-item-card}
-:link: content/2_Stationaer
+:link: content/02_Stationaer
 :link-type: doc
 :class-header: bg-light
 **Stationäre Messsysteme**
@@ -102,7 +102,7 @@ Ideale und reale Kennlinie
 :::
 
 :::{grid-item-card}
-:link: content/3_Messsignale
+:link: content/03_Messsignale
 :link-type: doc
 :class-header: bg-light
 **Messsignale**
@@ -126,7 +126,7 @@ Fourier-Reihen, Fourier-Transformation
 :::
 
 :::{grid-item-card}
-:link: content/5_Dynamische_Messsysteme
+:link: content/05_Dynamische_Messsysteme
 :link-type: doc
 :class-header: bg-light
 **Dynamische Messsysteme**
@@ -139,7 +139,7 @@ LZI-Systeme, DGLs, Impuls- und Sprungantwort, Faltung, Übertragungsfunktion
 
 
 :::{grid-item-card}
-:link: content/4_ElektrischeGroessen
+:link: content/04_ElektrischeGroessen
 :link-type: doc
 :class-header: bg-light
 **Messen elektrischer Größen**

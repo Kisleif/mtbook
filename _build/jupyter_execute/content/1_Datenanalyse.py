@@ -22,7 +22,7 @@
 # |arithmetischer Mittelwert $\overline x$ | Schätzewert für den wahren Wert einer Messgröße aus einer Messreihe mit den Messwerten $x_j$ und der Anzahl der Messwerte $m$: $\overline x = \frac{1}{m}\sum_{j=1}^m x_j$|
 # |Erwartungswert|Mittelwert einer unendlichen Gesamtheit|
 # |Messunsicherheit $u(x)$ | Wichtiger Bestandteil zur Angabe eines Messergebnisses. Die Unsicherheit charakterisiert einen Vertrauensbereich, der der Messgröße zugeschrieben wird: $\overline x \pm u(x)$ |
-# |relative Messunsicherheit | Messunsicherheit dividiert durch den Betrag des Mittelwerts: $A_{r} = \frac{u(x)}{\left|(\overline x)\right|}$| 
+# |relative Messunsicherheit | Messunsicherheit dividiert durch den Betrag des Mittelwerts: $A_{r} = \frac{u(x)}{\lvert (\overline x)\rvert}$| 
 # |Varianz: mittlere quadratische Abweichung $s^2(x)$ | Beschreibt die quadratische Abweichung einer Zufallsvariable von dem Erwartungswert der betrachteten Gesamtheit. Ein Maß für die Messunsicherheit. $s^2 = \frac{1}{m-1} \sum_{j=1}^m (x_j - \overline x)^2$|
 # |Standardabweichung | In der Messtechnik auch als Streuung bezeichnet, sie ist die Quadratwurzel aus der von zufälligen Einflüssen verursachte Abweichung eines Messergebnisses (Wurzel der Varianz). Wurzel aus der mittleren quadratischen Abweichung:  $s = \sqrt{\frac{1}{m-1} \sum_{j=1}^m (x_j - \overline x)^2}$ |
 # |empirische Varianz $\sigma^2(x)$ | Schätzung der Varianz bezogen auf den *wahren* Wert (nicht auf den Mittelwert der Messreihe) der Messgröße: $\sigma^2 = \lim_{m\rightarrow \infty}\frac{1}{m} \sum_{j=1}^m (x_j - \mu)^2$|

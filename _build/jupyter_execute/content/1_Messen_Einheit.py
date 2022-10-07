@@ -106,7 +106,7 @@ print('relative Messabweichung der Cheops-Pyramide: ', relative_abweichung*100, 
 # * 1889 wurde der Platinstab durch einen Platin-Iridium-Körper mit X-förmigem Querschnitt ersetzt (90% Platin und 10% Iridium). Auf diesem wurden 2 Mittelstriche markiert, welche den Meter angeben. Bei Temperaturverändungern von 0°C auf 20°C verlängert sich das "Meter" um 0,3 mm,  wobei die Ablesegenauigkeit hierbei 0,01 mm betrug.
 # 
 # :::{figure-md} meter
-# <img src="draw/erde_platin.jpg" alt="meter" class="bg-primary mb-1" width="400px" label = meter>
+# <img src="draw/erde_platin.jpg" alt="meter" width="400px" label = meter>
 # 
 # Die anfängliche Definition des *Meters*.
 # :::

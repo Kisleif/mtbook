@@ -14,3 +14,27 @@
 # 
 # ```{tableofcontents}
 # ```
+
+# ## Zusammenfassung
+# 
+# | Begriff | Beschreibung |
+# |:--------------------|:----------------------------------------|
+# |Messen|Ermittlung des Messwertes zu einer Messgröße. (Wie oft geht eine Einheit in eine Messgröße hinein?)|
+# |Maßeinheit|Festgelegter Vergleichswert für eine physikalische Messgröße|
+# |Messwert|Bei der Messung ermittelter Faktor. Zahlenmäßiges Verhältnis zwischen Einheit und Messgröße|
+# |Messgröße|Physikalische Größe, die Gegenstand einer Messung ist|
+# |Messignal|Ein Signal mit dem Messinformationen transportiert werden|
+# |Dezibel|Logarithmisches Übertragungsmaß, dessen Zahlenwert mit einer vereinbarten Berechnungsvorschrift ermittelt wird.|
+# |Kalibrieren|Untersuchen, ob der Prüfgegenstand bestimmte Bedingungen erfüllt (Entspricht der Messwert eines Messgeräts dem „richtigen“ Wert des Messgröße?)|
+# |Eichen|Prüfung und Stempelung des Messsystems nach Eichvorschriften (Entspricht der Messwert eines Messgeräts dem „richtigen“ Wert des Messgröße unter staatlicher Hoheit?)|
+# |Justieren|Einstellen eines Messsystems so, dass der Messwert der Messgröße möglichst gut entspricht|
+# |Normale|Eine handhabbare Verkörperung einer Maßeinheit|
+# |Richtiger Wert|Mit denkbar größten technischem und theoretischem Aufwand ermittelter Messwert, der als Bezugswert zur Bewertung eines Messergebnisses benutzt wird. |
+# |SI-Einheitensystem|Vereinbartes System von Maßeinheiten|
+# |Wahrer Wert|Tatsächlich vorhandener Wert einer physikalischen Größe, er ist durch eine endliche Genauigkeit der verwendeten Messmittel nicht exakt bestimbar. |
+
+# In[ ]:
+
+
+
+

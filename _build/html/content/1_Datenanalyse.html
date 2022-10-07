@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Messdaten analysieren &#8212; Metrology Lecture Book</title>
+    <title>Messabweichung &#8212; Metrology Lecture Book</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -154,7 +154,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="current reference internal" href="#">
-   Messdaten analysieren
+   Messabweichung
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -177,12 +177,12 @@ const thebe_selector_output = ".output, .cell_output"
      Fortpflanzung von Messunsicherheiten
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="1_Kurvenanpassung.html">
-     Kurvenanpassung
-    </a>
-   </li>
   </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_Kurvenanpassung.html">
+   Kurvenanpassung
+  </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
@@ -704,7 +704,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Messdaten analysieren</h1>
+                <h1>Messabweichung</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -729,15 +729,14 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="messdaten-analysieren">
-<h1>Messdaten analysieren<a class="headerlink" href="#messdaten-analysieren" title="Link zu dieser Überschrift">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="messabweichung">
+<h1>Messabweichung<a class="headerlink" href="#messabweichung" title="Link zu dieser Überschrift">#</a></h1>
 <p>Viele Studierende sammeln im Praktikum erstmals Erfahrung im Umgang mit Messdaten, nehmen eigene Messreihen auf und müssen diese begründbar und nachvollziehbar auswerten und darstellen. Im Studium, z.B. im Rahmen von Semester-, Abschluss- oder sogar Promotionsarbeiten müssen Analyse und Präsentation wissenschaftlich und sachgerecht sein. Auf den folgenden Seiten findet ihr das absolute Minimum an notwendigen Hilfsmitteln, Grundideen und Praktiken, die ihr bei der Auswertung von Messdaten im Praktikum berücksichtigen solltet!</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="1_Messunsicherheiten.html">Quellen und Ursachen von Messunsicherheiten</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1_Mittelwert_StdAbw.html">Statistische Größen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1_Fehlerfortpflanzung.html">Fortpflanzung von Messunsicherheiten</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_Kurvenanpassung.html">Kurvenanpassung</a></li>
 </ul>
 </div>
 <section id="zusammenfassung">
@@ -753,37 +752,67 @@ title="Print to PDF"
 <td class="text-align:left"><p>die spezielle Größe der Messung, <span class="math notranslate nohighlight">\(x\)</span></p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>Wahrer Wert</p></td>
-<td class="text-align:left"><p>tatsächlich vorhandener Wert einer Messgröße, dessen Wert niemals bekannt sein wird.</p></td>
+<td class="text-align:left"><p>Tatsächlich vorhandener Wert einer physikalischen Größe, er ist durch eine endliche Genauigkeit der verwendeten Messmittel nicht exakt bestimbar.</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>Messergebnis</p></td>
+<tr class="row-even"><td class="text-align:left"><p>Richtiger Wert</p></td>
+<td class="text-align:left"><p>Mit denkbar größten technischem und theoretischem Aufwand ermittelter Messwert, der als Bezugswert zur Bewertung eines Messergebnisses benutzt wird.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Messergebnis / Messwert</p></td>
 <td class="text-align:left"><p>(Schätz-)Wert, den die Messgröße durch Auswertung einer Messung bekommt</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Messreihe</p></td>
+<td class="text-align:left"><p>Aufnahme von mehreren Messwerten von einem Messaufbau unter möglichst identischen Messbedingungen, d. h. unter Wiederholbedingungen. Die Messreihe wird zur statistischen Analyse und damit zur Bewertung der zufälligen Einflüsse auf ein Messergebnis benötigt.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Messabweichung</p></td>
+<td class="text-align:left"><p>Differenz zwischen ermitteltem Messwert (Schätzwert der Messgröße) und dem richtigen Wert der Messgröße</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Unsicherheit</p></td>
+<td class="text-align:left"><p>Von zufälligen Einflüssen verursachte Abweichungen eines Messergebnisses (z.B. über Statistik abschätzen)</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>arithmetischer Mittelwert <span class="math notranslate nohighlight">\(\overline x\)</span></p></td>
 <td class="text-align:left"><p>Schätzewert für den wahren Wert einer Messgröße aus einer Messreihe mit den Messwerten <span class="math notranslate nohighlight">\(x_j\)</span> und der Anzahl der Messwerte <span class="math notranslate nohighlight">\(m\)</span>: <span class="math notranslate nohighlight">\(\overline x = \frac{1}{m}\sum_{j=1}^m x_j\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>Messunsicherheit <span class="math notranslate nohighlight">\(u(x)\)</span></p></td>
+<tr class="row-even"><td class="text-align:left"><p>Erwartungswert</p></td>
+<td class="text-align:left"><p>Mittelwert einer unendlichen Gesamtheit</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Messunsicherheit <span class="math notranslate nohighlight">\(u(x)\)</span></p></td>
 <td class="text-align:left"><p>Wichtiger Bestandteil zur Angabe eines Messergebnisses. Die Unsicherheit charakterisiert einen Vertrauensbereich, der der Messgröße zugeschrieben wird: <span class="math notranslate nohighlight">\(\overline x \pm u(x)\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>relative Messunsicherheit</p></td>
-<td class="text-align:left"><p>Messunsicherheit dividiert durch den Betrag des Mittelwerts: $A_{r} = \frac{u(x)}{</p></td>
+<tr class="row-even"><td class="text-align:left"><p>relative Messunsicherheit</p></td>
+<td class="text-align:left"><p>Messunsicherheit dividiert durch den Betrag des Mittelwerts: $A_{r} = \frac{u(x)}{\left</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>Varianz: mittlere quadratische Abweichung <span class="math notranslate nohighlight">\(s^2(x)\)</span></p></td>
-<td class="text-align:left"><p>Ein Maß für die Messunsicherheit. Abweichung der Messwerte zum Mittelwert werden quadriert und gemittelt: <span class="math notranslate nohighlight">\(s^2 = \frac{1}{m-1} \sum_{j=1}^m (x_j - \overline x)^2\)</span></p></td>
+<tr class="row-odd"><td class="text-align:left"><p>Varianz: mittlere quadratische Abweichung <span class="math notranslate nohighlight">\(s^2(x)\)</span></p></td>
+<td class="text-align:left"><p>Beschreibt die quadratische Abweichung einer Zufallsvariable von dem Erwartungswert der betrachteten Gesamtheit. Ein Maß für die Messunsicherheit. <span class="math notranslate nohighlight">\(s^2 = \frac{1}{m-1} \sum_{j=1}^m (x_j - \overline x)^2\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>Standardabweichung</p></td>
-<td class="text-align:left"><p>Wurzel aus der mittleren quadratischen Abweichung:  <span class="math notranslate nohighlight">\(s = \sqrt{\frac{1}{m-1} \sum_{j=1}^m (x_j - \overline x)^2}\)</span></p></td>
+<tr class="row-even"><td class="text-align:left"><p>Standardabweichung</p></td>
+<td class="text-align:left"><p>In der Messtechnik auch als Streuung bezeichnet, sie ist die Quadratwurzel aus der von zufälligen Einflüssen verursachte Abweichung eines Messergebnisses (Wurzel der Varianz). Wurzel aus der mittleren quadratischen Abweichung:  <span class="math notranslate nohighlight">\(s = \sqrt{\frac{1}{m-1} \sum_{j=1}^m (x_j - \overline x)^2}\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>empirische Varianz <span class="math notranslate nohighlight">\(\sigma(x)^2\)</span></p></td>
+<tr class="row-odd"><td class="text-align:left"><p>empirische Varianz <span class="math notranslate nohighlight">\(\sigma^2(x)\)</span></p></td>
 <td class="text-align:left"><p>Schätzung der Varianz bezogen auf den <em>wahren</em> Wert (nicht auf den Mittelwert der Messreihe) der Messgröße: <span class="math notranslate nohighlight">\(\sigma^2 = \lim_{m\rightarrow \infty}\frac{1}{m} \sum_{j=1}^m (x_j - \mu)^2\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>empirische Standardabweichung <span class="math notranslate nohighlight">\(\sigma(x)\)</span></p></td>
+<tr class="row-even"><td class="text-align:left"><p>empirische Standardabweichung <span class="math notranslate nohighlight">\(\sigma(x)\)</span></p></td>
 <td class="text-align:left"><p>Wurzel aus der empirischen Varianz: <span class="math notranslate nohighlight">\(\sigma = \lim_{m\rightarrow \infty}\sqrt{\frac{1}{m} \sum_{j=1}^m (x_j - \mu)^2}\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>Wahrscheinlichkeitsverteilung <span class="math notranslate nohighlight">\(dP(x)\)</span></p></td>
+<tr class="row-odd"><td class="text-align:left"><p>Wahrscheinlichkeitsverteilung <span class="math notranslate nohighlight">\(dP(x)\)</span></p></td>
 <td class="text-align:left"><p>eine Funktion, die die Wahrscheinlichkeit angibt, dass eine Messgröße <span class="math notranslate nohighlight">\(x\)</span> durch Messung einen bestimmten Wert <span class="math notranslate nohighlight">\(x_j + dx\)</span> annehmen wird.</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Korrektur</p></td>
+<td class="text-align:left"><p>Von der systematischen Abweichung abgeleiteter Korrekturwert zur Berichtigung eines Schätzwertes einer Messgröße.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Genauigkeitsklasse</p></td>
+<td class="text-align:left"><p>Von den Fehlergrenzen abgeleitete Genauigkeitsangabe für Messeinrichtungen.</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Korrelation</p></td>
+<td class="text-align:left"><p>Maß für die lineare Korrelation zweier Messgrößen!</p></td>
 </tr>
 </tbody>
 </table>
+<figure class="align-default" id="zusammenfassung-abw">
+<a class="reference internal image-reference" href="../_images/zusammenfassung_abw.jpg"><img alt="zusammenfassung_abw" src="../_images/zusammenfassung_abw.jpg" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Abb. 12 </span><span class="caption-text">Korrektur und Angabe des Messergebnisses</span><a class="headerlink" href="#zusammenfassung-abw" title="Link zu diesem Bild">#</a></p>
+</figcaption>
+</figure>
 </section>
 </section>
 

@@ -79,17 +79,17 @@ print('eine absolute Unsicherheit von ', u*U_end, 'V')
 # :::::{grid} 2
 # 
 # ::::{grid-item}
-# | Messgerätekategorie | Genauigkeitsklasse (%) |
-# |:--------------------|:-------------------|
-# |Präzisionsmessgeräte | 0.001 |
+# | Messgeräte-Kategorie | Genauigkeits-Klasse (%) |
+# |:--------|:-----------|
+# |Präzisions-Messgeräte | 0.001 |
 # | | 0.002|
 # | | 0.005|
 # | | 0.01|
 # | | 0.05|
-# | Feinmessgeräte | 0.1|
+# | Fein-Messgeräte | 0.1|
 # | | 0.2|
 # | | 0.5|
-# | Betriebsmessgeräte | 1.0|
+# | Betriebs-Messgeräte | 1.0|
 # | | 1.5|
 # | | 2.5|
 # | | 5.0|

@@ -284,7 +284,7 @@ plt.tight_layout()
 # In {numref}`diode_kennlinie` sind zwei Beispiele für Dioden-Kennlinien grafisch dargestellt.
 # 
 # :::{figure-md} diode_kennlinie
-# <img src="draw/diode_kennlinie.jpg" alt="diode_kennlinie" class="bg-primary mb-1" width="400px" label = diode_kennlinie>
+# <img src="draw/diode_kennlinie.jpg" alt="diode_kennlinie" class="bg-primary mb-1" width="500px" label = diode_kennlinie>
 # 
 # Kennlinie einer Silizium und Germanium-Diode. 
 # :::

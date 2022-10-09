@@ -60,7 +60,7 @@ global_mean.head(6) # Ausgabe der ersten 5 Spalten
 global_mean['Year']
 
 
-# ## Daten plotten mit 'matplotlib'
+# ## Daten plotten und Diagramm sichern mit 'matplotlib'
 # 
 # Als Beispiel für eine gelungene grafische Darstellung wollen wir die beiden Spalten, *No_Smoothing* and *Lowess(5)* gegenüber der Zeitachse *Year* plotten. Hierfür benützen wir die Python Library `matplotlib`. Einmal geplottet kann das zuletzt angezeigte Diagramm in verschiedenen Formaten mit `plt.savefig('klima_plot1.png')` abgespeichert werden. Wenn nicht anders angegeben, wird die Datei im gleichen Ordner angelegt. 
 

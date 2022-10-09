@@ -9,7 +9,7 @@
 # Der Messwert kann uns direkt angezeigt werden oder er kann in nachfolgenden elektronischen Systemen zur Weiterverarbeitung in geeigneter Form zugeführt werden. 
 # 
 # :::{figure-md} messgroesse
-# <img src="draw/messgroesse.jpg" alt="messgroesse" class="bg-primary mb-1" width="600px" label = messgroesse>
+# <img src="draw/messgroesse.jpg" alt="messgroesse" width="600px" label = messgroesse>
 # 
 # Darstellung der Messkette.
 # :::
@@ -26,7 +26,7 @@
 # Häufig werden Prozesse in der Messtechnik mittels **Blockdiagrammen** dargestellt, wie {numref}`messsystem_block` in dargestellt.
 # 
 # :::{figure-md} messsystem_block
-# <img src="draw/messsystem.jpg" alt="messsystem" class="bg-primary mb-1" width="600px" label = messsystem_block>
+# <img src="draw/messsystem.jpg" alt="messsystem" width="600px" label = messsystem_block>
 # 
 # Blockdiagramm der Messkette.
 # :::
@@ -130,7 +130,7 @@ print('relative Messabweichung der Cheops-Pyramide: ', relative_abweichung*100, 
 # 
 # ::::{grid-item}
 # :::{figure-md} SI
-# <img src="draw/SI.jpg" alt="SI" class="bg-primary mb-1" width="300px" label = SI>
+# <img src="draw/SI.jpg" alt="SI" width="300px" label = SI>
 # 
 # Die sieben SI-Einheiten.
 # :::
@@ -161,23 +161,22 @@ print('relative Messabweichung der Cheops-Pyramide: ', relative_abweichung*100, 
 # 
 # Seit 2018 werden *alle* SI-Einheiten von Naturkonstanten abgeleitet. Bei den drei Basiseinheiten Meter, Sekunde und Candela hat sich nichts substantielles geändert, lediglich die Formulierung der Definition wurde angepasst, z.B.:
 # 
-# * Die **Sekunde** ist ab sofort dadurch definiert, dass die Frequenz der Cäsium-Strahlung, $\Delta \nu_\mathrm{133Cs}$, exakt den Wert 9192631770 annimmt, wenn man diese in 1/s ausdrückt:
+# * Die **Sekunde** ist ab sofort dadurch definiert, dass die Frequenz der Cäsium-Strahlung, $\Delta \nu_\mathrm{133Cs}$, exakt den Wert 9192631770 annimmt, wenn man diese in 1/s ausdrückt     (Cäsiumuhren haben übrigens eine Störanfälligkeit von 1:1e13, das entspricht einer Abweichung von 1s in 300000 Jahren.):
 # 
-# $$1\,\mathrm s = \frac{9192631770}{\Delta \nu_\mathrm{133Cs}}$$
+#     $$1\,\mathrm s = \frac{9192631770}{\Delta \nu_\mathrm{133Cs}}$$
 # 
-# (Cäsiumuhren haben übrigens eine Störanfälligkeit von 1:1e13, das entspricht einer Abweichung von 1s in 300000 Jahren.)
 # * Das **Meter** wird ähnlich wie zuvor über die Lichtgeschwindigkeit $c$ ausgedrückt: 
 # 
-# $$1\,\mathrm m = \frac{c}{299 792 458} s = 30,663318...\frac{c}{\Delta \nu_\mathrm{133Cs}}$$
+#     $$1\,\mathrm m = \frac{c}{299 792 458} s = 30,663318...\frac{c}{\Delta \nu_\mathrm{133Cs}}$$
 # 
 # * Die **Candela** wird von der photometrische Strahlungsäquivalent $\mathrm K_\mathrm{cd}$ (ebenfalls eine Naturkonstante) abgeleitet. Sie wird über die SI-Einheiten kg, m, s und Steradiant (sr = m$^2$/m$^2$) definiert.
 # 
 # Anders sieht es bei den weiteren vier Basiseinheiten aus, für die Naturkonstanten gefunden und festgelegt wurden:
-# * Das **Kilogramm** ist nun durch Ableitung aus dem Planckschen Wirkungsquantum $h = 6,62607015 \cdot 10^{-34}\,\mathrm{Js}$ definiert, wobei die Einheit J (Joule), wie unten noch aufgeführt wird, nichts anderes als kgm$^2$/s$^2$ ist. 
 # 
-# $$1\,\mathrm{kg} = \frac{h}{6,626070040 \cdot 10^{-34}}\,\mathrm{m^{−2} s} = 1,475521... \cdot 10^{40} h \cdot \frac{\Delta \nu_\mathrm{133Cs}}{c}$$
+# * Das **Kilogramm** ist nun durch Ableitung aus dem Planckschen Wirkungsquantum $h = 6,62607015 \cdot 10^{-34}\,\mathrm{Js}$ definiert, wobei die Einheit J (Joule), wie unten noch aufgeführt wird, nichts anderes als kgm$^2$/s$^2$ ist. $h$ wird dabei in Kooperation der metrologischen Institutionen in Form aufwendiger Experimente in entsprechender Genauigkeit bestimmt. 
 # 
-# $h$ wird dabei in Kooperation der metrologischen Institutionen in Form aufwendiger Experimente in entsprechender Genauigkeit bestimmt. 
+#     $$1\,\mathrm{kg} = \frac{h}{6,626070040 \cdot 10^{-34}}\,\mathrm{m^{−2} s} = 1,475521... \cdot 10^{40} h \cdot \frac{\Delta \nu_\mathrm{133Cs}}{c}$$
+#     
 # * Das **Ampere** wird dadurch definiert, dass die Elementarladung $e = 1,602 176 620 8 \cdot 10^{−19}\,\mathrm{As}$ beträgt:
 # 
 # $$ 1\,\mathrm A = \frac{e}{1,6021766208\cdot 10^{−19}}s^{−1} = 6,789687...\cdot 10^8 \Delta \nu_\mathrm{133Cs}\cdot e $$
@@ -186,12 +185,10 @@ print('relative Messabweichung der Cheops-Pyramide: ', relative_abweichung*100, 
 # 
 # $$ 1\,\mathrm K = \frac{1,38064852\cdot 10^{−23}}{k_B}\,\mathrm{kg m^2 s^{−1}} = 2,266665 \Delta \nu_\mathrm{133Cs} \cdot \frac{h}{k_B} $$
 # 
-# * Das **Mol** ist dadurch definiert, dass die Avogadro-Konstante $N_A = 6,022 140 857 \cdot 10^{23}\,\mathrm{mol^{−1}}$ beträgt. 
+# * Das **Mol** ist dadurch definiert, dass die Avogadro-Konstante $N_A = 6,022 140 857 \cdot 10^{23}\,\mathrm{mol^{−1}}$ beträgt. $N_A$ ist die Zahl, der in einem Mol enthaltenen Atome. Sie ist so definiert, dass 12 g Kohlenstoff (12C) genau einem Mol entspricht.
 # 
-# $$ 1\,\mathrm{mol} = \frac{6,022 140 857 \cdot 10^23}{N_A}$$
-# 
-# $N_A$ ist die Zahl, der in einem Mol enthaltenen Atome. Sie ist so definiert, dass 12 g Kohlenstoff (12C) genau einem Mol entspricht.
-# 
+# $$ 1\,\mathrm{mol} = \frac{6,022 140 857 \cdot 10^{23}}{N_A}$$
+#    
 # :::{figure-md} SI_konst
 # <img src="draw/SI-konst.jpg" alt="SI_konst" class="bg-primary mb-1" width="600px" label = SI_konst>
 # 
@@ -245,7 +242,21 @@ print('relative Messabweichung der Cheops-Pyramide: ', relative_abweichung*100, 
 
 # ### Vorsätze und Präfix im SI
 # 
-# Zum SI, bzw. prinzipiell angewendet in allen anderen Einheiten, sind sogenannte Präfixe / Vorsätze definiert. Teile oder Vielfach von SI-Einheiten können in Kurzform geschrieben werden, was das Lesen erleichtert. So können besonders große oder besonders kleine Zahlen übersichtlicher dargestellt werden. Dafür muss der oder die Forschende oder Ingeneur:in lediglich ein paar Vokabeln können: 
+# Zum SI, bzw. prinzipiell angewendet in allen anderen Einheiten, sind sogenannte Präfixe / Vorsätze definiert. Teile oder Vielfach von SI-Einheiten können in Kurzform geschrieben werden, was das Lesen erleichtert. So können besonders große oder besonders kleine Zahlen übersichtlicher dargestellt werden. Dafür muss der oder die Forschende oder Ingeneur:in lediglich ein paar Vokabeln können.
+# 
+# ::::::{margin}
+# :::::{grid}
+# ::::{grid-item-card}
+# :link: https://www.htwins.net/scale2/
+# 
+# :::{figure-md} dimensionen
+# <img src="pictures/dimensionen.jpg" alt="dimensionen" label = dimensionen>
+# 
+# [Klicke hier](https://www.htwins.net/scale2/) für eine Reise durch die Dimensionen.
+# :::
+# ::::
+# :::::
+# ::::::
 # 
 # ::::{grid} 2
 # 
@@ -347,8 +358,9 @@ plt.fill_between(data_df["frequenz"],data_df["amplitude"],-80,color='tab:blue', 
 plt.ylabel("Amplitude (dB)")
 plt.xlabel("Frequenz (Hz)")
 plt.title('Doppel-logarithmisch')
-
 plt.tight_layout()
+plt.savefig('log_plot1.png')
+plt.savefig('log_plot1.pdf')
 
 
 # Der eigentlich Messwert auf einen wohl definierten Referenzwert bezogen wird. Man bildet also den Quotienten aus Messwert und Referenzwert, $P/P_\mathrm{ref}$ (bei Leistungen) oder $U/U_\mathrm{ref}$ bei Spannungen. Danach werden diese Quotienten logarithmiert, *fast ausschließlich* mit der 10er-Logarithmus (log). Der neue Wert ist per Definition einheitenlos, wird aber die Einheit **Dezibel** (dB) zugeordnet, also das Zehntel eines **Bels**. Ganz selten wird der natürlich Logarithmus benutzt, dann wird die Einheit Neper (Np) angewendet. 

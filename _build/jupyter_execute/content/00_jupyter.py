@@ -9,7 +9,7 @@
 # Um dem **Vorlesungsskript** zu folgen sind **keine Python-Kenntnisse erforderlich**. 
 # 
 # * Den **Code** zu den Berechnungen und Plots sind meist versteckt und können über einen Klick auf dein *Pfeil* angezeigt werden. 
-# * **Anmerkungen, Textmarker und Vorlesungsnotizen** könnt ihr direkt auf der Seite machen (oben ganz rechter Seitenrand). Hierfür müsst ihr euch unter https://hypothes.is/ registrieren. Möchtet ihr die Notizen mit mir oder der Jahrgangs-Gruppe teilen, dann müsst ihr der entsprechenden Hypothes-Gruppe beitreten. Dadurch könnt ihr direkt Fragen zum Skript stellen (und Antworten bekommen) oder auf Fehler hinweisen. Den Link für eure Jahrgangsgruppe findet ihr im [ILIAS](https://ilias.hsu-hh.de/ilias.php?ref_id=429366&cmdClass=ilrepositorygui&cmdNode=zm&baseClass=ilrepositorygui). 
+# * **Anmerkungen, Textmarker und Vorlesungsnotizen** könnt ihr direkt auf der Seite machen (oben ganz rechter Seitenrand). Hierfür müsst ihr euch unter https://hypothes.is/ registrieren. Möchtet ihr die Notizen mit mir oder der Jahrgangs-Gruppe teilen, dann müsst ihr der entsprechenden Hypothes-Gruppe beitreten. Dadurch könnt ihr direkt Fragen zum Skript stellen (und Antworten bekommen) oder auf Fehler hinweisen. Den Link für eure Jahrgangsgruppe findet ihr im [ILIAS](https://ilias.hsu-hh.de/ilias.php?ref_id=292726&cmd=frameset&cmdClass=ilrepositorygui&cmdNode=zm&baseClass=ilrepositorygui). 
 # 
 # ## Praktikum
 # Für das **Praktikum** müsst ihr [Daten aufnehmen, auswerten und grafisch darstellen](1_Datenanalyse). Hierfür könnt ihr prinzipiell ein Programm eurer Wahl nehmen, wie z.B. 

@@ -5,8 +5,6 @@
 # 
 # Zunächst werden die für dieses Jupyter Notebook benötigten Libraries geladen:
 
-# lflgk
-
 # In[1]:
 
 

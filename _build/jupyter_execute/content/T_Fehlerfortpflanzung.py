@@ -9,7 +9,7 @@
 # 
 # Beispielsweise könnte man die Zeit nach jedem Umlauf messen, die näherungsweise konstant sein sollte (bis auf die 1. Runde, wo noch beschleunigt wird). Es könnte sich also ein linearer Zusammenhang zwischen zurückgelegtem Weg und der benötigten Zeit vermuten:
 # 
-# $$y = m\cdot x + b $$
+# $$y = t(x) = m\cdot x + b $$
 # 
 # Folgende Messwerte wurden ermittelt:
 # 

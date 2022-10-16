@@ -127,8 +127,8 @@ data=np.array(t_sec)
 mean=data.mean()
 std=data.std(ddof=1)
 
-print("Mittelwert der Messreihe: ", round(mean,5), 'V')
-print("Standardabweichung der Messungen: ", round(std,5), 'V')
+print("Mittelwert der Messreihe: ", round(mean,5), 's')
+print("Standardabweichung der Messungen: ", round(std,5), 's')
 
 bconts, bedges, _p = plt.hist(t_sec, density=True, bins=np.linspace(1.3, 1.5, 6))
 #xmin, xmax = plt.xlim()

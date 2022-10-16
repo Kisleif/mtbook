@@ -1,9 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Statistische Größen
-# 
-# ## Statistische Messunsicherheit
+# # Statistische Messunsicherheit
 # 
 # Statistische, oder zufällige, Einflüsse auf einen Messwert lassen sich durch Wiederholungen der eigentlichen Messung bestimmen. Dies nennt man auch Messreihe und bedeutet, dass $m$ Messungen für ein und denselben Messwert durchgeführt werden. Die einzelnen Messwerte $x_j$ unterscheiden sich, da der *wahre* Wert, $x_w$, immer mit einer zufälligen Abweichung, $A_j$,  versehen wird:
 # 
@@ -33,13 +31,24 @@ plt.figure(figsize=(4,4)) # Plot-Größe
 plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
-x_volt = np.array([1.02, 1.04, 0.98, 1.00, 0.95, 0.99,0.97,0.99,1.00,0.98,0.99,1.01,0.97,1.00,1.02], dtype=float)
-bconts, bedges, _p = plt.hist(x_volt, bins=np.linspace(0.95, 1.05, 6))
-plt.ylabel('Absolute Häufigkeit H(U)')
-plt.xlabel('Klassenverteilung der Spannung (V)')
+# synthetische Messwerte generieren mit weißem Rauschen:
+#N = 40
+#wahrer_wert = 1.4
+#y_wn = np.random.normal(scale=0.05, size=N)
+#t_sec = y_wn+1.4
+t_sec = np.array([1.41, 1.35, 1.45, 1.43, 1.44, 1.43,
+ 1.41, 1.32, 1.43, 1.40, 1.49, 1.40,
+ 1.40, 1.42, 1.40, 1.38, 1.37,  1.36,
+# 1.41, 1.36, 1.43, 1.39, 1.38, 1.47, 1.42, 1.40, 1.53, 1.43, 1.36, 1.49, 1.46, 1.48, 1.30, 1.41, 1.51, 1.46,
+ 1.37, 1.32, 1.47, 1.40])
+bconts, bedges, _p = plt.hist(t_sec, bins=np.linspace(1.3, 1.5, 6))
+plt.ylabel('Absolute Häufigkeit H(x)')
+plt.xlabel('Klassenverteilung der Zeit (s)')
 plt.show()
 
 
+# ## Häufigkeitsdichte 
+# 
 # Die **relative Häufigkeit** berechnet sich aus der absoluten Häufigkeit dividiert durch die Gesamtanzahl der vorgenommenen Messungen.
 # Aus der Häufigkeit lässt sich auch die sogenannte **Häufigkeitsdichte** berechnen. 
 # Die Häufigkeitsdichte gibt bei einem Histogramm die Höhe des Rechtecks an. Mit ihr kann man den Vergleich verschiedener Klassen erst vornehmen. Anders ausgedrückt heißt dass, dass die Häufigkeitsdichte einer Klasse das Verhältnis der absoluten oder der relativen Häufigkeit einer Klasse zur entsprechenden Klassenbreite ist. Genauso lässt sich die Häufigkeitsdichte auch berechnen:
@@ -59,44 +68,51 @@ plt.figure(figsize=(4,4)) # Plot-Größe
 plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
-x_volt = np.array([1.02, 1.04, 0.98, 1.00, 0.95, 0.99,0.97,0.99,1.00,0.98,0.99,1.01,0.97,1.00,1.02], dtype=float)
-m = len(x_volt)
+m = len(t_sec)
 
-bconts, bedges, _p = plt.hist(x_volt, density=True, bins=np.linspace(0.95, 1.05, 6))
+bconts, bedges, _p = plt.hist(t_sec, density=True, bins=np.linspace(1.3, 1.5, 6))
 plt.ylabel('Häufigkeitsdichte h(x) in %')
-plt.xlabel('Klassenverteilung der Spannung (V)')
+plt.xlabel('Klassenverteilung der Zeit (s)')
 plt.show()
+
+
+# In[3]:
+
 
 print('Integral über die Häufigkeitsdichte: ',(bconts * np.diff(bedges)).sum())
 
 
-# Mit größerer mathematischer Schärfe formuliert man: Die Wahrscheinlichkeit, einen Messwert innerhalb eines kleinen Intervalls $\Delta x$ um den Wert $\overline x$ zu finden, ist $dP(X) = p(x)\cdot \Delta x$. Je größer die Stichprobe $m$ (Anzahl der Messungen), desto eher erkennt man die zugrundeliegende Verteilung, die der Messreihe unterliegt. Häufig handelt es sich in der Praxis um eine *Normalverteilung* (oder auch Gaußverteilung genannt):
+# ## Zentraler Grenzwertsatz
 # 
-# $$P(x) = \frac{1}{s \sqrt{2\pi}}\int_{x_1}^{x_2} \mathrm{exp}\left(-\frac{(x-\overline x)^2}{2s^2}\right) dx$$
+# Mit größerer mathematischer Schärfe formuliert man: Die Wahrscheinlichkeit, einen Messwert innerhalb eines kleinen Intervalls $\Delta x$ um den Wert $\overline x$ zu finden, ist $dP(X) = h(x)\cdot \Delta x$. Je größer die Stichprobe $m$ (Anzahl der Messungen), desto eher erkennt man die zugrundeliegende Verteilung, die der Messreihe unterliegt. Häufig handelt es sich in der Praxis um eine *Normalverteilung* (oder auch Gaußverteilung genannt):
+# 
+# $$P(x) = \frac{1}{\sigma \sqrt{2\pi}}\int_{x_1}^{x_2} \mathrm{exp}\left(-\frac{(x-\overline x)^2}{2\sigma^2}\right) dx$$
 # 
 # Dies ist verblüffender Weise auch immer noch dann der Fall, wenn sehr viele externe Störungen (evtl. mit unterschiedlichen Verteilungsfunktionen) zu einer gemeinsamen Störgröße kombiniert werden. Die zusammengefasste Störung ist trotzdem fast immer gaußverteilt, egal die Einzelverteilungen aussehen (Poisson oder anderes). Dies wird auch als der **zentrale Grenzwertsatz der Wahrscheinlichkeitstheorie** bezeichnet.
 # > **Zentraler Grenzwertsatz der Wahrscheinlichkeitstheorie**: Der Durchschnitt einer großen Anzahl von Zufallsvariablen aus derselben Verteilung sind annäherend normalverteilt, unabhängig von der Verteilungsfunktion aus der sie herausgenommen wurden. 
 # 
-# - Normalverteilte Zufallsgrößen werden also von den beiden Paraemtern $\overline x$ und $s$ beschrieben. Der **arithmetische Mittelwert**, der das **arithmetische Mittel** aus $m$ Beobachtungen ist:
+# ## Statistische Größen
+# 
+# - Normalverteilte Zufallsgrößen werden also von den beiden Parametern $\overline x$ und $s$ beschrieben. Der **arithmetische Mittelwert**, der das **arithmetische Mittel** aus $m$ Beobachtungen ist:
 # 
 # $$\overline x = \frac{1}{m}\sum_{j=1}^m x_j$$
 # 
 # Für den Erwartungswert findet man in der Literatur unterschiedliche Bezeichnungen, unter anderem zum Beispiel $\overline x = E(x) = \left< x \right> = \mu$.
 # 
-# - Der *Erwartungswert der quadratischen Abweichung der Einzelmessungen vom Mittelwert*, die **Varianz** $s^2$, 
+# - Der *Erwartungswert der quadratischen Abweichung der Einzelmessungen vom Mittelwert*, die **Varianz** $\sigma^2$, 
 # lässt sich allgemein wie folgt schreiben:
 # 
 # $$\sigma^2  =  \frac{1}{m} \sum_{j=1}^m \left( x_j - \mu \right)^2$$
 # 
 # Der arithmetische Mittelwert zeichnet sich dadurch aus, dass für diesen Wert die Summe der Abweichungsquadrate minimal ist. Die Varianz hängt nicht von der Anzahl der Messungen ab. Die Streuung kann allein durch ein besseres Messverfahren verkleinert werden. Anschaulich ist das direkt nachvoll- ziehbar: Die „Punktwolke“ der Messergebnisse um den Mittelwert schmiegt sich nicht enger an den Mittelwert, nur weil häufiger gemessen wurde. Ein stark streuendes Messverfahren streut durch seine Wiederholung nicht weniger. 
 # 
-# - Unabhängig von der zugrundeliegenden Verteilung der Messwerte kann nun ein Maß für die Abweichung definiert werden, welche als **empirische Standardabweichung der Einzelmessungen** bekannt ist und sich aus der Quadratwurzel der Varianz berechnen lässt:
+# - Unabhängig von der zugrundeliegenden Verteilung der Messwerte kann nun ein Maß für die Abweichung definiert werden, welche als **Standardabweichung der Einzelmessungen** bekannt ist und sich aus der Quadratwurzel der Varianz berechnen lässt:
 # 
 # $$\sigma = \sqrt{\frac{1}{m} \sum_{j=1}^m (x_j - \mu)^2}$$
 # 
 # Man nehme beispielhaft die Messung einer Spannung. Die Messreihe ist im nachstehenden Bode-Block gegeben. Es wurden 15 wiederholte Messungen durchgeführt in denen 15x der Wert 1V gemessen werden sollte. Mittelwert, Standardabweichung der Einzelmessungen und Unsicherheit des Mittelwertes werden berechnet. 
 
-# In[3]:
+# In[4]:
 
 
 from scipy.stats import norm
@@ -106,16 +122,15 @@ plt.figure(figsize=(6,4)) # Plot-Größe
 plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
-x_volt=[1.02, 1.04, 0.98, 1.00, 0.95, 0.99,0.97,0.99,1.00,0.98,0.99,1.01,0.97,1.00,1.02] # Messergebnisse in Volt
-n = len(x_volt)
-data=np.array(x_volt)
+n = len(t_sec)
+data=np.array(t_sec)
 mean=data.mean()
 std=data.std(ddof=1)
 
 print("Mittelwert der Messreihe: ", round(mean,5), 'V')
 print("Standardabweichung der Messungen: ", round(std,5), 'V')
 
-bconts, bedges, _p = plt.hist(x_volt, density=True, bins=np.linspace(0.95, 1.05, 6), label = "Messwerte", alpha = 0.5)
+bconts, bedges, _p = plt.hist(t_sec, density=True, bins=np.linspace(1.3, 1.5, 6))
 #xmin, xmax = plt.xlim()
 xmin = mean-5*std
 xmax = mean+5*std
@@ -124,11 +139,13 @@ p = norm.pdf(x, mean, std)
 plt.plot(x, p, linewidth=2, label = 'Normalverteilung', color = "tab:red")
 plt.axvline(x=mean, color="tab:red", ls='--', label='Mittelwert')
 plt.ylabel('Häufigkeitsdichte h(x)')
-plt.xlabel('Klassenverteilung der Spannung (V)')
+plt.xlabel('Klassenverteilung der Zeitmessung (s)')
 plt.legend()
 plt.show()
 
 
+# ## Statistische Größen bei Messreihen
+# 
 # - Du wirst bei deinen Messungen in der Regel weniger an der Streuung um den Mittelwert sondern mehr an der (geschätzten) Streuung der Messwerte um den (unbekannten) *wahren* Wert interessiert sein. Man schätzt diese Unsicherheit durch die empirische Varianz $s^2(x)$ der Messwerte der $x_j$ ab. Diese ist etwas größer, um den Faktor $m/(m − 1)$:
 # 
 # $$s^2 = \frac{1}{m-1} \sum_{j=1}^m (x_j - \overline x)^2$$
@@ -139,6 +156,8 @@ plt.show()
 # 
 # > Welche der Größen s oder $\sigma$ du sinnvoll verwendest, hängt vom Einzelfall ab − wichtig ist, dass du dazu schreibst, welcher Wert verwendet wurde, damit die Leser die Argumentation nachvollziehen kann. Ein wenig spricht für die Verwendung $s$, da damit auch der etwas seltsame Fall einer Einzelmessung abgedeckt wird. Für m = 1 wäre $\sigma$ = 0, $s$ dagegen nicht definiert. Die zweite Aussage ist, bezogen auf die statistische Interpretation, sicher sinnvoller. Deshalb wird in diesem Skript $s$ verwendet.
 # 
+# ## Messunsicherheit des Mittelwertes 
+# 
 # Auch die Messunsicherheit des Mittelwertes selbst, $u(\overline x)$, kann natürlich kritisch bewertet werden: Wie wirkt sich die zu erwartende Messunsicherheit der einzelnen Messwerte $u(x)$ auf die Unsicherheit des Mittelwerts $u(\overline x)$ der Messreihe aus?
 # Laut *Grenzertsatz* sind folglich auch die Mittelwerte (sollte man mehrere Stichproben aufnehmen) normalverteilt. Das heißt aus den verschiedenen Mittelwerten von $k$ Stichproben könnte theoretisch wieder ein Mitelwert berechnet werden. Außerdem kann analog die Standardabweichung der Mittelwerte berechnet werden:
 # 
@@ -148,7 +167,7 @@ plt.show()
 # 
 # Bei einer großen Anzahl Messungen (>30) werden Sie stets finden, dass etwa 68% der Messungen im Intervall $\pm s(x)$ um den Mittelwert der Messreihe liegen. Würden Sie den wahren Wert kennen, könnten Sie weiter herausfinden, dass etwa 68% der Messwerte im Intervall $\pm s(x)$ um den wahren Wert und 68 % der Mittelwerte im Intervall $\pm s(\overline x)$ um den wahren Wert lägen.
 
-# In[4]:
+# In[5]:
 
 
 # MatplotLib Settings:
@@ -157,10 +176,8 @@ plt.figure(figsize=(6,4)) # Plot-Größe
 plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
-x_volt=[1.02, 1.04, 0.98, 1.00, 0.95, 0.99,0.97,0.99,1.00,0.98,0.99,1.01,0.97,1.00,1.02] # Messergebnisse in Volt
-
-n = len(x_volt)
-data=np.array(x_volt)
+n = len(t_sec)
+data=np.array(t_sec)
 mean=data.mean()
 std=data.std(ddof=1)
 
@@ -211,14 +228,14 @@ plt.plot(x, p_means, linewidth=2, label = 'Mittelwert-Verteilung', color="tab:re
 
 plt.axvline(x=data_means.mean(), color="tab:red", ls='--', label='wahrer (?) Wert')
 plt.ylabel('Häufigkeitsdichte h(x)')
-plt.xlabel('Klassenverteilung der Spannung (V)')
+plt.xlabel('Klassenverteilung der Zeit (s)')
 plt.legend(bbox_to_anchor=(1,1), loc="upper left")
 plt.show()
 
 
 # ## Vertrauensintervalle
 # 
-# Wir haben eben bereits erwähnt, dass 68% der Messwerte innerhalb des Intervalls $\pm s(x)$ liegen. Bei bekannter  Wahrscheinlichkeitsverteilung $p(x)$ der Messwerte $x$ um den Mittelwert $\overline x$, lässt sich die Wahrscheinlichkeit dafür berechnen, einen Messwert im Intervall $[x_1, x_2]$ um den Mittelwert zu finden. Wir nehmen im Folgenden eine Normalverteilung, mit Standardabweichung $\sigma$, der Messwerte an, dann ist die Wahrscheinlichkeit für
+# Wir haben eben bereits erwähnt, dass 68% der Messwerte innerhalb des Intervalls $\pm s(x)$ liegen. Bei bekannter  Wahrscheinlichkeitsverteilung $h(x)$ der Messwerte $x$ um den Mittelwert $\overline x$, lässt sich die Wahrscheinlichkeit dafür berechnen, einen Messwert im Intervall $[x_1, x_2]$ um den Mittelwert zu finden. Wir nehmen im Folgenden eine Normalverteilung, mit Standardabweichung $\sigma$, der Messwerte an, dann ist die Wahrscheinlichkeit für
 # - einen Messwert $x\pm dx$: 
 # 
 # $$h(x)dx = \frac{1}{\sigma \sqrt{2\pi}}\mathrm{exp}\left(-\frac{(x-\overline x)^2}{2\sigma^2}\right) dx$$
@@ -262,14 +279,14 @@ plt.show()
 # Der Vertrauensbereich gilt als Qualitätsmaß für die Genauigkeit einer durchgeführten Messung. 
 # Für $r=1$ wählen wir also die $\pm 1\sigma$-Umgebung, in der 68% der Messwerte liegen. Für $r = 2$, also die $\pm 2\sigma$-Umgebung, werden schon 95% aller Messwerte in diesem Bereich erwartet. Die Messabweichung ist dadurch erhöht, das Vertrauen allerdings auch.
 
-# In[5]:
+# In[6]:
 
 
-print("Mittelwert der Messreihe: ", round(mean,3), 'V')
-print("Standardabweichung der Messungen: ", round(std,3), 'V')
-print("Abweichung des Mittelwertes: ", round(std/np.sqrt(m),3), 'V')
+print("Mittelwert der Messreihe: ", round(mean,3), 's')
+print("Standardabweichung der Messungen: ", round(std,3), 's')
+print("Abweichung des Mittelwertes: ", round(std/np.sqrt(m),3), 's')
 print('----------------------------------------------------------------')
-print("Messergebnis (95%): (", round(mean,3), '+-',round(2*std/np.sqrt(m),3),') V')
+print("Messergebnis (95%): (", round(mean,3), '+-',round(2*std/np.sqrt(m),3),') s')
 
 
 # ## Korrektur bei kleinen Stichproben: Student-t
@@ -299,15 +316,15 @@ print("Messergebnis (95%): (", round(mean,3), '+-',round(2*std/np.sqrt(m),3),') 
 # :class: tip, dropdown
 # 
 # Für die Spannung-Messreihe aus dem oben aufgeführten Beispiel waren folgende Parameter gegeben:
-# * Anzahl der Messwerte $m=15$
-# * Mittelwert: $\overline U = 0.994\,\mathrm{V}$
-# * Standardabweichung des Mittelwertes: $ u_{\overline U} = 0,006\,\mathrm V $
+# * Anzahl der Messwerte $m=22$
+# * Mittelwert: $\overline x = 1,04\,\mathrm{s}$
+# * Standardabweichung des Mittelwertes: $ u_{\overline x} = 0,009\,\mathrm s $
 # 
 # Oben hatten wir das Ergebnis, in dem 95% der Messwerte zu finden sind, wiefolgt angegeben gehabt, in dem wir die Gaußverteilung und den zugehörigen $2\sigma$-Vertrauensbereich benutzt haben:
 # 
-# $$U = (0,994 \pm 2\cdot 0,006)\,\mathrm V = (0,994 \pm 0,012)\,\mathrm V \quad (95\%)$$
+# $$x = (1,04 \pm 2\cdot 0,009)\,\mathrm s = (1,004 \pm 0,018)\,\mathrm s \quad (95\%)$$
 # 
-# In Anbetracht der sehr kleinen Stichprobe von lediglich $m=15$ Messwerten sollte jedoch die Student-t Verteilung hinzugezogen werden und der Vertrauensbereich für 95% korrigiert werden. Es gilt also:
+# In Anbetracht der sehr kleinen Stichprobe von lediglich $m=22$ Messwerten sollte jedoch die Student-t Verteilung hinzugezogen werden und der Vertrauensbereich für 95% korrigiert werden. Es gilt also:
 # > $P = 1-\alpha = 0,95$. Daraus folgt:
 # 
 # > $\Rightarrow \alpha = 1-P = 1-0,95 = 0,05$
@@ -318,26 +335,28 @@ print("Messergebnis (95%): (", round(mean,3), '+-',round(2*std/np.sqrt(m),3),') 
 # 
 # Für die Berechnung des s-Quantils gilt:
 # 
-# > $s = m-1 = 15-1 = 14$
+# > $s = m-1 = 22-1 = 21$
 # 
 # Der $t$-Wert des korrigierten Vertrauensbereichs wird aus der Tabelle abgelesen:
 # 
-# $$t_{s;p} = t_{m-1; 1-\alpha/2} = t_{14; 0,975} = 2,145$$
+# $$t_{s;p} = t_{m-1; 1-\alpha/2} = t_{21; 0,975} = 2,080$$
 # 
-# Der Unterschied zum Vertrauensbereich, der aus der Normalverteilung hervorgeht, ist ein über 7% höherer Fehler.
-# Die Umrechnung dieses Vertrauensbereich in einen Vertrauensbereich mit einem anderen Vertrauenzniveau, z.B. von 95% zu 99%, wird im folgenden anhand dieses Beispiels verdeutlicht. Die Ergebnisse für 95% sind bekannt. Nun muss das Quantil für 99% (also $\alpha = $1%) bestimmt werden. Analog werden die $s = m-1 = 14$ und $p = 1-\alpha/2 = 1-0,005 = 0,995$ Quantile bestimmt und der $t-Wert$ aus der Tabelle abgelesen: 
+# $$x = (1,04 \pm 2,080\cdot 0,009)\,\mathrm s = (1,004 \pm 0,0187)\,\mathrm s \quad (95\% \textrm{ t-Verteilung})$$
 # 
-# $$t_{s;p} = t_{m-1; 1-\alpha/2} = t_{14; 0,995} = 2,977$$
+# Der Unterschied zum Vertrauensbereich, der aus der Normalverteilung hervorgeht, ist ein über 4% höherer Fehler.
+# Die Umrechnung dieses Vertrauensbereich in einen Vertrauensbereich mit einem anderen Vertrauenzniveau, z.B. von 95% zu 99%, wird im folgenden anhand dieses Beispiels verdeutlicht. Die Ergebnisse für 95% sind bekannt. Nun muss das Quantil für 99% (also $\alpha = $1%) bestimmt werden. Analog werden die $s = m-1 = 21$ und $p = 1-\alpha/2 = 1-0,005 = 0,995$ Quantile bestimmt und der $t$-Wert aus der Tabelle abgelesen: 
+# 
+# $$t_{s;p} = t_{m-1; 1-\alpha/2} = t_{21; 0,995} = 2,831$$
 # 
 # Hieraus kann nun nach obiger Gleichung der Vertrauensbereich für 99% berechnet werden:
 # 
 # > $\frac{u_{\alpha 1}}{t_{m-1; 1-\frac{\alpha_1}{2}}} =  \frac{u_{\alpha 2}}{t_{m-1; 1-\frac{\alpha_2}{2}}}$
 # 
-# > $\Rightarrow u_{\alpha 2} = u_{\alpha 1} \cdot \frac{t_{m-1; 1-\frac{\alpha_2}{2}}}{t_{m-1; 1-\frac{\alpha_1}{2}}} = 0,013\,\mathrm V \cdot 2,977 / 2,145 = 0,018\,\mathrm V$
+# > $\Rightarrow u_{\alpha 2} = u_{\alpha 1} \cdot \frac{t_{m-1; 1-\frac{\alpha_2}{2}}}{t_{m-1; 1-\frac{\alpha_1}{2}}} = 0,0187\,\mathrm s \cdot 2,831 / 2,080 = 0,025\,\mathrm s$
 # 
 # Die Angabe des Messergebnisses lautet somit:
 # 
-# $$U = (0,994 \pm 0,018)\,\mathrm V \quad (99\%)$$
+# $$x = (1,04 \pm 0,025)\,\mathrm s \quad (99\%)$$
 
 # ## Normierte Normalverteilung 
 # 
@@ -389,3 +408,9 @@ print("Messergebnis (95%): (", round(mean,3), '+-',round(2*std/np.sqrt(m),3),') 
 # ## Zusammenfassung zufälliger Unsicherheiten
 # 
 # ![Bild](pictures/zusammenfassung_zufaellig.png)
+
+# In[ ]:
+
+
+
+

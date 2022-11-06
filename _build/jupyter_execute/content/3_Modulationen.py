@@ -197,7 +197,7 @@ plt.show()
 # 
 # $$ y_\mathrm{PM}(t)= A_c \sin\left(2\pi f_c t  +p_0 + M_p m(t)\right)$$
 # 
-# Dabei ist $M_{p}$ die Modulationsstärke und $m(t)$ die modulierende Funktion oder kurz der Modulator, hier die entsprechende Nachricht, $y_\mathrm{Nachricht}(t)$. Entsprechend:
+# Dabei ist $M_{p}$ die Modulationsstärke und $m(t)$ die modulierende Funktion oder kurz der Modulator, hier die entsprechende Nachricht. Entsprechend:
 # 
 # $$ p(t)=2\pi f_c t+p_{0}+M_{p}m(t)$$
 # 
@@ -209,7 +209,7 @@ plt.show()
 # 
 # $$\omega(t) = \frac{d}{dt}p(t)$$
 # 
-# wobei die $p(t)$ eine sich verändernde Phase ist. Die **momentane Frequenz** ist also ganz allgemein die zeitliche Ableitung der Phasenfunktion (vgl. in diesem Zusammenhang die Beziehung zwischen Geschwindigkeit und Ort und die Analogie zwischen Phase und Ort bzw. Frequenz und Geschwindigkeit). Eine Frequenzmodulation fordert nun, dass sich die momentane Frequenz verändert:
+# wobei $p(t)$ eine sich verändernde Phase ist. Die **momentane Frequenz** ist also ganz allgemein die zeitliche Ableitung der Phasenfunktion (vgl. in diesem Zusammenhang die Beziehung zwischen Geschwindigkeit und Ort und die Analogie zwischen Phase und Ort bzw. Frequenz und Geschwindigkeit). Eine Frequenzmodulation fordert nun, dass sich die momentane Frequenz verändert:
 # 
 # $$\omega (t)=\omega_c+M_{f} m(t)$$ 
 # 
@@ -219,7 +219,7 @@ plt.show()
 # 
 # $$ p(t)=\int \omega (t)\,\mathrm {d} t $$
 # 
-# Setzen wir nun die Gleichung für momentane Frequenz ein, erhalten wir folglich:
+# Setzen wir dies nun die Gleichung für momentane Frequenz ein, erhalten wir folglich:
 # 
 # $$ p(t)=\int \omega_c+M_{f} m(t)\,\mathrm {d} t = \omega_c t + p_0 + M_{f} \int  m(t)\,\mathrm {d} t$$
 # 
@@ -227,7 +227,7 @@ plt.show()
 # 
 # $$y_\mathrm{FM}(t) = A_c \cdot \sin\left(2\pi f_c t + p_0 + M_f\int m(t) dt \right)$$
 # 
-# Die Frequenzänderung ist durch die Amplitude des Nachrichtensignals gegeben. Angenommen $m(t)$ ist die einheitsnormierte Nachricht und $f_{dev}$ ist die maximal mögliche Abweichung von der Trägerfrequenz $f_c$. 
+# Die Frequenzänderung ist durch die Amplitude des Nachrichtensignals gegeben. 
 # 
 # ## Vergleich zwischen PM und FM
 # 
@@ -239,11 +239,11 @@ plt.show()
 # 
 # Folgende Eigenschaften können beobachtet werden:
 # * Der Phasenhub für die Phasenmodulation ist immer noch $M_{p}$
-# * Der Phasenschub für die Frequenzmodulation ist ${\frac {M_{f}}{\omega_m}}$. 
+# * Der Phasenhub für die Frequenzmodulation ist ${\frac {M_{f}}{\omega_m}}$. 
 # * Die momentane Frequenz für die Phasenmodulation ist $\omega_c+M_{p}\omega_m\cos(\omega_m t+p_{m})$
-# * Der Phasenschub für die Frequenzmodulation ist $\omega_c+M_{f} \sin \left(\omega _{m}t+p_{m}\right)$
+# * Die momentane Frequenz für die Frequenzmodulation ist $\omega_c+M_{f} \sin \left(\omega _{m}t+p_{m}\right)$
 # 
-# In beiden Fällen findet eine Modulation der Phase statt. Allerdings wirkt bei der Frequenzmodulation nicht der Modulator direkt auf die Phase ein, sondern es ist erst das Integral des Modulators zu rechnen. Das Integral hat eine Tiefpasswirkung. Der Phasenhub wird also bei der Frequenzmodulation mit zunehmender Frequenz des Modulators geringer. Umgekehrt wird der Frequenzhub bei der Phasenmodulation mit niedriger werdender Modulatorfrequenz immer geringer.
+# In beiden Fällen findet eine Modulation der Phase statt. Allerdings wirkt bei der Frequenzmodulation nicht der Modulator direkt auf die Phase ein, sondern es ist erst das Integral des Modulators zu rechnen. Das Integral hat eine Tiefpasswirkung. Der Phasenhub wird also bei der Frequenzmodulation mit zunehmender Frequenz des Modulators geringer. Umgekehrt wird der Frequenzhub bei der Phasenmodulation mit niedrig werdender Modulatorfrequenz immer geringer.
 
 # In[4]:
 

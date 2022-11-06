@@ -169,7 +169,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="1_Mittelwert_StdAbw.html">
-     Statistische Größen
+     Statistische Messunsicherheit
     </a>
    </li>
    <li class="toctree-l2">
@@ -439,7 +439,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="T_Spektralanalyse_Audio.html">
-     Fourier-Transformation: Entfernung von Hintegrundrauschen in einem Audiosignal
+     Fourier-Transformation: Entfernung von Hintergrundrauschen in einem Audiosignal
     </a>
    </li>
   </ul>
@@ -977,7 +977,7 @@ y_\mathrm{AM,demod}(t) &amp;= y_\mathrm{AM}(t) \cdot s(t) \\
 <p>Nun wird die momentane Phase durch Addition eines Modulators verändert, dadurch entsteht der Ausdruck für eine Phasenmodulation:</p>
 <div class="math notranslate nohighlight">
 \[ y_\mathrm{PM}(t)= A_c \sin\left(2\pi f_c t  +p_0 + M_p m(t)\right)\]</div>
-<p>Dabei ist <span class="math notranslate nohighlight">\(M_{p}\)</span> die Modulationsstärke und <span class="math notranslate nohighlight">\(m(t)\)</span> die modulierende Funktion oder kurz der Modulator, hier die entsprechende Nachricht, <span class="math notranslate nohighlight">\(y_\mathrm{Nachricht}(t)\)</span>. Entsprechend:</p>
+<p>Dabei ist <span class="math notranslate nohighlight">\(M_{p}\)</span> die Modulationsstärke und <span class="math notranslate nohighlight">\(m(t)\)</span> die modulierende Funktion oder kurz der Modulator, hier die entsprechende Nachricht. Entsprechend:</p>
 <div class="math notranslate nohighlight">
 \[ p(t)=2\pi f_c t+p_{0}+M_{p}m(t)\]</div>
 <p>Man sieht, dass eine Phasenmodulation mathematisch sehr einfach auszudrücken ist.</p>
@@ -987,20 +987,20 @@ y_\mathrm{AM,demod}(t) &amp;= y_\mathrm{AM}(t) \cdot s(t) \\
 <p>Vom heutigen Stand der Technik betrachtet ist die AM allerdings überholt, weil die Qualitätsansprüche gestiegen sind und mit modernen Bauelementen die <strong>Frequenzmodulation (FM)</strong> erheblich einfacher, billiger und leistungssparender gebaut werden können. Außerdem haben die FM einen höheren Dynamikumfang des Informationssignals und ist weniger anfällig gegenüber Störungen. Eine Frequenzmodulation setzt voraus, dass sich die Frequenz ständig ändert. Dieses lässt sich nicht mehr durch einen Term der Form <span class="math notranslate nohighlight">\(\omega_c t = 2\pi f_c t\)</span> ausdrücken, sondern wir müssen den Begriff der momentanen Kreisfrequenz einführen:</p>
 <div class="math notranslate nohighlight">
 \[\omega(t) = \frac{d}{dt}p(t)\]</div>
-<p>wobei die <span class="math notranslate nohighlight">\(p(t)\)</span> eine sich verändernde Phase ist. Die <strong>momentane Frequenz</strong> ist also ganz allgemein die zeitliche Ableitung der Phasenfunktion (vgl. in diesem Zusammenhang die Beziehung zwischen Geschwindigkeit und Ort und die Analogie zwischen Phase und Ort bzw. Frequenz und Geschwindigkeit). Eine Frequenzmodulation fordert nun, dass sich die momentane Frequenz verändert:</p>
+<p>wobei <span class="math notranslate nohighlight">\(p(t)\)</span> eine sich verändernde Phase ist. Die <strong>momentane Frequenz</strong> ist also ganz allgemein die zeitliche Ableitung der Phasenfunktion (vgl. in diesem Zusammenhang die Beziehung zwischen Geschwindigkeit und Ort und die Analogie zwischen Phase und Ort bzw. Frequenz und Geschwindigkeit). Eine Frequenzmodulation fordert nun, dass sich die momentane Frequenz verändert:</p>
 <div class="math notranslate nohighlight">
 \[\omega (t)=\omega_c+M_{f} m(t)\]</div>
 <p>wobei <span class="math notranslate nohighlight">\(M_f\)</span> wieder die Modulationstärke ist und <span class="math notranslate nohighlight">\(m(t)\)</span> die modulierende Funktion, bzw. <em>message</em>.</p>
 <p>Für die Berechnung der Kurvenform zu jedem Zeitpunkt benötigen wir jedoch nicht die momentane Frequenz, sondern die Phasenfunktion. Wenn die Frequenz die Ableitung der Phase ist, so ist umgekehrt die Phase das Integral der Frequenz:</p>
 <div class="math notranslate nohighlight">
 \[ p(t)=\int \omega (t)\,\mathrm {d} t \]</div>
-<p>Setzen wir nun die Gleichung für momentane Frequenz ein, erhalten wir folglich:</p>
+<p>Setzen wir dies nun die Gleichung für momentane Frequenz ein, erhalten wir folglich:</p>
 <div class="math notranslate nohighlight">
 \[ p(t)=\int \omega_c+M_{f} m(t)\,\mathrm {d} t = \omega_c t + p_0 + M_{f} \int  m(t)\,\mathrm {d} t\]</div>
 <p>Damit erhält man für die Frequenzmodulation folgenden Ausdruck:</p>
 <div class="math notranslate nohighlight">
 \[y_\mathrm{FM}(t) = A_c \cdot \sin\left(2\pi f_c t + p_0 + M_f\int m(t) dt \right)\]</div>
-<p>Die Frequenzänderung ist durch die Amplitude des Nachrichtensignals gegeben. Angenommen <span class="math notranslate nohighlight">\(m(t)\)</span> ist die einheitsnormierte Nachricht und <span class="math notranslate nohighlight">\(f_{dev}\)</span> ist die maximal mögliche Abweichung von der Trägerfrequenz <span class="math notranslate nohighlight">\(f_c\)</span>.</p>
+<p>Die Frequenzänderung ist durch die Amplitude des Nachrichtensignals gegeben.</p>
 </section>
 <section id="vergleich-zwischen-pm-und-fm">
 <h2>Vergleich zwischen PM und FM<a class="headerlink" href="#vergleich-zwischen-pm-und-fm" title="Link zu dieser Überschrift">#</a></h2>
@@ -1012,11 +1012,11 @@ y_\mathrm{AM,demod}(t) &amp;= y_\mathrm{AM}(t) \cdot s(t) \\
 <p>Folgende Eigenschaften können beobachtet werden:</p>
 <ul class="simple">
 <li><p>Der Phasenhub für die Phasenmodulation ist immer noch <span class="math notranslate nohighlight">\(M_{p}\)</span></p></li>
-<li><p>Der Phasenschub für die Frequenzmodulation ist <span class="math notranslate nohighlight">\({\frac {M_{f}}{\omega_m}}\)</span>.</p></li>
+<li><p>Der Phasenhub für die Frequenzmodulation ist <span class="math notranslate nohighlight">\({\frac {M_{f}}{\omega_m}}\)</span>.</p></li>
 <li><p>Die momentane Frequenz für die Phasenmodulation ist <span class="math notranslate nohighlight">\(\omega_c+M_{p}\omega_m\cos(\omega_m t+p_{m})\)</span></p></li>
-<li><p>Der Phasenschub für die Frequenzmodulation ist <span class="math notranslate nohighlight">\(\omega_c+M_{f} \sin \left(\omega _{m}t+p_{m}\right)\)</span></p></li>
+<li><p>Die momentane Frequenz für die Frequenzmodulation ist <span class="math notranslate nohighlight">\(\omega_c+M_{f} \sin \left(\omega _{m}t+p_{m}\right)\)</span></p></li>
 </ul>
-<p>In beiden Fällen findet eine Modulation der Phase statt. Allerdings wirkt bei der Frequenzmodulation nicht der Modulator direkt auf die Phase ein, sondern es ist erst das Integral des Modulators zu rechnen. Das Integral hat eine Tiefpasswirkung. Der Phasenhub wird also bei der Frequenzmodulation mit zunehmender Frequenz des Modulators geringer. Umgekehrt wird der Frequenzhub bei der Phasenmodulation mit niedriger werdender Modulatorfrequenz immer geringer.</p>
+<p>In beiden Fällen findet eine Modulation der Phase statt. Allerdings wirkt bei der Frequenzmodulation nicht der Modulator direkt auf die Phase ein, sondern es ist erst das Integral des Modulators zu rechnen. Das Integral hat eine Tiefpasswirkung. Der Phasenhub wird also bei der Frequenzmodulation mit zunehmender Frequenz des Modulators geringer. Umgekehrt wird der Frequenzhub bei der Phasenmodulation mit niedrig werdender Modulatorfrequenz immer geringer.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># MatplotLib Settings:</span>

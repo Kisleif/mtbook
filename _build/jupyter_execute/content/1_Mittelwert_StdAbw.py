@@ -71,7 +71,7 @@ plt.rcParams['font.size'] = 10; # Schriftgröße
 m = len(t_sec)
 
 bconts, bedges, _p = plt.hist(t_sec, density=True, bins=np.linspace(1.3, 1.5, 6))
-plt.ylabel('Häufigkeitsdichte h(x) in %')
+plt.ylabel('Häufigkeitsdichte h(x)')
 plt.xlabel('Klassenverteilung der Zeit (s)')
 plt.show()
 

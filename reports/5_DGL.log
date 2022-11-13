@@ -17,55 +17,65 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-#Benötigte Libraries:
 import numpy as np
-import pandas as pd
-from scipy import signal 
-import scipy.integrate as spi
+import scipy.signal as signal
 import matplotlib.pyplot as plt
-import plotly.offline as py
-py.init_notebook_mode(connected=True)
-import plotly.graph_objs as go
-import plotly.tools as tls
-import seaborn as sns
-import time
-import warnings
-warnings.filterwarnings('ignore')
-MatplotLib Settings:
+# MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
 plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
+# Transfer Funktion Tiefpass:
+K = 1 # Verstärkungsfaktor
+T = 1 # Zeit nach der 63% des Signals erreicht ist
+num = np.array([K])
+den = np.array([T , 1])
+H = signal.TransferFunction(num , den)
 
-def heaviside_step_function(t):
-    if t < 0:
-        res = 0
-    else:
-        res = 1
-    return res
+# Sprungantwort:
+t, y = signal.step(H)
 
+# Impulsantwort
+t_imp, y_imp = signal.impulse(H)
 
-T = 1
-t = np.linspace(-2*T, 2*T, 1000, endpoint = True)
-y_step = []
-for i in t:
-    y_step.append(heaviside_step_function(i))
-    
 # Plotting
-fig, ax = plt.subplots(figsize=(3,2))
-plt.plot(t,y_step, color = 'tab:blue')
-ax.set_yticks([0,1])
-ax.set_xticks([0])
-plt.title('Sprungsanregung bei t = 0s')
-plt.xlabel('Zeit t')
-plt.ylabel(r'$u_e$')
+fig, ax = plt.subplots(figsize=(9,4))
+plt.subplot(1,2,1)
+plt.axhline(y = 1.0, color='k', ls = '--', lw = 1)
+plt.axhline(y = 0.95, color='k', ls = '--', lw = 1)
+plt.axhline(y = 0.63, color='k', ls = '--', lw = 1)
+plt.axvline(x = T, color='k', ls = '--', lw = 1)
+plt.axvline(x = 3*T, color='k', ls = '--', lw = 1)
+plt.plot(t2,y_step, color = 'tab:red', label = r'Sprunganregung $\sigma(t)$')
+plt.plot(t, y, color='tab:blue', label = r'Sprungantwort $h(t)$')
+plt.yticks([1.0, 0.95,0.63], labels = ['100%','95%', '63%'])
+plt.xticks([0,T,3*T], labels = ['0',r'$\tau$',r'$3\tau$'])
+plt.title("Sprungantwort eines Tiefpasses")
+plt.xlabel("Zeit t")
+plt.ylabel(r'$u_a(t)/u_0$')
+plt.legend()
+
+plt.subplot(1,2,2)
+plt.plot(t2,y_impuls, color = 'tab:orange', label = r'Impulsanregung $\delta(t)$')
+plt.plot(t_imp, y_imp, color='tab:blue', label = r'Impulsantwort $g(t)$')
+plt.yticks([1.0, 0.5,0.0], labels = ['100%','50%', '0%'])
+plt.title("Impulsantwort eines Tiefpasses")
+plt.xlabel("Zeit t")
+plt.legend()
+#plt.ylabel(r'$u_a(t)/u_0$')
+plt.tight_layout
 plt.show()
 ------------------
 
-[0;36m  Input [0;32mIn [1][0;36m[0m
-[0;31m    MatplotLib Settings:[0m
-[0m               ^[0m
-[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+Input [0;32mIn [2][0m, in [0;36m<cell line: 40>[0;34m()[0m
+[1;32m     37[0m plt[38;5;241m.[39mlegend()
+[1;32m     39[0m plt[38;5;241m.[39msubplot([38;5;241m1[39m,[38;5;241m2[39m,[38;5;241m2[39m)
+[0;32m---> 40[0m plt[38;5;241m.[39mplot(t2,[43my_impuls[49m, color [38;5;241m=[39m [38;5;124m'[39m[38;5;124mtab:orange[39m[38;5;124m'[39m, label [38;5;241m=[39m [38;5;124mr[39m[38;5;124m'[39m[38;5;124mImpulsanregung $[39m[38;5;124m\[39m[38;5;124mdelta(t)$[39m[38;5;124m'[39m)
+[1;32m     41[0m plt[38;5;241m.[39mplot(t_imp, y_imp, color[38;5;241m=[39m[38;5;124m'[39m[38;5;124mtab:blue[39m[38;5;124m'[39m, label [38;5;241m=[39m [38;5;124mr[39m[38;5;124m'[39m[38;5;124mImpulsantwort $g(t)$[39m[38;5;124m'[39m)
+[1;32m     42[0m plt[38;5;241m.[39myticks([[38;5;241m1.0[39m, [38;5;241m0.5[39m,[38;5;241m0.0[39m], labels [38;5;241m=[39m [[38;5;124m'[39m[38;5;124m100[39m[38;5;124m%[39m[38;5;124m'[39m,[38;5;124m'[39m[38;5;124m50[39m[38;5;124m%[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124m0[39m[38;5;124m%[39m[38;5;124m'[39m])
 
-SyntaxError: invalid syntax (300277215.py, line 15)
+[0;31mNameError[0m: name 'y_impuls' is not defined
+NameError: name 'y_impuls' is not defined
 

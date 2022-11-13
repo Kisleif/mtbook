@@ -129,44 +129,6 @@ plt.show()
 # 
 # Dies ist auch die sogenannte **Sprungantwort** eines Systems 1. Ordnung, da wir in Schritt 2. einen *Sprung* angelegt haben. Hätten wir uns als Eingangssignal einen Impuls (eine Delta-Funktion) ausgesucht, hätten wir die **Impulsantwort** des Systems bestimmt.
 
-# ## Testfunktionen: Sprungantwort, Impulsantwort
-# 
-# In der Messtechnik wird das Übertragungsverhalten einer Messeinrichtung mittels Testfunktionen im Labor überprüft. **Sprung** und **Impuls** gehören zu den meist benutzten Testfunktionen, doch auch eine **Rampen**funktion (ein sich kontinuierlich erhöhendes Eingangssignal) oder ein **Sweep** (hier werden verschiedene Frequenzen direkt nacheinander durchgefahren) haben sich bewährt. 
-
-# In[2]:
-
-
-# Impuls:
-def ddf(x,sig):
-    val = np.zeros_like(x)
-    val[(-(1/(2*sig))<=x) & (x<=(1/(2*sig)))] = 1
-    return val
-
-y_impuls = ddf(t2,6.)
-
-# Plotting
-fig, ax = plt.subplots(figsize=(7,4))
-plt.subplot(2,2,1)
-plt.plot(t2,y_step, color = 'tab:red', label = 'Sprunganregung')
-plt.title(r'Sprung $\sigma(t)$')
-plt.subplot(2,2,2)
-plt.plot(t2,y_impuls, color = 'tab:orange', label = 'Impuls')
-plt.title(r'Impuls $\delta(t)$')
-plt.subplot(2,2,3)
-plt.plot(t2,t2/np.max(t2), color = 'tab:green', label = 'Rampe')
-plt.title(r'Rampe $t\cdot \sigma(t)$ ')
-plt.xlabel("Zeit t")
-
-plt.subplot(2,2,4)
-plt.plot(t2,signal.chirp(t2, f0=4, f1=0.2, t1=7, method='linear'), color = 'tab:olive', label = 'Shirp')
-plt.title(r'Sweep $f(t)$ ')
-plt.xlabel("Zeit t")
-
-plt.tight_layout()
-
-
-# Das Vorgehen ist wiefolgt: Es wird eine Testfunktion als Eingangssignal $u_e(t)$ angelegt und gemessen. Der Ausgang des Systems wird abgegriffen und das Ausgangssignal $u_a(t)$ ebenfalls gemessen. Ein Vergleich aus angelegtem Eingangssignal und gemessener Systemantwort (Ausgangssignal) können Rückschlüsse für das System getroffen werden. 
-
 # ### Eigenschaften von Sprung- und Impulsantwort
 # 
 # Um ein vorliegendes Messsystem im Labor zu charakterisieren kann man beispielsweise das System mit einem Sprung anregen und die Sprungantwort messen. 
@@ -183,7 +145,7 @@ plt.tight_layout()
 #     * Für ein System 2. Ordnung ist häufig ein Überschwingungen oder Einpendeln zubeoachten. Dann ist $t_e$ Zeit vom Anlegen der Sprungfunktion bis zum Erreichen des Toleranzbandes innerhalb von 0,95 und 1,05.
 # * *Anstiegszeit* $t_r$: Dies ist die Dauer für einen Signalanstieg von 10% auf 90% am Ausgang des Systems.
 
-# In[3]:
+# In[2]:
 
 
 import numpy as np
@@ -232,10 +194,7 @@ plt.title("Impulsantwort eines Tiefpasses")
 plt.xlabel("Zeit t")
 plt.legend()
 #plt.ylabel(r'$u_a(t)/u_0$')
-
 plt.tight_layout
-
-
 plt.show()
 
 
@@ -285,8 +244,40 @@ plt.show()
 # Hierbei handelt es sich um die Lösung im Frequenzraum, die nach einer Rück-Transformation die gleich Sprungantwort liefert wie oben bereits hergeleitet.
 # In allgemeiner Form, also ohne das Einsetzen einer Sprunganregung, führt uns dieser Ansatz jedoch zu der sogenannten **Übertragungsfunktion**, mit der wir uns im nächsten Kapitel beschäftigen wollen.
 
+# ## Weitere Testfunktionen
+# 
+# In der Messtechnik wird das Übertragungsverhalten einer Messeinrichtung mittels Testfunktionen im Labor überprüft. **Sprung** und **Impuls** gehören zu den meist benutzten Testfunktionen, doch auch eine **Rampen**funktion (ein sich kontinuierlich erhöhendes Eingangssignal) oder ein **Sweep** (hier werden verschiedene Frequenzen direkt nacheinander durchgefahren) haben sich bewährt. 
+
 # In[ ]:
 
 
+# Impuls:
+def ddf(x,sig):
+    val = np.zeros_like(x)
+    val[(-(1/(2*sig))<=x) & (x<=(1/(2*sig)))] = 1
+    return val
+
+y_impuls = ddf(t2,6.)
+
+# Plotting
+fig, ax = plt.subplots(figsize=(7,4))
+plt.subplot(2,2,1)
+plt.plot(t2,y_step, color = 'tab:red', label = 'Sprunganregung')
+plt.title(r'Sprung $\sigma(t)$')
+plt.subplot(2,2,2)
+plt.plot(t2,y_impuls, color = 'tab:orange', label = 'Impuls')
+plt.title(r'Impuls $\delta(t)$')
+plt.subplot(2,2,3)
+plt.plot(t2,t2/np.max(t2), color = 'tab:green', label = 'Rampe')
+plt.title(r'Rampe $t\cdot \sigma(t)$ ')
+plt.xlabel("Zeit t")
+
+plt.subplot(2,2,4)
+plt.plot(t2,signal.chirp(t2, f0=4, f1=0.2, t1=7, method='linear'), color = 'tab:olive', label = 'Shirp')
+plt.title(r'Sweep $f(t)$ ')
+plt.xlabel("Zeit t")
+
+plt.tight_layout()
 
 
+# Das Vorgehen ist wiefolgt: Es wird eine Testfunktion als Eingangssignal $u_e(t)$ angelegt und gemessen. Der Ausgang des Systems wird abgegriffen und das Ausgangssignal $u_a(t)$ ebenfalls gemessen. Ein Vergleich aus angelegtem Eingangssignal und gemessener Systemantwort (Ausgangssignal) können Rückschlüsse für das System getroffen werden. 

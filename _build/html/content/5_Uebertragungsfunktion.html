@@ -720,26 +720,14 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#anlegen-von-testfunktionen">
-   Anlegen von Testfunktionen…
+  <a class="reference internal nav-link" href="#simulation-von-testfunktionen-an-einem-tiefpass">
+   Simulation von Testfunktionen an einem Tiefpass
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#im-zeitraum">
-     …im Zeitraum
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#im-frequenzraum">
-     … im Frequenzraum
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#referenztabellen-fur-signale-im-laplace-raum">
-     Referenztabellen für Signale im Laplace-Raum
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#referenztabellen-fur-die-laplace-transformation">
+   Referenztabellen für die Laplace-Transformation
+  </a>
  </li>
 </ul>
 
@@ -800,26 +788,14 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#anlegen-von-testfunktionen">
-   Anlegen von Testfunktionen…
+  <a class="reference internal nav-link" href="#simulation-von-testfunktionen-an-einem-tiefpass">
+   Simulation von Testfunktionen an einem Tiefpass
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#im-zeitraum">
-     …im Zeitraum
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#im-frequenzraum">
-     … im Frequenzraum
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#referenztabellen-fur-signale-im-laplace-raum">
-     Referenztabellen für Signale im Laplace-Raum
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#referenztabellen-fur-die-laplace-transformation">
+   Referenztabellen für die Laplace-Transformation
+  </a>
  </li>
 </ul>
 
@@ -869,7 +845,7 @@ Die DGL im Frequenz- oder Laplaceraum kann direkt benutzt werden, um die sogenan
 Im Allgmeinen gilt:</p>
 <ul class="simple">
 <li><p>Die <strong>Fourier-Transformation (FT)</strong> wird bei <strong>kontinuierlichen Signalen</strong> verwendet.Für eine FT muss das Signal <strong>integrierbar</strong> sein, was für einen Sprung, Rampe z.B. nicht gilt, wo das Integral gegen unendlich läuft.</p></li>
-<li><p>Die <strong>Laplace-Transformation</strong> wird bei Reaktionen auf <strong>diskrete Funktionen</strong> verwendet, wie z.B. Stufenfunktion, Impulsfunktion, Delta-Dirac-Puls, die mittels FT nicht anlysiert werden können.</p></li>
+<li><p>Die <strong>Laplace-Transformation</strong> wird bei Reaktionen auf <strong>diskrete Funktionen</strong> verwendet, wie z.B. Stufenfunktion, Impulsfunktion, Delta-Dirac-Puls, die mittels FT nicht analysiert werden können.</p></li>
 </ul>
 <section id="herleitung-der-ubertragungsfunktion">
 <h2>Herleitung der Übertragungsfunktion<a class="headerlink" href="#herleitung-der-ubertragungsfunktion" title="Link zu dieser Überschrift">#</a></h2>
@@ -894,7 +870,7 @@ Im Allgmeinen gilt:</p>
 \[\underline U_\mathrm a = \underline Z_C \cdot \underline I\]</div>
 <p>Die komplexe Eingangsspannung liegt an kompletten Messsystem, also der Reihenschaltung an, d.h. es gilt</p>
 <div class="math notranslate nohighlight">
-\[\underline U_\mathrm a = (R+ \underline Z_C) \cdot \underline I\]</div>
+\[\underline U_\mathrm e = (R+ \underline Z_C) \cdot \underline I\]</div>
 <p>Die Division der beiden Spannungen führt abermals zur der gesuchten Übertragungsfunktion:</p>
 <div class="math notranslate nohighlight">
 \[G(j \omega) = \frac{\underline U_\mathrm a}{\underline U_\mathrm e} = \frac{1/(j\omega C)}{R + 1/(j\omega C)} = \frac{1}{1+RC j \omega}\]</div>
@@ -1337,10 +1313,8 @@ Dies führt zu <strong>dynamischen Fehlern</strong>, hier in hellblau als Fläch
 </div>
 </div>
 </section>
-<section id="anlegen-von-testfunktionen">
-<h2>Anlegen von Testfunktionen…<a class="headerlink" href="#anlegen-von-testfunktionen" title="Link zu dieser Überschrift">#</a></h2>
-<section id="im-zeitraum">
-<h3>…im Zeitraum<a class="headerlink" href="#im-zeitraum" title="Link zu dieser Überschrift">#</a></h3>
+<section id="simulation-von-testfunktionen-an-einem-tiefpass">
+<h2>Simulation von Testfunktionen an einem Tiefpass<a class="headerlink" href="#simulation-von-testfunktionen-an-einem-tiefpass" title="Link zu dieser Überschrift">#</a></h2>
 <p>Im Folgenden Bild grafisch dargestellt, wie verschiedene Signale durch einen <strong>Tiefpass</strong> mit der Übertragungsfunktion</p>
 <div class="math notranslate nohighlight">
 \[G(s) = \frac{1}{s+1}\]</div>
@@ -1349,7 +1323,7 @@ Dies führt zu <strong>dynamischen Fehlern</strong>, hier in hellblau als Fläch
 <li><p>Je größer <span class="math notranslate nohighlight">\(\tau\)</span>, desto langsamer ist das System</p></li>
 <li><p>Je kleiner <span class="math notranslate nohighlight">\(\tau\)</span>, desto schneller ist das System</p></li>
 </ul>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>
 
@@ -1465,9 +1439,6 @@ Dies führt zu <strong>dynamischen Fehlern</strong>, hier in hellblau als Fläch
 <img alt="../_images/5_Uebertragungsfunktion_14_0.png" src="../_images/5_Uebertragungsfunktion_14_0.png" />
 </div>
 </div>
-</section>
-<section id="im-frequenzraum">
-<h3>… im Frequenzraum<a class="headerlink" href="#im-frequenzraum" title="Link zu dieser Überschrift">#</a></h3>
 <p>Nicht nur im Zeitraum können Sprünge oder Impulse angelegt werden. Für diese Testfunktionen können auch die Laplace, bzw. Fourier-Transformierten berechnet werden. Auch dies ist im Frequenzraum häufig einfacher, da die Testfunktionen, wie es in der Tabelle im folgenden Bild zu erkennen ist, sehr einfach sind.</p>
 <p>Um das Verhalten unseres eben diskutierten Bandpasses auf verschiedene Eingangssignale zu untersuchen, können wir die gleichung der Übertragungsfunktion einfach nach <span class="math notranslate nohighlight">\(U_\mathrm a\)</span> auflösen. Das liefert uns im allgemeinen Fall eine Gleichung für das zu erwartende Ausgangssignal:</p>
 <div class="math notranslate nohighlight">
@@ -1485,8 +1456,8 @@ Dies führt zu <strong>dynamischen Fehlern</strong>, hier in hellblau als Fläch
 <p>Hierbei handelt es sich um <strong>Faltungen</strong> im Frequenzraum, deren Berechnungen im Zeitbereich sehr viel komplizierter wäre, wie wir im nächsten Kapitel sehen werden.</p>
 <p>Aus Übertragungsfunktionen können noch weitere Eigenschaften von Messsystemen abgeleitet werden, auf die wir hier nicht näher eingehen können. Aus den Nullstellen und Polstellen kann aber abgelesen werden, ob das System stabil ist, sprungfähig ist oder eher ein integrales Verhalten aufweist.</p>
 </section>
-<section id="referenztabellen-fur-signale-im-laplace-raum">
-<h3>Referenztabellen für Signale im Laplace-Raum<a class="headerlink" href="#referenztabellen-fur-signale-im-laplace-raum" title="Link zu dieser Überschrift">#</a></h3>
+<section id="referenztabellen-fur-die-laplace-transformation">
+<h2>Referenztabellen für die Laplace-Transformation<a class="headerlink" href="#referenztabellen-fur-die-laplace-transformation" title="Link zu dieser Überschrift">#</a></h2>
 <p><span class="math notranslate nohighlight">\(\sigma(t)\)</span> ist die Sprungfunktion und <span class="math notranslate nohighlight">\(\delta(t)\)</span> der Delta-Dirac-Puls.</p>
 <table class="colwidths-auto table">
 <thead>
@@ -1495,36 +1466,35 @@ Dies führt zu <strong>dynamischen Fehlern</strong>, hier in hellblau als Fläch
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>$<span class="math notranslate nohighlight">\(\delta(t)\)</span>$</p></td>
-<td><p>$<span class="math notranslate nohighlight">\(1\)</span>$</p></td>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\delta(t)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(1\)</span></p></td>
 </tr>
-<tr class="row-odd"><td><p>$<span class="math notranslate nohighlight">\(\sigma(t)\)</span>$</p></td>
-<td><p>$<span class="math notranslate nohighlight">\(\frac{1}{s}\)</span>$</p></td>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\sigma(t)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{1}{s}\)</span></p></td>
 </tr>
-<tr class="row-even"><td><p>$<span class="math notranslate nohighlight">\(\mathrm e^{-at} h(t)\)</span>$</p></td>
-<td><p>$<span class="math notranslate nohighlight">\(\frac{1}{s+a}\)</span>$</p></td>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\mathrm e^{-at} h(t)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{1}{s+a}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td><p>$<span class="math notranslate nohighlight">\(\cos(\omega_0 t)\)</span>$</p></td>
-<td><p>$<span class="math notranslate nohighlight">\(\frac{s}{s^2 + \omega_0^2}\)</span>$</p></td>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\cos(\omega_0 t)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{s}{s^2 + \omega_0^2}\)</span></p></td>
 </tr>
-<tr class="row-even"><td><p>$<span class="math notranslate nohighlight">\(\sin(\omega_0 t)\)</span>$</p></td>
-<td><p>$<span class="math notranslate nohighlight">\(\frac{\omega_0}{s^2 + \omega_0^2}\)</span>$</p></td>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\sin(\omega_0 t)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{\omega_0}{s^2 + \omega_0^2}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td><p>$<span class="math notranslate nohighlight">\((1-\mathrm e^{-at}) h(t)\)</span>$</p></td>
-<td><p>$<span class="math notranslate nohighlight">\(\frac{a}{s(s+a)}\)</span>$</p></td>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\((1-\mathrm e^{-at}) h(t)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{a}{s(s+a)}\)</span></p></td>
 </tr>
-<tr class="row-even"><td><p>$<span class="math notranslate nohighlight">\(\mathrm e^{-at} \cos(\omega_0 t)\)</span>$</p></td>
-<td><p>$<span class="math notranslate nohighlight">\(\frac{s+a}{(s+a)^2 + \omega_0^2}\)</span>$</p></td>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\mathrm e^{-at} \cos(\omega_0 t)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{s+a}{(s+a)^2 + \omega_0^2}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td><p>$<span class="math notranslate nohighlight">\(\mathrm e^{-at} \sin(\omega_0 t)\)</span>$</p></td>
-<td><p>$<span class="math notranslate nohighlight">\(\frac{\omega_0}{(s+a)^2 + \omega_0^2}\)</span>$</p></td>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\mathrm e^{-at} \sin(\omega_0 t)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{\omega_0}{(s+a)^2 + \omega_0^2}\)</span></p></td>
 </tr>
-<tr class="row-even"><td><p>$<span class="math notranslate nohighlight">\(\delta(t)t\)</span>$</p></td>
-<td><p>$<span class="math notranslate nohighlight">\(\frac{1}{s^2}\)</span>$</p></td>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\delta(t)t\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{1}{s^2}\)</span></p></td>
 </tr>
 </tbody>
 </table>
-</section>
 </section>
 </section>
 

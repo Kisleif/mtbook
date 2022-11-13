@@ -41,7 +41,7 @@
 # Im Allgmeinen gilt:
 # 
 # * Die **Fourier-Transformation (FT)** wird bei **kontinuierlichen Signalen** verwendet.Für eine FT muss das Signal **integrierbar** sein, was für einen Sprung, Rampe z.B. nicht gilt, wo das Integral gegen unendlich läuft.
-# * Die **Laplace-Transformation** wird bei Reaktionen auf **diskrete Funktionen** verwendet, wie z.B. Stufenfunktion, Impulsfunktion, Delta-Dirac-Puls, die mittels FT nicht anlysiert werden können. 
+# * Die **Laplace-Transformation** wird bei Reaktionen auf **diskrete Funktionen** verwendet, wie z.B. Stufenfunktion, Impulsfunktion, Delta-Dirac-Puls, die mittels FT nicht analysiert werden können. 
 
 # ## Herleitung der Übertragungsfunktion
 # 
@@ -71,7 +71,7 @@
 # 
 # Die komplexe Eingangsspannung liegt an kompletten Messsystem, also der Reihenschaltung an, d.h. es gilt
 # 
-# $$\underline U_\mathrm a = (R+ \underline Z_C) \cdot \underline I$$
+# $$\underline U_\mathrm e = (R+ \underline Z_C) \cdot \underline I$$
 # 
 # Die Division der beiden Spannungen führt abermals zur der gesuchten Übertragungsfunktion:
 # 
@@ -501,9 +501,7 @@ H = signal.TransferFunction(num , den)
 plot_bode_sprung(H, 'Tiefpass PT$_2$\n DGL: $T \cdot \ddot u_a + 2DT \cdot \dot u_a + u_a = K \cdot u_e$', r'$G(s) = \frac{K}{T s^2 + 2DT s+1} $',r'instabiler Kriechfall, D<-1')
 
 
-# ## Anlegen von Testfunktionen...
-# 
-# ### ...im Zeitraum
+# ## Simulation von Testfunktionen an einem Tiefpass
 # 
 # Im Folgenden Bild grafisch dargestellt, wie verschiedene Signale durch einen **Tiefpass** mit der Übertragungsfunktion 
 # 
@@ -626,8 +624,6 @@ ax10.set_xlabel('Zeit (s)')
 fig.tight_layout()
 
 
-# ### ... im Frequenzraum
-# 
 # Nicht nur im Zeitraum können Sprünge oder Impulse angelegt werden. Für diese Testfunktionen können auch die Laplace, bzw. Fourier-Transformierten berechnet werden. Auch dies ist im Frequenzraum häufig einfacher, da die Testfunktionen, wie es in der Tabelle im folgenden Bild zu erkennen ist, sehr einfach sind. 
 # 
 # Um das Verhalten unseres eben diskutierten Bandpasses auf verschiedene Eingangssignale zu untersuchen, können wir die gleichung der Übertragungsfunktion einfach nach $U_\mathrm a$ auflösen. Das liefert uns im allgemeinen Fall eine Gleichung für das zu erwartende Ausgangssignal:
@@ -646,21 +642,21 @@ fig.tight_layout()
 # 
 # Aus Übertragungsfunktionen können noch weitere Eigenschaften von Messsystemen abgeleitet werden, auf die wir hier nicht näher eingehen können. Aus den Nullstellen und Polstellen kann aber abgelesen werden, ob das System stabil ist, sprungfähig ist oder eher ein integrales Verhalten aufweist. 
 # 
-# ### Referenztabellen für Signale im Laplace-Raum
+# ## Referenztabellen für die Laplace-Transformation
 # 
 # $\sigma(t)$ ist die Sprungfunktion und $\delta(t)$ der Delta-Dirac-Puls.
 # 
 # |Originalfunktion $u(t)$ | Bildfunktion $U(s)$ |
 # |---|---|
-# | $$\delta(t)$$ | $$1$$ |
-# | $$\sigma(t)$$ | $$\frac{1}{s}$$ |
-# | $$\mathrm e^{-at} h(t)$$ | $$\frac{1}{s+a}$$ |
-# | $$\cos(\omega_0 t)$$ | $$\frac{s}{s^2 + \omega_0^2}$$ |
-# | $$\sin(\omega_0 t)$$ | $$\frac{\omega_0}{s^2 + \omega_0^2}$$ |
-# | $$(1-\mathrm e^{-at}) h(t)$$ | $$\frac{a}{s(s+a)}$$ |
-# | $$\mathrm e^{-at} \cos(\omega_0 t)$$ | $$\frac{s+a}{(s+a)^2 + \omega_0^2}$$ |
-# | $$\mathrm e^{-at} \sin(\omega_0 t)$$ | $$\frac{\omega_0}{(s+a)^2 + \omega_0^2}$$ |
-# | $$\delta(t)t$$ | $$\frac{1}{s^2}$$ |
+# | $\delta(t)$ | $1$ |
+# | $\sigma(t)$ | $\frac{1}{s}$ |
+# | $\mathrm e^{-at} h(t)$ | $\frac{1}{s+a}$ |
+# | $\cos(\omega_0 t)$ | $\frac{s}{s^2 + \omega_0^2}$ |
+# | $\sin(\omega_0 t)$ | $\frac{\omega_0}{s^2 + \omega_0^2}$ |
+# | $(1-\mathrm e^{-at}) h(t)$ | $\frac{a}{s(s+a)}$ |
+# | $\mathrm e^{-at} \cos(\omega_0 t)$ | $\frac{s+a}{(s+a)^2 + \omega_0^2}$ |
+# | $\mathrm e^{-at} \sin(\omega_0 t)$ | $\frac{\omega_0}{(s+a)^2 + \omega_0^2}$ |
+# | $\delta(t)t$ | $\frac{1}{s^2}$ |
 # 
 
 # In[ ]:

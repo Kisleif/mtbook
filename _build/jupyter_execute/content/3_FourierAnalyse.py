@@ -163,6 +163,7 @@ plt.show()
 
 # ### Reelle Fourierreihe
 # 
+# Wie berechne ich die nun die benötigten Anteile von Sinus- und Cosinusschwingungen, um eine bestimmte Funktion $x(t)$ möglichst gut darzustellen?
 # Die **reelle Darstellung der Fourierreihe** für eine Funktion $x(t)$ sieht wiefolgt aus:
 # 
 # $$x(t) = x_0 + \sum_{k=1}^{\infty} a_k \cos(2\pi k f_0 t) + \sum_{k=1}^{\infty} b_k \sin(2\pi k f_0 t)$$
@@ -385,7 +386,7 @@ plt.show()
 # 
 # ### Zeit- vs. Frequenzbereich
 # 
-# Du wirst im Folgenden immer wieder auf die Begriffe Zeitbereich und Frequenzbereich stoßen. Diese beiden Begriffe beziehen sich auf zwei verschiedene Arten der Betrachtung eines Signals, entweder als seine Frequenzkomponenten oder als Information, die sich über die Zeit verändert (siehe [Messsignale](3_Messsignale.ipynb)).
+# Du wirst im Folgenden immer wieder auf die Begriffe Zeitbereich und Frequenzbereich stoßen. Diese beiden Begriffe beziehen sich auf zwei verschiedene Arten der Betrachtung eines Signals, entweder als seine Frequenzkomponenten oder als Information, die sich über die Zeit verändert (siehe [Messsignale](3_Messsignale.ipynb)). Im Folgenden sehen wir uns an, wie ein Audiosignal im Zeit- bzw. Frequenzbereich aussieht. Hierfür benutzen wir das Audiosignal, was sich wiefolgt anhört:
 
 # In[6]:
 
@@ -431,7 +432,7 @@ plt.tight_layout()
 plt.show()
 
 
-# Im vorangegangenen Plot wurde ein Audiosignal, also eines Signal im Zeitbereich einmal im Zeit- und einmal im Frequenzbereich dargestellt. Das Bild rechts zeigt das linke Audiosignal nach der Fourier-Transformation. Jeder Frequenz entlang der x-Achse ist eine Leistung zugeordnet, wodurch das Spektrum entsteht. 
+# Das Bild links zeigt das aperiodische Zeitsignal, das Bild rechts das Signal nach der Fourier-Transformation. Jeder Frequenz entlang der x-Achse ist eine Leistung zugeordnet, wodurch das Spektrum entsteht. 
 
 # ### Typen von Fourier-Transformationen
 # 
@@ -487,49 +488,95 @@ plt.show()
 # \begin{align}
 # H(\omega) &= \int_{-\infty}^{\infty} h(t)  \mathrm e^{-j \omega t} dt = \int_{-\tau}^{\tau} 1  \mathrm e^{-j \omega t} dt\\
 # &= \int_{-\tau}^{\tau} \cos{\omega t} dt = \frac{1}{\omega}\sin{\omega t}\left|_{-\tau}^{\tau} \right. = 2 \frac{\sin{\omega \tau}}{\omega}\\
-# &= T \cdot \frac{\sin(\pi T f)}{\pi T f} = T \cdot \mathrm{sinc}(\pi T f)
+# &= T \cdot \frac{\sin(\pi T f)}{\pi T f} =: T \cdot \mathrm{sinc}(\pi T f)
 # \end{align}
 # $$
 # 
-# wobei wir im 2. Schritt angenommen haben, dass $h(t)$ reell und gerade ist und die Euler-Formal entsprechend vereinfachen konnten. In der dritten Zeile wurde mit $\tau/\tau$ erweitert und substitutiert ($\tau = T/2$, $\omega = 2\pi f$). 
+# wobei wir im 2. Schritt angenommen haben, dass $h(t)$ reell und gerade ist und die Euler-Formal ($\mathrm e^{j\omega t} = \cos(\omega t) + j\sin(\omega t)$) entsprechend vereinfachen konnten. In der dritten Zeile wurde mit $\tau/\tau$ erweitert und substitutiert ($\tau = T/2$, $\omega = 2\pi f$). 
 # 
 # Folgende Eigenschaften gelten:
 # 
 # * $H(f = 0)$ ist gleich der Fläche unter dem Rechteck, also gleich dem Integral der Rechteckfunktion. 
 # * Die Nulldurchgänge von $H(f)$ sind bei $\pi T f_n = n \pi$, für $\lvert n \rvert = 1,2,3...$
 # * Es gilt also $f_n = n/T$. Für $n=1$ sieht man, dass je kürzer der Rechteckpuls ist, desto breiter (unschärfer) wird das Spektrum (**Unschärferelation der Fourier-Transformation**)
-# 
-# ### Dirac-Delta-Impuls
-# 
-# Wir können den klassischen Rechteckpuls nun anpassen. Die Höhe beträgt statt 1 nun $1/2\tau$:
-# 
-# $$h(t) = \left\{\begin{array}{cl} 1/2\tau &\textrm{für}\,\,\left| t \right|\leq \tau = T/2\\  0&\textrm{für}\,\, \left| t \right| > \tau = T/2 \end{array}\right.
-# $$
-# 
-# wodurch die Fläche unter dem *Quadrat* nun 1 wird.
-# Für die Fourier-Transformierte gilt:
-# 
-# $$
-# \begin{align}
-# H(\omega) &= \frac{2}{2\tau} \frac{\sin{\omega \tau}}{\omega} = \frac{\sin{\omega \tau}}{\omega \tau}\\
-# \lim_{\tau \rightarrow 0}  H(\omega) &= \lim_{\tau \rightarrow 0} \frac{\sin{\omega \tau}}{\omega \tau}\ = 1
-# \end{align}
-# $$
-# 
-# Der Grenzwert, $\tau \rightarrow 0$ führt direkt zu der Definition des **Dirac-Delta-Impuls**:
-# 
-# $$\delta(t) = \left\{\begin{array}{cl} \infty &\textrm{für}\,\, t = 0\\  0&\textrm{für}\,\, t  \neq 0 \end{array}\right.
-# $$
-# 
-# Dirac-Delta-Impuls hat folgende Eigenschaften:
-# 
-# * Das Integral ist 1: $\int_{-\infty}^{\infty} \delta(t) dt = 1$
-# * Die Fourier-Transformierte ist: $\int_{-\infty}^{\infty} \delta(t) \mathrm e^{-j \omega t} dt = 1$
-# * Mit $g(\tau) = \mathrm e^{-j \omega t}$ kann der Delta-Impuls wiefolgt definiert werden: $\int_{\infty}^{\infty} \delta(0-\tau)g(\tau) d\tau = g(0)$
+
+# In[8]:
+
+
+# MatplotLib Settings:
+plt.style.use('default') # Matplotlib Style wählen
+plt.xkcd()
+plt.rcParams['font.size'] = 10; # Schriftgröße
+
+# Rechteckschwingung
+Fs = 100.0;  # sampling rate
+Ts = 1.0/Fs; # sampling interval
+t = np.arange(0,1,Ts) # time vector
+ff = 5;   # frequency of the signal
+
+maxN = int(Fs/2)
+# Sinusschwingung
+f = lambda t: (signal.square(2 * np.pi * ff * t) + 1)*0.5
+y = f(t)
+
+F_end = 200
+BW = 1
+f1 = np.arange(-F_end,F_end,BW) # time vector
+BW = 50
+f10 = np.arange(-F_end,F_end,BW) # time vector
+
+plt.figure(figsize=(8,3.5)) # Plot-Größe
+plt.subplot(1,2,1)
+plt.plot(t,y, label = '5 Hz Periode')
+plt.legend()
+plt.xlabel('Zeit (s)')
+plt.ylabel('Amplitude')
+plt.subplot(1,2,2)
+plt.plot(f1,Ts * np.sinc(np.pi * Ts * f1),'tab:red', label = '1 Hz resolution') # plotting the spectrum
+plt.plot(f10,Ts * np.sinc(np.pi * Ts * f10),'tab:orange', label = '50 Hz resolution') # plotting the spectrum
+
+plt.xlabel('Frequenz (Hz)')
+plt.ylabel('FFT')
+plt.suptitle('Rechtecksignal')
+plt.legend()
+plt.tight_layout()
+plt.show()
+
+
+# In[9]:
+
+
+### Dirac-Delta-Impuls
+
+Wir können den klassischen Rechteckpuls nun anpassen. Die Höhe beträgt statt 1 nun $1/2\tau$:
+
+$$h(t) = \left\{\begin{array}{cl} 1/2\tau &\textrm{für}\,\,\left| t \right|\leq \tau = T/2\\  0&\textrm{für}\,\, \left| t \right| > \tau = T/2 \end{array}\right.
+$$
+
+wodurch die Fläche unter dem *Quadrat* nun 1 wird.
+Für die Fourier-Transformierte gilt:
+
+$$
+\begin{align}
+H(\omega) &= \frac{2}{2\tau} \frac{\sin{\omega \tau}}{\omega} = \frac{\sin{\omega \tau}}{\omega \tau}\\lim_{\tau \rightarrow 0}  H(\omega) &= \lim_{\tau \rightarrow 0} \frac{\sin{\omega \tau}}{\omega \tau}\ = 1
+\end{align}
+$$
+
+Der Grenzwert, $\tau \rightarrow 0$ führt direkt zu der Definition des **Dirac-Delta-Impuls**:
+
+$$\delta(t) = \left\{\begin{array}{cl} \infty &\textrm{für}\,\, t = 0\\  0&\textrm{für}\,\, t  \neq 0 \end{array}\right.
+$$
+
+Dirac-Delta-Impuls hat folgende Eigenschaften:
+
+* Das Integral ist 1: $\int_{-\infty}^{\infty} \delta(t) dt = 1$
+* Die Fourier-Transformierte ist: $\int_{-\infty}^{\infty} \delta(t) \mathrm e^{-j \omega t} dt = 1$
+* Mit $g(\tau) = \mathrm e^{-j \omega t}$ kann der Delta-Impuls wiefolgt definiert werden: $\int_{\infty}^{\infty} \delta(0-\tau)g(\tau) d\tau = g(0)$
+
 
 # ## Fourier-Transformierte von Messsignalen
 
-# In[8]:
+# In[11]:
 
 
 # MatplotLib Settings:
@@ -560,13 +607,13 @@ plt.ylabel('Amplitude')
 plt.subplot(1,2,2)
 plt.plot(xf,abs(yf),'tab:red', label = 'FFT') # plotting the spectrum
 plt.xlabel('Frequenz (Hz)')
-plt.ylabel('Leistung')
+plt.ylabel('FFT')
 plt.suptitle('Sinuswelle')
 plt.tight_layout()
 plt.show()
 
 
-# In[9]:
+# In[12]:
 
 
 # MatplotLib Settings:
@@ -598,13 +645,13 @@ plt.ylabel('Amplitude')
 plt.subplot(1,2,2)
 plt.plot(xf,abs(yf),'tab:red', label = 'FFT') # plotting the spectrum
 plt.xlabel('Frequenz (Hz)')
-plt.ylabel('Leistung')
+plt.ylabel('FFT')
 plt.suptitle('Rechtecksignal')
 plt.tight_layout()
 plt.show()
 
 
-# In[10]:
+# In[13]:
 
 
 from scipy.fft import fft, fftfreq
@@ -634,14 +681,14 @@ plt.ylabel('Amplitude')
 plt.subplot(1,2,2)
 plt.plot(xf,abs(yf),'tab:red', label = 'FFT') # plotting the spectrum
 plt.xlabel('Frequenz (Hz)')
-plt.ylabel('Leistung')
+plt.ylabel('FFT')
 plt.xlim(-10,10)
 plt.suptitle('Dirac-Puls')
 plt.tight_layout()
 plt.show()
 
 
-# In[11]:
+# In[14]:
 
 
 # MatplotLib Settings:
@@ -672,13 +719,13 @@ plt.ylabel('Amplitude')
 plt.subplot(1,2,2)
 plt.plot(xf,abs(yf),'tab:red', label = 'FFT') # plotting the spectrum
 plt.xlabel('Frequenz (Hz)')
-plt.ylabel('Leistung')
+plt.ylabel('FFT')
 plt.suptitle('Sägezahnspannung')
 plt.tight_layout()
 plt.show()
 
 
-# In[12]:
+# In[15]:
 
 
 # MatplotLib Settings:
@@ -706,13 +753,13 @@ plt.ylabel('Amplitude')
 plt.subplot(1,2,2)
 plt.plot(xf,abs(yf),'tab:red') # plotting the spectrum
 plt.xlabel('Frequenz (Hz)')
-plt.ylabel('Leistung')
+plt.ylabel('FFT')
 plt.suptitle('Überlagerung zweier Sinuswellen')
 plt.tight_layout()
 plt.show()
 
 
-# In[13]:
+# In[16]:
 
 
 # MatplotLib Settings:
@@ -750,11 +797,24 @@ plt.ylabel('Amplitude')
 plt.subplot(1,2,2)
 plt.plot(xf,abs(yf),'tab:red') # plotting the spectrum
 plt.xlabel('Frequenz (Hz)')
-plt.ylabel('')
+plt.ylabel('FFT')
 plt.suptitle('2 Sinuswellen mit Rauschen')
 plt.tight_layout()
 plt.show()
 
+
+# ## Vergleich der Varianten von Fourier-Analysen
+# 
+# :::{figure-md} Fourier-Analyse
+# <img src="pictures/diff_Fourier-Analyse.png" alt="diff_Fourier-Analyse" class="" width="400px" label = diff_Fourier-Analyse>
+# 
+# Fourier-analyse (https://www.biancahoegel.de/mathe/analysis/fourieranalysis.html)
+# :::
+# 
+# 1. Periodische Funktion in einem endlichen Intervall: **Fourier-Reihe (diskretes Spektrum)**
+# 2. Aperiodischer Funktion in unendlichem Intervall: **kontinuierliche Fourier-Transformation (kontinuierliches Spektrum)**
+# 3. Diskrete Werte an äquidistanten Zeitpunkten in einem endlichen Intervall - durch Intervallbildung besteht aber periodische Fortsetzung: **Diskrete Fourier-Transformation (diskretes Spektrum mit Spiegelspektren)**
+# 4. DTFT (Fouriertransformation für zeitdiskrete Signale (englisch discrete-time Fourier transform, DTFT)) ist wie DFT, bildet aber kontinuierliches Spektrum ab (theoretische Analyse, hier lässt sich das Spektrum als ein mathematischer Ausdruck angeben)
 
 # ## Referenztabellen für die Laplace-Transformation
 # 
@@ -762,15 +822,15 @@ plt.show()
 # 
 # |Originalfunktion $u(t)$ | Bildfunktion $U(s)$ |
 # |---|---|
-# | $$\delta(t)$$ | $$1$$ |
-# | $$\sigma(t)$$ | $$\frac{1}{s}$$ |
-# | $$\mathrm e^{-at} h(t)$$ | $$\frac{1}{s+a}$$ |
-# | $$\cos(\omega_0 t)$$ | $$\frac{s}{s^2 + \omega_0^2}$$ |
-# | $$\sin(\omega_0 t)$$ | $$\frac{\omega_0}{s^2 + \omega_0^2}$$ |
-# | $$(1-\mathrm e^{-at}) h(t)$$ | $$\frac{a}{s(s+a)}$$ |
-# | $$\mathrm e^{-at} \cos(\omega_0 t)$$ | $$\frac{s+a}{(s+a)^2 + \omega_0^2}$$ |
-# | $$\mathrm e^{-at} \sin(\omega_0 t)$$ | $$\frac{\omega_0}{(s+a)^2 + \omega_0^2}$$ |
-# | $$\delta(t)t$$ | $$\frac{1}{s^2}$$ |
+# | $\delta(t)$ | $1$ |
+# | $\sigma(t)$ | $\frac{1}{s}$ |
+# | $\mathrm e^{-at} h(t)$ | $\frac{1}{s+a}$ |
+# | $\cos(\omega_0 t)$ | $\frac{s}{s^2 + \omega_0^2}$ |
+# | $\sin(\omega_0 t)$ | $\frac{\omega_0}{s^2 + \omega_0^2}$ |
+# | $(1-\mathrm e^{-at}) h(t)$ | $\frac{a}{s(s+a)}$ |
+# | $\mathrm e^{-at} \cos(\omega_0 t)$ | $\frac{s+a}{(s+a)^2 + \omega_0^2}$ |
+# | $\mathrm e^{-at} \sin(\omega_0 t)$ | $\frac{\omega_0}{(s+a)^2 + \omega_0^2}$ |
+# | $\delta(t)t$ | $\frac{1}{s^2}$ |
 
 # In[ ]:
 

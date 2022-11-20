@@ -5,6 +5,20 @@
 # 
 # In diesem Kapitel befassen wir uns mit Rauschen und werden Methoden zur Analyse betrachten. Als Vorkenntnisse solltest du die Einheit decibel (dB) mitbringen.
 # 
+# ::::::{margin}
+# :::::{grid}
+# ::::{grid-item-card}
+# :link: https://www.youtube.com/watch?v=RF3arUN1n1A&list=RDCMUCyuAdfe6lknrM3V-j93dx9g&index=4
+# 
+# :::{figure-md} youtube_rauschen
+# <img src="pictures/youtube_rauschen.png" alt="youtube_rauschen" label = youtube_rauschen>
+# 
+# [Klicke hier](https://www.youtube.com/watch?v=RF3arUN1n1A&list=RDCMUCyuAdfe6lknrM3V-j93dx9g&index=4) für eine Lecture von Prof. Ali Hajimiri, Caltech auf Youtube (engl.).
+# :::
+# ::::
+# :::::
+# ::::::
+# 
 # ## Gauß'sches Rauschen
 # 
 # ### Zeitbereich

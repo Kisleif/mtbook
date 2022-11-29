@@ -119,3 +119,14 @@
 # $$k = -\frac{R_2}{R_1}$$
 # 
 # Es handelt sich also um eine Verstärkerschaltung für Spannungen, bzw. um einen Stromwandler. 
+# 
+# Weitere Beispiele und Verstärkungsfaktoren sind in {numref}`ops` dargestellt.
+
+# :::{figure-md} ops
+# <img src="pictures/ops.png" alt="op" width="600px" label = ops>
+
+# In[ ]:
+
+
+
+

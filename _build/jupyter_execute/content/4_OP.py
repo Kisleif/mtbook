@@ -50,9 +50,7 @@
 # ::::::
 # 
 
-# ## Beispiel-OP-Schaltungen
-# 
-# ### Elektrometerverstärker
+# ## Elektrometerverstärker
 # 
 # Der Elektrometerverstärker verstärkt ein gewisses Eingangssignal und besteht aus einem Operationsverstärker mit zwei Widerständen. 
 # Folgende Beziehung kann über die Maschenregel hergeleitet werden, wenn der Eingangsschaltkreis betrachtet wird:
@@ -83,7 +81,7 @@
 # 
 # $$U_a = \left( 1 + \frac{R_1}{R_2} \right) U_e$$
 
-# ### Impedanzverstärker
+# ## Impedanzverstärker
 # 
 # Auch hier gibt es wieder ein Rückkopplung vom Ausgang des OPs an den Eingang. 
 # Für einen idealen OP gilt
@@ -96,7 +94,7 @@
 # 
 # Dass die Ausgangsspannung dem Eingangssignal bedinglos folgt gilt jedoch nur für bestimmte Grenzfrequenzen der OPs und der Schaltung, da ein OP ein dynamisches Verhalten aufweist. Die maximale Frequenzen, die der OP noch übertragen kann, passen den Verstärkungsfaktor an, bzw. umgekehrt. 
 # 
-# ### Strom-Spannungs-Wandler/Verstärker
+# ## Strom-Spannungs-Wandler/Verstärker
 # 
 # Wir gehen wieder davon aus, dass wir einen idealen Verstärker vorliegen haben, d.h. 
 # 
@@ -122,6 +120,8 @@
 # 
 # Weitere Beispiele und Verstärkungsfaktoren sind in {numref}`ops` dargestellt.
 
+# ## Weitere Beispiele
+# 
 # :::{figure-md} ops
 # <img src="pictures/ops.jpg" alt="ops" width="600px" label = ops>
 # 

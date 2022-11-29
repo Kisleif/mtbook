@@ -47,7 +47,7 @@
 # 
 # :::{admonition} Aufgabe
 # :class: tip
-# Beweise die Formel für die Induktion her. 
+# Beweise die Formel für die Induktion. 
 # :::
 # 
 # Diese Formel sollte prinzipiell benutzt werden. $R_L$ erhält man aus dem Datenblatt der Spule oder durch eine zusätzliche Messung. 

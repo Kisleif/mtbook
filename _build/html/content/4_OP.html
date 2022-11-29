@@ -686,8 +686,8 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#einfuhrung">
-   Einführung
+  <a class="reference internal nav-link" href="#eigenschaften">
+   Eigenschaften
   </a>
  </li>
 </ul>
@@ -710,8 +710,8 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#einfuhrung">
-   Einführung
+  <a class="reference internal nav-link" href="#eigenschaften">
+   Eigenschaften
   </a>
  </li>
 </ul>
@@ -726,8 +726,15 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="operationsverstarker-op">
 <h1>Operationsverstärker (OP)<a class="headerlink" href="#operationsverstarker-op" title="Link zu dieser Überschrift">#</a></h1>
-<section id="einfuhrung">
-<h2>Einführung<a class="headerlink" href="#einfuhrung" title="Link zu dieser Überschrift">#</a></h2>
+<p>Liegen kleine Signale vor, wie z.B. kleine Stromstärken <span class="math notranslate nohighlight">\(I\)</span>,  Spannungswerte <span class="math notranslate nohighlight">\(U\)</span> oder Widerstandswerte <span class="math notranslate nohighlight">\(R\)</span>, so werden die Signale häufig als erstes verstärkt, was mittels einem Operationsverstärker (OP) realisiert wird. In <a class="reference internal" href="#op"><span class="std std-numref">Abb. 60</span></a> ist eine schematische Zeichnung eines OPs dargestellt.</p>
+<figure class="align-default" id="op">
+<a class="reference internal image-reference" href="../_images/op.jpg"><img alt="op" src="../_images/op.jpg" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Abb. 60 </span><span class="caption-text">Schematische Darstellung eines Operationsverstärkers (OPs) mit Eingangs-Innenwiderstand <span class="math notranslate nohighlight">\(R_e\)</span>, Ausgangs-Innenwiderstand <span class="math notranslate nohighlight">\(R_i\)</span> und Spannungsversorgung <span class="math notranslate nohighlight">\(U_V\)</span>. <span class="math notranslate nohighlight">\(U_d\)</span> ist die angelegte Eingangsspannung an dem differentiellen Eingang des OPs. <span class="math notranslate nohighlight">\(U_a\)</span> ist die Ausgangsspannung.</span><a class="headerlink" href="#op" title="Link zu diesem Bild">#</a></p>
+</figcaption>
+</figure>
+<section id="eigenschaften">
+<h2>Eigenschaften<a class="headerlink" href="#eigenschaften" title="Link zu dieser Überschrift">#</a></h2>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
@@ -743,10 +750,14 @@ title="Print to PDF"
 </div>
 </div>
 </aside>
-<p>Liegen kleine Signale vor, wie z.B. kleine Stromstärken <span class="math notranslate nohighlight">\(I\)</span>,  Spannungswerte <span class="math notranslate nohighlight">\(U\)</span> oder Widerstandswerte <span class="math notranslate nohighlight">\(R\)</span>, so werden die Signale häufig als erstes verstärkt. Dies sollte möglichst <strong>rückwirkungsfrei</strong> geschehen, das heißt dass die Verstärkerschaltung möglichst wenig Einfluss auf die Messgröße und die weiterführende Signalverarbeitung hat.
-Für eine Spannung, die man anlegt, sollte der Innenwiderstand also möglichst groß sein, um den kompletten Spannungsabfall zu messen.
-Desweiteren möchte man eine <strong>hohe Empfindlichkeit</strong> und eine <strong>große Verstärkung</strong> erreichen, weshalb eine zusätzliche Strom- bzw. Spannungsversorgung von Nöten ist, da die zusätzlich Energie von Außen dem System zugeführt werden muss. Dies ist der allgemein Sinn von Operationsverstärkern.
-Das Ausgangssignal sollte weiterdessen direkt mit dem Eingangssignal korreliert sein, d.h. wir wünschen uns ein <strong>definiertes Übertragungsverhalten</strong>. Dem Eingangssignal sollte zudem möglichst gut und schnell gefolgt werden, d.h. es sollten keine allzu großen Verzögerungen auftreten. Dies wird über das <strong>dynamische Verhalten</strong> des verwendeten OPs bestimmt.
+<p>Dies sollte möglichst <strong>rückwirkungsfrei</strong> geschehen, das heißt dass die Verstärkerschaltung möglichst wenig Einfluss auf die Messgröße und die weiterführende Signalverarbeitung hat.
+Für eine Spannung, die man anlegt, sollte der <strong>Eingangs-Innenwiderstand <span class="math notranslate nohighlight">\(R_e\)</span></strong> also <strong>möglichst groß</strong> sein, um den kompletten Spannungsabfall zu messen.
+Typische <em>reale</em> Werte liegen zwischen <span class="math notranslate nohighlight">\(R_e' \approx 10^6 - 10^{12}\,\mathrm{\Omega}\)</span>. Der Innenwiderstandswert eines <em>idealen</em> OPs wäre <span class="math notranslate nohighlight">\(R_e = \infty\)</span>.</p>
+<p>Desweiteren möchte man eine <strong>hohe Empfindlichkeit</strong> und eine <strong>große Verstärkung</strong> erreichen, weshalb eine zusätzliche Strom- bzw. <strong>Spannungsversorgung <span class="math notranslate nohighlight">\(U_V\)</span></strong> von Nöten ist, da die zusätzlich Energie von Außen dem System zugeführt werden muss. Dies ist der allgemein Sinn von Operationsverstärkern. Die Verstärkung ist allgemein definiert als</p>
+<div class="math notranslate nohighlight">
+\[ k' = \frac{U_\mathrm a}{U_\mathrm d} \]</div>
+<p>wobei <span class="math notranslate nohighlight">\(k'\)</span> die reale Verstärkung des OPs ist, <span class="math notranslate nohighlight">\(k\)</span> wäre die des <em>idealen</em> OPs (<span class="math notranslate nohighlight">\(k = \infty\)</span>) und <span class="math notranslate nohighlight">\(U_\mathrm a\)</span> ist die Ausgangsspannung und <span class="math notranslate nohighlight">\(U_\mathrm d\)</span> die differentielle Eingangsspannung. Reale Verstärkungsfaktoren liegen in der Größenordnung von <span class="math notranslate nohighlight">\(k' \approx 10^6\)</span>.</p>
+<p>Das Ausgangssignal sollte weiterdessen direkt mit dem Eingangssignal korreliert sein, d.h. wir wünschen uns ein <strong>definiertes Übertragungsverhalten</strong>. Dem Eingangssignal sollte zudem möglichst gut und schnell gefolgt werden, d.h. es sollten keine allzu großen Verzögerungen auftreten. Dies wird über das <strong>dynamische Verhalten</strong> des verwendeten OPs bestimmt. Reale OPs haben eine begrenzte Bandbreite die berücksichtigt werden muss.
 Am Ausgang sollte ein möglichst kleiner Innenwiderstand vorzufinden sein, sodass wir ein <strong>eingeprägtes Ausgangssignal</strong> annehmen können, d.h. das Ausgangssignal ist gut weiterverwendbar und beeinflusst nicht die folgende Schaltung.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>

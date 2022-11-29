@@ -135,3 +135,57 @@ print('Die Messabweichung beträgt: ', R_0/R_ges*I_0 - I_0, 'A = ', (1-R_0/R_ges
 # :::
 # 
 # Der Strom $i$, der gemessen werden soll, wird zunächst in eine Verstärkerschaltung eingespeist. Die Verstärkerschaltung wandelt Ströme ebenfalls in eine dazu proportional Spannung um. Hierbei handelt es sich meist um sogenannte **Operationsverstärker**, die aufgrund ihrer Bauweise sehr geringe Innenwiderstände $R_i$ aufweisen. Dadurch erhält man sehr genaue Strommessungen. Diese Variante ist jedoch auch etwas kostspieliger als die mittels Shunt-Widerstand. 
+
+# ### Drehspulmesswerk
+# 
+# Bei dem Drehspulmesswerk handelt es sich um elektromechanisches Messgerät zur Messung der elektrischen Stromstärke. 
+# Es wird eine drehbare Spule auf Kuferdraht in einem Dauermagneten eingebaut. Zwei Spiralfedern dienen der Strumzufuhr und für die Rückstellkraft des Zeigers in seiner Ausgangslage. 
+# Der Zeiger sollte möglichst starr, leicht und dünn sein, damit der Skalenbereich gut ablesbar ist. 
+# 
+# Der zu messende Strom wird nun über die Anschlussklemme und die Federn in die Spule geleitet. Auf die Leiter in der Spule wirkt die Lorentzkraft, wodurch sich der Spulenkörper im Feld des Magneten anfängt zu drehen, wobei die Federkraft dem entgegenwirkt, bis das Drehtmoment, $M_L$, aus der Lorentzkraft, $F_L$, dem Drehmoment $M_F$ der Rückstellkraft der Spiralfedern, gleicht:
+# 
+# $$M_L = 2 F_L r = n \cdot I \cdot l \cdot B \cdot 2r$$
+# 
+# $$M_F = D \cdot \alpha$$
+# 
+# wobei $n$ die Windungsanzahl der Spule ist, $r$ der Radius, $l$ die Höhe der Spule, $I$ die Stromstärke, $B$ die magnetische Flussdichte im Luftspalt, $D$ die Federkonstante, und $\alpha$ der Drehwinkel. Nach Gleichsetzen der beiden Gleichung erhält man den Drehwinkel:
+# 
+# $$\alpha = \mathrm{const.}\cdot I$$
+# 
+# mit $\mathrm{const.} = n\cdot I \cdot B \cdot A / D$, wobei  $A$ die Fläche der Spule ist ($A = l \cdot 2r$).
+# 
+# Bei diesem Winkel bleibt die Spule stehen und die Zeigerposition kann auf einer Skala abgelesen werden, was den zugehörigen Stromstärkewert liefert. Wird der Strom wieder abgeschaltet, bringen die Federn den Zeiger zurück in seiner Ausgangslage. Da die Federkraft proportional zum Drehwinkel (hookesches Gesetz) und die Lorentzkraft proportional zur Stromstärke ist, ergibt sich eine linear geteilte Skale über einen Drehwinkel von etwa 90°.
+# 
+# Beim umpolen des Stroms würde der Zeiger in die andere Richtung ausschlagen. Daher können **nur Gleichströme** gemessen werden. Für Wechselströme wird ein zusätzlicher Gleichrichter benötigt. 
+# Außerdem können Stromänderungen aufgrund der Trägheit des Zeigers nur bis zu einer gewissen Rate gemessen werden. Bei Wechselstrom aber einer bestimmten Frequenz (circa ab 10 Hz), wird nur noch der Gleichwert des Stroms angezeigt, also Null.
+# 
+# Das Dreheisenmesswerk zeigt eine quadratische Abhängigkeit vom Strom und zeigt den Effektivwert an, was im nachfolgenden Abschnitt erläutert wird. 
+# 
+# 
+# ### Dreheisenmesswerk
+# 
+# Ströme können auch mittels einem Dreheisenmesswerk direkt angezeigt werden. Hierbei handelt es sich um ein analoges Strommessgerät. Es wnadelt die Stromstärke direkt in einen Zeigerausschlag um, der entsprechend kalibriert werden muss. 
+# 
+# Hierfür wird eine einzelne Spule benutzt. Innerhalb dieser Spule befindet sich ein fixierter Eisenkern und ein weiterer beweglicher Eisenkern an der Zeigerachse. Fließt nun ein Strom durch die Spule, so magnetisieren sich die Eisenkernen gleichsinnig und stoßen sich ab. Dadurch kommt es zu einer Rotation des beweglichen Eisenkerns und der Zeiger bewegt sich. Dadurch wird eine Feder gespannt, bis die die magnetische Kraft ausgeglichen ist. Wird der Strom abgeschaltet, bringt die Feder den Zeiger zurück in seiner Ausgangslage. 
+# 
+# Der Ausschlag ist im Gegensatz zum Zeigerausschlag in einem Drehspulmesswerk nicht mehr proportional sondern hängt von $I^2$ ab. Dadurch misst das Dreheisenmesswerk den Effektivwert der Stromstärke. 
+# 
+
+# ### Stromzange
+# 
+# Eine weitere Möglichkleit Störme zu messen ist die Messung des Magnetfeldes, welches zwangsläufig in einem stromdurchflossenen Leiter hervor gerufen wird. 
+# Bei den oben genannten Möglichkeiten muss immer der Stromkreis aufgetrennt werden und das Strommessgerät in den Schaltkreis integriert werden. Die Stromzange ist so aufgebaut, dass der Eisenkern an einer Stelle geöffnet werden kann, wie eine Zangen, und das stromdurchflossene Kabel hindruchgelegt werden kann. Dadurch kann der Strom gemessen werden, ohne dass aktiv in den Stromkreis eingegriffen wird, was eines der großen Vorteile dieses Messprinzips ist. Die Messung erfolgt somit potentialfrei und berührunglos und eignet sich auch zur Messung von Strömen in laufenden Anlagen, ohne die Ausschaltung zu müssen. 
+# Einschränkungen ergeben sich nur in der Querschnittsfläche des Leiters, da dieser vollständig von der Stromzangen umschlossen werden muss. 
+# 
+# #### Wechselstrom-Zangenstrommesser
+# Mit dem einfachen Prinzip der Stromzange können nur Wechselströme gemessen werden, dies sind sogenannte **Wechselstrom-Zangenstrommesser** und basieren auf dem **Transformator-Prinzip**. Ein Eisenkern fundiert als Trafokern. In diesen Eisenkern wird der stromdurchflossene Leiter eingeführt und bildet eine Spule mit nur einer Windung, die **Primärspule**. Das Magnetfeld, was durch den stromdurchflossenen Leiter hervor gerufen wird, wird an den Eisenkern übertragen und magnetisiert diesen. Die Magnetisierung induziert in einer **Sekundärspule** einen **Sekundärstrom**, der proportional zu dem zu messenden Primärstrom ist. Der Sekundärstrom kann mittels Shunt-Widerstand, Oerationsverstärker oder mit einem Dreheisenmesswerk betrieben gemessen werden kann. Um diese anschließende direkte Stromstärkemessung zu gerantieren wird die Sekundärspulenwicklung direkt so gewählt, dass der resultierende Sekundärstrom groß genug für die folgenden Messgeräte ist. Die Energie zum Antrieb eines Dreheisenmesswerks wird hierbei dem Stromkreis entnommen. 
+# 
+# #### Allstrom-Messer
+# Gleichstrom kann mittels dem eben genannten Prinzip nicht gemessen werden, da die Wechselfelder für die Magnetfeldänderungen fehlen.
+# Für Gleichstrommessungen wird der Eisenkern an einer Stelle aufgetrennt und ein Magnetfeld-Sensor (Hall-Sensor oder magnetoresisitiver Widerstand) eingebaut, der auch statische Magnetfelder messen kann und somit nicht auf sich verändernde Wechselfelder angewiesen ist. Nachteil hierbei ist jedoch, dass nur sehr schwache Signale erzeugt werden, welche elektronisch verstärkt werden müssen. Dafür wird eine zusätzliche Spannungsversorgung benötigt. Wechselströme können allerdings ebenso mit diesem Messgerät gemessen werden. 
+
+# In[ ]:
+
+
+
+

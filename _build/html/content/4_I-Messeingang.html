@@ -56,7 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="Operationsverstärker" href="4_OP.html" />
+    <link rel="next" title="Operationsverstärker (OP)" href="4_OP.html" />
     <link rel="prev" title="Spannungsmesseingang" href="4_U-Messeingang.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="de">
@@ -323,7 +323,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="4_OP.html">
-     Operationsverstärker
+     Operationsverstärker (OP)
     </a>
    </li>
    <li class="toctree-l2">
@@ -705,6 +705,33 @@ title="Print to PDF"
      Strom-Spannungs-Messumformer
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#drehspulmesswerk">
+     Drehspulmesswerk
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dreheisenmesswerk">
+     Dreheisenmesswerk
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stromzange">
+     Stromzange
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#wechselstrom-zangenstrommesser">
+       Wechselstrom-Zangenstrommesser
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#allstrom-messer">
+       Allstrom-Messer
+      </a>
+     </li>
+    </ul>
+   </li>
   </ul>
  </li>
 </ul>
@@ -745,6 +772,33 @@ title="Print to PDF"
     <a class="reference internal nav-link" href="#strom-spannungs-messumformer">
      Strom-Spannungs-Messumformer
     </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#drehspulmesswerk">
+     Drehspulmesswerk
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dreheisenmesswerk">
+     Dreheisenmesswerk
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stromzange">
+     Stromzange
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#wechselstrom-zangenstrommesser">
+       Wechselstrom-Zangenstrommesser
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#allstrom-messer">
+       Allstrom-Messer
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -906,6 +960,46 @@ Die Wahl eines korrekten Wertes für den Shunt-Widerstand ist wichtig und kann u
 </figure>
 <p>Der Strom <span class="math notranslate nohighlight">\(i\)</span>, der gemessen werden soll, wird zunächst in eine Verstärkerschaltung eingespeist. Die Verstärkerschaltung wandelt Ströme ebenfalls in eine dazu proportional Spannung um. Hierbei handelt es sich meist um sogenannte <strong>Operationsverstärker</strong>, die aufgrund ihrer Bauweise sehr geringe Innenwiderstände <span class="math notranslate nohighlight">\(R_i\)</span> aufweisen. Dadurch erhält man sehr genaue Strommessungen. Diese Variante ist jedoch auch etwas kostspieliger als die mittels Shunt-Widerstand.</p>
 </section>
+<section id="drehspulmesswerk">
+<h3>Drehspulmesswerk<a class="headerlink" href="#drehspulmesswerk" title="Link zu dieser Überschrift">#</a></h3>
+<p>Bei dem Drehspulmesswerk handelt es sich um elektromechanisches Messgerät zur Messung der elektrischen Stromstärke.
+Es wird eine drehbare Spule auf Kuferdraht in einem Dauermagneten eingebaut. Zwei Spiralfedern dienen der Strumzufuhr und für die Rückstellkraft des Zeigers in seiner Ausgangslage.
+Der Zeiger sollte möglichst starr, leicht und dünn sein, damit der Skalenbereich gut ablesbar ist.</p>
+<p>Der zu messende Strom wird nun über die Anschlussklemme und die Federn in die Spule geleitet. Auf die Leiter in der Spule wirkt die Lorentzkraft, wodurch sich der Spulenkörper im Feld des Magneten anfängt zu drehen, wobei die Federkraft dem entgegenwirkt, bis das Drehtmoment, <span class="math notranslate nohighlight">\(M_L\)</span>, aus der Lorentzkraft, <span class="math notranslate nohighlight">\(F_L\)</span>, dem Drehmoment <span class="math notranslate nohighlight">\(M_F\)</span> der Rückstellkraft der Spiralfedern, gleicht:</p>
+<div class="math notranslate nohighlight">
+\[M_L = 2 F_L r = n \cdot I \cdot l \cdot B \cdot 2r\]</div>
+<div class="math notranslate nohighlight">
+\[M_F = D \cdot \alpha\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(n\)</span> die Windungsanzahl der Spule ist, <span class="math notranslate nohighlight">\(r\)</span> der Radius, <span class="math notranslate nohighlight">\(l\)</span> die Höhe der Spule, <span class="math notranslate nohighlight">\(I\)</span> die Stromstärke, <span class="math notranslate nohighlight">\(B\)</span> die magnetische Flussdichte im Luftspalt, <span class="math notranslate nohighlight">\(D\)</span> die Federkonstante, und <span class="math notranslate nohighlight">\(\alpha\)</span> der Drehwinkel. Nach Gleichsetzen der beiden Gleichung erhält man den Drehwinkel:</p>
+<div class="math notranslate nohighlight">
+\[\alpha = \mathrm{const.}\cdot I\]</div>
+<p>mit <span class="math notranslate nohighlight">\(\mathrm{const.} = n\cdot I \cdot B \cdot A / D\)</span>, wobei  <span class="math notranslate nohighlight">\(A\)</span> die Fläche der Spule ist (<span class="math notranslate nohighlight">\(A = l \cdot 2r\)</span>).</p>
+<p>Bei diesem Winkel bleibt die Spule stehen und die Zeigerposition kann auf einer Skala abgelesen werden, was den zugehörigen Stromstärkewert liefert. Wird der Strom wieder abgeschaltet, bringen die Federn den Zeiger zurück in seiner Ausgangslage. Da die Federkraft proportional zum Drehwinkel (hookesches Gesetz) und die Lorentzkraft proportional zur Stromstärke ist, ergibt sich eine linear geteilte Skale über einen Drehwinkel von etwa 90°.</p>
+<p>Beim umpolen des Stroms würde der Zeiger in die andere Richtung ausschlagen. Daher können <strong>nur Gleichströme</strong> gemessen werden. Für Wechselströme wird ein zusätzlicher Gleichrichter benötigt.
+Außerdem können Stromänderungen aufgrund der Trägheit des Zeigers nur bis zu einer gewissen Rate gemessen werden. Bei Wechselstrom aber einer bestimmten Frequenz (circa ab 10 Hz), wird nur noch der Gleichwert des Stroms angezeigt, also Null.</p>
+<p>Das Dreheisenmesswerk zeigt eine quadratische Abhängigkeit vom Strom und zeigt den Effektivwert an, was im nachfolgenden Abschnitt erläutert wird.</p>
+</section>
+<section id="dreheisenmesswerk">
+<h3>Dreheisenmesswerk<a class="headerlink" href="#dreheisenmesswerk" title="Link zu dieser Überschrift">#</a></h3>
+<p>Ströme können auch mittels einem Dreheisenmesswerk direkt angezeigt werden. Hierbei handelt es sich um ein analoges Strommessgerät. Es wnadelt die Stromstärke direkt in einen Zeigerausschlag um, der entsprechend kalibriert werden muss.</p>
+<p>Hierfür wird eine einzelne Spule benutzt. Innerhalb dieser Spule befindet sich ein fixierter Eisenkern und ein weiterer beweglicher Eisenkern an der Zeigerachse. Fließt nun ein Strom durch die Spule, so magnetisieren sich die Eisenkernen gleichsinnig und stoßen sich ab. Dadurch kommt es zu einer Rotation des beweglichen Eisenkerns und der Zeiger bewegt sich. Dadurch wird eine Feder gespannt, bis die die magnetische Kraft ausgeglichen ist. Wird der Strom abgeschaltet, bringt die Feder den Zeiger zurück in seiner Ausgangslage.</p>
+<p>Der Ausschlag ist im Gegensatz zum Zeigerausschlag in einem Drehspulmesswerk nicht mehr proportional sondern hängt von <span class="math notranslate nohighlight">\(I^2\)</span> ab. Dadurch misst das Dreheisenmesswerk den Effektivwert der Stromstärke.</p>
+</section>
+<section id="stromzange">
+<h3>Stromzange<a class="headerlink" href="#stromzange" title="Link zu dieser Überschrift">#</a></h3>
+<p>Eine weitere Möglichkleit Störme zu messen ist die Messung des Magnetfeldes, welches zwangsläufig in einem stromdurchflossenen Leiter hervor gerufen wird.
+Bei den oben genannten Möglichkeiten muss immer der Stromkreis aufgetrennt werden und das Strommessgerät in den Schaltkreis integriert werden. Die Stromzange ist so aufgebaut, dass der Eisenkern an einer Stelle geöffnet werden kann, wie eine Zangen, und das stromdurchflossene Kabel hindruchgelegt werden kann. Dadurch kann der Strom gemessen werden, ohne dass aktiv in den Stromkreis eingegriffen wird, was eines der großen Vorteile dieses Messprinzips ist. Die Messung erfolgt somit potentialfrei und berührunglos und eignet sich auch zur Messung von Strömen in laufenden Anlagen, ohne die Ausschaltung zu müssen.
+Einschränkungen ergeben sich nur in der Querschnittsfläche des Leiters, da dieser vollständig von der Stromzangen umschlossen werden muss.</p>
+<section id="wechselstrom-zangenstrommesser">
+<h4>Wechselstrom-Zangenstrommesser<a class="headerlink" href="#wechselstrom-zangenstrommesser" title="Link zu dieser Überschrift">#</a></h4>
+<p>Mit dem einfachen Prinzip der Stromzange können nur Wechselströme gemessen werden, dies sind sogenannte <strong>Wechselstrom-Zangenstrommesser</strong> und basieren auf dem <strong>Transformator-Prinzip</strong>. Ein Eisenkern fundiert als Trafokern. In diesen Eisenkern wird der stromdurchflossene Leiter eingeführt und bildet eine Spule mit nur einer Windung, die <strong>Primärspule</strong>. Das Magnetfeld, was durch den stromdurchflossenen Leiter hervor gerufen wird, wird an den Eisenkern übertragen und magnetisiert diesen. Die Magnetisierung induziert in einer <strong>Sekundärspule</strong> einen <strong>Sekundärstrom</strong>, der proportional zu dem zu messenden Primärstrom ist. Der Sekundärstrom kann mittels Shunt-Widerstand, Oerationsverstärker oder mit einem Dreheisenmesswerk betrieben gemessen werden kann. Um diese anschließende direkte Stromstärkemessung zu gerantieren wird die Sekundärspulenwicklung direkt so gewählt, dass der resultierende Sekundärstrom groß genug für die folgenden Messgeräte ist. Die Energie zum Antrieb eines Dreheisenmesswerks wird hierbei dem Stromkreis entnommen.</p>
+</section>
+<section id="allstrom-messer">
+<h4>Allstrom-Messer<a class="headerlink" href="#allstrom-messer" title="Link zu dieser Überschrift">#</a></h4>
+<p>Gleichstrom kann mittels dem eben genannten Prinzip nicht gemessen werden, da die Wechselfelder für die Magnetfeldänderungen fehlen.
+Für Gleichstrommessungen wird der Eisenkern an einer Stelle aufgetrennt und ein Magnetfeld-Sensor (Hall-Sensor oder magnetoresisitiver Widerstand) eingebaut, der auch statische Magnetfelder messen kann und somit nicht auf sich verändernde Wechselfelder angewiesen ist. Nachteil hierbei ist jedoch, dass nur sehr schwache Signale erzeugt werden, welche elektronisch verstärkt werden müssen. Dafür wird eine zusätzliche Spannungsversorgung benötigt. Wechselströme können allerdings ebenso mit diesem Messgerät gemessen werden.</p>
+</section>
+</section>
 </section>
 </section>
 
@@ -946,7 +1040,7 @@ Die Wahl eines korrekten Wertes für den Shunt-Widerstand ist wichtig und kann u
     <a class='right-next' id="next-link" href="4_OP.html" title="weiter Seite">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title">Operationsverstärker</p>
+        <p class="prev-next-title">Operationsverstärker (OP)</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

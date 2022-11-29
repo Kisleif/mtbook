@@ -7,8 +7,12 @@
 
 # <iframe width="560" height="315" src="https://www.youtube.com/embed/wiq93KjXwao" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-# In[ ]:
-
-
-
-
+# ::::::{margin}
+# :::::{grid}
+# ::::{grid-item-card}
+# :link: https://www.youtube.com/embed/wiq93KjXwao
+# 
+# <iframe width="560" height="315" src="https://www.youtube.com/embed/wiq93KjXwao" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+# ::::
+# :::::
+# ::::::

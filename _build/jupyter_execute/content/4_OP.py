@@ -3,16 +3,6 @@
 
 # # Operationsverstärker (OP)
 
-# Liegen kleine Signale vor, wie z.B. kleine Stromstärken $I$,  Spannungswerte $U$ oder Widerstandswerte $R$, so werden die Signale häufig als erstes verstärkt, was mittels einem Operationsverstärker (OP) realisiert wird. In {numref}`op` ist eine schematische Zeichnung eines OPs dargestellt. 
-# 
-# :::{figure-md} op
-# <img src="draw/op.jpg" alt="op" width="600px" label = op>
-# 
-# Schematische Darstellung eines Operationsverstärkers (OPs) mit Eingangs-Innenwiderstand $R_e$, Ausgangs-Innenwiderstand $R_i$ und Spannungsversorgung $U_V$. $U_d$ ist die angelegte Eingangsspannung an dem differentiellen Eingang des OPs. $U_a$ ist die Ausgangsspannung.
-# :::
-
-# ## Eigenschaften
-
 # ::::::{margin}
 # :::::{grid}
 # ::::{grid-item-card}
@@ -23,6 +13,16 @@
 # ::::
 # :::::
 # ::::::
+
+# Liegen kleine Signale vor, wie z.B. kleine Stromstärken $I$,  Spannungswerte $U$ oder Widerstandswerte $R$, so werden die Signale häufig als erstes verstärkt, was mittels einem Operationsverstärker (OP) realisiert wird. In {numref}`op` ist eine schematische Zeichnung eines OPs dargestellt. 
+# 
+# :::{figure-md} op
+# <img src="draw/op.jpg" alt="op" width="400px" label = op>
+# 
+# Schematische Darstellung eines Operationsverstärkers (OPs) mit Eingangs-Innenwiderstand $R_e$, Ausgangs-Innenwiderstand $R_i$ und Spannungsversorgung $U_V$. $U_d$ ist die angelegte Eingangsspannung an dem differentiellen Eingang des OPs. $U_a$ ist die Ausgangsspannung.
+# :::
+
+# ## Eigenschaften
 
 # Dies sollte möglichst **rückwirkungsfrei** geschehen, das heißt dass die Verstärkerschaltung möglichst wenig Einfluss auf die Messgröße und die weiterführende Signalverarbeitung hat. 
 # Für eine Spannung, die man anlegt, sollte der **Eingangs-Innenwiderstand $R_e$** also **möglichst groß** sein, um den kompletten Spannungsabfall zu messen. 

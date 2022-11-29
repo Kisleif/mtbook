@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Interpolation vs. Anpassung/Approximation
+# # Interpolation vs. Anpassung
 # 
 # Man unterscheidet allgmein zwischen Interpolation und Anpassung/Approximation/Regression:
 # 

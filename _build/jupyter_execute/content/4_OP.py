@@ -123,7 +123,10 @@
 # Weitere Beispiele und Verstärkungsfaktoren sind in {numref}`ops` dargestellt.
 
 # :::{figure-md} ops
-# <img src="pictures/ops.png" alt="op" width="600px" label = ops>
+# <img src="pictures/ops.jpg" alt="ops" width="600px" label = ops>
+# 
+# Verschiedene Operationsverstärker-Schaltungen inklusive Verstärkungsfaktor.
+# :::
 
 # In[ ]:
 

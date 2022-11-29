@@ -372,7 +372,7 @@ plt.grid();
 # Hierbei wurde scheinbar eine sehr starke Glättung der Messdaten verwendet.
 # Erhöhe also den Wert `frac` für die LOWESS Methode für beide Messsätze `global_mean`(NASA) und `GER_mean` (Deutscher Wetterdienst) und prüfe, ob wir in ähnliche Bereiche kommen. Gib ebenfalls den Temperaturanstieg über die letzten 40 Jahre an (mittels linearer Regression). 
 
-# In[28]:
+# In[50]:
 
 
 # Glättung:
@@ -385,7 +385,7 @@ global_mean["Lowess(own3)"] = lowess(global_mean["No_Smoothing"],global_mean["Ye
 global_mean["Lowess(own3)"] = global_mean["Lowess(own3)"]
 
 
-# In[29]:
+# In[52]:
 
 
 # Grafische Darstellung:
@@ -402,7 +402,7 @@ plt.legend();
 plt.grid();
 
 
-# In[30]:
+# In[53]:
 
 
 x=GER_mean.loc[GER_mean["Jahr"] >= 1980,"Jahr"]

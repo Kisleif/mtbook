@@ -49,3 +49,73 @@
 # :::::
 # ::::::
 # 
+
+# ## Beispiel-OP-Schaltungen
+# 
+# ### Elektrometerverstärker
+# 
+# Der Elektrometerverstärker verstärkt ein gewisses Eingangssignal und besteht aus einem Operationsverstärker mit zwei Widerständen. 
+# Folgende Beziehung kann über die Maschenregel hergeleitet werden, wenn der Eingangsschaltkreis betrachtet wird:
+# 
+# $$U_e - \frac{R_2}{R_1+R_2}U_a - U'_e$$
+# 
+# wobei $U_e$ die Eingangsspannung ist, $U_a$ die Ausgangsspannung und $U'_e$ die Spannung, die am Eingang des OPs abfällt. Daraus folgt:
+# 
+# $$U'_e = U_e - \frac{R_2}{R_1+R_2}U_a$$
+# 
+# Für den Ausgangsschaltkreis folgt mittels Maschenregel:
+# 
+# $$k U'_e - I_a R_L - I_a R'_i = kU'_e - U_a - U_a \frac{R_i}{R_L} = 0$$
+# 
+# wobei $k'$ der Verstärungsfaktor des OPs ist, die auf die Eingangsspannung $U'_e$ des OPs wirkt. $R_L$ der Laserwiderstand und $I_a$ die Ausgangsstromstärke. 
+# 
+# Die beiden Gleichungen werden so kombiniert, dass alle $U'_e$ eliminiert werden:
+# 
+# $$U_e - U_a \left( \frac{R_1}{R_1+R_2} - \frac{1}{k'} - \frac{R'_i}{k'R_L} \right) = 0$$
+# 
+# und wir können die Gleichung nach der Elektrometer-Verstärkung $k_E = U_a / U_e$ umformen:
+# 
+# $$k_E = \frac{U_a}{U_e} = \frac{1}{\frac{R_1}{R_1 + R_2} - \frac{1}{k'} - \frac{R'_i}{k'R_L}}$$
+# 
+# $k_E$ ist hierbei der Verstärkungsfaktor der kompletten Schaltung und $k'$ die Verstärkung des OPs. 
+# 
+# Für einen idealen OP ($k' \rightarrow \infty$) folgt:
+# 
+# $$U_a = \left( 1 + \frac{R_1}{R_2} \right) U_e$$
+
+# ### Impedanzverstärker
+# 
+# Auch hier gibt es wieder ein Rückkopplung vom Ausgang des OPs an den Eingang. 
+# Für einen idealen OP gilt
+# 
+# $$U'_e = 0$$
+# 
+# Über die Maschenregel folgt:
+# 
+# $$U_e = U_a$$
+# 
+# Dass die Ausgangsspannung dem Eingangssignal bedinglos folgt gilt jedoch nur für bestimmte Grenzfrequenzen der OPs und der Schaltung, da ein OP ein dynamisches Verhalten aufweist. Die maximale Frequenzen, die der OP noch übertragen kann, passen den Verstärkungsfaktor an, bzw. umgekehrt. 
+# 
+# ### Strom-Spannungs-Wandler/Verstärker
+# 
+# Wir gehen wieder davon aus, dass wir einen idealen Verstärker vorliegen haben, d.h. 
+# 
+# $$U'_e = 0$$
+# 
+# Diese Spannung treibt den Strom $I_{e1}$ an, wobei durch den OP kein Strom fließt, d.h. der gesamte Strom muss durch $R_1$ fließen:
+# 
+# $$I_{e1} = \frac{U_e}{R_1}$$
+# 
+# Abfließen kann dies durch den Widerstand $R_2$, d.h. es gilt nach der Knotenregel:
+# 
+# $$I_{e2} = -I_{e1}$$
+# 
+# Dadurch folgt:
+# 
+# $$I_{e1} = \frac{U_e}{R_1} = -I_{e2} = -\frac{U_a}{R_2}$$
+# 
+# Dies kann so umgeformt werden, dass sich der Verstärkungsfaktor $k = U_a/U_e$ der Schaltung ergibt:
+# 
+# $$k = -\frac{R_2}{R_1}$$
+# 
+# Es handelt sich also um eine Verstärkerschaltung für Spannungen, bzw. um einen Stromwandler. 

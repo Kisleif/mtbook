@@ -690,6 +690,28 @@ title="Print to PDF"
    Eigenschaften
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#beispiel-op-schaltungen">
+   Beispiel-OP-Schaltungen
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#elektrometerverstarker">
+     Elektrometerverstärker
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#impedanzverstarker">
+     Impedanzverstärker
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#strom-spannungs-wandler-verstarker">
+     Strom-Spannungs-Wandler/Verstärker
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
     </nav>
@@ -713,6 +735,28 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#eigenschaften">
    Eigenschaften
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#beispiel-op-schaltungen">
+   Beispiel-OP-Schaltungen
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#elektrometerverstarker">
+     Elektrometerverstärker
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#impedanzverstarker">
+     Impedanzverstärker
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#strom-spannungs-wandler-verstarker">
+     Strom-Spannungs-Wandler/Verstärker
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -774,6 +818,63 @@ Am Ausgang sollte ein möglichst kleiner Innenwiderstand vorzufinden sein, sodas
 </div>
 </div>
 </aside>
+</section>
+<section id="beispiel-op-schaltungen">
+<h2>Beispiel-OP-Schaltungen<a class="headerlink" href="#beispiel-op-schaltungen" title="Link zu dieser Überschrift">#</a></h2>
+<section id="elektrometerverstarker">
+<h3>Elektrometerverstärker<a class="headerlink" href="#elektrometerverstarker" title="Link zu dieser Überschrift">#</a></h3>
+<p>Der Elektrometerverstärker verstärkt ein gewisses Eingangssignal und besteht aus einem Operationsverstärker mit zwei Widerständen.
+Folgende Beziehung kann über die Maschenregel hergeleitet werden, wenn der Eingangsschaltkreis betrachtet wird:</p>
+<div class="math notranslate nohighlight">
+\[U_e - \frac{R_2}{R_1+R_2}U_a - U'_e\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(U_e\)</span> die Eingangsspannung ist, <span class="math notranslate nohighlight">\(U_a\)</span> die Ausgangsspannung und <span class="math notranslate nohighlight">\(U'_e\)</span> die Spannung, die am Eingang des OPs abfällt. Daraus folgt:</p>
+<div class="math notranslate nohighlight">
+\[U'_e = U_e - \frac{R_2}{R_1+R_2}U_a\]</div>
+<p>Für den Ausgangsschaltkreis folgt mittels Maschenregel:</p>
+<div class="math notranslate nohighlight">
+\[k U'_e - I_a R_L - I_a R'_i = kU'_e - U_a - U_a \frac{R_i}{R_L} = 0\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(k'\)</span> der Verstärungsfaktor des OPs ist, die auf die Eingangsspannung <span class="math notranslate nohighlight">\(U'_e\)</span> des OPs wirkt. <span class="math notranslate nohighlight">\(R_L\)</span> der Laserwiderstand und <span class="math notranslate nohighlight">\(I_a\)</span> die Ausgangsstromstärke.</p>
+<p>Die beiden Gleichungen werden so kombiniert, dass alle <span class="math notranslate nohighlight">\(U'_e\)</span> eliminiert werden:</p>
+<div class="math notranslate nohighlight">
+\[U_e - U_a \left( \frac{R_1}{R_1+R_2} - \frac{1}{k'} - \frac{R'_i}{k'R_L} \right) = 0\]</div>
+<p>und wir können die Gleichung nach der Elektrometer-Verstärkung <span class="math notranslate nohighlight">\(k_E = U_a / U_e\)</span> umformen:</p>
+<div class="math notranslate nohighlight">
+\[k_E = \frac{U_a}{U_e} = \frac{1}{\frac{R_1}{R_1 + R_2} - \frac{1}{k'} - \frac{R'_i}{k'R_L}}\]</div>
+<p><span class="math notranslate nohighlight">\(k_E\)</span> ist hierbei der Verstärkungsfaktor der kompletten Schaltung und <span class="math notranslate nohighlight">\(k'\)</span> die Verstärkung des OPs.</p>
+<p>Für einen idealen OP (<span class="math notranslate nohighlight">\(k' \rightarrow \infty\)</span>) folgt:</p>
+<div class="math notranslate nohighlight">
+\[U_a = \left( 1 + \frac{R_1}{R_2} \right) U_e\]</div>
+</section>
+<section id="impedanzverstarker">
+<h3>Impedanzverstärker<a class="headerlink" href="#impedanzverstarker" title="Link zu dieser Überschrift">#</a></h3>
+<p>Auch hier gibt es wieder ein Rückkopplung vom Ausgang des OPs an den Eingang.
+Für einen idealen OP gilt</p>
+<div class="math notranslate nohighlight">
+\[U'_e = 0\]</div>
+<p>Über die Maschenregel folgt:</p>
+<div class="math notranslate nohighlight">
+\[U_e = U_a\]</div>
+<p>Dass die Ausgangsspannung dem Eingangssignal bedinglos folgt gilt jedoch nur für bestimmte Grenzfrequenzen der OPs und der Schaltung, da ein OP ein dynamisches Verhalten aufweist. Die maximale Frequenzen, die der OP noch übertragen kann, passen den Verstärkungsfaktor an, bzw. umgekehrt.</p>
+</section>
+<section id="strom-spannungs-wandler-verstarker">
+<h3>Strom-Spannungs-Wandler/Verstärker<a class="headerlink" href="#strom-spannungs-wandler-verstarker" title="Link zu dieser Überschrift">#</a></h3>
+<p>Wir gehen wieder davon aus, dass wir einen idealen Verstärker vorliegen haben, d.h.</p>
+<div class="math notranslate nohighlight">
+\[U'_e = 0\]</div>
+<p>Diese Spannung treibt den Strom <span class="math notranslate nohighlight">\(I_{e1}\)</span> an, wobei durch den OP kein Strom fließt, d.h. der gesamte Strom muss durch <span class="math notranslate nohighlight">\(R_1\)</span> fließen:</p>
+<div class="math notranslate nohighlight">
+\[I_{e1} = \frac{U_e}{R_1}\]</div>
+<p>Abfließen kann dies durch den Widerstand <span class="math notranslate nohighlight">\(R_2\)</span>, d.h. es gilt nach der Knotenregel:</p>
+<div class="math notranslate nohighlight">
+\[I_{e2} = -I_{e1}\]</div>
+<p>Dadurch folgt:</p>
+<div class="math notranslate nohighlight">
+\[I_{e1} = \frac{U_e}{R_1} = -I_{e2} = -\frac{U_a}{R_2}\]</div>
+<p>Dies kann so umgeformt werden, dass sich der Verstärkungsfaktor <span class="math notranslate nohighlight">\(k = U_a/U_e\)</span> der Schaltung ergibt:</p>
+<div class="math notranslate nohighlight">
+\[k = -\frac{R_2}{R_1}\]</div>
+<p>Es handelt sich also um eine Verstärkerschaltung für Spannungen, bzw. um einen Stromwandler.</p>
+</section>
 </section>
 </section>
 

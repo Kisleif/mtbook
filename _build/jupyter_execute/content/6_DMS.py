@@ -12,7 +12,7 @@
 # :::{figure-md} dms
 # <img src="draw/dms.jpg" alt="dms" width="400px" label = dms>
 # 
-# Dehnungsmessstreifen(DMS). 
+# Dehnungsmessstreifen (DMS). 
 # :::
 # 
 # Für
@@ -63,13 +63,38 @@
 # 
 # Es gibt auch Halbleiter-DMS. Bei diesen Materialien ist die Änderung des spezifischen Widerstands nicht mehr zu vernachlässigen, da er sich aufgrund des **piezoresistiven Effekts** sehr stark ändert. P-dotiertes Silizium weist beispielsweise ein K von bis zu 190 auf, n-dotiertes Silizium sinkt den K-Faktor auf - 100 ab. Das heißt, dass der Widerstandswert mit zunehmender Dehnung kleiner wird!
 # Eine eleganten Zusammensatzung wäre ein n- und p-dotierter Silizium-DMS mit jeweils dem gleichen, aber entgegengesetzten K-Faktor, welche in einer Messbrücke zusammengeschaltet werden. 
+
+# ## Kraftmessung
 # 
+# Es gibt verschiedene Möglicheiten DMS zur Kraftmessung zu nutzen. Die Sensoren können beispielsweise in einem Hohlkörper an die Innenwand angebracht werden, wie es in {numref}`dms_bieg` dargestellt ist, wodurch man die **Biegung** des Körper messen kann.
 # 
-
-# In[ ]:
-
-
-
-
+# :::{figure-md} dms_bieg
+# <img src="draw/dms_bieg.jpg" alt="dms_bieg" width="300px" label = dms_bieg>
+# 
+# DMSs sind innen in einem Hohlkörper angebracht an der Innenwand angebracht und können so die Wölbung der Zylinderwand messen. 
+# :::
+# 
+# Erfährt der Hohlkörper eine Kraft von außerdem, aufgrund derer er sich zu verformen beginnt, kann die resultierende Wölbung an der Innenwand mittels DMS gemessen werden. Hierbei sieht der DMS, der weiter außen angebracht ist, eine Dehnung, während ein Sensor weiter innen gestaucht wird. 
+# Die vier DMSs können direkt mittels einer Vollbrücke ausgelesen werden. Typischerweise können Kräfte von 1-50 kN gemessen werden. 
+# 
+# **Zug und Druck** können mit der Anordnung von DMSs gemessen werden, wie es in {numref}`dms_druck` dargestellt ist. 
+# 
+# :::{figure-md} dms_druck
+# <img src="draw/dms_druck.jpg" alt="dms_druck" width="300px" label = dms_druck>
+# 
+# DMSs sind innen in einem Hohlkörper angebracht an der Innenwand angebracht und können so die Zug- und Druckkräfte an der Zylinderwand zu messen. 
+# :::
+# 
+# Auch hierfür werden die DMS wieder innenliegend an den Hohlkörper angebracht. Werden die DMS entlang der Kraftrichtung angebracht, so werden sie längs ihrer Anbringungsrichtung gedehnt und gestaucht. Sie können jedoch auch quer zur Krafteinwirkungsrichtung installiert werden, wodurch sie dann genau entgegengesetzt gestaucht bzw. gedehnt werden. Es können Kräfte zwischen 20 kN  bis einige MN gemessen werden. 
+# 
+# Hat man in einem Festkörper beispielsweise zwei Hohlräume oder Bohrungen, können in diesen DMSs eingebracht werden um **Scherkräfte** innerhalb der Körper zu messen. Dies ist in {numref}`dms_scher` dargestellt. 
+# 
+# :::{figure-md} dms_scher
+# <img src="draw/dms_scher.jpg" alt="dms_scher" width="300px" label = dms_scher>
+# 
+# DMSs sind innen an der Innenwand von zwei Bohrungen angebracht um Scherkräfte zu messen.
+# :::
+# 
+# Die Schwerkräfte werden gemessen indem die DMS in einem 45° Winkel an die Rand geklebt werden. Nutzt man weitere Sensoren mit einem -45° Winkel so können wieder 4 Sensoren mittels einer Vollbrücke ausgelesen werden. Hierbei können Kräfte im Bereich von 20kN bis einigen MN gemessen werden.  
 
 # 

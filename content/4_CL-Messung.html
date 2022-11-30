@@ -179,10 +179,27 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="1_Kurvenanpassung.html">
-   Anpassung und lineare Regression
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="01_Kurvenanpassung_intro.html">
+   Kurvenanpassung
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Interpol_Approx.html">
+     Interpolation vs. Anpassung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Kurvenanpassung.html">
+     Anpassung und lineare Regression
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
@@ -195,8 +212,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="02_Stationaer.html">
    Stationäre Messsysteme
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -222,8 +239,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="03_Messsignale.html">
    Messsignale
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -261,8 +278,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="05_Dynamische_Messsysteme.html">
    Dynamische Messsysteme
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -305,8 +322,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="04_ElektrischeGroessen.html">
    Messen elektrischer Größen
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -352,8 +369,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="6_Sensoren.html">
    Sensoren
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-  <label for="toctree-checkbox-7">
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -365,7 +382,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="6_DMS.html">
-     Dehnungsmessstreifen
+     Dehnungsmessstreifen (DMS)
     </a>
    </li>
    <li class="toctree-l2">
@@ -411,8 +428,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="T_Tutorials.html">
    Jupyter Notebooks
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-  <label for="toctree-checkbox-8">
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -793,11 +810,11 @@ title="Print to PDF"
 <p>Manche Sensoren ändern ihr kapazitives oder induktives Verhalten aufgrund der Messgröße <span class="math notranslate nohighlight">\(x\)</span>. Das Auslesen diese Änderung basiert auf den gleichen Verfahren, die wir schon im Kapitel <a class="reference internal" href="4_R-Messung.html"><span class="doc std std-doc">Widerstandsmessungen</span></a> kennen gelernt haben. Jedoch müssen wir jetzt  mit <strong>Wechselspannungen</strong> arbeiten, da Kapazität oder Induktivität ansonsten nicht existieren. Fast ausschließlich werden wir hierfür ein Sinussignal ohne Gleichanteil verwenden. Um die Kapazität <span class="math notranslate nohighlight">\(C\)</span> bzw. Induktivität <span class="math notranslate nohighlight">\(L\)</span> zu bestimmen, wird wieder eine gleichzeitige Messung von <strong>Strom und Spannung</strong> benötigt, bzw. deren <strong>Effektivwerten</strong>!</p>
 <section id="stromrichtige-und-spannungsrichtige-anschaltung">
 <h2>Stromrichtige und spannungsrichtige Anschaltung<a class="headerlink" href="#stromrichtige-und-spannungsrichtige-anschaltung" title="Link zu dieser Überschrift">#</a></h2>
-<p><a class="reference internal" href="#cl-stromspannungsrichtig"><span class="std std-numref">Abb. 75</span></a> zeigt wie man Kapazität bzw. Induktivität direkt messen kann in dem Spannungs und Strom gemessen werden.</p>
+<p><a class="reference internal" href="#cl-stromspannungsrichtig"><span class="std std-numref">Abb. 78</span></a> zeigt wie man Kapazität bzw. Induktivität direkt messen kann in dem Spannungs und Strom gemessen werden.</p>
 <figure class="align-default" id="cl-stromspannungsrichtig">
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/CL_stromspannungsrichtig.jpg"><img alt="CL_stromspannungsrichtig" class="bg-primary mb-1" src="../_images/CL_stromspannungsrichtig.jpg" style="width: 700px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 75 </span><span class="caption-text">Schaltung zur Messung von Kapazitäten, bzw. Induktivitäten. Links ist die spannungsrichtige Anschaltung gezeigt, rechts die stromrichtige.</span><a class="headerlink" href="#cl-stromspannungsrichtig" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-number">Abb. 78 </span><span class="caption-text">Schaltung zur Messung von Kapazitäten, bzw. Induktivitäten. Links ist die spannungsrichtige Anschaltung gezeigt, rechts die stromrichtige.</span><a class="headerlink" href="#cl-stromspannungsrichtig" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
 <p>Mit beiden Messeingängen werden die Effektivwerte <span class="math notranslate nohighlight">\(u_\mathrm{eff}\)</span> und <span class="math notranslate nohighlight">\(i_\mathrm{eff}\)</span> ermittelt. Aus dem Blindwiderstand,</p>
@@ -838,7 +855,7 @@ Auf die Herleitung der Messabweichung bei strom- bzw. spannungsrichtiger Anschal
 <figure class="align-default" id="lc-2volt">
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/LC_2volt.jpg"><img alt="LC_2volt" class="bg-primary mb-1" src="../_images/LC_2volt.jpg" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 76 </span><span class="caption-text">Schaltung zur Messung von Kapazitäten (links), bzw. Induktivitäten (rechts) mit 2 Spannungsmesseingängen.</span><a class="headerlink" href="#lc-2volt" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-number">Abb. 79 </span><span class="caption-text">Schaltung zur Messung von Kapazitäten (links), bzw. Induktivitäten (rechts) mit 2 Spannungsmesseingängen.</span><a class="headerlink" href="#lc-2volt" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
 <p>Die Spannung wird an beiden Elementen gemessen und der gesuchte Werte, <span class="math notranslate nohighlight">\(C_x\)</span> bzw. <span class="math notranslate nohighlight">\(L_x\)</span>, können aus dem Spannungsverhältnis berechnet werden:</p>
@@ -859,11 +876,11 @@ Auf die Herleitung der Messabweichung bei strom- bzw. spannungsrichtiger Anschal
 <p>Genauso wie für Widerstände können wieder verschiedene Brückenschaltungen benutzt werden um Kapazitäten und Induktivitäten zu messen um ggf. Störeffekte minimieren.</p>
 <section id="viertelbrucke">
 <h3>Viertelbrücke<a class="headerlink" href="#viertelbrucke" title="Link zu dieser Überschrift">#</a></h3>
-<p><a class="reference internal" href="#lc-viertel"><span class="std std-numref">Abb. 77</span></a> zeigt die Viertelbrückenschaltung. Der Spannungsteiler, indem die zu messende Kapazität- bzw. Induktivitätsänderung ist, befindet sich außerdem ein zweites Element mit festem Wert. Der andere Spannungsteiler kann aus ohmschen Widerständen gebaut werden. Da die Messbrücke mit Wechselspannung betrieben wird, kann das Vorzeichen der Messgröße <span class="math notranslate nohighlight">\(x\)</span> nicht durch Umpolung umgekehrt werden.</p>
+<p><a class="reference internal" href="#lc-viertel"><span class="std std-numref">Abb. 80</span></a> zeigt die Viertelbrückenschaltung. Der Spannungsteiler, indem die zu messende Kapazität- bzw. Induktivitätsänderung ist, befindet sich außerdem ein zweites Element mit festem Wert. Der andere Spannungsteiler kann aus ohmschen Widerständen gebaut werden. Da die Messbrücke mit Wechselspannung betrieben wird, kann das Vorzeichen der Messgröße <span class="math notranslate nohighlight">\(x\)</span> nicht durch Umpolung umgekehrt werden.</p>
 <figure class="align-default" id="lc-viertel">
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/LC_viertel.jpg"><img alt="LC_viertel" class="bg-primary mb-1" src="../_images/LC_viertel.jpg" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 77 </span><span class="caption-text">Schaltung zur Messung von Kapazitäten (links), bzw. Induktivitäten (rechts) mit einer Viertelbrücke.</span><a class="headerlink" href="#lc-viertel" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-number">Abb. 80 </span><span class="caption-text">Schaltung zur Messung von Kapazitäten (links), bzw. Induktivitäten (rechts) mit einer Viertelbrücke.</span><a class="headerlink" href="#lc-viertel" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
 <p>Für die Kennlinien erhalten wir ähnliche Ergebnisse, wie schon im Kapitel <a class="reference internal" href="4_R-Messung.html"><span class="doc std std-doc">Widerstandsmessungen</span></a> hergeleitet.</p>
@@ -902,11 +919,11 @@ Auf die Herleitung der Messabweichung bei strom- bzw. spannungsrichtiger Anschal
 </section>
 <section id="halbbrucke">
 <h3>Halbbrücke<a class="headerlink" href="#halbbrucke" title="Link zu dieser Überschrift">#</a></h3>
-<p>Um Störgrößen zu reduzieren können Kapazitäts- und Induktionsmessung in Halbbrücken integriert werden. Die anschaltung ist in <a class="reference internal" href="#lc-halbbr"><span class="std std-numref">Abb. 78</span></a> dargestellt.</p>
+<p>Um Störgrößen zu reduzieren können Kapazitäts- und Induktionsmessung in Halbbrücken integriert werden. Die anschaltung ist in <a class="reference internal" href="#lc-halbbr"><span class="std std-numref">Abb. 81</span></a> dargestellt.</p>
 <figure class="align-default" id="lc-halbbr">
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/LC_halbbr.jpg"><img alt="LC_halbbr" class="bg-primary mb-1" src="../_images/LC_halbbr.jpg" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 78 </span><span class="caption-text">Schaltung zur Messung von Kapazitäten (links), bzw. Induktivitäten (rechts) mit einer Halbbrücke.</span><a class="headerlink" href="#lc-halbbr" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-number">Abb. 81 </span><span class="caption-text">Schaltung zur Messung von Kapazitäten (links), bzw. Induktivitäten (rechts) mit einer Halbbrücke.</span><a class="headerlink" href="#lc-halbbr" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
 <p>Die Herleitung der Kennlinien ist wieder analog zur Viertelbrücke, bzw. analog zur Widerstandsbrücke und liefert folgende Ergebnisse:</p>

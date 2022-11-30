@@ -189,18 +189,28 @@ print('Die Messabweichung beträgt: ', R_0/R_ges*I_0 - I_0, 'A = ', (1-R_0/R_ges
 # Bei den oben genannten Möglichkeiten muss immer der Stromkreis aufgetrennt werden und das Strommessgerät in den Schaltkreis integriert werden. Die Stromzange ist so aufgebaut, dass der Eisenkern an einer Stelle geöffnet werden kann, wie eine Zangen, und das stromdurchflossene Kabel hindruchgelegt werden kann. Dadurch kann der Strom gemessen werden, ohne dass aktiv in den Stromkreis eingegriffen wird, was eines der großen Vorteile dieses Messprinzips ist. Die Messung erfolgt somit potentialfrei und berührunglos und eignet sich auch zur Messung von Strömen in laufenden Anlagen, ohne die Ausschaltung zu müssen. 
 # Einschränkungen ergeben sich nur in der Querschnittsfläche des Leiters, da dieser vollständig von der Stromzangen umschlossen werden muss. 
 # 
-# :::{figure-md} stromzange
-# <img src="draw/stromzange.jpg" alt="stromzange" class="bg-primary mb-1" width="600px" label = stromzange>
+# #### Wechselstrom-Zangenstrommesser
+# Mit dem einfachen Prinzip der Stromzange können nur Wechselströme gemessen werden, dies sind sogenannte **Wechselstrom-Zangenstrommesser** und basieren auf dem **Transformator-Prinzip**. Dies ist in {numref}`stromzange_wechsel` dargestellt. 
 # 
-# Darstellung der Strommessung mittels Stromzange. In (a) für Wechselstrom mittels Sekundärspule und in (b) auch für Gleichströme, in dem in einem Luftspalt im Eisenkern ein Magnetfeld-Sensor (Hall-Sensor) eingebaut wird, der eine Hall-Spannung generiert. 
+# :::{figure-md} stromzange_wechsel
+# <img src="draw/stromzange_wechsel.jpg" alt="stromzange_wechsel"  width="400px" label = stromzange_wechsel>
+# 
+# Darstellung der Strommessung mittels Stromzange für Wechselstrom mittels Sekundärspule.
 # :::
 # 
-# #### Wechselstrom-Zangenstrommesser
-# Mit dem einfachen Prinzip der Stromzange können nur Wechselströme gemessen werden, dies sind sogenannte **Wechselstrom-Zangenstrommesser** und basieren auf dem **Transformator-Prinzip**. Dies ist in {numref}`stromzange`(a) dargestellt. Ein Eisenkern fundiert als Trafokern. In diesen Eisenkern wird der stromdurchflossene Leiter eingeführt und bildet eine Spule mit nur einer Windung, die **Primärspule**. Das Magnetfeld, was durch den stromdurchflossenen Leiter hervor gerufen wird, wird an den Eisenkern übertragen und magnetisiert diesen. Die Magnetisierung induziert in einer **Sekundärspule** einen **Sekundärstrom**, der proportional zu dem zu messenden Primärstrom ist. Der Sekundärstrom kann mittels Shunt-Widerstand, Oerationsverstärker oder mit einem Dreheisenmesswerk betrieben gemessen werden kann. Um diese anschließende direkte Stromstärkemessung zu gerantieren wird die Sekundärspulenwicklung direkt so gewählt, dass der resultierende Sekundärstrom groß genug für die folgenden Messgeräte ist. Die Energie zum Antrieb eines Dreheisenmesswerks wird hierbei dem Stromkreis entnommen. 
+# Ein Eisenkern fundiert als Trafokern. In diesen Eisenkern wird der stromdurchflossene Leiter eingeführt und bildet eine Spule mit nur einer Windung, die **Primärspule**. Das Magnetfeld, was durch den stromdurchflossenen Leiter hervor gerufen wird, wird an den Eisenkern übertragen und magnetisiert diesen. Die Magnetisierung induziert in einer **Sekundärspule** einen **Sekundärstrom**, der proportional zu dem zu messenden Primärstrom ist. Der Sekundärstrom kann mittels Shunt-Widerstand, Oerationsverstärker oder mit einem Dreheisenmesswerk betrieben gemessen werden kann. Um diese anschließende direkte Stromstärkemessung zu gerantieren wird die Sekundärspulenwicklung direkt so gewählt, dass der resultierende Sekundärstrom groß genug für die folgenden Messgeräte ist. Die Energie zum Antrieb eines Dreheisenmesswerks wird hierbei dem Stromkreis entnommen. 
 # 
 # #### Allstrom-Messer
 # Gleichstrom kann mittels dem eben genannten Prinzip nicht gemessen werden, da die Wechselfelder für die Magnetfeldänderungen fehlen.
-# Für Gleichstrommessungen wird der Eisenkern an einer Stelle aufgetrennt und ein Magnetfeld-Sensor (Hall-Sensor oder magnetoresisitiver Widerstand) eingebaut, der auch statische Magnetfelder messen kann und somit nicht auf sich verändernde Wechselfelder angewiesen ist. Dies ist in {numref}`stromzange`(b) dargestellt. Nachteil hierbei ist jedoch, dass nur sehr schwache Signale erzeugt werden, welche elektronisch verstärkt werden müssen. Dafür wird eine zusätzliche Spannungsversorgung benötigt. Wechselströme können allerdings ebenso mit diesem Messgerät gemessen werden. 
+# Für Gleichstrommessungen wird der Eisenkern an einer Stelle aufgetrennt und ein Magnetfeld-Sensor (Hall-Sensor oder magnetoresisitiver Widerstand) eingebaut, der auch statische Magnetfelder messen kann und somit nicht auf sich verändernde Wechselfelder angewiesen ist. Dies ist in {numref}`stromzange_gleich` dargestellt. 
+# 
+# :::{figure-md} stromzange_gleich
+# <img src="draw/stromzange_gleich.jpg" alt="stromzange_gleich"  width="400px" label = stromzange_gleich>
+# 
+# Darstellung der Strommessung mittels Stromzange auch für Gleichströme, in dem in einem Luftspalt im Eisenkern ein Magnetfeld-Sensor (Hall-Sensor) eingebaut wird, der eine Hall-Spannung generiert. 
+# :::
+# 
+# Nachteil hierbei ist jedoch, dass nur sehr schwache Signale erzeugt werden, welche elektronisch verstärkt werden müssen. Dafür wird eine zusätzliche Spannungsversorgung benötigt. Wechselströme können allerdings ebenso mit diesem Messgerät gemessen werden. 
 
 # In[ ]:
 

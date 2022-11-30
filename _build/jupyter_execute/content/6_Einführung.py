@@ -35,6 +35,28 @@
 # 
 # Damit Sensor und Messsignalverarbeitung möglichst rückwirkungsfrei sind, werden **Impedanzwandler** eingesetzt. 
 
+# ## Klassifizierung von Sensoren
+# 
+# ### Passive Sensoren
+# Passive Sensoren verändern ihre elektrischen Eigenschaften wenn eine externe physikalische Größe auf diese einwirkt. Ein Beispiel hierfür ein Widerstand der seinen Wert in Abhängigkeit von der Temperatur ändert.
+# 
+# Passive Sensoren benötigen zur Auswertung eine Hilfsenergie um hohe Genauigkeiten zu erreichen.
+# 
+# * **Widerstandsthermometer**, die ihren *ohm'schen Widerstand* in Abhängigkeit von der Umgebungs**temperatur** ändern.
+# * **Fotowiderstand**, die ihren *ohm'schen Widerstand* in Abhängigkeit von der **Beleuchtungsstärke** ändern
+# * **Potentiometer** sind Schleifdrähte, die die Aufteilung ihres *ohm'schen Widerstand* in Abhängigkeit von der Position des Schleifdrahtes ändern und somit zur **Längenmessung** benutzt werden.
+# * **Dehnungsmessstreifen** ändern ihren *ohm'schen Widerstandswert* in Abhängigkeit von ihrer Länge und werden zur Messung kleiner, relativer Längenänderungen und Kräfte benutzt. 
+# * **Induktive Sensoren** ändern ihre *Induktivität* in Abhängigkeit von Längen, Abständen und Winkeln.
+# * **Kapazitive Sensoren** ändern ihre *Kapazität* in Abhängigkeit von Längen, Abständen und Winkeln.
+# 
+# ### Aktive Sensoren
+# Aktive Sensoren wandeln (aktiv) eine nichtelektrische physikalische Größe in eine elektrische Größe um und somit **Energiewandler**. Die oerforderliche Energie für diesen Prozess wird der Messgröße entzogen. 
+# Diese Sensoren benötigen keine zusätzliche Hilfsenergie, können aber oft nut geringe Genauigkeiten erreichen. 
+# 
+# * **Thermoelemente** erzeugen bei einer **Temperaturdifferenz** eine *Spannung* zwischen zwei Messpunkten unterschiedlicher Metalle
+# * **Fotoelement** erzeugen eine *Spannung* bzw. *Stromstärke* mittels fotoelektrischem Effekt aus der **Beleuchtungsstärke**.
+# * **Piezokristalle** erzeugen eine *Ladungsumverteilung* und dadurch eine *Potentialdifferenz (Spannung)* in Kristallen wenn **Kraft oder Druck** von außen auf diesen einwirken. 
+
 # In[ ]:
 
 

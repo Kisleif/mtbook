@@ -139,8 +139,14 @@ print('Die Messabweichung beträgt: ', R_0/R_ges*I_0 - I_0, 'A = ', (1-R_0/R_ges
 # ### Drehspulmesswerk
 # 
 # Bei dem Drehspulmesswerk handelt es sich um elektromechanisches Messgerät zur Messung der elektrischen Stromstärke. 
-# Es wird eine drehbare Spule auf Kuferdraht in einem Dauermagneten eingebaut. Zwei Spiralfedern dienen der Strumzufuhr und für die Rückstellkraft des Zeigers in seiner Ausgangslage. 
+# Es wird eine drehbare Spule auf Kuferdraht in einem Dauermagneten eingebaut. Zwei Spiralfedern dienen der Strumzufuhr und für die Rückstellkraft des Zeigers in seiner Ausgangslage. Der Aufbau ist in {numref}`messwerk` dargestellt. 
 # Der Zeiger sollte möglichst starr, leicht und dünn sein, damit der Skalenbereich gut ablesbar ist. 
+# 
+# :::{figure-md} messwerk
+# <img src="draw/messwerk.jpg" alt="messwerk" class="bg-primary mb-1" width="500px" label = messwerk>
+# 
+# Aufbau eines Drehspulmesswerk.
+# :::
 # 
 # Der zu messende Strom wird nun über die Anschlussklemme und die Federn in die Spule geleitet. Auf die Leiter in der Spule wirkt die Lorentzkraft, wodurch sich der Spulenkörper im Feld des Magneten anfängt zu drehen, wobei die Federkraft dem entgegenwirkt, bis das Drehtmoment, $M_L$, aus der Lorentzkraft, $F_L$, dem Drehmoment $M_F$ der Rückstellkraft der Spiralfedern, gleicht:
 # 
@@ -166,7 +172,13 @@ print('Die Messabweichung beträgt: ', R_0/R_ges*I_0 - I_0, 'A = ', (1-R_0/R_ges
 # 
 # Ströme können auch mittels einem Dreheisenmesswerk direkt angezeigt werden. Hierbei handelt es sich um ein analoges Strommessgerät. Es wnadelt die Stromstärke direkt in einen Zeigerausschlag um, der entsprechend kalibriert werden muss. 
 # 
-# Hierfür wird eine einzelne Spule benutzt. Innerhalb dieser Spule befindet sich ein fixierter Eisenkern und ein weiterer beweglicher Eisenkern an der Zeigerachse. Fließt nun ein Strom durch die Spule, so magnetisieren sich die Eisenkernen gleichsinnig und stoßen sich ab. Dadurch kommt es zu einer Rotation des beweglichen Eisenkerns und der Zeiger bewegt sich. Dadurch wird eine Feder gespannt, bis die die magnetische Kraft ausgeglichen ist. Wird der Strom abgeschaltet, bringt die Feder den Zeiger zurück in seiner Ausgangslage. 
+# :::{figure-md} dreheisen
+# <img src="draw/dreheisen.jpg" alt="dreheisen" class="bg-primary mb-1" width="500px" label = dreheisen>
+# 
+# Aufbau eines Dreheisenmesswerks.
+# :::
+# 
+# Hierfür wird eine einzelne Spule benutzt, wie sie es in {numref}`dreheisen` dargestellt ist. Innerhalb dieser Spule befindet sich ein fixierter Eisenkern und ein weiterer beweglicher Eisenkern an der Zeigerachse. Fließt nun ein Strom durch die Spule, so magnetisieren sich die Eisenkernen gleichsinnig und stoßen sich ab. Dadurch kommt es zu einer Rotation des beweglichen Eisenkerns und der Zeiger bewegt sich. Dadurch wird eine Feder gespannt, bis die die magnetische Kraft ausgeglichen ist. Wird der Strom abgeschaltet, bringt die Feder den Zeiger zurück in seiner Ausgangslage. 
 # 
 # Der Ausschlag ist im Gegensatz zum Zeigerausschlag in einem Drehspulmesswerk nicht mehr proportional sondern hängt von $I^2$ ab. Dadurch misst das Dreheisenmesswerk den Effektivwert der Stromstärke. 
 # 
@@ -177,12 +189,18 @@ print('Die Messabweichung beträgt: ', R_0/R_ges*I_0 - I_0, 'A = ', (1-R_0/R_ges
 # Bei den oben genannten Möglichkeiten muss immer der Stromkreis aufgetrennt werden und das Strommessgerät in den Schaltkreis integriert werden. Die Stromzange ist so aufgebaut, dass der Eisenkern an einer Stelle geöffnet werden kann, wie eine Zangen, und das stromdurchflossene Kabel hindruchgelegt werden kann. Dadurch kann der Strom gemessen werden, ohne dass aktiv in den Stromkreis eingegriffen wird, was eines der großen Vorteile dieses Messprinzips ist. Die Messung erfolgt somit potentialfrei und berührunglos und eignet sich auch zur Messung von Strömen in laufenden Anlagen, ohne die Ausschaltung zu müssen. 
 # Einschränkungen ergeben sich nur in der Querschnittsfläche des Leiters, da dieser vollständig von der Stromzangen umschlossen werden muss. 
 # 
+# :::{figure-md} stromzange
+# <img src="draw/stromzange.jpg" alt="stromzange" class="bg-primary mb-1" width="600px" label = stromzange>
+# 
+# Darstellung der Strommessung mittels Stromzange. In (a) für Wechselstrom mittels Sekundärspule und in (b) auch für Gleichströme, in dem in einem Luftspalt im Eisenkern ein Magnetfeld-Sensor (Hall-Sensor) eingebaut wird, der eine Hall-Spannung generiert. 
+# :::
+# 
 # #### Wechselstrom-Zangenstrommesser
-# Mit dem einfachen Prinzip der Stromzange können nur Wechselströme gemessen werden, dies sind sogenannte **Wechselstrom-Zangenstrommesser** und basieren auf dem **Transformator-Prinzip**. Ein Eisenkern fundiert als Trafokern. In diesen Eisenkern wird der stromdurchflossene Leiter eingeführt und bildet eine Spule mit nur einer Windung, die **Primärspule**. Das Magnetfeld, was durch den stromdurchflossenen Leiter hervor gerufen wird, wird an den Eisenkern übertragen und magnetisiert diesen. Die Magnetisierung induziert in einer **Sekundärspule** einen **Sekundärstrom**, der proportional zu dem zu messenden Primärstrom ist. Der Sekundärstrom kann mittels Shunt-Widerstand, Oerationsverstärker oder mit einem Dreheisenmesswerk betrieben gemessen werden kann. Um diese anschließende direkte Stromstärkemessung zu gerantieren wird die Sekundärspulenwicklung direkt so gewählt, dass der resultierende Sekundärstrom groß genug für die folgenden Messgeräte ist. Die Energie zum Antrieb eines Dreheisenmesswerks wird hierbei dem Stromkreis entnommen. 
+# Mit dem einfachen Prinzip der Stromzange können nur Wechselströme gemessen werden, dies sind sogenannte **Wechselstrom-Zangenstrommesser** und basieren auf dem **Transformator-Prinzip**. Dies ist in {numref}`stromzange`(a) dargestellt. Ein Eisenkern fundiert als Trafokern. In diesen Eisenkern wird der stromdurchflossene Leiter eingeführt und bildet eine Spule mit nur einer Windung, die **Primärspule**. Das Magnetfeld, was durch den stromdurchflossenen Leiter hervor gerufen wird, wird an den Eisenkern übertragen und magnetisiert diesen. Die Magnetisierung induziert in einer **Sekundärspule** einen **Sekundärstrom**, der proportional zu dem zu messenden Primärstrom ist. Der Sekundärstrom kann mittels Shunt-Widerstand, Oerationsverstärker oder mit einem Dreheisenmesswerk betrieben gemessen werden kann. Um diese anschließende direkte Stromstärkemessung zu gerantieren wird die Sekundärspulenwicklung direkt so gewählt, dass der resultierende Sekundärstrom groß genug für die folgenden Messgeräte ist. Die Energie zum Antrieb eines Dreheisenmesswerks wird hierbei dem Stromkreis entnommen. 
 # 
 # #### Allstrom-Messer
 # Gleichstrom kann mittels dem eben genannten Prinzip nicht gemessen werden, da die Wechselfelder für die Magnetfeldänderungen fehlen.
-# Für Gleichstrommessungen wird der Eisenkern an einer Stelle aufgetrennt und ein Magnetfeld-Sensor (Hall-Sensor oder magnetoresisitiver Widerstand) eingebaut, der auch statische Magnetfelder messen kann und somit nicht auf sich verändernde Wechselfelder angewiesen ist. Nachteil hierbei ist jedoch, dass nur sehr schwache Signale erzeugt werden, welche elektronisch verstärkt werden müssen. Dafür wird eine zusätzliche Spannungsversorgung benötigt. Wechselströme können allerdings ebenso mit diesem Messgerät gemessen werden. 
+# Für Gleichstrommessungen wird der Eisenkern an einer Stelle aufgetrennt und ein Magnetfeld-Sensor (Hall-Sensor oder magnetoresisitiver Widerstand) eingebaut, der auch statische Magnetfelder messen kann und somit nicht auf sich verändernde Wechselfelder angewiesen ist. Dies ist in {numref}`stromzange`(b) dargestellt. Nachteil hierbei ist jedoch, dass nur sehr schwache Signale erzeugt werden, welche elektronisch verstärkt werden müssen. Dafür wird eine zusätzliche Spannungsversorgung benötigt. Wechselströme können allerdings ebenso mit diesem Messgerät gemessen werden. 
 
 # In[ ]:
 

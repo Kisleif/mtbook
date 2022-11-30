@@ -706,13 +706,61 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="dehnungsmessstreifen-dms">
 <h1>Dehnungsmessstreifen (DMS)<a class="headerlink" href="#dehnungsmessstreifen-dms" title="Link zu dieser Überschrift">#</a></h1>
-<p>Ein Dehnungsmessstreifen (DMS) ist lediglich eine elektrische Leiterbahn, die auf einer kleinen Trägerfolie z.B. mäanderförmig aufgebracht ist. Meistens besteht diese Folie aus einem chemisch sehr robusten Material, wie z.B. Kapton (Polyimid), welches auch bei hohen Temperaturen verwendet werden kann. Hierauf wird die Leiterbahn mit einem speziellen Kleber aufgebracht, sodass diese den Oberflächendehnungen eines Körpers folgen kann. Dadurch können Dehnungen, Stauchungen, Kräfte oder Drücke auf der Oberfläche gemessen werden. Die Dehnung wird dann in Richtung des Leiterbahnabschnittes gemessen, dessen ohm’scher Widerstand sich ändert:</p>
+<p>Ein Dehnungsmessstreifen (DMS) ist lediglich eine elektrische Leiterbahn, die auf einer kleinen Trägerfolie z.B. mäanderförmig aufgebracht ist, wie in <a class="reference internal" href="#dms"><span class="std std-numref">Abb. 86</span></a> dargestellt. Meistens besteht diese Folie aus einem chemisch sehr robusten Material, wie z.B. Kapton (Polyimid), welches auch bei hohen Temperaturen verwendet werden kann. Hierauf wird die Leiterbahn mit einem speziellen Kleber aufgebracht, sodass diese den Oberflächendehnungen eines Körpers folgen kann. Dadurch können Dehnungen, Stauchungen, Kräfte oder Drücke auf der Oberfläche gemessen werden. Die Dehnung wird dann in Richtung des Leiterbahnabschnittes gemessen, dessen ohm’scher Widerstand sich ändert:</p>
 <div class="math notranslate nohighlight">
 \[R = \frac{\rho \cdot l}{r^2 \pi}\]</div>
-<p><span class="math notranslate nohighlight">\(\rho\)</span> ist der spezifische Widerstand, der vom Material der Leiterbahn abhängt und <span class="math notranslate nohighlight">\(l\)</span> und <span class="math notranslate nohighlight">\(r\)</span> sind Länge und Radius der Leiterbahn.
-Als Material für die Leiterbahn wird beispielsweise Konstanten, eine Legierung aus 55% Cu, 44% Ni, 1 % Mn, verwendet, deren spezifischer Widerstand kaum von der Temperatur abhängt.
-Schon bei kleinen Dehnungen, minimalen Kräften oder anderen kleinen Belastungen ändert sich der Widerstandswert.<br />
-Zur Bestimmung der genauen, mitunter kleinen Widerstandswerten werden häufig Widerstands-Messbrücken verwendet, in denen DMSs in verschiedenen Anordnungsformen angebracht werden können. Dadurch können auch Querkräfte, Scherkräfte und andere Belastungen gemessen werden.</p>
+<p><span class="math notranslate nohighlight">\(\rho\)</span> ist der spezifische Widerstand, der vom Material der Leiterbahn abhängt und <span class="math notranslate nohighlight">\(l\)</span> und <span class="math notranslate nohighlight">\(r\)</span> sind Länge und Radius der Leiterbahn. In der Formel wird durch die Querschnittsfläche geteilt, die näherungsweise dem kreisförmigen Querschnitt <span class="math notranslate nohighlight">\(A = \pi r^2\)</span> entspricht.</p>
+<figure class="align-default" id="dms">
+<a class="reference internal image-reference" href="../_images/dms.jpg"><img alt="dms" src="../_images/dms.jpg" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Abb. 86 </span><span class="caption-text">Dehnungsmessstreifen(DMS).</span><a class="headerlink" href="#dms" title="Link zu diesem Bild">#</a></p>
+</figcaption>
+</figure>
+<p>Für</p>
+<ul class="simple">
+<li><p><strong>Leiter</strong> ist <span class="math notranslate nohighlight">\(\rho &lt; 100\,\mathrm{\frac{\Omega mm^2}{m}}\)</span>,</p></li>
+<li><p><strong>Halbleiter</strong> liegt <span class="math notranslate nohighlight">\(\rho\)</span> zwischen <span class="math notranslate nohighlight">\(100\,\mathrm{\frac{\Omega mm^2}{m}}\)</span> bis <span class="math notranslate nohighlight">\(10^{12}\,\mathrm{\frac{\Omega mm^2}{m}}\)</span>,</p></li>
+<li><p><strong>Isolatoren oder Nichtleiter</strong> ist <span class="math notranslate nohighlight">\(\rho &gt; 10^{^12}\,\mathrm{\frac{\Omega mm^2}{m}}\)</span></p></li>
+</ul>
+<p>Als Material für die Leiterbahn wird beispielsweise Konstanten, eine Legierung aus 55% Cu, 44% Ni, 1 % Mn, verwendet, deren spezifischer Widerstand kaum von der Temperatur abhängt und <span class="math notranslate nohighlight">\(\rho = 0,5\,\mathrm{\frac{\Omega mm^2}{m}}\)</span> beträgt.</p>
+<p>Nehmen wir nun, dass es sich um sehr kleine Änderungen handelt, können wir die obige Gleichungs wieder mittels Taylor-Entwicklung abschätzen, wie wir es auch bei der Fehlerfortpflanzung gemacht haben:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\Delta R}{R} \approx \frac{\Delta \rho}{\rho} + \frac{\Delta L}{L} - 2\cdot \frac{\Delta r}{r} = \left( \frac{\frac{\Delta \rho}{\rho}}{\epsilon} + 1 + 2\cdot \mu\right) \cdot \epsilon = K\cdot \epsilon\]</div>
+<p>wobei</p>
+<div class="math notranslate nohighlight">
+\[\epsilon = \frac{\Delta l}{l}\]</div>
+<p>die <strong>Dehnung <span class="math notranslate nohighlight">\(\epsilon\)</span></strong> des zu untersuchenden Stücks ist und</p>
+<div class="math notranslate nohighlight">
+\[\mu = - \frac{\frac{\Delta r}{r}}{\frac{\Delta l}{l}}\]</div>
+<p>die <strong>Poisson-Zahl <span class="math notranslate nohighlight">\(\mu\)</span></strong>.
+<span class="math notranslate nohighlight">\(K\)</span> ist der <em>K-Faktor</em> und ist für Konstantan 2,05. Die Änderung des spezifischen Widerstands ist für die Bestimmung der K-Faktors vernachlässigbar.
+Schon bei kleinen Dehnungen, minimalen Kräften oder anderen kleinen Belastungen ändert sich der Widerstandswert, wenn auch nur wenig, und wird mit dem K-Faktor skaliert. Typische Widerstandswerte im Grundzustand sind <span class="math notranslate nohighlight">\(100-1000\,\Omega\)</span>, welcher sich je nach K-Faktor für Dehnungsänderungen im Promill-Bereich ebenfalls um nur diesen kleinen Betrag ändert.
+Aus diesem Grund werden DMSs häufig Widerstands-Messbrücken verwendet. Mittels verschiedenen Anordnungen können damit auch Querkräfte, Scherkräfte und andere Belastungen gemessen werden und Kompensation in Bezug auf Temperaturempfindlichkeiten können dadurch eliminiert werden.</p>
+<ul class="simple">
+<li><p>Kraft (und somit auch Beschleunigung)</p></li>
+<li><p>Waagen (Haushaltswaagen bis hin zu Kranwaagen)</p></li>
+<li><p>Druck</p></li>
+<li><p>Drehmoment</p></li>
+<li><p>Verformungsmessungen (experimentelle Beanspruchungsanalyse, Spannungsanalyse) auf vielen Werkstoffen</p>
+<ul>
+<li><p>Biegung</p></li>
+<li><p>Druck und Zug</p></li>
+<li><p>Scherkräfte</p></li>
+</ul>
+</li>
+</ul>
+<div class="tip admonition">
+<p class="admonition-title">Beispiel</p>
+<p>Ein unbekannter Metalldraht hat die Länge <span class="math notranslate nohighlight">\(l = 2\,\mathrm m\)</span> und einen Querschnitt von <span class="math notranslate nohighlight">\(A = 0,01\,\mathrm{mm^2}\)</span>. Die Testspannung beträgt <span class="math notranslate nohighlight">\(U=2\,\mathrm V\)</span> und wir messen einen Strom von <span class="math notranslate nohighlight">\(I = 0,75\,\mathrm A\)</span>. Wie hoch ist der spezifische Widerstand des Metalldrahtes?</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Lösung</p>
+<div class="math notranslate nohighlight">
+\[\rho = \frac{R\cdot A}{l} = \frac{U \cdot A}{I \cdot l} = \frac{3,5\,\Omega \cdot 0,01\,\mathrm{mm^2}}{2\,\mathrm m} = 0,0175\,\mathrm{\frac{\Omega \cdot mm^2}{m}}\]</div>
+<p>Es könnte sich um Kupfer handeln!</p>
+</div>
+<p>Es gibt auch Halbleiter-DMS. Bei diesen Materialien ist die Änderung des spezifischen Widerstands nicht mehr zu vernachlässigen, da er sich aufgrund des <strong>piezoresistiven Effekts</strong> sehr stark ändert. P-dotiertes Silizium weist beispielsweise ein K von bis zu 190 auf, n-dotiertes Silizium sinkt den K-Faktor auf - 100 ab. Das heißt, dass der Widerstandswert mit zunehmender Dehnung kleiner wird!
+Eine eleganten Zusammensatzung wäre ein n- und p-dotierter Silizium-DMS mit jeweils dem gleichen, aber entgegengesetzten K-Faktor, welche in einer Messbrücke zusammengeschaltet werden.</p>
 </section>
 
     <script type="text/x-thebe-config">

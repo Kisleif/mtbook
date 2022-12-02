@@ -52,14 +52,21 @@
 
 # ## Elektrometerverstärker
 # 
-# Der Elektrometerverstärker verstärkt ein gewisses Eingangssignal und besteht aus einem Operationsverstärker mit zwei Widerständen. 
+# Der Elektrometerverstärker verstärkt ein gewisses Eingangssignal und besteht aus einem Operationsverstärker mit zwei Widerständen wie in {numref}`op_electro` dargestellt.
+# 
+# :::{figure-md} op_electro
+# <img src="draw/op_electrometer.jpg" alt="op_electro" width="400px" label = op_electro>
+# 
+# Schematische Darstellung eines Elektrometerverstärkers.
+# :::
+# 
 # Folgende Beziehung kann über die Maschenregel hergeleitet werden, wenn der Eingangsschaltkreis betrachtet wird:
 # 
-# $$U_e - \frac{R_2}{R_1+R_2}U_a - U'_e$$
+# $$U_e - \frac{R_2}{R_1+R_2} U_a - U'_e$$
 # 
 # wobei $U_e$ die Eingangsspannung ist, $U_a$ die Ausgangsspannung und $U'_e$ die Spannung, die am Eingang des OPs abfällt. Daraus folgt:
 # 
-# $$U'_e = U_e - \frac{R_2}{R_1+R_2}U_a$$
+# $$U'_e = U_e - \frac{R_2}{R_1+R_2} U_a$$
 # 
 # Für den Ausgangsschaltkreis folgt mittels Maschenregel:
 # 
@@ -84,6 +91,14 @@
 # ## Impedanzverstärker
 # 
 # Auch hier gibt es wieder ein Rückkopplung vom Ausgang des OPs an den Eingang. 
+# 
+# :::{figure-md} op_impedanz
+# <img src="draw/op_impedanz.jpg" alt="op_impedanz" width="300px" label = op_impedanz>
+# 
+# Schematische Darstellung eines Impedanzwandlers.
+# :::
+# 
+# 
 # Für einen idealen OP gilt
 # 
 # $$U'_e = 0$$
@@ -100,17 +115,23 @@
 # 
 # $$U'_e = 0$$
 # 
-# Diese Spannung treibt den Strom $I_{e1}$ an, wobei durch den OP kein Strom fließt, d.h. der gesamte Strom muss durch $R_1$ fließen:
+# :::{figure-md} op_IU
+# <img src="draw/op_IU.jpg" alt="op_IU" width="400px" label = op_IU>
 # 
-# $$I_{e1} = \frac{U_e}{R_1}$$
+# Schematische Darstellung eines Strom-Spannungs-Verstärkers.
+# :::
+# 
+# Diese Spannung treibt den Strom $I_{1}$ an, wobei durch den OP kein Strom fließt, d.h. der gesamte Strom muss durch $R_1$ fließen:
+# 
+# $$I_{1} = \frac{U_e}{R_1}$$
 # 
 # Abfließen kann dies durch den Widerstand $R_2$, d.h. es gilt nach der Knotenregel:
 # 
-# $$I_{e2} = -I_{e1}$$
+# $$I_{2} = -I_{1}$$
 # 
 # Dadurch folgt:
 # 
-# $$I_{e1} = \frac{U_e}{R_1} = -I_{e2} = -\frac{U_a}{R_2}$$
+# $$I_{1} = \frac{U_e}{R_1} = -I_{2} = -\frac{U_a}{R_2}$$
 # 
 # Dies kann so umgeformt werden, dass sich der Verstärkungsfaktor $k = U_a/U_e$ der Schaltung ergibt:
 # 

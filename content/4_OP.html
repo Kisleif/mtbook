@@ -834,13 +834,19 @@ Am Ausgang sollte ein möglichst kleiner Innenwiderstand vorzufinden sein, sodas
 </section>
 <section id="elektrometerverstarker">
 <h2>Elektrometerverstärker<a class="headerlink" href="#elektrometerverstarker" title="Link zu dieser Überschrift">#</a></h2>
-<p>Der Elektrometerverstärker verstärkt ein gewisses Eingangssignal und besteht aus einem Operationsverstärker mit zwei Widerständen.
-Folgende Beziehung kann über die Maschenregel hergeleitet werden, wenn der Eingangsschaltkreis betrachtet wird:</p>
+<p>Der Elektrometerverstärker verstärkt ein gewisses Eingangssignal und besteht aus einem Operationsverstärker mit zwei Widerständen wie in <a class="reference internal" href="#op-electro"><span class="std std-numref">Abb. 64</span></a> dargestellt.</p>
+<figure class="align-default" id="op-electro">
+<a class="reference internal image-reference" href="../_images/op_electrometer.jpg"><img alt="op_electro" src="../_images/op_electrometer.jpg" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Abb. 64 </span><span class="caption-text">Schematische Darstellung eines Elektrometerverstärkers.</span><a class="headerlink" href="#op-electro" title="Link zu diesem Bild">#</a></p>
+</figcaption>
+</figure>
+<p>Folgende Beziehung kann über die Maschenregel hergeleitet werden, wenn der Eingangsschaltkreis betrachtet wird:</p>
 <div class="math notranslate nohighlight">
-\[U_e - \frac{R_2}{R_1+R_2}U_a - U'_e\]</div>
+\[U_e - \frac{R_2}{R_1+R_2} U_a - U'_e\]</div>
 <p>wobei <span class="math notranslate nohighlight">\(U_e\)</span> die Eingangsspannung ist, <span class="math notranslate nohighlight">\(U_a\)</span> die Ausgangsspannung und <span class="math notranslate nohighlight">\(U'_e\)</span> die Spannung, die am Eingang des OPs abfällt. Daraus folgt:</p>
 <div class="math notranslate nohighlight">
-\[U'_e = U_e - \frac{R_2}{R_1+R_2}U_a\]</div>
+\[U'_e = U_e - \frac{R_2}{R_1+R_2} U_a\]</div>
 <p>Für den Ausgangsschaltkreis folgt mittels Maschenregel:</p>
 <div class="math notranslate nohighlight">
 \[k U'_e - I_a R_L - I_a R'_i = kU'_e - U_a - U_a \frac{R_i}{R_L} = 0\]</div>
@@ -858,8 +864,14 @@ Folgende Beziehung kann über die Maschenregel hergeleitet werden, wenn der Eing
 </section>
 <section id="impedanzverstarker">
 <h2>Impedanzverstärker<a class="headerlink" href="#impedanzverstarker" title="Link zu dieser Überschrift">#</a></h2>
-<p>Auch hier gibt es wieder ein Rückkopplung vom Ausgang des OPs an den Eingang.
-Für einen idealen OP gilt</p>
+<p>Auch hier gibt es wieder ein Rückkopplung vom Ausgang des OPs an den Eingang.</p>
+<figure class="align-default" id="op-impedanz">
+<a class="reference internal image-reference" href="../_images/op_impedanz.jpg"><img alt="op_impedanz" src="../_images/op_impedanz.jpg" style="width: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Abb. 65 </span><span class="caption-text">Schematische Darstellung eines Impedanzwandlers.</span><a class="headerlink" href="#op-impedanz" title="Link zu diesem Bild">#</a></p>
+</figcaption>
+</figure>
+<p>Für einen idealen OP gilt</p>
 <div class="math notranslate nohighlight">
 \[U'_e = 0\]</div>
 <p>Über die Maschenregel folgt:</p>
@@ -872,27 +884,33 @@ Für einen idealen OP gilt</p>
 <p>Wir gehen wieder davon aus, dass wir einen idealen Verstärker vorliegen haben, d.h.</p>
 <div class="math notranslate nohighlight">
 \[U'_e = 0\]</div>
-<p>Diese Spannung treibt den Strom <span class="math notranslate nohighlight">\(I_{e1}\)</span> an, wobei durch den OP kein Strom fließt, d.h. der gesamte Strom muss durch <span class="math notranslate nohighlight">\(R_1\)</span> fließen:</p>
+<figure class="align-default" id="op-iu">
+<a class="reference internal image-reference" href="../_images/op_IU.jpg"><img alt="op_IU" src="../_images/op_IU.jpg" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Abb. 66 </span><span class="caption-text">Schematische Darstellung eines Strom-Spannungs-Verstärkers.</span><a class="headerlink" href="#op-iu" title="Link zu diesem Bild">#</a></p>
+</figcaption>
+</figure>
+<p>Diese Spannung treibt den Strom <span class="math notranslate nohighlight">\(I_{1}\)</span> an, wobei durch den OP kein Strom fließt, d.h. der gesamte Strom muss durch <span class="math notranslate nohighlight">\(R_1\)</span> fließen:</p>
 <div class="math notranslate nohighlight">
-\[I_{e1} = \frac{U_e}{R_1}\]</div>
+\[I_{1} = \frac{U_e}{R_1}\]</div>
 <p>Abfließen kann dies durch den Widerstand <span class="math notranslate nohighlight">\(R_2\)</span>, d.h. es gilt nach der Knotenregel:</p>
 <div class="math notranslate nohighlight">
-\[I_{e2} = -I_{e1}\]</div>
+\[I_{2} = -I_{1}\]</div>
 <p>Dadurch folgt:</p>
 <div class="math notranslate nohighlight">
-\[I_{e1} = \frac{U_e}{R_1} = -I_{e2} = -\frac{U_a}{R_2}\]</div>
+\[I_{1} = \frac{U_e}{R_1} = -I_{2} = -\frac{U_a}{R_2}\]</div>
 <p>Dies kann so umgeformt werden, dass sich der Verstärkungsfaktor <span class="math notranslate nohighlight">\(k = U_a/U_e\)</span> der Schaltung ergibt:</p>
 <div class="math notranslate nohighlight">
 \[k = -\frac{R_2}{R_1}\]</div>
 <p>Es handelt sich also um eine Verstärkerschaltung für Spannungen, bzw. um einen Stromwandler.</p>
-<p>Weitere Beispiele und Verstärkungsfaktoren sind in <a class="reference internal" href="#ops"><span class="std std-numref">Abb. 64</span></a> dargestellt.</p>
+<p>Weitere Beispiele und Verstärkungsfaktoren sind in <a class="reference internal" href="#ops"><span class="std std-numref">Abb. 67</span></a> dargestellt.</p>
 </section>
 <section id="weitere-beispiele">
 <h2>Weitere Beispiele<a class="headerlink" href="#weitere-beispiele" title="Link zu dieser Überschrift">#</a></h2>
 <figure class="align-default" id="ops">
 <a class="reference internal image-reference" href="../_images/ops.jpg"><img alt="ops" src="../_images/ops.jpg" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 64 </span><span class="caption-text">Verschiedene Operationsverstärker-Schaltungen inklusive Verstärkungsfaktor.</span><a class="headerlink" href="#ops" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-number">Abb. 67 </span><span class="caption-text">Verschiedene Operationsverstärker-Schaltungen inklusive Verstärkungsfaktor.</span><a class="headerlink" href="#ops" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
 </section>

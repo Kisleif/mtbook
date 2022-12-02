@@ -3,6 +3,8 @@
 
 # # Dehnungsmessstreifen (DMS)
 # 
+# ## Grundlagen
+# 
 # Ein Dehnungsmessstreifen (DMS) ist lediglich eine elektrische Leiterbahn, die auf einer kleinen Trägerfolie z.B. mäanderförmig aufgebracht ist, wie in {numref}`dms` dargestellt. Meistens besteht diese Folie aus einem chemisch sehr robusten Material, wie z.B. Kapton (Polyimid), welches auch bei hohen Temperaturen verwendet werden kann. Hierauf wird die Leiterbahn mit einem speziellen Kleber aufgebracht, sodass diese den Oberflächendehnungen eines Körpers folgen kann. Dadurch können Dehnungen, Stauchungen, Kräfte oder Drücke auf der Oberfläche gemessen werden. Die Dehnung wird dann in Richtung des Leiterbahnabschnittes gemessen, dessen ohm'scher Widerstand sich ändert:
 # 
 # $$R = \frac{\rho \cdot l}{r^2 \pi}$$
@@ -39,6 +41,7 @@
 # Schon bei kleinen Dehnungen, minimalen Kräften oder anderen kleinen Belastungen ändert sich der Widerstandswert, wenn auch nur wenig, und wird mit dem K-Faktor skaliert. Typische Widerstandswerte im Grundzustand sind $100-1000\,\Omega$, welcher sich je nach K-Faktor für Dehnungsänderungen im Promill-Bereich ebenfalls um nur diesen kleinen Betrag ändert. 
 # Aus diesem Grund werden DMSs häufig Widerstands-Messbrücken verwendet. Mittels verschiedenen Anordnungen können damit auch Querkräfte, Scherkräfte und andere Belastungen gemessen werden und Kompensation in Bezug auf Temperaturempfindlichkeiten können dadurch eliminiert werden. 
 # 
+# ## Anwendungen und Beispiel
 # * Kraft (und somit auch Beschleunigung)
 # * Waagen (Haushaltswaagen bis hin zu Kranwaagen) 
 # * Druck
@@ -64,7 +67,7 @@
 # Es gibt auch Halbleiter-DMS. Bei diesen Materialien ist die Änderung des spezifischen Widerstands nicht mehr zu vernachlässigen, da er sich aufgrund des **piezoresistiven Effekts** sehr stark ändert. P-dotiertes Silizium weist beispielsweise ein K von bis zu 190 auf, n-dotiertes Silizium sinkt den K-Faktor auf - 100 ab. Das heißt, dass der Widerstandswert mit zunehmender Dehnung kleiner wird!
 # Eine eleganten Zusammensatzung wäre ein n- und p-dotierter Silizium-DMS mit jeweils dem gleichen, aber entgegengesetzten K-Faktor, welche in einer Messbrücke zusammengeschaltet werden. 
 
-# ## Kraftmessung
+# ## Biegungsbeanspruchung
 # 
 # Es gibt verschiedene Möglicheiten DMS zur Kraftmessung zu nutzen. Die Sensoren können beispielsweise in einem Hohlkörper an die Innenwand angebracht werden, wie es in {numref}`dms_bieg` dargestellt ist, wodurch man die **Biegung** des Körper messen kann.
 # 
@@ -77,6 +80,9 @@
 # Erfährt der Hohlkörper eine Kraft von außerdem, aufgrund derer er sich zu verformen beginnt, kann die resultierende Wölbung an der Innenwand mittels DMS gemessen werden. Hierbei sieht der DMS, der weiter außen angebracht ist, eine Dehnung, während ein Sensor weiter innen gestaucht wird. 
 # Die vier DMSs können direkt mittels einer Vollbrücke ausgelesen werden. Typischerweise können Kräfte von 1-50 kN gemessen werden. 
 # 
+# 
+# ## Zug und Druck
+# 
 # **Zug und Druck** können mit der Anordnung von DMSs gemessen werden, wie es in {numref}`dms_druck` dargestellt ist. 
 # 
 # :::{figure-md} dms_druck
@@ -87,6 +93,8 @@
 # 
 # Auch hierfür werden die DMS wieder innenliegend an den Hohlkörper angebracht. Werden die DMS entlang der Kraftrichtung angebracht, so werden sie längs ihrer Anbringungsrichtung gedehnt und gestaucht. Sie können jedoch auch quer zur Krafteinwirkungsrichtung installiert werden, wodurch sie dann genau entgegengesetzt gestaucht bzw. gedehnt werden. Es können Kräfte zwischen 20 kN  bis einige MN gemessen werden. 
 # 
+# ## Scherkräftemessung
+# 
 # Hat man in einem Festkörper beispielsweise zwei Hohlräume oder Bohrungen, können in diesen DMSs eingebracht werden um **Scherkräfte** innerhalb der Körper zu messen. Dies ist in {numref}`dms_scher` dargestellt. 
 # 
 # :::{figure-md} dms_scher
@@ -95,6 +103,6 @@
 # DMSs sind innen an der Innenwand von zwei Bohrungen angebracht um Scherkräfte zu messen.
 # :::
 # 
-# Die Schwerkräfte werden gemessen indem die DMS in einem 45° Winkel an die Rand geklebt werden. Nutzt man weitere Sensoren mit einem -45° Winkel so können wieder 4 Sensoren mittels einer Vollbrücke ausgelesen werden. Hierbei können Kräfte im Bereich von 20kN bis einigen MN gemessen werden.  
+# Die Scherkräfte werden gemessen indem die DMS in einem 45° Winkel an die Rand geklebt werden. Nutzt man weitere Sensoren mit einem -45° Winkel so können wieder 4 Sensoren mittels einer Vollbrücke ausgelesen werden. Hierbei können Kräfte im Bereich von 20kN bis einigen MN gemessen werden.  
 
 # 

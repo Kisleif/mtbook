@@ -150,7 +150,7 @@
 # 
 # Für beide Systeme können die Empfindlichkeiten berechnet werden, indem die obige Kennlinie abgeleitet wird:
 # 
-# $$E = \frac{U}{F} = \frac{k_P}{C}$$
+# $$E = \frac{U_a}{F} = \frac{k_P}{C}$$
 # 
 # Für eine Gesamtkapazität der Messschaltung von $C=120\,\mathrm{pF}$ ergeben sich Empfindlichkeiten von
 # 

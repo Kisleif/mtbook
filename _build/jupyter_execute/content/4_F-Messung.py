@@ -1,10 +1,14 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Frequenzmessung
+# # Frequenz- und Zeitmessung
 # 
 # Häufig liegen uns frequenzmodulierte Spannungssignale vor. Die Frequenz ist hierbei der Informationsträger und muss ausgelesen werden, um die Messgröße $x$ zu bestimmen. 
-# Das Grundprinzip der Frequenzmessung ist in {numref}`F_messung` dargestellt.
+# Mitunter benutzt man hierfür eine Zeitmessung, um die Periodendauer zu bestimmen. Der Vorteil, eine Messgröße an die Frequenz eines Signals zu übergeben, ist die Stabilität der Frequenz und damit geringe Messabweichung und hohe Genauigkeit, mit der wir Frequenzen bzw. Zeiten messen können, da uns hier präzise Frequenz- bzw. Zeitnormale in Form von Quarzgeneratoren oder sogar Atomuhren zur Verfügung stehen. Diese Normale liefern eine um den Faktor $10^7$-$10^8$ bessere Genaugkeit als Referenznormale anderer physikalischer Größen, wie z.B. der Spannung. 
+# 
+# ## Frequenzmessung 
+# 
+# Das Grundprinzip der Frequenzmessung ist in {numref}`F_messung` dargestellt. Die Grundidee basiert darauf zu zählen, wie viele Perioden innerhalb einer bestimmten Zeit auftreten. 
 # 
 # :::{figure-md} F_messung
 # <img src="draw/F_messung.jpg" alt="F_messung" class="bg-primary mb-1" width="600px" label = F_messung>
@@ -13,7 +17,7 @@
 # :::
 # 
 # * In der ersten Stufe wird das periodische Eingangssignal in eine binäres Signal mit der gleichen Frequenz umgewandelt. Hierfür werden üblicherweise Operationsverstärker benutzt
-# * Dann zählt über eine bestimmte Zeit, die **Torzeit $T$** die **Anzahl $z$** der Perioden.
+# * Dann zählt man über eine bestimmte Zeit, die **Torzeit $T$** die **Anzahl $z$** der Perioden. Das Bauteil *Tor* ist eine digitale Grundschaltung und besteht aus einer UND-Verknüpfung. Diese kombinatorische Schaltung liefert nur dann einen logischen 1-Pegel am Ausgang, wenn alle Eingänge mit einem logischen 1-Pegel beaufschlaft sind. An einem Eingang wird die präzise Messzeit eingestellt. Solange diese angelegt ist, wird am zweiten Messeingang die Anzahl von digitalen Pulsen gezählt. 
 # * Der Messwert ergibt sich aus dem Verhältnis von gezählten Perioden und der Torzeit:
 # 
 # $$f_a = \frac{z}{T}$$
@@ -47,8 +51,10 @@ print('Die maximale Messabweichung beträgt:' ,1/T, 'Hz')
 # 
 # 
 
-# In[ ]:
-
-
-
-
+# ## Zeitmessung
+# 
+# Ähnlich zur Frequenzmessung können auch Zeitdauern gemessen werden. Das Prinzip ist das gleiche, nur sind Referenzquelle und Messung am Eingang der Torschaltung quasi vertauscht. Statt einer stabilen Referenzzeit an einem Eingang der Torschaltung, die bei der Frequenzmessung die Messzeit definiert hat, wird nun eine Referenzfrequenz angelegt. Die Frequenz wählt man so, dass die Anzahl der gezählten Pulse direkt die Messzeit in z.B. Millisekunden ausgibt. Wählt man als Referenzfrequenz beispielsweise $f_r = 10\,\mathrm{kHz}$ und zählt 1400 Pulse, so erhält man eine gemessenen Zeit von 
+# 
+# $$T = \frac{z}{f_r} = \frac{1400}{10\,\mathrm{kHz}} = 140\,\mathrm{ms}$$
+# 
+# Der Restfehler basiert auf Zählfehlern, wie schon bei der Frequenzmessung. 

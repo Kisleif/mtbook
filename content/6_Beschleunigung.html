@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Messen elektrischer Größen &#8212; Metrology Lecture Book</title>
+    <title>Beschleunigungssensoren &#8212; Metrology Lecture Book</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,10 +52,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="Spannungsmesseingang" href="4_U-Messeingang.html" />
-    <link rel="prev" title="Rauschen und spektrale Dichte" href="5_Rauschen.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="de">
     
@@ -315,12 +315,12 @@ const thebe_selector_output = ".output, .cell_output"
   Sensoren
  </span>
 </p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="04_ElektrischeGroessen.html">
    Messen elektrischer Größen
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
   <label for="toctree-checkbox-7">
    <i class="fas fa-chevron-down">
    </i>
@@ -523,7 +523,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/Kisleif/mtbook/main?urlpath=tree/content/04_ElektrischeGroessen.ipynb"
+        <a href="https://mybinder.org/v2/gh/Kisleif/mtbook/main?urlpath=tree/content/6_Beschleunigung.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -541,7 +541,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/Kisleif/mtbook/blob/main/content/04_ElektrischeGroessen.ipynb"
+        <a href="https://colab.research.google.com/github/Kisleif/mtbook/blob/main/content/6_Beschleunigung.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -601,7 +601,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/Kisleif/mtbook/issues/new?title=Issue%20on%20page%20%2Fcontent/04_ElektrischeGroessen.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/Kisleif/mtbook/issues/new?title=Issue%20on%20page%20%2Fcontent/6_Beschleunigung.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -618,7 +618,7 @@ title="Open an issue"
       </li>
       
       <li>
-        <a href="https://github.com/Kisleif/mtbook/edit/main/content/04_ElektrischeGroessen.ipynb"
+        <a href="https://github.com/Kisleif/mtbook/edit/main/content/6_Beschleunigung.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -646,7 +646,7 @@ title="Edit this page"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/content/04_ElektrischeGroessen.ipynb"
+        <a href="../_sources/content/6_Beschleunigung.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -706,8 +706,23 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#zusammenfassung">
-   Zusammenfassung
+  <a class="reference internal nav-link" href="#kapazitive-beschleunigungssensoren">
+   Kapazitive Beschleunigungssensoren
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#piezoresistive-beschleunigungssensoren">
+   Piezoresistive Beschleunigungssensoren
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#piezoelektrische-beschleunigungssensoren">
+   Piezoelektrische Beschleunigungssensoren
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hall-effekt-beschleunigungssensoren">
+   Hall-Effekt Beschleunigungssensoren
   </a>
  </li>
 </ul>
@@ -719,7 +734,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Messen elektrischer Größen</h1>
+                <h1>Beschleunigungssensoren</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -730,8 +745,23 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#zusammenfassung">
-   Zusammenfassung
+  <a class="reference internal nav-link" href="#kapazitive-beschleunigungssensoren">
+   Kapazitive Beschleunigungssensoren
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#piezoresistive-beschleunigungssensoren">
+   Piezoresistive Beschleunigungssensoren
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#piezoelektrische-beschleunigungssensoren">
+   Piezoelektrische Beschleunigungssensoren
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hall-effekt-beschleunigungssensoren">
+   Hall-Effekt Beschleunigungssensoren
   </a>
  </li>
 </ul>
@@ -744,57 +774,89 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="messen-elektrischer-groszen">
-<h1>Messen elektrischer Größen<a class="headerlink" href="#messen-elektrischer-groszen" title="Link zu dieser Überschrift">#</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="4_U-Messeingang.html">Spannungsmesseingang</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_I-Messeingang.html">Strommesseingang</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_OP.html">Operationsverstärker (OP)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_P-Messung.html">Leistungsmessung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_R-Messung.html">Widerstandsmessung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_CL-Messung.html">Messung von Kapazitäten und Induktivitäten</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_F-Messung.html">Frequenz- und Zeitmessung</a></li>
-</ul>
-</div>
-<section id="zusammenfassung">
-<h2>Zusammenfassung<a class="headerlink" href="#zusammenfassung" title="Link zu dieser Überschrift">#</a></h2>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="text-align:left head"><p>Begriff</p></th>
-<th class="text-align:left head"><p>Beschreibung</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-align:left"><p>Ausschlagverfahren</p></td>
-<td class="text-align:left"><p>Der Messgröße wird Energie entzogen wird und in einen messgrößenproportionalen (Zeiger-) Ausschlag überführt.</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p>Blindleistung</p></td>
-<td class="text-align:left"><p>Leistung, die in kapazitiven/induktiven Verbrauchern zum Auf- und Abbau des elektrischen/magnetischen Feldes benötigt wird. Die Blindleistung ruft zwar einen Stromfluss im elektrischen Leiter hervor, kann aber keinen realen Leistungsumsatz in Verbrauchern bewirken.</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:left"><p>Brückenschaltung</p></td>
-<td class="text-align:left"><p>Messschaltung zur Umsetzung des Differenz-/Kompensationsverfahrens. Sie ist eine Parallelschaltung von zwei Spannungsteilern. Differenz der Ausgangsspannungen der zwei Spannungsteiler wird gemessen, welche im Kompensationsfall 0 ist.</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p>Drehspulmesswerk</p></td>
-<td class="text-align:left"><p>(Veraltetes) Elektromechanisches Messwerk, das infolge der Kraftwirkung auf einen stromdurchflossen Leiter einen Zeigerausschlag, proportional zur Stromstärke liefert.</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:left"><p>Kompensationsverfahren</p></td>
-<td class="text-align:left"><p>Der Messgröße wird eine gleichgroße, aber mit entgegengesetztem Vorzeichen versehene Kompensationsgröße gegenübergestellt. Zur Auswertung wird die Differenz von Messgröße und Kompensationsgröße ermittelt. Im Abgleichfall ist die Kompensationsgröße gleich der Messgröße und die Belastung der Messsignalquelle gleich 0.</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p>Messverstärker</p></td>
-<td class="text-align:left"><p>filtert, linearisiert, verstärkt, normiert elektrische Größen und setzt sie in Bezug zur Masse.</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:left"><p>Scheinleistung</p></td>
-<td class="text-align:left"><p>Wurzel aus der Summe der Quadrate von Wirk-und Blindleistung. In einem Wechselstromkreis mit Kapazitäten bzw. Induktivitäten beschreibt das Produkt aus Strom und Spannung die Leistung die scheinbar umgesetzt wird. Leistungsumsetzung ist nur mit der Wirkleistung möglich!</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p>Shunt</p></td>
-<td class="text-align:left"><p>Parallel- oder Nebenwiderstand, wird häufig zur indirekten Strommessung verwendet. Ein Stromfluss durch den hochgenauen Shunt liefert einen Spannungsabfall, der gemessen wird und über den Widerstand des Shunts in den fließenden Strom umgerechnet werden kann.</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:left"><p>Wirkleistung</p></td>
-<td class="text-align:left"><p>Der Teil der Leistung im Wechselstromkreis, die in andere Leistungen (z. B. Wärmeleistung) umgewandelt werden kann und über die Zeit Arbeit verrichteten kann.</p></td>
-</tr>
-</tbody>
-</table>
+  <section class="tex2jax_ignore mathjax_ignore" id="beschleunigungssensoren">
+<h1>Beschleunigungssensoren<a class="headerlink" href="#beschleunigungssensoren" title="Link zu dieser Überschrift">#</a></h1>
+<p>Möchte man die Beschleunigung eines Objektes messen bedient man sich dem Trägheitsgesetz:</p>
+<div class="math notranslate nohighlight">
+\[F = m \cdot a\]</div>
+<p>nachdem so gut wie alle Sensoren funktionieren.</p>
+<figure class="align-default" id="a-auto">
+<a class="reference internal image-reference" href="../_images/A_auto.jpg"><img alt="A_auto" src="../_images/A_auto.jpg" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-text">Beschleunigungsmessung nach dem Trägerheitsprinzip.</span><a class="headerlink" href="#a-auto" title="Link zu diesem Bild">#</a></p>
+</figcaption>
+</figure>
+<p>Hierbei befestigt man einen kleinen Massekörper, der die Masse <span class="math notranslate nohighlight">\(m\)</span> trägt, an einer Feder an das Sensorgehäuse oder dem Objekt, dessen Beschleunigung man messen möchte:</p>
+<div class="math notranslate nohighlight">
+\[a = \frac{F}{m}\]</div>
+<p>Häufig wird jedoch nicht die Kraft gemessen, was mittels Dehnungsmesstreifen oder Piezoelektrischem Sensor möglich ist, sondern die Auslenkung der Feder <span class="math notranslate nohighlight">\(x\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[x = k \cdot F\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(k\)</span> die Federkonstante ist. Die auslenkung <span class="math notranslate nohighlight">\(x\)</span> kann mit den bisher besprochenen Techniken zur Abstandsmessung im Kapitel zu Kapazitiven und Induktiven Sensoren gemessen werden oder optisch mittels Interferometrie erfolgen.</p>
+<section id="kapazitive-beschleunigungssensoren">
+<h2>Kapazitive Beschleunigungssensoren<a class="headerlink" href="#kapazitive-beschleunigungssensoren" title="Link zu dieser Überschrift">#</a></h2>
+<p>Kapazitive Auslesetechniken sind in der Herstellung sehr einfach und werden daher am häufigsten verwendet. Die Messsyteme können dadurch auch sehr klein werden, weshalb kapazitive Sensoren gerne in MEMS (micro-electro-mechanical systems) Technologie zum Einsatz kommt. D.h. sie haben eine Größe von wenigen Hundert Mikrometern!</p>
+<p>Hierbei misst man die Kapazitätsänderung eines Kondensatoranordnung, die an einer Feder aufgehängten sind, gegenüber einer fixierten Kondensatoranordnung.
+Hierbei wird ausgenutzt, dass sich die Kapazität in Abhängigkeit der Kondensatorplattenabstände ändert.</p>
+<div class="math notranslate nohighlight">
+\[\Delta C = C_2 - C_1\]</div>
+<p>Aufgrund einer externen Beschleunigung erfahren die aufgehängten Kondensatorplatten eine Positionsänderung <span class="math notranslate nohighlight">\(\Delta d\)</span> gegenüber der festinstallierten und die Kapazität ändert sich.</p>
+<div class="math notranslate nohighlight">
+\[\Delta C = \epsilon_0 \frac{A}{d \pm \Delta d} - \epsilon_0 \frac{A}{d} = \frac{\mp \epsilon_0 A \Delta d}{d (d \pm \Delta d)} = \mp C_1 \frac{\Delta d}{d \pm \Delta d}\]</div>
+<p>Die Kapazitätsänderung wird wieder mittels einer Brückenschaltung gemessen. Um das System zu linearisieren wird eine Differentialanordnung ausgewählt. Dieses Messprinzip erlaubt eine Temperaturkompensation. In <code class="xref std std-numref docutils literal notranslate"><span class="pre">A_federmasse</span></code> ist eine solche Abbildung inklusive Brückenschaltung dargestellt.</p>
+<figure class="align-default" id="a-federmasse">
+<a class="reference internal image-reference" href="../_images/A_federmasse.jpg"><img alt="A_federmasse" src="../_images/A_federmasse.jpg" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-text">Massekörper <span class="math notranslate nohighlight">\(m\)</span> ist an einer Feder aufgehangen. Mittels Kondensatoren werden Positions- und Lageänderungen gemessen. Genaueste Messungen erhält man mittels Brückenschaltung.</span><a class="headerlink" href="#a-federmasse" title="Link zu diesem Bild">#</a></p>
+</figcaption>
+</figure>
+<p>Der Massekörper ist nun gleichzeitig die Mittelelektrode eines Dreiplatten-Kondensators.
+Ändert der Massekörper seine Position um <span class="math notranslate nohighlight">\(\Delta d\)</span> aus der Ursprungslage <span class="math notranslate nohighlight">\(d\)</span>, an ändern sich beide Kapazitäten symmetrisch aber gegensinnig um <span class="math notranslate nohighlight">\(\Delta C\)</span>. Mittels der nebenstehenden Brückenschaltung wird diese Kapazitätsänderung ausgewertet.</p>
+<p>Es wird eine Wechselspannung <span class="math notranslate nohighlight">\(U_0\)</span> angelegt, wodurch der Spannungsabfall <span class="math notranslate nohighlight">\(U_1\)</span> an einem der ohm’schen Widerstände <span class="math notranslate nohighlight">\(R\)</span> wiefolgt ist:</p>
+<div class="math notranslate nohighlight">
+\[U_1 = \frac{U_0}{2}\]</div>
+<p>Für die Masche mit den Kapazitäten (komplexen Widerständen <span class="math notranslate nohighlight">\(Z = \frac{1}{j\omega C}\)</span>) gilt für die Spannung <span class="math notranslate nohighlight">\(U_2\)</span>, die an <span class="math notranslate nohighlight">\(Z_2\)</span> abfällt, entsprechend:</p>
+<div class="math notranslate nohighlight">
+\[U_2 = U_0 \frac{Z_{C2}}{Z_{C1} + Z_{C2}}\]</div>
+<p>Für die Diagonalspannung, die in der Messbrücke anfällt, folgt daraufhin:</p>
+<div class="math notranslate nohighlight">
+\[U_d = U_1 - U_2 = \frac{U_0}{2} \frac{C_2 - C_1}{C_2 + C_1} = - \epsilon A \frac{U_0}{2} \frac{\Delta d}{d} \]</div>
+<p>nachdem die Kapazitäten</p>
+<div class="math notranslate nohighlight">
+\[C_1 = \frac{\epsilon A}{d - \Delta d}\]</div>
+<p>und</p>
+<div class="math notranslate nohighlight">
+\[C_2 = \frac{\epsilon A}{d + \Delta d}\]</div>
+<p>eingesetzt wurden.</p>
+<p>Mit diesem Differentialkondensator wird eine Spannung ausgegeben, die direkt proportional zur Auslenkung ist und damit proportional zur beschleunigenden Kraft.
+Möchte man die Kapazität des Kondensators erhöhen, vergrößert man die Flächen der Platten/Elektroden, indem man diese beispielsweise mäanderförmig anbringt.
+Typische Werte sind in der Größenordnung von pF für die Kapazitäten, wobei Änderungen im fF Bereich gemessen werden können. Aufgrund dieser extrem kleinen Werte wird die Auswerteelektronik direkt auf dem Sensorchip mitintegriert.</p>
+<p>Kapazitive Beschleinigungssensoren können in etwa das 50-fache der Erdbeschleunigung messen, als ca. <span class="math notranslate nohighlight">\(500\,\mathrm{m/s^2}\)</span>.</p>
+</section>
+<section id="piezoresistive-beschleunigungssensoren">
+<h2>Piezoresistive Beschleunigungssensoren<a class="headerlink" href="#piezoresistive-beschleunigungssensoren" title="Link zu dieser Überschrift">#</a></h2>
+<p>In einem Feder-Masse-System wird die Auslenkung der Masse mittels piezoresistiver Komponenten erfasst. Werden diese Komponenten verformt, ändern sie ihren elektrischen Widerstand. Es handelt sich hierbei um Dehnungsmesstreifen, die aus Metall oder Halbleitermaterialien bestehen. Diese werden im Gegensatz zu anderen Beschleunigungssensoren meistens auf den Träger, den Biegebalken, bzw. die Feder angebracht, um ihre Dehnung zu messen. In Abhängigkeit der Dehnung oder Stauchung der Feder oder des Balkens ändert der Widerstand seinen Wert:</p>
+<div class="math notranslate nohighlight">
+\[R = \rho \frac{l}{A}\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(\rho\)</span> der speizifische Widerstand ist, <span class="math notranslate nohighlight">\(l\)</span> die Länge des Leiters und <span class="math notranslate nohighlight">\(A\)</span> dessen Querschnittsfläche. Widerstandsänderungen können über den spezifischen Widerstand oder geometrische Änderungen der Leiterstruktur hervor gerufen werden, wie wir es in Kapitel Dehnungsmesstreifen behandelt haben. Diese Änderung ist im <span class="math notranslate nohighlight">\(k\)</span>-Faktor zusammengefasst:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\Delta R}{R} = \rho \frac{\Delta l}{l} = k \epsilon\]</div>
+<p>Für Halbleiter-DMS dominiert die Änderung des spzifischen Widerstands, für Metalle die der geometrischen Längenänderung. Die Änderung der Querschnittsfläche ist meist vernachlässigbar.</p>
+<p>Die Widerstandsänderung wird meist mittels eine Vollbrücke gemessen. Hierbei baut man 4 baugleiche DMSs ein, wobei zwei jeweils gestaucht bzw. gestreckt werden. Die Aussgangsspannung der Messbrücke ist dann proportional zur Widerstandsänderung und störende Einflüsse, wie z.B. Temepratur, werden kompensiert. Bei einer Vollbrücke gilt:</p>
+<div class="math notranslate nohighlight">
+\[U_d = U_3 - U_1 = U_0 \left( \frac{R + \Delta R}{2R_0} - \frac{R - \Delta R}{2 R_0} \right) = U_0 \frac{\Delta R}{R} = U_0 k \epsilon \]</div>
+</section>
+<section id="piezoelektrische-beschleunigungssensoren">
+<h2>Piezoelektrische Beschleunigungssensoren<a class="headerlink" href="#piezoelektrische-beschleunigungssensoren" title="Link zu dieser Überschrift">#</a></h2>
+<p>Es gibt Materialien die unter Krafteinwirkung eine elektrische Spannung erzeugen. Dies haben wir im Kapitel Piezoelektrische Sensoren kennengelernt. Mittels diesen Sensoren können natürlich auch Beschleunigungen gemessen werden.</p>
+</section>
+<section id="hall-effekt-beschleunigungssensoren">
+<h2>Hall-Effekt Beschleunigungssensoren<a class="headerlink" href="#hall-effekt-beschleunigungssensoren" title="Link zu dieser Überschrift">#</a></h2>
+<p>Auch hierbei handelt es sich wieder um ein Feder-Masse-System, wobei die Masse nun ein Dauermagnet ist.
+Über dem System befindet sich ein Hall-Sensor und die Ausleselektronik für die Hall-Spannung. Unterhalb des Feder-Masse-Systems befindet sich eine Kupferplatte, die das System dämpft. Wird die Masse nun aufgrund einer externen Beschleunigungskraft aus ihrer Ruhelage ausgelenkt, verursacht sie eine Änderung der magnetischen Flussdichte <span class="math notranslate nohighlight">\(B\)</span> durch den Hall-Sensor. Dadurch verursacht sie eine Änderung der Hall-Spannung:</p>
+<div class="math notranslate nohighlight">
+\[U_H = A_H \frac{I B }{d}\]</div>
+<p>mit der Hall-Konstanten <span class="math notranslate nohighlight">\(A_H\)</span>, der Stromstärke <span class="math notranslate nohighlight">\(I\)</span> und der Dicke der Probe, <span class="math notranslate nohighlight">\(d\)</span>.</p>
 </section>
 </section>
 
@@ -825,20 +887,6 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="5_Rauschen.html" title="zurück Seite">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">zurück</p>
-            <p class="prev-next-title">Rauschen und spektrale Dichte</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="4_U-Messeingang.html" title="weiter Seite">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title">Spannungsmesseingang</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
 </div>
             </footer>
         </div>

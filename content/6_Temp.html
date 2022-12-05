@@ -52,9 +52,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="Messung von Wärmestrahlung" href="6_W%C3%A4rme.html" />
+    <link rel="next" title="Jupyter Notebooks" href="T_Tutorials.html" />
     <link rel="prev" title="Drucksensoren" href="6_Druck.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="de">
@@ -358,7 +360,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="4_F-Messung.html">
-     Frequenzmessung
+     Frequenz- und Zeitmessung
     </a>
    </li>
   </ul>
@@ -380,7 +382,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="6_DMS.html">
-     Dehnungsmessstreifen
+     Dehnungsmessstreifen (DMS)
     </a>
    </li>
    <li class="toctree-l2">
@@ -389,8 +391,18 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="6_OMT.html">
+     Optische Sensoren und Laserinterferometrie
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_GPS.html">
+     Satellitennavigationssysteme
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="6_Kapazitiv.html">
-     Kapazitive Sensoren
+     Kapazitive und Induktive Sensoren
     </a>
    </li>
    <li class="toctree-l2">
@@ -401,16 +413,6 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Temperaturmessungen
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="6_W%C3%A4rme.html">
-     Messung von Wärmestrahlung
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="6_OMT.html">
-     Optische Sensoren
     </a>
    </li>
   </ul>
@@ -678,12 +680,80 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#thermoresistive-sensoren">
+   Thermoresistive Sensoren
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metallwiderstandsthermometer">
+     Metallwiderstandsthermometer
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#heiszleiter">
+     Heißleiter
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#silizium-temperatursensor">
+     Silizium-Temperatursensor
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#phasenubergangsthermometer">
+     Phasenübergangsthermometer
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#thermoelemente">
+   Thermoelemente
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pyrometer">
+   Pyrometer
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fehlerquellen">
+     Fehlerquellen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#warmebildkamera">
+   Wärmebildkamera
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -695,6 +765,63 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#thermoresistive-sensoren">
+   Thermoresistive Sensoren
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metallwiderstandsthermometer">
+     Metallwiderstandsthermometer
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#heiszleiter">
+     Heißleiter
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#silizium-temperatursensor">
+     Silizium-Temperatursensor
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#phasenubergangsthermometer">
+     Phasenübergangsthermometer
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#thermoelemente">
+   Thermoelemente
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pyrometer">
+   Pyrometer
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fehlerquellen">
+     Fehlerquellen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#warmebildkamera">
+   Wärmebildkamera
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -704,6 +831,259 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="temperaturmessungen">
 <h1>Temperaturmessungen<a class="headerlink" href="#temperaturmessungen" title="Link zu dieser Überschrift">#</a></h1>
+<p>Fast alle Temperaturesensoren sind thermoresistiv, d.h. der Widerstandswert einer Komponente ändert sich in Abhängigkeit von der Temperatur. Es gibt allerdings auch Thermoelement, die aufgrund des Seebeck-Effekts eine Spannung generieren und Wärmebildkameras, die Wärmestrahlung der Umgebung einsammeln und diese mittels Linsen auf thermoresistive Komponenten fokussieren.</p>
+<section id="thermoresistive-sensoren">
+<h2>Thermoresistive Sensoren<a class="headerlink" href="#thermoresistive-sensoren" title="Link zu dieser Überschrift">#</a></h2>
+<p>Widerstände ändern ihren Wert in Abhängigkeit von der Temperatur. Wie sich die Temperatur genau ändert, zeigt der Kennlinienverlauf, wie er in nachfolgendem Diagram für verschiedene thermoresistive Sensoren dargestellt ist:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Benötigte Libraries:</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">plotly.offline</span> <span class="k">as</span> <span class="nn">py</span>
+<span class="n">py</span><span class="o">.</span><span class="n">init_notebook_mode</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">plotly.graph_objs</span> <span class="k">as</span> <span class="nn">go</span>
+<span class="kn">import</span> <span class="nn">plotly.tools</span> <span class="k">as</span> <span class="nn">tls</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="c1"># MatplotLib Settings:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
+
+<span class="c1">#--------- Kaltleiter PT100 -------------</span>
+<span class="n">T_PT</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">800</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">R_PT</span><span class="p">(</span><span class="n">T_PT</span><span class="p">):</span>
+    <span class="n">R_0</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1"># in Ohm</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="mf">3.93e-3</span> <span class="c1"># in 1/°C</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="o">-</span><span class="mf">5.7e-7</span> <span class="c1"># in 1/^C^2</span>
+    <span class="k">return</span> <span class="n">R_0</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">A</span><span class="o">*</span><span class="n">T_PT</span> <span class="o">+</span> <span class="n">B</span> <span class="o">*</span> <span class="n">T_PT</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1">#--------- Heißleiter NTC -------------</span>
+<span class="n">T_NTC</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="o">+</span><span class="mf">273.15</span><span class="p">,</span> <span class="mi">120</span><span class="o">+</span><span class="mf">273.15</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">R_NTC</span><span class="p">(</span><span class="n">T_NTC</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
+    <span class="n">R_25</span> <span class="o">=</span> <span class="mi">1000</span> <span class="c1"># in Ohm</span>
+    <span class="n">T_25</span> <span class="o">=</span> <span class="mf">25.0</span> <span class="o">+</span> <span class="mf">273.15</span> <span class="c1"># in Kelvin</span>
+    <span class="k">return</span> <span class="n">R_25</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">B</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">T_NTC</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">T_25</span><span class="p">))</span>
+
+<span class="c1">#--------- Transition Edge Sensor -------------</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">94</span><span class="p">,</span> <span class="mi">106</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">R</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="mf">1.86</span> <span class="c1"># in 1/mK</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mf">0.01</span> <span class="c1"># in Ohm</span>
+    <span class="n">Tk</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1"># in mK</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">k</span> <span class="o">*</span> <span class="p">(</span><span class="n">T</span><span class="o">-</span><span class="n">Tk</span><span class="p">)))</span>
+
+
+<span class="c1">#--------- Diagramme -------------</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T_PT</span><span class="p">,</span><span class="n">R_PT</span><span class="p">(</span><span class="n">T_PT</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;T/°C&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;R/$\Omega$&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Kaltleiter PT100&#39;</span><span class="p">)</span>
+
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T_NTC</span><span class="o">-</span><span class="mf">273.15</span><span class="p">,</span><span class="n">R_NTC</span><span class="p">(</span><span class="n">T_NTC</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;B = 2000K&quot;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T_NTC</span><span class="o">-</span><span class="mf">273.15</span><span class="p">,</span><span class="n">R_NTC</span><span class="p">(</span><span class="n">T_NTC</span><span class="p">,</span> <span class="mi">4000</span><span class="p">)</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;B = 4000K&quot;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;tab:red&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T_NTC</span><span class="o">-</span><span class="mf">273.15</span><span class="p">,</span><span class="n">R_NTC</span><span class="p">(</span><span class="n">T_NTC</span><span class="p">,</span> <span class="mi">6000</span><span class="p">)</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;B = 6000K&quot;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;tab:orange&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;T/°C&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;R/k$\Omega$&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Heißleiter NTC&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">R</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;T/mK&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;R/m$\Omega$&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Transition Edge Sensor&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><script type="text/javascript">
+window.PlotlyConfig = {MathJaxConfig: 'local'};
+if (window.MathJax) {MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+if (typeof require !== 'undefined') {
+require.undef("plotly");
+requirejs.config({
+    paths: {
+        'plotly': ['https://cdn.plot.ly/plotly-2.9.0.min']
+    }
+});
+require(['plotly'], function(Plotly) {
+    window._Plotly = Plotly;
+});
+}
+</script>
+</div><img alt="../_images/6_Temp_1_1.png" src="../_images/6_Temp_1_1.png" />
+</div>
+</div>
+<section id="metallwiderstandsthermometer">
+<h3>Metallwiderstandsthermometer<a class="headerlink" href="#metallwiderstandsthermometer" title="Link zu dieser Überschrift">#</a></h3>
+<p>Reine Metalle sind <strong>Kaltleiter</strong>. Mit steigender Temperatur nimmt der Widerstand aller Metalle zu. Das liegt daran, dass die Elektronen, die für die Leitfähigkeit zuständig sind, bei höheren Temperaturen häufiger aneinander stoßen, da deren Dynamik bzw. Schwingungen zu nehmen. Dadurch reduziert sich effektiv ihre Beweglichkeit und die Leitfähigkeit nimmt ab, bzw. der Widerstand nimmt zu.</p>
+<p>Platin hat beispielsweise einen Widerstandswert von R0 = R(0) = 100 Ohm bei 0 °C, daher der Name PT100. Sie können bei geeigneter Ausrüstung bis 850 °C eingesetzt werden. Sie haben eine fast lineare Kennlinie bei einer relativen Widerstandsänderung von knapp 0,4 % pro °C:</p>
+<div class="math notranslate nohighlight">
+\[R(T) = R_0 \cdot (1 + AT + BT^2)\]</div>
+<p>Folgende Parameter gelten für bestimmte Temperaturbereiche:</p>
+<ul class="simple">
+<li><p>0-850°C: A= 3,9e-3/°C, B=-5,7e-7/°C<span class="math notranslate nohighlight">\(^2\)</span></p></li>
+<li><p>-200-0°C: C = -4,2e-1/°C<span class="math notranslate nohighlight">\(^4\)</span></p></li>
+</ul>
+</section>
+<section id="heiszleiter">
+<h3>Heißleiter<a class="headerlink" href="#heiszleiter" title="Link zu dieser Überschrift">#</a></h3>
+<p>Thermistoren mit negativen Temperaturkoeffizienten (NTC = Negative thermal coefficient , Heißleiter) weisen aufgrund des zugrundeliegenden Halbleiter-Effektes eine hohe Abhängigkeit von Fehlstellen, wie der Dotierung der Grundstoffe auf. Der Widerstandswert nimmt in Folge einer Temperaturerhöhung ab. Das liegt daran, dass sich, wie bei allen Halbleitern, die Anzahl der freien Elektronen mit steigender Temperatur erhöht und diese zur Leitfähigkeit beitragen. Der Widerstand wird also geringer. Dies erklärt auch den exponentiellen Verlauf der Kennlinie.
+<strong>Heißleiter</strong> sind bis etwa 150 °C einsetzbar.
+Sie weisen gegenüber Platin-Messwiderständen eine deutlich höhere Empfindlichkeit auf:</p>
+<div class="math notranslate nohighlight">
+\[ R(T)=R_{25} \cdot \mathrm e^{B\left(\frac{1}{T+273}-\frac{1}{298}\right)}\]</div>
+<p>mit R25 = 1000 Ohm und B = 3528.</p>
+<p>Heißleiter werden häufig direkt auf Platinen verbaut.</p>
+</section>
+<section id="silizium-temperatursensor">
+<h3>Silizium-Temperatursensor<a class="headerlink" href="#silizium-temperatursensor" title="Link zu dieser Überschrift">#</a></h3>
+<p>Hier wird Silizium mit einem Element der 5- Hauptgruppe zu einem n-dotierten Halbleiter kombiniert. Auf einer Seite des Sensors, am Kontaktbereich, entsteht eine Raumladungszon, die sich bis zu gegenüberliegenden Metall-Fläche ausbildet. Steigt die Temperatur, so reduziert sich auch in diesem Bauteil die Beweglichkeit der Elektronen und der Widerstand nimmt zu. Im Gegensatz zu Kaltleitern ist der quadratische Anstieg jedoch stärker ausgeprägt.</p>
+</section>
+<section id="phasenubergangsthermometer">
+<h3>Phasenübergangsthermometer<a class="headerlink" href="#phasenubergangsthermometer" title="Link zu dieser Überschrift">#</a></h3>
+<p>Ein Transition Edge Sensor (TES), bzw. auf deutsch Phasenübergangsthermometer, ist ein supraleitender Temperatursensor, der in der Lage ist, kleinste Temperaturänderungen im Bereich von wenigen 100 <span class="math notranslate nohighlight">\(\mu\mathrm K\)</span> zu messen. Seine Umgebungstemperatur wird je nach Material auf wenige mK runtergekühlt, um das Material in einen supraleitenden Zustand (d.h. sein Widerstand verschwindet) zu bringen. Dies ist die sogenannte kritische Temperatur, <span class="math notranslate nohighlight">\(T_c\)</span>, aber der Materiale supraleitende Eigenschaften aufweisen. Die Widerstand wird über Anlegen einer Stromstärke minimal aufgeheizt, sodass sein Arbeitspunkt in den Übergang (die steile Flanke) geschoben wird. An diesem Punkt ist die Ableitung, und somit die Empfindlichkeit, maximal.</p>
+<div class="math notranslate nohighlight">
+\[ R(T)= \frac{a}{1 + \mathrm e^{-k(T-T_c)}} \]</div>
+<p>mit z.B. <span class="math notranslate nohighlight">\(k\)</span> = 1.86/mK, <span class="math notranslate nohighlight">\(a\)</span> = 0.224 Ohm und <span class="math notranslate nohighlight">\(T_c\)</span> = 103.2 mK</p>
+</section>
+</section>
+<section id="thermoelemente">
+<h2>Thermoelemente<a class="headerlink" href="#thermoelemente" title="Link zu dieser Überschrift">#</a></h2>
+<p>Für sehr hohe Temperaturen eignen sich thermoresistive Sensoren nur bedingt. Ab mehreren 100°C verwendet man robustere Sensoren, wie beispielsweise Thermoelemente. Diese bestehen aus zwei Drähten unterschiedlicher Materialien, also z.B. Metall A und Metall B. Diese Metalle werden an einem Punkt miteinander kontaktiert, z.B. durch Schweißen oder Vertwisten.</p>
+<p>In Abhängigkeit von der Umgebungstemperatur erzeugen Thermoelemente eine kleine Messspannung, die verstärkt über einen Spannungsmesseingang abgegriffen wird. Hierbei ist es sinnvoll, das Thermoelement mit identischen Drähten / Kabeln an den Spannungsmesseingang anzuschließen, also aus den Materialien A und B, damit diese die gleichen thermoelektrischen Eigenschaften aufweisen.</p>
+<p>Die Messspannung wird durch den <strong>Seebeck-Effekt</strong> erzeugt: An der Kontaktstelle zweier unterschiedlicher <strong>leitfähiger</strong> Materialien wird in Abhängigkeit von der zu messenden <strong>Temperatur <span class="math notranslate nohighlight">\(T_M\)</span></strong> eine <strong>Thermospannung <span class="math notranslate nohighlight">\(U\)</span></strong> erzeugt.</p>
+<div class="math notranslate nohighlight">
+\[U_\mathrm{thermo} = k_{A,B} \cdot T_M\]</div>
+<p>Je nach Materialien kann die Empfindlichkeit angepasst werden. Da das Thermoelement häufig über Anschlusskabel mit dem Spannungsmesseingang verbunden wird, kann die Thermospannung nicht direkt gemessen werden. Es werden die Thermospannungen an den jeweiligen Messeingangskontakten mitgemessen:</p>
+<div class="math notranslate nohighlight">
+\[U = U_1 + U_\mathrm{thermo} + U_2 = k_{1,A}\cdot T_R + k_{A,B} \cdot T_M + k_{B,2} \cdot T_R\]</div>
+<p><span class="math notranslate nohighlight">\(T_R\)</span> ist hierbei die Referenz-Temperatur, oder Vergleichsstellentemperatur. D.h. die Temperaturmessung an den Kontaktstellen zum Spannungsmesseingang wird mitgemessen. Handelt es sich um Kupferkabel, so können wir schreiben:</p>
+<div class="math notranslate nohighlight">
+\[U = k_{Cu,A}\cdot T_R + k_{A,B} \cdot T_M + k_{B,Cu} \cdot T_R\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(k_{Cu,A}\)</span> die Empfindlichkeit des zwangsläufig generierten Thermoelementes ist, welches an der Kontaktstelle zur Kupferleitung entsteht. Es kann hergeleitet werden, dass sich beliebige Faktoren <span class="math notranslate nohighlight">\(k_{x,y}\)</span> auch als Differenz von zwei einzelnen Koeffizienten schreiben lassen, wenn diese über ein gemeinsames, drittes Material miteinander verbunden sind. Praktikisch benutzt man häufig Platin (Pt) und man kann schreiben:</p>
+<div class="math notranslate nohighlight">
+\[k_{x,y} = k_{x,Pt} - k_{y,Pt}\]</div>
+<p>Weiterhin gilt natürlich <span class="math notranslate nohighlight">\(k_{x,y} = - k_{y,x}\)</span></p>
+<p>Mit diesen beiden Formeln können wir die obige Gleichung für die Spannung weiter umformen:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-589e488d-96cf-40ae-85fb-09d613d469f9">
+<span class="eqno">(1)<a class="headerlink" href="#equation-589e488d-96cf-40ae-85fb-09d613d469f9" title="Permalink to this equation">#</a></span>\[\begin{align}
+U &amp;= k_{Cu,A}\cdot T_R + k_{AB} \cdot T_M + k_{B,Cu} \cdot T_R\\
+&amp;= (k_{Cu,Pt} - k_{A,Pt})\cdot T_R + (k_{A,Pt} - k_{B,Pt})\cdot T_M + (k_{B,Pt} - k_{Cu,Pt})\cdot T_R\\
+&amp;= k_{A,B} \cdot (T_M - T_R)
+\end{align}\]</div>
+<p>Damit konnten wir das Leitermaterial Kupfer (Cu) aus der Gleichung eliminieren und die Spannung hängt nur noch von den verwendeten Materialien A und B im Thermoelement ab. Lediglich die Temperatur an der Kontaktstelle, <span class="math notranslate nohighlight">\(T_R\)</span>, muss noch bestimmt werden, um den Messwert der Temperaturmessung, <span class="math notranslate nohighlight">\(T_M\)</span>, zu erhalten. Diese Vergleichsstellen-Temperatur wird typischerweise mit einem thermoresistiven Sensore gemessen. Viele Messeingänge für Thermoelemente beinhalten bereits diese Option, wo die Temperatursensoren dann mittels einer Brückenschaltung direkt ausgelesen werden.</p>
+<p>Die häufigsten Materialien für Thermoelemente sind NiCr-Ni, Fe-CuNi und PtRh-Pt.
+Die Kennlinie eines Thermoelements ist linear, wie der Gleichung zu entnehmen ist, und hat   recht kleine Empfindlichkeiten von etwa <span class="math notranslate nohighlight">\(40\,\mathrm{\muV/^\circ C}\)</span>. Daher eignen sie sich eher weniger für die Messung von niedrigeren Temperaturen.</p>
+<p>Speziell in der MEMS-Technologie werden mitunter Reihenschaltungen von solchen Thermoelementen realisiert. Diese sind auch bekannt unter dem Namen <strong>Thermopile</strong>. In der Reihenschaltung addieren sich die Spannungen und man erhält eine höhere Empfindlichkeit. Bei MEMS-Systemen werden tausende solcher Elemente hintereinander geschaltet. Diese Systeme eignen sich auch dazu kleinste Mengen von Energie z.B. aus Umgebungs- oder Abgaswärme zurückzugewinnen.</p>
+</section>
+<section id="pyrometer">
+<h2>Pyrometer<a class="headerlink" href="#pyrometer" title="Link zu dieser Überschrift">#</a></h2>
+<p>Bei den bis genannten Temperaturmessungen müssen Widerstand oder Thermoelement immer in Wärmekontakt mit dem Objekt gebracht werden. Dies ist nicht immer möglich und es bieten sich berührungslose Temperaturmessungen an, die nach dem pyrometrischen Prinzip funktionieren. Die Grundidee ist, dass man hierbei die Strahlung eines Körpers einsammelt, die er entsprechend des Planck’schen Strahlungsgesetztes emittiert. Man benötigt entsprechende Optik, eine Linse, um die Strahlung möglichst gut zu fokussieren. In die Brennweite der Optik wird dann ein normaler Temperatursensor (Widerstand oder Thermoelement) eingesetzt, der die von der Strahlung umgesetzte Wärme misst.</p>
+<p>Das <strong>Planck’sche Strahlungsgesetz</strong> besagt, dass jeder Körper, der eine von Null Kelvin verschiedene Temperatur hat, eine bestimmte Strahlung aussendet.</p>
+<div class="math notranslate nohighlight">
+\[M_\lambda(T) = \frac{2 \pi h c^2}{\lambda^5}\frac{1}{\mathrm e^{\frac{hc}{kT}}-1}\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(h = 6,626 \cdot 10^{-34}\,\mathrm{Js}\)</span> das Planck’sche wirkungsquantum ist, <span class="math notranslate nohighlight">\(k = 1,80649 \cdot 10^{-23}\,\mathrm{J/K}\)</span> die Boltzmann-Konstante, <span class="math notranslate nohighlight">\(\lambda\)</span> die Wellenlänge des ausgesandten Lichts und <span class="math notranslate nohighlight">\(c = 299792458\,\mathrm{m/s}\)</span> die Lichtgeschwindigkeit.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Benötigte Libraries:</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">plotly.offline</span> <span class="k">as</span> <span class="nn">py</span>
+<span class="n">py</span><span class="o">.</span><span class="n">init_notebook_mode</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">plotly.graph_objs</span> <span class="k">as</span> <span class="nn">go</span>
+<span class="kn">import</span> <span class="nn">plotly.tools</span> <span class="k">as</span> <span class="nn">tls</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="c1"># MatplotLib Settings:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
+
+
+<span class="c1">#--------- Kaltleiter PT100 -------------</span>
+<span class="n">wl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1e-6</span><span class="p">,</span> <span class="mf">1000e-6</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">M</span><span class="p">(</span><span class="n">wl</span><span class="p">,</span><span class="n">T</span><span class="p">):</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="mf">6.626e-34</span> <span class="c1">#Js</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="mi">299792458</span> <span class="c1">#m/s</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="mf">1.380649e-23</span> <span class="c1">#J/K</span>
+    <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">h</span> <span class="o">*</span> <span class="n">c</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">wl</span><span class="o">**</span><span class="mi">5</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">h</span><span class="o">*</span><span class="n">c</span><span class="o">/</span><span class="p">(</span><span class="n">wl</span><span class="o">*</span><span class="n">k</span><span class="o">*</span><span class="n">T</span><span class="p">))</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">wl</span><span class="o">*</span><span class="mf">1e6</span><span class="p">,</span> <span class="n">M</span><span class="p">(</span><span class="n">wl</span><span class="p">,</span><span class="mi">300</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;T = 300K&quot;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">wl</span><span class="o">*</span><span class="mf">1e6</span><span class="p">,</span> <span class="n">M</span><span class="p">(</span><span class="n">wl</span><span class="p">,</span><span class="mi">500</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;T = 500K&quot;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;tab:orange&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">wl</span><span class="o">*</span><span class="mf">1e6</span><span class="p">,</span> <span class="n">M</span><span class="p">(</span><span class="n">wl</span><span class="p">,</span><span class="mi">1000</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;T = 1000K&quot;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;tab:red&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mf">1e1</span><span class="p">,</span><span class="mf">1e11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Wellenlänge in um&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$M_\lambda$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><script type="text/javascript">
+window.PlotlyConfig = {MathJaxConfig: 'local'};
+if (window.MathJax) {MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+if (typeof require !== 'undefined') {
+require.undef("plotly");
+requirejs.config({
+    paths: {
+        'plotly': ['https://cdn.plot.ly/plotly-2.9.0.min']
+    }
+});
+require(['plotly'], function(Plotly) {
+    window._Plotly = Plotly;
+});
+}
+</script>
+</div><img alt="../_images/6_Temp_5_1.png" src="../_images/6_Temp_5_1.png" />
+</div>
+</div>
+<p>In Abhängigkeit von der Temperatur des Körpers ändert sich einerseits die Intensität der Strahlung, aber auch die Wellenlänge der ausgesandten Strahlung. Diese beiden Größen, oder eine Kombination daraus, wird für berührungslose Temperaturmessungen benutzt. Der Wellenlängenbereich erstreckt sich hierbei über den gesamten Spektralbereich von kurzwelliger Röntgenstrahlung - UV-Strahlung - sichtbarer Vereich und bis hin in den Infrarot-Bereich. Bei noch größeren Wellenlängen würden wir die Funkwellen finden.
+Über dieses Spektrum kann man nun integrieren, um die spezifische Ausstrahlung eines schwarzen Körpers zu bestimmen, was das <strong>Stefan-Boltzmann-Gesetz</strong> liefert:</p>
+<div class="math notranslate nohighlight">
+\[M = \int_0^\infty M_\lambda(\lambda) d\lambda = \sigma T^4\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(\sigma = 5,67\cdot 10^{-8}\,\mathrm{W/(m^2 K^4)}\)</span> die Stefan-Boltzmann-Konstante ist.</p>
+<p>Um die Strahlung möglichst gut einzusammeln werden spezielle Linsen benötigt. Pyrometer verwenden häufig optische Linsen, die Strahlung im sichtbaren und Nah-infraroten Bereich gut fokussieren und transmittieren. Doch diese Transmissivität endet bei einer Wellenlänge von etwa 4 Mikrometern. Hier müssen Silizium-Wafer zum Einsetz kommen, die je nach Beschichtung Wellenlängen bis zu 20 Mikrometern bündeln. Mittels Pyrometern kann also nur ein Bruchteil des Strahlungsspektrums gemessen werden.</p>
+<section id="fehlerquellen">
+<h3>Fehlerquellen<a class="headerlink" href="#fehlerquellen" title="Link zu dieser Überschrift">#</a></h3>
+<p>Die Hersteller kalibrieren ihre Systeme und liefern die Kennlinie mit. Einen Einflusseffekt den sie jedoch nicht weg-kalibrieren können ist die Emissivität von Strahlung verschiedener Körper und unterschiedlicher Materialien. Reale Körper sind nämliche keine perfekten Schwarzen Körper, die ein perfektes Planck-Spektrum aussenden. In Abhängigkeit vom Material und auch der Beschaffenheit der Oberfläche emittieren sie nur einen Bruchteil, was durch den <strong>Emissionsfaktor <span class="math notranslate nohighlight">\(\varepsilon\)</span></strong> beschrieben wird:</p>
+<div class="math notranslate nohighlight">
+\[M_\mathrm{real} = \epsilon \cdot M\]</div>
+<p>Dieser Faktor ist eine Zahl zwischen 0 und 1, wobei 1 ein perfekter Schwarzer Strahler wäre.
+Typische Werte für bestimmte Materialien sind beispielsweise:</p>
+<ul class="simple">
+<li><p>polierter Stahl: 7%</p></li>
+<li><p>verrosteter Stahl: 85%</p></li>
+<li><p>Chrom: 30%</p></li>
+<li><p>Glas: 94%</p></li>
+</ul>
+<p>Diese Parameter hängen jedoch wiederuum von der Temperatur und der Wellenlänge ab, weshalb sie nicht einfach pauschalisiert werden können. Kalibriermessungen an konkreten Oberflächen und Materialien ist daher notwenedig.</p>
+</section>
+</section>
+<section id="warmebildkamera">
+<h2>Wärmebildkamera<a class="headerlink" href="#warmebildkamera" title="Link zu dieser Überschrift">#</a></h2>
+<p>Allgemein kann man jede Art von Sensor auch in Bildbasierte Messinstrumente einsetzen. Ein bekanntes Beispiel hierfür sind Wärmebildkameras. Diese bestehen dann im Gegensatz zum Pyrometer nicht mehr aus nur einem Temperatursensor, sondern aus einem ganzen Array. Je nach Sensortyp können hier auch wieder unterschiedliche Temperatur- und Wellenlängenbereiche gemessen werden und so kontaktlos über die Bestrahlungsstärkemessung Messungen vornehmen. Jeder Sensor entspricht am Ende einem Pixel im Bild, auf dem die generierte Erwärmung gemessen wird. Dies nennent man auch <strong>Bolometerprinzip</strong>.</p>
+<p>Bei Wärmebildkameras benutzt man häufig spezielle Materialien als Absorber, die die Infrarotstrahlung möglichst gut aufnehmen, z.B. eine Membran aus Vanadiumoxid. Der Widerstand der Membran ändert sich nun bei der Erwärmung. Die Membran nimmt jedoch nur einen Bruchteil der Strahlung auf, die restliche Strahlung wird transmittiert. Um diesen Verlust zu kompensieren, wird ein Reflektor hinter der Membran installiert, der die Strahlung zurückwirft. Der Abstand zwischen Reflektor und Membran ist so gewählt, dass sie genau 1/4 der Wellenlänge entspricht und somit als <em>Resonator</em> dient, der die Absorption maximiert.</p>
+<p>Auch bei Wärmebildkameras gibt es die bei Pyrometern diskutierten Fehlerquellen der Abhängigkeit der Temperaturmessung vom Material und der Oberflächenbeschaffenheit. Häufig interessiert einem allerdings bei bildbasierten Verfahren eher due großglächige Temperaturverteilung und nicht so sehr der ganz präzise Temperaturmesswert an einer konkreten Stelle. D.h. relative räumliche und zeitliche Temperatur-Variationen können mit Wärmebildkameras sehr gut erfasst, wohingegen absolute Messungen stärker fehlerbehaftet sind.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -740,10 +1120,10 @@ title="Print to PDF"
             <p class="prev-next-title">Drucksensoren</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="6_W%C3%A4rme.html" title="weiter Seite">
+    <a class='right-next' id="next-link" href="T_Tutorials.html" title="weiter Seite">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title">Messung von Wärmestrahlung</p>
+        <p class="prev-next-title">Jupyter Notebooks</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

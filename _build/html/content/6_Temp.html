@@ -43,6 +43,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/design-tabs.js"></script>
@@ -56,8 +57,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="Jupyter Notebooks" href="T_Tutorials.html" />
-    <link rel="prev" title="Drucksensoren" href="6_Druck.html" />
+    <link rel="next" title="Radar" href="6_Radar.html" />
+    <link rel="prev" title="Kapazitive und Induktive Sensoren" href="6_Kapazitiv.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="de">
     
@@ -391,11 +392,6 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="6_OMT.html">
-     Optische Sensoren und Laserinterferometrie
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="6_GPS.html">
      Satellitennavigationssysteme
     </a>
@@ -405,14 +401,19 @@ const thebe_selector_output = ".output, .cell_output"
      Kapazitive und Induktive Sensoren
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="6_Druck.html">
-     Drucksensoren
-    </a>
-   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Temperaturmessungen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_Radar.html">
+     Radar
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_Ifo.html">
+     Laserinterferometrie
     </a>
    </li>
   </ul>
@@ -908,12 +909,12 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output text_html"><script type="text/javascript">
 window.PlotlyConfig = {MathJaxConfig: 'local'};
-if (window.MathJax) {MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
 if (typeof require !== 'undefined') {
 require.undef("plotly");
 requirejs.config({
     paths: {
-        'plotly': ['https://cdn.plot.ly/plotly-2.9.0.min']
+        'plotly': ['https://cdn.plot.ly/plotly-2.16.1.min']
     }
 });
 require(['plotly'], function(Plotly) {
@@ -976,8 +977,8 @@ Sie weisen gegenüber Platin-Messwiderständen eine deutlich höhere Empfindlich
 \[k_{x,y} = k_{x,Pt} - k_{y,Pt}\]</div>
 <p>Weiterhin gilt natürlich <span class="math notranslate nohighlight">\(k_{x,y} = - k_{y,x}\)</span></p>
 <p>Mit diesen beiden Formeln können wir die obige Gleichung für die Spannung weiter umformen:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-589e488d-96cf-40ae-85fb-09d613d469f9">
-<span class="eqno">(1)<a class="headerlink" href="#equation-589e488d-96cf-40ae-85fb-09d613d469f9" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-29140ba4-6ee4-4f10-ad84-bac0c2240fa7">
+<span class="eqno">(1)<a class="headerlink" href="#equation-29140ba4-6ee4-4f10-ad84-bac0c2240fa7" title="Permalink to this equation">#</a></span>\[\begin{align}
 U &amp;= k_{Cu,A}\cdot T_R + k_{AB} \cdot T_M + k_{B,Cu} \cdot T_R\\
 &amp;= (k_{Cu,Pt} - k_{A,Pt})\cdot T_R + (k_{A,Pt} - k_{B,Pt})\cdot T_M + (k_{B,Pt} - k_{Cu,Pt})\cdot T_R\\
 &amp;= k_{A,B} \cdot (T_M - T_R)
@@ -1040,12 +1041,12 @@ Die Kennlinie eines Thermoelements ist linear, wie der Gleichung zu entnehmen is
 <div class="cell_output docutils container">
 <div class="output text_html"><script type="text/javascript">
 window.PlotlyConfig = {MathJaxConfig: 'local'};
-if (window.MathJax) {MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
 if (typeof require !== 'undefined') {
 require.undef("plotly");
 requirejs.config({
     paths: {
-        'plotly': ['https://cdn.plot.ly/plotly-2.9.0.min']
+        'plotly': ['https://cdn.plot.ly/plotly-2.16.1.min']
     }
 });
 require(['plotly'], function(Plotly) {
@@ -1113,17 +1114,17 @@ Typische Werte für bestimmte Materialien sind beispielsweise:</p>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="6_Druck.html" title="zurück Seite">
+    <a class='left-prev' id="prev-link" href="6_Kapazitiv.html" title="zurück Seite">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">zurück</p>
-            <p class="prev-next-title">Drucksensoren</p>
+            <p class="prev-next-title">Kapazitive und Induktive Sensoren</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="T_Tutorials.html" title="weiter Seite">
+    <a class='right-next' id="next-link" href="6_Radar.html" title="weiter Seite">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title">Jupyter Notebooks</p>
+        <p class="prev-next-title">Radar</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

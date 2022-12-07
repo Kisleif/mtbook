@@ -43,6 +43,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/design-tabs.js"></script>
@@ -360,7 +361,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="4_F-Messung.html">
-     Frequenzmessung
+     Frequenz- und Zeitmessung
     </a>
    </li>
   </ul>
@@ -382,7 +383,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="6_DMS.html">
-     Dehnungsmessstreifen
+     Dehnungsmessstreifen (DMS)
     </a>
    </li>
    <li class="toctree-l2">
@@ -391,13 +392,13 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="6_Kapazitiv.html">
-     Kapazitive Sensoren
+    <a class="reference internal" href="6_GPS.html">
+     Satellitennavigationssysteme
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="6_Druck.html">
-     Drucksensoren
+    <a class="reference internal" href="6_Kapazitiv.html">
+     Kapazitive und Induktive Sensoren
     </a>
    </li>
    <li class="toctree-l2">
@@ -406,13 +407,13 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="6_W%C3%A4rme.html">
-     Messung von Wärmestrahlung
+    <a class="reference internal" href="6_Radar.html">
+     Radar
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="6_OMT.html">
-     Optische Sensoren
+    <a class="reference internal" href="6_Ifo.html">
+     Laserinterferometrie
     </a>
    </li>
   </ul>
@@ -1284,12 +1285,12 @@ Eine große Ausnahme ist und blieb das Ur-Kilo, welches als Prototyp von 1889-20
 <div class="cell_output docutils container">
 <div class="output text_html"><script type="text/javascript">
 window.PlotlyConfig = {MathJaxConfig: 'local'};
-if (window.MathJax) {MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
 if (typeof require !== 'undefined') {
 require.undef("plotly");
 requirejs.config({
     paths: {
-        'plotly': ['https://cdn.plot.ly/plotly-2.9.0.min']
+        'plotly': ['https://cdn.plot.ly/plotly-2.16.1.min']
     }
 });
 require(['plotly'], function(Plotly) {

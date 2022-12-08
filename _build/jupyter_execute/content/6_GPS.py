@@ -121,13 +121,152 @@
 # Die Gesamtzeit der Übertragung beträgt somit mindestens 30 s (= 1500 x 20 ms) für die aktuelle GPS-Position. Die komplette Übertragung des kompletten Artikels würde 2,5 Stunden benötigen. 
 # Eine Übertragung des *kompletten P/Y-Codes* würde aufgrund der detaillierten Informationen theoretisch 276 Tage benötigen für eine *vollständige* Übermittlung der Daten. In der Praxis sendet jeder Satellit ein 7-tägiges Fragment aus. 
 # 
+# 
+
 # ### Modulation der Nachricht auf den Träger
 # Die Navigations-Nachricht wird in eine binäre Zahlenfolge konvertiert, welche auf die Funkwelle aufgeprägt wird. Diese Modulation kann über verschiedene Varianten geschehen, beispielsweise durch Multiplzieren der Trägerwelle (Funkwelle bei GHz-Frequenz) mit der binären Nachrichten-Folge, bestehend aus 0 und 1. 
-# 
+
+# In[1]:
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+from IPython.display import HTML
+from scipy import signal
+from random import randint, choice
+import random
+
+# MatplotLib Settings:
+plt.style.use('default') # Matplotlib Style wählen
+plt.xkcd()
+plt.rcParams['font.size'] = 10; # Schriftgröße
+
+num = 2000
+fig, ax = plt.subplots(3,1,figsize=(6,3))
+
+line0, = ax[0].plot([], [], lw=2, color = 'tab:blue')
+line1, = ax[1].plot([], [], lw=2, color = 'tab:red')
+line2, = ax[2].plot([], [], lw=2, color = 'tab:gray')
+
+def init():
+    line0.set_data([], [])
+    line1.set_data([], [])
+    line2.set_data([], [])
+    return line0, line1, line2
+
+
+ax[0].set_xlim(0,2)
+ax[1].set_xlim(0,2)
+ax[2].set_xlim(0,2)
+ax[0].set_ylim(-0.1,1.1)
+ax[1].set_ylim(-1.1,1.1)
+ax[2].set_ylim(-1.1,1.1)
+
+ax[0].axis('off')
+ax[1].axis('off')
+ax[2].axis('off')
+
+ax[0].set_title('GPS-Nachricht:')
+ax[1].set_title('Träger:')
+ax[2].set_title('GPS-Nachricht x Träger:')
+
+ax[0].axhline(y=0, lw = 1, color = 'tab:gray', ls = ':')
+ax[1].axhline(y=0, lw = 1, color = 'tab:gray', ls = ':')
+ax[2].axhline(y=0, lw = 1, color = 'tab:gray', ls = ':')
+
+
+def animate(i):
+    x = np.linspace(0, 2, num)
+    y0 = 0.5*signal.square(2 * np.pi * 1 * (x - 0.01 * i))+0.5
+    y1 = np.sin(2 * np.pi * 10* (x - 0.01 * i))
+    y2 = (0.5*signal.square(2 * np.pi * 1 * (x - 0.01 * i))+0.5)*np.sin(2 * np.pi * 10* (x - 0.01 * i))
+    line0.set_data(x,y0)
+    line1.set_data(x,y1)
+    line2.set_data(x,y2)
+    return line0, line1, line2
+
+anim = animation.FuncAnimation(fig, animate, init_func=init, frames=200, interval=20, blit=True)
+
+plt.tight_layout()
+plt.close()
+HTML(anim.to_jshtml())
+
+
 # Bei GPS wird **binary phase-shift keying** benutzt. 
-# Das binäre Signal aus Einsen und Nullen wird so angepasst, dass jede 0 durch -1 ersetzt wird, und dann wird dieses Signal mit der Trägerwelle multipliziert. Eine Multiplkation mit -1 sorgt für einen Phasensprung (daher auch der Name dieser Methode). Würde es sich um einen einzelnen Satelliten handeln, wäre diese Kodierungsmethode ausreichend, da der Empfänger einfach den Träger aus dem eingehenden Signal entfernen und die Datenbits dekodieren könnte. In Wirklichkeit gibt es viele Satelliten, die gleichzeitig senden, so dass sich die Datenbits von allen überschneiden. Außerdem sind die GPS-Signale, die die Erde erreichen, unglaublich schwach und werden von Rauschen überlagert, so dass eine reine Datennutzlast nicht entziffert werden kann. GPS löst dieses Problem, indem es einen anderen Binärcode verwendet. Dieser Code wiederholt sich im Laufe der Zeit und besteht aus einer vorher festgelegten Anzahl von so genannten Chips. Der Chipping-Code ändert sich mit einer höheren Rate als die Nachrichten-Bits. Um das Signal zu kodieren, multipliziert der Satellit die Datenbits der Navigationsnachricht mit diesem Code. Jeder Satellit hat einen eigenen Code. 
+# Das binäre Signal aus Einsen und Nullen wird so angepasst, dass jede 0 durch -1 ersetzt wird, und dann wird dieses Signal mit der Trägerwelle multipliziert. Eine Multiplikation mit -1 sorgt für einen Phasensprung (daher auch der Name dieser Methode). 
+
+# In[2]:
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+from IPython.display import HTML
+from scipy import signal
+from random import randint, choice
+import random
+
+# MatplotLib Settings:
+plt.style.use('default') # Matplotlib Style wählen
+plt.xkcd()
+plt.rcParams['font.size'] = 10; # Schriftgröße
+
+num = 2000
+fig, ax = plt.subplots(3,1,figsize=(6,3))
+
+line0, = ax[0].plot([], [], lw=2, color = 'tab:blue')
+line1, = ax[1].plot([], [], lw=2, color = 'tab:red')
+line2, = ax[2].plot([], [], lw=2, color = 'tab:gray')
+
+def init():
+    line0.set_data([], [])
+    line1.set_data([], [])
+    line2.set_data([], [])
+    return line0, line1, line2
+
+ax[0].axhline(y=0, lw = 1, color = 'tab:gray', ls = ':')
+ax[1].axhline(y=0, lw = 1, color = 'tab:gray', ls = ':')
+ax[2].axhline(y=0, lw = 1, color = 'tab:gray', ls = ':')
+
+ax[0].set_xlim(0,2)
+ax[1].set_xlim(0,2)
+ax[2].set_xlim(0,2)
+ax[0].set_ylim(-1.1,1.1)
+ax[1].set_ylim(-1.1,1.1)
+ax[2].set_ylim(-1.1,1.1)
+
+ax[0].axis('off')
+ax[1].axis('off')
+ax[2].axis('off')
+
+ax[0].set_title('Angepasste GPS-Nachricht:')
+ax[1].set_title('Träger:')
+ax[2].set_title('GPS-Nachricht x Träger:')
+
+
+def animate(i):
+    x = np.linspace(0, 2, num)
+    y0 = signal.square(2 * np.pi * 1 * (x - 0.01 * i))
+    y1 = np.sin(2 * np.pi * 10* (x - 0.01 * i))
+    y2 = (signal.square(2 * np.pi * 1 * (x - 0.01 * i)))*np.sin(2 * np.pi * 10* (x - 0.01 * i))
+    line0.set_data(x,y0)
+    line1.set_data(x,y1)
+    line2.set_data(x,y2)
+    return line0, line1, line2
+
+
+anim = animation.FuncAnimation(fig, animate, init_func=init, frames=200, interval=20, blit=True)
+
+
+plt.tight_layout()
+plt.close()
+HTML(anim.to_jshtml())
+
+
+# Würde es sich um einen einzelnen Satelliten handeln, wäre diese Kodierungsmethode ausreichend, da der Empfänger einfach den Träger aus dem eingehenden Signal entfernen und die Datenbits dekodieren könnte. In Wirklichkeit gibt es viele Satelliten, die gleichzeitig senden, so dass sich die Datenbits von allen überschneiden. Außerdem sind die GPS-Signale, die die Erde erreichen, unglaublich schwach und werden von Rauschen überlagert, so dass eine reine Datennutzlast nicht entziffert werden kann. GPS löst dieses Problem, indem es einen anderen Binärcode verwendet. Dieser Code wiederholt sich im Laufe der Zeit und besteht aus einer vorher festgelegten Anzahl von so genannten Chips. Der Chipping-Code ändert sich mit einer höheren Rate als die Nachrichten-Bits. Um das Signal zu kodieren, multipliziert der Satellit die Datenbits der Navigationsnachricht mit diesem Code. Jeder Satellit hat einen eigenen Code. 
 # Auch wenn die Codes wie binäres Zufallsrauschen aussehen, sind sie in Wirklichkeit pseudozufällig, was ihren Namen erklärt - PRN steht für pseudozufälliges Rauschen. Jeder dieser Codes ist gut bekannt und kann leicht nachgebildet werden.
-# 
+
 # ### PRN Code
 # * Der **PRN** Code ist eine pseudo-Zufallszahlenfolge bestehend aus Nullen und Einsen 
 #     * Die Frequenz des PRN Codes beträgt 10,23 MHz, was einer Länge von 29,31m entspricht.
@@ -138,8 +277,99 @@
 # 
 # * 1. Die Korrelation des Codesignals mit einer Kopie von sich selbst, die **Autokorrelation**, ist nur dann sehr hoch, wenn genau die richtige zeitliche Verzögerung eingestellt wurde. 
 # * 2. Die zweite wichtige Eigenschaft ist die **Kreuzkorrelation**, d. h. die Korrelation mit dem Kodierungssignal eines anderen Satelliten, die verschwindend gering ist und man somit Signale unterschiedlicher Satelliten hervoragend voneinander unterscheiden kann. 
-# 
-# 
+
+# In[3]:
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+from IPython.display import HTML
+from scipy import signal
+from random import randint, choice
+import random
+
+# MatplotLib Settings:
+plt.style.use('default') # Matplotlib Style wählen
+plt.xkcd()
+plt.rcParams['font.size'] = 10; # Schriftgröße
+
+num = 2000
+fig, ax = plt.subplots(5,1,figsize=(6,5))
+
+line0, = ax[0].plot([], [], lw=2, color = 'tab:blue')
+line1, = ax[1].plot([], [], lw=2, color = 'tab:green')
+line2, = ax[2].plot([], [], lw=2, color = 'tab:cyan')
+line3, = ax[3].plot([], [], lw=2, color = 'tab:red')
+line4, = ax[4].plot([], [], lw=2, color = 'tab:gray')
+
+def init():
+    line0.set_data([], [])
+    line1.set_data([], [])
+    line2.set_data([], [])
+    line3.set_data([], [])
+    line4.set_data([], [])
+    return line0, line1, line2, line3, line4
+
+ax[0].axhline(y=0, lw = 1, color = 'tab:gray', ls = ':')
+ax[1].axhline(y=0, lw = 1, color = 'tab:gray', ls = ':')
+ax[2].axhline(y=0, lw = 1, color = 'tab:gray', ls = ':')
+ax[3].axhline(y=0, lw = 1, color = 'tab:gray', ls = ':')
+ax[4].axhline(y=0, lw = 1, color = 'tab:gray', ls = ':')
+
+ax[0].set_xlim(0,2)
+ax[1].set_xlim(0,2)
+ax[2].set_xlim(0,2)
+ax[3].set_xlim(0,2)
+ax[4].set_xlim(0,2)
+ax[0].set_ylim(-1.1,1.1)
+ax[1].set_ylim(-1.1,1.1)
+ax[2].set_ylim(-1.1,1.1)
+ax[3].set_ylim(-1.1,1.1)
+ax[4].set_ylim(-1.1,1.1)
+
+ax[0].axis('off')
+ax[1].axis('off')
+ax[2].axis('off')
+ax[3].axis('off')
+ax[4].axis('off')
+
+ax[0].set_title('GPS:')
+ax[1].set_title('PRN:')
+ax[2].set_title('GPS x Code:')
+ax[3].set_title('Träger:')
+ax[4].set_title('GPS x Code x Träger:')
+
+x = np.linspace(0, 200, 100*num)
+y0_full = signal.square(2 * np.pi * 1 * x)
+y1_full = signal.square(2 * np.pi * 5 * x)*np.random.randint(-1,1)
+y2_full = y0_full*y1_full
+y3_full = np.sin(2 * np.pi * 10* x)
+y4_full = y3_full*y2_full
+
+def animate(i): # i geht bis frames = 200
+    x = np.linspace(0, 2, num)
+    y0 = signal.square(2 * np.pi * 1 * (x - 0.01 * i))
+    y1 = signal.square(2 * np.pi * 10 * (x - 0.01 * i))
+    y2 = y0*y1
+    y3 = np.sin(2 * np.pi * 20* (x - 0.01 * i))
+    y4 = y2*y3
+    line0.set_data(x,y0)
+    line1.set_data(x,y1)
+    line2.set_data(x,y2)
+    line3.set_data(x,y3)
+    line4.set_data(x,y4)
+    return line0, line1, line2, line3, line4
+
+
+anim = animation.FuncAnimation(fig, animate, init_func=init, frames=200, interval=20, blit=True)
+
+
+plt.tight_layout()
+plt.close()
+HTML(anim.to_jshtml())
+
+
 # ### Zurückgewinnung der GPS-Nachricht
 # Angenommen wir haben ein einziges einkommendes sauberes Signal eines Satelliten. Der Empfänger kann die sinusförmige Trägerwelle entfernen und erhält das Signal, das ein Produkt aus der Navigationsnachricht und dem PRN-Code ist. Der Empfänger kann dann eine Kopie des PRN-Codes für einen Satelliten erstellen, den er zu verfolgen versucht, und dann prüfen, ob er einen hohen Korrelationspeak zwischen dem Eingangssignal und dieser Kopie, gemessen in der hervorgehobenen Region, finden kann. Der Empfänger passt den Offset an, bis er einen hohen Unterschied zwischen den Bereichen findet, der ihn wissen lässt, dass er den richtigen Offset-Wert gefunden hat. Nachdem der korrekte Offset gefunden wurde, kann der Empfänger einfach das Vorzeichen dieser Differenz betrachten, um die Datenbits zu dekodieren.
 # 
@@ -157,9 +387,3 @@
 # Zudem existieren weitere Fehlerquellen, wie z.B. dass die Uhren an Bord der Satelliten nicht perfekt synchronisiert sein können. Auch die Orbitparameter und deren Änderungen weisen eine bestimmte Abweichung auf, wie auch die Position und Zeitstempel, die von den Satelliten empfangen werde. Auf der Erde können Funkwellen relfketiert werden und laufen so längere Strecken bis sie am Empfänger eintreffen. 
 # 
 # GPS-Empfänger versuchen immer ein Set von 4 Lösungen zu finden, die die 3 Positionskoordination und die Zeit mit minimaler Unsicherheit zu bestimmt. Mit mehr als 4 Satelliten kann die Genauigkeit verbessert werden. 
-
-# In[ ]:
-
-
-
-

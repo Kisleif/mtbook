@@ -74,7 +74,7 @@
 # 
 # $$I \propto A_1 A_2 \cos(\varphi)$$
 # 
-# Dies ist die *periodische* Kennlinie eines homodynen Laserinterferometers und wird im Folgenden grafisch dargestellt:
+# Dies ist die *periodische* Kennlinie eines homodynen Laserinterferometers und wird im Folgenden grafisch dargestellt. Das animierte Oszilloskop-Signal zeigt an, wie sich die Ausgangsleistung in einem Interferometer je nach Spiegelposition ändern würde. 
 
 # In[1]:
 
@@ -140,7 +140,7 @@ plt.close()
 HTML(ani.to_jshtml())
 
 
-# Kennt man die Wellenlänge $\lambda$ des verwendeten Laserlichts, also z.B. 1550nm (die entspricht der Telekommunikationswellenlänge), so kann man die Phasen in Längenänderungen konvertieren.
+# Kennt man die Wellenlänge $\lambda$ des verwendeten Laserlichts, also z.B. 1550nm (die entspricht der Telekommunikationswellenlänge), so kann man die optische Phase in eine Längenänderung konvertieren.
 # 
 # $$\varphi = \frac{2 \pi}{\lambda}$$
 # 
@@ -232,9 +232,6 @@ ax.set_title('Oszilloskop: ')
 num = 51
 tTM = np.linspace(0,2*np.pi , num=num)
 xTM = np.cos(tTM)
-
-
-
 
 def animate(i):
     line.set_ydata(A_1 * A_2 * np.sin(2*np.pi*f_het * t + xTM[i]))  # update the data.

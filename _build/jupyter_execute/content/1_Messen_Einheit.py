@@ -315,7 +315,7 @@ warnings.filterwarnings('ignore')
 
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.xkcd()
+#plt.xkcd()
 plt.figure(figsize=(8,5)) # Plot-Größe
 plt.rcParams['font.size'] = 10; # Schriftgröße
 

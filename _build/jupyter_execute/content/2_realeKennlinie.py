@@ -242,7 +242,7 @@ warnings.filterwarnings('ignore')
 
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 def f1(x):

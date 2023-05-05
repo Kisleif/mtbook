@@ -40,7 +40,7 @@ from scipy import interpolate
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
 plt.figure(figsize=(6,3)) # Plot-Größe
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 plt.figure(figsize=(5,4)) # Plot-Größe
@@ -158,7 +158,7 @@ import matplotlib.pyplot as plt
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
 plt.figure(figsize=(4,4)) # Plot-Größe
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 x = [12, 24, 36, 42, 60, 72, 84, 96, 108, 120] # Messwerte der Strecke x in m
@@ -219,7 +219,7 @@ plt.show()
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
 plt.figure(figsize=(4,4)) # Plot-Größe
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 m = (np.mean(x*y) - np.mean(x)*np.mean(y))/(np.mean(x**2) - np.mean(x)**2)

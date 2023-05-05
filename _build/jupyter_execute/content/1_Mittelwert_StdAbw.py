@@ -28,7 +28,7 @@ warnings.filterwarnings('ignore')
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
 plt.figure(figsize=(4,4)) # Plot-Größe
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 # synthetische Messwerte generieren mit weißem Rauschen:
@@ -65,7 +65,7 @@ plt.show()
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
 plt.figure(figsize=(4,4)) # Plot-Größe
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 m = len(t_sec)
@@ -119,7 +119,7 @@ from scipy.stats import norm
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
 plt.figure(figsize=(6,4)) # Plot-Größe
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 n = len(t_sec)
@@ -173,7 +173,7 @@ plt.show()
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
 plt.figure(figsize=(6,4)) # Plot-Größe
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 n = len(t_sec)

@@ -126,7 +126,7 @@ from scipy import signal
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
 plt.figure(figsize=(7,3)) # Plot-Größe
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 R_1 = 100e3
@@ -190,7 +190,7 @@ from scipy.signal import butter, lfilter, freqz
 from scipy import signal 
 plt.style.use('default') # Matplotlib Style wählen
 plt.figure(figsize=(7,3)) # Plot-Größe
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 f = 100e3

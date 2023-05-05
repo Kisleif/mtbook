@@ -41,7 +41,7 @@ import warnings
 warnings.filterwarnings('ignore')
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 plt.figure(figsize=(8,3)) # Plot-Größe
 
@@ -97,7 +97,7 @@ plt.show()
 
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 plt.figure(figsize=(8,3)) # Plot-Größe
 
@@ -143,7 +143,7 @@ import scipy.signal
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
 plt.figure(figsize=(8,3)) # Plot-Größe
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 fs = 1000.0 # 1 kHz sampling frequency
@@ -212,7 +212,7 @@ print('Das SNR beträgt circa: ', 10*np.log(S_peak / 1e-3), 'dB')
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
 plt.figure(figsize=(8,3)) # Plot-Größe
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 # PSD:

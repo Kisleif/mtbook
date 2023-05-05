@@ -20,7 +20,7 @@ from scipy import interpolate
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
 plt.figure(figsize=(6,3)) # Plot-Größe
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 # INTERPOLATION:

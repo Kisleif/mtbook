@@ -229,7 +229,7 @@ warnings.filterwarnings('ignore')
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
 plt.figure(figsize=(4,4)) # Plot-Größe
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 x = [1.0]  # Datenwerte für x-Achse, hier Nr der Messung
@@ -256,7 +256,7 @@ plt.show()
 
 plt.style.use('default') # Matplotlib Style wählen
 plt.figure(figsize=(4,4)) # Plot-Größe
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 y=[9.73, 9.76, 9.71, 9.76, 8.9] # Messung 

@@ -81,7 +81,7 @@ warnings.filterwarnings('ignore')
 
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 #--------- Kaltleiter PT100 -------------
@@ -142,7 +142,7 @@ plt.show()
 # Es hilft auf jeden Fall, das Interferometer so groß wie möglich zu machen. Die *Arme* des Interferometers sind mehrere Kilometer lang (LIGO z.B. 4 km). Die stärkste Gravitationswelle hat diese Armlänge um ca. 10$^{-19}$m geändert. 
 # Das bedeutet eine relative Längenänderung von lediglich:
 # 
-# $$h = \frac{dL}{L} = 2,5\cdot 10^{-23}$$
+# $$h = \frac{dL}{L} \approx 5\cdot 10^{-22}$$
 
 # In[2]:
 

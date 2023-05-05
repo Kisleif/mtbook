@@ -95,7 +95,7 @@
 # 
 # Die **Amplitude** wird wiefolgt berechnet, wobei $\tau = RC =: 1/\omega_0$. Die Einheit beträgt typischerweise dB.
 # 
-# $$G(\omega) = \sqrt{\mathrm{Re}^2 + \mathrm{Im}^2} = \frac{1}{\sqrt{1+\left(\frac{\omega}{\omega_0}\right)^2}}$$
+# $$|G(j \omega)| = \sqrt{\mathrm{Re}^2 + \mathrm{Im}^2} = \frac{1}{\sqrt{1+\left(\frac{\omega}{\omega_0}\right)^2}}$$
 # 
 # 
 # Die **Phase** wird wiefolgt berechnet, wobei $\tau = RC =: 1/\omega_0$. Die Einheit beträgt typischerweise Grad. 
@@ -118,7 +118,7 @@ import scipy.signal as signal
 import matplotlib.pyplot as plt
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['axes.grid']= True     # defaults to False but xkcd() makes it False
 plt.rcParams['grid.linewidth']= 0.8  # defaults to 0.8
 plt.rcParams['font.size'] = 10; # Schriftgröße
@@ -222,7 +222,7 @@ import scipy.signal as signal
 import matplotlib.pyplot as plt
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['axes.grid']= True     # defaults to False but xkcd() makes it False
 plt.rcParams['grid.linewidth']= 0.8  # defaults to 0.8
 plt.rcParams['font.size'] = 10; # Schriftgröße
@@ -365,7 +365,7 @@ import scipy.signal as signal
 import matplotlib.pyplot as plt
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['axes.grid']= True     # defaults to False but xkcd() makes it False
 plt.rcParams['grid.linewidth']= 0.8  # defaults to 0.8
 plt.rcParams['font.size'] = 10; # Schriftgröße

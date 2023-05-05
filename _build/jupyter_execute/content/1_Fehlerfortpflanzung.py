@@ -60,7 +60,7 @@ warnings.filterwarnings('ignore')
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
 plt.figure(figsize=(6,4)) # Plot-Größe
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 link = 'data/graph.csv' # Beispieldatei mit Klimadaten
@@ -260,7 +260,7 @@ def scatterplot(x, y):
 plt.figure(figsize=(10,6)) # Plot-Größe
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 # Zufallszahlen erzeugen

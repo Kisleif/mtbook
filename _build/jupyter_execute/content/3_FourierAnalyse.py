@@ -27,7 +27,7 @@ warnings.filterwarnings('ignore')
 
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 T = 1
@@ -104,7 +104,7 @@ warnings.filterwarnings('ignore')
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
 #plt.figure(figsize=(10,4)) # Plot-Größe
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 T = 1
@@ -191,7 +191,7 @@ maxN = 16
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
 plt.figure(figsize=(8,3)) # Plot-Größe
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 # Rechteckpuls:
@@ -237,7 +237,7 @@ maxN = 10
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
 plt.figure(figsize=(8,3)) # Plot-Größe
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 #plot, in the range from BT to ET, the true f(t) in blue and the approximation in red
@@ -329,7 +329,7 @@ plt.show()
 
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 # Dreieckfunktion:
@@ -409,7 +409,7 @@ time = np.arange(0,duration,1/samplerate) #time vector
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
 plt.figure(figsize=(8,3)) # Plot-Größe
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 y_normalized = np.int16((y / y.max()) * 32767)
@@ -505,7 +505,7 @@ plt.show()
 
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 # Rechteckschwingung
@@ -576,12 +576,12 @@ Dirac-Delta-Impuls hat folgende Eigenschaften:
 
 # ## Fourier-Transformierte von Messsignalen
 
-# In[11]:
+# In[8]:
 
 
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 Fs = 100.0;  # sampling rate
@@ -613,12 +613,12 @@ plt.tight_layout()
 plt.show()
 
 
-# In[12]:
+# In[9]:
 
 
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 # Rechteckschwingung
@@ -651,13 +651,13 @@ plt.tight_layout()
 plt.show()
 
 
-# In[13]:
+# In[10]:
 
 
 from scipy.fft import fft, fftfreq
 
 plt.style.use('default') # Matplotlib Style wählen
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 def ddf(x,sig):
@@ -688,12 +688,12 @@ plt.tight_layout()
 plt.show()
 
 
-# In[14]:
+# In[11]:
 
 
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 Fs = 100.0;  # sampling rate
@@ -725,12 +725,12 @@ plt.tight_layout()
 plt.show()
 
 
-# In[15]:
+# In[12]:
 
 
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße 
 
 Fs = 150.0;  # sampling rate
@@ -759,12 +759,12 @@ plt.tight_layout()
 plt.show()
 
 
-# In[16]:
+# In[13]:
 
 
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 Fs = 150.0;  # sampling rate

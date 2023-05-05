@@ -170,7 +170,7 @@ warnings.filterwarnings('ignore')
 
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 ratio_R = np.linspace(-1,1,100) # Zeitwerte der Sinusfunktion in sec
@@ -226,7 +226,7 @@ warnings.filterwarnings('ignore')
 
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 ratio_R = np.linspace(-1,1,100) # Zeitwerte der Sinusfunktion in sec
@@ -300,7 +300,7 @@ warnings.filterwarnings('ignore')
 
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 ratio_R = np.linspace(-1,1,100) # Zeitwerte der Sinusfunktion in sec

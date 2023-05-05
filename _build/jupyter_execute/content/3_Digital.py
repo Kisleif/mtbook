@@ -109,7 +109,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße 
 
 Fs = 150.0;  # sampling rate

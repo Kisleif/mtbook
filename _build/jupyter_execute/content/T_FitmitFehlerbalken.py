@@ -3,7 +3,8 @@
 
 # # Lineare Regression mit Berücksichtigung von Fehlerbalken
 # 
-# Gegeben sei eine Messreihe von 10 Messwerten mit annäherend konstanten Verhalten. In diesem sollen nun Kurvenanpassungen vorgenommen werden, unter Berücksichtung von Fehlerbalken. Folgende Messdaten inkl. Unsicherheiten wurden aufgenommen. Die Unsicherheit der $x$-Achse vernachlässen wir hier der Einfachheit halber.
+# **Gegeben** sei eine Messreihe von 10 Messwerten $y_i$ mit annäherend konstanten Verhalten, d.h. es wurde 10 mal ein Wert um 10 herum gemessen. 
+# Diese Messwerte sind im folgenden Diagramm inklusive Fehlerbalken (Anzeige der Messunsicherheit) dargestellt. Die Unsicherheit der $x$-Achse wird vernachlässigt.
 
 # In[1]:
 
@@ -30,6 +31,20 @@ plt.ylim([5,13])
 plt.legend()
 plt.show()
 
+
+# Wir wollen nun **überprüfen**, ob das Verhalten wirklich *konstant* oder *linear steigend* oder doch eher *linear abfallend* ist. Hierfür werden wir im Folgenden eine lineare Ausgleichsgerade an die Daten anpassen (**Kurvenanpassung**/Lineare Regression). 
+
+# ## Recap: Lineare Regression
+# 
+# Im [Vorlesungsskript](1_Kurvenanpassung) findet ihr die Vorgehensweise, wie lineare Ausgleichsgeraden berechnet werden:
+# * Gegeben: $y_i$ Messwerte (hier 10)
+# * Gesucht: lineare Ausgleichsgerade der Form $f(x) = y = a\cdot x + b$, welche bestmöglich die Messdaten $y_i$ beschreiben soll
+# * Konsequenz: Modell $f(x_i)$ und Messdaten $y_i$ werden voneinander abweichen. Die Abweichung beträgt $\epsilon_i = \left( f(x_i) - y_i\right)$
+# * Ziel: Die Abweichung $\epsilon$ so klein wie möglich machen
+# * Strategie: Methode der kleinsten Quadrate verwenden: 
+#     * Für alle $N=10$ Messwerte erhalten wir einen Fehler $\epsilon_i$. 
+#     * Die jeweiligen Fehler summieren wir auf um dem Gesamtfehler der kompletten Messreihe zu erhalten: $\sum_{i = 0}^{9} \epsilon_i$
+#     * Wir definieren die Gütefunktion, indem wir die Fehler quadrieren, dadurch können sich diese nicht versehentlich aufheben. Außerdem werden stärkere Abweichungen stärker gewichtet: $Q =\sum_{i=0}^9 \left( f(x_i) - y_i\right)^2 :=  \sum_{i=9}^9 \epsilon_i^2 = \mathrm{min!}$
 
 # ## Der Einfluss von Fehlerbalken auf den Fit <a id="SubSec-Ausprobieren"></a>
 # 

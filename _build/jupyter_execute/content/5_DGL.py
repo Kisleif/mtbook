@@ -82,7 +82,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 plt.style.use('default') # Matplotlib Style wählen
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 
@@ -153,7 +153,7 @@ import scipy.signal as signal
 import matplotlib.pyplot as plt
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.xkcd()
+#plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 # Transfer Funktion Tiefpass:
@@ -163,6 +163,7 @@ num = np.array([K])
 den = np.array([T , 1])
 H = signal.TransferFunction(num , den)
 
+y_impuls = ddf(t2,6.)
 # Sprungantwort:
 t, y = signal.step(H)
 
@@ -187,7 +188,7 @@ plt.ylabel(r'$u_a(t)/u_0$')
 plt.legend()
 
 plt.subplot(1,2,2)
-plt.plot(t2,y_impuls, color = 'tab:orange', label = r'Impulsanregung $\delta(t)$')
+plt.plot(t2, y_impuls, color = 'tab:red', label = r'Impulsanregung $\delta(t)$')
 plt.plot(t_imp, y_imp, color='tab:blue', label = r'Impulsantwort $g(t)$')
 plt.yticks([1.0, 0.5,0.0], labels = ['100%','50%', '0%'])
 plt.title("Impulsantwort eines Tiefpasses")
@@ -248,7 +249,7 @@ plt.show()
 # 
 # In der Messtechnik wird das Übertragungsverhalten einer Messeinrichtung mittels Testfunktionen im Labor überprüft. **Sprung** und **Impuls** gehören zu den meist benutzten Testfunktionen, doch auch eine **Rampen**funktion (ein sich kontinuierlich erhöhendes Eingangssignal) oder ein **Sweep** (hier werden verschiedene Frequenzen direkt nacheinander durchgefahren) haben sich bewährt. 
 
-# In[ ]:
+# In[11]:
 
 
 # Impuls:

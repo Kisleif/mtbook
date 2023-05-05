@@ -704,6 +704,11 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recap-lineare-regression">
+   Recap: Lineare Regression
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#der-einfluss-von-fehlerbalken-auf-den-fit-a-id-subsec-ausprobieren-a">
    Der Einfluss von Fehlerbalken auf den Fit
    <a id="SubSec-Ausprobieren">
@@ -744,6 +749,11 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recap-lineare-regression">
+   Recap: Lineare Regression
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#der-einfluss-von-fehlerbalken-auf-den-fit-a-id-subsec-ausprobieren-a">
    Der Einfluss von Fehlerbalken auf den Fit
    <a id="SubSec-Ausprobieren">
@@ -776,7 +786,8 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="lineare-regression-mit-berucksichtigung-von-fehlerbalken">
 <h1>Lineare Regression mit Berücksichtigung von Fehlerbalken<a class="headerlink" href="#lineare-regression-mit-berucksichtigung-von-fehlerbalken" title="Link zu dieser Überschrift">#</a></h1>
-<p>Gegeben sei eine Messreihe von 10 Messwerten mit annäherend konstanten Verhalten. In diesem sollen nun Kurvenanpassungen vorgenommen werden, unter Berücksichtung von Fehlerbalken. Folgende Messdaten inkl. Unsicherheiten wurden aufgenommen. Die Unsicherheit der <span class="math notranslate nohighlight">\(x\)</span>-Achse vernachlässen wir hier der Einfachheit halber.</p>
+<p><strong>Gegeben</strong> sei eine Messreihe von 10 Messwerten <span class="math notranslate nohighlight">\(y_i\)</span> mit annäherend konstanten Verhalten, d.h. es wurde 10 mal ein Wert um 10 herum gemessen.
+Diese Messwerte sind im folgenden Diagramm inklusive Fehlerbalken (Anzeige der Messunsicherheit) dargestellt. Die Unsicherheit der <span class="math notranslate nohighlight">\(x\)</span>-Achse wird vernachlässigt.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -807,6 +818,24 @@ title="Print to PDF"
 <img alt="../_images/T_FitmitFehlerbalken_1_0.png" src="../_images/T_FitmitFehlerbalken_1_0.png" />
 </div>
 </div>
+<p>Wir wollen nun <strong>überprüfen</strong>, ob das Verhalten wirklich <em>konstant</em> oder <em>linear steigend</em> oder doch eher <em>linear abfallend</em> ist. Hierfür werden wir im Folgenden eine lineare Ausgleichsgerade an die Daten anpassen (<strong>Kurvenanpassung</strong>/Lineare Regression).</p>
+<section id="recap-lineare-regression">
+<h2>Recap: Lineare Regression<a class="headerlink" href="#recap-lineare-regression" title="Link zu dieser Überschrift">#</a></h2>
+<p>Im <a class="reference internal" href="1_Kurvenanpassung.html"><span class="doc std std-doc">Vorlesungsskript</span></a> findet ihr die Vorgehensweise, wie lineare Ausgleichsgeraden berechnet werden:</p>
+<ul class="simple">
+<li><p>Gegeben: <span class="math notranslate nohighlight">\(y_i\)</span> Messwerte (hier 10)</p></li>
+<li><p>Gesucht: lineare Ausgleichsgerade der Form <span class="math notranslate nohighlight">\(f(x) = y = a\cdot x + b\)</span>, welche bestmöglich die Messdaten <span class="math notranslate nohighlight">\(y_i\)</span> beschreiben soll</p></li>
+<li><p>Konsequenz: Modell <span class="math notranslate nohighlight">\(f(x_i)\)</span> und Messdaten <span class="math notranslate nohighlight">\(y_i\)</span> werden voneinander abweichen. Die Abweichung beträgt <span class="math notranslate nohighlight">\(\epsilon_i = \left( f(x_i) - y_i\right)\)</span></p></li>
+<li><p>Ziel: Die Abweichung <span class="math notranslate nohighlight">\(\epsilon\)</span> so klein wie möglich machen</p></li>
+<li><p>Strategie: Methode der kleinsten Quadrate verwenden:</p>
+<ul>
+<li><p>Für alle <span class="math notranslate nohighlight">\(N=10\)</span> Messwerte erhalten wir einen Fehler <span class="math notranslate nohighlight">\(\epsilon_i\)</span>.</p></li>
+<li><p>Die jeweiligen Fehler summieren wir auf um dem Gesamtfehler der kompletten Messreihe zu erhalten: <span class="math notranslate nohighlight">\(\sum_{i = 0}^{9} \epsilon_i\)</span></p></li>
+<li><p>Wir definieren die Gütefunktion, indem wir die Fehler quadrieren, dadurch können sich diese nicht versehentlich aufheben. Außerdem werden stärkere Abweichungen stärker gewichtet: <span class="math notranslate nohighlight">\(Q =\sum_{i=0}^9 \left( f(x_i) - y_i\right)^2 :=  \sum_{i=9}^9 \epsilon_i^2 = \mathrm{min!}\)</span></p></li>
+</ul>
+</li>
+</ul>
+</section>
 <section id="der-einfluss-von-fehlerbalken-auf-den-fit-a-id-subsec-ausprobieren-a">
 <h2>Der Einfluss von Fehlerbalken auf den Fit <a id="SubSec-Ausprobieren"></a><a class="headerlink" href="#der-einfluss-von-fehlerbalken-auf-den-fit-a-id-subsec-ausprobieren-a" title="Link zu dieser Überschrift">#</a></h2>
 <p>Im Allgemeinen gilt, je kleiner die Unsicherheit eines Messwertes ist, desto wichtiger ist dieser Messwert für die Mittelwertbildung. Die analytische Lösung würde wiefolgt aussehen:</p>
@@ -875,7 +904,7 @@ man ablesen, dass die Zahl der Messwerte <span class="math notranslate nohighlig
 Minimum ohne  Einbezug von Unsicherheiten ist bei c = 10.06060606060606
 </pre></div>
 </div>
-<img alt="../_images/T_FitmitFehlerbalken_5_1.png" src="../_images/T_FitmitFehlerbalken_5_1.png" />
+<img alt="../_images/T_FitmitFehlerbalken_7_1.png" src="../_images/T_FitmitFehlerbalken_7_1.png" />
 </div>
 </div>
 <p>Schon bei dieser schnellen Analyse sehen wir, dass es einen Unterschied gibt, ob wir die Fehlerbalken miteinbeziehen, oder ob keine Unsicherheiten vorhanden sind. Sind die absoluten Unsicherheiten für alle Messwerte die gleichen, so trifft der Fall <em>ohne</em> Unsicherheiten zu.</p>
@@ -937,8 +966,8 @@ Minimum ohne  Einbezug von Unsicherheiten ist bei c = 10.06060606060606
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/T_FitmitFehlerbalken_10_0.png" src="../_images/T_FitmitFehlerbalken_10_0.png" />
-<img alt="../_images/T_FitmitFehlerbalken_10_1.png" src="../_images/T_FitmitFehlerbalken_10_1.png" />
+<img alt="../_images/T_FitmitFehlerbalken_12_0.png" src="../_images/T_FitmitFehlerbalken_12_0.png" />
+<img alt="../_images/T_FitmitFehlerbalken_12_1.png" src="../_images/T_FitmitFehlerbalken_12_1.png" />
 </div>
 </div>
 </section>
@@ -1045,7 +1074,7 @@ steigung   -0.06839     -inf      inf   0.1031     True     None     None
     C(steigung, abschnitt) = -0.825
 </pre></div>
 </div>
-<img alt="../_images/T_FitmitFehlerbalken_12_1.png" src="../_images/T_FitmitFehlerbalken_12_1.png" />
+<img alt="../_images/T_FitmitFehlerbalken_14_1.png" src="../_images/T_FitmitFehlerbalken_14_1.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Name          Value      Min      Max   Stderr     Vary     Expr Brute_Step
 abschnitt     10.34     -inf      inf   0.5822     True     None     None
 steigung   -0.06085     -inf      inf   0.1091     True     None     None
@@ -1084,7 +1113,7 @@ steigung          0     -inf      inf        0    False     None     None
     abschnitt:  10.0620000 +/- 0.30100129 (2.99%) (init = 10)
 </pre></div>
 </div>
-<img alt="../_images/T_FitmitFehlerbalken_12_3.png" src="../_images/T_FitmitFehlerbalken_12_3.png" />
+<img alt="../_images/T_FitmitFehlerbalken_14_3.png" src="../_images/T_FitmitFehlerbalken_14_3.png" />
 </div>
 </div>
 </section>

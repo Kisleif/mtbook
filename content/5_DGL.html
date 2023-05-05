@@ -957,6 +957,13 @@ Für die Lösung setzen wir alle unsere bestimmten Konstanten in den allgemeinen
 <span class="c1">#plt.xkcd()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
 
+<span class="k">def</span> <span class="nf">heaviside_step_function</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">res</span>
+
 <span class="c1"># Transfer Funktion Tiefpass:</span>
 <span class="n">K</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># Verstärkungsfaktor</span>
 <span class="n">T</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># Zeit nach der 63% des Signals erreicht ist</span>
@@ -964,7 +971,21 @@ Für die Lösung setzen wir alle unsere bestimmten Konstanten in den allgemeinen
 <span class="n">den</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">T</span> <span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 <span class="n">H</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">TransferFunction</span><span class="p">(</span><span class="n">num</span> <span class="p">,</span> <span class="n">den</span><span class="p">)</span>
 
+<span class="n">T</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">T</span><span class="p">,</span> <span class="mi">7</span><span class="o">*</span><span class="n">T</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">endpoint</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Sprung</span>
+<span class="n">y_step</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">t2</span><span class="p">:</span>
+    <span class="n">y_step</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">heaviside_step_function</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+    
+<span class="c1"># Impuls:</span>
+<span class="k">def</span> <span class="nf">ddf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">sig</span><span class="p">):</span>
+    <span class="n">val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">val</span><span class="p">[(</span><span class="o">-</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sig</span><span class="p">))</span><span class="o">&lt;=</span><span class="n">x</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">x</span><span class="o">&lt;=</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sig</span><span class="p">)))]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">val</span>
 <span class="n">y_impuls</span> <span class="o">=</span> <span class="n">ddf</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span><span class="mf">6.</span><span class="p">)</span>
+
 <span class="c1"># Sprungantwort:</span>
 <span class="n">t</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
 
@@ -1002,18 +1023,7 @@ Für die Lösung setzen wir alle unsere bestimmten Konstanten in den allgemeinen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">6</span><span class="n">d</span><span class="o">/</span><span class="mi">574</span><span class="n">ptfzx6v9_j7pylzkngrkm0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_36201</span><span class="o">/</span><span class="mf">2976854337.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">H</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">TransferFunction</span><span class="p">(</span><span class="n">num</span> <span class="p">,</span> <span class="n">den</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span> 
-<span class="ne">---&gt; </span><span class="mi">16</span> <span class="n">y_impuls</span> <span class="o">=</span> <span class="n">ddf</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span><span class="mf">6.</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="c1"># Sprungantwort:</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="n">t</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;ddf&#39; is not defined
-</pre></div>
-</div>
+<img alt="../_images/5_DGL_6_0.png" src="../_images/5_DGL_6_0.png" />
 </div>
 </div>
 <p>Folgende Eigenschaften bestehen zwischen Sprung- und Impulsantwort:</p>

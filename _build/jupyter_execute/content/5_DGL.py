@@ -156,6 +156,13 @@ plt.style.use('default') # Matplotlib Style wählen
 #plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
+def heaviside_step_function(t):
+    if t < 0:
+        res = 0
+    else:
+        res = 1
+    return res
+
 # Transfer Funktion Tiefpass:
 K = 1 # Verstärkungsfaktor
 T = 1 # Zeit nach der 63% des Signals erreicht ist
@@ -163,7 +170,21 @@ num = np.array([K])
 den = np.array([T , 1])
 H = signal.TransferFunction(num , den)
 
+T = 1
+t2 = np.linspace(-2*T, 7*T, 1000, endpoint = True)
+
+# Sprung
+y_step = []
+for i in t2:
+    y_step.append(heaviside_step_function(i))
+    
+# Impuls:
+def ddf(x,sig):
+    val = np.zeros_like(x)
+    val[(-(1/(2*sig))<=x) & (x<=(1/(2*sig)))] = 1
+    return val
 y_impuls = ddf(t2,6.)
+
 # Sprungantwort:
 t, y = signal.step(H)
 
@@ -249,7 +270,7 @@ plt.show()
 # 
 # In der Messtechnik wird das Übertragungsverhalten einer Messeinrichtung mittels Testfunktionen im Labor überprüft. **Sprung** und **Impuls** gehören zu den meist benutzten Testfunktionen, doch auch eine **Rampen**funktion (ein sich kontinuierlich erhöhendes Eingangssignal) oder ein **Sweep** (hier werden verschiedene Frequenzen direkt nacheinander durchgefahren) haben sich bewährt. 
 
-# In[11]:
+# In[3]:
 
 
 # Impuls:

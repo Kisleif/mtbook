@@ -52,6 +52,8 @@ def pD(c,dE,T):
     return c * np.exp(-dE/(k*T)) # in bar
 
 
+# ## Lösung 1: Materialkonstanten bestimmen
+# 
 # Durch Logarithmieren beider Seiten erhält man die äquivalente logarithmische Darstellung
 # 
 # $$\ln{p_\mathrm{D}} = A - B/T$$
@@ -117,7 +119,9 @@ plt.tight_layout()
 plt.show()
 
 
-# ## 1 Empfindlichkeit des Dampfdruckthermometers für Wasser  <a id="Ü21.b"> </a>
+# ## Lösung 2: Empfindlichkeit des Dampfdruckthermometers 
+# 
+# ### ... für Wasser
 # 
 # Um die Empfindlichkeit anhand der Kennlinie zu bestimmen, müssen wir die Dampfdruckgleichung von oben ableiten:
 
@@ -142,7 +146,7 @@ print('T =  ', T1-273.15, '°C: ', d_pD(calc_c(A),calc_dE(B), T1), 'bar/K')
 print('T = ', T2-273.15, '°C: ', d_pD(calc_c(A),calc_dE(B), T2), 'bar/K')
 
 
-# ## 2 Dampfdruckkurve für tiefsiedende Flüssigkeiten <a id="Ü21.c"> </a>
+# ### ... für tiefsiedende Flüssigkeiten <a id="Ü21.c"> </a>
 # 
 # Um die Empfindlichkeit eines Dampfdruckthermometers bei tiefen Temperaturen zu verbessern wird Wasser durch eine tiefsiedende Flüssigkeit ausgetauscht. Je nach gewünschter Temperatur können hier zum Beispiel Sauerstoff (für 54K - 94K), Stickstoff (für 63K - 84K), Neon (für 24K - 40K) und Wasserstoff (13K - 25K) zum Einsatz kommen. 
 # 
@@ -196,8 +200,6 @@ plt.show()
 # 
 # Der Graph verdeutlicht, für welchen Temperaturbereich welche Flüssigkeit benutzt werden sollte, um mittels Dampfdruckverfahren eine möglichst genaue Temperaturmessung zu erhalten. 
 
-# ## 3 Empfindlichkeit des Dampfdruckthermometers für tiefsiedende Flüssigkeiten <a id="Ü21.d"> </a>
-# 
 # Wie oben definiert, können wir die Ableitung der Dampfdruckkurve an bestimmten Temperaturen berechnen um die Empfindlichkeit zu bestimmen:
 
 # In[10]:
@@ -209,7 +211,7 @@ T1 = 20 # in Kelvin
 print('Ne-Dampfdruckthermometer bei T =  ', T1, 'K: ', d_pD(calc_c(A_Ne),calc_dE(B_Ne), T1), 'bar/K')
 
 
-# ## 4 Übergang zum Gasthermometer <a id="Ü21.e"> </a>
+# ## Lösung 4: Übergang zum Gasthermometer <a id="Ü21.e"> </a>
 # 
 # Das Wasser-Dampfdruckthermometer besteht aus einen Gefäß mit einem Volumen von 1 Liter und einer Druckfestigkeit von 50 bar. Aus Sicherheitsgründen wird beim Bau des Thermometers nur soviel Flüssigkeit eingefüllt, dass bei einer Temperatur von 250°C die ganze Flüssigkeit verdampft ist. Dadurch liegt uns nun ein "normales" Gasthermometer vor, dessen physikalisches Verhalten durch das ideale Gasgesetz
 # 

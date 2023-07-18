@@ -25,102 +25,115 @@ GER_mean
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mHTTPError[0m                                 Traceback (most recent call last)
-[0;32m/var/folders/6d/574ptfzx6v9_j7pylzkngrkm0000gp/T/ipykernel_36319/3494142198.py[0m in [0;36m<module>[0;34m[0m
-[1;32m      1[0m [0mlink[0m [0;34m=[0m [0;34m"https://www.umweltbundesamt.de/sites/default/files/medien/384/bilder/dateien/3-bis-8_abb-tab_tmt_2021-05-12.xlsx"[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 2[0;31m [0mGER_mean[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_excel[0m[0;34m([0m[0mlink[0m[0;34m,[0m[0msheet_name[0m[0;34m=[0m[0;34m"3_DWD"[0m[0;34m,[0m[0musecols[0m[0;34m=[0m[0;34m[[0m[0;36m1[0m[0;34m,[0m[0;36m19[0m[0;34m][0m[0;34m)[0m [0;31m# einlesen[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      3[0m [0mGER_mean[0m[0;34m.[0m[0mcolumns[0m[0;34m=[0m[0;34m[[0m[0;34m"Jahr"[0m[0;34m,[0m[0;34m"Jahresmitteltemperatur [°C]"[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
-[1;32m      4[0m [0mGER_mean[0m[0;34m[0m[0;34m[0m[0m
+Cell [0;32mIn[15], line 2[0m
+[1;32m      1[0m link [38;5;241m=[39m [38;5;124m"[39m[38;5;124mhttps://www.umweltbundesamt.de/sites/default/files/medien/384/bilder/dateien/3-bis-8_abb-tab_tmt_2021-05-12.xlsx[39m[38;5;124m"[39m
+[0;32m----> 2[0m GER_mean [38;5;241m=[39m [43mpd[49m[38;5;241;43m.[39;49m[43mread_excel[49m[43m([49m[43mlink[49m[43m,[49m[43msheet_name[49m[38;5;241;43m=[39;49m[38;5;124;43m"[39;49m[38;5;124;43m3_DWD[39;49m[38;5;124;43m"[39;49m[43m,[49m[43musecols[49m[38;5;241;43m=[39;49m[43m[[49m[38;5;241;43m1[39;49m[43m,[49m[38;5;241;43m19[39;49m[43m][49m[43m)[49m [38;5;66;03m# einlesen[39;00m
+[1;32m      3[0m GER_mean[38;5;241m.[39mcolumns[38;5;241m=[39m[[38;5;124m"[39m[38;5;124mJahr[39m[38;5;124m"[39m,[38;5;124m"[39m[38;5;124mJahresmitteltemperatur [°C][39m[38;5;124m"[39m]
+[1;32m      4[0m GER_mean
 
-[0;32m~/opt/anaconda3/lib/python3.9/site-packages/pandas/util/_decorators.py[0m in [0;36mwrapper[0;34m(*args, **kwargs)[0m
-[1;32m    309[0m                     [0mstacklevel[0m[0;34m=[0m[0mstacklevel[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    310[0m                 )
-[0;32m--> 311[0;31m             [0;32mreturn[0m [0mfunc[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    312[0m [0;34m[0m[0m
-[1;32m    313[0m         [0;32mreturn[0m [0mwrapper[0m[0;34m[0m[0;34m[0m[0m
+File [0;32m~/opt/anaconda3/lib/python3.9/site-packages/pandas/util/_decorators.py:311[0m, in [0;36mdeprecate_nonkeyword_arguments.<locals>.decorate.<locals>.wrapper[0;34m(*args, **kwargs)[0m
+[1;32m    305[0m [38;5;28;01mif[39;00m [38;5;28mlen[39m(args) [38;5;241m>[39m num_allow_args:
+[1;32m    306[0m     warnings[38;5;241m.[39mwarn(
+[1;32m    307[0m         msg[38;5;241m.[39mformat(arguments[38;5;241m=[39marguments),
+[1;32m    308[0m         [38;5;167;01mFutureWarning[39;00m,
+[1;32m    309[0m         stacklevel[38;5;241m=[39mstacklevel,
+[1;32m    310[0m     )
+[0;32m--> 311[0m [38;5;28;01mreturn[39;00m [43mfunc[49m[43m([49m[38;5;241;43m*[39;49m[43margs[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
 
-[0;32m~/opt/anaconda3/lib/python3.9/site-packages/pandas/io/excel/_base.py[0m in [0;36mread_excel[0;34m(io, sheet_name, header, names, index_col, usecols, squeeze, dtype, engine, converters, true_values, false_values, skiprows, nrows, na_values, keep_default_na, na_filter, verbose, parse_dates, date_parser, thousands, decimal, comment, skipfooter, convert_float, mangle_dupe_cols, storage_options)[0m
-[1;32m    455[0m     [0;32mif[0m [0;32mnot[0m [0misinstance[0m[0;34m([0m[0mio[0m[0;34m,[0m [0mExcelFile[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    456[0m         [0mshould_close[0m [0;34m=[0m [0;32mTrue[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 457[0;31m         [0mio[0m [0;34m=[0m [0mExcelFile[0m[0;34m([0m[0mio[0m[0;34m,[0m [0mstorage_options[0m[0;34m=[0m[0mstorage_options[0m[0;34m,[0m [0mengine[0m[0;34m=[0m[0mengine[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    458[0m     [0;32melif[0m [0mengine[0m [0;32mand[0m [0mengine[0m [0;34m!=[0m [0mio[0m[0;34m.[0m[0mengine[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    459[0m         raise ValueError(
+File [0;32m~/opt/anaconda3/lib/python3.9/site-packages/pandas/io/excel/_base.py:457[0m, in [0;36mread_excel[0;34m(io, sheet_name, header, names, index_col, usecols, squeeze, dtype, engine, converters, true_values, false_values, skiprows, nrows, na_values, keep_default_na, na_filter, verbose, parse_dates, date_parser, thousands, decimal, comment, skipfooter, convert_float, mangle_dupe_cols, storage_options)[0m
+[1;32m    455[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28misinstance[39m(io, ExcelFile):
+[1;32m    456[0m     should_close [38;5;241m=[39m [38;5;28;01mTrue[39;00m
+[0;32m--> 457[0m     io [38;5;241m=[39m [43mExcelFile[49m[43m([49m[43mio[49m[43m,[49m[43m [49m[43mstorage_options[49m[38;5;241;43m=[39;49m[43mstorage_options[49m[43m,[49m[43m [49m[43mengine[49m[38;5;241;43m=[39;49m[43mengine[49m[43m)[49m
+[1;32m    458[0m [38;5;28;01melif[39;00m engine [38;5;129;01mand[39;00m engine [38;5;241m!=[39m io[38;5;241m.[39mengine:
+[1;32m    459[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m(
+[1;32m    460[0m         [38;5;124m"[39m[38;5;124mEngine should not be specified when passing [39m[38;5;124m"[39m
+[1;32m    461[0m         [38;5;124m"[39m[38;5;124man ExcelFile - ExcelFile already has the engine set[39m[38;5;124m"[39m
+[1;32m    462[0m     )
 
-[0;32m~/opt/anaconda3/lib/python3.9/site-packages/pandas/io/excel/_base.py[0m in [0;36m__init__[0;34m(self, path_or_buffer, engine, storage_options)[0m
-[1;32m   1374[0m                 [0mext[0m [0;34m=[0m [0;34m"xls"[0m[0;34m[0m[0;34m[0m[0m
-[1;32m   1375[0m             [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m-> 1376[0;31m                 ext = inspect_excel_format(
-[0m[1;32m   1377[0m                     [0mcontent_or_path[0m[0;34m=[0m[0mpath_or_buffer[0m[0;34m,[0m [0mstorage_options[0m[0;34m=[0m[0mstorage_options[0m[0;34m[0m[0;34m[0m[0m
-[1;32m   1378[0m                 )
+File [0;32m~/opt/anaconda3/lib/python3.9/site-packages/pandas/io/excel/_base.py:1376[0m, in [0;36mExcelFile.__init__[0;34m(self, path_or_buffer, engine, storage_options)[0m
+[1;32m   1374[0m     ext [38;5;241m=[39m [38;5;124m"[39m[38;5;124mxls[39m[38;5;124m"[39m
+[1;32m   1375[0m [38;5;28;01melse[39;00m:
+[0;32m-> 1376[0m     ext [38;5;241m=[39m [43minspect_excel_format[49m[43m([49m
+[1;32m   1377[0m [43m        [49m[43mcontent_or_path[49m[38;5;241;43m=[39;49m[43mpath_or_buffer[49m[43m,[49m[43m [49m[43mstorage_options[49m[38;5;241;43m=[39;49m[43mstorage_options[49m
+[1;32m   1378[0m [43m    [49m[43m)[49m
+[1;32m   1379[0m     [38;5;28;01mif[39;00m ext [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[1;32m   1380[0m         [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m(
+[1;32m   1381[0m             [38;5;124m"[39m[38;5;124mExcel file format cannot be determined, you must specify [39m[38;5;124m"[39m
+[1;32m   1382[0m             [38;5;124m"[39m[38;5;124man engine manually.[39m[38;5;124m"[39m
+[1;32m   1383[0m         )
 
-[0;32m~/opt/anaconda3/lib/python3.9/site-packages/pandas/io/excel/_base.py[0m in [0;36minspect_excel_format[0;34m(content_or_path, storage_options)[0m
-[1;32m   1248[0m         [0mcontent_or_path[0m [0;34m=[0m [0mBytesIO[0m[0;34m([0m[0mcontent_or_path[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m   1249[0m [0;34m[0m[0m
-[0;32m-> 1250[0;31m     with get_handle(
-[0m[1;32m   1251[0m         [0mcontent_or_path[0m[0;34m,[0m [0;34m"rb"[0m[0;34m,[0m [0mstorage_options[0m[0;34m=[0m[0mstorage_options[0m[0;34m,[0m [0mis_text[0m[0;34m=[0m[0;32mFalse[0m[0;34m[0m[0;34m[0m[0m
-[1;32m   1252[0m     ) as handle:
+File [0;32m~/opt/anaconda3/lib/python3.9/site-packages/pandas/io/excel/_base.py:1250[0m, in [0;36minspect_excel_format[0;34m(content_or_path, storage_options)[0m
+[1;32m   1247[0m [38;5;28;01mif[39;00m [38;5;28misinstance[39m(content_or_path, [38;5;28mbytes[39m):
+[1;32m   1248[0m     content_or_path [38;5;241m=[39m BytesIO(content_or_path)
+[0;32m-> 1250[0m [38;5;28;01mwith[39;00m [43mget_handle[49m[43m([49m
+[1;32m   1251[0m [43m    [49m[43mcontent_or_path[49m[43m,[49m[43m [49m[38;5;124;43m"[39;49m[38;5;124;43mrb[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[43mstorage_options[49m[38;5;241;43m=[39;49m[43mstorage_options[49m[43m,[49m[43m [49m[43mis_text[49m[38;5;241;43m=[39;49m[38;5;28;43;01mFalse[39;49;00m
+[1;32m   1252[0m [43m[49m[43m)[49m [38;5;28;01mas[39;00m handle:
+[1;32m   1253[0m     stream [38;5;241m=[39m handle[38;5;241m.[39mhandle
+[1;32m   1254[0m     stream[38;5;241m.[39mseek([38;5;241m0[39m)
 
-[0;32m~/opt/anaconda3/lib/python3.9/site-packages/pandas/io/common.py[0m in [0;36mget_handle[0;34m(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)[0m
-[1;32m    665[0m [0;34m[0m[0m
-[1;32m    666[0m     [0;31m# open URLs[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 667[0;31m     ioargs = _get_filepath_or_buffer(
-[0m[1;32m    668[0m         [0mpath_or_buf[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    669[0m         [0mencoding[0m[0;34m=[0m[0mencoding[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+File [0;32m~/opt/anaconda3/lib/python3.9/site-packages/pandas/io/common.py:667[0m, in [0;36mget_handle[0;34m(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)[0m
+[1;32m    664[0m     codecs[38;5;241m.[39mlookup_error(errors)
+[1;32m    666[0m [38;5;66;03m# open URLs[39;00m
+[0;32m--> 667[0m ioargs [38;5;241m=[39m [43m_get_filepath_or_buffer[49m[43m([49m
+[1;32m    668[0m [43m    [49m[43mpath_or_buf[49m[43m,[49m
+[1;32m    669[0m [43m    [49m[43mencoding[49m[38;5;241;43m=[39;49m[43mencoding[49m[43m,[49m
+[1;32m    670[0m [43m    [49m[43mcompression[49m[38;5;241;43m=[39;49m[43mcompression[49m[43m,[49m
+[1;32m    671[0m [43m    [49m[43mmode[49m[38;5;241;43m=[39;49m[43mmode[49m[43m,[49m
+[1;32m    672[0m [43m    [49m[43mstorage_options[49m[38;5;241;43m=[39;49m[43mstorage_options[49m[43m,[49m
+[1;32m    673[0m [43m[49m[43m)[49m
+[1;32m    675[0m handle [38;5;241m=[39m ioargs[38;5;241m.[39mfilepath_or_buffer
+[1;32m    676[0m handles: [38;5;28mlist[39m[BaseBuffer]
 
-[0;32m~/opt/anaconda3/lib/python3.9/site-packages/pandas/io/common.py[0m in [0;36m_get_filepath_or_buffer[0;34m(filepath_or_buffer, encoding, compression, mode, storage_options)[0m
-[1;32m    334[0m         [0;31m# assuming storage_options is to be interpreted as headers[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    335[0m         [0mreq_info[0m [0;34m=[0m [0murllib[0m[0;34m.[0m[0mrequest[0m[0;34m.[0m[0mRequest[0m[0;34m([0m[0mfilepath_or_buffer[0m[0;34m,[0m [0mheaders[0m[0;34m=[0m[0mstorage_options[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 336[0;31m         [0;32mwith[0m [0murlopen[0m[0;34m([0m[0mreq_info[0m[0;34m)[0m [0;32mas[0m [0mreq[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    337[0m             [0mcontent_encoding[0m [0;34m=[0m [0mreq[0m[0;34m.[0m[0mheaders[0m[0;34m.[0m[0mget[0m[0;34m([0m[0;34m"Content-Encoding"[0m[0;34m,[0m [0;32mNone[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    338[0m             [0;32mif[0m [0mcontent_encoding[0m [0;34m==[0m [0;34m"gzip"[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+File [0;32m~/opt/anaconda3/lib/python3.9/site-packages/pandas/io/common.py:336[0m, in [0;36m_get_filepath_or_buffer[0;34m(filepath_or_buffer, encoding, compression, mode, storage_options)[0m
+[1;32m    334[0m [38;5;66;03m# assuming storage_options is to be interpreted as headers[39;00m
+[1;32m    335[0m req_info [38;5;241m=[39m urllib[38;5;241m.[39mrequest[38;5;241m.[39mRequest(filepath_or_buffer, headers[38;5;241m=[39mstorage_options)
+[0;32m--> 336[0m [38;5;28;01mwith[39;00m [43murlopen[49m[43m([49m[43mreq_info[49m[43m)[49m [38;5;28;01mas[39;00m req:
+[1;32m    337[0m     content_encoding [38;5;241m=[39m req[38;5;241m.[39mheaders[38;5;241m.[39mget([38;5;124m"[39m[38;5;124mContent-Encoding[39m[38;5;124m"[39m, [38;5;28;01mNone[39;00m)
+[1;32m    338[0m     [38;5;28;01mif[39;00m content_encoding [38;5;241m==[39m [38;5;124m"[39m[38;5;124mgzip[39m[38;5;124m"[39m:
+[1;32m    339[0m         [38;5;66;03m# Override compression based on Content-Encoding header[39;00m
 
-[0;32m~/opt/anaconda3/lib/python3.9/site-packages/pandas/io/common.py[0m in [0;36murlopen[0;34m(*args, **kwargs)[0m
-[1;32m    234[0m     [0;32mimport[0m [0murllib[0m[0;34m.[0m[0mrequest[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    235[0m [0;34m[0m[0m
-[0;32m--> 236[0;31m     [0;32mreturn[0m [0murllib[0m[0;34m.[0m[0mrequest[0m[0;34m.[0m[0murlopen[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    237[0m [0;34m[0m[0m
-[1;32m    238[0m [0;34m[0m[0m
+File [0;32m~/opt/anaconda3/lib/python3.9/site-packages/pandas/io/common.py:236[0m, in [0;36murlopen[0;34m(*args, **kwargs)[0m
+[1;32m    230[0m [38;5;250m[39m[38;5;124;03m"""[39;00m
+[1;32m    231[0m [38;5;124;03mLazy-import wrapper for stdlib urlopen, as that imports a big chunk of[39;00m
+[1;32m    232[0m [38;5;124;03mthe stdlib.[39;00m
+[1;32m    233[0m [38;5;124;03m"""[39;00m
+[1;32m    234[0m [38;5;28;01mimport[39;00m [38;5;21;01murllib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mrequest[39;00m
+[0;32m--> 236[0m [38;5;28;01mreturn[39;00m [43murllib[49m[38;5;241;43m.[39;49m[43mrequest[49m[38;5;241;43m.[39;49m[43murlopen[49m[43m([49m[38;5;241;43m*[39;49m[43margs[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
 
-[0;32m~/opt/anaconda3/lib/python3.9/urllib/request.py[0m in [0;36murlopen[0;34m(url, data, timeout, cafile, capath, cadefault, context)[0m
-[1;32m    212[0m     [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    213[0m         [0mopener[0m [0;34m=[0m [0m_opener[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 214[0;31m     [0;32mreturn[0m [0mopener[0m[0;34m.[0m[0mopen[0m[0;34m([0m[0murl[0m[0;34m,[0m [0mdata[0m[0;34m,[0m [0mtimeout[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    215[0m [0;34m[0m[0m
-[1;32m    216[0m [0;32mdef[0m [0minstall_opener[0m[0;34m([0m[0mopener[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+File [0;32m~/opt/anaconda3/lib/python3.9/urllib/request.py:214[0m, in [0;36murlopen[0;34m(url, data, timeout, cafile, capath, cadefault, context)[0m
+[1;32m    212[0m [38;5;28;01melse[39;00m:
+[1;32m    213[0m     opener [38;5;241m=[39m _opener
+[0;32m--> 214[0m [38;5;28;01mreturn[39;00m [43mopener[49m[38;5;241;43m.[39;49m[43mopen[49m[43m([49m[43murl[49m[43m,[49m[43m [49m[43mdata[49m[43m,[49m[43m [49m[43mtimeout[49m[43m)[49m
 
-[0;32m~/opt/anaconda3/lib/python3.9/urllib/request.py[0m in [0;36mopen[0;34m(self, fullurl, data, timeout)[0m
-[1;32m    521[0m         [0;32mfor[0m [0mprocessor[0m [0;32min[0m [0mself[0m[0;34m.[0m[0mprocess_response[0m[0;34m.[0m[0mget[0m[0;34m([0m[0mprotocol[0m[0;34m,[0m [0;34m[[0m[0;34m][0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    522[0m             [0mmeth[0m [0;34m=[0m [0mgetattr[0m[0;34m([0m[0mprocessor[0m[0;34m,[0m [0mmeth_name[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 523[0;31m             [0mresponse[0m [0;34m=[0m [0mmeth[0m[0;34m([0m[0mreq[0m[0;34m,[0m [0mresponse[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    524[0m [0;34m[0m[0m
-[1;32m    525[0m         [0;32mreturn[0m [0mresponse[0m[0;34m[0m[0;34m[0m[0m
+File [0;32m~/opt/anaconda3/lib/python3.9/urllib/request.py:523[0m, in [0;36mOpenerDirector.open[0;34m(self, fullurl, data, timeout)[0m
+[1;32m    521[0m [38;5;28;01mfor[39;00m processor [38;5;129;01min[39;00m [38;5;28mself[39m[38;5;241m.[39mprocess_response[38;5;241m.[39mget(protocol, []):
+[1;32m    522[0m     meth [38;5;241m=[39m [38;5;28mgetattr[39m(processor, meth_name)
+[0;32m--> 523[0m     response [38;5;241m=[39m [43mmeth[49m[43m([49m[43mreq[49m[43m,[49m[43m [49m[43mresponse[49m[43m)[49m
+[1;32m    525[0m [38;5;28;01mreturn[39;00m response
 
-[0;32m~/opt/anaconda3/lib/python3.9/urllib/request.py[0m in [0;36mhttp_response[0;34m(self, request, response)[0m
-[1;32m    630[0m         [0;31m# request was successfully received, understood, and accepted.[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    631[0m         [0;32mif[0m [0;32mnot[0m [0;34m([0m[0;36m200[0m [0;34m<=[0m [0mcode[0m [0;34m<[0m [0;36m300[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 632[0;31m             response = self.parent.error(
-[0m[1;32m    633[0m                 'http', request, response, code, msg, hdrs)
-[1;32m    634[0m [0;34m[0m[0m
+File [0;32m~/opt/anaconda3/lib/python3.9/urllib/request.py:632[0m, in [0;36mHTTPErrorProcessor.http_response[0;34m(self, request, response)[0m
+[1;32m    629[0m [38;5;66;03m# According to RFC 2616, "2xx" code indicates that the client's[39;00m
+[1;32m    630[0m [38;5;66;03m# request was successfully received, understood, and accepted.[39;00m
+[1;32m    631[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m ([38;5;241m200[39m [38;5;241m<[39m[38;5;241m=[39m code [38;5;241m<[39m [38;5;241m300[39m):
+[0;32m--> 632[0m     response [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mparent[49m[38;5;241;43m.[39;49m[43merror[49m[43m([49m
+[1;32m    633[0m [43m        [49m[38;5;124;43m'[39;49m[38;5;124;43mhttp[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[43mrequest[49m[43m,[49m[43m [49m[43mresponse[49m[43m,[49m[43m [49m[43mcode[49m[43m,[49m[43m [49m[43mmsg[49m[43m,[49m[43m [49m[43mhdrs[49m[43m)[49m
+[1;32m    635[0m [38;5;28;01mreturn[39;00m response
 
-[0;32m~/opt/anaconda3/lib/python3.9/urllib/request.py[0m in [0;36merror[0;34m(self, proto, *args)[0m
-[1;32m    559[0m         [0;32mif[0m [0mhttp_err[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    560[0m             [0margs[0m [0;34m=[0m [0;34m([0m[0mdict[0m[0;34m,[0m [0;34m'default'[0m[0;34m,[0m [0;34m'http_error_default'[0m[0;34m)[0m [0;34m+[0m [0morig_args[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 561[0;31m             [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_call_chain[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    562[0m [0;34m[0m[0m
-[1;32m    563[0m [0;31m# XXX probably also want an abstract factory that knows when it makes[0m[0;34m[0m[0;34m[0m[0m
+File [0;32m~/opt/anaconda3/lib/python3.9/urllib/request.py:561[0m, in [0;36mOpenerDirector.error[0;34m(self, proto, *args)[0m
+[1;32m    559[0m [38;5;28;01mif[39;00m http_err:
+[1;32m    560[0m     args [38;5;241m=[39m ([38;5;28mdict[39m, [38;5;124m'[39m[38;5;124mdefault[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mhttp_error_default[39m[38;5;124m'[39m) [38;5;241m+[39m orig_args
+[0;32m--> 561[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_call_chain[49m[43m([49m[38;5;241;43m*[39;49m[43margs[49m[43m)[49m
 
-[0;32m~/opt/anaconda3/lib/python3.9/urllib/request.py[0m in [0;36m_call_chain[0;34m(self, chain, kind, meth_name, *args)[0m
-[1;32m    492[0m         [0;32mfor[0m [0mhandler[0m [0;32min[0m [0mhandlers[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    493[0m             [0mfunc[0m [0;34m=[0m [0mgetattr[0m[0;34m([0m[0mhandler[0m[0;34m,[0m [0mmeth_name[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 494[0;31m             [0mresult[0m [0;34m=[0m [0mfunc[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    495[0m             [0;32mif[0m [0mresult[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    496[0m                 [0;32mreturn[0m [0mresult[0m[0;34m[0m[0;34m[0m[0m
+File [0;32m~/opt/anaconda3/lib/python3.9/urllib/request.py:494[0m, in [0;36mOpenerDirector._call_chain[0;34m(self, chain, kind, meth_name, *args)[0m
+[1;32m    492[0m [38;5;28;01mfor[39;00m handler [38;5;129;01min[39;00m handlers:
+[1;32m    493[0m     func [38;5;241m=[39m [38;5;28mgetattr[39m(handler, meth_name)
+[0;32m--> 494[0m     result [38;5;241m=[39m [43mfunc[49m[43m([49m[38;5;241;43m*[39;49m[43margs[49m[43m)[49m
+[1;32m    495[0m     [38;5;28;01mif[39;00m result [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+[1;32m    496[0m         [38;5;28;01mreturn[39;00m result
 
-[0;32m~/opt/anaconda3/lib/python3.9/urllib/request.py[0m in [0;36mhttp_error_default[0;34m(self, req, fp, code, msg, hdrs)[0m
-[1;32m    639[0m [0;32mclass[0m [0mHTTPDefaultErrorHandler[0m[0;34m([0m[0mBaseHandler[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    640[0m     [0;32mdef[0m [0mhttp_error_default[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mreq[0m[0;34m,[0m [0mfp[0m[0;34m,[0m [0mcode[0m[0;34m,[0m [0mmsg[0m[0;34m,[0m [0mhdrs[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 641[0;31m         [0;32mraise[0m [0mHTTPError[0m[0;34m([0m[0mreq[0m[0;34m.[0m[0mfull_url[0m[0;34m,[0m [0mcode[0m[0;34m,[0m [0mmsg[0m[0;34m,[0m [0mhdrs[0m[0;34m,[0m [0mfp[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    642[0m [0;34m[0m[0m
-[1;32m    643[0m [0;32mclass[0m [0mHTTPRedirectHandler[0m[0;34m([0m[0mBaseHandler[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+File [0;32m~/opt/anaconda3/lib/python3.9/urllib/request.py:641[0m, in [0;36mHTTPDefaultErrorHandler.http_error_default[0;34m(self, req, fp, code, msg, hdrs)[0m
+[1;32m    640[0m [38;5;28;01mdef[39;00m [38;5;21mhttp_error_default[39m([38;5;28mself[39m, req, fp, code, msg, hdrs):
+[0;32m--> 641[0m     [38;5;28;01mraise[39;00m HTTPError(req[38;5;241m.[39mfull_url, code, msg, hdrs, fp)
 
 [0;31mHTTPError[0m: HTTP Error 404: Not Found
 HTTPError: HTTP Error 404: Not Found

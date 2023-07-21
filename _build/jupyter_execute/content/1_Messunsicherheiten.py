@@ -3,7 +3,18 @@
 
 # # Quellen und Ursachen von Messunsicherheiten
 # 
-# Früher hat man statt *Abweichung* noch den Begriff *Messfehler* verwendet. Man dachte, dass man mit genügend Aufwand, Sorgfalt und bestmöglicher Technologie den Fehler vollständig eliminieren können. Spätestens seit der Theorie der *Quantenphysik* ist uns allerdings bekannt, dass zufällige Einflüsse auf die beobachteten Messgrößen  unvermeidlich sind und auch nicht vorhergesagt werden können. Statt eines einzig *wahren* Wertes, $x_w$, werden in der Quantenphysik Messgrößen durch deren Erwartungswerte vorhergesagt. Diesen Messgrößen liegt eine Wahrscheinlichkeitsdichte zu Grunde, dessen Varianz (bzw. Standardabweichung) nicht verschwindet! Somit werden für ein und dieselbe physikalische Messgröße verschiedene Ergebnisse gemessen, obwohl nahezu identische Bedingungen herrschen. Das Eintreten eines bestimmten Messergebnisses ist an eine bestimmte Wahrscheinlichkeit gekoppelt, mit der dieses Ergebnis eintritt.  
+# ::::::{margin}
+# :::::{grid}
+# ::::{grid-item-card}
+# :class-header: bg-light
+# Messunsicherheit erklärt in 4 Minuten (Kistler Group)
+# 
+# <iframe width="200" height="113" src="https://www.youtube.com/embed/8jK2o9NuA5E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+# ::::
+# :::::
+# ::::::
+# 
+# Früher hat man statt *Abweichung* noch den Begriff *Messfehler* verwendet. Man dachte, dass man mit genügend Aufwand, Sorgfalt und bestmöglicher Technologie den Fehler vollständig eliminieren könne. Spätestens seit der Theorie der *Quantenphysik* ist uns allerdings bekannt, dass zufällige Einflüsse auf die beobachteten Messgrößen  unvermeidlich sind und auch nicht vorhergesagt werden können. Statt eines einzig *wahren* Wertes, $x_w$, werden in der Quantenphysik Messgrößen durch deren Erwartungswerte vorhergesagt. Diesen Messgrößen liegt eine Wahrscheinlichkeitsdichte zu Grunde, dessen Varianz (bzw. Standardabweichung) nicht verschwindet! Somit werden für ein und dieselbe physikalische Messgröße verschiedene Ergebnisse gemessen, obwohl nahezu identische Bedingungen herrschen. Das Eintreten eines bestimmten Messergebnisses ist an eine bestimmte Wahrscheinlichkeit gekoppelt, mit der dieses Ergebnis eintritt. 
 # 
 # Das bedeutet, dass ein Messwert, $x$, immer mit einer Messabweichung, $A$, behaftet ist und somit nur bedingt dem *wahren* Wert, $x_w$, entspricht. 
 # 
@@ -23,11 +34,11 @@
 # * **Innere Störgrößen:** Hierbei handelt es sich um Störgrößen im Messgerät selbst. Beispiele dafür sind Alterungseffekte an für die Messung wichtigen Bauteilen. Bei Drehspulinstrumenten oder Waagen ist eine Feder eingebaut, deren Eigenschaften sich im Laufe der Lebensdauer verändert, was sich in einer fehlerhaften Anzeige bemerkbar macht.
 # * **Äußere Störgrößen:** Messungen werden meist durch mehrere unerwünschte Einflüsse gestört. Eine Widerstandsbrückenschaltung ist beispielsweise temperaturabhängig. Hierbei gibt es sowohl systematische Abweichungen, d.h. man kann den Einfluss isolieren und deterministisch beschreiben und die Messung korrigieren. Eine andere Art von äußeren Störgrößen sind zufällige Einstreuungen, die man nicht kompensieren kann. Zu ihrer Unterdrückung kommen u. a. einfache Mittelwertfilter zum Einsatz.
 # * **Beobachtungsfehler:** Wenn du eine Messung durchführst, kannst auch du, der Beobachter, zu einer Fehlerquelle werden, wenn z.B. die Anzeige falsch abgelesen wird. 
-# * **Dynamische Fehler:** Jedes Messsystem braucht eine bestimmte Zeit um sich einzupendeln. Daher sollte man immer einen Moment warten, bis man das Messsignal abliest. Die Abweichung entspricht hierbei der Größe des Toleranzbereichs. Optimalerweise wird das gemessene Signal der eigentliche Messgröße verzögerungsfrei folgen. Sollte dies nicht der Fall sein, wird dies als dynamischer Fehler bezeichnet.
+# * **Dynamische Fehler:** Jedes Messsystem braucht eine bestimmte Zeit um sich einzupendeln. Daher sollte man immer einen Moment warten, bis man das Messsignal abliest. Die Abweichung entspricht hierbei der Größe des Toleranzbereichs. Optimalerweise wird das gemessene Signal der eigentlichen Messgröße verzögerungsfrei folgen. Sollte dies nicht der Fall sein, wird dies als dynamischer Fehler bezeichnet.
 # * **Rückwirkung** Jedes Messgerät braucht für den Messprozess Energie oder Leistung, die dem Prozess entzogen wird. Der Wert der Messgröße mit angeschlossener Messeinrichtung unterscheidet sich vom Wert, der ohne Messeinrichtung erreicht worden wäre. Auch bei externen Spannungsversorgungen entsteht eine Rückwirkung und Kopplung aufgrund von Wärme, die äußere Störgrößen antreibt. 
 # * **Quantisierungsfehler**: Diese Fehler entstehen bei der Digitalisierung. Es existiert nur eine endliche Anzahl von Möglichkeiten einen analogen Messwerte mittels Bits darzustellen.
 # 
-# Um die Messunsicherheiten und Störungen zu reduzieren sollten immer die vom Hersteller spezifizierten Normalbedingungen (Messbereich, Messgenauigkeit, Betriebsbedingung, Einbauvorschrift, Energieversorgung, Abmessungen) eingehalten werden.
+# Um die Messunsicherheiten und Störungen zu reduzieren, sollten immer die vom Hersteller spezifizierten Normalbedingungen (Messbereich, Messgenauigkeit, Betriebsbedingung, Einbauvorschrift, Energieversorgung, Abmessungen) eingehalten werden.
 # 
 # Messungen liefern dennoch lediglich Schätzwerte für die *wahren* Werte einer Größe. Es gibt prinzipiell keine Möglichkeit, den wahren Wert einer Messgröße zu messen. Im Rahmen internationaler Anstrengungen für eine einheitliche Bewertung von Einflussgrößen auf eine Messung werden zwei Kategorien von Methoden der Berechnung von Unsicherheiten unterschieden [[GUM]](https://www.iso.org/sites/JCGM/GUM/JCGM100/C045315e-html/C045315e.html?csnumber=50461):
 # - **Typ A ("Zufällige Abweichung"):** Berechnung der Messunsicherheit durch statistische Analyse der Messungen
@@ -54,15 +65,26 @@
 # 
 # * Bei systematischen Unsicherheiten handelt es sich um **reproduzierbare** Messunsicherheiten. 
 # * Sie werden durch **Unvollkommenheit in den Messgeräten** und Messverfahren verursacht.
-# * Sie können durch Aufwand und Kalibration verbessert werden, was *nicht* für zufällige Messabweichungen gilt. 
-# * Sie machen ein Ergebnise **unsichtig**
+# * Sie können durch Aufwand und Kalibrierung verbessert werden, was *nicht* für zufällige Messabweichungen gilt. 
+# * Sie machen ein Ergebnis **unrichtig**
 # * Systematische Messabweichungen (z.B. Kennlinienfehler) sollten in aller Regel am besten **korrigiert werden**, wenn dies möglich ist. Ansonsten sollte mindestens eine Angabe der Messabweichung erfolgen.
+# 
+# ::::::{margin}
+# :::::{grid}
+# ::::{grid-item-card}
+# :class-header: bg-light
+# Zufällige und systematische Messabweichungen (Christian Fingerhut)
+# 
+# <iframe width="200" height="113" src="https://www.youtube.com/embed/_XZ7r-PVwHY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+# ::::
+# :::::
+# ::::::
 # 
 # Es gibt keine allgemeingültige Definition oder allgemeine Verfahren zur Korrektur. Das heißt für jeden Fall müssen neue Verfahren entwickelt werden. Hier kommen ein paar Beispiele, wie man mit solchen *systematischen* Messunsicherheiten umgehen kann:
 # 
 # ### Anzeigefehler von Messgeräten
 # 
-# Messgeräte werden anhand ihrer Genauigkeit in Klassen eingruppiert. Die Klasse entspricht der relativen Messabweichung. Präzisionsmessgeräte besitzen somit Abweichungen die zwischen 0,001% und 0,05% liegen. Die Genauigkeitsklasse K 2,5 (Angabe auf der Mess- skala nach DIN EN 60051 Abb. 1) bedeutet: Ist der Endwert des eingestellten Messbereichs $U_\mathrm{end}$, dann beträgt die Typ B-Unsicherheit über den gesamten Messbereich $u(U) = 0,0025\cdot U_\mathrm{end}$. Für $U_\mathrm{end} = 15\,\mathrm V$ erhält man also:
+# Messgeräte werden anhand ihrer Genauigkeit in Klassen eingruppiert. Die Klasse entspricht der relativen Messabweichung. Präzisionsmessgeräte besitzen somit Abweichungen die zwischen 0,001% und 0,05% liegen. Die Genauigkeitsklasse K 2,5 (Angabe auf der Messskala nach DIN EN 60051 Abb. 1) bedeutet: Ist der Endwert des eingestellten Messbereichs $U_\mathrm{end}$, dann beträgt die Typ B-Unsicherheit über den gesamten Messbereich $u(U) = 0,0025\cdot U_\mathrm{end}$. Für $U_\mathrm{end} = 15\,\mathrm V$ erhält man also:
 
 # In[1]:
 
@@ -132,6 +154,17 @@ print('Die Unsicherheit beträgt: +-',round(A_total/np.sqrt(3),Nachkommastellen)
 # 
 # ### Systematische Abweichung aufgrund von Verbindungskabel
 # 
+# ::::::{margin}
+# :::::{grid}
+# ::::{grid-item-card}
+# :class-header: bg-light
+# Leitungswiderstand und Spannungsabfall einer Leitung berechnen (Kfz-Technik einfach erklärt)
+# 
+# <iframe width="200" height="113" src="https://www.youtube.com/embed/kzjpePkDTjQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+# ::::
+# :::::
+# ::::::
+# 
 # Verbindungskabel besitzen Innenwiderstände, wo ebenfalls Spannungen abfallen:
 # 
 # $$R_L = \frac{\zeta \cdot l}{A}$$
@@ -171,13 +204,24 @@ print('Die Spannung wird um ', 2*U*1000, 'mV zu hoch gemessen')
 
 # ## Schreibweise eines Messwertes mit Messabweichung
 # 
+# ::::::{margin}
+# :::::{grid}
+# ::::{grid-item-card}
+# :class-header: bg-light
+# Absoluter und relativer Messfehler || Fehlerrechnung (Physikcoach)
+# 
+# <iframe width="200" height="113" src="https://www.youtube.com/embed/HqgrqLXmEN0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+# ::::
+# :::::
+# ::::::
+# 
 # Die **Gesamt-Messabweichung** einer Messgröße $x$ setzt sich also wiefolgt zusammen:
 # 
 # $$A = A_r +  A_s$$
 # 
 # wobei $A_r$ zufällige und $A_s$ systematische Messabweichungen sind. Ein Messwert setzt sich also zusammen aus dem *wahren* oder *richtigen* Wert, den wir niemals kennen werden, und der Messabweichung. Es gelten folgende Zusammenhänge:
 # 
-# * Der **ermittelte Messwert** lässt sich wiefolgt schreiben, wobei $x_w$ der *wahre*, aber uns unbekannte, Wert ist. $A$ ist die Messabweichung: 
+# * Der **ermittelte Messwert** lässt sich wie folgt schreiben, wobei $x_w$ der *wahre*, aber uns unbekannte, Wert ist. $A$ ist die Messabweichung: 
 # 
 # $$x = x_w + A$$
 # 
@@ -185,7 +229,7 @@ print('Die Spannung wird um ', 2*U*1000, 'mV zu hoch gemessen')
 # 
 # $$A = x - x_w = \Delta x$$
 # 
-# * Bei der Angabe **relativen Messabweichung** wird die Messabweichung auf einen Referenzwert, $r$, bezogen, der entweder der Messwert selber ist ($r = x$), oder manchmal auch die Spanne ($r = x_\mathrm{max} - x_\mathrm{min}$) oder Maximalwert/Messbereichsendwert ($r = x_\mathrm{max}$):
+# * Bei Angabe der **relativen Messabweichung** wird die Messabweichung auf einen Referenzwert, $r$, bezogen, der entweder der Messwert selber ist ($r = x$), oder manchmal auch die Spanne ($r = x_\mathrm{max} - x_\mathrm{min}$) oder Maximalwert/Messbereichsendwert ($r = x_\mathrm{max}$):
 # 
 # $$ A_\mathrm{rel} = \frac{A}{r} = \frac{\Delta x}{r}$$
 # 
@@ -200,11 +244,11 @@ print('Die Spannung wird um ', 2*U*1000, 'mV zu hoch gemessen')
 # Die **Anzahl der Nachkommastellen** eines Messwertes ist niemals größer als die der angegebenen Messabweichung oder Unsicherheit. Die Anzahl der Nachkommastellen der Messabweichung wird über **signifikante Stellen** (= angegebene Ziffern ohne führende Nullen) definiert. Je mehr signifikante Stellen angegeben werden, desto größer ist die Genuigkeit, die reklamiert wird. Es gelten folgende Rechenoperationen nach DIN1333:
 # 
 # - Bei **Addition von Größen** bekommt das Ergebnis genauso viele Nachkommastellen wie die Zahl mit den *wenigsten* Nachkommastellen.
-# - Bei **Multiplikation von Größen** bekommst das Ergebnis genauso viele signifikante Stellen wie der Zahl mit den wenigsten signifikanten Stellen.
-# - **Messunsicherheiten** werden auf eine signifikante Stelle gerundet. Eine Ausnahme existiert, wenn die erste Ziffer eine "1" ist, weil sonst Rundungsfehler schnell zu groß werden. Beispiel: $u(g) = 0,1562\,\mathrm{m/s^2} = 0,16\,\mathrm{m/s^2}$. Die Darstellung $g = (9,81 \pm 0,03562)\,\mathrm{m/s^2}$ wäre unsinnig, da die Genauigkeit auf zwei Nachkommastellen durch den Messwert beschränkt ist. 
-# - **Messwerte** werden so angegeben, dass die letzte signifikante Stelle die gleiche Größenprdnung hat, wie die Messunsicherheit: Die Angabe $H=(13,13\pm 1)\,\mathrm m$ ist sinnlos, richtig wäre $H=(13\pm 1)\,\mathrm m$.
+# - Bei **Multiplikation von Größen** bekommt das Ergebnis genauso viele signifikante Stellen wie die Zahl mit den wenigsten signifikanten Stellen.
+# - **Messunsicherheiten** werden auf eine signifikante Stelle gerundet. Eine Ausnahme existiert, wenn die erste Ziffer eine "1" ist, weil sonst Rundungsfehler schnell zu groß werden. Beispiel: $u(g) = 0,1562\,\mathrm{m/s^2} = 0,16\,\mathrm{m/s^2}$. Die Darstellung $g = (9,81 \pm 0,1562)\,\mathrm{m/s^2}$ wäre unsinnig, da die Genauigkeit auf zwei Nachkommastellen durch den Messwert beschränkt ist. 
+# - **Messwerte** werden so angegeben, dass die letzte signifikante Stelle die gleiche Größenordnung hat, wie die Messunsicherheit: Die Angabe $H=(13,13\pm 1)\,\mathrm m$ ist sinnlos, richtig wäre $H=(13\pm 1)\,\mathrm m$.
 # 
-# Um Rundungsfehler zu reduzieren, führen Sie in den Berechnungen soviel signifikante Stellen der Messunsicherheit mit, wie nötig.
+# Um Rundungsfehler zu reduzieren, führen Sie in den Berechnungen so viele signifikante Stellen der Messunsicherheit mit, wie nötig.
 # 
 # ### Grafische Darstellung eines Messwertes mit Messabweichung
 # 

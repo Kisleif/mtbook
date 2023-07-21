@@ -1,0 +1,971 @@
+
+<!DOCTYPE html>
+
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Messung von Kapazitäten und Induktivitäten &#8212; Metrology Lecture Book</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
+    <link rel="search" title="Suche" href="../../search.html" />
+    <link rel="next" title="Frequenz- und Zeitmessung" href="4_F-Messung.html" />
+    <link rel="prev" title="Widerstandsmessung" href="4_R-Messung.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="de">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/i_mt.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Metrology Lecture Book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00_jupyter.html">
+   Über dieses Skript
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Vorlesungsskript
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="01_Messtechnik.html">
+   Messtechnik
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Messen_Einheit.html">
+     Messen und Einheiten
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="01_Datenanalyse.html">
+   Messabweichung
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Messunsicherheiten.html">
+     Quellen und Ursachen von Messunsicherheiten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Mittelwert_StdAbw.html">
+     Statistische Messunsicherheit
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Fehlerfortpflanzung.html">
+     Fortpflanzung von Messunsicherheiten
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="01_Kurvenanpassung_intro.html">
+   Kurvenanpassung
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Interpol_Approx.html">
+     Interpolation vs. Anpassung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Kurvenanpassung.html">
+     Anpassung und lineare Regression
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="02_Stationaer.html">
+   Stationäre Messsysteme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2_Messsystem.html">
+     Grundstruktur eines Messsystems
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2_idealeKennlinie.html">
+     Ideale Kennlinie
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2_realeKennlinie.html">
+     Reale Kennlinie
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="03_Messsignale.html">
+   Messsignale
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3_basics.html">
+     Grundlagen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3_Kenngroessen.html">
+     Kenngrößen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3_Modulationen.html">
+     Modulation von Messsignalen
+     <a id="SubSec-Information">
+     </a>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3_FourierAnalyse.html">
+     Fourier-Analyse
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3_Digital.html">
+     Digitalisierung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="05_Dynamische_Messsysteme.html">
+   Dynamische Messsysteme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5_LTI.html">
+     Linear zeitinvariante (LZI/LTI) Systeme
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5_DGL.html">
+     Systeme chatakterisieren im Zeitraum
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5_Uebertragungsfunktion.html">
+     Übertragungsfunktion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5_Faltung.html">
+     Faltung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5_Rauschen.html">
+     Rauschen und spektrale Dichte
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="04_ElektrischeGroessen.html">
+   Messen elektrischer Größen
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_U-Messeingang.html">
+     Spannungsmesseingang
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_I-Messeingang.html">
+     Strommesseingang
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_OP.html">
+     Operationsverstärker (OP)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_P-Messung.html">
+     Leistungsmessung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_R-Messung.html">
+     Widerstandsmessung
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Messung von Kapazitäten und Induktivitäten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_F-Messung.html">
+     Frequenz- und Zeitmessung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="6_Sensoren.html">
+   Sensoren
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_Einf%C3%BChrung.html">
+     Einführung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_DMS.html">
+     Dehnungsmessstreifen (DMS)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_PZT.html">
+     Piezoelektrische Sensoren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_GPS.html">
+     Satellitennavigationssysteme
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_Kapazitiv.html">
+     Kapazitive und Induktive Sensoren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_Temp.html">
+     Temperaturmessungen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_Radar.html">
+     Radar
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_Ifo.html">
+     Laserinterferometrie
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/Kisleif/mtbook/main?urlpath=tree/content/script/4_CL-Messung.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/Kisleif/mtbook/blob/main/content/script/4_CL-Messung.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/Kisleif/mtbook"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/Kisleif/mtbook/issues/new?title=Issue%20on%20page%20%2Fcontent/script/4_CL-Messung.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/Kisleif/mtbook/edit/main/content/script/4_CL-Messung.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/content/script/4_CL-Messung.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stromrichtige-und-spannungsrichtige-anschaltung">
+   Stromrichtige und spannungsrichtige Anschaltung
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#induktiver-verlustwiderstand">
+   Induktiver Verlustwiderstand
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#messung-mittels-2-spannungsmessungen">
+   Messung mittels 2 Spannungsmessungen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bruckenschaltung">
+   Brückenschaltung
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#viertelbrucke">
+     Viertelbrücke
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#halbbrucke">
+     Halbbrücke
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vollbrucken">
+     Vollbrücken
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Messung von Kapazitäten und Induktivitäten</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stromrichtige-und-spannungsrichtige-anschaltung">
+   Stromrichtige und spannungsrichtige Anschaltung
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#induktiver-verlustwiderstand">
+   Induktiver Verlustwiderstand
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#messung-mittels-2-spannungsmessungen">
+   Messung mittels 2 Spannungsmessungen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bruckenschaltung">
+   Brückenschaltung
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#viertelbrucke">
+     Viertelbrücke
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#halbbrucke">
+     Halbbrücke
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vollbrucken">
+     Vollbrücken
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="messung-von-kapazitaten-und-induktivitaten">
+<h1>Messung von Kapazitäten und Induktivitäten<a class="headerlink" href="#messung-von-kapazitaten-und-induktivitaten" title="Link zu dieser Überschrift">#</a></h1>
+<p>Manche Sensoren ändern ihr kapazitives oder induktives Verhalten aufgrund der Messgröße <span class="math notranslate nohighlight">\(x\)</span>. Das Auslesen diese Änderung basiert auf den gleichen Verfahren, die wir schon im Kapitel <a class="reference internal" href="4_R-Messung.html"><span class="doc std std-doc">Widerstandsmessungen</span></a> kennen gelernt haben. Jedoch müssen wir jetzt  mit <strong>Wechselspannungen</strong> arbeiten, da Kapazität oder Induktivität ansonsten nicht existieren. Fast ausschließlich werden wir hierfür ein Sinussignal ohne Gleichanteil verwenden. Um die Kapazität <span class="math notranslate nohighlight">\(C\)</span> bzw. Induktivität <span class="math notranslate nohighlight">\(L\)</span> zu bestimmen, wird wieder eine gleichzeitige Messung von <strong>Strom und Spannung</strong> benötigt, bzw. deren <strong>Effektivwerten</strong>!</p>
+<section id="stromrichtige-und-spannungsrichtige-anschaltung">
+<h2>Stromrichtige und spannungsrichtige Anschaltung<a class="headerlink" href="#stromrichtige-und-spannungsrichtige-anschaltung" title="Link zu dieser Überschrift">#</a></h2>
+<p><a class="reference internal" href="#cl-stromspannungsrichtig"><span class="std std-numref">Abb. 82</span></a> zeigt wie man Kapazität bzw. Induktivität direkt messen kann in dem Spannungs und Strom gemessen werden.</p>
+<figure class="align-default" id="cl-stromspannungsrichtig">
+<a class="bg-primary mb-1 reference internal image-reference" href="content/script/draw/CL_stromspannungsrichtig.jpg"><img alt="CL_stromspannungsrichtig" class="bg-primary mb-1" src="content/script/draw/CL_stromspannungsrichtig.jpg" style="width: 700px;" /></a>
+<figcaption>
+<p><span class="caption-number">Abb. 82 </span><span class="caption-text">Schaltung zur Messung von Kapazitäten, bzw. Induktivitäten. Links ist die spannungsrichtige Anschaltung gezeigt, rechts die stromrichtige.</span><a class="headerlink" href="#cl-stromspannungsrichtig" title="Link zu diesem Bild">#</a></p>
+</figcaption>
+</figure>
+<p>Mit beiden Messeingängen werden die Effektivwerte <span class="math notranslate nohighlight">\(u_\mathrm{eff}\)</span> und <span class="math notranslate nohighlight">\(i_\mathrm{eff}\)</span> ermittelt. Aus dem Blindwiderstand,</p>
+<div class="math notranslate nohighlight">
+\[X = \frac{u_\mathrm{eff}}{i_\mathrm{eff}}\]</div>
+<p>können Kapazität und Induktivität bestimmt werden:</p>
+<ul class="simple">
+<li><p><strong>Kapazität</strong>:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[X_{C_x} = \frac{1}{\omega C_x} = \frac{1}{2\pi f C_x} \Rightarrow C_x = \frac{1}{\omega X_{C_x}} = \frac{i_\mathrm{eff}}{\omega \cdot u_\mathrm{eff}}\]</div>
+<ul class="simple">
+<li><p><strong>Induktivität</strong>:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[X_{L_x} = \omega L_x = 2\pi f L_x \Rightarrow L_x = \frac{X_{L_x}}{\omega} = \frac{u_\mathrm{eff}}{\omega \cdot i_\mathrm{eff}}\]</div>
+<p>Neben den Effektivwerten wird noch die Frequenz benötigt, die entweder als konstant angenommen wird oder, wenn man es genauer wissen möchte, gemessen wird wie in Kapitel <a class="reference internal" href="4_F-Messung.html"><span class="doc std std-doc">Frequenzmessung</span></a>.
+Auf die Herleitung der Messabweichung bei strom- bzw. spannungsrichtiger Anschaltung wollen wir dieses mal verzichten. Es gilt die gleiche Auswertung wie in Kapitel <a class="reference internal" href="4_R-Messung.html"><span class="doc std std-doc">Widerstandsmessungen</span></a>.</p>
+</section>
+<section id="induktiver-verlustwiderstand">
+<h2>Induktiver Verlustwiderstand<a class="headerlink" href="#induktiver-verlustwiderstand" title="Link zu dieser Überschrift">#</a></h2>
+<p>Eine weitere Unsicherheit, die es so bei ohmschen Widerständen nicht gab, ist der Verlustwiderstand der Spule, der aufgrund der Spulenwicklung existiert. Der hierbei entstehende Verlustwiderstand kann bis zu <span class="math notranslate nohighlight">\(100\,\Omega\)</span> annehmen und wir können nicht mehr das einfach ohm’sche Gesetz für Blindwiderstände benutzen und müssen in die komplexe Schreibweise wechseln. Für den Widerstand gilt also nun, dass er einen <em>Realteil</em> (der ohmsche Widerstand) und einen <em>Imaginärteil</em> aufweist:</p>
+<div class="math notranslate nohighlight">
+\[X_L = R_L + j \cdot \omega L_x = \frac{\underline u_\mathrm{eff}}{\underline i_\mathrm{eff}}\]</div>
+<p>Die Effektivwerde sind mit einem <em>Unterstrich</em> gekennzeichnet um zu verdeutlichen, dass es sich hierbei um komplexe Zahlen handelt. <span class="math notranslate nohighlight">\(R_L\)</span> ist der ohmsche Widerstand, <span class="math notranslate nohighlight">\(L_x\)</span> ist die ideale Spule, welche in einem Ersatzschaltbild in Reihe geschaltet werden würden.</p>
+<p>Von der obigen Formel bilden wir den Betrag und erhalten nach Umstellen für die Induktivität ein genaueres Ergebnis, wenn wir folgende Formel benutzen:</p>
+<div class="math notranslate nohighlight">
+\[L_x = \frac{\sqrt{ \left( \frac{u_\mathrm{eff}}{i_\mathrm{eff}} \right)^2}-R_L^2 }{\omega}\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Aufgabe</p>
+<p>Beweise die Formel für die Induktion.</p>
+</div>
+<p>Diese Formel sollte prinzipiell benutzt werden. <span class="math notranslate nohighlight">\(R_L\)</span> erhält man aus dem Datenblatt der Spule oder durch eine zusätzliche Messung.</p>
+</section>
+<section id="messung-mittels-2-spannungsmessungen">
+<h2>Messung mittels 2 Spannungsmessungen<a class="headerlink" href="#messung-mittels-2-spannungsmessungen" title="Link zu dieser Überschrift">#</a></h2>
+<p>Wie auch schon bei Widerstandsmessungen können wir auf die ungenaue Strommessung verzichten, wenn uns eine Referenz-Kapazität bzw. -Induktivität zur Verfügung steht. Das Referenzelement muss hierbei einen festen Kapazitäts- bzw. Induktionswert aufweisen.</p>
+<figure class="align-default" id="lc-2volt">
+<a class="bg-primary mb-1 reference internal image-reference" href="content/script/draw/LC_2volt.jpg"><img alt="LC_2volt" class="bg-primary mb-1" src="content/script/draw/LC_2volt.jpg" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Abb. 83 </span><span class="caption-text">Schaltung zur Messung von Kapazitäten (links), bzw. Induktivitäten (rechts) mit 2 Spannungsmesseingängen.</span><a class="headerlink" href="#lc-2volt" title="Link zu diesem Bild">#</a></p>
+</figcaption>
+</figure>
+<p>Die Spannung wird an beiden Elementen gemessen und der gesuchte Werte, <span class="math notranslate nohighlight">\(C_x\)</span> bzw. <span class="math notranslate nohighlight">\(L_x\)</span>, können aus dem Spannungsverhältnis berechnet werden:</p>
+<ul class="simple">
+<li><p><strong>Kapazität</strong>:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\frac{u_{\mathrm{eff}}}{u_{{x,\mathrm{eff}}}} = \frac{\frac{1}{\omega C}}{\frac{1}{\omega C_x}} = \frac{C_x}{C} \Rightarrow C_x = C \cdot \frac{u_\mathrm{eff}}{u_{x,\mathrm{eff}}}\]</div>
+<ul class="simple">
+<li><p><strong>Induktivität:</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\frac{u_{\mathrm{eff}}}{u_{{x,\mathrm{eff}}}} = \frac{\omega L}{\omega L_x} = \frac{L}{L_x} \Rightarrow L_x = L \cdot \frac{u_{x,\mathrm{eff}}}{u_\mathrm{eff}}\]</div>
+<p>Die Messabweichung aufgrund der Innenwiderstände der Spannungsmesseingänge gelten auch hier.</p>
+</section>
+<section id="bruckenschaltung">
+<h2>Brückenschaltung<a class="headerlink" href="#bruckenschaltung" title="Link zu dieser Überschrift">#</a></h2>
+<p>Genauso wie für Widerstände können wieder verschiedene Brückenschaltungen benutzt werden um Kapazitäten und Induktivitäten zu messen um ggf. Störeffekte minimieren.</p>
+<section id="viertelbrucke">
+<h3>Viertelbrücke<a class="headerlink" href="#viertelbrucke" title="Link zu dieser Überschrift">#</a></h3>
+<p><a class="reference internal" href="#lc-viertel"><span class="std std-numref">Abb. 84</span></a> zeigt die Viertelbrückenschaltung. Der Spannungsteiler, indem die zu messende Kapazität- bzw. Induktivitätsänderung ist, befindet sich außerdem ein zweites Element mit festem Wert. Der andere Spannungsteiler kann aus ohmschen Widerständen gebaut werden. Da die Messbrücke mit Wechselspannung betrieben wird, kann das Vorzeichen der Messgröße <span class="math notranslate nohighlight">\(x\)</span> nicht durch Umpolung umgekehrt werden.</p>
+<figure class="align-default" id="lc-viertel">
+<a class="bg-primary mb-1 reference internal image-reference" href="content/script/draw/LC_viertel.jpg"><img alt="LC_viertel" class="bg-primary mb-1" src="content/script/draw/LC_viertel.jpg" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Abb. 84 </span><span class="caption-text">Schaltung zur Messung von Kapazitäten (links), bzw. Induktivitäten (rechts) mit einer Viertelbrücke.</span><a class="headerlink" href="#lc-viertel" title="Link zu diesem Bild">#</a></p>
+</figcaption>
+</figure>
+<p>Für die Kennlinien erhalten wir ähnliche Ergebnisse, wie schon im Kapitel <a class="reference internal" href="4_R-Messung.html"><span class="doc std std-doc">Widerstandsmessungen</span></a> hergeleitet.</p>
+<ul class="simple">
+<li><p><strong>Kapazität:</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[C_x = C(x) = C + \Delta C(x) \]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\frac{u(x)_{\mathrm{eff}}}{u_{0,\mathrm{eff}}} &amp;= \left| \frac{C}{C+C_x} - \frac{1}{2} \right| \\
+&amp;= \left| \frac{\Delta C(x)}{2 [2C + \Delta C(x)]} \right|\\
+&amp;\approx \frac{\left|\Delta C(x) \right|}{4C}
+\end{align}
+\end{split}\]</div>
+<ul class="simple">
+<li><p><strong>Induktivität:</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[L_x = L(x) = L + \Delta L(x)\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\frac{u(x)_{\mathrm{eff}}}{u_{0,\mathrm{eff}}} &amp;= \left| \frac{L_x}{L+L_x} - \frac{1}{2} \right| \\
+&amp;= \left| \frac{\Delta L(x)}{2[2L + \Delta L(x)]} \right| \\
+&amp;\approx \frac{\left|\Delta L(x) \right|}{4L}
+\end{align}
+\end{split}\]</div>
+<p>Im letzten Schritt der Umformung wurde angenommen, dass sich die Messgröße nur wenig ändert, d.h. <span class="math notranslate nohighlight">\(\left|\Delta C(x)\right|&lt;&lt;C\)</span>, bzw. <span class="math notranslate nohighlight">\(\left|\Delta L(x)\right|&lt;&lt;L\)</span>.</p>
+<p>Folgende Unterschiede und Anmerkungen sollten im Vergleich zur Brückenschaltung von rein ohmschen Komponenten erwähnt werden:</p>
+<ul class="simple">
+<li><p>Beim Betrieb mit Wechselspannung geht das Vorzeichen der Messgröße verloren</p></li>
+<li><p>Um das Vorzeichen zu bekommen muss die Phasenverschiebung zwischen Eingangs- und Ausgangssignal gemessen werden. Bei einer positiven Kapazitätsänderung <span class="math notranslate nohighlight">\(\Delta C(x)\)</span> wäre diese -180°.</p></li>
+</ul>
+</section>
+<section id="halbbrucke">
+<h3>Halbbrücke<a class="headerlink" href="#halbbrucke" title="Link zu dieser Überschrift">#</a></h3>
+<p>Um Störgrößen zu reduzieren können Kapazitäts- und Induktionsmessung in Halbbrücken integriert werden. Die anschaltung ist in <a class="reference internal" href="#lc-halbbr"><span class="std std-numref">Abb. 85</span></a> dargestellt.</p>
+<figure class="align-default" id="lc-halbbr">
+<a class="bg-primary mb-1 reference internal image-reference" href="content/script/draw/LC_halbbr.jpg"><img alt="LC_halbbr" class="bg-primary mb-1" src="content/script/draw/LC_halbbr.jpg" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Abb. 85 </span><span class="caption-text">Schaltung zur Messung von Kapazitäten (links), bzw. Induktivitäten (rechts) mit einer Halbbrücke.</span><a class="headerlink" href="#lc-halbbr" title="Link zu diesem Bild">#</a></p>
+</figcaption>
+</figure>
+<p>Die Herleitung der Kennlinien ist wieder analog zur Viertelbrücke, bzw. analog zur Widerstandsbrücke und liefert folgende Ergebnisse:</p>
+<ul class="simple">
+<li><p><strong>Kapazität:</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\frac{u(x)_{\mathrm{eff}}}{u_{0,\mathrm{eff}}} = \frac{\left|\Delta C(x) \right|}{2C}
+\]</div>
+<ul class="simple">
+<li><p><strong>Induktivität:</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\frac{u(x)_{\mathrm{eff}}}{u_{0,\mathrm{eff}}} = \frac{\left|\Delta L(x) \right|}{2L}
+\]</div>
+<p>Unter dem Einfluss einer externen Störgröße, <span class="math notranslate nohighlight">\(\Delta C(T)\)</span> bzw. <span class="math notranslate nohighlight">\(\Delta L(T)\)</span>, ergeben sich folgende Formeln, wobei im letzten Schritt wieder eine sehr kleine Änderung, <span class="math notranslate nohighlight">\(\Delta C(T) &lt;&lt; C\)</span> bzw. <span class="math notranslate nohighlight">\(\Delta L(T) &lt;&lt; L\)</span> angenommen wird, wodruch die Temperaturabhängigkeit wieder verschwindt (oder die Abhängigkeit zu einer anderen externen Größe):</p>
+<ul class="simple">
+<li><p><strong>Kapazität:</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\frac{u(x)_{\mathrm{eff}}}{u_{0,\mathrm{eff}}} = \frac{\left|\Delta C(x) \right|}{2[C + \Delta C(T)]} \approx \frac{\left|\Delta C(x) \right|}{2C}
+\]</div>
+<ul class="simple">
+<li><p><strong>Induktivität:</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\frac{u(x)_{\mathrm{eff}}}{u_{0,\mathrm{eff}}} = \frac{\left|\Delta L(x) \right|}{2[L + \Delta L(T)]} \approx \frac{\left|\Delta L(x) \right|}{2L}
+\]</div>
+</section>
+<section id="vollbrucken">
+<h3>Vollbrücken<a class="headerlink" href="#vollbrucken" title="Link zu dieser Überschrift">#</a></h3>
+<p>Vollbrücken werden bei Kapazitäts- bzw. Induktivitätsmessungen eigentlich nicht verwendet. Bereits unterschiedliche Kabellängen verursachen starke Messabweichungen, da die verursachten Kapazität- und Induktivitätsbeiträge in der Schaltung wirken. Allgemein sollten lange Kabel vermieden werden!</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/script"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="4_R-Messung.html" title="zurück Seite">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">zurück</p>
+            <p class="prev-next-title">Widerstandsmessung</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="4_F-Messung.html" title="weiter Seite">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">weiter</p>
+        <p class="prev-next-title">Frequenz- und Zeitmessung</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Katharina-S. Isleif<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

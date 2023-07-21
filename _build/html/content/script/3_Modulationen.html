@@ -1,0 +1,1124 @@
+
+<!DOCTYPE html>
+
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Modulation von Messsignalen &#8212; Metrology Lecture Book</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
+    <link rel="search" title="Suche" href="../../search.html" />
+    <link rel="next" title="Fourier-Analyse" href="3_FourierAnalyse.html" />
+    <link rel="prev" title="Kenngrößen" href="3_Kenngroessen.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="de">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/i_mt.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Metrology Lecture Book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00_jupyter.html">
+   Über dieses Skript
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Vorlesungsskript
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="01_Messtechnik.html">
+   Messtechnik
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Messen_Einheit.html">
+     Messen und Einheiten
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="01_Datenanalyse.html">
+   Messabweichung
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Messunsicherheiten.html">
+     Quellen und Ursachen von Messunsicherheiten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Mittelwert_StdAbw.html">
+     Statistische Messunsicherheit
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Fehlerfortpflanzung.html">
+     Fortpflanzung von Messunsicherheiten
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="01_Kurvenanpassung_intro.html">
+   Kurvenanpassung
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Interpol_Approx.html">
+     Interpolation vs. Anpassung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Kurvenanpassung.html">
+     Anpassung und lineare Regression
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="02_Stationaer.html">
+   Stationäre Messsysteme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2_Messsystem.html">
+     Grundstruktur eines Messsystems
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2_idealeKennlinie.html">
+     Ideale Kennlinie
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2_realeKennlinie.html">
+     Reale Kennlinie
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="03_Messsignale.html">
+   Messsignale
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="3_basics.html">
+     Grundlagen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3_Kenngroessen.html">
+     Kenngrößen
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Modulation von Messsignalen
+     <a id="SubSec-Information">
+     </a>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3_FourierAnalyse.html">
+     Fourier-Analyse
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3_Digital.html">
+     Digitalisierung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="05_Dynamische_Messsysteme.html">
+   Dynamische Messsysteme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5_LTI.html">
+     Linear zeitinvariante (LZI/LTI) Systeme
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5_DGL.html">
+     Systeme chatakterisieren im Zeitraum
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5_Uebertragungsfunktion.html">
+     Übertragungsfunktion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5_Faltung.html">
+     Faltung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5_Rauschen.html">
+     Rauschen und spektrale Dichte
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="04_ElektrischeGroessen.html">
+   Messen elektrischer Größen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_U-Messeingang.html">
+     Spannungsmesseingang
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_I-Messeingang.html">
+     Strommesseingang
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_OP.html">
+     Operationsverstärker (OP)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_P-Messung.html">
+     Leistungsmessung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_R-Messung.html">
+     Widerstandsmessung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_CL-Messung.html">
+     Messung von Kapazitäten und Induktivitäten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_F-Messung.html">
+     Frequenz- und Zeitmessung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="6_Sensoren.html">
+   Sensoren
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_Einf%C3%BChrung.html">
+     Einführung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_DMS.html">
+     Dehnungsmessstreifen (DMS)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_PZT.html">
+     Piezoelektrische Sensoren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_GPS.html">
+     Satellitennavigationssysteme
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_Kapazitiv.html">
+     Kapazitive und Induktive Sensoren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_Temp.html">
+     Temperaturmessungen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_Radar.html">
+     Radar
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_Ifo.html">
+     Laserinterferometrie
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/Kisleif/mtbook/main?urlpath=tree/content/script/3_Modulationen.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/Kisleif/mtbook/blob/main/content/script/3_Modulationen.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/Kisleif/mtbook"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/Kisleif/mtbook/issues/new?title=Issue%20on%20page%20%2Fcontent/script/3_Modulationen.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/Kisleif/mtbook/edit/main/content/script/3_Modulationen.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/content/script/3_Modulationen.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#trager-und-nutzsignale">
+   Träger- und Nutzsignale
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#amplitudenmodulation">
+   Amplitudenmodulation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#demodulation">
+     Demodulation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#phasenmodulation">
+   Phasenmodulation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#frequenzmodulation">
+   Frequenzmodulation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vergleich-zwischen-pm-und-fm">
+   Vergleich zwischen PM und FM
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#puls-modulation">
+   Puls-Modulation
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Modulation von Messsignalen <a id="SubSec-Information"></a></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#trager-und-nutzsignale">
+   Träger- und Nutzsignale
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#amplitudenmodulation">
+   Amplitudenmodulation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#demodulation">
+     Demodulation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#phasenmodulation">
+   Phasenmodulation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#frequenzmodulation">
+   Frequenzmodulation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vergleich-zwischen-pm-und-fm">
+   Vergleich zwischen PM und FM
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#puls-modulation">
+   Puls-Modulation
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="modulation-von-messsignalen-a-id-subsec-information-a">
+<h1>Modulation von Messsignalen <a id="SubSec-Information"></a><a class="headerlink" href="#modulation-von-messsignalen-a-id-subsec-information-a" title="Link zu dieser Überschrift">#</a></h1>
+<p>Im ersten Abschnitt haben wir schon angedeutet, dass nicht nur physikalische Größen in Messsignale umgewandelt werden, sondern auch Signale in andere Signalformen. Sehr häufiges Beispiel aus der Messtechnik ist der Informationsparameter Amplitude der in Frequenz umgewandelt wird. Dies hat den einfachen Grund, dass die Frequenz eines Messsignals extrem unempfindlich gegenüber Störeinflüssen aus der Umgebung ist. Eine Amplitude wird viel schneller verfälscht, oder abgeschwächt, als die Frequenz. Ein weiterer Vorteil ist, dass die Frequenz eines Messsignals sehr einfach digitalisiert werden kann, wodurch auch die physikalische Größe schnell digital zur Verfügung steht. Man könnte beispielsweise eine einfache Triggereinrichtung nutzen, welche die Frequenz eines Messsignals in Pulse umwandelt, die mit einer bestimmten Wiederholrate (also mit der Frequenz des Signals) zur Verfügung gestellt werden. Diese Pulse werden dann innerhalb eines definierten Zeitfenster ausgezählt. Mit solchen <em>Frequenzzählern</em> werden wir uns später noch ausführlicher beschäftigen. Für solch eine Art von Messsignal wird eine <strong>Modulation</strong> des Messsignals benötigt, welche die physikalische Größe (z.B. ein Audiosignal) auf den Träger (z.B. eine Radiowelle), aufbringt.</p>
+<section id="trager-und-nutzsignale">
+<h2>Träger- und Nutzsignale<a class="headerlink" href="#trager-und-nutzsignale" title="Link zu dieser Überschrift">#</a></h2>
+<p>Klassischerweise benutzt man eine sinusförmige Schwingung konstanter Frequenz und Amplitude als <strong>Trägerschwingung</strong>. Durch die Modulation können folgende Parameter der Trägerschwingung beeinflusst werden:</p>
+<ul class="simple">
+<li><p>die Amplitude. Dies ist bekannt als Amplitudenmodulation (AM)</p></li>
+<li><p>die Frequenz. Dies ist bekannt als Frequenzmodulation (FM)</p></li>
+<li><p>die Phase. Hierbei wird der Nullphasenwinkel verschoben. Dies ist bekannt als Phasenmodulation (PM)</p></li>
+</ul>
+<p>Im Anschluss muss mittels <strong>Demodulation</strong> der originale Zeitverlauf der physikalischen Größe zurückgewonnen werden.</p>
+<p><strong>Nutzsignale</strong> wie Sprache oder Musik können häufig nicht direkt über gewünschte Übertragungsmedien wie beispielsweise einen Funkkanal übertragen werden. Hierfür wird ein Trägersignal benötigt, mittels welchem das Nutzsignal übertragen werden kann.
+Wir nehmen ein sinuförmiges Nutzsignal (<em>message</em>) an:</p>
+<div class="math notranslate nohighlight">
+\[m(t) = A_\mathrm{m} \cdot \sin(2\pi f_\mathrm{m} t)\]</div>
+<p>mit der Amplitude <span class="math notranslate nohighlight">\(A_\mathrm{m}\)</span> and Frequenz <span class="math notranslate nohighlight">\(f_\mathrm{m} = 100\,\mathrm{Hz}\)</span>. Außerdem widmen wir uns zunächst einem <em>sinusförmigen</em> Trägersignal (<em>carrier</em>)</p>
+<div class="math notranslate nohighlight">
+\[s(t) = A_c \cdot \sin(2\pi f_c t + p_0)\]</div>
+<p>mit der Amplitude <span class="math notranslate nohighlight">\(A_c\)</span> und der Trägerfrequenz <span class="math notranslate nohighlight">\(f_c = 1\,\mathrm{kHz}\)</span>. <span class="math notranslate nohighlight">\(p_{0}\)</span> ist eine Konstante, die Phase zum Zeitpunkt <span class="math notranslate nohighlight">\(t=0\)</span>.
+Beide Signale sind den folgenden Diagrammen für <span class="math notranslate nohighlight">\(f_\mathrm{m} = 100\,\mathrm{Hz}\)</span> und <span class="math notranslate nohighlight">\(f_c = 1\,\mathrm{kHz}\)</span> dargestellt.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.fft</span> <span class="kn">import</span> <span class="n">rfft</span><span class="p">,</span> <span class="n">rfftfreq</span>
+<span class="kn">from</span> <span class="nn">scipy.io.wavfile</span> <span class="kn">import</span> <span class="n">read</span> <span class="c1">#import the required function from the module</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="c1"># MatplotLib Settings:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
+<span class="c1">#plt.xkcd()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
+
+<span class="n">samplerate</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s1">&#39;CantinaBand3.wav&#39;</span><span class="p">)</span>
+<span class="n">duration</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">/</span><span class="n">samplerate</span>
+<span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">duration</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="n">samplerate</span><span class="p">)</span> <span class="c1">#time vector</span>
+
+<span class="n">Fs</span> <span class="o">=</span> <span class="mf">22050.0</span><span class="p">;</span>  <span class="c1"># sampling rate</span>
+<span class="n">Ts</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">Fs</span><span class="p">;</span> <span class="c1"># sampling interval</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.02</span><span class="p">,</span><span class="n">Ts</span><span class="p">)</span> <span class="c1"># time vector</span>
+<span class="n">ff</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span>   <span class="c1"># frequency of the carrier</span>
+<span class="n">f_m</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">maxN</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">Fs</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># Sinusschwingung</span>
+<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">freq</span><span class="p">,</span> <span class="n">ampl</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span>  <span class="n">ampl</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">freq</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">ff</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
+<span class="n">y_nutz</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">f_m</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
+
+<span class="n">data_norm</span> <span class="o">=</span> <span class="n">data</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">y_nutz_norm</span> <span class="o">=</span> <span class="n">y_nutz</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">y_nutz</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1">#plt.plot(time, data_norm, &#39;tab:blue&#39;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y_nutz_norm</span><span class="p">,</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Nachricht&#39;</span><span class="p">)</span>
+<span class="c1">#plt.xlim([0.0,0.3])</span>
+<span class="c1">#plt.ylim([-0.4,0.4])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Trägersignal&#39;</span><span class="p">)</span>
+<span class="c1">#plt.xlim([0.0,0.3])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">11</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1">#plt.xkcd()</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
+<span class="ne">---&gt; </span><span class="mi">11</span> <span class="n">samplerate</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s1">&#39;CantinaBand3.wav&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">duration</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">/</span><span class="n">samplerate</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">duration</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="n">samplerate</span><span class="p">)</span> <span class="c1">#time vector</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.9/site-packages/scipy/io/wavfile.py:647,</span> in <span class="ni">read</span><span class="nt">(filename, mmap)</span>
+<span class="g g-Whitespace">    </span><span class="mi">645</span>     <span class="n">mmap</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="g g-Whitespace">    </span><span class="mi">646</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">647</span>     <span class="n">fid</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">649</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">650</span>     <span class="n">file_size</span><span class="p">,</span> <span class="n">is_big_endian</span> <span class="o">=</span> <span class="n">_read_riff_chunk</span><span class="p">(</span><span class="n">fid</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;CantinaBand3.wav&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 800x300 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Es gibt nun verschiedene Methoden um die Nachricht auf das Trägersignal zu modulieren und so zu übertragen:</p>
+</section>
+<section id="amplitudenmodulation">
+<h2>Amplitudenmodulation<a class="headerlink" href="#amplitudenmodulation" title="Link zu dieser Überschrift">#</a></h2>
+<p>Zur Übertragung wird das Nutzsignal in einen anderen Frequenzbereich verschoben, was beispielsweise durch eine <strong>Amplitudenmodulation (AM)</strong> geschehen kann. Durch das Verschieben können auch mehrere Nutzsignale gleichzeitig und ohne gegenseitige Störung übertragen werden.</p>
+<div class="math notranslate nohighlight">
+\[y_\mathrm{AM}(t) = \left[A_c + M_a \cdot m(t)\right] \cdot \sin(2\pi  f_c  t)\]</div>
+<p><span class="math notranslate nohighlight">\(M_a\)</span> ist die Modulationsstärke und <span class="math notranslate nohighlight">\(m(t)\)</span> die modulierende Funktion oder kurz der Modulator. Hier wäre es entsprechend die Nachricht, die auf das Trägersignal moduliert wird.</p>
+<p>Setzt man ein sinusförmiges Nutzsignal ein, so erhält man:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align} 
+y_\mathrm{AM}(t) &amp; = \left[A_c + M_a \cdot A_\mathrm{m} \cdot \sin(2\pi f_\mathrm{m} t)\right] \cdot \sin(2\pi  f_c  t) \\
+&amp; = A_c \sin(2\pi  f_c  t)  + \frac{M_a A_m}{2} \left[ \cos\{2\pi(f_m-f_c)t \} - \cos\{2\pi(f_m+f_c)t \} \right]
+\end{align} 
+\end{split}\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Aufgabe</p>
+<p>Beweise die obige Umformung mithilfe der trigonometrischen Umrechnungsformel</p>
+<div class="math notranslate nohighlight">
+\[\sin \alpha \sin \beta ={\frac {1}{2}}{\bigl (}\cos(\alpha -\beta )-\cos(\alpha +\beta ){\bigr )} !
+\]</div>
+</div>
+<p>Aus Formel kann man das entstandene Frequenzspektrum ablesen (siehe <a class="reference internal" href="3_FourierAnalyse.html"><span class="doc std std-doc">Fourier-Analyse</span></a>). Vorne in der Formel steht das Trägersignal mit der Frequenz <span class="math notranslate nohighlight">\(f_c\)</span> und hinten stehen zwei Terme, die sogenannten Seitenbänder, mit den Frequenzen <span class="math notranslate nohighlight">\(f_m-f_c\)</span> und <span class="math notranslate nohighlight">\(f_m + f_c\)</span>. Diese einfachste Modulationsart der AM nennt man deshalb auch <strong>Zweiseitenbandmodulation (ZSB oder englisch DSB)</strong> mit Träger. Hier steckt die Information in den Seitenbändern, während der Träger selbst bei der Übertragung nur unnötigen Ballast darstellt. Wenn sich die Amplitude des Nutzsignals ändert, ändert sich auch die Amplitude der Seitenfrequenzen. Wenn sich die Frequenz des modulierenden Signals ändert, ändern sich auch die Frequenzen der Seitenbänder.</p>
+<p>Eine Amplitudenmodulation für einen Modulationsgrad von 0,5 sieht wiefolgt für die beiden oben definierten Nutz- und Trägersignale aus:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># MatplotLib Settings:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
+<span class="c1">#plt.xkcd()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
+<span class="n">A</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">M_a</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">AM</span> <span class="o">=</span> <span class="p">(</span><span class="n">A</span><span class="o">+</span><span class="n">M_a</span><span class="o">*</span><span class="n">y_nutz_norm</span><span class="p">)</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">ff</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Träger&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span><span class="n">AM</span><span class="p">,</span> <span class="s1">&#39;tab:red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.65</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;AM&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span> <span class="p">(</span><span class="n">A</span><span class="o">+</span><span class="n">M_a</span><span class="o">*</span><span class="n">y_nutz_norm</span><span class="p">),</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Einhüllende&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Amplitudenmodulation (AM)&#39;</span><span class="p">)</span>
+<span class="c1">#plt.xlim([0.276,0.285])</span>
+<span class="c1">#plt.ylim([-1.5,1.5])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit (ms)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/3_Modulationen_3_0.png" src="../../_images/3_Modulationen_3_0.png" />
+</div>
+</div>
+<p>Alternativ zur Berechnung des modulierten Signals im Zeitbereich kann dies auch über die Fourier-Transformation im Frequenzbereich geschehen. Die dazu inverse Fourier-Transformation führt wieder in den Zeitbereich (siehe <a class="reference internal" href="3_FourierAnalyse.html"><span class="doc std std-doc">Fourier-Analyse</span></a>).</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.fft</span> <span class="kn">import</span> <span class="n">rfft</span><span class="p">,</span> <span class="n">rfftfreq</span>
+<span class="c1"># MatplotLib Settings:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
+<span class="c1">#plt.xkcd()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
+<span class="c1"># Note the extra &#39;r&#39; at the front</span>
+<span class="n">AMyf</span> <span class="o">=</span> <span class="n">rfft</span><span class="p">(</span><span class="n">AM</span><span class="p">)</span>
+<span class="n">AMxf</span> <span class="o">=</span> <span class="n">rfftfreq</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">AM</span><span class="p">),</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">Fs</span><span class="p">)</span>
+<span class="n">markerline</span><span class="p">,</span> <span class="n">stemlines</span><span class="p">,</span> <span class="n">baseline</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">AMxf</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">AMyf</span><span class="p">),</span> <span class="n">markerfmt</span> <span class="o">=</span> <span class="s1">&#39;D&#39;</span><span class="p">)</span> <span class="c1"># plotting the spectrum</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequenz (Hz)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;FFT&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;AM im Frequenzbereich&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">500</span><span class="p">,</span><span class="mi">1500</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/3_Modulationen_5_0.png" src="../../_images/3_Modulationen_5_0.png" />
+</div>
+</div>
+<section id="demodulation">
+<h3>Demodulation<a class="headerlink" href="#demodulation" title="Link zu dieser Überschrift">#</a></h3>
+<p>Es gibt prinzipiell zwei Möglichkeiten die Modulation rückgängig zu machen um das ursprüngliche Nutzsignal zu rekonstruieren:</p>
+<p>Bei schwachen oder stark gestörten Signalen wird auf der Empfängerseite ein lokaler Träger benutzt, der in Phase zu Träger des empfangenen Signals ist. Beide Träger sind synchron und damit kohärent zu einander. Dieses Verfahren ist technisch gesehen aufwendiger als die zweite Option.
+Zunächst wird das empfangene Signal, <span class="math notranslate nohighlight">\(y_\mathrm{AM}(t)\)</span>, bestehend aus den beiden Seitenfrequenzen und dem Träger, mit dem lokalen Träger multipliziert und anschließend werden die hohen Frequenzanteile <span class="math notranslate nohighlight">\(2f_c\)</span> mit einem Tiefpass und der Gleichanteil mit einem Hochpass heraus gefiltert. Das gesuchte Nutzsignal bleibt übrig, jedoch nur mit halber Amplitude:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align} 
+y_\mathrm{AM,demod}(t) &amp;= y_\mathrm{AM}(t) \cdot s(t) \\
+&amp; = \left[ A_c \sin(2\pi  f_c  t)  + \frac{M_a A_m}{2} \left[ \cos\{2\pi(f_m-f_c)t \} - \cos\{2\pi(f_m+f_c)t \} \right] \right]  \cdot A_c \sin(2\pi f_c t + p_0) \\
+&amp;= \frac{A_m}{2} \sin(2 \pi f_m t)
+\end{align}
+\end{split}\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Aufgabe</p>
+<p>Beweise die obige Umformung unter Vernachlässigung der hohen Frequenzanteile <span class="math notranslate nohighlight">\(2f_c\)</span> und des Gleichanteils.</p>
+</div>
+<p>Diese einfachste Form der Demodulation kommt ohne die aufwendige Erzeugung eines lokalen Trägers aus und ermöglichte deshalb vor hundert Jahren die Verbreitung von Rundfunksendern. Das Verfahren ist allerdings nur bei ausreichend starken Signalen anwendbar und erfordert im Regelfall einen vorhergehenden Verstärker. Hier wird das gesuchte Frequenzband mit einem Bandpass herausgefiltert, anschließend mit einer Diode gleichgerichtet und zum Schluss mit einem Tiefpass geglättet. Der enthaltene Gleichanteil wird gegebenenfalls mit einem Hochpass entfernt.</p>
+<p>Auf Grund der Einfachheit dieses Verfahrens kann das empfangene Signal leicht durch Verzerrungen gestört werden.</p>
+</section>
+</section>
+<section id="phasenmodulation">
+<h2>Phasenmodulation<a class="headerlink" href="#phasenmodulation" title="Link zu dieser Überschrift">#</a></h2>
+<p>Frequenzmodulation und Phasenmodulation hängen mathematisch eng zusammen. Eine Phasenmodulation eines sinusförmigen Trägers kann man sehr einfach ausdrücken. Zunächst der unmodulierte Träger:</p>
+<div class="math notranslate nohighlight">
+\[ s(t) = A_c \cdot \sin(2\pi f_c t + p_0)\]</div>
+<p>Wir können die momentane Phase als Funktion der Zeit schreiben:</p>
+<div class="math notranslate nohighlight">
+\[ p(t)=(\omega_{c}t+p_{0}) \]</div>
+<p>mit der Kreisfrequenz <span class="math notranslate nohighlight">\(\omega_c = 2 \pi f_c\)</span>.</p>
+<p>Nun wird die momentane Phase durch Addition eines Modulators verändert, dadurch entsteht der Ausdruck für eine Phasenmodulation:</p>
+<div class="math notranslate nohighlight">
+\[ y_\mathrm{PM}(t)= A_c \sin\left(2\pi f_c t  +p_0 + M_p m(t)\right)\]</div>
+<p>Dabei ist <span class="math notranslate nohighlight">\(M_{p}\)</span> die Modulationsstärke und <span class="math notranslate nohighlight">\(m(t)\)</span> die modulierende Funktion oder kurz der Modulator, hier die entsprechende Nachricht. Entsprechend:</p>
+<div class="math notranslate nohighlight">
+\[ p(t)=2\pi f_c t+p_{0}+M_{p}m(t)\]</div>
+<p>Man sieht, dass eine Phasenmodulation mathematisch sehr einfach auszudrücken ist.</p>
+</section>
+<section id="frequenzmodulation">
+<h2>Frequenzmodulation<a class="headerlink" href="#frequenzmodulation" title="Link zu dieser Überschrift">#</a></h2>
+<p>Vom heutigen Stand der Technik betrachtet ist die AM allerdings überholt, weil die Qualitätsansprüche gestiegen sind und mit modernen Bauelementen die <strong>Frequenzmodulation (FM)</strong> erheblich einfacher, billiger und leistungssparender gebaut werden können. Außerdem haben die FM einen höheren Dynamikumfang des Informationssignals und ist weniger anfällig gegenüber Störungen. Eine Frequenzmodulation setzt voraus, dass sich die Frequenz ständig ändert. Dieses lässt sich nicht mehr durch einen Term der Form <span class="math notranslate nohighlight">\(\omega_c t = 2\pi f_c t\)</span> ausdrücken, sondern wir müssen den Begriff der momentanen Kreisfrequenz einführen:</p>
+<div class="math notranslate nohighlight">
+\[\omega(t) = \frac{d}{dt}p(t)\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(p(t)\)</span> eine sich verändernde Phase ist. Die <strong>momentane Frequenz</strong> ist also ganz allgemein die zeitliche Ableitung der Phasenfunktion (vgl. in diesem Zusammenhang die Beziehung zwischen Geschwindigkeit und Ort und die Analogie zwischen Phase und Ort bzw. Frequenz und Geschwindigkeit). Eine Frequenzmodulation fordert nun, dass sich die momentane Frequenz verändert:</p>
+<div class="math notranslate nohighlight">
+\[\omega (t)=\omega_c+M_{f} m(t)\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(M_f\)</span> wieder die Modulationstärke ist und <span class="math notranslate nohighlight">\(m(t)\)</span> die modulierende Funktion, bzw. <em>message</em>.</p>
+<p>Für die Berechnung der Kurvenform zu jedem Zeitpunkt benötigen wir jedoch nicht die momentane Frequenz, sondern die Phasenfunktion. Wenn die Frequenz die Ableitung der Phase ist, so ist umgekehrt die Phase das Integral der Frequenz:</p>
+<div class="math notranslate nohighlight">
+\[ p(t)=\int \omega (t)\,\mathrm {d} t \]</div>
+<p>Setzen wir dies nun die Gleichung für momentane Frequenz ein, erhalten wir folglich:</p>
+<div class="math notranslate nohighlight">
+\[ p(t)=\int \omega_c+M_{f} m(t)\,\mathrm {d} t = \omega_c t + p_0 + M_{f} \int  m(t)\,\mathrm {d} t\]</div>
+<p>Damit erhält man für die Frequenzmodulation folgenden Ausdruck:</p>
+<div class="math notranslate nohighlight">
+\[y_\mathrm{FM}(t) = A_c \cdot \sin\left(2\pi f_c t + p_0 + M_f\int m(t) dt \right)\]</div>
+<p>Die Frequenzänderung ist durch die Amplitude des Nachrichtensignals gegeben.</p>
+</section>
+<section id="vergleich-zwischen-pm-und-fm">
+<h2>Vergleich zwischen PM und FM<a class="headerlink" href="#vergleich-zwischen-pm-und-fm" title="Link zu dieser Überschrift">#</a></h2>
+<p>Wir setzen als Beispiel das oben eingeführte sinusförmige Nachrichtensignal, <span class="math notranslate nohighlight">\(m(t) = A_{m} \cdot \sin(2\pi f_\mathrm{m} t)\)</span>, mit <span class="math notranslate nohighlight">\(A_m=1\)</span> und <span class="math notranslate nohighlight">\(A_c=1\)</span> in die PM und FM Formeln ein:</p>
+<div class="math notranslate nohighlight">
+\[ y_\mathrm{PM}(t) = \sin\left(2\pi f_c t  +p_0 + M_p \sin[2\pi f_m t]\right)\]</div>
+<div class="math notranslate nohighlight">
+\[y_\mathrm{FM}(t) = \sin\left(2\pi f_c t + p_0 - \frac{M_f}{2\pi f_m}\cos[2\pi f_m t] \right)\]</div>
+<p>Folgende Eigenschaften können beobachtet werden:</p>
+<ul class="simple">
+<li><p>Der Phasenhub für die Phasenmodulation ist immer noch <span class="math notranslate nohighlight">\(M_{p}\)</span></p></li>
+<li><p>Der Phasenhub für die Frequenzmodulation ist <span class="math notranslate nohighlight">\({\frac {M_{f}}{\omega_m}}\)</span>.</p></li>
+<li><p>Die momentane Frequenz für die Phasenmodulation ist <span class="math notranslate nohighlight">\(\omega_c+M_{p}\omega_m\cos(\omega_m t+p_{m})\)</span></p></li>
+<li><p>Die momentane Frequenz für die Frequenzmodulation ist <span class="math notranslate nohighlight">\(\omega_c+M_{f} \sin \left(\omega _{m}t+p_{m}\right)\)</span></p></li>
+</ul>
+<p>In beiden Fällen findet eine Modulation der Phase statt. Allerdings wirkt bei der Frequenzmodulation nicht der Modulator direkt auf die Phase ein, sondern es ist erst das Integral des Modulators zu rechnen. Das Integral hat eine Tiefpasswirkung. Der Phasenhub wird also bei der Frequenzmodulation mit zunehmender Frequenz des Modulators geringer. Umgekehrt wird der Frequenzhub bei der Phasenmodulation mit niedrig werdender Modulatorfrequenz immer geringer.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># MatplotLib Settings:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
+<span class="c1">#plt.xkcd()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
+<span class="n">A</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">M_p</span> <span class="o">=</span> <span class="mf">4.0</span>
+<span class="n">PM</span> <span class="o">=</span> <span class="n">A</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">ff</span><span class="o">*</span><span class="n">t</span> <span class="o">+</span> <span class="n">M_p</span><span class="o">*</span><span class="n">y_nutz_norm</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Träger&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">PM</span><span class="p">,</span> <span class="s1">&#39;tab:red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.65</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;AM&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y_nutz_norm</span><span class="p">,</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Nachricht&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Phasenmodulation (PM)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.013</span><span class="p">])</span>
+<span class="c1">#plt.ylim([-1.5,1.5])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>
+
+<span class="c1"># FM</span>
+<span class="n">M_f</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">FM</span> <span class="o">=</span> <span class="n">A</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">ff</span><span class="o">*</span><span class="n">t</span> <span class="o">+</span> <span class="n">M_f</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">y_nutz_norm</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Träger&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">FM</span><span class="p">,</span> <span class="s1">&#39;tab:red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.65</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;FM&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y_nutz_norm</span><span class="p">,</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Nachricht&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Frequenzmodulation (FM)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.013</span><span class="p">])</span>
+<span class="c1">#plt.ylim([-1.5,1.5])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/3_Modulationen_8_0.png" src="../../_images/3_Modulationen_8_0.png" />
+</div>
+</div>
+</section>
+<section id="puls-modulation">
+<h2>Puls-Modulation<a class="headerlink" href="#puls-modulation" title="Link zu dieser Überschrift">#</a></h2>
+<p>Häufig werden auch Rechteckpulsfolgen als Trägerschwingung verwendet wie z.B. <a class="reference internal" href="#puls-trager"><span class="std std-numref">Abb. 33</span></a> in dargestellt.</p>
+<figure class="align-default" id="puls-trager">
+<a class="bg-primary mb-1 reference internal image-reference" href="content/script/draw/puls_träger.jpg"><img alt="puls_träger" class="bg-primary mb-1" src="content/script/draw/puls_träger.jpg" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Abb. 33 </span><span class="caption-text">Nachricht und Trägersignal, was auf einer Pulsreihe basiert.</span><a class="headerlink" href="#puls-trager" title="Link zu diesem Bild">#</a></p>
+</figcaption>
+</figure>
+<p>Ähnlich wie bei der Sinusschwingung können auch hier verschiedene Modulationen, dargestellt in <a class="reference internal" href="#pulsmod"><span class="std std-numref">Abb. 34</span></a>,  vorgenommen werden, die größtenteils selbsterklärend sind (wie Pulsamplitudenmodulation oder Pulsdauermodulation). Nur die Pulscode-Modulation ist etwas anders und besonders. Hierbei wird das Messsignal kodiert und besteht aus einer Folge von Pulsgruppen. Diese Aneinanderreihung von Pulsgruppen entspricht einem bestimmten Alphabet. Vorteil dieser Variante ist, dass nur noch zwei Zustände, nämlich 0 und 1, in einer bestimmten Reihenfolge verarbeitet werden müssen. D.h. diese Art von Signalen ist direkt im Computer weiterverarbeitbar, ohne vorangegangen Analog-Digital-Wandlung.</p>
+<figure class="align-default" id="pulsmod">
+<a class="bg-primary mb-1 reference internal image-reference" href="content/script/draw/pulsmod.jpg"><img alt="pulsmod" class="bg-primary mb-1" src="content/script/draw/pulsmod.jpg" style="width: 900px;" /></a>
+<figcaption>
+<p><span class="caption-number">Abb. 34 </span><span class="caption-text">Drei Varianten die Nachricht aus <a class="reference internal" href="#puls-trager"><span class="std std-numref">Abb. 33</span></a> auf eine Pulsreihe zu modulieren: Es kann die Pulsdauer, Pulsamplitude oder als Code moduliert werden.</span><a class="headerlink" href="#pulsmod" title="Link zu diesem Bild">#</a></p>
+</figcaption>
+</figure>
+<p>Auch hier gilt natürlich, dass eine entsprechende Demodulation nachgeschaltet werden muss, um das eigentliche Signal zurück zu gewinnen.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/script"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="3_Kenngroessen.html" title="zurück Seite">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">zurück</p>
+            <p class="prev-next-title">Kenngrößen</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="3_FourierAnalyse.html" title="weiter Seite">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">weiter</p>
+        <p class="prev-next-title">Fourier-Analyse</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Katharina-S. Isleif<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

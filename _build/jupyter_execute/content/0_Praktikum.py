@@ -14,6 +14,34 @@
 # [Hier](0_Praktikum.ipynb) findest du ein Minimal-Beispiel zur Messdatendarstellung und anschließender Fehlerfortpflanzung unter Benutzung von Fit-Parametern.
 # :::
 # 
+# 
+# ## Programme für die Datenanalyse
+# 
+# Für das **Praktikum** müsst ihr [Daten aufnehmen, auswerten und grafisch darstellen](1_Datenanalyse). Hierfür könnt ihr prinzipiell ein Programm eurer Wahl nehmen, wie z.B. 
+# 
+# * [Python](https://www.python.org), frei-erhältlich und die [Tutorials](T_Tutorials) im *Lecture Book* nutzen Python ([Jupyter-Notebooks](https://docs.jupyter.org/en/latest/)). 
+# * [Matlab](https://de.mathworks.com/products/matlab.html) (Lizenzen sind über die HSU erhältlich) 
+# * [QtiPlot](https://qtiplot.com), freil erhältlich
+# * Von einer Datenanalyse in Excel rate ich ab.
+# 
+# ```{warning}
+# Alle Beispiele und Tutorials im *Metrology Lecture Book* benutzen `python` (Jupyter-Notebooks). 
+# ```
+# 
+# ### Programmieren mit Python
+# 
+# Es gibt zahlreiche Tutorials und Lernseiten über Python im Internet, womit ihr Python-Programmierung schnell und einfach lernen könnt. Für die Tutorials benötigt ihr folgende Grundkenntnisse, bzw. lernt sie innerhalb der Tutorials:
+# 
+# * **Basics:** Schleifen, Funktionen, Listen, Tuples, Sets, Dictionaries
+# * **Algebra:** [numpy](https://numpy.org), [scipy](https://scipy.org)
+#   * **Fit/Modellanpassungen:** [lmfit](https://pypi.org/project/lmfit/), [scipy](https://scipy.org) (z.B. curve_fit), [numpy](https://numpy.org) (z.B. polyfit)
+#   * **Spektralanalyse:** [scipy](https://scipy.org) (z.B. rfft)
+# * **Datenverarbeitung:** [pandas](https://pandas.pydata.org) (z.B. DataFrames)
+# * **Datenvisualisierung:** [matplotlib](https://matplotlib.org)
+# 
+# Die einfachste Möglichkeit mit der Python Programmierung zu starten ist das ausführen von [Jupyter-Notebooks](T_Tutorials.ipynb). Hier findet ihr auch eine Sammlung von hilfreichem Jupyter-Notebooks für das Messtechnik-Praktikum.
+# 
+# 
 # ## Grundidee: Messdaten sammeln
 # 
 # Aufgabe der Messtechnik ist es physikalische Messgrößen quantitativ zu beobachten und ist somit wichtiger Bestandteil in der Physik. Eine *quantitative* Beschreibung bedeutet immer, dass eine Messgröße mit einem Zahlenwert, $x$, und einer Maßeinheit, $E$, ausgedrückt wird. Um einen möglichst *guten* Zahlenwert experimentell zu ermitteln, wird neben der konkreten Durchführung ein Großteil der Experimentierzeit damit verbracht das Experiment vorzubereiten und zu planen, aber auch die Daten auszuwerten und darzustellen, Ergebnisse zu überprüfen und ggf. Messungen zu wiederholen. 
@@ -44,14 +72,14 @@
 # Weitere Software ist Qti-Plot (kostenlos) oder Matlab (Lizenzen über HSU verfügbar).
 # 
 # :::{seealso}
-# Das Einlesen und darstellen von Messdaten in `python` lernst du z.B. in diesem [Tutorial](T_Plotten) anhand von echten Klimadaten der NASA. Die Codes auf dieser Seite können direkt benutzt und sogar ausgeführt werden. 
+# Das Einlesen und darstellen von Messdaten in `python` lernst du z.B. in diesem [Tutorial](T_Plotten) anhand von echten Klimadaten der NASA. Die Codes auf dieser Seite können direkt benutzt und ausgeführt werden. 
 # :::
 # 
-# Im Folgenden sind zwei Diagramme dargestellt, die jeweils die gleichen (!) Klima-Messdaten der NASA zeigen. Das zweite Diagram weist einige Defizite: Aufgrund der Darstellung wurde eine lineare Regression über den kompletten Messwertebereich durchgeführt, wodurch der Temperaturanstieg der letzten Jahre um einen Faktor 2 zu gering abgeschätzt wurde! 
+# Im Folgenden sind zwei Diagramme dargestellt, die jeweils die gleichen (!) Klima-Messdaten der NASA zeigen. Das zweite Diagram weist einige Defizite auf... 
 # 
 # `````{admonition} Aufgabe
 # :class: tip
-# Welche anderen Defizite fallen dir im Vergleich zum ersten Bild auf?
+# Welche Defizite fallen dir im 2. Diagramm im Vergleich zum 1. auf?
 # `````
 
 # In[1]:
@@ -125,10 +153,25 @@ plt.grid();
 print(f"Temperaturanstieg pro Jahr (von 1980 bis 2020): {model[0][0]:.3f}°C/Jahr")
 
 
+# :::{admonition} Lösung
+# :class: tip, dropdown
+# * fehlende x-Achsenbeschriftung
+# * y-Achsenbeschriftung ist nicht aussagekräftig
+# * fehlende Einheiten
+# * Legende ist nicht aussagekräftig
+# * keine Fehlerbalken (oder zumindest nicht erkennbar)
+# * y-Achsen-Skalierung ist zu groß gewählt, die Kurve nimmt nur einen sehr kleinen Teil des Diagramms ein
+# * Aufgrund der ungenügenden Darstellung der y-Werte wurde die lineare Regression über den kompletten Messwertebereich durchgeführt, was bei näherer Betrachtung (siehe 1. Bild) eher ungünstig ist.
+# * Aufgrund der fehlerhaften linearen Regression, ist der Temperaturanstieg der letzten Jahre um einen Faktor 2,375 zu gering abgeschätzt wurden! 
+# :::
+# 
+# 
 # ```{seealso}
 # Wie du eine Kurve an deine Messdaten anpasst findet du unter [Kurvenanpassung](1_Kurvenanpassung.ipynb) und [Übungen in Python](T_Tutorials.ipynb).
 # ```
-# 
-# ```{warning}
-# Alle Beispiele und Tutorials im *Metrology Lecture Book* benutzen `python`. 
-# ```
+
+# In[ ]:
+
+
+
+

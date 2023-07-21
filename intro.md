@@ -1,10 +1,15 @@
 # Welcome
 
-Willkommen zur Vorlesung Messtechnik an der HSU. Auf den folgenden Seiten findet ihr begleitende Informationen zur Vorlesung und zum Praktikum. 
+Willkommen im *Metrology Lecture Book*, der vorlesungsbegleitenden Webseite zur Messtechnik an der HSU. 
+Hier findet ihr das Vorlesungsskript und Informationen zu den Übungen, Praktikumsversuchen und eventuell nützliche Jupyter-Notebooks ;). 
 
 ```{warning} 
 Dieses *Metrology Lecture Book* befindet sich aktuell im Aufbau und ihr könnt euch noch nicht auf Vollständigkeit verlassen. 
 ```
+
+Jede Webseite im *Metrology Lecture Book* ist ein eigenes Jupyter-Notebook, was es ermöglicht, Python-Code direkt einzubinden. Wir ihr diesen Code auch selber ausführen könnt, erfahrt ihr hier. 
+
+Um dem **Vorlesungsskript** zu folgen sind **keine Python-Kenntnisse erforderlich**. 
 
 ```{seealso}
 Weitere Infos zum [*Lecture Book*](content/00_jupyter). 
@@ -47,7 +52,7 @@ Einführung in Python und Jupyter-Notebooks.
 :::
 ::::
 
-## Vorlesungsinhalt
+## Vorlesungsthemen
 
 ::::{grid} 1 1 3 3
 :class-container: text-center
@@ -163,6 +168,25 @@ optisch, kapazitiv, piezo-elektrisch, resistiv, magnetisch, gravitativ
 :::
 
 ::::
+
+
+
+## Notizen machen im Online-Skript
+
+**Anmerkungen, Textmarker und Vorlesungsnotizen** können direkt online im Skript erfolgen: 
+* Klickt ganz oben am rechten Seitenrand auf den Pfeil, das Auge oder das Papier.
+* Unter https://hypothes.is/ registrieren bzw. einloggen, wenn bereits ein Account besteht.
+* Ggf. auf https://hypothes.is/ eine neue Gruppe für eigene Notizen erstellen.
+* Auf der Seite die entsprechende Gruppen auswählen, in der ihr Notizen anlegen wollt.
+* Text auf der Seite markieren und ggf. Notizen hinzufügen. 
+
+```{tip}
+Legt eine Gruppe für die Klausurvorbereitung!
+```
+
+```{tip}
+Auf der Webseite https://hypothes.is/ findet ihr eure Kollektion von Notizen und könnt sie direkt als Karteikarten benutzen. 
+```
 
 
 ## Literatur

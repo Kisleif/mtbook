@@ -3,7 +3,7 @@
 
 # # Messen und Einheiten
 # 
-# Ein Messobjekt hat eine bestimmte Messgröße (physikalische Größe, Temperatur, Stormstärke, …) von welcher der Messwert bestimmt werden soll. Hierfür wird ein Verfahren benötigt, um die Größe zu extrahieren, was durch ein passendes Messgerät geschieht. 
+# Ein Messobjekt hat eine bestimmte Messgröße (physikalische Größe, Temperatur, Stromstärke, …) von welcher der Messwert bestimmt werden soll. Hierfür wird ein Verfahren benötigt, um die Größe zu extrahieren, was durch ein passendes Messgerät geschieht. 
 # 
 # In {numref}`messgroesse` wird ist das Beispiel einer Temperaturmessung gezeigt. An einem bestimmten Ort herrschende **Messgröße**, hier 24,1286941…°C, wird mittels eines geeigneten Aufbaus in einen **Messwert** von 25,01°C überführt. 
 # Der Messwert kann uns direkt angezeigt werden oder er kann in nachfolgenden elektronischen Systemen zur Weiterverarbeitung in geeigneter Form zugeführt werden. 
@@ -14,7 +14,7 @@
 # Darstellung der Messkette.
 # :::
 # 
-# Von einem **Messsignal**, $x_1$ (im Gegensatz zur Begrifflichkeit *Messgröße*) spricht man, wenn direkt mit der Messgröße zusammenhängende elektrische Signale zwischen den beiden Stellen, an denen Messgröße und Messwert anfallen, gemessen werden (zum Beispiel das Kabel in der Skizze). Messsignale tragen die Information über die Messgröße, welche auf unterschiedlichste Weise realisiert werden z.B. als analoger Spanungs- oder Stromwert, als frequenzmoduliertes Signal, als Digitalwort oder ähnliches.
+# Von einem **Messsignal**, $x_1$ (im Gegensatz zur Begrifflichkeit *Messgröße*) spricht man, wenn direkt mit der Messgröße zusammenhängende elektrische Signale zwischen den beiden Stellen, an denen Messgröße und Messwert anfallen, gemessen werden (zum Beispiel das Kabel in der Skizze). Messsignale tragen die Information über die Messgröße, welche auf unterschiedlichste Weise realisiert werden z.B. als analoger Spannungs- oder Stromwert, als frequenzmoduliertes Signal, als Digitalwort oder ähnliches.
 # 
 # Wird ein Messwert, $y$, bestimmt, so entspricht dieser im Rahmen der Messtechnik einem Vielfachen, $n$, von einer Einheit, $E$:
 # 
@@ -23,7 +23,7 @@
 # Ein Messgerät bestimmt ein Vielfaches einer Einheit. Damit dies überall auf der Welt gleich gut funktioniert muss ein Messgerät entsprechend *geeicht* oder *kalibriert* werden. 
 # Außerdem gibt es auch noch den Begriff des *Justierens*. Dieser beschreibt die Anpassung eines Messgerät an verschiedene Umgebungen. Evtl. müssen Messgeräte bei unterschiedlichen Temperaturen anders behandelt werden und entsprechend *einjustiert* werden.
 # 
-# Häufig werden Prozesse in der Messtechnik mittels **Blockdiagrammen** dargestellt, wie {numref}`messsystem_block` in dargestellt.
+# Häufig werden Prozesse in der Messtechnik mittels **Blockdiagrammen** dargestellt, wie in {numref}`messsystem_block` in dargestellt.
 # 
 # :::{figure-md} messsystem_block
 # <img src="draw/messsystem.jpg" alt="messsystem" width="600px" label = messsystem_block>
@@ -113,6 +113,39 @@ print('relative Messabweichung der Cheops-Pyramide: ', relative_abweichung*100, 
 
 # ### SI-Einheiten 
 # 
+# ::::::{margin}
+# :::::{grid}
+# ::::{grid-item-card}
+# :class-header: bg-light
+# SI-System: Die Basiseinheiten des SI-Systems I (Lehrer-Online)
+# 
+# <iframe width="200" height="113" src="https://www.youtube.com/embed/bELd5_zkhKQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+# ::::
+# :::::
+# ::::::
+# 
+# ::::::{margin}
+# :::::{grid}
+# ::::{grid-item-card}
+# :class-header: bg-light
+# SI-System: Die Basiseinheiten des SI-Systems II (Lehrer-Online)
+# 
+# <iframe width="200" height="113" src="https://www.youtube.com/embed/-mSO24hkRxE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+# ::::
+# :::::
+# ::::::
+# 
+# ::::::{margin}
+# :::::{grid}
+# ::::{grid-item-card}
+# :class-header: bg-light
+# Learn the Metric System in 5 minutes (englisch) (MooMooMath and Science)
+# 
+# <iframe width="200" height="113" src="https://www.youtube.com/embed/5iXyyQBGl-Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+# ::::
+# :::::
+# ::::::
+# 
 # Im Rahmen der Meterkonvention im Jahr 1960 wurde das **Internationale Einheitensystem**, kurz SI, benannt nach „le Système Internationale d’unités“, eingeführt. Die Definitionen der Basiseinheiten basierten nach wie vor teilweise auf materiellen Prototypen (bis 2019 war dies tatsächlich beim Kilogramm der Fall). Das SI basiert auf der Idee, dass sich im Prinzip alle relevanten Messgrößen über physikalische Gesetze auf genau 7 Basisgrößen zurückführen lassen. Diese 7 Basisgrößen sind die Basiseinheiten, aus denen alle weiteren Einheiten abgeleitet werden können:
 # 
 # 
@@ -140,6 +173,17 @@ print('relative Messabweichung der Cheops-Pyramide: ', relative_abweichung*100, 
 # 
 # ```{admonition} Das Ur-Kilo in Paris
 # :class: dropdown
+# 
+# ::::::{margin}
+# :::::{grid}
+# ::::{grid-item-card}
+# :class-header: bg-light
+# Das Urkilogramm geht in Rente | Gut zu wissen (Bayerischer Rundfunk)
+# 
+# <iframe width="200" height="113" src="https://www.youtube.com/embed/bu-wGOhw1Zw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+# ::::
+# :::::
+# ::::::
 # 
 # Mit Ausnahme des Kilogramms wurden bis vor Kurzem alle Basiseinheiten über reproduzierbare Experimente eindeutig festgelegt. Die Sekunde ist zum Beispiel darüber definiert, als das sie das 9192631770-fache der Periodendauer einer bestimmten Strahlung ist, nämlich der des Übergangs zwischen den beiden Hyperfeinstrukturniveaus des Grundzustands von Atomen des Nuklids 133-Cäsium. Im Prinzip könnte sich also jeder das Element Cäsium besorgen, eine Atomuhr betreiben, und somit seine Sekunde zuhause definieren. Oder man spart sich die Arbeit und sucht eine der Kalibrierbehörden auf. 
 # 1983 wird die Länge eines Meters als "jene Wegstrecke, die das Licht im Vakuum während der Dauer von 1/299792458-tel einer Sekunde zurücklegt", festgelegt. Somit war das Meter die erste Einheit, welche durch eine Naturkonstanten, nämlich die Lichtgeschwindigkeit c = 299792458 m/s definiert, bzw. festgelegt wurde. Andere Einheiten waren in der Praxis schwieriger umzusetzen, wie z.B. das Ampere. Für die Definition eines Amperes wurde die Kraft zwischen 2 stromdurchflossenen Leitern gemessen, was extrem unpraktisch ist. 
@@ -169,7 +213,7 @@ print('relative Messabweichung der Cheops-Pyramide: ', relative_abweichung*100, 
 # 
 #     $$1\,\mathrm m = \frac{c}{299 792 458} s = 30,663318...\frac{c}{\Delta \nu_\mathrm{133Cs}}$$
 # 
-# * Die **Candela** wird von der photometrische Strahlungsäquivalent $\mathrm K_\mathrm{cd}$ (ebenfalls eine Naturkonstante) abgeleitet. Sie wird über die SI-Einheiten kg, m, s und Steradiant (sr = m$^2$/m$^2$) definiert.
+# * Die **Candela** wird vom photometrischen Strahlungsäquivalent $\mathrm K_\mathrm{cd}$ (ebenfalls eine Naturkonstante) abgeleitet. Sie wird über die SI-Einheiten kg, m, s und Steradiant (sr = m$^2$/m$^2$) definiert.
 # 
 # Anders sieht es bei den weiteren vier Basiseinheiten aus, für die Naturkonstanten gefunden und festgelegt wurden:
 # 
@@ -198,7 +242,7 @@ print('relative Messabweichung der Cheops-Pyramide: ', relative_abweichung*100, 
 # ### Abgeleitete / Ergänzende SI-Einheiten
 # <a id="SubSec-Abgeleitete_Ergänzende_SI-Einheiten"></a>
 # 
-# SI umfasst auch eine Aufzählung weiterer Einheiten, welche von den 7 Basiseinheiten, oder über physikalische Gesetzmäßigkeiten, abgeleitetet werdem können. Hier nur einige Beispiele:
+# SI umfasst auch eine Aufzählung weiterer Einheiten, welche von den 7 Basiseinheiten, oder über physikalische Gesetzmäßigkeiten, abgeleitetet werden können. Hier nur einige Beispiele:
 # * 1 Hz (Hertz für Frequenz) = 1/s
 # * 1 N (Newton für Kraft) = kgm/s$^2$
 # * 1 Pa (Pascal für Druck) = 1 N/m$^2$ = 1 kg/ms$^2$
@@ -208,16 +252,16 @@ print('relative Messabweichung der Cheops-Pyramide: ', relative_abweichung*100, 
 # * 1 H (Henry für Induktivität) = 1 Vs/A = 1 kgm$^2$/s$^2$A$^2$
 # * 1 F (Farad für Kapazität) = 1 As/V = 1 s$^4$A$^2$/kgm$^2$
 # 
-# Zwischen verschiedenen physikalischen Teildisziplinen kann nun auch mit den Einheiten hin und her jongliert werden. So kommt die Leistung (W) sowohl in mechanischen, als auch auch elektrische Gesetzmäßigkeiten vor. Man kann durch die elektrische Spannung (V) durch eine Kombination des Amperes (elektrische Basiseinheit) mit mechanischen verknüpfen. 
+# Zwischen verschiedenen physikalischen Teildisziplinen kann nun auch mit den Einheiten hin und her jongliert werden. So kommt die Leistung (W) sowohl in mechanischen, als auch elektrischen Gesetzmäßigkeiten vor. 
 # 
 # Ergänzende Einheiten im SI-System sind beispielsweise:
-# * 1 rad (Radiant) = 1 m/m, welches der ebene Winkel zwischen zwei Radien eines Kreises ist, falls der dadruch beschriebene Kreisbogen genauso groß ist wie der Radius. Der Umfang eines Kreises ist bekannterweise $2\pi \cdot r$, wobei $r$ der Kreisradius ist. Dadurch entspricht eine komplette Drehung einem Winkel von $2\pi\,\mathrm{rad}$
-# * 1 sr (Steradiant) = 1 m$^2$/m$^2$ ist der räumliche Winkel (analog zum Radiant). Dieser schließt mit der Kugelmitte als Scheitelpunkt eine Fläche auf der Kugeloberfläche sein. Diese Fläche ist quadratisch mit einer Seitenlänge die dem Kugelradius entspricht. Die Einheit kann also ebenfalls auf Basiseinheiten zurückgeführt werden, hier 1 sr = m$^2$/m$^2$.
+# * 1 rad (Radiant) = 1 m/m, welches der ebene Winkel zwischen zwei Radien eines Kreises ist, falls der dadurch beschriebene Kreisbogen genauso groß ist wie der Radius. Der Umfang eines Kreises ist bekannterweise $2\pi \cdot r$, wobei $r$ der Kreisradius ist. Dadurch entspricht eine komplette Drehung einem Winkel von $2\pi\,\mathrm{rad}$
+# * 1 sr (Steradiant) = 1 m$^2$/m$^2$ ist der räumliche Winkel (analog zum Radiant). Dieser schließt mit der Kugelmitte als Scheitelpunkt eine Fläche auf der Kugeloberfläche ein. Diese Fläche ist quadratisch mit einer Seitenlänge die dem Kugelradius entspricht. Die Einheit kann also ebenfalls auf Basiseinheiten zurückgeführt werden, hier 1 sr = m$^2$/m$^2$.
 
 # ### Nicht-SI-Einheiten
 # <a id="SubSec-Nicht-Si-Einheiten"></a>
 # 
-# Es gibt diverse zusätzliche Einheiten, welche keine offiziellen SI-Einheiten sind, aber aufgrund ihrer großen Beliebheit und Handbarkeit gerne benutzt werden. Im Allgemeinem gibt es aber immer Zusammenhänge zu den SI-Einheiten, sodass sie sich in solche umformen lassen. Beispiele sind z.B.:
+# Es gibt diverse zusätzliche Einheiten, welche keine offiziellen SI-Einheiten sind, aber aufgrund ihrer großen Beliebtheit und Handhabbarkeit gerne benutzt werden. Im Allgemeinen gibt es aber immer Zusammenhänge zu den SI-Einheiten, sodass sie sich in solche umformen lassen. Beispiele sind z.B.:
 # * Grad Celsius: 1°C = K + 273,15
 # * Grad Fahrenheit: 9/5 K - 459,67
 # * Minute: 1 min = 60 s
@@ -227,7 +271,7 @@ print('relative Messabweichung der Cheops-Pyramide: ', relative_abweichung*100, 
 # * Tonne: 1 t  10$^3$ kg
 # * Bar: 1 bar = 10$^5$ Pa
 # 
-# Dann gibt es noch historisch gewachsene Einheiten, wie z.B. die Meile, yard, foot, inch, once, pound, gallon, welche sich analog in SI-Einheiten umrechnen lassen. Diese Umrechnung ist global nicht immer die gleiche und es existieren für dieselbe Einheit unterschiedliche Umrechnungen (USA und UK sind hier die wohl bekanntesten Beispiele). Doch auch je nach Anwednungsgebiet gibt es Unterschiede:
+# Dann gibt es noch historisch gewachsene Einheiten, wie z.B. die Meile, yard, foot, inch, once, pound, gallon, welche sich analog in SI-Einheiten umrechnen lassen. Diese Umrechnung ist global nicht immer die gleiche und es existieren für dieselbe Einheit unterschiedliche Umrechnungen (USA und UK sind hier die wohl bekanntesten Beispiele). Doch auch je nach Anwendungsgebiet gibt es Unterschiede:
 # * 1 mile = 1 Landmeile = 1.609,344 m (US)
 # * 1 nautical mile = 1 Seemeile (oder Luftfahrt) = 1.853,2 m (UK)
 # * 1 mile = exakt 1.852 m (international)
@@ -242,7 +286,7 @@ print('relative Messabweichung der Cheops-Pyramide: ', relative_abweichung*100, 
 
 # ### Vorsätze und Präfix im SI
 # 
-# Zum SI, bzw. prinzipiell angewendet in allen anderen Einheiten, sind sogenannte Präfixe / Vorsätze definiert. Teile oder Vielfach von SI-Einheiten können in Kurzform geschrieben werden, was das Lesen erleichtert. So können besonders große oder besonders kleine Zahlen übersichtlicher dargestellt werden. Dafür muss der oder die Forschende oder Ingeneur:in lediglich ein paar Vokabeln können.
+# Zum SI, bzw. prinzipiell angewendet in allen anderen Einheiten, sind sogenannte Präfixe / Vorsätze definiert. Teile oder Vielfache von SI-Einheiten können in Kurzform geschrieben werden, was das Lesen erleichtert. So können besonders große oder besonders kleine Zahlen übersichtlicher dargestellt werden. Dafür muss der oder die Forschende oder Ingeneur:in lediglich ein paar Vokabeln können.
 # 
 # ::::::{margin}
 # :::::{grid}
@@ -293,6 +337,17 @@ print('relative Messabweichung der Cheops-Pyramide: ', relative_abweichung*100, 
 # ::::
 
 # ### Logarithmische Einheiten
+# 
+# ::::::{margin}
+# :::::{grid}
+# ::::{grid-item-card}
+# :class-header: bg-light
+# Logarithmische Achsen – Grundlagen (horizontale Achse) (Mathe - simpleclub)
+# 
+# <iframe width="200" height="113" src="https://www.youtube.com/embed/tC3vqTB_IrA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+# ::::
+# :::::
+# ::::::
 # 
 # In der Messtechnik können unter Umständen Messwerte in ganz unterschiedlichen Größenordnungen anfallen. Daher haben wir uns ja im Kapitel vorher die Präfixe bzw. Vorsätze angesehen. Für eine Darstellung im Diagramm, bei dem die Achsen typischerweise eine feste Einheit besitzen, wird es dennoch schwierig, die Gesamtheit der Messreihe übersichtlich darzustellen. Daher bedient man sich häufig der logarithmischen Darstellung, welche im ersten Moment relativ umständlich und kompliziert erscheint, aber einen hohen Nutzen hat. Diese Darstellung ist auch im SI-System vorgesehen.
 
@@ -363,7 +418,7 @@ plt.savefig('log_plot1.png')
 plt.savefig('log_plot1.pdf')
 
 
-# Der eigentlich Messwert auf einen wohl definierten Referenzwert bezogen wird. Man bildet also den Quotienten aus Messwert und Referenzwert, $P/P_\mathrm{ref}$ (bei Leistungen) oder $U/U_\mathrm{ref}$ bei Spannungen. Danach werden diese Quotienten logarithmiert, *fast ausschließlich* mit der 10er-Logarithmus (log). Der neue Wert ist per Definition einheitenlos, wird aber die Einheit **Dezibel** (dB) zugeordnet, also das Zehntel eines **Bels**. Ganz selten wird der natürlich Logarithmus benutzt, dann wird die Einheit Neper (Np) angewendet. 
+# Der eigentlich Messwert wird auf einen wohl definierten Referenzwert bezogen. Man bildet also den Quotienten aus Messwert und Referenzwert, $P/P_\mathrm{ref}$ (bei Leistungen) oder $U/U_\mathrm{ref}$ bei Spannungen. Danach werden diese Quotienten logarithmiert, *fast ausschließlich* mit der 10er-Logarithmus (log). Der neue Wert ist per Definition einheitenlos, wird aber die Einheit **Dezibel** (dB) zugeordnet, also das Zehntel eines **Bels**. Ganz selten wird der natürlich Logarithmus benutzt, dann wird die Einheit Neper (Np) angewendet. 
 # 
 # In der Messtechnik hat es sich etabliert (ungeschriebenes Gesetz), dass in erster Linie Leistungen gemäß der eben beschriebenen Gesetzmäßigkeit in der Einheit dB umgewandelt werden, man spricht hierbei von der **Leistungsgröße**:
 # 
@@ -406,28 +461,40 @@ print('Pegel in dB: ', P_dB, '(%.3f)' %(P_ref))# In diesem Code Block können Um
 # ## Kalibrieren und Eichen (und Prüfen)
 # <a id="Sec-Kalibrieren_und_Eichen_und_Prüfen"></a>
 # 
-# Es gibt verschiedene Sprachlichkeiten in der Messtechnik, die im folgenden einmal kurz definiert werden, da es hier in der Umgangssprache häufig zu Unkorrektheiten kommt. Der Unterschied zwischen *messen* und *prüfen* ist nicht immer klar. Im technischen Bereich versteht man unter **prüfen**, ob ein Prüfgegenstand bestimmte Vorgaben erfüllt. Diese werden dann auch in Form von Prüfbedingungen spezifiziert. Zum Beispiel kann man auf elektromagnetische Verträglichkeit (EMV) prüfen., diese werden in Normen festgehalten, welche wiederum ganz konkrete Randbedingungen für Messaufbauten - zur Messung von elektromagnetischen Störungen - bei Messgeräten gegeben sein müssen. Messgeräte können also darauf geprüft werden, ob diese Normen eingehalten werden und die Messungen entsprechend durchgeführt und ausgeführt werden. Prüfen ist also etwas mehr, als nur das Messen einer Größe. 
+# Es gibt verschiedene Sprachlichkeiten in der Messtechnik, die im Folgenden einmal kurz definiert werden, da es hier in der Umgangssprache häufig zu Unkorrektheiten kommt. Der Unterschied zwischen *messen* und *prüfen* ist nicht immer klar. Im technischen Bereich versteht man unter **prüfen**, ob ein Prüfgegenstand bestimmte Vorgaben erfüllt. Diese werden dann auch in Form von Prüfbedingungen spezifiziert. Zum Beispiel kann man auf elektromagnetische Verträglichkeit (EMV) prüfen. Diese werden in Normen festgehalten, welche wiederum ganz konkrete Randbedingungen für Messaufbauten - zur Messung von elektromagnetischen Störungen - bei Messgeräten gegeben sein müssen. Messgeräte können also darauf geprüft werden, ob diese Normen eingehalten werden und die Messungen entsprechend durchgeführt und ausgeführt werden. Prüfen ist also etwas mehr, als nur das Messen einer Größe. 
 # 
 # ### Kalibrieren und Eichen
 # <a id="SubSec-Kalibrieren_und_Eichen"></a>
 # 
-# Messsysteme haben bekannterweise Messgenauigkeiten (darauf kommen wir später noch mal zurück), welche eine Messung limitieren. Die erzielbare Messgenauigkeit kann werksseitig während des Herstellprozesses oder später, in der gewünschten Testumgebung, verbessert werden. Hierzu benötigt man eine *bekannte* Referenz, die an das Messgerät angeschlossen werden kann. Nun kann das Messsystem entweder eingestellt werden, sodass der angezeigt Messwert möglichst genau dem *bekannten* Referenzwert entspricht. Dieses Verfahren nennent man auch **Justieren** oder **Kalibrieren**.
+# ::::::{margin}
+# :::::{grid}
+# ::::{grid-item-card}
+# :class-header: bg-light
+# Messgeräte kalibrieren | Was ist der Unterschied zwischen Kalibrierung, Eichung und Justage? (WIKA Gruppe)
+# 
+# <iframe width="200" height="113" src="https://www.youtube.com/embed/QJuB-Sijdu0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+# ::::
+# :::::
+# ::::::
+# 
+# Messsysteme haben bekannterweise Messgenauigkeiten (darauf kommen wir später noch mal zurück), welche eine Messung limitieren. Die erzielbare Messgenauigkeit kann werksseitig während des Herstellprozesses oder später, in der gewünschten Testumgebung, verbessert werden. Hierzu benötigt man eine *bekannte* Referenz, die an das Messgerät angeschlossen werden kann. Nun kann das Messsystem entweder eingestellt werden, sodass der angezeigte Messwert möglichst genau dem *bekannten* Referenzwert entspricht. Dieses Verfahren nennt man auch **Justieren** oder **Kalibrieren**.
 # 
 # :::{figure-md} eichung
 # <img src="draw/eichung.jpg" alt="eichung" class="bg-primary mb-1" width="600px" label = eichung>
 # 
-# Die Kalibrierung eines Messystems kann auf zwei Arten und Weisen entstehen: Entweder durch den Vergleich mit einem zusätzlichem Präzisionsmessgerät (links) oder durch Vermessung eines *Normals*, was den *wahren* Wert wiederspiegelt (rechts). 
+# Die Kalibrierung eines Messystems kann auf zwei Arten und Weisen entstehen: Entweder durch den Vergleich mit einem zusätzlichen Präzisionsmessgerät (links) oder durch Vermessung eines *Normals*, was den *wahren* Wert wiederspiegelt (rechts). 
 # :::
 # 
-# Unter dem Begriff **Eichen** hingegen versteht man die Prüfung und Stempelung eines Messgeräts, welches nach gesetzlichen Eichvorschriften erfolgt ist. Geeicht werden müssen Messsysteme, die im gewerblichen Verkehr oder Handel eingesetzt werden sollen, wie z.B. eine Obst- und Gemüsewaage an der Kasse eines Supermarktes. Dem Verbraucher wird damit eine bestimmte Sicherheit gegeben, dass die Waage - innerhalb bestimmter Grenzen - genau arbeitet. In Deutschland existiert dafür die sogenannten *Eichordnung*.
+# Unter dem Begriff **Eichen** hingegen versteht man die Prüfung und Stempelung eines Messgeräts, welches nach gesetzlichen Eichvorschriften erfolgt ist. Geeicht werden müssen Messsysteme, die im gewerblichen Verkehr oder Handel eingesetzt werden sollen, wie z.B. eine Obst- und Gemüsewaage an der Kasse eines Supermarktes. Dem Verbraucher wird damit eine bestimmte Sicherheit gegeben, dass die Waage - innerhalb bestimmter Grenzen - genau arbeitet. In Deutschland existiert dafür die sogenannten *Mess- und Eichverordnung*
+# (Die Mess- und Eichverordnung löste 2015 die *Eichordnung* ab, um sich internationalen Standards anzupassen).
 # Da das Eichen ein hoheitlicher Akt ist, kann es nur in vom Statt autorisierten Behörden durchgeführt werden, in den sogenannten Eichämtern, und muss in bestimmten Abständen wiederholt werden. Um generell eine möglichst gute Genauigkeit und hohe Manipulationssicherheit sicherzustellen, werden die meisten Messgeräte bereits während des Herstellungsprozesses kalibirert oder geeicht. In Deutschland macht dies häufig die Physikalisch-Technische Bundesanstalt (PTB) in Braunschweig und Berlin. 
 
 # ### Normale
 # <a id="SubSec-Normale"></a>
 # 
 # Normale sind Maßverkörperungen, welche einfach handhabbar sind und von Basisgrößen abzuleiten sind. 
-# Wir wissen, dass die Basiseinheiten - bzw. die von ihnen ableitende Einheiten - über atomare Naturkonstanten definiert sind. Dies ist in der Praxis allerdings sehr unpraktisch und in Betrieben nicht realisierbar. 
-# Im BIPM (Internationales Büro für Maß und Gewicht) werden praktisch anwendbare **Primärnormale** direkt von Basisgrößen abgeleitet und hergestellt. Diese werden ständig überwacht um deren Genauigkeit sicherzustellen. Für so ziemlich jede Messgröße existieren solche Primärnormale, wie z.B. für Ohm, Volt, Henry, Farad usw.
+# Wir wissen, dass die Basiseinheiten - bzw. die von ihnen abgeleiteten Einheiten - über atomare Naturkonstanten definiert sind. Dies ist in der Praxis allerdings sehr unpraktisch und in Betrieben nicht realisierbar. 
+# Im BIPM (Internationales Büro für Maß und Gewicht) werden praktisch anwendbare **Primärnormale** direkt von Basisgrößen abgeleitet und hergestellt. Diese werden ständig überwacht, um deren Genauigkeit sicherzustellen. Für so ziemlich jede Messgröße existieren solche Primärnormale, wie z.B. für Ohm, Volt, Henry, Farad usw.
 # Alle Staaten, die damals bei der Generalkonferenz für Maß und Gewicht den Vertrag unterzeichnet haben, erhalten jeweils ein solches Primärnormal. Von diesen werden dann sogenannte **Sekundärnormale** innerhalb der Staaten abgeleitet, welche dann wiederum zur Eichung von betrieblichen Arbeitsnormalen in Eichlaboren (oder Behören oder Ämtern) zur Verfügung stehen. 
 # **Arbeitsnormale**, abgeleitet von den Skundärnormalen, werden in Firmen verwendet, um ihre betrieblichen Messmittel eigenhändig kalibrieren zu können. 
 # 

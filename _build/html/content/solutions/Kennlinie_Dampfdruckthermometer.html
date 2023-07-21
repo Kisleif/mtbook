@@ -1,0 +1,1263 @@
+
+<!DOCTYPE html>
+
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Lösung: Systematische Messabweichung &#8212; Metrology Lecture Book</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
+    <link rel="search" title="Suche" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="de">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/i_mt.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Metrology Lecture Book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00_jupyter.html">
+   Über dieses Skript
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Vorlesungsskript
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01_Messtechnik.html">
+   Messtechnik
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1_Messen_Einheit.html">
+     Messen und Einheiten
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01_Datenanalyse.html">
+   Messabweichung
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1_Messunsicherheiten.html">
+     Quellen und Ursachen von Messunsicherheiten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1_Mittelwert_StdAbw.html">
+     Statistische Messunsicherheit
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1_Fehlerfortpflanzung.html">
+     Fortpflanzung von Messunsicherheiten
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01_Kurvenanpassung_intro.html">
+   Kurvenanpassung
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1_Interpol_Approx.html">
+     Interpolation vs. Anpassung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1_Kurvenanpassung.html">
+     Anpassung und lineare Regression
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02_Stationaer.html">
+   Stationäre Messsysteme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2_Messsystem.html">
+     Grundstruktur eines Messsystems
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2_idealeKennlinie.html">
+     Ideale Kennlinie
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2_realeKennlinie.html">
+     Reale Kennlinie
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03_Messsignale.html">
+   Messsignale
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../3_basics.html">
+     Grundlagen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../3_Kenngroessen.html">
+     Kenngrößen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../3_Modulationen.html">
+     Modulation von Messsignalen
+     <a id="SubSec-Information">
+     </a>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../3_FourierAnalyse.html">
+     Fourier-Analyse
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../3_Digital.html">
+     Digitalisierung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../05_Dynamische_Messsysteme.html">
+   Dynamische Messsysteme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../5_LTI.html">
+     Linear zeitinvariante (LZI/LTI) Systeme
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../5_DGL.html">
+     Systeme chatakterisieren im Zeitraum
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../5_Uebertragungsfunktion.html">
+     Übertragungsfunktion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../5_Faltung.html">
+     Faltung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../5_Rauschen.html">
+     Rauschen und spektrale Dichte
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../04_ElektrischeGroessen.html">
+   Messen elektrischer Größen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4_U-Messeingang.html">
+     Spannungsmesseingang
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4_I-Messeingang.html">
+     Strommesseingang
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4_OP.html">
+     Operationsverstärker (OP)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4_P-Messung.html">
+     Leistungsmessung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4_R-Messung.html">
+     Widerstandsmessung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4_CL-Messung.html">
+     Messung von Kapazitäten und Induktivitäten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4_F-Messung.html">
+     Frequenz- und Zeitmessung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../6_Sensoren.html">
+   Sensoren
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../6_Einf%C3%BChrung.html">
+     Einführung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../6_DMS.html">
+     Dehnungsmessstreifen (DMS)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../6_PZT.html">
+     Piezoelektrische Sensoren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../6_GPS.html">
+     Satellitennavigationssysteme
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../6_Kapazitiv.html">
+     Kapazitive und Induktive Sensoren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../6_Temp.html">
+     Temperaturmessungen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../6_Radar.html">
+     Radar
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../6_Ifo.html">
+     Laserinterferometrie
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Übungen &amp; Tutorials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Aufgabenpool.html">
+   Aufgabenpool
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Messen_Einleitung.html">
+     Messen von Zeit, Länge, Masse, Strom, Temperatur, Lichtstärke und Stoffmenge
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Kennlinie_Dampfdruckthermometer.html">
+     Dampfdruckthermometer
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SystematischeMessabweichung_Messschaltung.html">
+     Systematische Messabweichung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../T_Tutorials.html">
+   Jupyter Notebooks
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../T_Plotten.html">
+     Messdaten analysieren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../T_Fehlerfortpflanzung.html">
+     Fehlerfortpflanzung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../T_LinReg.html">
+     Vergleich verschiedener Fit-Funktionen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../T_FitmitFehlerbalken.html">
+     Lineare Regression mit Berücksichtigung von Fehlerbalken
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../T_Spektralanalyse_Audio.html">
+     Fourier-Transformation: Entfernung von Hintergrundrauschen in einem Audiosignal
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/Kisleif/mtbook/main?urlpath=tree/content/solutions/Kennlinie_Dampfdruckthermometer.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/Kisleif/mtbook/blob/main/content/solutions/Kennlinie_Dampfdruckthermometer.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/Kisleif/mtbook"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/Kisleif/mtbook/issues/new?title=Issue%20on%20page%20%2Fcontent/solutions/Kennlinie_Dampfdruckthermometer.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/Kisleif/mtbook/edit/main/content/solutions/Kennlinie_Dampfdruckthermometer.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/content/solutions/Kennlinie_Dampfdruckthermometer.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#losung-1-materialkonstanten-bestimmen">
+   Lösung 1: Materialkonstanten bestimmen
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dampfdruckkurve-von-wasser-a-id-u21-a-a">
+     Dampfdruckkurve von Wasser
+     <a id="Ü21.a">
+     </a>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#losung-2-empfindlichkeit-des-dampfdruckthermometers">
+   Lösung 2: Empfindlichkeit des Dampfdruckthermometers
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fur-wasser">
+     … für Wasser
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fur-tiefsiedende-flussigkeiten-a-id-u21-c-a">
+     … für tiefsiedende Flüssigkeiten
+     <a id="Ü21.c">
+     </a>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#losung-4-ubergang-zum-gasthermometer-a-id-u21-e-a">
+   Lösung 4: Übergang zum Gasthermometer
+   <a id="Ü21.e">
+   </a>
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Lösung: Systematische Messabweichung</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#losung-1-materialkonstanten-bestimmen">
+   Lösung 1: Materialkonstanten bestimmen
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dampfdruckkurve-von-wasser-a-id-u21-a-a">
+     Dampfdruckkurve von Wasser
+     <a id="Ü21.a">
+     </a>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#losung-2-empfindlichkeit-des-dampfdruckthermometers">
+   Lösung 2: Empfindlichkeit des Dampfdruckthermometers
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fur-wasser">
+     … für Wasser
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fur-tiefsiedende-flussigkeiten-a-id-u21-c-a">
+     … für tiefsiedende Flüssigkeiten
+     <a id="Ü21.c">
+     </a>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#losung-4-ubergang-zum-gasthermometer-a-id-u21-e-a">
+   Lösung 4: Übergang zum Gasthermometer
+   <a id="Ü21.e">
+   </a>
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="losung-systematische-messabweichung">
+<h1>Lösung: Systematische Messabweichung<a class="headerlink" href="#losung-systematische-messabweichung" title="Link zu dieser Überschrift">#</a></h1>
+<p>Prof. Dr. rer. nat. Katharina-Sophie Isleif</p>
+<p>Helmut-Schmidt-Universität</p>
+<hr class="docutils" />
+<blockquote>
+<div><p>Dies ist eine interaktive Lösung in Form eines Jupyter Notebooks. Lade das Jupyter Notebook herunter und öffne es mit JupyterLab.
+Grundkenntnisse in <em>python</em> sind hilfreich, werden aber nicht zwingend benötigt.
+Kompiliere jede Zelle, die Code enthält, mit <em>Shift+Enter</em> und alle Berechnungen sollten funktionieren.
+Es gibt andere Tutorials, um <em>python</em>-Kenntnisse oder den Umgang mit den Paketen
+<em>numpy</em> und <em>matplotlib</em> zur Visualisierung und Auswertung von Daten zu vertiefen.</p>
+</div></blockquote>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># In diesem Code-Block werden ein paar wichtige Libraries geladen.</span>
+<span class="c1"># Code-Blocks erkennst du an der Hintergrundfarbe dieser Zelle.</span>
+<span class="c1"># Einfach mal hier rein klicken und per &quot;Shift+Enter&quot; ausführen. </span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">import</span> <span class="n">figure</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;legend.fontsize&#39;</span><span class="p">:</span> <span class="s1">&#39;x-large&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;figure.figsize&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+          <span class="s1">&#39;axes.labelsize&#39;</span><span class="p">:</span> <span class="s1">&#39;x-large&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;axes.titlesize&#39;</span><span class="p">:</span><span class="s1">&#39;x-large&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;xtick.labelsize&#39;</span><span class="p">:</span><span class="s1">&#39;x-large&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;ytick.labelsize&#39;</span><span class="p">:</span><span class="s1">&#39;x-large&#39;</span><span class="p">}</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="o">%</span><span class="k">pylab</span> inline
+<span class="c1">#plt.xkcd() # plots in xkcd-style</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>%pylab is deprecated, use %matplotlib inline and import the required libraries.
+Populating the interactive namespace from numpy and matplotlib
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der Dampfdruck, <span class="math notranslate nohighlight">\(p_\mathrm D\)</span>, ist der Druck, der sich einstellt, wenn sich in einem abgeschlossenen System ein Dampf mit der zugehörigen flüssigen Phase im thermodynamischen Gleichgewicht befindet. Für verschiedene Temperaturen folgt die Dampfdruckkurve der Exponentialfunktion</p>
+<div class="math notranslate nohighlight">
+\[ p_\mathrm{D} = c \cdot \mathrm{e}^{-\frac{\Delta E}{kT}}\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(c\)</span> eine Konstante ist, <span class="math notranslate nohighlight">\(k = 1,380649\cdot 10^{-23}\,\mathrm{J/K}\)</span> die Boltzmann Konstante und <span class="math notranslate nohighlight">\(\Delta E\)</span> die Verdampfungsenergie eines Moleküls.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definition der Exp-Funktion in Python-Code</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mf">1.380649e-23</span> <span class="c1"># in J/K</span>
+<span class="k">def</span> <span class="nf">pD</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">dE</span><span class="p">,</span><span class="n">T</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">c</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">dE</span><span class="o">/</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">T</span><span class="p">))</span> <span class="c1"># in bar</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="losung-1-materialkonstanten-bestimmen">
+<h2>Lösung 1: Materialkonstanten bestimmen<a class="headerlink" href="#losung-1-materialkonstanten-bestimmen" title="Link zu dieser Überschrift">#</a></h2>
+<p>Durch Logarithmieren beider Seiten erhält man die äquivalente logarithmische Darstellung</p>
+<div class="math notranslate nohighlight">
+\[\ln{p_\mathrm{D}} = A - B/T\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(A\)</span> und <span class="math notranslate nohighlight">\(B\)</span> wieder die Materialkonstanten sind.
+durch Vergleichen der exponentielle und logarithmischen Schreibweise können die Materialkonstanten ineinander umgerechnet werden:</p>
+<div class="math notranslate nohighlight">
+\[c = \mathrm e^{A}\]</div>
+<div class="math notranslate nohighlight">
+\[\Delta E = B\cdot k\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definition von Funktionen um die Materialkonstanten ineinander umzurechnen</span>
+<span class="k">def</span> <span class="nf">calc_c</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">calc_dE</span><span class="p">(</span><span class="n">B</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">B</span><span class="o">*</span><span class="n">k</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="dampfdruckkurve-von-wasser-a-id-u21-a-a">
+<h3>Dampfdruckkurve von Wasser <a id="Ü21.a"> </a><a class="headerlink" href="#dampfdruckkurve-von-wasser-a-id-u21-a-a" title="Link zu dieser Überschrift">#</a></h3>
+<p>In der Übung haben wir anhand der gegebenen Dampfdruckkurve in der Abbildung die Materialskonstanten <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, <span class="math notranslate nohighlight">\(\Delta E\)</span> und <span class="math notranslate nohighlight">\(c\)</span> abgeleitet:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Materialkonstanten für Wasser:</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mf">4.5e5</span> <span class="c1"># in bar</span>
+<span class="n">dE</span> <span class="o">=</span> <span class="mf">6.74e-20</span> <span class="c1"># in J</span>
+<span class="n">A</span> <span class="o">=</span> <span class="mf">13.015</span> 
+<span class="n">B</span> <span class="o">=</span> <span class="mf">4882.35</span> <span class="c1"># in K</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;c =&#39;</span><span class="p">,</span> <span class="n">calc_c</span><span class="p">(</span><span class="n">A</span><span class="p">),</span> <span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;dE =&#39;</span><span class="p">,</span> <span class="n">calc_dE</span><span class="p">(</span><span class="n">B</span><span class="p">),</span> <span class="s1">&#39;J&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c = 449099.614189211 bar
+dE = 6.74081164515e-20 J
+</pre></div>
+</div>
+</div>
+</div>
+<p>Als Vergleich plotten wir noch einmal die Dampfdruckkurven mit diesen Parametern:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">100e-3</span><span class="p">,</span><span class="mi">573</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># Temperatur in K</span>
+<span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span> <span class="c1"># Plot für hohe Temperature</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="o">-</span><span class="mf">273.15</span><span class="p">,</span> <span class="n">pD</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">dE</span><span class="p">,</span><span class="n">T</span><span class="p">),</span><span class="s1">&#39;tab:red&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">300</span><span class="p">])</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">minorticks_on</span><span class="p">()</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="s1">&#39;0.5&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;T (°C)&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$p_\mathrm</span><span class="si">{D}</span><span class="s1">$ (bar)&#39;</span><span class="p">)</span>
+
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span> <span class="c1"># Plot für tiefere Temperaturen</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="o">-</span><span class="mf">273.15</span><span class="p">,</span> <span class="n">pD</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">dE</span><span class="p">,</span><span class="n">T</span><span class="p">),</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span><span class="mi">60</span><span class="p">])</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.2</span><span class="p">])</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">minorticks_on</span><span class="p">()</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="s1">&#39;0.5&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;T (°C)&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$p_\mathrm</span><span class="si">{D}</span><span class="s1">$ (bar)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Kennlinie_Dampfdruckthermometer_9_0.png" src="../../_images/Kennlinie_Dampfdruckthermometer_9_0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="losung-2-empfindlichkeit-des-dampfdruckthermometers">
+<h2>Lösung 2: Empfindlichkeit des Dampfdruckthermometers<a class="headerlink" href="#losung-2-empfindlichkeit-des-dampfdruckthermometers" title="Link zu dieser Überschrift">#</a></h2>
+<section id="fur-wasser">
+<h3>… für Wasser<a class="headerlink" href="#fur-wasser" title="Link zu dieser Überschrift">#</a></h3>
+<p>Um die Empfindlichkeit anhand der Kennlinie zu bestimmen, müssen wir die Dampfdruckgleichung von oben ableiten:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Funktion um pD abzuleiten. </span>
+<span class="c1"># Es werden einfach zwei aufeinanderfolgende Funktionswerte analysiert und die Steigung berechnet</span>
+<span class="k">def</span> <span class="nf">d_pD</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">dE</span><span class="p">,</span><span class="n">T</span><span class="p">):</span> <span class="c1"># in bar/K</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="mf">1e-5</span> <span class="c1"># in der Theorie wäre h infinitesimal klein (Abstand zwischen zwei Temperaturen)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">pD</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">dE</span><span class="p">,</span><span class="n">T</span><span class="o">+</span><span class="n">h</span><span class="p">)</span><span class="o">-</span><span class="n">pD</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">dE</span><span class="p">,</span><span class="n">T</span><span class="p">))</span><span class="o">/</span><span class="n">h</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Mit Hilfe dieser einfachen Funktion in Python können wir nun für verschiedene Temperaturen (20°C, 200°C) die Empfindlichkeit eines Dampfdruckthermometers für Wasser bestimmen. Achtung bei den Einheiten für die Temperaturwerte!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T1</span> <span class="o">=</span> <span class="mi">20</span> <span class="o">+</span> <span class="mf">273.15</span> <span class="c1"># in Kelvin</span>
+<span class="n">T2</span> <span class="o">=</span> <span class="mi">200</span> <span class="o">+</span> <span class="mf">273.15</span> <span class="c1"># in Kelvin</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;T =  &#39;</span><span class="p">,</span> <span class="n">T1</span><span class="o">-</span><span class="mf">273.15</span><span class="p">,</span> <span class="s1">&#39;°C: &#39;</span><span class="p">,</span> <span class="n">d_pD</span><span class="p">(</span><span class="n">calc_c</span><span class="p">(</span><span class="n">A</span><span class="p">),</span><span class="n">calc_dE</span><span class="p">(</span><span class="n">B</span><span class="p">),</span> <span class="n">T1</span><span class="p">),</span> <span class="s1">&#39;bar/K&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;T = &#39;</span><span class="p">,</span> <span class="n">T2</span><span class="o">-</span><span class="mf">273.15</span><span class="p">,</span> <span class="s1">&#39;°C: &#39;</span><span class="p">,</span> <span class="n">d_pD</span><span class="p">(</span><span class="n">calc_c</span><span class="p">(</span><span class="n">A</span><span class="p">),</span><span class="n">calc_dE</span><span class="p">(</span><span class="n">B</span><span class="p">),</span> <span class="n">T2</span><span class="p">),</span> <span class="s1">&#39;bar/K&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>T =   20.0 °C:  0.0014918014015069534 bar/K
+T =  200.0 °C:  0.3232712346701305 bar/K
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="fur-tiefsiedende-flussigkeiten-a-id-u21-c-a">
+<h3>… für tiefsiedende Flüssigkeiten <a id="Ü21.c"> </a><a class="headerlink" href="#fur-tiefsiedende-flussigkeiten-a-id-u21-c-a" title="Link zu dieser Überschrift">#</a></h3>
+<p>Um die Empfindlichkeit eines Dampfdruckthermometers bei tiefen Temperaturen zu verbessern wird Wasser durch eine tiefsiedende Flüssigkeit ausgetauscht. Je nach gewünschter Temperatur können hier zum Beispiel Sauerstoff (für 54K - 94K), Stickstoff (für 63K - 84K), Neon (für 24K - 40K) und Wasserstoff (13K - 25K) zum Einsatz kommen.</p>
+<p>Die Materialkonstanten <span class="math notranslate nohighlight">\(A\)</span> und <span class="math notranslate nohighlight">\(B\)</span> sind im folgenden Code-Block für jede Flüssigkeit angegeben.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A_O2</span> <span class="o">=</span> <span class="mf">5.961546</span> <span class="c1"># Materialkonstanten für Sauerstoff</span>
+<span class="n">B_O2</span> <span class="o">=</span> <span class="mf">467.45576</span> <span class="c1"># in K</span>
+
+<span class="n">A_N2</span> <span class="o">=</span> <span class="mf">5.893271</span> <span class="c1"># Materialkonstanten für Stickstoff</span>
+<span class="n">B_N2</span> <span class="o">=</span> <span class="mf">403.96046</span> <span class="c1"># in K</span>
+
+<span class="n">A_Ne</span> <span class="o">=</span> <span class="mf">4.61152</span> <span class="c1"># Materialkonstanten für Neon</span>
+<span class="n">B_Ne</span> <span class="o">=</span> <span class="mf">106.3851</span> <span class="c1"># in K</span>
+
+<span class="n">A_H2</span> <span class="o">=</span> <span class="mf">1.711466</span> <span class="c1"># Materialkonstanten für Wasserstoff</span>
+<span class="n">B_H2</span> <span class="o">=</span> <span class="mf">44.01046</span> <span class="c1"># in K</span>
+
+<span class="n">A_He</span> <span class="o">=</span> <span class="mf">2.24846</span> <span class="c1"># Materialkonstanten für Helium</span>
+<span class="n">B_He</span> <span class="o">=</span> <span class="mf">2.49174</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Um ein Vergleich der unterschiedlichen Flüssigkeiten sichbar zu machen, werden die Dampfdruckkurven anhand der Materialkonstanten und der oben gegebenen Gleichung geplottet:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">10e-3</span><span class="p">,</span><span class="mi">110</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span> <span class="c1"># Temperatur in K</span>
+<span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span> <span class="c1"># Plot für hohe Temperature</span>
+<span class="c1">#ax1.plot(T, pD(calc_c(A_H2),calc_dE(B_H2),T),&#39;tab:green&#39;, linewidth=2, label=&#39;H2&#39;)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">pD</span><span class="p">(</span><span class="n">calc_c</span><span class="p">(</span><span class="n">A_He</span><span class="p">),</span><span class="n">calc_dE</span><span class="p">(</span><span class="n">B_He</span><span class="p">),</span><span class="n">T</span><span class="p">),</span><span class="s1">&#39;tab:orange&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;He&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">pD</span><span class="p">(</span><span class="n">calc_c</span><span class="p">(</span><span class="n">A_Ne</span><span class="p">),</span><span class="n">calc_dE</span><span class="p">(</span><span class="n">B_Ne</span><span class="p">),</span><span class="n">T</span><span class="p">),</span><span class="s1">&#39;tab:red&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ne&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">pD</span><span class="p">(</span><span class="n">calc_c</span><span class="p">(</span><span class="n">A_N2</span><span class="p">),</span><span class="n">calc_dE</span><span class="p">(</span><span class="n">B_N2</span><span class="p">),</span><span class="n">T</span><span class="p">),</span><span class="s1">&#39;tab:green&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;N2&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">pD</span><span class="p">(</span><span class="n">calc_c</span><span class="p">(</span><span class="n">A_O2</span><span class="p">),</span><span class="n">calc_dE</span><span class="p">(</span><span class="n">B_O2</span><span class="p">),</span><span class="n">T</span><span class="p">),</span><span class="s1">&#39;tab:purple&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;O2&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">pD</span><span class="p">(</span><span class="n">calc_c</span><span class="p">(</span><span class="n">A</span><span class="p">),</span><span class="n">calc_dE</span><span class="p">(</span><span class="n">B</span><span class="p">),</span><span class="n">T</span><span class="p">),</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;H2O&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">])</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">1.3</span><span class="p">])</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">minorticks_on</span><span class="p">()</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="s1">&#39;0.5&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;T (K)&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$p_\mathrm</span><span class="si">{D}</span><span class="s1">$ (bar)&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Kennlinie_Dampfdruckthermometer_17_0.png" src="../../_images/Kennlinie_Dampfdruckthermometer_17_0.png" />
+</div>
+</div>
+<p>Bei tiefen Temperaturen müssen eigentlich weitere Materialkonstanten hinzugezogen werden, damit die Dampfdruckkurve die experimentell ermittelten Werte tatsächlich widerspiegelt. Uns soll an dieser Stelle allerdings die Genauigkeit der Kennlinie unter Berücksichtigung von nur 2 Materialkonstanten vorerst genügen, da sie sich in der richtigen Größenordnung befinden.</p>
+<p>Der Graph verdeutlicht, für welchen Temperaturbereich welche Flüssigkeit benutzt werden sollte, um mittels Dampfdruckverfahren eine möglichst genaue Temperaturmessung zu erhalten.</p>
+<p>Wie oben definiert, können wir die Ableitung der Dampfdruckkurve an bestimmten Temperaturen berechnen um die Empfindlichkeit zu bestimmen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T1</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># in Kelvin</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;He-Dampfdruckthermometer bei T =  &#39;</span><span class="p">,</span> <span class="n">T1</span><span class="p">,</span> <span class="s1">&#39;K: &#39;</span><span class="p">,</span> <span class="n">d_pD</span><span class="p">(</span><span class="n">calc_c</span><span class="p">(</span><span class="n">A_He</span><span class="p">),</span><span class="n">calc_dE</span><span class="p">(</span><span class="n">B_He</span><span class="p">),</span> <span class="n">T1</span><span class="p">),</span> <span class="s1">&#39;bar/K&#39;</span><span class="p">)</span>
+<span class="n">T1</span> <span class="o">=</span> <span class="mi">20</span> <span class="c1"># in Kelvin</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Ne-Dampfdruckthermometer bei T =  &#39;</span><span class="p">,</span> <span class="n">T1</span><span class="p">,</span> <span class="s1">&#39;K: &#39;</span><span class="p">,</span> <span class="n">d_pD</span><span class="p">(</span><span class="n">calc_c</span><span class="p">(</span><span class="n">A_Ne</span><span class="p">),</span><span class="n">calc_dE</span><span class="p">(</span><span class="n">B_Ne</span><span class="p">),</span> <span class="n">T1</span><span class="p">),</span> <span class="s1">&#39;bar/K&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>He-Dampfdruckthermometer bei T =   1 K:  1.9536584054846704 bar/K
+Ne-Dampfdruckthermometer bei T =   20 K:  0.1310556564215748 bar/K
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="losung-4-ubergang-zum-gasthermometer-a-id-u21-e-a">
+<h2>Lösung 4: Übergang zum Gasthermometer <a id="Ü21.e"> </a><a class="headerlink" href="#losung-4-ubergang-zum-gasthermometer-a-id-u21-e-a" title="Link zu dieser Überschrift">#</a></h2>
+<p>Das Wasser-Dampfdruckthermometer besteht aus einen Gefäß mit einem Volumen von 1 Liter und einer Druckfestigkeit von 50 bar. Aus Sicherheitsgründen wird beim Bau des Thermometers nur soviel Flüssigkeit eingefüllt, dass bei einer Temperatur von 250°C die ganze Flüssigkeit verdampft ist. Dadurch liegt uns nun ein “normales” Gasthermometer vor, dessen physikalisches Verhalten durch das ideale Gasgesetz</p>
+<div class="math notranslate nohighlight">
+\[ p \cdot V = N \cdot k \cdot T\]</div>
+<p>beschrieben wird. Für das Volumen gilt <span class="math notranslate nohighlight">\(V = 1\,\mathrm l = 1\,\mathrm{dm}^3 = 1\cdot 10^{-3}\,\mathrm m^3\)</span> und für den Druck bei <span class="math notranslate nohighlight">\(T=250\,^\circ \mathrm C = 523.15\,\mathrm K\)</span> gilt <span class="math notranslate nohighlight">\(p = 40\,\mathrm{bar} = 40\cdot 10^5\,\mathrm{Pa}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">V</span> <span class="o">=</span> <span class="mf">1e-3</span> <span class="c1"># in m^3</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">250</span> <span class="o">+</span> <span class="mf">273.15</span> <span class="c1"># in K</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mf">40e5</span> <span class="c1"># in Pa</span>
+<span class="n">N</span> <span class="o">=</span> <span class="n">p</span><span class="o">*</span><span class="n">V</span><span class="o">/</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">T</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="s1">&#39;Moleküle&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.537968472552744e+23 Moleküle
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dies entspricht fast der Avogadro-Konstanten <span class="math notranslate nohighlight">\(N_A = 6.022\cdot 10^{23}/\,\mathrm{mol}\)</span>, welche die Anzahl von Molekülen in 1 mol definiert.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N_A</span> <span class="o">=</span> <span class="mf">6.02214086e23</span> <span class="c1"># in mol^-1</span>
+<span class="n">Mol</span> <span class="o">=</span> <span class="n">N</span> <span class="o">/</span> <span class="n">N_A</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Mol</span><span class="p">,</span> <span class="s1">&#39;mol&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.919601284874752 mol
+</pre></div>
+</div>
+</div>
+</div>
+<p>Die molare Masse von Wasser ergibt sich mithilfe von Gleichung:</p>
+<div class="math notranslate nohighlight">
+\[M_\mathrm{H2O} = 2M_\mathrm H + 1M_\mathrm O\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(M_H = 1.00794\,\mathrm{\frac{g}{mol}}\)</span> und <span class="math notranslate nohighlight">\(M_H = 15.994\,\mathrm{\frac{g}{mol}}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M_H20</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="mf">1.00794</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">*</span> <span class="mf">15.994</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Molare Masse von Wasser: &#39;</span><span class="p">,</span> <span class="n">M_H20</span><span class="p">,</span> <span class="s1">&#39;g/mol&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Molare Masse von Wasser:  18.00988 g/mol
+</pre></div>
+</div>
+</div>
+</div>
+<p>Bezogen auf unsere eben berechnete Mol-Größe ergibt sich also folgende Masse:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m_H2O</span> <span class="o">=</span> <span class="n">M_H20</span> <span class="o">*</span> <span class="n">Mol</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">m_H2O</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16.561908788440096 g
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dies können wir nun mittels der Dichte von Wasser, <span class="math notranslate nohighlight">\(\rho = 1000\,\mathrm{\frac{kg}{m^3}} = 1000\,\mathrm{\frac{g}{l}}\)</span> in ein Volumen umrechnen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="mi">1000</span> <span class="c1"># in g/l</span>
+<span class="n">V_H2O</span> <span class="o">=</span> <span class="n">m_H2O</span> <span class="o">/</span> <span class="n">r</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Es werden demnach &#39;</span><span class="p">,</span><span class="n">V_H2O</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span> <span class="s1">&#39;ml Flüssigkeitsmenge benötigt, damit bei 250°C alles verdampft ist.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Es werden demnach  16.561908788440096 ml Flüssigkeitsmenge benötigt, damit bei 250°C alles verdampft ist.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Auch bei 300°C kann mit dem Thermometer noch gemessen werden, es handelt sich dann allerdings nicht mehr um ein Dampfdruckthermometers, sondern lediglich um ein Gasthermometer. Bei gleichbleibenden Volumen (abgeschlossenes System) gilt also folgende Gleichung:</p>
+<div class="math notranslate nohighlight">
+\[\frac{p_1}{T_1} = \frac{p_2}{T_2}\]</div>
+<p>mittels welcher wir den Druck bei 300°C bestimmen können.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p1</span> <span class="o">=</span> <span class="mi">40</span> <span class="c1">#in bar</span>
+<span class="n">T1</span> <span class="o">=</span> <span class="mi">250</span> <span class="o">+</span> <span class="mf">273.15</span> <span class="c1">#in K</span>
+<span class="n">T2</span> <span class="o">=</span> <span class="mi">300</span> <span class="o">+</span> <span class="mf">273.15</span> <span class="c1">#in K</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">T2</span><span class="o">/</span><span class="n">T1</span><span class="o">*</span><span class="n">p1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p2</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>43.822995316830735 bar
+</pre></div>
+</div>
+</div>
+</div>
+<p>Um die Empfindlichkeit eines Gasthermometers zu bestimmen, wird die (ideale) Gasgleichung entsprechend umgestellt und nach der Temperatur abgeleitet:</p>
+<div class="math notranslate nohighlight">
+\[p = \frac{NkT}{V} \quad \rightarrow \quad \frac{dp}{dT} = \frac{Nk}{V}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">E</span> <span class="o">=</span> <span class="n">N</span><span class="o">*</span><span class="n">k</span><span class="o">/</span><span class="n">V</span> <span class="c1"># Achtung Einheiten!!</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Empfindlichkeit = &#39;</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="s1">&#39;J / K m^3 &#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;                = &#39;</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="s1">&#39;Pa / K&#39;</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;                = &#39;</span><span class="p">,</span> <span class="n">E</span><span class="o">/</span><span class="mf">1e5</span><span class="p">,</span> <span class="s1">&#39;bar / K&#39;</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;                = &#39;</span><span class="p">,</span> <span class="n">E</span><span class="o">/</span><span class="mf">1e5</span><span class="o">*</span><span class="mf">1e3</span><span class="p">,</span> <span class="s1">&#39;mbar / K&#39;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Empfindlichkeit =  7645.990633661474 J / K m^3 
+                =  7645.990633661474 Pa / K
+                =  0.07645990633661474 bar / K
+                =  76.45990633661475 mbar / K
+</pre></div>
+</div>
+</div>
+</div>
+<p>Durch die Ableitung ist die Temperaturabhängigkeit verschwunden. Damit ist die Empfindlichkeit eines Gasthermometers konstant und beträgt etwa 76.5 mbar / K.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">240</span><span class="o">+</span><span class="mf">273.15</span><span class="p">,</span><span class="mi">351</span><span class="o">+</span><span class="mf">273.15</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># Temperatur in K</span>
+<span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span> <span class="c1"># Plot für hohe Temperature</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="o">-</span><span class="mf">273.15</span><span class="p">,</span> <span class="n">N</span><span class="o">*</span><span class="n">k</span><span class="o">*</span><span class="n">T</span><span class="o">/</span><span class="n">V</span><span class="o">/</span><span class="mf">1e5</span><span class="p">,</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">minorticks_on</span><span class="p">()</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="s1">&#39;0.5&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">240</span><span class="p">,</span><span class="mi">350</span><span class="p">])</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;T (°C)&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$p_\mathrm</span><span class="si">{D}</span><span class="s1">$ (bar)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Kennlinie_Dampfdruckthermometer_36_0.png" src="../../_images/Kennlinie_Dampfdruckthermometer_36_0.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/solutions"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Katharina-S. Isleif<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

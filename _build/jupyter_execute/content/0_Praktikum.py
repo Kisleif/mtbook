@@ -17,7 +17,8 @@
 # 
 # ## Programme für die Datenanalyse
 # 
-# Für das **Praktikum** müsst ihr [Daten aufnehmen, auswerten und grafisch darstellen](1_Datenanalyse). Hierfür könnt ihr prinzipiell ein Programm eurer Wahl nehmen, wie z.B. 
+# Für das **Praktikum** müsst ihr [Daten aufnehmen, auswerten und grafisch darstellen](1_Datenanalyse). Verwende eine sinnvolle Software für die Datenanalyse und die grafische Darstellung, welche auch Fit-Analysen unterstützen. Wir werden hier im folgenden Beispiele in `python` aufführen und Jupyter Notebooks verwenden. 
+# Weitere Software ist Qti-Plot (kostenlos) oder Matlab (Lizenzen über HSU verfügbar).
 # 
 # * [Python](https://www.python.org), frei-erhältlich und die [Tutorials](T_Tutorials) im *Lecture Book* nutzen Python ([Jupyter-Notebooks](https://docs.jupyter.org/en/latest/)). 
 # * [Matlab](https://de.mathworks.com/products/matlab.html) (Lizenzen sind über die HSU erhältlich) 
@@ -25,7 +26,7 @@
 # * Von einer Datenanalyse in Excel rate ich ab.
 # 
 # ```{warning}
-# Alle Beispiele und Tutorials im *Metrology Lecture Book* benutzen `python` (Jupyter-Notebooks). 
+# Alle Beispiele  im *Metrology Lecture Book* sind [Jupyter-Notebooks](T_Tutorials.ipynb) und benutzen `python`. Hier findet ihr auch eine Sammlung von hilfreichem Jupyter-Notebooks für das Messtechnik-Praktikum.
 # ```
 # 
 # ### Programmieren mit Python
@@ -38,8 +39,6 @@
 #   * **Spektralanalyse:** [scipy](https://scipy.org) (z.B. rfft)
 # * **Datenverarbeitung:** [pandas](https://pandas.pydata.org) (z.B. DataFrames)
 # * **Datenvisualisierung:** [matplotlib](https://matplotlib.org)
-# 
-# Die einfachste Möglichkeit mit der Python Programmierung zu starten ist das ausführen von [Jupyter-Notebooks](T_Tutorials.ipynb). Hier findet ihr auch eine Sammlung von hilfreichem Jupyter-Notebooks für das Messtechnik-Praktikum.
 # 
 # 
 # ## Grundidee: Messdaten sammeln
@@ -67,9 +66,6 @@
 # - **Titel:** Nutze passende Über-/ oder Unterschriften für das Diagramm, insbesondere wenn diese in der Auswertung im Text erwähnt werden.
 # - **Anderes:** Weitere Punkte und Linien, die nicht gemessen wurden, sondern nur als *Hilfe* dienen (z.B. Fit-Funktionen, Modelle, Referenzlinien) oder Kommentare sind, sollten besonders gekennzeichnet werden. 
 # - **Messunsicherheiten:** Für Messwerte (in Form von Fehlerbalken), aber auch für Funktionsterme und Ausgleichsgeraden, müssen Messunsicherheiten in den Graphen angegeben werden. 
-# 
-# Verwende eine sinnvolle Software für die Datenanalyse und die grafische Darstellung, welche auch Fit-Analysen unterstützen. Wir werden hier im folgenden Beispiele in `python` aufführen und Jupyter Notebooks verwenden. 
-# Weitere Software ist Qti-Plot (kostenlos) oder Matlab (Lizenzen über HSU verfügbar).
 # 
 # :::{seealso}
 # Das Einlesen und darstellen von Messdaten in `python` lernst du z.B. in diesem [Tutorial](T_Plotten) anhand von echten Klimadaten der NASA. Die Codes auf dieser Seite können direkt benutzt und ausgeführt werden. 

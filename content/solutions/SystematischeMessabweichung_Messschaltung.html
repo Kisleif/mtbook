@@ -1,0 +1,1323 @@
+
+<!DOCTYPE html>
+
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Lösung: Systematische Messabweichung &#8212; Metrology Lecture Book</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
+    <link rel="search" title="Suche" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="de">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/i_mt.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Metrology Lecture Book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00_jupyter.html">
+   Über dieses Skript
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Vorlesungsskript
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01_Messtechnik.html">
+   Messtechnik
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1_Messen_Einheit.html">
+     Messen und Einheiten
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01_Datenanalyse.html">
+   Messabweichung
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1_Messunsicherheiten.html">
+     Quellen und Ursachen von Messunsicherheiten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1_Mittelwert_StdAbw.html">
+     Statistische Messunsicherheit
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1_Fehlerfortpflanzung.html">
+     Fortpflanzung von Messunsicherheiten
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01_Kurvenanpassung_intro.html">
+   Kurvenanpassung
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1_Interpol_Approx.html">
+     Interpolation vs. Anpassung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1_Kurvenanpassung.html">
+     Anpassung und lineare Regression
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02_Stationaer.html">
+   Stationäre Messsysteme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2_Messsystem.html">
+     Grundstruktur eines Messsystems
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2_idealeKennlinie.html">
+     Ideale Kennlinie
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2_realeKennlinie.html">
+     Reale Kennlinie
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03_Messsignale.html">
+   Messsignale
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../3_basics.html">
+     Grundlagen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../3_Kenngroessen.html">
+     Kenngrößen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../3_Modulationen.html">
+     Modulation von Messsignalen
+     <a id="SubSec-Information">
+     </a>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../3_FourierAnalyse.html">
+     Fourier-Analyse
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../3_Digital.html">
+     Digitalisierung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../05_Dynamische_Messsysteme.html">
+   Dynamische Messsysteme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../5_LTI.html">
+     Linear zeitinvariante (LZI/LTI) Systeme
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../5_DGL.html">
+     Systeme chatakterisieren im Zeitraum
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../5_Uebertragungsfunktion.html">
+     Übertragungsfunktion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../5_Faltung.html">
+     Faltung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../5_Rauschen.html">
+     Rauschen und spektrale Dichte
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../04_ElektrischeGroessen.html">
+   Messen elektrischer Größen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4_U-Messeingang.html">
+     Spannungsmesseingang
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4_I-Messeingang.html">
+     Strommesseingang
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4_OP.html">
+     Operationsverstärker (OP)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4_P-Messung.html">
+     Leistungsmessung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4_R-Messung.html">
+     Widerstandsmessung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4_CL-Messung.html">
+     Messung von Kapazitäten und Induktivitäten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4_F-Messung.html">
+     Frequenz- und Zeitmessung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../6_Sensoren.html">
+   Sensoren
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../6_Einf%C3%BChrung.html">
+     Einführung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../6_DMS.html">
+     Dehnungsmessstreifen (DMS)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../6_PZT.html">
+     Piezoelektrische Sensoren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../6_GPS.html">
+     Satellitennavigationssysteme
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../6_Kapazitiv.html">
+     Kapazitive und Induktive Sensoren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../6_Temp.html">
+     Temperaturmessungen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../6_Radar.html">
+     Radar
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../6_Ifo.html">
+     Laserinterferometrie
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Übungen &amp; Tutorials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Aufgabenpool.html">
+   Aufgabenpool
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Messen_Einleitung.html">
+     Messen von Zeit, Länge, Masse, Strom, Temperatur, Lichtstärke und Stoffmenge
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Kennlinie_Dampfdruckthermometer.html">
+     Dampfdruckthermometer
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SystematischeMessabweichung_Messschaltung.html">
+     Systematische Messabweichung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../T_Tutorials.html">
+   Jupyter Notebooks
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../T_Plotten.html">
+     Messdaten analysieren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../T_Fehlerfortpflanzung.html">
+     Fehlerfortpflanzung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../T_LinReg.html">
+     Vergleich verschiedener Fit-Funktionen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../T_FitmitFehlerbalken.html">
+     Lineare Regression mit Berücksichtigung von Fehlerbalken
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../T_Spektralanalyse_Audio.html">
+     Fourier-Transformation: Entfernung von Hintergrundrauschen in einem Audiosignal
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/Kisleif/mtbook/main?urlpath=tree/content/solutions/SystematischeMessabweichung_Messschaltung.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/Kisleif/mtbook/blob/main/content/solutions/SystematischeMessabweichung_Messschaltung.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/Kisleif/mtbook"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/Kisleif/mtbook/issues/new?title=Issue%20on%20page%20%2Fcontent/solutions/SystematischeMessabweichung_Messschaltung.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/Kisleif/mtbook/edit/main/content/solutions/SystematischeMessabweichung_Messschaltung.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/content/solutions/SystematischeMessabweichung_Messschaltung.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#losung-zu-1">
+   Lösung zu 1
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#schaltung-1-spannungsrichtige-schaltung-a-id-u22-a-a">
+     Schaltung 1: Spannungsrichtige Schaltung
+     <a id="Ü22.a">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#schaltung-2-stromrichtige-schaltung-a-id-u22-b-a">
+     Schaltung 2: Stromrichtige Schaltung
+     <a id="Ü22.b">
+     </a>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#losung-zu-2">
+   Lösung zu 2
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#leistungsmessung-a-id-u22-c-a">
+     Leistungsmessung
+     <a id="Ü22.c">
+     </a>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Lösung: Systematische Messabweichung</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#losung-zu-1">
+   Lösung zu 1
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#schaltung-1-spannungsrichtige-schaltung-a-id-u22-a-a">
+     Schaltung 1: Spannungsrichtige Schaltung
+     <a id="Ü22.a">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#schaltung-2-stromrichtige-schaltung-a-id-u22-b-a">
+     Schaltung 2: Stromrichtige Schaltung
+     <a id="Ü22.b">
+     </a>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#losung-zu-2">
+   Lösung zu 2
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#leistungsmessung-a-id-u22-c-a">
+     Leistungsmessung
+     <a id="Ü22.c">
+     </a>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="losung-systematische-messabweichung">
+<h1>Lösung: Systematische Messabweichung<a class="headerlink" href="#losung-systematische-messabweichung" title="Link zu dieser Überschrift">#</a></h1>
+<p>Prof. Dr. rer. nat. Katharina-Sophie Isleif</p>
+<p>Helmut-Schmidt-Universität</p>
+<hr class="docutils" />
+<blockquote>
+<div><p>Dies ist eine interaktive Lösung in Form eines Jupyter Notebooks. Lade das Jupyter Notebook herunter und öffne es mit JupyterLab.
+Grundkenntnisse in <em>python</em> sind hilfreich, werden aber nicht zwingend benötigt.
+Kompiliere jede Zelle, die Code enthält, mit <em>Shift+Enter</em> und alle Berechnungen sollten funktionieren.
+Es gibt andere Tutorials, um <em>python</em>-Kenntnisse oder den Umgang mit den Paketen
+<em>numpy</em> und <em>matplotlib</em> zur Visualisierung und Auswertung von Daten zu vertiefen.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># In diesem Code-Block werden ein paar wichtige Libraries geladen.</span>
+<span class="c1"># Code-Blocks erkennst du an der Hintergrundfarbe dieser Zelle.</span>
+<span class="c1"># Einfach mal hier rein klicken und per &quot;Shift+Enter&quot; ausführen. </span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">import</span> <span class="n">figure</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;legend.fontsize&#39;</span><span class="p">:</span> <span class="s1">&#39;x-large&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;figure.figsize&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+          <span class="s1">&#39;axes.labelsize&#39;</span><span class="p">:</span> <span class="s1">&#39;x-large&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;axes.titlesize&#39;</span><span class="p">:</span><span class="s1">&#39;x-large&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;xtick.labelsize&#39;</span><span class="p">:</span><span class="s1">&#39;x-large&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;ytick.labelsize&#39;</span><span class="p">:</span><span class="s1">&#39;x-large&#39;</span><span class="p">}</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="o">%</span><span class="k">pylab</span> inline
+<span class="c1">#plt.xkcd() # plots in xkcd-style</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>%pylab is deprecated, use %matplotlib inline and import the required libraries.
+Populating the interactive namespace from numpy and matplotlib
+</pre></div>
+</div>
+</div>
+</div>
+<p>Messgeräte können die genaue Messung von elektrischen Größen beeinflussen. Je nachdem, ob die Stromstärke I oder die Spannung U besonders genau gemessen werden soll, müssen die Messgeräte entsprechend geschaltet sein.</p>
+<section id="losung-zu-1">
+<h2>Lösung zu 1<a class="headerlink" href="#losung-zu-1" title="Link zu dieser Überschrift">#</a></h2>
+<section id="schaltung-1-spannungsrichtige-schaltung-a-id-u22-a-a">
+<h3>Schaltung 1: Spannungsrichtige Schaltung  <a id="Ü22.a"> </a><a class="headerlink" href="#schaltung-1-spannungsrichtige-schaltung-a-id-u22-a-a" title="Link zu dieser Überschrift">#</a></h3>
+<p>Möchte man einen systematischen Fehler bei der Spannungsmessung vermeiden, so wählt man die spannungsrichtige Schaltung. Bei der spannungsrichtigen Messung wird nur die über dem Bauteil (Widerstand R) abfallende Spannung UR gemessen. Da kein weiteres Bauteil die Messung beeinflusst, wird hier die Spannung korrekt gemessen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;schaltung1.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">File ~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/display.py:1045,</span> in <span class="ni">Image._data_and_metadata</span><span class="nt">(self, always_both)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1044</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1045</span>     <span class="n">b64_data</span> <span class="o">=</span> <span class="n">b2a_base64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;ascii&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1046</span> <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+
+<span class="ne">TypeError</span>: a bytes-like object is required, not &#39;str&#39;
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">File ~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/formatters.py:974,</span> in <span class="ni">MimeBundleFormatter.__call__</span><span class="nt">(self, obj, include, exclude)</span>
+<span class="g g-Whitespace">    </span><span class="mi">971</span>     <span class="n">method</span> <span class="o">=</span> <span class="n">get_real_method</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_method</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">973</span>     <span class="k">if</span> <span class="n">method</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">974</span>         <span class="k">return</span> <span class="n">method</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="n">include</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="n">exclude</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">975</span>     <span class="k">return</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">976</span> <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/display.py:1035,</span> in <span class="ni">Image._repr_mimebundle_</span><span class="nt">(self, include, exclude)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1033</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1034</span>     <span class="n">mimetype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mimetype</span>
+<span class="ne">-&gt; </span><span class="mi">1035</span>     <span class="n">data</span><span class="p">,</span> <span class="n">metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_and_metadata</span><span class="p">(</span><span class="n">always_both</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1036</span>     <span class="k">if</span> <span class="n">metadata</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1037</span>         <span class="n">metadata</span> <span class="o">=</span> <span class="p">{</span><span class="n">mimetype</span><span class="p">:</span> <span class="n">metadata</span><span class="p">}</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/display.py:1047,</span> in <span class="ni">Image._data_and_metadata</span><span class="nt">(self, always_both)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1045</span>     <span class="n">b64_data</span> <span class="o">=</span> <span class="n">b2a_base64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;ascii&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1046</span> <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1047</span>     <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1048</span>         <span class="s2">&quot;No such file or directory: &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">))</span> <span class="kn">from</span> <span class="nn">e</span>
+<span class="g g-Whitespace">   </span><span class="mi">1049</span> <span class="n">md</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="g g-Whitespace">   </span><span class="mi">1050</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span><span class="p">:</span>
+
+<span class="ne">FileNotFoundError</span>: No such file or directory: &#39;schaltung1.png&#39;
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">File ~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/display.py:1045,</span> in <span class="ni">Image._data_and_metadata</span><span class="nt">(self, always_both)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1044</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1045</span>     <span class="n">b64_data</span> <span class="o">=</span> <span class="n">b2a_base64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;ascii&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1046</span> <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+
+<span class="ne">TypeError</span>: a bytes-like object is required, not &#39;str&#39;
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">File ~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/formatters.py:344,</span> in <span class="ni">BaseFormatter.__call__</span><span class="nt">(self, obj)</span>
+<span class="g g-Whitespace">    </span><span class="mi">342</span>     <span class="n">method</span> <span class="o">=</span> <span class="n">get_real_method</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_method</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">343</span>     <span class="k">if</span> <span class="n">method</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">344</span>         <span class="k">return</span> <span class="n">method</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">345</span>     <span class="k">return</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">346</span> <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/display.py:1067,</span> in <span class="ni">Image._repr_png_</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1065</span> <span class="k">def</span> <span class="nf">_repr_png_</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1066</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">format</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_FMT_PNG</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1067</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_and_metadata</span><span class="p">()</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/display.py:1047,</span> in <span class="ni">Image._data_and_metadata</span><span class="nt">(self, always_both)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1045</span>     <span class="n">b64_data</span> <span class="o">=</span> <span class="n">b2a_base64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;ascii&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1046</span> <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1047</span>     <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1048</span>         <span class="s2">&quot;No such file or directory: &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">))</span> <span class="kn">from</span> <span class="nn">e</span>
+<span class="g g-Whitespace">   </span><span class="mi">1049</span> <span class="n">md</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="g g-Whitespace">   </span><span class="mi">1050</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span><span class="p">:</span>
+
+<span class="ne">FileNotFoundError</span>: No such file or directory: &#39;schaltung1.png&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Image object&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der unkorrigierte Widerstandswert berechnet sich aus</p>
+<div class="math notranslate nohighlight">
+\[ R = \frac{U}{I}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">U</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">I</span> <span class="o">=</span> <span class="mf">2.4e-3</span>
+<span class="n">RiA</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">RiV</span> <span class="o">=</span> <span class="mf">10e3</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">U</span><span class="o">/</span><span class="n">I</span> <span class="c1"># unkorrigierter Widerstandswert</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Der unkorrigierte Widerstandswert ist R =&#39;</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="s1">&#39;Ohm&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der unkorrigierte Widerstandswert ist R = 4166.666666666667 Ohm
+</pre></div>
+</div>
+</div>
+</div>
+<p>Allerdings registriert das Strommessgerät in dieser Schaltung nicht nur den Strom IR, der durch den Widerstand fließt, sondern auch den durch das Messgerät fließenden Strom IV:</p>
+<div class="math notranslate nohighlight">
+\[I_V = \frac{U}{R_{iV}}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">IV</span> <span class="o">=</span> <span class="n">U</span><span class="o">/</span><span class="n">RiV</span> <span class="c1"># Strom, welcher über den Spannungsmesser abfließt</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Der Strom der durch das Spannungsmessgerät fließt ist IV =&#39;</span><span class="p">,</span> <span class="n">IV</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der Strom der durch das Spannungsmessgerät fließt ist IV = 0.001 A
+</pre></div>
+</div>
+</div>
+</div>
+<p>Die Strommessung ist in dieser Schaltung mit einem systematischen Fehler behaftet. Die Strommessung muss entsprechend korrigiert werden:</p>
+<div class="math notranslate nohighlight">
+\[I_R = I - I_V\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">IR</span> <span class="o">=</span> <span class="n">I</span> <span class="o">-</span> <span class="n">IV</span> <span class="c1"># korrigierter Stromwert, welcher über R abfließt</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Korrektur der Strommessung liefert IR =&#39;</span><span class="p">,</span> <span class="n">IR</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Korrektur der Strommessung liefert IR = 0.0013999999999999998 A
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dadurch lann der korrigierte Widerstandswert bestimmt werden:</p>
+<div class="math notranslate nohighlight">
+\[ R_k = U / I_R \]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Rk</span> <span class="o">=</span> <span class="n">U</span><span class="o">/</span><span class="n">IR</span> <span class="c1"># korrigierter Widerstandswert</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Der korrigierte Widerstandswert lautet R =&#39;</span><span class="p">,</span> <span class="n">Rk</span><span class="p">,</span> <span class="s1">&#39;Ohm&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der korrigierte Widerstandswert lautet R = 7142.857142857144 Ohm
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der absolute Fehler der Widerstandsmessung beträgt somit</p>
+<div class="math notranslate nohighlight">
+\[A = R - R_k = \Delta R\]</div>
+<p>undfür den relativen Fehler bezogen auf den Messwert folgt:</p>
+<div class="math notranslate nohighlight">
+\[A_\mathrm{rel} = A/R_k.\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">R</span> <span class="o">-</span> <span class="n">Rk</span> <span class="c1"># absoluter systematischer Fehler</span>
+<span class="n">Arel</span> <span class="o">=</span> <span class="n">A</span><span class="o">/</span><span class="n">Rk</span> <span class="o">*</span> <span class="mi">100</span> <span class="c1"># relativer systematischer Fehler</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Der absolute Fehler beträgt: &#39;</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="s1">&#39;Ohm&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Der relative Fehler beträgt: &#39;</span><span class="p">,</span> <span class="n">Arel</span><span class="p">,</span> <span class="s1">&#39;%&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der absolute Fehler beträgt:  -2976.190476190477 Ohm
+Der relative Fehler beträgt:  -41.66666666666667 %
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der Fehler kann durch einen hohen Eingangswiderstand des Messgerätes von einigen MΩ gering gehalten werden. Dadurch wird auch der durch den Spannungsmesser fließende Strom klein.</p>
+</section>
+<section id="schaltung-2-stromrichtige-schaltung-a-id-u22-b-a">
+<h3>Schaltung 2: Stromrichtige Schaltung <a id="Ü22.b"> </a><a class="headerlink" href="#schaltung-2-stromrichtige-schaltung-a-id-u22-b-a" title="Link zu dieser Überschrift">#</a></h3>
+<p>Bei der stromrichtigen Messung wird nur der durch ein Bauteil (Widerstand R) fließende Strom gemessen. Dazu wird der Strom ohne Verzweigung unmittelbar vor oder hinter dem Bauteil gemessen. In dieser Schaltung wird die Stromstärke IR korrekt gemessen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;schaltung2.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">File ~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/display.py:1045,</span> in <span class="ni">Image._data_and_metadata</span><span class="nt">(self, always_both)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1044</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1045</span>     <span class="n">b64_data</span> <span class="o">=</span> <span class="n">b2a_base64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;ascii&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1046</span> <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+
+<span class="ne">TypeError</span>: a bytes-like object is required, not &#39;str&#39;
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">File ~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/formatters.py:974,</span> in <span class="ni">MimeBundleFormatter.__call__</span><span class="nt">(self, obj, include, exclude)</span>
+<span class="g g-Whitespace">    </span><span class="mi">971</span>     <span class="n">method</span> <span class="o">=</span> <span class="n">get_real_method</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_method</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">973</span>     <span class="k">if</span> <span class="n">method</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">974</span>         <span class="k">return</span> <span class="n">method</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="n">include</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="n">exclude</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">975</span>     <span class="k">return</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">976</span> <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/display.py:1035,</span> in <span class="ni">Image._repr_mimebundle_</span><span class="nt">(self, include, exclude)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1033</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1034</span>     <span class="n">mimetype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mimetype</span>
+<span class="ne">-&gt; </span><span class="mi">1035</span>     <span class="n">data</span><span class="p">,</span> <span class="n">metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_and_metadata</span><span class="p">(</span><span class="n">always_both</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1036</span>     <span class="k">if</span> <span class="n">metadata</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1037</span>         <span class="n">metadata</span> <span class="o">=</span> <span class="p">{</span><span class="n">mimetype</span><span class="p">:</span> <span class="n">metadata</span><span class="p">}</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/display.py:1047,</span> in <span class="ni">Image._data_and_metadata</span><span class="nt">(self, always_both)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1045</span>     <span class="n">b64_data</span> <span class="o">=</span> <span class="n">b2a_base64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;ascii&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1046</span> <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1047</span>     <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1048</span>         <span class="s2">&quot;No such file or directory: &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">))</span> <span class="kn">from</span> <span class="nn">e</span>
+<span class="g g-Whitespace">   </span><span class="mi">1049</span> <span class="n">md</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="g g-Whitespace">   </span><span class="mi">1050</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span><span class="p">:</span>
+
+<span class="ne">FileNotFoundError</span>: No such file or directory: &#39;schaltung2.png&#39;
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">File ~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/display.py:1045,</span> in <span class="ni">Image._data_and_metadata</span><span class="nt">(self, always_both)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1044</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1045</span>     <span class="n">b64_data</span> <span class="o">=</span> <span class="n">b2a_base64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;ascii&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1046</span> <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+
+<span class="ne">TypeError</span>: a bytes-like object is required, not &#39;str&#39;
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">File ~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/formatters.py:344,</span> in <span class="ni">BaseFormatter.__call__</span><span class="nt">(self, obj)</span>
+<span class="g g-Whitespace">    </span><span class="mi">342</span>     <span class="n">method</span> <span class="o">=</span> <span class="n">get_real_method</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_method</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">343</span>     <span class="k">if</span> <span class="n">method</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">344</span>         <span class="k">return</span> <span class="n">method</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">345</span>     <span class="k">return</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">346</span> <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/display.py:1067,</span> in <span class="ni">Image._repr_png_</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1065</span> <span class="k">def</span> <span class="nf">_repr_png_</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1066</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">format</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_FMT_PNG</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1067</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_and_metadata</span><span class="p">()</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.9/site-packages/IPython/core/display.py:1047,</span> in <span class="ni">Image._data_and_metadata</span><span class="nt">(self, always_both)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1045</span>     <span class="n">b64_data</span> <span class="o">=</span> <span class="n">b2a_base64</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;ascii&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1046</span> <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1047</span>     <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1048</span>         <span class="s2">&quot;No such file or directory: &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">))</span> <span class="kn">from</span> <span class="nn">e</span>
+<span class="g g-Whitespace">   </span><span class="mi">1049</span> <span class="n">md</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="g g-Whitespace">   </span><span class="mi">1050</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span><span class="p">:</span>
+
+<span class="ne">FileNotFoundError</span>: No such file or directory: &#39;schaltung2.png&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Image object&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der unkorrigierte Widerstandswert berechnet sich aus</p>
+<div class="math notranslate nohighlight">
+\[ R = \frac{U}{I}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">U</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">I</span> <span class="o">=</span> <span class="mf">1.4e-3</span>
+<span class="n">RiA</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">RiV</span> <span class="o">=</span> <span class="mf">10e3</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">U</span><span class="o">/</span><span class="n">I</span> <span class="c1"># unkorrigierter Widerstandswert</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Der unkorrigierte Widerstandswert ist R =&#39;</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="s1">&#39;Ohm&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der unkorrigierte Widerstandswert ist R = 7142.857142857143 Ohm
+</pre></div>
+</div>
+</div>
+</div>
+<p>Das Spannungsmessgerät registriert in dieser Schaltung nicht nur die an R abfallende Spannung UR, sondern auch die über dem Strommessgerät abfallende Spannung UA:</p>
+<div class="math notranslate nohighlight">
+\[U_A = R_{iA} \cdot I\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">UA</span> <span class="o">=</span> <span class="n">RiA</span><span class="o">*</span><span class="n">I</span> <span class="c1"># Spannungsabfall am Strommessgerät</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Spannung, die über dem Strommessgerät abfällt ist UA =&#39;</span><span class="p">,</span> <span class="n">UA</span><span class="p">,</span> <span class="s1">&#39;V&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Spannung, die über dem Strommessgerät abfällt ist UA = 0.0056 V
+</pre></div>
+</div>
+</div>
+</div>
+<p>Die Spannungsmessung ist also in dieser Schaltung mit einem systematischen Fehler behaftet, welcher vom eigentlichen Spannungswert abgezogen werden muss:</p>
+<div class="math notranslate nohighlight">
+\[U_R = U - U_A.\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">UR</span> <span class="o">=</span> <span class="n">U</span> <span class="o">-</span> <span class="n">UA</span> <span class="c1"># korrigierter Spannungswert über R</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Korrektur der Spannungsmessung liefert UR =&#39;</span><span class="p">,</span> <span class="n">UR</span><span class="p">,</span> <span class="s1">&#39;V&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Korrektur der Spannungsmessung liefert UR = 9.9944 V
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dadurch kann der korrigierte Widerstandswert bestimmt werden:</p>
+<div class="math notranslate nohighlight">
+\[R_k = U_R/I\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Rk</span> <span class="o">=</span> <span class="n">UR</span><span class="o">/</span><span class="n">I</span> <span class="c1"># korrigierter Widerstandswert</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Der korrigierte Widerstandswert lautet R =&#39;</span><span class="p">,</span> <span class="n">Rk</span><span class="p">,</span> <span class="s1">&#39;Ohm&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der korrigierte Widerstandswert lautet R = 7138.857142857143 Ohm
+</pre></div>
+</div>
+</div>
+</div>
+<p>Die absolute Abweichung der Widerstandsmessung berechnet sich über:</p>
+<div class="math notranslate nohighlight">
+\[ A = R - R_k = \Delta R\]</div>
+<p>und die relative Abweichung bezogen auf den Messwert zu</p>
+<div class="math notranslate nohighlight">
+\[A_\mathrm{rel} = \frac{A}{R_k}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">R</span> <span class="o">-</span> <span class="n">Rk</span> <span class="c1"># absoluter systematischer Fehler</span>
+<span class="n">Arel</span> <span class="o">=</span> <span class="n">A</span><span class="o">/</span><span class="n">Rk</span> <span class="o">*</span> <span class="mi">100</span> <span class="c1"># relativer systematischer Fehler</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Der absolute Fehler beträgt: &#39;</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="s1">&#39;Ohm&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Der relative Fehler beträgt: &#39;</span><span class="p">,</span> <span class="n">Arel</span><span class="p">,</span> <span class="s1">&#39;%&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der absolute Fehler beträgt:  4.0 Ohm
+Der relative Fehler beträgt:  0.05603137757144001 %
+</pre></div>
+</div>
+</div>
+</div>
+<p>Um die Abweichung möglichst gering zu halten, muss der Innenwiderstand des Strommessers möglichst gering sein. Dadurch wird auch die über dem Strommesser abfallende Spannung UA klein.</p>
+</section>
+</section>
+<section id="losung-zu-2">
+<h2>Lösung zu 2<a class="headerlink" href="#losung-zu-2" title="Link zu dieser Überschrift">#</a></h2>
+<section id="leistungsmessung-a-id-u22-c-a">
+<h3>Leistungsmessung <a id="Ü22.c"> </a><a class="headerlink" href="#leistungsmessung-a-id-u22-c-a" title="Link zu dieser Überschrift">#</a></h3>
+<p>Im Gleichstromkreis werden gleichzeitig Strom- und Spannungsmessung mit einer stromrichtigen Messschaltung an einem Widerstand R durchgeführt. Die Strommessung liefert I = 140mA, die Spannungsmessung U = 10V.
+Über die Gleichung für die Leistung kann das unberichtigte Ergebnis für die Leistungsmessung bestimmt werden:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">U</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">I</span> <span class="o">=</span> <span class="mf">200e-3</span>
+<span class="n">RiA</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">U</span><span class="o">*</span><span class="n">I</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Leistung beträgt P = &#39;</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="s1">&#39;W&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Leistung beträgt P =  2.0 W
+</pre></div>
+</div>
+</div>
+</div>
+<p>Allgemein gilt für die die Abweichung der indirekten Messung, also der Fortpflanzung der bekannten systematischen Abweichung:</p>
+<div class="math notranslate nohighlight">
+\[ \Delta y = \sum_{i=1}^n\frac{\partial y}{\partial x_i}\cdot \Delta x_i \]</div>
+<p>bezogen auf die Bestimmungsgleichung der Leistung:</p>
+<div class="math notranslate nohighlight">
+\[ \Delta P = \frac{\partial P}{\partial U} \Delta U + \frac{\partial P}{\partial I} \Delta I \]</div>
+<p>nach Ausführung der partiellen Differentiation ergibt sich:</p>
+<div class="math notranslate nohighlight">
+\[ \Delta P = I \cdot \Delta U + U \cdot \Delta I \]</div>
+<p>weil eine stromrichtige Messung verwendet wird, tritt keine systematische Abweichung bezüglich des Stromes auf, d. h. <span class="math notranslate nohighlight">\(\Delta I = 0\)</span>, somit vereinfacht sich die Gleichung zu:</p>
+<div class="math notranslate nohighlight">
+\[ \Delta P = I \cdot \Delta U \]</div>
+<p>Das Voltmeter zeigt eine Spannung an, die der Summe der Spannung über RiV und der Spannung über dem Strommesser entspricht. Die Spannung über dem Strommesser darf für die Berechnung der Leistung über R nicht mit herangezogen werden, sie ist in unserem Fall identisch mit der systematischen Abweichung:</p>
+<div class="math notranslate nohighlight">
+\[ \Delta P = I \cdot \Delta U  = I \cdot U_\mathrm{iA} = I \cdot I \cdot R_\mathrm{iA}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dP</span> <span class="o">=</span> <span class="n">I</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">RiA</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die systematische Abweichung der Leistung beträgt dP = &#39;</span><span class="p">,</span> <span class="n">dP</span><span class="p">,</span> <span class="s1">&#39;W&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die korrigierte Leistung ist: Pk = &#39;</span><span class="p">,</span><span class="n">P</span><span class="o">-</span><span class="n">dP</span><span class="p">,</span> <span class="s1">&#39;W&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die systematische Abweichung der Leistung beträgt dP =  0.16000000000000003 W
+Die korrigierte Leistung ist: Pk =  1.8399999999999999 W
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/solutions"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Katharina-S. Isleif<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

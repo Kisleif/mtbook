@@ -35,28 +35,29 @@ import seaborn as sns
 import time
 import warnings
 warnings.filterwarnings('ignore')
+from myst_nb import glue
 
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.figure(figsize=(4,4)) # Plot-Größe
-#plt.xkcd()
+fig, ax = plt.subplots(figsize=(4,4)) # Plot Größe
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
-# synthetische Messwerte generieren mit weißem Rauschen:
-#N = 40
-#wahrer_wert = 1.4
-#y_wn = np.random.normal(scale=0.05, size=N)
-#t_sec = y_wn+1.4
 t_sec = np.array([1.41, 1.35, 1.45, 1.43, 1.44, 1.43,
  1.41, 1.32, 1.43, 1.40, 1.49, 1.40,
  1.40, 1.42, 1.40, 1.38, 1.37,  1.36,
-# 1.41, 1.36, 1.43, 1.39, 1.38, 1.47, 1.42, 1.40, 1.53, 1.43, 1.36, 1.49, 1.46, 1.48, 1.30, 1.41, 1.51, 1.46,
  1.37, 1.32, 1.47, 1.40])
-bconts, bedges, _p = plt.hist(t_sec, bins=np.linspace(1.3, 1.5, 6))
-plt.ylabel('Absolute Häufigkeit H(x)')
-plt.xlabel('Klassenverteilung der Zeit (s)')
-plt.show()
+bconts, bedges, _p = ax.hist(t_sec, bins=np.linspace(1.3, 1.5, 6))
+ax.set_ylabel('Absolute Häufigkeit H(x)')
+ax.set_xlabel('Klassenverteilung der Zeit (s)')
 
+glue("boot_fig", fig, display=False)
+#{glue:}`boot_fig`
+
+
+# ```{glue:figure} boot_fig
+# 
+# This is a caption.
+# ```
 
 # ## Häufigkeitsdichte 
 # 

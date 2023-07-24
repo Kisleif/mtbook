@@ -11,17 +11,13 @@ Jede Webseite im *Metrology Lecture Book* ist ein eigenes Jupyter-Notebook, was 
 
 Um dem **Vorlesungsskript** zu folgen sind **keine Python-Kenntnisse erforderlich**. 
 
-```{seealso}
-Weitere Infos zum [*Lecture Book*](content/00_jupyter). 
-```
-
 
 ::::{grid} 1 1 2 3
 :class-container: text-center
 :gutter: 3
 
 :::{grid-item-card}
-:link: content/01_Datenanalyse
+:link: content/0_Praktikum
 :link-type: doc
 :class-header: bg-light
 **Tips für's Praktikum** 👩‍🔬
@@ -31,7 +27,7 @@ Messdaten richtig sammeln, dokumentieren und analysieren.
 :::
 
 :::{grid-item-card}
-:link: content/00_jupyter
+:link: content/T_Tutorials
 :link-type: doc
 :class-header: bg-light
 **Über dieses Skript** 🐍
@@ -42,13 +38,13 @@ Einführung in Python und Jupyter-Notebooks.
 
 
 :::{grid-item-card}
-:link: content/T_Tutorials
+:link: content/Aufgabenpool
 :link-type: doc
 :class-header: bg-light
-**Tutorials** 🧑🏽‍💻
+**Aufgabenpool** 🧑🏽‍💻
 ^^^
 
-Übungen zur Messtechnik mit Jupyter-Notebooks.
+Übungen zur Messtechnik inkl. Klausurvorbereitung.
 :::
 ::::
 
@@ -59,7 +55,7 @@ Einführung in Python und Jupyter-Notebooks.
 :gutter: 3
 
 :::{grid-item-card}
-:link: content/1_Messen_Einheit
+:link: content/V1
 :link-type: doc
 :class-header: bg-light
 **Messen, Einheiten**
@@ -71,7 +67,7 @@ SI-Einheiten, Nicht-SI, Kalibrieren, Eichen, Prüfen
 :::
 
 :::{grid-item-card}
-:link: content/1_Messunsicherheiten
+:link: content/V2
 :link-type: doc
 :class-header: bg-light
 **Messunsicherheiten**
@@ -83,7 +79,7 @@ Systematisch, zufällig, Vertrauensintervall, Normalverteilung, Fehlerfortpflanz
 :::
 
 :::{grid-item-card}
-:link: content/1_Kurvenanpassung
+:link: content/V3
 :link-type: doc
 :class-header: bg-light
 **Kurvenanpassung**
@@ -95,7 +91,7 @@ Regression, Fit, Korrelation, Kovarianz, Least-Squares
 :::
 
 :::{grid-item-card}
-:link: content/02_Stationaer
+:link: content/V4
 :link-type: doc
 :class-header: bg-light
 **Stationäre Messsysteme**
@@ -107,7 +103,7 @@ Ideale und reale Kennlinie
 :::
 
 :::{grid-item-card}
-:link: content/03_Messsignale
+:link: content/V5
 :link-type: doc
 :class-header: bg-light
 **Messsignale**
@@ -119,19 +115,7 @@ Signale als Informationsträger, Digitalisierung, Kenngrößen
 :::
 
 :::{grid-item-card}
-:link: content/3_FourierAnalyse
-:link-type: doc
-:class-header: bg-light
-**Fourier-Analyse**
-^^^
-```{image} content/draw/fft.png
-:height: 120
-```
-Fourier-Reihen, Fourier-Transformation
-:::
-
-:::{grid-item-card}
-:link: content/05_Dynamische_Messsysteme
+:link: content/V6
 :link-type: doc
 :class-header: bg-light
 **Dynamische Messsysteme**
@@ -144,7 +128,7 @@ LZI-Systeme, DGLs, Impuls- und Sprungantwort, Faltung, Übertragungsfunktion
 
 
 :::{grid-item-card}
-:link: content/04_ElektrischeGroessen
+:link: content/V7
 :link-type: doc
 :class-header: bg-light
 **Messen elektrischer Größen**
@@ -156,7 +140,7 @@ Messeingänge, Widerstandsbrücken, Wechselspannung, Messverstärker
 :::
 
 :::{grid-item-card}
-:link: content/6_Sensoren
+:link: content/V8
 :link-type: doc
 :class-header: bg-light
 **Sensoren**
@@ -241,5 +225,7 @@ Explore this book {fas}`arrow-right`
 
 
 
+
 ```{bibliography}
+:filter: docname in docnames
 ```

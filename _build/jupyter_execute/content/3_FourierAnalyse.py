@@ -373,7 +373,7 @@ plt.show()
 # ## Fourier-Transformation 
 # <a id="Sec-FFT"></a>
 # 
-# Die Fourier-Transformation ist Teil der Spektralanalyse in der Messtechnik. Sie basiert auf der Grundidee, dass, wie wir eben gesehen haben, sich jede periodische Funktion aus Sinus- und Cosinusfunktionen schreiben lässt. Das Ziel ist es, die Anteile dieser Schwingungen sichtbar zu machen. Die Fourier-Transformation ist eine mathematische Methode mit der nun auch **aperiodische Signale** in ein kontinuierliches Spektrum zerlegt werden. Die Fourier-Transformation ist ein Werkzeug, mit dem man ein Signal (siehe [Messsignale](3_Messsignale.ipynb)) nehmen und die Leistung jeder einzelnen Frequenz darin sehen kann. 
+# Die Fourier-Transformation ist Teil der Spektralanalyse in der Messtechnik. Sie basiert auf der Grundidee, dass, wie wir eben gesehen haben, sich jede periodische Funktion aus Sinus- und Cosinusfunktionen schreiben lässt. Das Ziel ist es, die Anteile dieser Schwingungen sichtbar zu machen. Die Fourier-Transformation ist eine mathematische Methode mit der nun auch **aperiodische Signale** in ein kontinuierliches Spektrum zerlegt werden. Die Fourier-Transformation ist ein Werkzeug, mit dem man ein Signal nehmen und die Leistung jeder einzelnen Frequenz darin sehen kann. 
 # 
 # ### Anwendung
 # <a id="SubSec-Anwendung_FFT"></a>
@@ -386,7 +386,7 @@ plt.show()
 # 
 # ### Zeit- vs. Frequenzbereich
 # 
-# Du wirst im Folgenden immer wieder auf die Begriffe Zeitbereich und Frequenzbereich stoßen. Diese beiden Begriffe beziehen sich auf zwei verschiedene Arten der Betrachtung eines Signals, entweder als seine Frequenzkomponenten oder als Information, die sich über die Zeit verändert (siehe [Messsignale](3_Messsignale.ipynb)). Im Folgenden sehen wir uns an, wie ein Audiosignal im Zeit- bzw. Frequenzbereich aussieht. Hierfür benutzen wir das Audiosignal, was sich wiefolgt anhört:
+# Du wirst im Folgenden immer wieder auf die Begriffe Zeitbereich und Frequenzbereich stoßen. Diese beiden Begriffe beziehen sich auf zwei verschiedene Arten der Betrachtung eines Signals, entweder als seine Frequenzkomponenten oder als Information, die sich über die Zeit verändert. Im Folgenden sehen wir uns an, wie ein Audiosignal im Zeit- bzw. Frequenzbereich aussieht. Hierfür benutzen wir das Audiosignal, was sich wiefolgt anhört:
 
 # In[6]:
 

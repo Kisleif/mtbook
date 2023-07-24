@@ -1,0 +1,142 @@
+
+\documentclass[a4paper,ngerman,12pt,bibliography=totoc,listof=totoc,numbers=noendperiod]{scrartcl}
+%Startet das Dokument und regelt gleichzeitig Formatierungen wie Schriftgröße, Papierformat, Zahlenart, Sprache usw.
+
+\title{Vorlage Praktikum Messtechnik}
+\author{Julian Dietz}
+\date{November 2022}
+%Deklariert den Namen des Authors, sowie den Namen des Projekts
+
+%Packages sind Erweiterungen des eigentlichen Programms und erleichtern Abläufe, Darstellungen, Formatierungen usw.
+%Im Folgenden sind die Packages installiert, welche ich zum erstellen meiner Bachelorarbeit benötigt habe.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[ngerman]{babel}
+%Dient zur Rechtschreibkorrektur
+
+\usepackage{titling}
+%Hilft im Dokument auf den deklarierten Autor und Titel zuzugreifen 
+
+\usepackage[style=numeric-comp,backend=biber,doi=false,isbn=false,maxnames=3,sorting=none]{biblatex}
+\usepackage{csquotes}
+\addbibresource{Referenzen.bib}
+%Regelt die Erstellung des Literaturverzeichnisses sowie die Zitation im gesamten Bericht
+%Greift gleichzeitig auf die Referenzen.bib genannte BibTex datei zu, in welcher die Quellen aufgeführt sind.
+
+\usepackage{url}
+%erzeugt schönere URLs (vorallem in den Quellen wichtig)
+
+\usepackage{float}
+%Hilft beim Anordnen von Bildern, Grafiken und Tabellen
+
+\usepackage{abstract}
+%ermöglicht das einfügen eines Abstract (Nicht relevant fürs Praktikum)
+
+\usepackage{booktabs}
+%ermöglicht das erstellen von schöneren Tabellen 
+
+\usepackage{subfigure}
+%lässt den Benutzer mehrere Grafiken/Bilder in einer Abbildung darstellen
+
+\usepackage{pdfpages}
+%ermöglicht das einbinden von eigenständigen PDF Dokumenten 
+
+\usepackage{siunitx} 
+\sisetup{locale = DE}
+%vereinfacht den benötigten Syntax zum Benutzen von SI Einheiten und Mathematischen Gleichungen mit dem deutschen Standart
+
+\usepackage{tikz}
+%Freies Anordnen von Bildern und Text in Relation zueinander, sowie Möglichkeiten Bilder zu bearbeiten
+%Verfügt auserdem über die Möglichkeit Grafiken und Diagramme in Latex zu erstellen
+
+\usepackage[format=plain,labelfont=bf]{caption}
+\captionsetup[table]{position=above}
+%verschönert die Abbildungs- und Tabellenbeschriftungen. Für Tabellen werden die Beschriftungen über der Tabelle angezeigt
+
+\usepackage{icomma}
+%Für den korrekten Abstand der Kommas in Dezimalzahlen und in Gleichungen
+
+\usepackage{amsmath}
+%elementares Paket für Gleichungen. Verschönert diese und erleichtert die Benutzung von Gleichungen.
+
+\usepackage{graphicx}
+%mehr Optionen beim Einbinden und anordnen von Bildern und Grafiken
+
+\usepackage{setspace}
+%Für den richtigen Zeilenabstand
+
+\usepackage[left=3.5cm, right=2.3cm, top=3cm, bottom=2.5cm]{geometry}
+%Regelt die Seitenabstände
+
+\usepackage[headsepline=true, markcase=noupper]{scrlayer-scrpage}
+%Regelt alle Einstellung bezüglich Kopf- und Fußzeile
+\pagestyle{scrheadings}
+\headheight 16pt
+\setcounter{secnumdepth}{3}                       
+% Setzt den Zähler für die Abschnittsnumerierung auf eine Tiefe von 10. Alle Abschnitte werden nummeriert.
+\setcounter{tocdepth}{3}   
+% Setzt die Tiefe für das Inhaltsverzeichnis auf eine Tiefe von 10. Alle Abschnitte werden aufgeführt.
+% Abschnittsnummer und Überschrift
+\automark{section}
+\ihead{\headmark}
+\chead{}
+\ohead{\pagemark}
+\cfoot{}
+\setlength{\parindent}{0pt}
+%Einschub nach Absätzen und Zeilenumbrüchen
+\renewcommand*{\headfont}{\normalfont}
+
+\usepackage{enumitem}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\include{00_Deckblatt.tex}
+%include bindet andere .tex Dateien ein und hilft somit bei der Erstellung eines übersichtlichen Dokumentes
+
+\pagenumbering{gobble}
+\pagenumbering{Roman}
+%Ab hier Seitenzahlen mit Römischen Ziffern
+
+\include{01_Erklärung.tex}
+
+\tableofcontents
+%erstellt das vollautomatische Inhaltsverzeichnis
+
+\clearpage
+\pagenumbering{arabic}
+%ab hier Seitenzahlen in Arabischen Zahlen
+
+\include{02_Beispiel_Kapitel_1.tex}
+
+\include{03_Beispiel_Kapitel_2.tex}
+
+\listoffigures
+%erstellt das Abbildungsverzeichnis
+\pagebreak
+
+\listoftables
+%erstellt das Tabellenverzeichnis
+\pagebreak
+
+\printbibliography
+%erstellt das Literaturverzeichnis
+
+
+\end{document}
+%beendet das Dokument
+
+
+
+
+
+
+
+
+
+

@@ -352,7 +352,7 @@ print("Messergebnis (95%): (", round(mean,3), '+-',round(2*std/np.sqrt(m),3),') 
 # Für die Spannung-Messreihe aus dem oben aufgeführten Beispiel waren folgende Parameter gegeben:
 # * Anzahl der Messwerte $m=22$
 # * Mittelwert: $\overline x = 1,04\,\mathrm{s}$
-# * Standardabweichung des Mittelwertes: $ u_{\overline x} = 0,009\,\mathrm s $
+# * Standardabweichung des Mittelwertes: $u_{\overline x} = 0,009\,\mathrm s$
 # 
 # Oben hatten wir das Ergebnis, in dem 95% der Messwerte zu finden sind, wiefolgt angegeben gehabt, in dem wir die Gaußverteilung und den zugehörigen $2\sigma$-Vertrauensbereich benutzt haben:
 # 

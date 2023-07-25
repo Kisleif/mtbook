@@ -1,5 +1,10 @@
 # Woche 1: Einleitung
 
+```{admonition} Hier geht zum Quiz...
+:class: tip
+[Quiz zur Woche 1](jupyterquiz/Q1.ipynb)
+```
+
 Was ist die Aufgabe der Messtechnik? Wozu braucht man sie? Wo taucht sie auf? Wer nutzt sie?
 Im Alltag findet man die Messtechnik überall, zum Beispiel im Handy, bei Temperatur- oder Stickstoffmessungen in der Umwelt oder in der Prozess- und Fertigungstechnik. Es bedarf einer bestimmten Struktur und Vorgehensweise, um physikalische oder chemische Größen zu beschreiben und auswerten zu können. 
 Wir werden die Fragen beantworten, was die Eigenheiten und Einheiten bestimmter physikalischer Messgrößen sind, welches Messgeräte für diese existieren und was bei der Anwendung beachtet werden muss. 

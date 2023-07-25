@@ -11,7 +11,7 @@ Ein Sensor wandelt nach einem bestimmten physikalischen (oder chemischen) Funkti
 
 ## Download Vorlesungsfolien
 
-{Download}`Hier<slides/V1.pdf>` kannst du die Vorlesungsfolien der ersten Woche herunter laden.
+{Download}`Hier<slides/V1.pdf>` kannst du die Vorlesungsfolien der ersten Woche herunterladen.
 
 
 ## Topics to prepare...

@@ -168,7 +168,8 @@ print(f"Temperaturanstieg pro Jahr (von 1980 bis 2020): {model[0][0]:.3f}°C/Jah
 
 # ## Template für die Auswertung
 # 
-# Wir freuen uns, euch ein maßgeschneidertes LaTeX Template für eure Praktikumsberichte präsentieren zu können. Mit diesem Template könnt ihr professionelle Dokumente erstellen, die automatische Zitierungen, mathematische Formeln und eine gute Typografie unterstützen. Es enthält bereits vorgefertigte Abschnitte und Formatierungen, um euch den Einstieg zu erleichtern.
+# Wir stellen euch ein maßgeschneidertes LaTeX Template für eure Praktikumsberichte präsentieren zur Verfügung, welches ihr {Download}`hier herunterladen <Vorlage Praktikum Messtechnik.zip>` könnt. 
+# Mit diesem Template könnt ihr professionelle Dokumente erstellen, die automatische Zitierungen, mathematische Formeln und eine gute Typografie unterstützen. Es enthält bereits vorgefertigte Abschnitte und Formatierungen, um euch den Einstieg zu erleichtern. Es eignet sich auch hervorragend für eure Bachelor- und Masterarbeiten. 
 # 
 # Ihr könnt das Template ganz einfach auf Overleaf nutzen, einer Online-Plattform für kollaboratives Schreiben in LaTeX. Folgt einfach diesen Schritten:
 # 
@@ -176,5 +177,3 @@ print(f"Temperaturanstieg pro Jahr (von 1980 bis 2020): {model[0][0]:.3f}°C/Jah
 # * Klickt auf "New Project" und wählt "Upload Project" aus.
 # * Lädt das heruntergeladene Praktikumsbericht Template hoch, indem ihr auf "Choose file" klickt und die Datei auswählt.
 # * Nach dem Hochladen könnt ihr direkt mit dem Schreiben eures Praktikumsberichts beginnen. Das Template wird bereits in eurem Projekt geöffnet sein und ihr könnt es entsprechend anpassen.
-# 
-# Das Template steht {Download}`hier zum Download<Vorlage Praktikum Messtechnik.zip>` bereit. Wir hoffen, dass es euch dabei hilft, eure Praktikumsberichte noch aussagekräftiger zu gestalten.

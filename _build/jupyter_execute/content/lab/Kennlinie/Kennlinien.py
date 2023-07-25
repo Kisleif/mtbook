@@ -167,6 +167,7 @@ plt.show()
 # In[61]:
 
 
+plt.figure(figsize=(8,5)) # Diagramm-Größe einstellen
 plt.semilogy(data1_cut['U_Volt'],data1_cut['I_Ampere'], 'o', label = 'gemessen Kennlinie der Diode XY')
 plt.semilogy(data1_cut['U_Volt'], I_U(data1_cut['U_Volt']), label = 'Ideale Kennlinie, 300K', color = 'tab:orange')
 plt.xlabel('Spannung U (V)')
@@ -193,6 +194,7 @@ from scipy.optimize import curve_fit
 x = data1_cut['U_Volt'].dropna()
 y = 10*np.log10(data1_cut['I_Ampere'].dropna())
 
+plt.figure(figsize=(8,5)) # Diagramm-Größe einstellen
 plt.plot(x,y, 'o', label = 'gemessen Kennlinie der Diode XY')
 plt.xlabel('Spannung U (V)')
 plt.ylabel('Stromstärke I (dB)')
@@ -224,6 +226,7 @@ popt, pcov = curve_fit(fit_func, x , y)
 # In[74]:
 
 
+plt.figure(figsize=(8,5)) # Diagramm-Größe einstellen
 plt.plot(x,y, 'o', label = 'gemessen Kennlinie der Diode XY')
 plt.plot(x,fit_func(x,*popt), label = 'Modellfunktion')
 plt.xlabel('Spannung U (V)')

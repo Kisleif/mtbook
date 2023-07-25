@@ -166,7 +166,7 @@ print(f"Temperaturanstieg pro Jahr (von 1980 bis 2020): {model[0][0]:.3f}°C/Jah
 # Wie du eine Kurve an deine Messdaten anpasst findet du unter [Kurvenanpassung](1_Kurvenanpassung.ipynb) und [Übungen in Python](T_Tutorials.ipynb).
 # ```
 
-# ## Template für die Auswertung
+# ## Latex-Template für den Praktikumsbericht
 # 
 # Wir stellen euch ein maßgeschneidertes LaTeX Template für eure Praktikumsberichte präsentieren zur Verfügung, welches ihr {Download}`hier herunterladen <Vorlage Praktikum Messtechnik.zip>` könnt. 
 # Mit diesem Template könnt ihr professionelle Dokumente erstellen, die automatische Zitierungen, mathematische Formeln und eine gute Typografie unterstützen. Es enthält bereits vorgefertigte Abschnitte und Formatierungen, um euch den Einstieg zu erleichtern. Es eignet sich auch hervorragend für eure Bachelor- und Masterarbeiten. 
@@ -177,3 +177,9 @@ print(f"Temperaturanstieg pro Jahr (von 1980 bis 2020): {model[0][0]:.3f}°C/Jah
 # * Klickt auf "New Project" und wählt "Upload Project" aus.
 # * Lädt das heruntergeladene Praktikumsbericht Template hoch, indem ihr auf "Choose file" klickt und die Datei auswählt.
 # * Nach dem Hochladen könnt ihr direkt mit dem Schreiben eures Praktikumsberichts beginnen. Das Template wird bereits in eurem Projekt geöffnet sein und ihr könnt es entsprechend anpassen.
+
+# In[ ]:
+
+
+
+

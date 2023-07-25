@@ -1,15 +1,13 @@
 # Dioden-Kennlinie
 
-<img src="pictures/IMG_5597.jpeg" alt="kennlinienversuch" label = kennlinienversuch></img>
-
 In diesem Praktikum wird das Oszilloskop des Moku:Go-Messgerätes und sein integrierter Wellenformgenerator verwendet um die Kennlinien von Dioden zu untersuchen. Bringe deinen eigenen Laptop mit und installiere (vorab) die [Moku:Go Software](https://www.liquidinstruments.com/products/desktop-apps/).
 
-## Download Praktikumsanleitung
+<img src="pictures/IMG_5597.jpeg" alt="kennlinienversuch" label = kennlinienversuch></img>
 
-{Download}`Hier<lab/Kennlinie.pdf>` kann die Praktikumsanleitung herunterladen werden.
+## Downloads
 
-## Topics to prepare aus dem Vorlesungsskript
-
+* {Download}`Hier<lab/Kennlinie/main.pdf>` kann die Praktikumsanleitung herunterladen werden.
+* {Download}`Hier<Vorlage Praktikum Messtechnik.zip>` steht das LaTeX Template für euren Praktikumsbericht zum Download bereit. 
 
 ## Verständnisfragen zur Vorbereitung
 1. Erkläre mithilfe einfacher Skizzen die Gleichrichterwirkung einer Halbleiterdiode.
@@ -20,6 +18,12 @@ In diesem Praktikum wird das Oszilloskop des Moku:Go-Messgerätes und sein integ
 
 ## Stichwörter, die du kennen solltest...
 Kennlinie, Diode, LED, p-n-Übergang, stromrichtig und spannungsrichtig
+
+## Topics to prepare aus dem Vorlesungsskript
+- ...
+
+## Auswerteskript als Jupyter Notebook 
+Als Grundlage für die Datenanalyse der Messdaten stellen wir euch ein [Jupyter-Notebook](lab/Kennlinie/Kennlinien.ipynb) und {Download}`Musterdaten<lab/Kennlinie/MokuOscilloscopeData_20221007_133233_Traces.csv>` zur Verfügung. Dies bietet jedoch nur die Grundlage und beinhaltet nicht die komplette Versuchauswertung, die ihr durchführen müsst!
 
 ## Literatur
 ::::{grid} 1 1 1 2

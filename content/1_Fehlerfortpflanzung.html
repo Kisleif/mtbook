@@ -136,7 +136,17 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="1_Messen_Einheit.html">
-     Messen und Einheiten
+     Messen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Einheiten.html">
+     Einheiten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Kalibrieren.html">
+     Messsysteme kalibrieren
     </a>
    </li>
   </ul>
@@ -399,7 +409,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="V9.html">
-   Woche 9: Sensoren
+   Woche 9: Dark Lecture
   </a>
  </li>
 </ul>
@@ -1032,8 +1042,9 @@ die Taylor-Entwicklung von <span class="math notranslate nohighlight">\(y\)</spa
 <section id="vorzeichen-bekannt-systematische-abweichungen">
 <h2>Vorzeichen bekannt (systematische Abweichungen)<a class="headerlink" href="#vorzeichen-bekannt-systematische-abweichungen" title="Link zu dieser Überschrift">#</a></h2>
 <p>Ist das Vorzeichen der Messabweichung bekannt, müssen die Vorzeichen unbedingt berücksichtigt werden. Das Ergebnis wird anschließend um diesen <em>Offset</em> korrigiert und nicht mit dem <span class="math notranslate nohighlight">\(\pm\)</span>-Symbol, wie für Mess<em>unsicherheiten</em> üblich versehen.</p>
-<p>Die allgemeine Formel aus dem vorangegangenen Kapitel ist gültig und die Messabweichung für <span class="math notranslate nohighlight">\(y\)</span> berechnet sich zu:
-$<span class="math notranslate nohighlight">\(\Rightarrow \quad \Delta y = \frac{\partial y}{\partial x_1} \cdot \Delta x_1 + \frac{\partial y}{\partial x_2} \cdot \Delta x_2 + ...\)</span>$</p>
+<p>Die allgemeine Formel aus dem vorangegangenen Kapitel ist gültig und die Messabweichung für <span class="math notranslate nohighlight">\(y\)</span> berechnet sich zu:</p>
+<div class="math notranslate nohighlight">
+\[\Rightarrow \quad \Delta y = \frac{\partial y}{\partial x_1} \cdot \Delta x_1 + \frac{\partial y}{\partial x_2} \cdot \Delta x_2 + ...\]</div>
 <p>Wichtige Spezialfälle sind Summen, Differenzen, Produkte oder Quotienten von zwei Größen. Beachte hier, dass wir in diesem Kapitel Fehler <strong>mit Vorzeichen</strong> betrachten, das heißt wir wissen, in welche Richtung der Messwert abweicht.</p>
 <ul class="simple">
 <li><p>Setzt sich die gesuchte Größe <span class="math notranslate nohighlight">\(y\)</span> aus der <strong>Addition</strong> zweier unabhängigen Messwerte zusammen, so wird ihre Abweichung aus der Addition der Abweichungen der Einzelmessungen berechnet:</p></li>
@@ -1089,7 +1100,7 @@ $<span class="math notranslate nohighlight">\(\Rightarrow \quad \Delta y = \frac
 </section>
 <section id="zufallige-unabhangigen-variablen-a-id-subsec-fehlerfortpflanzung-bei-unabhangigen-unsicherheiten-a">
 <h2>Zufällige, unabhängigen Variablen <a id="SubSec-Fehlerfortpflanzung_bei_unabhängigen_Unsicherheiten"></a><a class="headerlink" href="#zufallige-unabhangigen-variablen-a-id-subsec-fehlerfortpflanzung-bei-unabhangigen-unsicherheiten-a" title="Link zu dieser Überschrift">#</a></h2>
-<p>Nun gehen wir über von Fehlerfortpflanzungsgesetzen für systematische Abweichungen zu Gesetzmäßigkeiten, die für rein statistische Messgrößen <span class="math notranslate nohighlight">\(x\)</span> gelten. Die Messgröße <span class="math notranslate nohighlight">\(x\)</span> wird wie oben eingeführt über statstische Verfahren ermittelt und im Rahmen einer Messreihe (mit <span class="math notranslate nohighlight">\(m\)</span> Messwerten) aufgenommen. Mittelwert und Unsicherheit werden also wiefolgt berechnet:</p>
+<p>Nun gehen wir über von Fehlerfortpflanzungsgesetzen für systematische Abweichungen zu Gesetzmäßigkeiten, die für rein statistische Messgrößen <span class="math notranslate nohighlight">\(x\)</span> gelten. Die Messgröße <span class="math notranslate nohighlight">\(x\)</span> wird wie oben eingeführt über statistische Verfahren ermittelt und im Rahmen einer Messreihe (mit <span class="math notranslate nohighlight">\(m\)</span> Messwerten) aufgenommen. Mittelwert und Unsicherheit werden also wie folgt berechnet:</p>
 <div class="math notranslate nohighlight">
 \[\overline x = \frac{1}{m}\sum_{j=1}^m x_j\]</div>
 <div class="math notranslate nohighlight">
@@ -1098,8 +1109,8 @@ $<span class="math notranslate nohighlight">\(\Rightarrow \quad \Delta y = \frac
 <p>Bei der Fehlerfortpflanzung wird als Eingangsgröße häufig der Mittelwert benutzt, und seine entsprechend kleine Unsicherheit benutzt, um die Unsicherheit für die Ausgangsgröße <span class="math notranslate nohighlight">\(y\)</span> zu bestimmen. Die Taylorreihe von <span class="math notranslate nohighlight">\(y(x)\)</span> wird entsprechend an der Stelle des Mittelwertes <span class="math notranslate nohighlight">\(x = \bar x\)</span> entwickelt und es folgt:</p>
 <div class="math notranslate nohighlight">
 \[u_y = \left| \frac{dy}{dx} \right| \cdot u_\bar x\]</div>
-<p>Da es sich bei statistische Unsicherheiten um Grenzen handelt, also das Vorzeichen der Abweichung nicht existiert, müssen wieder deren Beträge berücksichtigt werden.</p>
-<p>Haben wir nun den Fall, dass sich die gesuchte Größe <span class="math notranslate nohighlight">\(y\)</span> aus mehreren voneinander unabhängigen Eingangsgrößen <span class="math notranslate nohighlight">\(\bar x_1, \bar x_2, ...\)</span> und deren Unsicherheiten <span class="math notranslate nohighlight">\(u_1, u_2, ...\)</span> zusammensetzt, gelten folgenden Regeln:</p>
+<p>Da es sich bei statistischen Unsicherheiten um Grenzen handelt, also das Vorzeichen der Abweichung nicht existiert, müssen wieder deren Beträge berücksichtigt werden.</p>
+<p>Haben wir nun den Fall, dass sich die gesuchte Größe <span class="math notranslate nohighlight">\(y\)</span> aus mehreren voneinander unabhängigen Eingangsgrößen <span class="math notranslate nohighlight">\(\bar x_1, \bar x_2, ...\)</span> und deren Unsicherheiten <span class="math notranslate nohighlight">\(u_1, u_2, ...\)</span> zusammensetzt, gelten folgende Regeln:</p>
 <ul class="simple">
 <li><p>Das Messergebnis <span class="math notranslate nohighlight">\(y\)</span> berechnet sich aus den Mittelwerten <span class="math notranslate nohighlight">\(\bar x_1, \bar x_2, ...\)</span></p></li>
 <li><p>Um die Unsicherheit <span class="math notranslate nohighlight">\(u_y\)</span> zu bestimmen, wird wieder mit der linearen Näherung bei mehreren unabhängigen Variablen begonnen (partielle Ableitungen bilden!), allerdings müssen jetzt, wie bei der Berechnung der Standardunsicherheit, die <em>quadrierten</em> Beiträge der Einzelunsicherheiten addiert werden:</p></li>
@@ -1120,12 +1131,27 @@ $<span class="math notranslate nohighlight">\(\Rightarrow \quad \Delta y = \frac
 <div class="math notranslate nohighlight">
 \[y=\bar x_1 \cdot \bar x_2 \quad \textrm{oder} \quad y=\bar x_1 / \bar x_2 \Rightarrow  \color{blue}{
    \left(\frac{u_y}{y}\right)^2 =  \left(\frac{u_1}{\bar x_1}\right)^2 + \left(\frac{u_2}{\bar x_2} \right)^2}\]</div>
-<p><strong>Hinweis:</strong> Diese Gesetze sind nur bei hinreichender Linearität anwendbar, d.h. wenn sich die Funktion <span class="math notranslate nohighlight">\(y(x_1, x_2, ...)\)</span> bei Änderung einer der Eingsangsgrößen <span class="math notranslate nohighlight">\(x_i\)</span> im Bereich ihrer eigenen Unsicherheit <span class="math notranslate nohighlight">\(u_i\)</span> nur hinreichen linear verändert. Andernfalls wird die Fehlerfortpflanzung aufwendiger (DIN1319).</p>
+<p><strong>Hinweis:</strong> Diese Gesetze sind nur bei hinreichender Linearität anwendbar, d.h. wenn sich die Funktion <span class="math notranslate nohighlight">\(y(x_1, x_2, ...)\)</span> bei Änderung einer der Eingsangsgrößen <span class="math notranslate nohighlight">\(x_i\)</span> im Bereich ihrer eigenen Unsicherheit <span class="math notranslate nohighlight">\(u_i\)</span> nur hinreichend linear verändert. Andernfalls wird die Fehlerfortpflanzung aufwendiger (DIN1319).</p>
 </section>
 <section id="zufallige-abhangige-korrelierte-variablen-a-id-subsec-fehlerfortpflanzung-bei-korrelierten-unsicherheiten-a">
 <h2>Zufällige, abhängige (korrelierte) Variablen <a id="SubSec-Fehlerfortpflanzung_bei_korrelierten_Unsicherheiten"></a><a class="headerlink" href="#zufallige-abhangige-korrelierte-variablen-a-id-subsec-fehlerfortpflanzung-bei-korrelierten-unsicherheiten-a" title="Link zu dieser Überschrift">#</a></h2>
 <section id="korrelation-und-kovarianz-matrix-a-id-sec-korrelation-kovarianz-a">
 <h3>Korrelation und Kovarianz-Matrix <a id="sec_korrelation_kovarianz"></a><a class="headerlink" href="#korrelation-und-kovarianz-matrix-a-id-sec-korrelation-kovarianz-a" title="Link zu dieser Überschrift">#</a></h3>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Pearson Korrelationskoeffizient berechnen - Statistik einfach erklärt! (Sutdyflix)</p>
+<iframe width="200" height="113" src="https://www.youtube.com/embed/yJewCQIxECs?si=DLzZkExnIMZNAg5A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+</aside>
 <p>Häufig liegt in der Messtechnik der Fall vor, dass wir voneinander unabhängige Messungen betrachten und diese zu unserer gesuchten Messgröße kombinieren. Teilweise können aber auch Messungen beobachtet werden, welche eine Abhängigkeit voneinander aufweisen. In diesem Fall spricht man von <strong>Korrelationen</strong> zwischen Messgrößen und ein <em>Kovarianz-Term</em> muss berücksichtigt werden!</p>
 <ul class="simple">
 <li><p>Bei <strong>unabhängigen (nicht-korrelierten)</strong> Messungen wird der Kovarianz-Term auf Null gesetzt:</p></li>
@@ -1137,7 +1163,7 @@ $<span class="math notranslate nohighlight">\(\Rightarrow \quad \Delta y = \frac
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{split}\mathrm{cov}(x_1, x_2) = \underbrace{\left&lt; x_1 x_2 \right&gt;}_{\substack{\text{zuerst Multiplikation,} \\ \text{dann Mittelwertbildung}}} - \underbrace{\left&lt; x_1 \right&gt;\left&lt; x_2 \right&gt;}_{\substack{\text{zuerst Mittelwertbildung,} \\ \text{dann Multiplikation}}}\end{split}\]</div>
-<p>Diese <em>gemeinsame</em> Unsicherheit resultiert darin, dass Abhängigkeiten zwischen den gemessenen Messwerten <span class="math notranslate nohighlight">\(x_1\)</span> und <span class="math notranslate nohighlight">\(x_2\)</span> entstehen. Ist zum Beispiel die eine Messgröße <span class="math notranslate nohighlight">\(x_1\)</span> zu groß, so ist die Wahrscheinlichkeit, dass auch die andere Größe <span class="math notranslate nohighlight">\(x_2\)</span> einen zu großen Wert hat, erhöht. Diesen Effekt, dass beide Größen zu große Werte ausgeben, nennt man auch <strong>positive Korrelation</strong>. Entsprechend würde eine <strong>negative Korrelation</strong> bedeuten, dass der zweite Wert einer Messgröße mit erhöhter Wahrscheinlichkeit zu klein ausgegeben wird, obwohl die erste Größe einen zu großen Wert hat. Ein Beispiel für eine negative Korrelation ist die Ausgleichsgerade <span class="math notranslate nohighlight">\(y = m\cdot x + b\)</span>, welche an Messwerte angepasst werden kann. Wenn sich der Wert von <span class="math notranslate nohighlight">\(m\)</span> vergrößert, zu muss zwangsläufig der <span class="math notranslate nohighlight">\(y\)</span>-Achsenabschnitt <span class="math notranslate nohighlight">\(b\)</span> kleiner werden, damit die Gleichung weiterhin erfüllt ist. Die Größen <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span> sind also negativ korreliert.
+<p>Diese <em>gemeinsame</em> Unsicherheit resultiert darin, dass Abhängigkeiten zwischen den gemessenen Messwerten <span class="math notranslate nohighlight">\(x_1\)</span> und <span class="math notranslate nohighlight">\(x_2\)</span> entstehen. Ist zum Beispiel die eine Messgröße <span class="math notranslate nohighlight">\(x_1\)</span> zu groß, so ist die Wahrscheinlichkeit, dass auch die andere Größe <span class="math notranslate nohighlight">\(x_2\)</span> einen zu großen Wert hat, erhöht. Diesen Effekt, dass beide Größen zu große Werte ausgeben, nennt man auch <strong>positive Korrelation</strong>. Entsprechend würde eine <strong>negative Korrelation</strong> bedeuten, dass der zweite Wert einer Messgröße mit erhöhter Wahrscheinlichkeit zu klein ausgegeben wird, obwohl die erste Größe einen zu großen Wert hat. Ein Beispiel für eine negative Korrelation ist die Ausgleichsgerade <span class="math notranslate nohighlight">\(y = m\cdot x + b\)</span>, welche an Messwerte angepasst werden kann. Wenn sich der Wert von <span class="math notranslate nohighlight">\(m\)</span> vergrößert, muss zwangsläufig der <span class="math notranslate nohighlight">\(y\)</span>-Achsenabschnitt <span class="math notranslate nohighlight">\(b\)</span> kleiner werden, damit die Gleichung weiterhin erfüllt ist. Die Größen <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span> sind also negativ korreliert.
 Sind hingegen zwei Variablen <em>unabhängig</em>, so kann man aus dem Wert der ersten <em>keine</em> Information über die zweite Variable gewinnen. In diesem Fall ist die Korrelation exakt Null.</p>
 <ul class="simple">
 <li><p>Im Prinzip kann die Kovarianz, und somit auch die Werte in der Kovarianzmatrix, jeden beliebigen Wert annehmen, was zu einem sehr großen Wertebereich führt. Um die Darstellung zu vereinfachen wird die Kovarianz typischerweise normiert, sodass die Kovarianz Werte zwischen <span class="math notranslate nohighlight">\(-1\)</span> und <span class="math notranslate nohighlight">\(+1\)</span> annimmt und sich der <strong>Korrelationskoeffizient</strong> ergibt:</p></li>
@@ -1150,7 +1176,7 @@ Sind hingegen zwei Variablen <em>unabhängig</em>, so kann man aus dem Wert der 
 <div class="math notranslate nohighlight">
 \[r = \frac{\mathrm{cov}_{x_1x_2}}{s_{x_1} \cdot s_{x_2}} = \frac{\sum_{i=1}^N (x_{1,i}-\overline x_1)\cdot (x_{2,i}-\overline x_2)}{\sqrt{\sum_{i=1}^N (x_{1,i}-\overline x_1)^2} \cdot \sqrt{ \sum_{i=1}^N (x_{2,i}-\overline x_2)^2}}\]</div>
 <blockquote>
-<div><p>Wir haben nun verschiedene Kenngrößen der Statistik kennengelernt, um Beziehungen zwischen zwei Variablen zu beschreiben. Die <strong>Kovarianz</strong> ist eher ungeeignet um Größen miteinander zu vergleichen, da sie von der Skalierung abhängt. Der <strong>Korrelationskoeffizient</strong> hingegen ist eine mormierte Größe und kann als Maß für Korrelationen benutzt werden. Allerdings nur für lineare Korrelationen! Außerdem muss auch hierbei Vorsicht gewahrt werden: Eine hoher Korrelationskoeffizient bedeutet nicht immer eine hohe Korrelation der Variablen. Es kann sich auch um Ausreißer handeln! Außerdem wird die Bedeutung der Korrelation auch häufig überinterpretiert. Ein kleiner Korrelationskoeffizient beudetet nämlich auch nicht notwendigerweise, dass es keinerlei Beziehung zwischen zwei Variablen gibts. Der Zusammenhang könnte ja ein anderer als linear sein, z.B. quadratisch. Dann würde die Korrelation trotz quadratischem Zusammenhang den Wert 0 ausgeben.</p>
+<div><p>Wir haben nun verschiedene Kenngrößen der Statistik kennengelernt, um Beziehungen zwischen zwei Variablen zu beschreiben. Die <strong>Kovarianz</strong> ist eher ungeeignet um Größen miteinander zu vergleichen, da sie von der Skalierung abhängt. Der <strong>Korrelationskoeffizient</strong> hingegen ist eine mormierte Größe und kann als Maß für Korrelationen benutzt werden. Allerdings nur für lineare Korrelationen! Außerdem muss auch hierbei Vorsicht gewahrt werden: Eine hoher Korrelationskoeffizient bedeutet nicht immer eine hohe Korrelation der Variablen. Es kann sich auch um Ausreißer handeln! Außerdem wird die Bedeutung der Korrelation auch häufig überinterpretiert. Ein kleiner Korrelationskoeffizient bedeutet nämlich auch nicht notwendigerweise, dass es keinerlei Beziehung zwischen zwei Variablen gibt. Der Zusammenhang könnte ja ein anderer als linear sein, z.B. quadratisch. Dann würde die Korrelation trotz quadratischem Zusammenhang den Wert 0 ausgeben.</p>
 </div></blockquote>
 <p>Zum besseren Verständnis mag ein Beispiel helfen. Wir erzeugen dazu Zufallsgrößen mit
 unabhängigen und gemeinsamen Fehlern.</p>
@@ -1244,13 +1270,28 @@ unabhängigen und gemeinsamen Fehlern.</p>
 </section>
 <section id="fehlerfortpflanzung">
 <h3>Fehlerfortpflanzung<a class="headerlink" href="#fehlerfortpflanzung" title="Link zu dieser Überschrift">#</a></h3>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Fehlerfortpflanzung nach Gauß berechnen (Jan Yellow)</p>
+<iframe width="200" height="113" src="https://www.youtube.com/embed/HWtwstR6XxE?si=2KA3A0hGNstRu7aD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+</aside>
 <p>Das <strong>Gauß’sche Fehlerfortpflanzungsgesetz</strong> muss für diesen Fall erweitert werden, indem die Kovarianzen oder die Korrelationskoeffizienten zwischen jeweils zwei Größen, für alle <span class="math notranslate nohighlight">\(N\)</span> Messgrößen, berücksichtig werden.
 Setzt sich eine Messgröße <span class="math notranslate nohighlight">\(y\)</span> aus <span class="math notranslate nohighlight">\(N\)</span> fehlerbehafteten Größen <span class="math notranslate nohighlight">\(x_1 \pm u_1, x_2 \pm u_2, ...  x_N \pm u_N\)</span> zusammen (die Mittelwertschreibweise <span class="math notranslate nohighlight">\(\bar x_i\)</span> wurde hier wegen die Übersichtlichkeit weggelassen), so gilt für ihre Unsicherheit:</p>
 <div class="math notranslate nohighlight">
 \[u_y=\sqrt{\underbrace{\sum_{i=1}^N\left(\frac{\partial y}{\partial x_i}\cdot u_i\right)^2}_{\mathrm{wie~oben}}+ 2\underbrace{\sum_{i=1}^{N-1}\sum_{k=i+1}^N\frac{\partial y}{\partial x_i}\ \frac{\partial y}{\partial x_k}\cdot \mathrm{cov}(x_i, x_k)}_{\mathrm{Korrelationsterme}}}\]</div>
 <p>Für die Spezialfälle gilt nun:</p>
 <ul class="simple">
-<li><p>Addition und Subtration zweier korrelierter Messwerte führt zu folgendem Fehlerfortpflanzungsgesetz:</p></li>
+<li><p>Addition und Subtraktion zweier korrelierter Messwerte führt zu folgendem Fehlerfortpflanzungsgesetz:</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[y=x_1 \pm x_2 \Rightarrow \color{blue}{
@@ -1275,7 +1316,7 @@ Setzt sich eine Messgröße <span class="math notranslate nohighlight">\(y\)</sp
 <li><p>Das Ergebnis für <span class="math notranslate nohighlight">\(r = 0\)</span>, d.h. <strong>unabhängige</strong> Messwerte, der kombinierten Messunsicherheit für <span class="math notranslate nohighlight">\(y\)</span> beträgt <span class="math notranslate nohighlight">\(u_y = 1.4\)</span></p></li>
 <li><p>Das Ergebnis für <span class="math notranslate nohighlight">\(r = 1\)</span>, d.h. <strong>korrelierte</strong> Messwerte, der kombinierten Messunsicherheit für <span class="math notranslate nohighlight">\(y\)</span> beträgt <span class="math notranslate nohighlight">\(u_y = 0.0\)</span></p></li>
 </ul>
-<p>Dieses Beispiel findet häufig Anwendung im Bereich die Signalübertragung und ist unter der Bezeichnung <strong>differentielle Signalübertragung</strong> bekannt. Neben dem eigentlichen Signal, <span class="math notranslate nohighlight">\(x_1\)</span> wird hierbei ein zweites, invertiertes Signal mitübertragen, <span class="math notranslate nohighlight">\(x_2 = -x_1\)</span>. Da alle Störungen innerhalb der gleichen Übertragungsstrecke fast vollständig korreliert sind, heben sich diese am Ende auf. Das Nutzsignal erhält man zurück, indem man folgende Signalkombination berechnet: <span class="math notranslate nohighlight">\(y = 0.5\cdot (x_1 - x_2)\)</span>. Aufgrund des hohen Korrelationsgrades der einzelnen Signalkomponenten ist die Unsicherheit des extrahierten Signal sehr klein: <span class="math notranslate nohighlight">\(u_y \simeq 0\)</span>.</p>
+<p>Dieses Beispiel findet häufig Anwendung im Bereich der Signalübertragung und ist unter der Bezeichnung <strong>differentielle Signalübertragung</strong> bekannt. Neben dem eigentlichen Signal, <span class="math notranslate nohighlight">\(x_1\)</span> wird hierbei ein zweites, invertiertes Signal mitübertragen, <span class="math notranslate nohighlight">\(x_2 = -x_1\)</span>. Da alle Störungen innerhalb der gleichen Übertragungsstrecke fast vollständig korreliert sind, heben sich diese am Ende auf. Das Nutzsignal erhält man zurück, indem man folgende Signalkombination berechnet: <span class="math notranslate nohighlight">\(y = 0.5\cdot (x_1 - x_2)\)</span>. Aufgrund des hohen Korrelationsgrades der einzelnen Signalkomponenten ist die Unsicherheit des extrahierten Signal sehr klein: <span class="math notranslate nohighlight">\(u_y \simeq 0\)</span>.</p>
 </section>
 </section>
 </section>

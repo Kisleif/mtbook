@@ -136,7 +136,17 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="1_Messen_Einheit.html">
-     Messen und Einheiten
+     Messen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Einheiten.html">
+     Einheiten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Kalibrieren.html">
+     Messsysteme kalibrieren
     </a>
    </li>
   </ul>
@@ -399,7 +409,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="V9.html">
-   Woche 9: Sensoren
+   Woche 9: Dark Lecture
   </a>
  </li>
 </ul>
@@ -876,7 +886,7 @@ title="Print to PDF"
 <p>Viele Messungen, wie z.B. Spannungs- und Strommessungen werden am Ende mittels Analog-Digital-Umsetzer (ADU) digitalsiert, weshalb wir hier das Grundprinzip einmal erläutern möchten.</p>
 <section id="kennlinie">
 <h2>Kennlinie<a class="headerlink" href="#kennlinie" title="Link zu dieser Überschrift">#</a></h2>
-<p>In Folge der Digitalisierung wird der unendliche Wertebereich einer analogen Größen, z.B. eine elektrischen Spannung, auf einen endlichen, diskreten <strong>Wertebereich</strong> abgebildet:</p>
+<p>In Folge der Digitalisierung wird der unendliche Wertebereich einer analogen Größe, z.B. eine elektrischen Spannung, auf einen endlichen, diskreten <strong>Wertebereich</strong> abgebildet:</p>
 <div class="math notranslate nohighlight">
 \[W_B = (2^n-1) \cdot 1\,\mathrm{LSB}\]</div>
 <figure class="align-default" id="digi-3bit">
@@ -930,11 +940,26 @@ rel. Abweichung (Näherungsformel): 	 0.09765625 %
 </section>
 <section id="nyquist-shannon-abtasttheorem">
 <h2>Nyquist-Shannon-Abtasttheorem<a class="headerlink" href="#nyquist-shannon-abtasttheorem" title="Link zu dieser Überschrift">#</a></h2>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Nyquist Shannon Theorem (Elektrotechnik in 5 Minuten by Alexander Stöger)</p>
+<iframe width="200" height="113" src="https://www.youtube.com/embed/ltEXusbeTYQ?si=u-q-f3wI8Ur8r4Ne" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+</aside>
 <p>Nicht nur im Wertebereich, sondern auch bei der zeitlichen Diskretisierung können Abweichungen und Fehler auftreten.</p>
 <figure class="align-default" id="abtastung2">
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/abtastung.jpg"><img alt="abtastung" class="bg-primary mb-1" src="../_images/abtastung.jpg" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 38 </span><span class="caption-text">Aliasing Effekt in einem sinusförmigen Messsignal aufgrund der Wahl einer zu kleinen Abtastfrequenz.</span><a class="headerlink" href="#abtastung2" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-number">Abb. 38 </span><span class="caption-text">Abtasten eines sinusförmigen Messsignals mit <span class="math notranslate nohighlight">\(u_k\)</span> Abtastwerten zu bestimmten, diskreten Abtastzeitpunkten mit äquidistanten Abständen <span class="math notranslate nohighlight">\(T_A\)</span>.</span><a class="headerlink" href="#abtastung2" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
 <p>Wie in <a class="reference internal" href="#abtastung2"><span class="std std-numref">Abb. 38</span></a> werden nur zu bestimmten, diskreten Zeitpunkten <span class="math notranslate nohighlight">\(T_A\)</span> die Messdaten <span class="math notranslate nohighlight">\(u_k\)</span> abgespeichert, wodurch nur eine endliche Zahl von <em>Proben</em> genommen wird.
@@ -942,13 +967,29 @@ Ein ADU kann nicht beliebig schnell werden wodurch der Zeitpunkt zwischen zwei M
 <div class="math notranslate nohighlight">
 \[f_\mathrm{ab} &gt; 2f\]</div>
 <p>einhält. Dies besagt, dass eine Schwingung innerhalb einer Periode mindestens 2-mal abgetastet werden soll. Dann kann man das Signal wieder vollständig rekonstruieren. Wenn dies eingehalten wird, entstehen keine Messabweichungen bei der besagten Signalfrequenz!</p>
-<p>Sollte ein Signal aus mehreren Frequenzen bestimmen, so ist immer die höchste zu erwartende Frequenz im Signal als Anhaltspunkt für das Abtasttheorem zu nehmen. Die <strong>Nyquist-(Abtast-) Frequenz</strong> <span class="math notranslate nohighlight">\(f_\mathrm{ab}\)</span> wird entsprechend dieser höchsten Frequenz gewählt.</p>
-<p>In Kapitel <a class="reference internal" href="3_FourierAnalyse.html"><span class="doc std std-doc">Fourier-Analyse</span></a> ist gezeigt, dass bestimmte Signale wie z.B. Rechteckpulse, aber auch Einzelpulse, in der Theorie beliebig steile Flanken haben. Das heißt eine Rechteckspannung hat unendliche hohe Frequenzen, welches mit Zeitintervallen von 0 Skeunden Länge abgetastet werden müsste um die benötigte Abtastfrequenz <span class="math notranslate nohighlight">\(2\cdot \infty\)</span> zu erreichen. Dies ist durch die Digitalisierung nicht möglich und in diesem Fall ist zwangsläufig mit einem Informationsverlust zu rechnen.</p>
+<p>Sollte ein Signal aus mehreren Frequenzen bestehen, so ist immer die höchste zu erwartende Frequenz im Signal als Anhaltspunkt für das Abtasttheorem zu nehmen. Die <strong>Nyquist-(Abtast-) Frequenz</strong> <span class="math notranslate nohighlight">\(f_\mathrm{ab}\)</span> wird entsprechend dieser höchsten Frequenz gewählt.</p>
+<p>Im Kapitel <a class="reference internal" href="3_FourierAnalyse.html"><span class="doc std std-doc">Fourier-Analyse</span></a> ist gezeigt, dass bestimmte Signale wie z.B. Rechteckpulse, aber auch Einzelpulse, in der Theorie beliebig steile Flanken haben. Das heißt eine Rechteckspannung hat unendliche hohe Frequenzen, welches mit Zeitintervallen von 0 Sekunden Länge abgetastet werden müsste, um die benötigte Abtastfrequenz <span class="math notranslate nohighlight">\(2\cdot \infty\)</span> zu erreichen. Dies ist durch die Digitalisierung nicht möglich und in diesem Fall ist zwangsläufig mit einem Informationsverlust zu rechnen.</p>
 <p>Andersherum gibt der vorliegende ADU vor, welche Signale und Signalfrequenzen mit diesem Gerät noch verlustfrei analysiert werden können. Hat das vorliegende Messsystem eine Abtastfrequenz (auch Sampling-Frequenz oder Bandbreite genannt) von <span class="math notranslate nohighlight">\(f_\mathrm{ab} = 100\,\mathrm{MHz}\)</span>, so können nur Signale mit Frequenzanteilen bis zu <span class="math notranslate nohighlight">\(f = 50\,\mathrm{MHz}\)</span> verlustfrei analysiert werden.</p>
 </section>
 <section id="aliasing">
 <h2>Aliasing<a class="headerlink" href="#aliasing" title="Link zu dieser Überschrift">#</a></h2>
-<p>Sollte ein zu digitalisierendes Messsignale bekannterweise aus höheren Frequenzen bestehen, sollten diese vor derm Digitalisierungsprozess heraus gefiltert werden, da ansonsten <strong>Aliasing</strong> auftreten wird.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">What is aliasing and the Nyquist theorem? (englisch,
+AwesomeAcoustics in English)</p>
+<iframe width="200" height="113" src="https://www.youtube.com/embed/IZJQXlbm2dU?si=h-abenad8-pfuwTW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<p>Sollte ein zu digitalisierendes Messsignal bekannterweise aus höheren Frequenzen bestehen, sollten diese vor dem Digitalisierungsprozess heraus gefiltert werden, da ansonsten <strong>Aliasing</strong> auftreten wird.</p>
 <p>Nehmen wir im Folgenden an, dass wir ein Signal in einen ADU einspeisen, was höhere Frequenzanteile besitzt als der ADU theoretisch abtasten kann. Das bedeutet, dass bei diesen Schwingungen nicht mehr 2 Punkte pro Periode abgetastet werden können und das Nyquist-Shannon-Theorem wird verletzt.
 Der eigentliche Signalverlauf kann also nicht eindeutig rekonstruiert werden und man erhält <em>irgendeinen</em> anderen Verlauf.
 In <a class="reference internal" href="#alisaing"><span class="std std-numref">Abb. 39</span></a> sieht man das Beispiel für 2,6 Abtastungen pro Periode (oben links), 1,4 Abtastungen (oben rechts), 2 Abtastungen (unten links) und 0,8 Abtastungen (unten rechts). Abtastungenspunkte, die 2 pro Periode unterschreiten, zeigen eine falsch-rekonstruierte Wellenform auf, was durch die rote Linie verdeutlicht werden soll.</p>
@@ -1043,7 +1084,7 @@ In <a class="reference internal" href="#alisaing"><span class="std std-numref">A
 </div>
 </div>
 <p>In der Simulation sieht man, dass bei der Wahl einer zu kleinen Abtastfrequenz ein Signal bei 25Hz auftritt, was im Originalsignal gar nicht enthalten ist. Dies liegt daran, dass die gewählte Abtastfrequenz von 75Hz das Shannon-Nyquist-Theorem für das Signal bei ursprünglich 50Hz nicht erfüllt.
-Die Frequenz wird zur halben Frequenz <em>runter-ge-aliased</em>. Außerdem erkennt man auch, dass die Signale nur noch die halbe Leistung aufweisen. Dies liegt an der Reduzierung die Abtastfrequenz um den Faktor 2.</p>
+Die Frequenz wird zur halben Frequenz <em>runter-ge-aliased</em>. Außerdem erkennt man auch, dass die Signale nur noch die halbe Leistung aufweisen. Dies liegt an der Reduzierung der Abtastfrequenz um den Faktor 2.</p>
 <section id="anti-aliasing-filter">
 <h3>Anti-Aliasing-Filter<a class="headerlink" href="#anti-aliasing-filter" title="Link zu dieser Überschrift">#</a></h3>
 <p>Zur Vermeidung von Alisaing werden Filter verwendet, um hohe Frequenzen im Signal vor der Digitalisierung rauszufiltern. Hierbei handelt es um steile Tiefpass-Filter höherer Ordnung um eine möglichst große Uterdrückung bei hohen Frequenzen zu erreichen. Das eigentliche, zu digitalisierende Signal sollte in seinem Frequenzverlauf jedoch möglichst nicht verändert werden durch den Filter. Daher muss man bei dem Filterdesign sehr vorsichtig sein.</p>
@@ -1054,7 +1095,7 @@ Die Frequenz wird zur halben Frequenz <em>runter-ge-aliased</em>. Außerdem erke
 <p>Digitalisierte Messsignale haben den Vorteil, dass die Genauigkeit auch über große Distanzen erhalten bleiben und sie somit gut übertragen werden können. Außerdem ist die Weiterverarbeitung und Datenanalyse einfacher.
 Bei analogen Messsignalen hat man das Problem, dass äußere Störungen das Messsignal stark verändern können, wie z.B. Drift- oder Rauscheigenschaften von elektronischen Komponenten.
 Viele empfinden analoge Messwerte jedoch angenehmer und übersichtlicher, als Reihen von Zahlen auf dem Computer.
-Der wichtigste Vorteil von analogen Messwerten ist jedoch die große Bandbreite und großer Wertebereich und die simultane Verarbeitung. Gerade bei dynamischen Systen kann dies ein großer Vorteil sein, wenn man sich schnell verändernde zeitliche Messgrößen hat.</p>
+Der wichtigste Vorteil von analogen Messwerten ist jedoch die große Bandbreite und großer Wertebereich und die simultane Verarbeitung. Gerade bei dynamischen Systemen kann dies ein großer Vorteil sein, wenn man sich schnell verändernde zeitliche Messgrößen hat.</p>
 </section>
 </section>
 

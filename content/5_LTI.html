@@ -136,7 +136,17 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="1_Messen_Einheit.html">
-     Messen und Einheiten
+     Messen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Einheiten.html">
+     Einheiten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Kalibrieren.html">
+     Messsysteme kalibrieren
     </a>
    </li>
   </ul>
@@ -399,7 +409,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="V9.html">
-   Woche 9: Sensoren
+   Woche 9: Dark Lecture
   </a>
  </li>
 </ul>
@@ -820,8 +830,8 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="linear-zeitinvariante-lzi-lti-systeme">
 <h1>Linear zeitinvariante (LZI/LTI) Systeme<a class="headerlink" href="#linear-zeitinvariante-lzi-lti-systeme" title="Link zu dieser Überschrift">#</a></h1>
 <p><a id="Sec-LZI_system"></a></p>
-<p>LTI Systeme sind wichtig, da sie zwar sehr vereinfacht sind, aber gut zu lösen sind. Sie sind in der Tat die einzigen Systeme, die wir lösen können (mittels Differentialgleichungen).</p>
-<p>Für ein LTI System können Ausgangssignale vorhergesagt werden, die man für ein bestimmtes Eingangssignale erwarten würde. Das gleiche gilt auch für <em>Veränderungen</em> von Eingangssignalen.</p>
+<p>LTI Systeme sind wichtig, da, obwohl sie zwar sehr vereinfacht sind und die Realität nur bedingt abbilden, sehr gut zu lösen sind. Sie sind in der Tat die einzigen Systeme, die wir lösen können (mittels Differentialgleichungen).</p>
+<p>Für ein LTI System können Ausgangssignale vorhergesagt werden, die man für bestimmte Eingangssignale erwarten würde. Das gleiche gilt auch für <em>Veränderungen</em> von Eingangssignalen.</p>
 <section id="eigenschaften">
 <h2>Eigenschaften<a class="headerlink" href="#eigenschaften" title="Link zu dieser Überschrift">#</a></h2>
 <p>Das liegt daran, dass LTIs bestimmte Eigenschaften haben: <em>Superposition, Homogenität und Zeitinvarianz</em>.
@@ -876,7 +886,7 @@ Im Folgenden sei <span class="math notranslate nohighlight">\(h\)</span> ein Ope
 <div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
 <div class="sd-col sd-d-flex-column docutils">
 <ul class="simple">
-<li><p><strong>Zeitinvariant</strong>: Das Systeme verhält sich immer gleich, egal wann in der Zeit es durchgeführt wird.</p>
+<li><p><strong>Zeitinvariant</strong>: Das System verhält sich immer gleich, egal wann in der Zeit es durchgeführt wird.</p>
 <ul>
 <li><p>Wird das Eingangssignal <span class="math notranslate nohighlight">\(x(t)\)</span> um <span class="math notranslate nohighlight">\(T\)</span> verschoben, dann ist auch das Ausgangssignal um <span class="math notranslate nohighlight">\(T\)</span> verschoben.</p></li>
 </ul>
@@ -900,7 +910,7 @@ Das heißt, stell immer sicher, dass dein System für einen bestimmten Bereich l
 <section id="system-identifizierung">
 <h2>System-Identifizierung<a class="headerlink" href="#system-identifizierung" title="Link zu dieser Überschrift">#</a></h2>
 <p><a id="Sec-System-Identifizierung"></a></p>
-<p>Jedes Messsystem hat eine spezifische Übertragungsfunktion <span class="math notranslate nohighlight">\(h(t)\)</span>, welche, angewendet auf ein Eingangssignal <span class="math notranslate nohighlight">\(x(t)\)</span>, ein Ausgangssignal <span class="math notranslate nohighlight">\(y(t)\)</span> liefert. Im Allgemeinen kann man drei Probleme in der Praxis erkennen, jenachdem welche Informationen einem vorliegen:</p>
+<p>Jedes Messsystem hat eine spezifische Übertragungsfunktion <span class="math notranslate nohighlight">\(h(t)\)</span>, welche, angewendet auf ein Eingangssignal <span class="math notranslate nohighlight">\(x(t)\)</span>, ein Ausgangssignal <span class="math notranslate nohighlight">\(y(t)\)</span> liefert. Im Allgemeinen kann man drei Probleme in der Praxis erkennen, je nachdem welche Informationen einem vorliegen:</p>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(x(t)\)</span> und <span class="math notranslate nohighlight">\(h(t)\)</span> sind gegeben -&gt; <span class="math notranslate nohighlight">\(y(t)\)</span> ist gesucht: Dies ist das <strong>Simulationsproblem</strong></p>
 <ul class="simple">
@@ -918,7 +928,7 @@ Das heißt, stell immer sicher, dass dein System für einen bestimmten Bereich l
 </ul>
 </li>
 </ol>
-<p>Während Problem 1 und 2 Bestandteil anderer Vorlesungen oder Themengebiete ist, wollen wir uns im Folgenden mit dem Problem 3 befassen. Hier wollen wir im Folgenden zwei Möglichkeiten betrachten, mittels welcher <span class="math notranslate nohighlight">\(h(t)\)</span> bestimmt werden kann. Die beiden Methoden werden im folgenden mit <strong>black box</strong> und <strong>white box</strong> bezeichnet.</p>
+<p>Während Probleme 1 und 2 Bestandteil anderer Vorlesungen oder Themengebiete sind, wollen wir uns im Folgenden mit dem Problem 3 befassen. Hier wollen wir zwei Möglichkeiten betrachten, mittels welcher <span class="math notranslate nohighlight">\(h(t)\)</span> bestimmt werden kann. Die beiden Methoden werden mit <strong>black box</strong> und <strong>white box</strong> bezeichnet.</p>
 <p>In allen Kapiteln wird der Inhalt am Beispiel eines Tiefpasses 1. Ordnung noch einmal konkreter erläutert.</p>
 <figure class="align-default" id="black-white-box">
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/black_white_box.jpg"><img alt="black_white_box" class="bg-primary mb-1" src="../_images/black_white_box.jpg" style="width: 800px;" /></a>

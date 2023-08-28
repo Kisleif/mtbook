@@ -136,7 +136,17 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="1_Messen_Einheit.html">
-     Messen und Einheiten
+     Messen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Einheiten.html">
+     Einheiten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Kalibrieren.html">
+     Messsysteme kalibrieren
     </a>
    </li>
   </ul>
@@ -399,7 +409,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="V9.html">
-   Woche 9: Sensoren
+   Woche 9: Dark Lecture
   </a>
  </li>
 </ul>
@@ -937,6 +947,21 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="fourier-analyse">
 <h1>Fourier-Analyse<a class="headerlink" href="#fourier-analyse" title="Link zu dieser Überschrift">#</a></h1>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Grundlagen Fourierreihenentwicklung | EASY ERKLÄRUNG (Mathe mit Nina)</p>
+<iframe width="200" height="113" src="https://www.youtube.com/embed/eSs02IhQ4YQ?si=CAWlh5nT_lKgf9TG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+</aside>
 <section id="fourierreihen">
 <h2>Fourierreihen<a class="headerlink" href="#fourierreihen" title="Link zu dieser Überschrift">#</a></h2>
 <p>Jedes periodische Signal kann als <em>Summe von Sinus- und Cosinusfunktionen</em> mit Frequenzen von ganzzahligen Vielfachen der Grundfrequenz des Signals beschrieben werden. Dies ist die sogenannten <strong>Fourierreihe</strong>, Fourierreihen-Entwicklung/oder -Zerlegung.</p>
@@ -1140,7 +1165,7 @@ Die <strong>reelle Darstellung der Fourierreihe</strong> für eine Funktion <spa
 <p><span class="math notranslate nohighlight">\(x_0\)</span> ist hierbei der Gleichanteil (Mittelwert) des Signals, der sich wieder über den arithmetischen Mittelwert berechnet:</p>
 <div class="math notranslate nohighlight">
 \[x_0 = \frac{1}{T} \int_{-T/2}^{T/2} x(t) dt = \frac{a_0}{2}\]</div>
-<p>Die (reellen) Koeffizienten <span class="math notranslate nohighlight">\(a_k\)</span> und <span class="math notranslate nohighlight">\(b_k\)</span> nehmen für jedes Messsignal eine anderen Wert an und berechnen sich über:</p>
+<p>Die (reellen) Koeffizienten <span class="math notranslate nohighlight">\(a_k\)</span> und <span class="math notranslate nohighlight">\(b_k\)</span> nehmen für jedes Messsignal einen anderen Wert an und berechnen sich über:</p>
 <div class="math notranslate nohighlight">
 \[a_k = \frac{2}{T}  \int_{-T/2}^{T/2} x(t) \cos(2\pi k f_0 t) dt \]</div>
 <p>und</p>
@@ -1280,7 +1305,7 @@ Die <strong>reelle Darstellung der Fourierreihe</strong> für eine Funktion <spa
 <p>lassen sich die Koeffizienten aus reeller Fourierreihen-Entwicklung und komplexer Darstellung ineinander umformen. Durch die Addition eines zueinander komplex konjugierten Koeffizientenpaares lässt sich der reelle Koeffizient <span class="math notranslate nohighlight">\(a_k\)</span> bestimmen:</p>
 <div class="math notranslate nohighlight">
 \[a_k = \underline{c}_{k} + \underline{c}_{-k}\]</div>
-<p>und analog fällt bei der Subtraktion der Realteil weg, sodass nach zusätzliche Multiplikation mit <span class="math notranslate nohighlight">\(j\)</span> <span class="math notranslate nohighlight">\(b_k\)</span> berechnet wird:</p>
+<p>und analog fällt bei der Subtraktion der Realteil weg, sodass nach zusätzlicher Multiplikation mit <span class="math notranslate nohighlight">\(j\)</span> <span class="math notranslate nohighlight">\(b_k\)</span> berechnet wird:</p>
 <div class="math notranslate nohighlight">
 \[b_k = j (\underline{c}_{k} - \underline{c}_{-k})\]</div>
 <p>Andersherum können aus den reellen Koeffizienten auch die komplexen Koeffizienten berechnet werden:</p>
@@ -1348,7 +1373,7 @@ Die <strong>reelle Darstellung der Fourierreihe</strong> für eine Funktion <spa
 <section id="anwendung">
 <h3>Anwendung<a class="headerlink" href="#anwendung" title="Link zu dieser Überschrift">#</a></h3>
 <p><a id="SubSec-Anwendung_FFT"></a></p>
-<p>Ein Spektralanalyse, wie sie die Fouriertransformation durchführt, eignet sich besonders gut zur Zustandsüberwachung. Hier können Motoren, Turbinen, Sägen, Kugellager uvm, im Prinzip alles was rotiert, überwacht werden. Die spezifischen Frequenz jedes Kugellagers kann beispielsweise überwacht werden. Sollte sich die Amplitude über die Zeit verändert, kann dies ein Indiz dafür sein, dass eine Kugel ins Lager gefallen ist oder das Lager einen Schaden bekommen hat. Verschlechtert sich das Verhalten kann frühzeitig gegengewirkt werden, indem das Kugellager ausgetauscht wird. Das heißt auch Fehlerfrüherkennung, Fehlerdiagnose und Trendanalysen (“predictive maintenance”) werden häufig im Frequenzraum durchgeführt.</p>
+<p>Eine Spektralanalyse, wie sie die Fouriertransformation durchführt, eignet sich besonders gut zur Zustandsüberwachung. Hier können Motoren, Turbinen, Sägen, Kugellager uvm, im Prinzip alles was rotiert, überwacht werden. Die spezifische Frequenz jedes Kugellagers kann beispielsweise überwacht werden. Sollte sich die Amplitude über die Zeit verändern, kann dies ein Indiz dafür sein, dass eine Kugel ins Lager gefallen ist oder das Lager einen Schaden bekommen hat. Verschlechtert sich das Verhalten kann frühzeitig gegengewirkt werden, indem das Kugellager ausgetauscht wird. Das heißt auch Fehlerfrüherkennung, Fehlerdiagnose und Trendanalysen (“predictive maintenance”) werden häufig im Frequenzraum durchgeführt.</p>
 <p>Shazam und andere Musikerkennungsdienste verwenden beispielsweise die Fourier-Transformation, um Lieder zu erkennen. Bei der JPEG-Komprimierung wird eine Variante der Fourier-Transformation verwendet, um die hochfrequenten Komponenten von Bildern zu entfernen. Bei der Spracherkennung werden die Fourier-Transformation und verwandte Transformationen verwendet, um die gesprochenen Wörter aus dem Audiomaterial wiederherzustellen.</p>
 <p>Im Allgemeinen benötigst du die Fourier-Transformation, wenn du die Frequenzen in einem Signal betrachten musst. Wenn die Arbeit mit einem Signal im Zeitbereich schwierig ist, lohnt es sich, die Fourier-Transformation zu verwenden, um es in den Frequenzbereich zu übertragen. Im nächsten Abschnitt werden Sie die Unterschiede zwischen dem Zeit- und dem Frequenzbereich kennen lernen.</p>
 </section>
@@ -1424,10 +1449,10 @@ Die Begriffe DFT und FFT werden oft synonym verwendet. Sie sind jedoch nicht gan
 <p>Die <strong>kontinuierliche Fourier-Transformation</strong> ist für beliebige Funktionen <span class="math notranslate nohighlight">\(f(t)\)</span> definiert, d.h. die Periode kann unendlich lang werden und die Funktion kann aperiodisches Verhalten aufweisen:</p>
 <div class="math notranslate nohighlight">
 \[\mathcal F(x(t)) = X(j\omega) = \int_{-\infty}^{\infty} x(t) \mathrm e^{-j \omega t} dt\]</div>
-<p>Die Rücktransformation ist wiefolgt definiert:</p>
+<p>Die Rücktransformation ist wie folgt definiert:</p>
 <div class="math notranslate nohighlight">
 \[x(t) = \frac{1}{2\pi}\int_{-\infty}^{\infty} X(j\omega) \mathrm e^{j \omega t} d\omega\]</div>
-<p>Der Vollständigkeitshalber soll an dieser Stelle auch noch die <strong>Laplace-Transformation</strong> erwähnt werden, die sich wiefolgt berechnen lässt:</p>
+<p>Der Vollständigkeits halber soll an dieser Stelle auch noch die <strong>Laplace-Transformation</strong> erwähnt werden, die sich wie folgt berechnen lässt:</p>
 <div class="math notranslate nohighlight">
 \[\mathcal L(x(t)) = X(s) = \int_{0}^{\infty} x(t) \mathrm e^{-st} dt\]</div>
 <p>mit der Rücktransformation</p>
@@ -1438,7 +1463,7 @@ Die Begriffe DFT und FFT werden oft synonym verwendet. Sie sind jedoch nicht gan
 <section id="eigenschaften">
 <h3>Eigenschaften<a class="headerlink" href="#eigenschaften" title="Link zu dieser Überschrift">#</a></h3>
 <p><a id="SubSec-Eigenschaften_FFT"></a></p>
-<p>Jeder Fourier-Transformation hat folgende wichtige <strong>Eigenschaften</strong>, die das Leben und Rechnen im Frequenzraum erheblich erleichtern können:</p>
+<p>Jede Fourier-Transformation hat folgende wichtige <strong>Eigenschaften</strong>, die das Leben und Rechnen im Frequenzraum erheblich erleichtern können:</p>
 <ul class="simple">
 <li><p><strong>Linearität</strong>: <span class="math notranslate nohighlight">\(\mathcal F(ax_1 + bx_2) = a\mathcal F(x_1)+ b \mathcal F(x_2)\)</span></p></li>
 <li><p><strong>Ableitung</strong>: <span class="math notranslate nohighlight">\(\mathcal F(\dot x) = j\omega \cdot \mathcal F(x)\)</span></p></li>
@@ -1467,7 +1492,7 @@ H(\omega) &amp;= \int_{-\infty}^{\infty} h(t)  \mathrm e^{-j \omega t} dt = \int
 &amp;= T \cdot \frac{\sin(\pi T f)}{\pi T f} =: T \cdot \mathrm{sinc}(\pi T f)
 \end{align}
 \end{split}\]</div>
-<p>wobei wir im 2. Schritt angenommen haben, dass <span class="math notranslate nohighlight">\(h(t)\)</span> reell und gerade ist und die Euler-Formal (<span class="math notranslate nohighlight">\(\mathrm e^{j\omega t} = \cos(\omega t) + j\sin(\omega t)\)</span>) entsprechend vereinfachen konnten. In der dritten Zeile wurde mit <span class="math notranslate nohighlight">\(\tau/\tau\)</span> erweitert und substitutiert (<span class="math notranslate nohighlight">\(\tau = T/2\)</span>, <span class="math notranslate nohighlight">\(\omega = 2\pi f\)</span>).</p>
+<p>wobei wir im 2. Schritt angenommen haben, dass <span class="math notranslate nohighlight">\(h(t)\)</span> reell und gerade ist und die Euler-Formel (<span class="math notranslate nohighlight">\(\mathrm e^{j\omega t} = \cos(\omega t) + j\sin(\omega t)\)</span>) entsprechend vereinfachen konnten. In der dritten Zeile wurde mit <span class="math notranslate nohighlight">\(\tau/\tau\)</span> erweitert und substitutiert (<span class="math notranslate nohighlight">\(\tau = T/2\)</span>, <span class="math notranslate nohighlight">\(\omega = 2\pi f\)</span>).</p>
 <p>Folgende Eigenschaften gelten:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(H(f = 0)\)</span> ist gleich der Fläche unter dem Rechteck, also gleich dem Integral der Rechteckfunktion.</p></li>

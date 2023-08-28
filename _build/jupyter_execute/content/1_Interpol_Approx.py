@@ -3,11 +3,11 @@
 
 # # Interpolation vs. Anpassung
 # 
-# Man unterscheidet allgmein zwischen Interpolation und Anpassung/Approximation/Regression:
+# Man unterscheidet allgemein zwischen Interpolation und Anpassung/Approximation/Regression:
 # 
-# * **Regression**: Untersuchung der *Korrelation* von Datenpunkten ohne Messfehler mit angenommenen Zusammenhang
+# * **Regression**: Untersuchung der *Korrelation* von Datenpunkten ohne Messfehler mit angenommenem Zusammenhang
 # * **Fit/Anpassung**: wie die Regression, allerdings unter Berücksichtigung von Messfehlern. 
-# * **Interpolation**: Hierbei handelt es sich nicht um eine Regression bzw. Approximation. Anstelle eines funktionalen Zusammenhangs, der an die Messwerte angenähert wird, verwendert man Polynome hohen Grades, um eine analytische Kennlinie zu beschreiben, die *exakt* durch alle Messpunkte geht. Für eine große Anzahl von Messwerten wird die Interpolationsfunktion sehr schnell unhandlich. 
+# * **Interpolation**: Hierbei handelt es sich nicht um eine Regression bzw. Approximation. Anstelle eines funktionalen Zusammenhangs, der an die Messwerte angenähert wird, verwendet man Polynome hohen Grades, um eine analytische Kennlinie zu beschreiben, die *exakt* durch alle Messpunkte geht. Für eine große Anzahl von Messwerten wird die Interpolationsfunktion sehr schnell unhandlich. 
 
 # In[1]:
 
@@ -63,6 +63,17 @@ plt.tight_layout()
 
 
 # ## Was benutzt man wann und warum?
+# 
+# ::::::{margin}
+# :::::{grid}
+# ::::{grid-item-card}
+# :class-header: bg-light
+# Approximation vs. interpolation (englisch, Melvin Leok)
+# 
+# <iframe width="200" height="113" src="https://www.youtube.com/embed/YCBP_PEU8Go?si=wSMKRHgMwS1t2y_U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+# ::::
+# :::::
+# ::::::
 # 
 # * **Interpolation**...
 #     * benutzt man bei wenigen Messwerten

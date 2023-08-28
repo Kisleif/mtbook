@@ -3,8 +3,8 @@
 
 # # Übertragungsfunktion
 
-# In diesem Kapitel gucken wir uns dynamische Messsysteme nur noch im Frequenzraum an. Im letzten Kapitel haben wir schon gesehen, dass wir DGL's benutzen können um das Verhalten von Messsystemen auf bestimmte Anregungsfunktionen vorhersagen zu können. Außerdem haben wir gesehen, dass das Lösen von DGL's im Frequenzraum einfacher und schneller geht. 
-# Die DGL im Frequenz- oder Laplaceraum kann direkt benutzt werden, um die sogenannte **Übertragungsfunktion** zu berechnen. Dies ist eines der wichtigsten Funktionen um Messsysteme zu charakterisieren.
+# In diesem Kapitel gucken wir uns dynamische Messsysteme nur noch im Frequenzraum an. Im letzten Kapitel haben wir schon gesehen, dass wir DGLs benutzen können, um das Verhalten von Messsystemen auf bestimmte Anregungsfunktionen vorhersagen zu können. Außerdem haben wir gesehen, dass das Lösen von DGL's im Frequenzraum einfacher und schneller geht. 
+# Die DGL im Frequenz- oder Laplaceraum kann direkt benutzt werden, um die sogenannte **Übertragungsfunktion** zu berechnen. Dies ist eine der wichtigsten Funktionen, um Messsysteme zu charakterisieren.
 # 
 # * Die Übertragungsfunktion ist das Verhältnis von Ausgangs- zu Eingangssinal. 
 # * Die Übertragungsfunktion kann aus der DGL im Frequenzraum bestimmt werden.
@@ -29,7 +29,7 @@
 # Signale und Messsystem im Zeit- bzw. Frequenzraum.
 # :::
 # 
-# Die Übertragungsfunktion eines Messsystems, $G(j \omega)$ bzw. $G(s)$, kann also wiefolgt aus den Fourier-Transformierten der Ein- und Ausgangssignale ausgedrückt werden:
+# Die Übertragungsfunktion eines Messsystems, $G(j \omega)$ bzw. $G(s)$, kann also wie folgt aus den Fourier-Transformierten der Ein- und Ausgangssignale ausgedrückt werden:
 # 
 # $$G(j \omega) = \frac{Y(j \omega)}{X(j \omega)}$$
 # 
@@ -37,7 +37,7 @@
 # 
 # $$G(s) = \frac{Y(s)}{X(s)}$$
 # 
-# Im Folgenden werden wir zwischen Fourier- und Laplaceraum nicht unbedingt unterscheiden. Die Herleitung der Übertragungsfunktion, Amplitudengang und Phasengangs sind für beide Räume die gleiche, lediglich die Variable ändert sich von $j \omega$ zu $s$. 
+# Im Folgenden werden wir zwischen Fourier- und Laplaceraum nicht unbedingt unterscheiden. Die Herleitung der Übertragungsfunktion,  un des Amplituden- und Phasengangs sind für beide Räume die gleiche, lediglich die Variable ändert sich von $j \omega$ zu $s$. 
 # Im Allgmeinen gilt:
 # 
 # * Die **Fourier-Transformation (FT)** wird bei **kontinuierlichen Signalen** verwendet.Für eine FT muss das Signal **integrierbar** sein, was für einen Sprung, Rampe z.B. nicht gilt, wo das Integral gegen unendlich läuft.
@@ -69,7 +69,7 @@
 # 
 # $$\underline U_\mathrm a = \underline Z_C \cdot \underline I$$
 # 
-# Die komplexe Eingangsspannung liegt an kompletten Messsystem, also der Reihenschaltung an, d.h. es gilt
+# Die komplexe Eingangsspannung liegt am gesamten Messsystem, also der Reihenschaltung an, d.h. es gilt
 # 
 # $$\underline U_\mathrm e = (R+ \underline Z_C) \cdot \underline I$$
 # 

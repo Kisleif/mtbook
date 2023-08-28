@@ -135,6 +135,43 @@ q4=[{
             ]
     }]
 
+q5=[{
+            "question": "Welche Eigenschaften hat das SI-System?",
+            "type": "many_choice",
+            "answers": [
+                {
+                    "answer": "Metrisch",
+                    "correct": True,
+                    "feedback": "Richtig."
+                },
+                {
+                    "answer": "Akzeptierte Einheiten",
+                    "correct": False,
+                    "feedback": "Falsch, akzeptierte Einheiten können nicht aus den SI Basiseinheiten abgeleitet werden."
+                },
+                {
+                    "answer": "Dezimal",
+                    "correct": True,
+                    "feedback": "Richtig, in einer 10er Basis definiert."
+                },
+                {
+                    "answer": "Es basiert auf Naturkonstanten",
+                    "correct": True,
+                    "feedback": "Richtig, alle Basiseinheiten werden auf der Grundlage von Naturkonstanten definiert."
+                },
+                {
+                    "answer": "Präfixe",
+                    "correct": True,
+                    "feedback": "Richtig, es gibt dezimale Vorfaktoren."
+                },  
+                {
+                    "answer": "Kohärent",
+                    "correct": True,
+                    "feedback": "Richtig, Einheiten können voneinander abgeleitet werden."
+                }
+            ]
+    }]
+
 
 # In[2]:
 
@@ -143,6 +180,7 @@ display_quiz(q1, colors='fdsp')
 display_quiz(q2, colors='fdsp')
 display_quiz(q3, colors='fdsp')
 display_quiz(q4, colors='fdsp')
+display_quiz(q5, colors='fdsp')
 
 
 # In[ ]:

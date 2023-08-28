@@ -1,10 +1,10 @@
 # Woche 3: Datenanalyse
 
-## To prepare...
+## Inhalte
 ```{tableofcontents}
 ```
 
-## Checkliste, was du wissen solltest...
+## Zusammenfassung
 
 | Begriff | Beschreibung |
 |:-----------------|:----------------------------------------|

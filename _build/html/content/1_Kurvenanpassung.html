@@ -136,7 +136,17 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="1_Messen_Einheit.html">
-     Messen und Einheiten
+     Messen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Einheiten.html">
+     Einheiten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Kalibrieren.html">
+     Messsysteme kalibrieren
     </a>
    </li>
   </ul>
@@ -399,7 +409,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="V9.html">
-   Woche 9: Sensoren
+   Woche 9: Dark Lecture
   </a>
  </li>
 </ul>
@@ -891,7 +901,7 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="anpassung-und-lineare-regression">
 <h1>Anpassung und lineare Regression<a class="headerlink" href="#anpassung-und-lineare-regression" title="Link zu dieser Überschrift">#</a></h1>
-<p>Bei der Kurvenanpassung handelt es sich um ein statistisches Analyseverfahren zur Feststellung funktionaler Beziehungen zwischen einer abhängigen und einer oder mehreren unabhängigen Variablen. Der Begriff <strong>lineare Regression</strong> ist weit verbreitet, doch dies ist nur der einfachste Fall eines Modells, nämlich der einer Geraden: <span class="math notranslate nohighlight">\(y = a \cdot x +b\)</span>. Grundsätzlich sollte man den Typ der Fit-Funktion <span class="math notranslate nohighlight">\(y = f(x)\)</span> immer vorher festlegen und auch begründen können. Es ist keine wissenschaftlicher oder messtechnische Vorgehensweise alle möglichen Funktionen nur auf Verdacht <em>auszuprobieren</em> und sich für die besten entscheiden. Hierbei wäre es möglich, dass unbrauchbare Näherungen pder sogar falsche (unsinnige) und nicht-wissenschaftlicher Ergebnisinterpretationen auftreten könnten, was es zu vermeiden gilt.</p>
+<p>Bei der Kurvenanpassung handelt es sich um ein statistisches Analyseverfahren zur Feststellung funktionaler Beziehungen zwischen einer abhängigen und einer oder mehreren unabhängigen Variablen. Der Begriff <strong>lineare Regression</strong> ist weit verbreitet, doch dies ist nur der einfachste Fall eines Modells, nämlich der einer Geraden: <span class="math notranslate nohighlight">\(y = a \cdot x +b\)</span>. Grundsätzlich sollte man den Typ der Fit-Funktion <span class="math notranslate nohighlight">\(y = f(x)\)</span> immer vorher festlegen und auch begründen können. Es ist keine wissenschaftliche oder messtechnische Vorgehensweise alle möglichen Funktionen nur auf Verdacht <em>auszuprobieren</em> und sich für die besten zu entscheiden. Hierbei wäre es möglich, dass unbrauchbare Näherungen oder sogar falsche (unsinnige) und nicht-wissenschaftliche Ergebnisinterpretationen auftreten könnten, was es zu vermeiden gilt.</p>
 <p>Zusammengefasst suchen wir nun also ein bestimmtes Modell für ein bestimmtes Set an Daten und wollen die Modellparameter bestimmen. Dabei soll das Modell möglichst gut die Messdaten vorhersagen. Die Modellanpassung wird häufig über die Methode der kleinsten Quadrate verwendet, mit welcher sich fast alle Messdaten modellieren lassen (auch kompliziertere Situationen wie beispielsweise korrelierte Unsicherheiten).</p>
 <div class="tip admonition">
 <p class="admonition-title">Tutorial</p>
@@ -904,14 +914,14 @@ title="Print to PDF"
 </div>
 <section id="modellanpassung-a-id-sec-modellanpassung-a">
 <h2>Modellanpassung <a id="Sec-Modellanpassung"></a><a class="headerlink" href="#modellanpassung-a-id-sec-modellanpassung-a" title="Link zu dieser Überschrift">#</a></h2>
-<p>Um ein Regressionsmodell zu berechnen, benötigen wir ein objektives Maß um die Zuverlässigkeit und Güte unsere Modellfunktion zu bestimmen. Dies nennt man auch das <strong>Bestimmtsheitsmaß</strong>, bzwl. auf englisch <strong>coefficient of determination</strong> oder <strong>goodness of fit</strong>. Dieses Maß</p>
+<p>Um ein Regressionsmodell zu berechnen, benötigen wir ein objektives Maß um die Zuverlässigkeit und Güte unserer Modellfunktion zu bestimmen. Dies nennt man auch das <strong>Bestimmtheitsmaß</strong>, bzw. auf englisch <strong>coefficient of determination</strong> oder <strong>goodness of fit</strong>. Dieses Maß</p>
 <ul class="simple">
 <li><p>bestimmt die Verkleinerung des Vorhersagefehlers der Ausgangsgröße <span class="math notranslate nohighlight">\(y\)</span></p></li>
 <li><p>definiert die Größe der Streuung von <span class="math notranslate nohighlight">\(y\)</span></p></li>
 <li><p>zeigt die Qualität der linearen Regression, aber nicht ob das Modell richtig ist</p></li>
 <li><p>sagt nichts über die statistische Signifikanz des ermittelten Zusammenhangs der einzelnen Regressoren aus (Signifikanztest notwendig)</p></li>
 </ul>
-<p>Als erstes soll überprüft werden, inwiefern die Funktion oder das Modell mit den Messdaten übereinstimmt. Ausgangspunkt ist also unsere Messreihe mit <span class="math notranslate nohighlight">\(N\)</span> Messpunkten <span class="math notranslate nohighlight">\((x_i, y_i)\)</span> und wir haben eine Funktion <span class="math notranslate nohighlight">\(f(x_i)\)</span> definiert, die die Messwerte <span class="math notranslate nohighlight">\(y_i\)</span> möglichst gut vorhersagen soll. In der unteren Grafik (geborgt von <a class="reference external" href="https://de.wikipedia.org/wiki/Methode_der_kleinsten_Quadrate">Wikipedia</a>), sind Messpunkte in blau und eine Modellfunktion in rot aufgezeichnet. Die Parameter der gesuchten Modellfunktion werden nun so bestimmt, dass die Modellfunktion möglichst wenig von den Messwerten abweicht, d.h. das Residuum</p>
+<p>Als erstes soll überprüft werden, inwiefern die Funktion oder das Modell mit den Messdaten übereinstimmt. Ausgangspunkt ist also unsere Messreihe mit <span class="math notranslate nohighlight">\(N\)</span> Messpunkten <span class="math notranslate nohighlight">\((x_i, y_i)\)</span> und wir haben eine Funktion <span class="math notranslate nohighlight">\(f(x_i)\)</span> definiert, die die Messwerte <span class="math notranslate nohighlight">\(y_i\)</span> möglichst gut vorhersagen soll. In der unteren Grafik (geborgt von <a class="reference external" href="https://de.wikipedia.org/wiki/Methode_der_kleinsten_Quadrate">Wikipedia</a>), sind Messpunkte in grau und eine Modellfunktion in blau aufgezeichnet. Die Parameter der gesuchten Modellfunktion werden nun so bestimmt, dass die Modellfunktion möglichst wenig von den Messwerten abweicht, d.h. das Residuum (rote Balken)</p>
 <div class="math notranslate nohighlight">
 \[\epsilon = \left( f(x_i) - y_i\right)\]</div>
 <p>soll möglichst klein werden.</p>
@@ -961,13 +971,28 @@ title="Print to PDF"
 </div>
 <section id="least-squares-methode-der-kleinsten-quadrate-a-id-subsec-least-squares-a">
 <h3>Least-Squares: Methode der kleinsten Quadrate <a id="SubSec-least_squares"></a><a class="headerlink" href="#least-squares-methode-der-kleinsten-quadrate-a-id-subsec-least-squares-a" title="Link zu dieser Überschrift">#</a></h3>
-<p>Laut Carl Friedrich Gauß kann also der Abstand der Funktionswerte zu den Messwerten wievolgt definiert werden:</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">5.2 Regression | Methode der kleinsten Quadrate (FIVE PROFS)</p>
+<iframe width="200" height="113" src="https://www.youtube.com/embed/lQU2tBGOgzo?si=3NQqtUm86Qk_sMrS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<p>Laut Carl Friedrich Gauß kann also der Abstand der Funktionswerte zu den Messwerten wie folgt definiert werden:</p>
 <blockquote>
 <div><p>Methode der Gauß’schen Fehlerquadrate (Gütefunktion):</p>
 </div></blockquote>
 <div class="math notranslate nohighlight">
 \[Q := \sum_{i=1}^N \left( f(x_i) - y_i\right)^2 :=  \sum_{i=1}^N \epsilon_i^2 = \mathrm{min!}\]</div>
-<p>Die Gütefunktion, die gleichbedeutend mit den SQT ist, ist wieder so gewählt, dass sich Abweichungen aufgrund unterschiedliche Vorzeichen nicht aufheben können und dass größere Abweichungen stärker gewichtet werden (durch die Quadrierung). Die Modellfunktion <span class="math notranslate nohighlight">\(f(x)\)</span> wird bestimmt, indem das Minimierungsproblem gelöst wird. Dies kann entwedet analytisch geschehen (siehe <a class="reference external" href="#SubSec-Lineare_Modellanpassung">Lineare Modellanpassung</a>) oder man lässt sich die Regression mittels Software berechnen.</p>
+<p>Die Gütefunktion, die gleichbedeutend mit den SQT ist, ist wieder so gewählt, dass sich Abweichungen aufgrund unterschiedlicher Vorzeichen nicht aufheben können und dass größere Abweichungen stärker gewichtet werden (durch die Quadrierung). Die Modellfunktion <span class="math notranslate nohighlight">\(f(x)\)</span> wird bestimmt, indem das Minimierungsproblem gelöst wird. Dies kann entweder analytisch geschehen (siehe <a class="reference external" href="#SubSec-Lineare_Modellanpassung">Lineare Modellanpassung</a>) oder man lässt sich die Regression mittels Software berechnen.</p>
 <p>Es handelt sich um ein <em>Minimierungsproblem</em> welches je nach Art der Modellfunktion unterschiedlich gelöst wird. Man sollte stets die Regressionsgerade zusammen mit den Datenpunkten in ein Diagramm zeichnen, um zu sehen, wie “gut” die Messdaten durch die Kurvenanpassung beschrieben werden.
 Je enger die Datenpunkte um die Regressionsgerade herum konzentriert sind, d. h. je kleiner also die Residuenquadrate sind, desto „besser“. Die Residuenquadrate sind meistens relativ klein, insbesondere dann, wenn die abhängige Variable sehr konstant ist. Das heißt man möchte eigentlich auch die Streuung der abhängigen Variablen mit ins Spiel bringen.
 Sowohl die Streuung der Messwerte zum Mittelwert, als auch die der geschätzten Werte, sollte in Relation zueinander gebracht werden. Das heißt wir definieren im Folgenden zwei Summen der Abweichungsquadrate. Die <strong>Summe der Abweichungsquadrate (Sum of Squares) SQT oder SST</strong> gibt die Streuung der Messwerte um ihren Mittelwert an. Das <em>mittlere</em> Abweichungsquadrat bestimmt deren Varianz.</p>
@@ -987,14 +1012,29 @@ Sowohl die Streuung der Messwerte zum Mittelwert, als auch die der geschätzten 
 <div class="math notranslate nohighlight">
 \[\mathrm{SQR} = \mathrm{SSR} = \sum_{i=1}^N(y_i-f(x_i))^2\]</div>
 <ul class="simple">
-<li><p>Man kann beweisen, dass folgendes gilt:</p></li>
+<li><p>Man kann beweisen, dass Folgendes gilt:</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\mathrm{SQT} = \mathrm{SQR} + \mathrm{SQE}\]</div>
 </section>
 <section id="bestimmtheitsmasz-a-id-subsec-bestimmtheitsmasz-a">
 <h3>Bestimmtheitsmaß <a id="SubSec-Bestimmtheitsmaß"></a><a class="headerlink" href="#bestimmtheitsmasz-a-id-subsec-bestimmtheitsmasz-a" title="Link zu dieser Überschrift">#</a></h3>
-<p>Für das <strong>Bestimmtheitsmaß</strong> gelten folgenden Punkte:</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Bestimmtheitsmaß Regression berechnen &amp; interpretieren 📚 einfach erklärt (Alles Andy)</p>
+<iframe width="200" height="113" src="https://www.youtube.com/embed/3JR95ubOuL4?si=BXOo43Ch5Ks4fuvo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<p>Für das <strong>Bestimmtheitsmaß</strong> gelten folgende Punkte:</p>
 <ul class="simple">
 <li><p>Es beschreibt den Anteil der Varianz einer abhängigen Variablen <span class="math notranslate nohighlight">\(y\)</span> durch ein statistisches Modell</p></li>
 <li><p>Es ist nur für lineare Regressionen eindeutig definiert:</p></li>
@@ -1019,13 +1059,13 @@ Sowohl die Streuung der Messwerte zum Mittelwert, als auch die der geschätzten 
 <li><p>0%: es existiert kein linearer Zusammenhang</p></li>
 <li><p>100%: perfekter linearer Zusammenhang</p></li>
 </ul>
-<p>Allgemein gilt für das Bestimmheitsmaß:</p>
+<p>Allgemein gilt für das <strong>Bestimmtheitsmaß</strong>:</p>
 <ul class="simple">
 <li><p>je näher <span class="math notranslate nohighlight">\(\mathit{R}^2\)</span> an 1 liegt, desto höher ist die Güte der Kurvenanpassung</p></li>
 <li><p>für <span class="math notranslate nohighlight">\(\mathit{R}^2=0\)</span> ist der Schätzer im Modell völlig unbrauchbar für irgendeine Vorhersage eines Zusammenhangs zwischen <span class="math notranslate nohighlight">\(x_i\)</span> und <span class="math notranslate nohighlight">\(y_i\)</span>.</p></li>
 <li><p>für <span class="math notranslate nohighlight">\(\mathit{R}^2=1\)</span> lässt sich <span class="math notranslate nohighlight">\(y\)</span> vollständig durch ein lineares Modell beschreiben und alle Messpunkte liegen auf einer nicht-horizontalen Geraden. In diesem Falle würde man davon sprechen, dass ein deterministischer Zusammenhang besteht, kein stochastischer.</p></li>
 </ul>
-<p><strong>Nachteile des Bestimmheitsmaß:</strong>
+<p><strong>Nachteile des Bestimmheitsmaßes:</strong>
 Für immer mehr Messwerte steigt <span class="math notranslate nohighlight">\(\mathit{R}^2\)</span> an, ohne dass die Korrelation oder die Regression besser wird.
 Dies könnte durch ein korrigiertes <span class="math notranslate nohighlight">\(\mathit{R}^2\)</span> behoben werden:</p>
 <div class="math notranslate nohighlight">
@@ -1083,17 +1123,17 @@ Gelten für die <span class="math notranslate nohighlight">\(N\)</span> Messwert
 <div class="math notranslate nohighlight">
 \[Q = \sum_{i = 1}^{N} (y_i - f(x_i))^2 = \sum_{i = 1}^{N} (y_i - mx_i - b)^2 = \mathrm{min!}\]</div>
 <p>wobei <span class="math notranslate nohighlight">\(y_i\)</span> und <span class="math notranslate nohighlight">\(x_i\)</span> die Messwerte (Datenpunkte) sind.</p>
-<p>Durch Differentation nach den Parametern und gleichsetzen auf Null können die Parameter bestimmt werden:</p>
+<p>Durch Differentation nach den Parametern und Gleichsetzen auf Null können die Parameter bestimmt werden:</p>
 <div class="math notranslate nohighlight">
 \[\frac{dQ}{dm} = -2 \sum_{i = 1}^{N} x_i (y_i - mx_i - b) = 0\]</div>
 <div class="math notranslate nohighlight">
 \[\frac{dQ}{db} = -2 \sum_{i = 1}^{N} (y_i - mx_i - b) = 0\]</div>
-<p>Nach Umstellen der beiden Ableitungen gelangt man zu folgenden Gleichungssystem:</p>
+<p>Nach Umstellen der beiden Ableitungen gelangt man zu folgendem Gleichungssystem:</p>
 <div class="math notranslate nohighlight">
 \[m\sum_{i = 1}^{N} x_i^2 + b\sum_{i = 1}^{N}x_i  = \sum_{i = 1}^{N}x_i y_i\]</div>
 <div class="math notranslate nohighlight">
 \[m\sum_{i = 1}^{N} x_i + N b  = \sum_{i = 1}^{N} y_i\]</div>
-<p>Auflösen nach den gesuchten Parameter erhält man folgende Gleichungen für die gesuchten besten Schätzparamete der Regressionsgeraden, auch <strong>Regressionskoeffizienten</strong> genannt:</p>
+<p>Durch Auflösen nach den gesuchten Parametern erhält man folgende Gleichungen für die gesuchten besten Schätzparameter der Regressionsgeraden, auch <strong>Regressionskoeffizienten</strong> genannt:</p>
 <div class="math notranslate nohighlight">
 \[ m = \frac{\sum_{i=1}^N (x_i y_i) - b\sum_{i=1}^N x_i }{\sum_{i=1}^N x_i^2 } = \frac{S_{xy}}{S_{x}^2} = \frac{\overline{x\cdot y} - \overline x \cdot \overline y}{\overline{x^2} - (\overline x)^2}\]</div>
 <div class="math notranslate nohighlight">
@@ -1164,8 +1204,8 @@ Der Ordinatenabschnitt ist 	 b = 4.7148 s
 </div>
 </div>
 </div>
-<p>Die ist auch die Standardabweichung der Einzelmessung aber <em>nicht</em> der Fehlerbalken, der im Diagramm als Fehlerbalken eingezeichnet wird. Die Abweichung der Einzelmessung wurde bisher mit <span class="math notranslate nohighlight">\(N-1\)</span> definiert, damals hat es sich aber um die Abweichung vom <em>Mittelwert</em> gehandelt. Nun betrachten wir die Abweichung zu einem linearen Modell, welches 2 offene Parameter, <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span>, hat, und somit einen Freiheitsgrad mehr bestitzt. Erst ab 3 Messwertepaaren können also Fehler für Steigung und Achsenabschnitt berechnet werden.
-Die besten Schätzwerte für die Abweichungen von <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span> können nun wiefolgt berechnet werden. Der Fehler der Geradensteigung beträgt:</p>
+<p>Dies ist auch die Standardabweichung der Einzelmessung aber <em>nicht</em> der Fehlerbalken, der im Diagramm als Fehlerbalken eingezeichnet wird. Die Abweichung der Einzelmessung wurde bisher mit <span class="math notranslate nohighlight">\(N-1\)</span> definiert, damals hat es sich aber um die Abweichung vom <em>Mittelwert</em> gehandelt. Nun betrachten wir die Abweichung zu einem linearen Modell, welches 2 offene Parameter, <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span>, hat, und somit einen Freiheitsgrad mehr bestitzt. Erst ab 3 Messwertepaaren können also Fehler für Steigung und Achsenabschnitt berechnet werden.
+Die besten Schätzwerte für die Abweichungen von <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span> können nun wie folgt berechnet werden. Der Fehler der Geradensteigung beträgt:</p>
 <div class="math notranslate nohighlight">
 \[s_m = s_y \cdot \sqrt{\frac{N}{N\cdot \sum x_i^2 - \left(\sum x_i\right)^2}} = s_y \cdot \sqrt{\frac{1}{\sum x_i^2 - N\cdot \bar x^2}} = s_y \cdot \sqrt{\frac{1}{\sum \left(x_i - \bar x \right)^2}} = s_y \cdot \sqrt{\frac{1}{N\cdot (\overline{x^2} - (\overline x)^2)}}\]</div>
 <div class="cell tag_hide-input docutils container">
@@ -1225,7 +1265,7 @@ Die Korrelationsmatrix zwischen x und t mittels numpy-Paket lautet:
 </div>
 </div>
 </div>
-<p>Der Korrelationskoeffizient von <span class="math notranslate nohighlight">\(+ 0,97035\)</span> zeigt mit positivem Vorzeichen eine direkte Proportionalität zwischen <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(t\)</span>. Die geringfügige Abweichung zu +1 zeigt, dass die Messwerte leicht von dem erwarteten linearen Zusammenhang dennoch abweichen.</p>
+<p>Der Korrelationskoeffizient von <span class="math notranslate nohighlight">\(+ 0,97035\)</span> zeigt mit positivem Vorzeichen eine direkte Proportionalität zwischen <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(t\)</span>. Die geringfügige Abweichung zu +1 zeigt, dass die Messwerte dennoch leicht von dem erwarteten linearen Zusammenhang abweichen.</p>
 </section>
 </section>
 </section>

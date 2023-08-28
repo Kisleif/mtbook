@@ -136,7 +136,17 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="1_Messen_Einheit.html">
-     Messen und Einheiten
+     Messen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Einheiten.html">
+     Einheiten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Kalibrieren.html">
+     Messsysteme kalibrieren
     </a>
    </li>
   </ul>
@@ -399,7 +409,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="V9.html">
-   Woche 9: Sensoren
+   Woche 9: Dark Lecture
   </a>
  </li>
 </ul>
@@ -897,8 +907,8 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="ubertragungsfunktion">
 <h1>Übertragungsfunktion<a class="headerlink" href="#ubertragungsfunktion" title="Link zu dieser Überschrift">#</a></h1>
-<p>In diesem Kapitel gucken wir uns dynamische Messsysteme nur noch im Frequenzraum an. Im letzten Kapitel haben wir schon gesehen, dass wir DGL’s benutzen können um das Verhalten von Messsystemen auf bestimmte Anregungsfunktionen vorhersagen zu können. Außerdem haben wir gesehen, dass das Lösen von DGL’s im Frequenzraum einfacher und schneller geht.
-Die DGL im Frequenz- oder Laplaceraum kann direkt benutzt werden, um die sogenannte <strong>Übertragungsfunktion</strong> zu berechnen. Dies ist eines der wichtigsten Funktionen um Messsysteme zu charakterisieren.</p>
+<p>In diesem Kapitel gucken wir uns dynamische Messsysteme nur noch im Frequenzraum an. Im letzten Kapitel haben wir schon gesehen, dass wir DGLs benutzen können, um das Verhalten von Messsystemen auf bestimmte Anregungsfunktionen vorhersagen zu können. Außerdem haben wir gesehen, dass das Lösen von DGL’s im Frequenzraum einfacher und schneller geht.
+Die DGL im Frequenz- oder Laplaceraum kann direkt benutzt werden, um die sogenannte <strong>Übertragungsfunktion</strong> zu berechnen. Dies ist eine der wichtigsten Funktionen, um Messsysteme zu charakterisieren.</p>
 <ul class="simple">
 <li><p>Die Übertragungsfunktion ist das Verhältnis von Ausgangs- zu Eingangssinal.</p></li>
 <li><p>Die Übertragungsfunktion kann aus der DGL im Frequenzraum bestimmt werden.</p></li>
@@ -923,13 +933,13 @@ Die DGL im Frequenz- oder Laplaceraum kann direkt benutzt werden, um die sogenan
 <p><span class="caption-number">Abb. 46 </span><span class="caption-text">Signale und Messsystem im Zeit- bzw. Frequenzraum.</span><a class="headerlink" href="#zeit-f-block" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
-<p>Die Übertragungsfunktion eines Messsystems, <span class="math notranslate nohighlight">\(G(j \omega)\)</span> bzw. <span class="math notranslate nohighlight">\(G(s)\)</span>, kann also wiefolgt aus den Fourier-Transformierten der Ein- und Ausgangssignale ausgedrückt werden:</p>
+<p>Die Übertragungsfunktion eines Messsystems, <span class="math notranslate nohighlight">\(G(j \omega)\)</span> bzw. <span class="math notranslate nohighlight">\(G(s)\)</span>, kann also wie folgt aus den Fourier-Transformierten der Ein- und Ausgangssignale ausgedrückt werden:</p>
 <div class="math notranslate nohighlight">
 \[G(j \omega) = \frac{Y(j \omega)}{X(j \omega)}\]</div>
 <p>bzw. im Laplaceraum:</p>
 <div class="math notranslate nohighlight">
 \[G(s) = \frac{Y(s)}{X(s)}\]</div>
-<p>Im Folgenden werden wir zwischen Fourier- und Laplaceraum nicht unbedingt unterscheiden. Die Herleitung der Übertragungsfunktion, Amplitudengang und Phasengangs sind für beide Räume die gleiche, lediglich die Variable ändert sich von <span class="math notranslate nohighlight">\(j \omega\)</span> zu <span class="math notranslate nohighlight">\(s\)</span>.
+<p>Im Folgenden werden wir zwischen Fourier- und Laplaceraum nicht unbedingt unterscheiden. Die Herleitung der Übertragungsfunktion,  un des Amplituden- und Phasengangs sind für beide Räume die gleiche, lediglich die Variable ändert sich von <span class="math notranslate nohighlight">\(j \omega\)</span> zu <span class="math notranslate nohighlight">\(s\)</span>.
 Im Allgmeinen gilt:</p>
 <ul class="simple">
 <li><p>Die <strong>Fourier-Transformation (FT)</strong> wird bei <strong>kontinuierlichen Signalen</strong> verwendet.Für eine FT muss das Signal <strong>integrierbar</strong> sein, was für einen Sprung, Rampe z.B. nicht gilt, wo das Integral gegen unendlich läuft.</p></li>
@@ -956,7 +966,7 @@ Im Allgmeinen gilt:</p>
 <p>Die komplexe Ausgangsspannung wird über dem Kondensator abgegriffen, das heißt es gilt das ohm’sche Gesetz für komplexe Zahlen. <span class="math notranslate nohighlight">\(\underline Z_C = \frac{1}{j\omega C}\)</span> ist die Impedanz des Kondensators mit Kapazität <span class="math notranslate nohighlight">\(C\)</span> und <span class="math notranslate nohighlight">\(\underline I\)</span> der Strom.</p>
 <div class="math notranslate nohighlight">
 \[\underline U_\mathrm a = \underline Z_C \cdot \underline I\]</div>
-<p>Die komplexe Eingangsspannung liegt an kompletten Messsystem, also der Reihenschaltung an, d.h. es gilt</p>
+<p>Die komplexe Eingangsspannung liegt am gesamten Messsystem, also der Reihenschaltung an, d.h. es gilt</p>
 <div class="math notranslate nohighlight">
 \[\underline U_\mathrm e = (R+ \underline Z_C) \cdot \underline I\]</div>
 <p>Die Division der beiden Spannungen führt abermals zur der gesuchten Übertragungsfunktion:</p>
@@ -1077,7 +1087,7 @@ G(j \omega) &amp;= \frac{1}{1+RC j \omega} \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/574ptfzx6v9_j7pylzkngrkm0000gp/T/ipykernel_62406/2682706030.py:26: MatplotlibDeprecationWarning: Auto-removal of overlapping axes is deprecated since 3.6 and will be removed two minor releases later; explicitly call ax.remove() as needed.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/574ptfzx6v9_j7pylzkngrkm0000gp/T/ipykernel_24930/2682706030.py:26: MatplotlibDeprecationWarning: Auto-removal of overlapping axes is deprecated since 3.6 and will be removed two minor releases later; explicitly call ax.remove() as needed.
   ax1 = plt.subplot2grid((2,2), (0,0)) # topleft
 </pre></div>
 </div>
@@ -1171,7 +1181,7 @@ In der Messtechnik bei der Überwachung von schwingenden Maschinenteilen oder de
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/574ptfzx6v9_j7pylzkngrkm0000gp/T/ipykernel_62406/3819506157.py:12: MatplotlibDeprecationWarning: Auto-removal of overlapping axes is deprecated since 3.6 and will be removed two minor releases later; explicitly call ax.remove() as needed.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/574ptfzx6v9_j7pylzkngrkm0000gp/T/ipykernel_24930/3819506157.py:12: MatplotlibDeprecationWarning: Auto-removal of overlapping axes is deprecated since 3.6 and will be removed two minor releases later; explicitly call ax.remove() as needed.
   ax1 = plt.subplot2grid((2,2), (0,0)) # topleft
 </pre></div>
 </div>
@@ -1244,7 +1254,7 @@ Dies führt zu <strong>dynamischen Fehlern</strong>, hier in hellblau als Fläch
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/574ptfzx6v9_j7pylzkngrkm0000gp/T/ipykernel_62406/877076436.py:2: MatplotlibDeprecationWarning: Auto-removal of overlapping axes is deprecated since 3.6 and will be removed two minor releases later; explicitly call ax.remove() as needed.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/574ptfzx6v9_j7pylzkngrkm0000gp/T/ipykernel_24930/877076436.py:2: MatplotlibDeprecationWarning: Auto-removal of overlapping axes is deprecated since 3.6 and will be removed two minor releases later; explicitly call ax.remove() as needed.
   ax1 = plt.subplot2grid((1,2), (0,0)) # topleft
 </pre></div>
 </div>
@@ -1402,7 +1412,7 @@ Dies führt zu <strong>dynamischen Fehlern</strong>, hier in hellblau als Fläch
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/574ptfzx6v9_j7pylzkngrkm0000gp/T/ipykernel_62406/2531145874.py:18: MatplotlibDeprecationWarning: Auto-removal of overlapping axes is deprecated since 3.6 and will be removed two minor releases later; explicitly call ax.remove() as needed.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/574ptfzx6v9_j7pylzkngrkm0000gp/T/ipykernel_24930/2531145874.py:18: MatplotlibDeprecationWarning: Auto-removal of overlapping axes is deprecated since 3.6 and will be removed two minor releases later; explicitly call ax.remove() as needed.
   ax1 = plt.subplot2grid((2,2), (0,0)) # topleft
 </pre></div>
 </div>
@@ -1540,7 +1550,7 @@ Dies führt zu <strong>dynamischen Fehlern</strong>, hier in hellblau als Fläch
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/574ptfzx6v9_j7pylzkngrkm0000gp/T/ipykernel_62406/2480644811.py:39: MatplotlibDeprecationWarning: Auto-removal of overlapping axes is deprecated since 3.6 and will be removed two minor releases later; explicitly call ax.remove() as needed.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/574ptfzx6v9_j7pylzkngrkm0000gp/T/ipykernel_24930/2480644811.py:39: MatplotlibDeprecationWarning: Auto-removal of overlapping axes is deprecated since 3.6 and will be removed two minor releases later; explicitly call ax.remove() as needed.
   ax3 = plt.subplot2grid((4,3), (0,0), colspan=1) # topleft
 </pre></div>
 </div>

@@ -136,7 +136,17 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="1_Messen_Einheit.html">
-     Messen und Einheiten
+     Messen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Einheiten.html">
+     Einheiten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Kalibrieren.html">
+     Messsysteme kalibrieren
     </a>
    </li>
   </ul>
@@ -399,7 +409,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="V9.html">
-   Woche 9: Sensoren
+   Woche 9: Dark Lecture
   </a>
  </li>
 </ul>
@@ -854,7 +864,7 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="ideale-kennlinie">
 <h1>Ideale Kennlinie<a class="headerlink" href="#ideale-kennlinie" title="Link zu dieser Überschrift">#</a></h1>
 <p><a id="Sec-Kennlinie"></a></p>
-<p>Jede einzelne der Komponenten führt die an ihr anliegenden Eingangssignal in Ausgangssignale über. Wie diese Überführung genau aussieht beschreibt die sogenannte <strong>Kennlinie</strong>, die für jede Komponente unterschiedlich aussehen kann. In <a class="reference internal" href="#id1"><span class="std std-numref">Abb. 20</span></a> ist beispielshaft eine lineare, ideale Kennlinie dargestellt:</p>
+<p>Jede einzelne der Komponenten führt die an ihr anliegenden Eingangssignal in Ausgangssignale über. Wie diese Überführung genau aussieht beschreibt die sogenannte <strong>Kennlinie</strong>, die für jede Komponente unterschiedlich aussehen kann. In <a class="reference internal" href="#id1"><span class="std std-numref">Abb. 20</span></a> ist beispielhaft eine lineare, ideale Kennlinie dargestellt:</p>
 <figure class="align-default" id="id1">
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/ideale_kennlinie.jpg"><img alt="ideale_kennlinie" class="bg-primary mb-1" src="../_images/ideale_kennlinie.jpg" style="width: 400px;" /></a>
 <figcaption>
@@ -864,9 +874,9 @@ title="Print to PDF"
 <section id="statische-kenngroszen">
 <h2>Statische Kenngrößen<a class="headerlink" href="#statische-kenngroszen" title="Link zu dieser Überschrift">#</a></h2>
 <p><a id="SubSec-Statische_Kenngrößen"></a></p>
-<p>Für jede Eingangsgröße <span class="math notranslate nohighlight">\(u\)</span> wird anhand der Kennlinie eine Ausgangsgröße <span class="math notranslate nohighlight">\(y\)</span> definiert. Beispielsweise wird anhand der Kennlinie eine Temperatursensors ein bestimmter Temperaturwert in eine Spannung umgewandelt.</p>
+<p>Für jede Eingangsgröße <span class="math notranslate nohighlight">\(u\)</span> wird anhand der Kennlinie eine Ausgangsgröße <span class="math notranslate nohighlight">\(y\)</span> definiert. Beispielsweise wird anhand der Kennlinie eines Temperatursensors ein bestimmter Temperaturwert in eine Spannung umgewandelt.</p>
 <ul class="simple">
-<li><p>Der Bereich, indem der Sensor beispielsweise noch korrekt arbeitet (meist vom Hersteller garantiert) wird <strong>Messbereich (engl. range)</strong> genannt und wird durch den minimal und maximal möglichen Wert, der noch als Eingang angelegt werden kann oder darf, angegeben. Im Falle eines Temperatursensors wäre ein typische Messbereich z.B. -40°C bis 120°C.</p></li>
+<li><p>Der Bereich, indem der Sensor beispielsweise noch korrekt arbeitet (meist vom Hersteller garantiert) wird <strong>Messbereich (engl. range)</strong> genannt und wird durch den minimal und maximal möglichen Wert, der noch als Eingang angelegt werden kann oder darf, angegeben. Im Falle eines Temperatursensors wäre ein typischer Messbereich z.B. -40°C bis 120°C.</p></li>
 <li><p>Die Differenz zwischen diesen Maximal- und Minimalwert nennt man <strong>Spanne (engl. span)</strong> (bezogen auf unser Beispiel also 160°C).</p></li>
 <li><p>Die Spanne ist mit einem Bereich auf der y-Achse korreliert, nämlich dem sogenannten <strong>Vollbereichssignal (engl. full scale output = FSO)</strong>.</p></li>
 <li><p>Der <strong>Übertragungsfaktor <span class="math notranslate nohighlight">\(k\)</span></strong> oder auch oft <em>Verstärkung</em> genannt beschreibt die Überführung des Eingangssignals der Messeinrichtung, also der Messgröße, in ein Ausgangssignal:</p></li>
@@ -905,7 +915,7 @@ Sie weisen gegenüber Platin-Messwiderständen eine deutlich höhere Empfindlich
 <div class="math notranslate nohighlight">
 \[ R(T)=R_{25} \cdot \mathrm e^{B\left(\frac{1}{T+273}-\frac{1}{298}\right)}\]</div>
 <p>mit R25 = 1000 Ohm und B = 3528.</p>
-<p>Ein Transition Edge Sensor (TES), bzw. auf deutsch Phasenübergangsthermometer, ist ein supraleitender Temperatursensor, der in der Lage ist, kleinste Temperaturänderungen im Bereich von wenigen 100 <span class="math notranslate nohighlight">\(\mu\mathrm K\)</span> zu messen. Seine Umgebungstemperatur wird je nach Material auf wenige mK runtergekühlt, um das Material in einen supraleitenden Zustand (d.h. sein Widerstand verschwindet) zu bringen. Dies ist die sogenannte kritische Temperatur, <span class="math notranslate nohighlight">\(T_c\)</span>, aber der Materiale supraleitende Eigenschaften aufweisen. Die Widerstand wird über Anlegen einer Stromstärke minimal aufgeheizt, sodass sein Arbeitspunkt in den Übergang (die steile Flanke) geschoben wird. An diesem Punkt ist die Ableitung, und somit die Empfindlichkeit, maximal.</p>
+<p>Ein Transition Edge Sensor (TES), bzw. auf deutsch Phasenübergangsthermometer, ist ein supraleitender Temperatursensor, der in der Lage ist, kleinste Temperaturänderungen im Bereich von wenigen 100 <span class="math notranslate nohighlight">\(\mu\mathrm K\)</span> zu messen. Seine Umgebungstemperatur wird je nach Material auf wenige mK runtergekühlt, um das Material in einen supraleitenden Zustand (d.h. sein Widerstand verschwindet) zu bringen. Dies ist die sogenannte kritische Temperatur, <span class="math notranslate nohighlight">\(T_c\)</span>, aber der Materiale supraleitende Eigenschaften aufweisen. Der Widerstand wird über Anlegen einer Stromstärke minimal aufgeheizt, sodass sein Arbeitspunkt in den Übergang (die steile Flanke) geschoben wird. An diesem Punkt ist die Ableitung, und somit die Empfindlichkeit, maximal.</p>
 <div class="math notranslate nohighlight">
 \[ R(T)= \frac{a}{1 + \mathrm e^{-k(T-T_c)}} \]</div>
 <p>mit z.B. <span class="math notranslate nohighlight">\(k\)</span> = 1.86/mK, <span class="math notranslate nohighlight">\(a\)</span> = 0.224 Ohm und <span class="math notranslate nohighlight">\(T_c\)</span> = 103.2 mK</p>
@@ -1001,7 +1011,22 @@ require(['plotly'], function(Plotly) {
 </section>
 <section id="wunder-an-empfindlichkeit">
 <h3>Wunder an Empfindlichkeit<a class="headerlink" href="#wunder-an-empfindlichkeit" title="Link zu dieser Überschrift">#</a></h3>
-<p>LIGO (Laser Interferometer Gravitational-Wave Observatory) ist ein Gravitationswellendetektor. Mit diesem experimentellen Aufbau werden kleinste Strörungen in der Raumzeit, so genannten Gravitationswellen, gemessen, welche damals von Albert Einstein innerhalb seiner allgemeinen Relativitätstheorie vorhergesagt wurden. Gravitationswellen entstehen, wenn sich sehr schwere Massen in der Raumzeit bewegen, wie z.B. zwei schwarze Löcher oder Neutronensterne, die umeinander kreisen. Die direkt Nachweis von Gravitationswellen wird durch wie wirklich verschwindend kleinen Effekte der Wellen auf den Detektor erheblich erschwert. Die Amplitude einer Gravitationswelle ist zudem umgekehrt proportional zur Entfernung der Quelle. Dadurch klingen sogar Wellen, welche von Extremsystemen wie das von zwei verschmelzenden schwarzen Löchern, auf dem Weg zur Erde zu einer kleinen Amplitude ab.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">How does LIGO work?? Working Principles of LIGO l LIGO technology l LIGO in science (englisch, TIP Knowledge)</p>
+<iframe width="200" height="113" src="https://www.youtube.com/embed/trQNpZHL8KM?si=G0PqgFzXdbCuLMxR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<p>LIGO (Laser Interferometer Gravitational-Wave Observatory) ist ein Gravitationswellendetektor. Mit diesem experimentellen Aufbau werden kleinste Strörungen in der Raumzeit, so genannten Gravitationswellen, gemessen, welche damals von Albert Einstein innerhalb seiner allgemeinen Relativitätstheorie vorhergesagt wurden. Gravitationswellen entstehen, wenn sich sehr schwere Massen in der Raumzeit bewegen, wie z.B. zwei schwarze Löcher oder Neutronensterne, die umeinander kreisen. Der direkte Nachweis von Gravitationswellen wird durch die wirklich verschwindend kleinen Effekte der Wellen auf den Detektor erheblich erschwert. Die Amplitude einer Gravitationswelle ist zudem umgekehrt proportional zur Entfernung der Quelle. Dadurch klingen sogar Wellen, welche von Extremsystemen wie das von zwei verschmelzenden schwarzen Löchern, auf dem Weg zur Erde zu einer kleinen Amplitude ab.</p>
 <p>LIGO, VIRGO und KAGRA sind ultra-empfindliche Detektoren und nutzen Laserinterferometrie, um die Bewegung von <em>freien</em> Massen zu messen, die durch eben diese Gravitationswellen in der Raumzeit ausgelöst wurde.
 Mit Laserinterferometern werden wir uns später noch genauer befassen.
 Es hilft auf jeden Fall, das Interferometer so groß wie möglich zu machen. Die <em>Arme</em> des Interferometers sind mehrere Kilometer lang (LIGO z.B. 4 km). Die stärkste Gravitationswelle hat diese Armlänge um ca. 10<span class="math notranslate nohighlight">\(^{-19}\)</span>m geändert.
@@ -1041,8 +1066,8 @@ Das bedeutet eine relative Längenänderung von lediglich:</p>
 <p>Die Größe eines Atoms beträgt um die 100 pm = 1 A (Angstrom = 10 <span class="math notranslate nohighlight">\(^{-10}\)</span>).</p>
 <p>Rechts im nachfolgenden Bild ist die Empfindlichkeitskurve eines Laserinterferometers gegeben. Die Phasenverschiebung ist ein Maß für die Verschiebung der Spiegel. Phase kann über die Wellenlänge in eine Längenänderung umgerechnet werden. Das werden wir später noch mal genauer betrachten (<span class="math notranslate nohighlight">\(2\pi \hat = \lambda =\)</span> 1064nm).</p>
 <ul class="simple">
-<li><p>Ein klassisches Laserinterferometer überlagert zwei elektromagnetische Wellen und produziert ein sinusförmiges Intensitätsprofil im Ausgangsbereich (blaue Kurve). Die maximale Empfindlichkeit für Gravitationswellen (oder Spiegelbewegungen) wird an den Umkehrpunkten erreicht. An den Extrempunkten erhält man für kleine Spiegelbewegungen gar kein Ausgangssignal.</p></li>
-<li><p>Gravitationswellendetektoren benutzen in ihren Interferometerarmen zusätzliche Spiegel, um optische Resonatoren einzubauen. Optische Resonatoren <em>speichern</em> das Licht in den Armen, d.h. es hin und her reflektiert, bis es am Ende das Interferometer wieder verlässt. Dadurch verlängert sich künstlich die Armlänge (von 4km). Das Interferometer wird empfindlicher, da Spiegelbewegungen aufaddiert werden. Im Abhängigkeit von der <em>Güte</em> des optischen Resonators können sehr starke Überhöhungen erreicht werden (lila und rote Kurve im Diagramm). Eine kleine Änderung der Spiegelbewegung verursacht nun eine drastische Änderung im Ausgangssignal. Dadurch werden kleine Signal stark überhöht und deutlich messbar. Um dies jedoch in der Praxis zu erreichen, muss das Interferometer an sich extrem stabil und robust sein, sodass Erdbeben oder der Hase, der über das Feld hoppelt, keine Messsignale verursachen.</p></li>
+<li><p>Ein klassisches Laserinterferometer überlagert zwei elektromagnetische Wellen und produziert ein sinusförmiges Intensitätsprofil im Ausgangsbereich (blaue Kurve). Die maximale Empfindlichkeit für Gravitationswellen (oder Spiegelbewegungen) wird an den Wendepunkten erreicht. An den Extrempunkten erhält man für kleine Spiegelbewegungen gar kein Ausgangssignal.</p></li>
+<li><p>Gravitationswellendetektoren benutzen in ihren Interferometerarmen zusätzliche Spiegel, um optische Resonatoren einzubauen. Optische Resonatoren <em>speichern</em> das Licht in den Armen, d.h. es hin und her reflektiert, bis es am Ende das Interferometer wieder verlässt. Dadurch verlängert sich künstlich die Armlänge (von 4km). Das Interferometer wird empfindlicher, da Spiegelbewegungen aufaddiert werden. Im Abhängigkeit von der <em>Güte</em> des optischen Resonators können sehr starke Überhöhungen erreicht werden (lila und rote Kurve im Diagramm). Eine kleine Änderung der Spiegelbewegung verursacht nun eine drastische Änderung im Ausgangssignal. Dadurch werden kleine Signale stark überhöht und deutlich messbar. Um dies jedoch in der Praxis zu erreichen, muss das Interferometer an sich extrem stabil und robust sein, sodass Erdbeben oder der Hase, der über das Feld hoppelt, keine Messsignale verursachen.</p></li>
 </ul>
 <p><img alt="Bild" src="../_images/LIGO_kennlinie.png" /></p>
 </section>

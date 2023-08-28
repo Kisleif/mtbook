@@ -6,11 +6,11 @@ Ein Messwert kann entweder direkt auf dem Messgerät angezeigt werden, beispiels
 
 In diesem Kapitel werden wir uns mit den Begrifflichkeiten und Kenngrößen von Messsystemen beschäftigen. Zunächst gehen wir davon aus, dass sich die Messwerte während des Messprozesses nicht über die Zeit ändern. Diese Art von Messsystemen bezeichnen wir als *statische Messsysteme*.
 
-## To prepare...
+## Inhalte
 ```{tableofcontents}
 ```
 
-## Checkliste, was du wissen solltest...
+## Zusammenfassung
 
 | Begriff | Beschreibung |
 |:--------------------|:----------------------------------------|

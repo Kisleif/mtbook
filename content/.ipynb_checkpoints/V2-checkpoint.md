@@ -10,11 +10,11 @@ Im Praktikum sammelst du Erfahrung im Umgang mit Messdaten. Du wirst dazu angele
 
 Um dich dabei zu unterstützen, haben wir auf den folgenden Seiten das absolute Minimum an notwendigen Hilfsmitteln, Grundideen und bewährten Praktiken zusammengestellt, die du unbedingt bei der Auswertung deiner Messdaten im Praktikum berücksichtigen solltest! Diese wertvollen Ressourcen werden dir dabei helfen, die Qualität deiner Analysen zu verbessern und deine Ergebnisse auf eine klare und überzeugende Weise zu präsentieren. Nimm dir die Zeit, diese Informationen zu verinnerlichen und in dein wissenschaftliches Arbeiten zu integrieren, um deine Fähigkeiten in der Datenanalyse weiterzuentwickeln und deinen akademischen Fortschritt voranzutreiben. Du wirst sehen, dass du dadurch in der Lage sein wirst, komplexe Herausforderungen in der Datenauswertung besser zu bewältigen und erfolgreiche wissenschaftliche Arbeiten zu verfassen. Viel Erfolg!
 
-## To prepare...
+## Inhalte
 ```{tableofcontents}
 ```
 
-## Checkliste, was du wissen solltest...
+## Zusammenfassung
 
 | Begriff | Beschreibung |
 |:--------------------|:----------------------------------------|

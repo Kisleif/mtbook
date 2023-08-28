@@ -4,9 +4,9 @@
 # # Linear zeitinvariante (LZI/LTI) Systeme 
 # <a id="Sec-LZI_system"></a>
 # 
-# LTI Systeme sind wichtig, da sie zwar sehr vereinfacht sind, aber gut zu lösen sind. Sie sind in der Tat die einzigen Systeme, die wir lösen können (mittels Differentialgleichungen). 
+# LTI Systeme sind wichtig, da, obwohl sie zwar sehr vereinfacht sind und die Realität nur bedingt abbilden, sehr gut zu lösen sind. Sie sind in der Tat die einzigen Systeme, die wir lösen können (mittels Differentialgleichungen). 
 # 
-# Für ein LTI System können Ausgangssignale vorhergesagt werden, die man für ein bestimmtes Eingangssignale erwarten würde. Das gleiche gilt auch für *Veränderungen* von Eingangssignalen. 
+# Für ein LTI System können Ausgangssignale vorhergesagt werden, die man für bestimmte Eingangssignale erwarten würde. Das gleiche gilt auch für *Veränderungen* von Eingangssignalen. 
 # 
 # ## Eigenschaften
 # 
@@ -58,7 +58,7 @@
 # :::::{grid} 2
 # 
 # ::::{grid-item}
-# * **Zeitinvariant**: Das Systeme verhält sich immer gleich, egal wann in der Zeit es durchgeführt wird.
+# * **Zeitinvariant**: Das System verhält sich immer gleich, egal wann in der Zeit es durchgeführt wird.
 #     * Wird das Eingangssignal $x(t)$ um $T$ verschoben, dann ist auch das Ausgangssignal um $T$ verschoben.
 # ::::
 # 
@@ -78,7 +78,7 @@
 # ## System-Identifizierung
 # <a id="Sec-System-Identifizierung"></a>
 # 
-# Jedes Messsystem hat eine spezifische Übertragungsfunktion $h(t)$, welche, angewendet auf ein Eingangssignal $x(t)$, ein Ausgangssignal $y(t)$ liefert. Im Allgemeinen kann man drei Probleme in der Praxis erkennen, jenachdem welche Informationen einem vorliegen:
+# Jedes Messsystem hat eine spezifische Übertragungsfunktion $h(t)$, welche, angewendet auf ein Eingangssignal $x(t)$, ein Ausgangssignal $y(t)$ liefert. Im Allgemeinen kann man drei Probleme in der Praxis erkennen, je nachdem welche Informationen einem vorliegen:
 # 
 # 1. $x(t)$ und $h(t)$ sind gegeben -> $y(t)$ ist gesucht: Dies ist das **Simulationsproblem**
 #     * Anhand von Simulationen kann der Ausgang eines Systems vorhergesagt werden.
@@ -87,7 +87,7 @@
 # 3. $u(t)$ und $y(t)$ gegeben -> $h(t)$ ist gesucht: Dies ist das **System-Identifizierungsproblem**
 #     * Hier wollen wir das Messsystem charaktisieren, was unter anderem durch 2 Methoden möglich ist: Mittels Messungen der Eingangs- und Ausgangsgröße, oder mittels Aufstellen von Differentialgleichungen (Systemtheorie).
 #     
-# Während Problem 1 und 2 Bestandteil anderer Vorlesungen oder Themengebiete ist, wollen wir uns im Folgenden mit dem Problem 3 befassen. Hier wollen wir im Folgenden zwei Möglichkeiten betrachten, mittels welcher $h(t)$ bestimmt werden kann. Die beiden Methoden werden im folgenden mit **black box** und **white box** bezeichnet. 
+# Während Probleme 1 und 2 Bestandteil anderer Vorlesungen oder Themengebiete sind, wollen wir uns im Folgenden mit dem Problem 3 befassen. Hier wollen wir zwei Möglichkeiten betrachten, mittels welcher $h(t)$ bestimmt werden kann. Die beiden Methoden werden mit **black box** und **white box** bezeichnet. 
 # 
 # In allen Kapiteln wird der Inhalt am Beispiel eines Tiefpasses 1. Ordnung noch einmal konkreter erläutert.
 # 

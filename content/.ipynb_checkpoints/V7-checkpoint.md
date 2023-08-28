@@ -6,7 +6,7 @@ In dieser Vorlesung werden wir uns intensiv mit den Grundlagen des Messens elekt
 
 Von Oszilloskopen zur Analyse von Signalverläufen bis hin zu Multimetern zur Messung von elektrischen Parametern - wir werden uns mit einer Vielzahl von Messinstrumenten vertraut machen, die uns dabei helfen, elektronische Größen zu erfassen und zu analysieren.
 
-## To prepare...
+## Inhalte
 ```{tableofcontents}
 ```
 

@@ -3,11 +3,11 @@
 
 # # Kenngrößen
 # 
-# Eine Wechselgröße, z.B. eine Wechselspannung, liegt in der allgemein Form als Sinusschwingung vor. Die Form wollen wir im folgenden wiefolgt bescheiben:
+# Eine Wechselgröße, z.B. eine Wechselspannung, liegt in der allgemeinen Form als Sinusschwingung vor. Die Form wollen wir im Folgenden wie folgt bescheiben:
 # 
 # $$u(t) = \hat u \cdot \sin(\omega t)$$
 # 
-# In elektronischen Schaltungen hat man dazu eine Stromstärke, der dieser Wechselspannung zugehörig ist, und sich allgemein wiefolgt schreiben lässt:
+# In elektronischen Schaltungen hat man dazu eine Stromstärke, die dieser Wechselspannung zugehörig ist, und sich allgemein wiefolgt schreiben lässt:
 # 
 # $$i(t) = \hat i \cdot \sin(\omega t + \phi)$$
 # 
@@ -59,19 +59,19 @@ plt.show()
 
 # Bei einem Wechselsignal interessiert man sich häufig nicht für den Zeitverlauf, oder den einzelnen Wert zu einem bestimmten Zeitpunkt, den sogenannten Momentanwert. Dieser hat nämlich keine große Aussagekraft, da er sich gemäß der zugrundeliegenden Signalform ständig ändert. Für viele Fragestellungen sind Kenngrößen relevant, die sich aus der Periode des Wechselsignals ermitteln lassen.
 # 
-# ## Scheitelfaktor / Amplitude
+# ## Amplitude
 # 
-# Mit $\hat U$ bezeichnen wir den **Scheitelfaktor** oder die **Amplitude**. Dies ist der maximale Ausschlag eines Messsignals innerhalb einer Periode (oder Messzeit) $T$.
+# Mit $\hat U$ bezeichnen wir die **Amplitude**. Dies ist der maximale Ausschlag eines Messsignals innerhalb einer Periode (oder Messzeit) $T$.
 # 
 # ## Gleichanteil
 # 
-# Der **Gleichanteil** einer Wechselgröße wird über den arithmetischen Mittelwert über eine Perdiode $T$ berechnet. Es ist nur dann aussagekräftig, wenn nicht gerade eine Signal vorliert was keinen Gleichanteil hat. Andernfalls ist der Wert immer 0. 
+# Der **Gleichanteil** einer Wechselgröße wird über den arithmetischen Mittelwert über eine Perdiode $T$ berechnet. Es ist nur dann aussagekräftig, wenn nicht gerade eine Signal vorliegt was keinen Gleichanteil hat. Andernfalls ist der Wert immer 0. 
 # 
 # $$\overline u = \frac{1}{T}\int_{t}^{t+T} u(t)dt$$
 # 
 # ## Gleichrichtwert
 # 
-# Wenn wir uns jetzt einen Fön oder eine Lampe, angeschlossen an eine normale Steckdose mit Wechselstrom vorstellen, so ist der Gleichanteil der Wechselspannung 0, aber trotzdem wirkt die Spannung, da Fön bzw. Lampe arbeiten. Das heißt es kommt offensichtlich nicht auf die Polarität der Spannung an, sondern nur darum, dass im Durchschnitt irgendeine Art von beliebig gepolter Spannung anliegt. Mathematisch gesehen entspricht dies einer Betragsbildung und wird durch den Gleichrichtwert definiert.  Das Signal wird mittels analoger Schaltung *gleichgerichtet* (das sehen wir uns später noch mal genauer an), bevor es zur Mittelwertbildung kommt. Daher auch der Name. Der Gleichrichtwert hat auch für Signale ohne Gleichanteil eine Aussagekraft. Der **Gleichrichtwert** einer Wechselgröße ist der Mittelwert des Absolutwertes einer Wechselgröße berechnet sich zu:
+# Wenn wir uns jetzt einen Fön oder eine Lampe, angeschlossen an eine normale Steckdose mit Wechselstrom vorstellen, so ist der Gleichanteil der Wechselspannung 0, aber trotzdem wirkt die Spannung, da Fön bzw. Lampe arbeiten. Das heißt es kommt offensichtlich nicht auf die Polarität der Spannung an, sondern nur darauf, dass im Durchschnitt irgendeine Art von beliebig gepolter Spannung anliegt. Mathematisch gesehen entspricht dies einer Betragsbildung und wird durch den Gleichrichtwert definiert.  Das Signal wird mittels analoger Schaltung *gleichgerichtet* (das sehen wir uns später noch mal genauer an), bevor es zur Mittelwertbildung kommt. Daher auch der Name. Der Gleichrichtwert hat auch für Signale ohne Gleichanteil eine Aussagekraft. Der **Gleichrichtwert** einer Wechselgröße ist der Mittelwert des Absolutwertes einer Wechselgröße berechnet sich zu:
 # 
 # $$\overline{|u|} = \frac{1}{T}\int_{t}^{t+T} |u(t)|dt$$
 # 
@@ -83,6 +83,17 @@ plt.show()
 # $$U = u_\mathrm{eff} = \sqrt{\overline{u^2}} = \sqrt{\frac{1}{T}\int_{t}^{t+T}u(t)^2dt}$$
 # 
 # ## Scheitelfaktor und Formfaktor
+# 
+# ::::::{margin}
+# :::::{grid}
+# ::::{grid-item-card}
+# :class-header: bg-light
+# Scheitelfaktor - Crestfaktor? Wie sind die definiert? Beispiel
+# 
+# <iframe width="200" height="113" src="https://www.youtube.com/embed/mUP4CSkFbrs?si=hjeiUXXi_lVQIcLR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+# ::::
+# :::::
+# ::::::
 # 
 # Mittelwert, Gleichrichtwert und Effektivwert lassen sich für jede beliebige periodische Signalform berechnen und sind *unabhängig* von der Frequenz. Zwischen Ihnen sind Umrechnungsfaktoren definiert, Scheitelfaktoren oder Formfaktoren, welche das Verhältnis zwischen Effektivwert und anderen Kenngrößen angeben. Wir werden später noch sehen, dass die Messung von Effektivwerten sehr aufwendig ist (die mathematischen Operationen im Intergral zeigen dies auch). Es ist einfacher den Scheitel- oder Gleichrichtwert zu messen und mittels dieser Umrechnungs-Faktoren den Effektivwert anschließend zu berechnen. Die Faktoren sind jedoch für jede Signalform anders!
 # 
@@ -213,7 +224,7 @@ print('Formfaktor\t', Formfaktor[0], '\t\t', Formfaktor[1])
 # |:--------------------|:----------------------------------------|
 # |Linearer Mittelwert / Gleichanteil | $\overline u = 0$ |
 # |Gleichrichtwert | $\overline{\lvert u \rvert} = \frac{2}{\pi}\cdot \hat u \approx 0,64 \cdot \hat u$ |
-# |Effektivwert (RMS | $U = u_\mathrm{eff} = \frac{\hat u}{\sqrt{2}} \approx 0,71 \cdot \hat u$ |
+# |Effektivwert (RMS) | $U = u_\mathrm{eff} = \frac{\hat u}{\sqrt{2}} \approx 0,71 \cdot \hat u$ |
 # |Scheitelfaktor | $k_S = \frac{\hat u}{u_\mathrm{eff}} = \sqrt{2} \approx 1,41$ |
 # |Formfaktor | $k_F = \frac{u_\mathrm{eff}}{\overline{\lvert u \rvert}} = \frac{\pi}{2\sqrt{2}} \approx 1,11$ |
 #     
@@ -234,7 +245,19 @@ print('Formfaktor\t', Formfaktor[0], '\t\t', Formfaktor[1])
 
 # ### Pulsweitenmodulation
 # 
-# Ein weiteres Beispiel ist für eine Pulsweitenmodulation berechnet und die Formeln können aus folgendem Bild abgelesen werden. Er handelt sich um ein unsymmetrisches Rechtecksignal. In diesem Fall sprechen wir von einem Pulsweitenmodulierten Signal, da die 'An'-Zeit innerhalb einer bestimmten Anwendung nicht immer gleich groß sein muss. Das Verhältnis 
+# 
+# ::::::{margin}
+# :::::{grid}
+# ::::{grid-item-card}
+# :class-header: bg-light
+# PWM - Pulsweitenmodulation (Edi's Techlab)
+# 
+# <iframe width="200" height="113" src="https://www.youtube.com/embed/uNfMjsuIQu4?si=jntMQTZUZV0vtjhj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+# ::::
+# :::::
+# ::::::
+# 
+# Ein weiteres Beispiel ist für eine Pulsweitenmodulation berechnet und die Formeln können aus folgendem Bild abgelesen werden. Es handelt sich um ein unsymmetrisches Rechtecksignal. In diesem Fall sprechen wir von einem Pulsweitenmodulierten Signal, da die 'An'-Zeit innerhalb einer bestimmten Anwendung nicht immer gleich groß sein muss. Das Verhältnis 
 # 
 # $$\tau = \frac{\Delta t}{T}$$
 # 

@@ -136,7 +136,17 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="1_Messen_Einheit.html">
-     Messen und Einheiten
+     Messen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Einheiten.html">
+     Einheiten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Kalibrieren.html">
+     Messsysteme kalibrieren
     </a>
    </li>
   </ul>
@@ -399,7 +409,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="V9.html">
-   Woche 9: Sensoren
+   Woche 9: Dark Lecture
   </a>
  </li>
 </ul>
@@ -870,17 +880,17 @@ title="Print to PDF"
 <p>Außerdem gilt <span class="math notranslate nohighlight">\(i_R(t) = i_C(t)\)</span>. Damit können wir die Spannung, die über den Widerstand <span class="math notranslate nohighlight">\(R\)</span> abfällt, wie folgt schreiben:</p>
 <div class="math notranslate nohighlight">
 \[u_R(t) = R \cdot i_R(t) = R \cdot C\cdot \frac{du_a}{dt}\]</div>
-<p>Aus der Maschenregel, hier <span class="math notranslate nohighlight">\( u_a(t) + u_R(t) = u_e(t)\)</span> folgt nach Einsetzen von <span class="math notranslate nohighlight">\(u_R(t)\)</span> folgendes:</p>
+<p>Aus der Maschenregel, hier <span class="math notranslate nohighlight">\( u_a(t) + u_R(t) = u_e(t)\)</span> folgt nach Einsetzen von <span class="math notranslate nohighlight">\(u_R(t)\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[RC \frac{du_\mathrm a (t)}{dt} + u_\mathrm a (t) = u_\mathrm e (t)\]</div>
 <p>Dies ist eine <strong>Differentialgleichung (DGL) 1. Ordnung</strong>. Die Differentialgleichung erkannt man daran, dass auch eine zeitliche Ableitung der Ausgangsgröße (also ein Differential) in der Formel auftritt. Da allerdings nur die 1. zeitliche Ableitung auftritt, handelt es sich um eine DGL 1. Ordnung. Würde Ausgangs oder Eingangsgröße zweimal zeitliche abgeleitet werden, würde es sich um eine DGL 2. Ordnung handeln usw.</p>
-<p>Systeme 1. Ordnung beschreiben <em>Energiespeicher</em>, also z.B. Temperaturmesser, die warm werden, oder auch Operationsverstärker, Kapazitäten und Elektromagneten. Im Prinzip ist jedes System, was sich erwärmt, ein Energiespeicher und wird somit ein System 1. Ordnung sein. Systeme 2. Ordnung haben einen zusätzlichen Dämpfungsterm. In diesen Systeme findet auch eine Umlagerung von Energien statt, wie es z.B. in einem LC-Schwingkreis passiert. Kondensator und Spule tauschen ständig Energien aus, wodurch es zu einer periodischen Schwingung kommt. Dieses System wir durch eine DGL 2. Ordnung beschrieben.</p>
+<p>Systeme 1. Ordnung beschreiben <em>Energiespeicher</em>, also z.B. Temperaturmesser, die warm werden, oder auch Operationsverstärker, Kapazitäten und Elektromagneten. Im Prinzip ist jedes System, was sich erwärmt, ein Energiespeicher und wird somit ein System 1. Ordnung sein. Systeme 2. Ordnung haben einen zusätzlichen Dämpfungsterm. In diesen Systemen findet auch eine Umlagerung von Energien statt, wie es z.B. in einem LC-Schwingkreis passiert. Kondensator und Spule tauschen ständig Energien aus, wodurch es zu einer periodischen Schwingung kommt. Dieses System wir durch eine DGL 2. Ordnung beschrieben.</p>
 </section>
 <section id="losung-der-dgl-fur-sprunganregung-im-zeitbereich">
 <h2>Lösung der DGL für Sprunganregung im Zeitbereich<a class="headerlink" href="#losung-der-dgl-fur-sprunganregung-im-zeitbereich" title="Link zu dieser Überschrift">#</a></h2>
-<p>Ziel ist es jetzt, eine Funktion für Eingangs- und Ausgangsspannung zu finden, die diese Gleichung erfüllt. Hierfür geht man im Allgemeinen in 5 Schritten vor. Wie werden später in diesem Kapitel noch sehen, dass DGL im Frequenz- bzw. Laplaceraum viel einfacher gelöst werden können als wir es hier, im Zeitraum, jetzt machen.</p>
+<p>Ziel ist es jetzt, eine Funktion für Eingangs- und Ausgangsspannung zu finden, die diese Gleichung erfüllt. Hierfür geht man im Allgemeinen in 5 Schritten vor. Wir werden später in diesem Kapitel noch sehen, dass DGL im Frequenz- bzw. Laplaceraum viel einfacher gelöst werden können als wir es hier, im Zeitraum, jetzt machen.</p>
 <ul class="simple">
-<li><p><strong>1. Homogener Ansatz</strong>
+<li><p><strong>1. Homogener Ansatz:</strong>
 Unter homogenen Ansatz verstehen wir das Eingangssignal auf Null zu setzen: <span class="math notranslate nohighlight">\(u_e(t) = 0\)</span>. Das heißt das System wird nicht belastet. Die DGL vereinfacht sich zu</p></li>
 </ul>
 <div class="math notranslate nohighlight">
@@ -888,7 +898,7 @@ Unter homogenen Ansatz verstehen wir das Eingangssignal auf Null zu setzen: <spa
 <p>und kann umgeformt werden zu</p>
 <div class="math notranslate nohighlight">
 \[RC \frac{du_\mathrm a (t)}{dt} = -u_\mathrm a (t)\]</div>
-<p>Das bedeutet, wird suchen eine Funktion für <span class="math notranslate nohighlight">\(u_a(t)\)</span> die nach der Zeit abgeleitet wieder sie selber ist. Eine Exponentialfunktion erfüllt genau diese Bedingung und wir nutzen sie für unseren homogenen Ansatz:</p>
+<p>Das bedeutet, wir suchen eine Funktion für <span class="math notranslate nohighlight">\(u_a(t)\)</span> die nach der Zeit abgeleitet wieder sie selber ist. Eine Exponentialfunktion erfüllt genau diese Bedingung und wir nutzen sie für unseren homogenen Ansatz:</p>
 <div class="math notranslate nohighlight">
 \[u_{a,\mathrm{homogen}}(t) = K \cdot \mathrm e^{-\gamma t} \quad \Rightarrow \quad \dot u_{a,\mathrm{homogen}}(t) = -\gamma K \cdot \mathrm e^{-\gamma t}\]</div>
 <p>mit den Konstanten <span class="math notranslate nohighlight">\(K\)</span> und <span class="math notranslate nohighlight">\(\gamma\)</span>. Dies wird in die homogene DGL eingesetzt und es folgt:</p>
@@ -898,7 +908,7 @@ Unter homogenen Ansatz verstehen wir das Eingangssignal auf Null zu setzen: <spa
 <div class="math notranslate nohighlight">
 \[\gamma = \frac{1}{RC} := \frac{1}{\tau}\]</div>
 <ul class="simple">
-<li><p><strong>2. Spezieller Ansatz eine Sprunganregung</strong>
+<li><p><strong>2. Spezieller Ansatz eine Sprunganregung:</strong>
 Jetzt legen wir statt Null einen <em>Sprung</em> an den Eingang <span class="math notranslate nohighlight">\(u_e(t)\)</span> an: <span class="math notranslate nohighlight">\(u_e(t) = u_0\)</span> für <span class="math notranslate nohighlight">\(t = 0\)</span>. Für lange Zeiten wird sich der Kondensator komplett aufgeladen haben, sodass der Ausgang ein konstantes Signal liefert. Das heißt unsere Lösung für ein spezielles Eingangssignal ist</p></li>
 </ul>
 <div class="math notranslate nohighlight">
@@ -971,21 +981,21 @@ require(['plotly'], function(Plotly) {
 </div>
 </div>
 <ul class="simple">
-<li><p><strong>3. Allgemeiner Ansatz</strong>
-Nun kann der allgemeine Ansatz formuliert werden. Diese ist einfach die Addition von homogener und spezieller Ansatz:</p></li>
+<li><p><strong>3. Allgemeiner Ansatz:</strong>
+Nun kann der allgemeine Ansatz formuliert werden. Dieser ist einfach die Addition von homogener und spezieller Ansatz:</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[u_a(t) = u_{a,\mathrm{homogen}}(t) + u_{a,\mathrm{speziell}}(t) = u_0 + K \cdot \mathrm e^{-t/\tau}\]</div>
 <ul class="simple">
-<li><p><strong>4. Konstante bestimmen</strong>
-Eine Konstante war schon bestimmt, nämlich <span class="math notranslate nohighlight">\(\gamma = \frac{1}{RC} := \frac{1}{\tau}\)</span>. Diese Zeitkonstante wurde bereits in den allgemeinen Ansatz unter 3. eingefügt. Um <span class="math notranslate nohighlight">\(K\)</span> zu bestimmen, setzen wir unsere Anfangsbedingung von Schritt 2. ein: Zum Zeitpunkt <span class="math notranslate nohighlight">\(t=0\)</span> ist das System zwar am Eingang mit <span class="math notranslate nohighlight">\(u_0\)</span> belastet, der Ausgang ist jedoch noch Null, solange der Kondensator nicht vollständig aufgeladen ist. Wir setzen also <span class="math notranslate nohighlight">\(t=0\)</span>, <span class="math notranslate nohighlight">\(u_e(t=0) = u_0\)</span> und <span class="math notranslate nohighlight">\(u_a(t = 0) = 0\)</span> in den allgemein Ansatz ein:</p></li>
+<li><p><strong>4. Konstante bestimmen:</strong>
+Eine Konstante war schon bestimmt, nämlich <span class="math notranslate nohighlight">\(\gamma = \frac{1}{RC} := \frac{1}{\tau}\)</span>. Diese Zeitkonstante wurde bereits in den allgemeinen Ansatz unter 3. eingefügt. Um <span class="math notranslate nohighlight">\(K\)</span> zu bestimmen, setzen wir unsere Anfangsbedingung von Schritt 2. ein: Zum Zeitpunkt <span class="math notranslate nohighlight">\(t=0\)</span> ist das System zwar am Eingang mit <span class="math notranslate nohighlight">\(u_0\)</span> belastet, der Ausgang ist jedoch noch Null, solange der Kondensator nicht vollständig aufgeladen ist. Wir setzen also <span class="math notranslate nohighlight">\(t=0\)</span>, <span class="math notranslate nohighlight">\(u_e(t=0) = u_0\)</span> und <span class="math notranslate nohighlight">\(u_a(t = 0) = 0\)</span> in den allgemeinen Ansatz ein:</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[u_a(0) = u_0 + K \cdot \mathrm e^{-0/\tau}\]</div>
 <div class="math notranslate nohighlight">
 \[0 = u_0 + K \cdot 1 \quad \Rightarrow \quad K = -u_0\]</div>
 <ul class="simple">
-<li><p><strong>5. Lösung hinschreiben</strong>
+<li><p><strong>5. Lösung hinschreiben:</strong>
 Für die Lösung setzen wir alle unsere bestimmten Konstanten in den allgemeinen Ansatz ein und erhalten:</p></li>
 </ul>
 <div class="math notranslate nohighlight">
@@ -993,7 +1003,7 @@ Für die Lösung setzen wir alle unsere bestimmten Konstanten in den allgemeinen
 <p>Dies ist auch die sogenannte <strong>Sprungantwort</strong> eines Systems 1. Ordnung, da wir in Schritt 2. einen <em>Sprung</em> angelegt haben. Hätten wir uns als Eingangssignal einen Impuls (eine Delta-Funktion) ausgesucht, hätten wir die <strong>Impulsantwort</strong> des Systems bestimmt.</p>
 <section id="eigenschaften-von-sprung-und-impulsantwort">
 <h3>Eigenschaften von Sprung- und Impulsantwort<a class="headerlink" href="#eigenschaften-von-sprung-und-impulsantwort" title="Link zu dieser Überschrift">#</a></h3>
-<p>Um ein vorliegendes Messsystem im Labor zu charakterisieren kann man beispielsweise das System mit einem Sprung anregen und die Sprungantwort messen.</p>
+<p>Um ein vorliegendes Messsystem im Labor zu charakterisieren, kann man beispielsweise das System mit einem Sprung anregen und die Sprungantwort messen.</p>
 <p>Im nachfolgenden Bild ist die Sprungsantwort des Tiefpasses 1. Ordnung gezeichnet. Was kann man aus der Sprungsantwort direkt alles ablesen?</p>
 <ul class="simple">
 <li><p>Geplottet im nachfolgenden Bild ist die normalisierte Sprungantwort, d.h. das Ausgangssignal wurde durch <span class="math notranslate nohighlight">\(u_0\)</span> dividiert. Nach langer Einpendelzeit folgt der Ausgang dem Eingangssignal.</p></li>
@@ -1007,7 +1017,7 @@ Für die Lösung setzen wir alle unsere bestimmten Konstanten in den allgemeinen
 <ul>
 <li><p>Für ein System 1. Ordnung muss die Sprungantwort <span class="math notranslate nohighlight">\(h(t)\)</span> nach der Zeit <span class="math notranslate nohighlight">\(t = 3\tau\)</span> 95% des Endwertes erreicht haben.</p></li>
 <li><p>Nur wenn dies der Fall ist, handelt es sich um ein System mit Ausgleich 1. Ordnung</p></li>
-<li><p>Für ein System 2. Ordnung ist häufig ein Überschwingungen oder Einpendeln zubeoachten. Dann ist <span class="math notranslate nohighlight">\(t_e\)</span> Zeit vom Anlegen der Sprungfunktion bis zum Erreichen des Toleranzbandes innerhalb von 0,95 und 1,05.</p></li>
+<li><p>Für ein System 2. Ordnung ist häufig ein Überschwingen oder Einpendeln zu beoachten. Dann ist <span class="math notranslate nohighlight">\(t_e\)</span> Zeit vom Anlegen der Sprungfunktion bis zum Erreichen des Toleranzbandes innerhalb von 0,95 und 1,05.</p></li>
 </ul>
 </li>
 <li><p><em>Anstiegszeit</em> <span class="math notranslate nohighlight">\(t_r\)</span>: Dies ist die Dauer für einen Signalanstieg von 10% auf 90% am Ausgang des Systems.</p></li>
@@ -1094,7 +1104,7 @@ Für die Lösung setzen wir alle unsere bestimmten Konstanten in den allgemeinen
 <p>Folgende Eigenschaften bestehen zwischen Sprung- und Impulsantwort:</p>
 <ul>
 <li><p>Die Sprunganregung <span class="math notranslate nohighlight">\(\sigma(t)\)</span> liefert die Sprungantwort <span class="math notranslate nohighlight">\(h(t)\)</span></p></li>
-<li><p>Die Impulsanregung <span class="math notranslate nohighlight">\(\delta(t)\)</span> liefert die Impulsanregung <span class="math notranslate nohighlight">\(g(t)\)</span></p></li>
+<li><p>Die Impulsanregung <span class="math notranslate nohighlight">\(\delta(t)\)</span> liefert die Impulsantwort <span class="math notranslate nohighlight">\(g(t)\)</span></p></li>
 <li><p>Die Ableitung der Sprunganregung <span class="math notranslate nohighlight">\(\sigma(t)\)</span> ist die Impulsanregung <span class="math notranslate nohighlight">\(\delta(t)\)</span>, d.h. es gilt:</p>
 <div class="math notranslate nohighlight">
 \[\dot \sigma(t) = \frac{d\sigma(t)}{dt} = \delta(t)\]</div>
@@ -1103,7 +1113,7 @@ Für die Lösung setzen wir alle unsere bestimmten Konstanten in den allgemeinen
 <div class="math notranslate nohighlight">
 \[\dot h(t) = \frac{dh(t)}{dt} = g(t)\]</div>
 </li>
-<li><p>D.h. Sprung und Impulsverhalten eines Messsystems können mittels Ableitung bzw. Integration direkt ineinaner umgerechnet werden, ohne eines neues Testsignal anlegen zu müssen (oder die DGL neu zu lösen)</p></li>
+<li><p>D.h. Sprung- und Impulsverhalten eines Messsystems können mittels Ableitung bzw. Integration direkt ineinaner umgerechnet werden, ohne ein neues Testsignal anlegen zu müssen (oder die DGL neu zu lösen)</p></li>
 </ul>
 </section>
 </section>
@@ -1134,7 +1144,7 @@ Für die Lösung setzen wir alle unsere bestimmten Konstanten in den allgemeinen
 \[\Rightarrow U_\mathrm a (j \omega) = \frac{1}{j\omega \cdot (1 + \tau j \omega)}\]</div>
 </li>
 </ul>
-<p>Hierbei handelt es sich um die Lösung im Frequenzraum, die nach einer Rück-Transformation die gleich Sprungantwort liefert wie oben bereits hergeleitet.
+<p>Hierbei handelt es sich um die Lösung im Frequenzraum, die nach einer Rück-Transformation die gleiche Sprungantwort liefert wie oben bereits hergeleitet.
 In allgemeiner Form, also ohne das Einsetzen einer Sprunganregung, führt uns dieser Ansatz jedoch zu der sogenannten <strong>Übertragungsfunktion</strong>, mit der wir uns im nächsten Kapitel beschäftigen wollen.</p>
 </section>
 <section id="weitere-testfunktionen">
@@ -1176,7 +1186,7 @@ In allgemeiner Form, also ohne das Einsetzen einer Sprunganregung, führt uns di
 <img alt="../_images/5_DGL_10_0.png" src="../_images/5_DGL_10_0.png" />
 </div>
 </div>
-<p>Das Vorgehen ist wiefolgt: Es wird eine Testfunktion als Eingangssignal <span class="math notranslate nohighlight">\(u_e(t)\)</span> angelegt und gemessen. Der Ausgang des Systems wird abgegriffen und das Ausgangssignal <span class="math notranslate nohighlight">\(u_a(t)\)</span> ebenfalls gemessen. Ein Vergleich aus angelegtem Eingangssignal und gemessener Systemantwort (Ausgangssignal) können Rückschlüsse für das System getroffen werden.</p>
+<p>Das Vorgehen ist wie folgt: Es wird eine Testfunktion als Eingangssignal <span class="math notranslate nohighlight">\(u_e(t)\)</span> angelegt und gemessen. Der Ausgang des Systems wird abgegriffen und das Ausgangssignal <span class="math notranslate nohighlight">\(u_a(t)\)</span> ebenfalls gemessen. Ein Vergleich aus angelegtem Eingangssignal und gemessener Systemantwort (Ausgangssignal) können Rückschlüsse für das System getroffen werden.</p>
 </section>
 </section>
 

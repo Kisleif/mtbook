@@ -6,11 +6,11 @@ Ihr habt bereits einen soliden Einblick in die Grundlagen der stationären Messu
 
 Egal, ob es sich um analoge oder digitale Messsignale handelt, ob wir es mit kontinuierlichen oder diskreten Signalen zu tun haben - all diese Aspekte werden wir genauestens unter die Lupe nehmen, um ihre Bedeutung für die präzise Datenerfassung vollständig zu verstehen.
 
-## To prepare...
+## Inhalte
 ```{tableofcontents}
 ```
 
-## Checkliste, was du wissen solltest...
+## Zusammenfassung
 
 | Begriff | Beschreibung |
 |:--------------------|:----------------------------------------|
@@ -26,14 +26,14 @@ Egal, ob es sich um analoge oder digitale Messsignale handelt, ob wir es mit kon
 |Demodulation|Einrichtung zur Rückgewinnung des Modulationssignals (Messinformation)|
 |Analog-Digital-Wandlung|Abbildung eines analogen Wertevorrats auf einen endlichen|
 |Aliasing|Möglicher Fehler bei der Digitalisierung bei Verletzung Nyquist-Shannon. Durch Aliasing kann ursprüngliche analoge Zeitfunktion nicht mehr rekonstruiert werden.|
-|Mittelwert|Nach vereinbarter Berechnungsvorschrift ermittelter repräsentativer Wert für ein zeitveränderliches Signa, der dieses Signal durch nur einen Zahlenwert beschreibt|
+|Mittelwert|Nach vereinbarter Berechnungsvorschrift ermittelter repräsentativer Wert für ein zeitveränderliches Signal, der dieses Signal durch nur einen Zahlenwert beschreibt|
 |Periodisches Signal|Ein Signal, bei dem eine Wiederholung des Zeitverlaufs der Amplitude des Signals nach der Periodendauer T erkennbar ist|
 |Formfaktor|Quotient aus Effektivwert und Gleichrichtwert eines periodischen Signals|
 |Scheitelfaktor (Crestfaktor)|Quotient von Spitzenwert (Amplitude) und Effektivwert eines perdioschen Signals|
 |Effektivwert|Quadratischer Mittelwert, welcher zur Berechnung von Leistungen genutzt wird|
 |Gleichrichtwert|Gleichgerichteter Mittelwert für Einweg- oder Zweiweggleichrichtungen. Kann als Maß für die Amplitude genutzt werden|
 |Fourier-Reihen|Jedes periodische Signal kann als Summe von Sinus- und Cosinusfunktionen geschrieben werden|
-|Fourier-Koeffizienten|Geben an wie stark eine bestimmte Frequenz in einem persischem Signal vertreten ist|
+|Fourier-Koeffizienten|Geben an,  wie stark eine bestimmte Frequenz in einem periodischem Signal vertreten ist|
 |Amplituden-/Betragsspektrum|Grafische Darstellung der Frequenzanteile in einem Amplituden-Frequenz-Diagram |
 |Fourier-Transformation|Spektrum eines aperiodischen Signals. Liefert anstelle eines Amplitudenspektrums ein Amplitudendichtespektrum|
 |Amplitudendichtespektrum|Normierung des Amplitudenspektrum mit der Abtastfrequenz. Einheit z.B. V/Hz|

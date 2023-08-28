@@ -136,7 +136,17 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="1_Messen_Einheit.html">
-     Messen und Einheiten
+     Messen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Einheiten.html">
+     Einheiten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Kalibrieren.html">
+     Messsysteme kalibrieren
     </a>
    </li>
   </ul>
@@ -399,7 +409,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="V9.html">
-   Woche 9: Sensoren
+   Woche 9: Dark Lecture
   </a>
  </li>
 </ul>
@@ -769,8 +779,8 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#scheitelfaktor-amplitude">
-   Scheitelfaktor / Amplitude
+  <a class="reference internal nav-link" href="#amplitude">
+   Amplitude
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -835,8 +845,8 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#scheitelfaktor-amplitude">
-   Scheitelfaktor / Amplitude
+  <a class="reference internal nav-link" href="#amplitude">
+   Amplitude
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -893,10 +903,10 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="kenngroszen">
 <h1>Kenngrößen<a class="headerlink" href="#kenngroszen" title="Link zu dieser Überschrift">#</a></h1>
-<p>Eine Wechselgröße, z.B. eine Wechselspannung, liegt in der allgemein Form als Sinusschwingung vor. Die Form wollen wir im folgenden wiefolgt bescheiben:</p>
+<p>Eine Wechselgröße, z.B. eine Wechselspannung, liegt in der allgemeinen Form als Sinusschwingung vor. Die Form wollen wir im Folgenden wie folgt bescheiben:</p>
 <div class="math notranslate nohighlight">
 \[u(t) = \hat u \cdot \sin(\omega t)\]</div>
-<p>In elektronischen Schaltungen hat man dazu eine Stromstärke, der dieser Wechselspannung zugehörig ist, und sich allgemein wiefolgt schreiben lässt:</p>
+<p>In elektronischen Schaltungen hat man dazu eine Stromstärke, die dieser Wechselspannung zugehörig ist, und sich allgemein wiefolgt schreiben lässt:</p>
 <div class="math notranslate nohighlight">
 \[i(t) = \hat i \cdot \sin(\omega t + \phi)\]</div>
 <p>Der Stromstärke haben wir die Phase <span class="math notranslate nohighlight">\(\phi\)</span> hinzugefügt, da durch besondere Komponenten in der Schaltung, wie z.B. ein Kondensator oder eine Spule, eine Verzögerung zwischen Spannung und Stromstärke auftritt. Im klassischen Stromkreis, mit lediglich einem Widerstand, ist so eine Verzögerung meist vernachlässigbar.</p>
@@ -964,19 +974,19 @@ require(['plotly'], function(Plotly) {
 </div>
 </div>
 <p>Bei einem Wechselsignal interessiert man sich häufig nicht für den Zeitverlauf, oder den einzelnen Wert zu einem bestimmten Zeitpunkt, den sogenannten Momentanwert. Dieser hat nämlich keine große Aussagekraft, da er sich gemäß der zugrundeliegenden Signalform ständig ändert. Für viele Fragestellungen sind Kenngrößen relevant, die sich aus der Periode des Wechselsignals ermitteln lassen.</p>
-<section id="scheitelfaktor-amplitude">
-<h2>Scheitelfaktor / Amplitude<a class="headerlink" href="#scheitelfaktor-amplitude" title="Link zu dieser Überschrift">#</a></h2>
-<p>Mit <span class="math notranslate nohighlight">\(\hat U\)</span> bezeichnen wir den <strong>Scheitelfaktor</strong> oder die <strong>Amplitude</strong>. Dies ist der maximale Ausschlag eines Messsignals innerhalb einer Periode (oder Messzeit) <span class="math notranslate nohighlight">\(T\)</span>.</p>
+<section id="amplitude">
+<h2>Amplitude<a class="headerlink" href="#amplitude" title="Link zu dieser Überschrift">#</a></h2>
+<p>Mit <span class="math notranslate nohighlight">\(\hat U\)</span> bezeichnen wir die <strong>Amplitude</strong>. Dies ist der maximale Ausschlag eines Messsignals innerhalb einer Periode (oder Messzeit) <span class="math notranslate nohighlight">\(T\)</span>.</p>
 </section>
 <section id="gleichanteil">
 <h2>Gleichanteil<a class="headerlink" href="#gleichanteil" title="Link zu dieser Überschrift">#</a></h2>
-<p>Der <strong>Gleichanteil</strong> einer Wechselgröße wird über den arithmetischen Mittelwert über eine Perdiode <span class="math notranslate nohighlight">\(T\)</span> berechnet. Es ist nur dann aussagekräftig, wenn nicht gerade eine Signal vorliert was keinen Gleichanteil hat. Andernfalls ist der Wert immer 0.</p>
+<p>Der <strong>Gleichanteil</strong> einer Wechselgröße wird über den arithmetischen Mittelwert über eine Perdiode <span class="math notranslate nohighlight">\(T\)</span> berechnet. Es ist nur dann aussagekräftig, wenn nicht gerade eine Signal vorliegt was keinen Gleichanteil hat. Andernfalls ist der Wert immer 0.</p>
 <div class="math notranslate nohighlight">
 \[\overline u = \frac{1}{T}\int_{t}^{t+T} u(t)dt\]</div>
 </section>
 <section id="gleichrichtwert">
 <h2>Gleichrichtwert<a class="headerlink" href="#gleichrichtwert" title="Link zu dieser Überschrift">#</a></h2>
-<p>Wenn wir uns jetzt einen Fön oder eine Lampe, angeschlossen an eine normale Steckdose mit Wechselstrom vorstellen, so ist der Gleichanteil der Wechselspannung 0, aber trotzdem wirkt die Spannung, da Fön bzw. Lampe arbeiten. Das heißt es kommt offensichtlich nicht auf die Polarität der Spannung an, sondern nur darum, dass im Durchschnitt irgendeine Art von beliebig gepolter Spannung anliegt. Mathematisch gesehen entspricht dies einer Betragsbildung und wird durch den Gleichrichtwert definiert.  Das Signal wird mittels analoger Schaltung <em>gleichgerichtet</em> (das sehen wir uns später noch mal genauer an), bevor es zur Mittelwertbildung kommt. Daher auch der Name. Der Gleichrichtwert hat auch für Signale ohne Gleichanteil eine Aussagekraft. Der <strong>Gleichrichtwert</strong> einer Wechselgröße ist der Mittelwert des Absolutwertes einer Wechselgröße berechnet sich zu:</p>
+<p>Wenn wir uns jetzt einen Fön oder eine Lampe, angeschlossen an eine normale Steckdose mit Wechselstrom vorstellen, so ist der Gleichanteil der Wechselspannung 0, aber trotzdem wirkt die Spannung, da Fön bzw. Lampe arbeiten. Das heißt es kommt offensichtlich nicht auf die Polarität der Spannung an, sondern nur darauf, dass im Durchschnitt irgendeine Art von beliebig gepolter Spannung anliegt. Mathematisch gesehen entspricht dies einer Betragsbildung und wird durch den Gleichrichtwert definiert.  Das Signal wird mittels analoger Schaltung <em>gleichgerichtet</em> (das sehen wir uns später noch mal genauer an), bevor es zur Mittelwertbildung kommt. Daher auch der Name. Der Gleichrichtwert hat auch für Signale ohne Gleichanteil eine Aussagekraft. Der <strong>Gleichrichtwert</strong> einer Wechselgröße ist der Mittelwert des Absolutwertes einer Wechselgröße berechnet sich zu:</p>
 <div class="math notranslate nohighlight">
 \[\overline{|u|} = \frac{1}{T}\int_{t}^{t+T} |u(t)|dt\]</div>
 </section>
@@ -988,6 +998,21 @@ require(['plotly'], function(Plotly) {
 </section>
 <section id="scheitelfaktor-und-formfaktor">
 <h2>Scheitelfaktor und Formfaktor<a class="headerlink" href="#scheitelfaktor-und-formfaktor" title="Link zu dieser Überschrift">#</a></h2>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Scheitelfaktor - Crestfaktor? Wie sind die definiert? Beispiel</p>
+<iframe width="200" height="113" src="https://www.youtube.com/embed/mUP4CSkFbrs?si=hjeiUXXi_lVQIcLR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+</aside>
 <p>Mittelwert, Gleichrichtwert und Effektivwert lassen sich für jede beliebige periodische Signalform berechnen und sind <em>unabhängig</em> von der Frequenz. Zwischen Ihnen sind Umrechnungsfaktoren definiert, Scheitelfaktoren oder Formfaktoren, welche das Verhältnis zwischen Effektivwert und anderen Kenngrößen angeben. Wir werden später noch sehen, dass die Messung von Effektivwerten sehr aufwendig ist (die mathematischen Operationen im Intergral zeigen dies auch). Es ist einfacher den Scheitel- oder Gleichrichtwert zu messen und mittels dieser Umrechnungs-Faktoren den Effektivwert anschließend zu berechnen. Die Faktoren sind jedoch für jede Signalform anders!</p>
 <ul>
 <li><p><strong>Scheitelfaktor (Crest-Faktor)</strong>:</p>
@@ -1150,7 +1175,7 @@ Formfaktor	 0.7854640780135795 		 1.0407375280882154
 <tr class="row-odd"><td class="text-align:left"><p>Gleichrichtwert</p></td>
 <td class="text-align:left"><p><span class="math notranslate nohighlight">\(\overline{\lvert u \rvert} = \frac{2}{\pi}\cdot \hat u \approx 0,64 \cdot \hat u\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>Effektivwert (RMS</p></td>
+<tr class="row-even"><td class="text-align:left"><p>Effektivwert (RMS)</p></td>
 <td class="text-align:left"><p><span class="math notranslate nohighlight">\(U = u_\mathrm{eff} = \frac{\hat u}{\sqrt{2}} \approx 0,71 \cdot \hat u\)</span></p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>Scheitelfaktor</p></td>
@@ -1188,7 +1213,22 @@ Formfaktor	 0.7854640780135795 		 1.0407375280882154
 </section>
 <section id="pulsweitenmodulation">
 <h3>Pulsweitenmodulation<a class="headerlink" href="#pulsweitenmodulation" title="Link zu dieser Überschrift">#</a></h3>
-<p>Ein weiteres Beispiel ist für eine Pulsweitenmodulation berechnet und die Formeln können aus folgendem Bild abgelesen werden. Er handelt sich um ein unsymmetrisches Rechtecksignal. In diesem Fall sprechen wir von einem Pulsweitenmodulierten Signal, da die ‘An’-Zeit innerhalb einer bestimmten Anwendung nicht immer gleich groß sein muss. Das Verhältnis</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">PWM - Pulsweitenmodulation (Edi’s Techlab)</p>
+<iframe width="200" height="113" src="https://www.youtube.com/embed/uNfMjsuIQu4?si=jntMQTZUZV0vtjhj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<p>Ein weiteres Beispiel ist für eine Pulsweitenmodulation berechnet und die Formeln können aus folgendem Bild abgelesen werden. Es handelt sich um ein unsymmetrisches Rechtecksignal. In diesem Fall sprechen wir von einem Pulsweitenmodulierten Signal, da die ‘An’-Zeit innerhalb einer bestimmten Anwendung nicht immer gleich groß sein muss. Das Verhältnis</p>
 <div class="math notranslate nohighlight">
 \[\tau = \frac{\Delta t}{T}\]</div>
 <p>wird auch Tastverhältnis genannt. Hierüber kann ein Messwert analog codiert und übertragen werden, während das Signal selber digital ist.</p>

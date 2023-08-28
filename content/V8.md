@@ -1,7 +1,7 @@
 # Woche 8: Sensoren
 
-## To prepare...
+## Inhalte
 ```{tableofcontents}
 ```
 
-## Checkliste, was du wissen solltest...
+## Zusammenfassung

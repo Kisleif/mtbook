@@ -70,7 +70,7 @@
 # * Es handelt sich um Klimadaten von der NASA, die die Jahresmitteltemperaturabweichung in °C über die Jahre zeigen
 #     * Messwerte (Datenpunkte), welche aktuell in grau dargestellt sind
 #     * Geglättete Messwerte von der NASA, welche aktuell in blau dargestellt sind
-# * Durch die Messdaten soll eine Ausgleichsgerade gelegt werden, die möglichst gut den linearen Anstieg ab 1980 darstellt. Änder hierfür die `1880` an mehreren Stellen.
+# * Durch die Messdaten soll eine Ausgleichsgerade (hier in rot, "Fit") gelegt werden, die möglichst gut den linearen Anstieg ab 1980 darstellt. Änder hierfür die `1880` an mehreren Stellen.
 # 
 # Änder alles, was noch stört:
 # * Änder die Schriftgröße.

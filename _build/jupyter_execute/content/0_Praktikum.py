@@ -3,10 +3,6 @@
 
 # # Infos zum Praktikum
 # 
-# Hier ist der überarbeitete Text:
-# 
-# ## Infos zum Praktikum
-# 
 # Vor Beginn deines ersten Praktikumsversuchs ist es wichtig, folgendes Grundwissen zu beachten:
 # 
 # - [**Einheiten:**](1_Einheiten.ipynb) Welche Maßeinheiten gibt es? Was sind SI-Einheiten? Welche Präfixe sind gebräuchlich?
@@ -70,11 +66,17 @@
 # 
 # :::{admonition} Aufgabe
 # :class: tip
-# Im Folgenden ist eine sehr ungünstige Darstellung gewählt, um die Messdaten zu zeigen. Klicke oben auf dieser Webseite auf die Rakete und starte `Live-Code` und probiere die Darstellung des Diagramms zu optimieren. Folgende Hinweise geben wir dir mit auf den Weg:
+# Im Folgenden ist eine sehr ungünstige Darstellung gewählt, um die Messdaten zu zeigen. Klicke oben auf dieser Webseite auf die Rakete und starte `Live Code` und optimier die Darstellung des Diagramms. Folgende Hinweise geben wir dir mit auf den Weg:
 # * Es handelt sich um Klimadaten von der NASA, die die Jahresmitteltemperaturabweichung in °C über die Jahre zeigen
 #     * Messwerte (Datenpunkte), welche aktuell in grau dargestellt sind
 #     * Geglättete Messwerte von der NASA, welche aktuell in blau dargestellt sind
-# * Durch die Messdaten soll eine Ausgleichsgerade gelegt werden, die möglichst gut den linearen Anstieg ab 1980 darstellt
+# * Durch die Messdaten soll eine Ausgleichsgerade gelegt werden, die möglichst gut den linearen Anstieg ab 1980 darstellt. Änder hierfür die `1880` an mehreren Stellen.
+# 
+# Änder alles, was noch stört:
+# * Änder die Schriftgröße.
+# * Lösch die Limitierungen auf der y-Achse oder passe sie an.
+# * Änder die Einträge in der Legende
+# * ...
 # :::
 
 # In[1]:
@@ -122,38 +124,6 @@ plt.grid();
 print(f"Lineares Model Output: {model[0][0]:.3f}°C/Jahr")
 
 
-# In[2]:
-
-
-# MatplotLib Settings:
-plt.style.use('default') # Matplotlib Style wählen
-plt.figure(figsize=(10,5)) # Plot-Größe
-plt.rcParams['font.size'] = 10; # Schriftgröße
-
-link = 'data/graph.csv' # Beispieldatei mit Klimadaten
-global_mean = pd.read_csv(link, header = 1) # Daten einlesen
-global_mean["uncertainty"] = 0.25 #Messunsicherheiten abschätzen, hier 0.25K Temperaturgenauigkeit angenommen
-
-# Lineare Regression berechnen:
-x=global_mean.loc[global_mean["Year"] >= 1980,"Year"]
-y=global_mean.loc[global_mean["Year"] >= 1980,"No_Smoothing"]
-y_err = global_mean.loc[global_mean["Year"] >= 1980,"uncertainty"]
-model = np.polyfit(x, y, deg=1, w=1/y_err, cov=True) # 1. Wert = Anstieg , 2. Wert = Schnittpunkt mit y-Achse
-y_model = model[0][0]*x+model[0][1] # Modell einer linearen Regression
-
-# print(global_mean) # Eingelesene Daten ausgeben
-plt.errorbar(global_mean["Year"],global_mean["No_Smoothing"], yerr=global_mean["uncertainty"], ls="-", lw=1, marker="s", ms=3, color="tab:gray", alpha=0.5, label="Werte");
-plt.plot(global_mean["Year"],global_mean["Lowess(5)"], lw=3,  color="tab:blue", label="Glättung (NASA)");
-plt.plot(x,y_model, ls="-", lw=3, color="tab:red", label=f"lineare Regression y=({model[0][0]*1000:.3f}+-{np.sqrt(model[1][0][0]*1000):.3f})1e-3*x+({model[0][1]:.3f}+-{np.sqrt(model[1][1][1]):.3f})");
-plt.xlabel('Jahr')
-plt.ylabel("Jahresmitteltemperaturabweichung [°C]")
-plt.legend();
-plt.grid();
-
-# Temperaturanstieg ausgeben:
-print(f"Temperaturanstieg pro Jahr (von 1980 bis 2020): {model[0][0]:.3f}°C/Jahr")
-
-
 # `````{admonition} Lösung
 # :class: tip, dropdown
 # Korrekturen:
@@ -165,9 +135,13 @@ print(f"Temperaturanstieg pro Jahr (von 1980 bis 2020): {model[0][0]:.3f}°C/Jah
 # * Aufgrund der ungenügenden Darstellung der y-Werte wurde die lineare Regression über den kompletten Messwertebereich durchgeführt, was bei näherer Betrachtung (siehe 1. Bild) eher ungünstig ist.
 # * Aufgrund der fehlerhaften linearen Regression, ist der Temperaturanstieg der letzten Jahre um einen Faktor 2,375 zu gering abgeschätzt wurden! 
 # * ...
+# 
+# 
 # `````
+# 
+# Eine bessere Darstellung der Messergebnisse könnt ihr euch im Folgenden ansehen.
 
-# In[3]:
+# In[2]:
 
 
 # MatplotLib Settings:

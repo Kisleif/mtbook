@@ -7,9 +7,11 @@ Du bestimmst dein Lerntempo und kannst die Videos nutzen, um das Skript zu ergä
 
 Hier findet ihr das Vorlesungsskript und Informationen zu den Übungen, Praktikumsversuchen und eventuell nützliche Jupyter-Notebooks ;). 
 
+```{warning}
 Jede Webseite im *Metrology Lecture Book* ist ein eigenes Jupyter-Notebook, was es ermöglicht, Python-Code direkt einzubinden. Wir ihr diesen Code auch selber ausführen könnt, erfahrt ihr hier. 
-
 Um dem **Vorlesungsskript** zu folgen sind **keine Python-Kenntnisse erforderlich**. 
+```
+
 
 
 ::::{grid} 1 1 2 3

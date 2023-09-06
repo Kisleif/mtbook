@@ -1,17 +1,48 @@
 # Welcome
 
+Willkommen im *Metrology Lecture Book*, dem **Vorlesungsskript** zur Messtechnik an der Helmut-Schmidt-Universität. Hier hast du die Freiheit, selbstständig zu lernen. Dieses Vorlesungsskript wird deine Hauptinformationsquelle sein und die Grundlagen der Messtechnik vermitteln. Zusätzlich stehen dir begleitende YouTube-Videos und Literaturhinweise zur Verfügung, um Basiswissen zu lernen, zu wiederholen oder zu vertiefen.
 
-Willkommen im *Metrology Lecture Book*, der Vorlesungsskript zur Messtechnik an der HSU. Hier hast du die Freiheit, selbstständig zu lernen. Dieses Vorlesungsskript wird deine Hauptinformationsquelle sein und die Grundlagen der Messtechnik vermitteln. Zusätzlich stehen dir begleitende YouTube-Videos und Literaturhinweise zur Verfügung, um Basiswissen zu lernen, zu wiederholen oder zu vertiefen.
+## Kommentare und Markierungen
+Du bestimmst dein Lerntempo und kannst die Videos nutzen, um das Skript zu ergänzen. Stelle Fragen, diskutiere mit anderen und gestalte dein Lernen aktiv mit, indem du zum Bepisiel die **Kommentier- und Highlight-Funktion** in https://hypothes.is/ benutzt: 
 
-Du bestimmst dein Lerntempo und kannst die Videos nutzen, um das Skript zu ergänzen. Stelle Fragen, diskutiere mit anderen und gestalte dein Lernen aktiv mit, indem du zum Bepisiel die Kommentier- und Highlight-Funktion https://hypothes.is/ (weitere Infos [weiter unten](#Sec_Notes)) benutzt. 
+* Klickt ganz oben am rechten Seitenrand auf den Pfeil, das Auge oder das Papier.
+* Unter https://hypothes.is/ registrieren bzw. einloggen, wenn bereits ein Account besteht.
+* Ggf. auf https://hypothes.is/ eine neue Gruppe für eigene Notizen erstellen.
+* Auf der Seite die entsprechende Gruppen auswählen, in der ihr Notizen anlegen wollt.
+* Text auf der Seite markieren und ggf. Notizen hinzufügen. 
 
-Hier findet ihr das Vorlesungsskript und Informationen zu den Übungen, Praktikumsversuchen und eventuell nützliche Jupyter-Notebooks ;). 
-
-```{warning}
-Jede Webseite im *Metrology Lecture Book* ist ein eigenes Jupyter-Notebook, was es ermöglicht, Python-Code direkt einzubinden. Wir ihr diesen Code auch selber ausführen könnt, erfahrt ihr hier. 
-Um dem **Vorlesungsskript** zu folgen sind **keine Python-Kenntnisse erforderlich**. 
+```{tip}
+Legt eine gemeinsame Gruppe für die Klausurvorbereitung an!
 ```
 
+```{tip}
+Auf der Webseite https://hypothes.is/ findet ihr eure Kollektion von Notizen und könnt sie direkt als Karteikarten benutzen. 
+```
+
+
+## Python / Jupyter-Notebooks
+Fast jede Webseite im Metrology Lecture Book ist ein *J*Jupyter-Notebook**. 
+
+```{warning} Entwarnung
+Um dem **Vorlesungsskript** zu folgen, sind **keine Python-Kenntnisse erforderlich**. 
+```
+
+Dadurch habt ihr die Möglichkeit, den Code selbst auszuführen, Parameter anzupassen, zu experimentieren und ganz nebenbei Python zu lernen. Zusätzlich könnt ihr Python nutzen, um eure Messdaten aus dem Praktikum auszuwerten. Wir stellen bereits eine Sammlung von Jupyter-Notebooks für ausgewählte Praktikumsversuche zur Verfügung, um den Einstieg zu erleichtern. Das Schöne daran ist, dass Python Open Source ist, und ihr  sofort loslegen könnt:
+
+### Sofort Notebooks im Browser mit 'Colab' ausführen
+Ihr habt die Möglichkeit, die in unserem *Metrology Lecture Book* enthaltenen **Jupyter-Notebooks** direkt im Browser (*ohne lokale Python Installation*) auszuführen. Dazu klickt ihr oben auf das Symbol der *Rakete* und wählt anschließend `Colab` aus. Dies öffnet eine interaktive Umgebung im Browser, in der das Jupyter-Notebook gestartet wird. Beachtet, dass das Symbol der *Rakete* nur auf den Seiten erscheint, die als Jupyter-Notebooks vorliegen.
+
+### Notebooks auf eurem Computer ausführen 
+Wenn ihr eure Analyse für die Praktikumsdaten mit Python durchführen möchtet, müsst ihr Python auf eurem Computer 
+Wir empfehlen für Neueinsteiger die Installation von **Jupyter Lab**:
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jZ952vChhuI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+```{seealso}
+Für einen schnellen Einstieg könnt ihr Jupyter-Lab auch sofort online ausprobieren: [Jupyter-Lab sofort ausprobieren](https://jupyter.org/try-jupyter/lab/).
+```
+
+Die Jupyter-Notebooks könnt ihr herunter laden, indem ihr oben rechts auf den Download-Button drückt und dann `ipynb`auswählt. 
+Öffnet die Jupyter-Notebooks (`.ipynb`-Dateien) ganz einfach per Doppelklick auf eurem lokalen Dateisystem. 
 
 
 ::::{grid} 1 1 2 3
@@ -168,26 +199,6 @@ optisch, kapazitiv, piezo-elektrisch, resistiv, magnetisch, gravitativ
 :::
 
 ::::
-
-
-
-## Notizen machen im Online-Skript
-<a id="Sec_Notes"></a>
-
-**Anmerkungen, Textmarker und Vorlesungsnotizen** können direkt online im Skript erfolgen: 
-* Klickt ganz oben am rechten Seitenrand auf den Pfeil, das Auge oder das Papier.
-* Unter https://hypothes.is/ registrieren bzw. einloggen, wenn bereits ein Account besteht.
-* Ggf. auf https://hypothes.is/ eine neue Gruppe für eigene Notizen erstellen.
-* Auf der Seite die entsprechende Gruppen auswählen, in der ihr Notizen anlegen wollt.
-* Text auf der Seite markieren und ggf. Notizen hinzufügen. 
-
-```{tip}
-Legt eine gemeinsame Gruppe für die Klausurvorbereitung an!
-```
-
-```{tip}
-Auf der Webseite https://hypothes.is/ findet ihr eure Kollektion von Notizen und könnt sie direkt als Karteikarten benutzen. 
-```
 
 
 ## Literatur

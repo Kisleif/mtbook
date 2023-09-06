@@ -213,7 +213,7 @@ optisch, kapazitiv, piezo-elektrisch, resistiv, magnetisch, gravitativ
 :class-header: bg-light
 **Parthier 2020 {cite}`parthier2020`**
 ^^^
-```{image} content/pictures/2020_Book_Messtechnik.png
+```{image} content/pictures/2020_Book_Messtechnik.jpeg
 :height: 150
 ```
 **Messtechnik**: Vom SI-Einheitensystem über Bewertung von Messergebnissen zu Anwendungen der elektrischen Messtechnik
@@ -227,7 +227,7 @@ Explore this book {fas}`arrow-right`
 :class-header: bg-light
 **Léon 2019 {cite}`puenteleon2019`**
 ^^^
-```{image} content/pictures/2019_Book_Messtechnik.png
+```{image} content/pictures/2019_Book_Messtechnik.jpeg
 :height: 150
 ```
 **Messtechnik**: Grundlagen, Methoden und Anwendungen
@@ -241,7 +241,7 @@ Explore this book {fas}`arrow-right`
 :class-header: bg-light
 **Böttcher 2020 {cite}`boettcher2020`**
 ^^^
-```{image} content/pictures/2020_Book_Boettcher.png
+```{image} content/pictures/2020_Book_Boettcher.jpeg
 :height: 150
 ```
 **Kompendium**: Messtechnik und Sensorik

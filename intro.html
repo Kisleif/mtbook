@@ -53,6 +53,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
     <link rel="search" title="Suche" href="search.html" />
     <link rel="next" title="Woche 1: Einleitung" href="content/V1.html" />
@@ -133,7 +135,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="content/1_Messen_Einheit.html">
-     Messen
+     Einführung in ein Messsystem
     </a>
    </li>
    <li class="toctree-l2">
@@ -711,8 +713,8 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#vorlesungsthemen">
-   Vorlesungsthemen
+  <a class="reference internal nav-link" href="#vorlesungsinhalt">
+   Vorlesungsinhalt
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -745,8 +747,8 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#vorlesungsthemen">
-   Vorlesungsthemen
+  <a class="reference internal nav-link" href="#vorlesungsinhalt">
+   Vorlesungsinhalt
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -771,12 +773,9 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="welcome">
 <h1>Welcome<a class="headerlink" href="#welcome" title="Link zu dieser Überschrift">#</a></h1>
-<p>Willkommen im <em>Metrology Lecture Book</em>, der vorlesungsbegleitenden Webseite zur Messtechnik an der HSU.
-Hier findet ihr das Vorlesungsskript und Informationen zu den Übungen, Praktikumsversuchen und eventuell nützliche Jupyter-Notebooks ;).</p>
-<div class="admonition warning">
-<p class="admonition-title">Warnung</p>
-<p>Dieses <em>Metrology Lecture Book</em> befindet sich aktuell im Aufbau und ihr könnt euch noch nicht auf Vollständigkeit verlassen.</p>
-</div>
+<p>Willkommen im <em>Metrology Lecture Book</em>, der Vorlesungsskript zur Messtechnik an der HSU. Hier hast du die Freiheit, selbstständig zu lernen. Dieses Vorlesungsskript wird deine Hauptinformationsquelle sein und die Grundlagen der Messtechnik vermitteln. Zusätzlich stehen dir begleitende YouTube-Videos und Literaturhinweise zur Verfügung, um Basiswissen zu lernen, zu wiederholen oder zu vertiefen.</p>
+<p>Du bestimmst dein Lerntempo und kannst die Videos nutzen, um das Skript zu ergänzen. Stelle Fragen, diskutiere mit anderen und gestalte dein Lernen aktiv mit, indem du zum Bepisiel die Kommentier- und Highlight-Funktion <a class="reference external" href="https://hypothes.is/">https://hypothes.is/</a> (weitere Infos [weiter unten](#Notizen machen im Online-Skript)) benutzt.</p>
+<p>Hier findet ihr das Vorlesungsskript und Informationen zu den Übungen, Praktikumsversuchen und eventuell nützliche Jupyter-Notebooks ;).</p>
 <p>Jede Webseite im <em>Metrology Lecture Book</em> ist ein eigenes Jupyter-Notebook, was es ermöglicht, Python-Code direkt einzubinden. Wir ihr diesen Code auch selber ausführen könnt, erfahrt ihr hier.</p>
 <p>Um dem <strong>Vorlesungsskript</strong> zu folgen sind <strong>keine Python-Kenntnisse erforderlich</strong>.</p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 text-center docutils">
@@ -813,8 +812,19 @@ Hier findet ihr das Vorlesungsskript und Informationen zu den Übungen, Praktiku
 </div>
 </div>
 </div>
-<section id="vorlesungsthemen">
-<h2>Vorlesungsthemen<a class="headerlink" href="#vorlesungsthemen" title="Link zu dieser Überschrift">#</a></h2>
+<section id="vorlesungsinhalt">
+<h2>Vorlesungsinhalt<a class="headerlink" href="#vorlesungsinhalt" title="Link zu dieser Überschrift">#</a></h2>
+<p>Was ist die Aufgabe der Messtechnik, wozu wird sie benötigt und wo kommt sie zum Einsatz? Wer sind die Anwender?</p>
+<p>Die Messtechnik ist ein unverzichtbarer Bestandteil unseres Alltags und manifestiert sich in verschiedensten Anwendungen. Sie ist in unseren Handys präsent, ermöglicht die genaue Erfassung von Temperatur- oder Stickstoffwerten in der Umwelt und spielt eine zentrale Rolle in der Prozess- und Fertigungstechnik. Um physikalische oder chemische Größen präzise zu beschreiben und auszuwerten, ist eine strukturierte Herangehensweise erforderlich.</p>
+<p>Im Rahmen dieser Vorlesung werden wir die folgenden Fragen beantworten:</p>
+<ol class="simple">
+<li><p>Welche Besonderheiten und Einheiten sind mit bestimmten physikalischen Messgrößen verbunden?</p></li>
+<li><p>Welche Messgeräte stehen für diese Größen zur Verfügung?</p></li>
+<li><p>Welche Aspekte müssen bei der Anwendung dieser Messgeräte berücksichtigt werden?</p></li>
+<li><p>Mit welchen Methoden erfolgt die Auswertung von Daten?</p></li>
+</ol>
+<p>Heutzutage basieren messtechnische Lösungen auf elektronischen Systemen. Dabei kommen häufig eigenständige Messgeräte oder elektronische Messmodule für Computer zum Einsatz, die auf elektronischen Bauteilen und Schaltungen basieren. Daher werden wir uns insbesondere mit der Messung elektrischer Kenngrößen wie Spannung, Strom, Leistung, Widerstand, Kapazität und Induktivität befassen.</p>
+<p>Für die Messung nicht-elektrischer Größen werden in der Messtechnik spezielle Sensoren verwendet. Ein Sensor wandelt mithilfe eines bestimmten physikalischen oder chemischen Funktionsprinzips die nicht-elektrische Größe in ein elektrisches Signal um, das anschließend elektronisch weiterverarbeitet werden kann. Beispiele für nicht-elektrische Größen, die mithilfe von Sensoren erfasst werden können, sind Temperatur, Druck, Feuchtigkeit, Durchfluss, Abstand, Winkel, Kraft, Beschleunigung, CO2-Konzentration, Schalldruck und viele mehr.</p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 text-center docutils">
 <div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-3 sd-row-cols-lg-3 sd-g-3 sd-g-xs-3 sd-g-sm-3 sd-g-md-3 sd-g-lg-3 docutils">
 <div class="sd-col sd-d-flex-row docutils">
@@ -920,7 +930,7 @@ Hier findet ihr das Vorlesungsskript und Informationen zu den Übungen, Praktiku
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tipp</p>
-<p>Legt eine Gruppe für die Klausurvorbereitung!</p>
+<p>Legt eine gemeinsame Gruppe für die Klausurvorbereitung an!</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tipp</p>
@@ -934,7 +944,7 @@ Hier findet ihr das Vorlesungsskript und Informationen zu den Übungen, Praktiku
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
 <div class="sd-card-header bg-light docutils">
-<p class="sd-card-text"><strong>Parthier 2020 <span id="id1">[<a class="reference internal" href="content/L_Dioden-Kennlinie.html#id5" title="Rainer Parthier. Messtechnik: Vom SI-Einheitensystem über Bewertung von Messergebnissen zu Anwendungen der elektrischen Messtechnik. Springer Fachmedien Wiesbaden, 2020. ISBN 978-3-658-27130-5 978-3-658-27131-2. URL: http://link.springer.com/10.1007/978-3-658-27131-2 (visited on 2022-09-15), doi:10.1007/978-3-658-27131-2.">Par20</a>]</span></strong></p>
+<p class="sd-card-text"><strong>Parthier 2020 <span id="id1">[<a class="reference internal" href="#id6" title="Rainer Parthier. Messtechnik: Vom SI-Einheitensystem über Bewertung von Messergebnissen zu Anwendungen der elektrischen Messtechnik. Springer Fachmedien Wiesbaden, 2020. ISBN 978-3-658-27130-5 978-3-658-27131-2. URL: http://link.springer.com/10.1007/978-3-658-27131-2 (visited on 2022-09-15), doi:10.1007/978-3-658-27131-2.">Par20</a>]</span></strong></p>
 </div>
 <div class="sd-card-body docutils">
 <a class="reference internal image-reference" href="_images/2020_Book_Messtechnik.png"><img alt="_images/2020_Book_Messtechnik.png" src="_images/2020_Book_Messtechnik.png" style="height: 150px;" /></a>

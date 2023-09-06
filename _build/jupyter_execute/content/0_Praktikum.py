@@ -5,7 +5,7 @@
 # 
 # In den Vorlesungsunterlagen findest du Infos zu den Grundlagen des Messtechnik, die auch für das Praktikum gelten. Folgende Fragen solltest du die vor deinem ersten Praktikumsversuch einmal beantworten:
 # 
-# * [**Einheiten:**](1_Messen_Einheit.ipynb) Welche Maßeinheiten gibt es? Was sind SI-EInheiten? Welche Vorsätze gibt es?
+# * [**Einheiten:**](1_Einheiten.ipynb) Welche Maßeinheiten gibt es? Was sind SI-EInheiten? Welche Vorsätze gibt es?
 # * [**Messunsicherheiten:**](1_Messunsicherheiten.ipynb) [Welche Arten von Unsicherheiten gibt es?](1_Messunsicherheiten.ipynb) [Welche statistischen Methoden gibt es um Messreihen auszuwerten?](1_Mittelwert_StdAbw.ipynb) Wie gebe ich Messunsicherheiten an (Messwert und Fehlerbalken)?
 # * [**Fehlerfortpflanzung:**](1_Fehlerfortpflanzung.ipynb) Wie betreibe ich Fehlerfortpflanzung? Was muss ich bei systematischen, zufälligen und korrelierten Unsicherheiten beachten?
 # * [**Kurvenanpassung:**](1_Kurvenanpassung.ipynb) Wie plotte ich Messdaten sinnvoll? Wie kann ich Zusammenhänge in den Daten darstellen? 

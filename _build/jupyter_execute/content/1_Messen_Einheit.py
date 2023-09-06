@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Messen
+# # Einführung in ein Messsystem
 # 
 # Ein Messobjekt hat eine bestimmte Messgröße (physikalische Größe, Temperatur, Stromstärke, …) von welcher der Messwert bestimmt werden soll. Hierfür wird ein Verfahren benötigt, um die Größe zu extrahieren, was durch ein passendes Messgerät geschieht. 
 # 

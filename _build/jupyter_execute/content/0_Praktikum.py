@@ -124,21 +124,6 @@ plt.grid();
 print(f"Lineares Model Output: {model[0][0]:.3f}°C/Jahr")
 
 
-# `````{admonition} Lösung
-# :class: tip, dropdown
-# Korrekturen:
-# * x- und y-Achsenbeschriftung ist nicht aussagekräftig und zu klein
-# * fehlende Einheiten
-# * Legende ist nicht aussagekräftig
-# * keine Fehlerbalken (oder zumindest nicht erkennbar)
-# * y-Achsen-Skalierung ist zu groß gewählt, die Kurve nimmt nur einen sehr kleinen Teil des Diagramms ein
-# * Aufgrund der ungenügenden Darstellung der y-Werte wurde die lineare Regression über den kompletten Messwertebereich durchgeführt, was bei näherer Betrachtung (siehe 1. Bild) eher ungünstig ist.
-# * Aufgrund der fehlerhaften linearen Regression, ist der Temperaturanstieg der letzten Jahre um einen Faktor 2,375 zu gering abgeschätzt wurden! 
-# * ...
-# 
-# 
-# `````
-# 
 # Eine bessere Darstellung der Messergebnisse könnt ihr euch im Folgenden ansehen.
 
 # In[2]:

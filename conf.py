@@ -21,7 +21,7 @@ html_js_files = ['https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/requir
 html_logo = 'i_mt.png'
 html_sourcelink_suffix = ''
 html_theme = 'sphinx_book_theme'
-html_theme_options = {'search_bar_text': 'Search this book...', 'launch_buttons': {'notebook_interface': 'classic', 'binderhub_url': 'https://mybinder.org', 'jupyterhub_url': '', 'thebe': False, 'colab_url': 'https://colab.research.google.com'}, 'path_to_docs': '', 'repository_url': 'https://github.com/Kisleif/mtbook', 'repository_branch': 'main', 'google_analytics_id': '', 'extra_navbar': 'Powered by <a href="https://jupyterbook.org">Jupyter Book</a>', 'extra_footer': '', 'home_page_in_toc': True, 'announcement': '', 'use_repository_button': True, 'use_edit_page_button': True, 'use_issues_button': True}
+html_theme_options = {'search_bar_text': 'Search this book...', 'launch_buttons': {'notebook_interface': 'classic', 'binderhub_url': 'https://mybinder.org', 'jupyterhub_url': '', 'thebe': False, 'colab_url': 'https://colab.research.google.com'}, 'path_to_docs': '', 'repository_url': 'https://github.com/Kisleif/mtbook/tree', 'repository_branch': 'main', 'google_analytics_id': '', 'extra_navbar': 'Powered by <a href="https://jupyterbook.org">Jupyter Book</a>', 'extra_footer': '', 'home_page_in_toc': True, 'announcement': '', 'use_repository_button': True, 'use_edit_page_button': True, 'use_issues_button': True}
 html_title = 'Metrology Lecture Book'
 jupyter_cache = ''
 jupyter_execute_notebooks = 'force'

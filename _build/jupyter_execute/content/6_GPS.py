@@ -4,8 +4,6 @@
 # # Satellitennavigationssysteme
 # 
 # https://ciechanow.ski/gps/
-# 
-# 
 
 # ## Positionsbestimmung
 # 
@@ -139,10 +137,9 @@ import random
 
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
-num = 2000
+num = 200
 fig, ax = plt.subplots(3,1,figsize=(6,3))
 
 line0, = ax[0].plot([], [], lw=2, color = 'tab:blue')
@@ -209,10 +206,9 @@ import random
 
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
-num = 2000
+num = 200
 fig, ax = plt.subplots(3,1,figsize=(6,3))
 
 line0, = ax[0].plot([], [], lw=2, color = 'tab:blue')
@@ -291,10 +287,9 @@ import random
 
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
-num = 2000
+num = 200
 fig, ax = plt.subplots(5,1,figsize=(6,5))
 
 line0, = ax[0].plot([], [], lw=2, color = 'tab:blue')

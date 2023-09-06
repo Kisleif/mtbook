@@ -33,7 +33,7 @@ Kennlinie, Diode, LED, p-n-Übergang, stromrichtig und spannungsrichtig
 :class-header: bg-light
 **Parthier 2020 {cite}`parthier2020`**
 ^^^
-```{image} pictures/2020_Book_Messtechnik.png
+```{image} pictures/2020_Book_Messtechnik.jpeg
 :height: 150
 ```
 **Messtechnik**: Vom SI-Einheitensystem über Bewertung von Messergebnissen zu Anwendungen der elektrischen Messtechnik
@@ -47,7 +47,7 @@ Explore this book {fas}`arrow-right`
 :class-header: bg-light
 **Stiny 2015 {cite}`stiny2015`**
 ^^^
-```{image} pictures/2015_Book_AktiveBauelemente.png
+```{image} pictures/2015_Book_AktiveBauelemente.jpeg
 :height: 150
 ```
 Aktive elektronische Bauelemente

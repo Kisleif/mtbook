@@ -84,4 +84,4 @@
 #     * Die Antwort auf ein beliebiges Eingangssignal mittels Impulsantwort zu bestimmten (Faltung von beliebigem Eingangssignal mit Impulsantwort liefert Antwort des Systems auf das beliebige Eingangssignal)
 #     * Die Faltung hilft bei allen drei Problemen: System-Indentifizierungsproblem, Simulationsproblem und Kontrollproblem
 #     
-# ![Bild](pictures/t_s_draw.png)
+# ![Bild](pictures/t_s_draw.jpg)

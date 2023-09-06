@@ -78,7 +78,7 @@ plt.show()
 # 
 # Zur Informationsübertragung werden häufig **elektromagnetische Wellen** oder **elektrische Signale** benutzt. In einigen Bereichen sind aber auch **mechanische**, **pneumatische** und **hydraulische** Signale üblich, vor allem wenn man sich technische Regeleinrichtungen ansieht, spielen die letztgenannten Signale eine wichtige Rolle. Die nachfolgenden Beschreibungen können aber auch auf jede andere Art von Messsignal angewendet werden.
 # 
-# ![Bild](pictures/messsignal_wandlung.png)
+# ![Bild](pictures/messsignal_wandlung.jpg)
 # 
 # ## Elektromagnetische Wellen als Informationsträger
 # 
@@ -129,7 +129,7 @@ print('Die Wellenlänge einer Schwingung mit Frequenz f = %5.2f MHz beträgt %5.
 # 
 # mit $h = 6.626\cdot 10^{-34}\,\mathrm{Js}$ dem Planck'schen Wirkungsquantum.
 # 
-# ![Bild](pictures/EM_spectrum.png)
+# ![Bild](pictures/EM_spectrum.jpg)
 
 # ```{admonition} Ausbreitung von Funkwellen in der Ionosphäre
 # :class: dropdown

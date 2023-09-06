@@ -3,7 +3,7 @@
 
 Willkommen im *Metrology Lecture Book*, der Vorlesungsskript zur Messtechnik an der HSU. Hier hast du die Freiheit, selbstständig zu lernen. Dieses Vorlesungsskript wird deine Hauptinformationsquelle sein und die Grundlagen der Messtechnik vermitteln. Zusätzlich stehen dir begleitende YouTube-Videos und Literaturhinweise zur Verfügung, um Basiswissen zu lernen, zu wiederholen oder zu vertiefen.
 
-Du bestimmst dein Lerntempo und kannst die Videos nutzen, um das Skript zu ergänzen. Stelle Fragen, diskutiere mit anderen und gestalte dein Lernen aktiv mit, indem du zum Bepisiel die Kommentier- und Highlight-Funktion https://hypothes.is/ (weitere Infos [weiter unten](#Notizen machen im Online-Skript)) benutzt. 
+Du bestimmst dein Lerntempo und kannst die Videos nutzen, um das Skript zu ergänzen. Stelle Fragen, diskutiere mit anderen und gestalte dein Lernen aktiv mit, indem du zum Bepisiel die Kommentier- und Highlight-Funktion https://hypothes.is/ (weitere Infos [weiter unten](#Sec_Notes)) benutzt. 
 
 Hier findet ihr das Vorlesungsskript und Informationen zu den Übungen, Praktikumsversuchen und eventuell nützliche Jupyter-Notebooks ;). 
 
@@ -172,6 +172,7 @@ optisch, kapazitiv, piezo-elektrisch, resistiv, magnetisch, gravitativ
 
 
 ## Notizen machen im Online-Skript
+<a id="Sec_Notes"></a>
 
 **Anmerkungen, Textmarker und Vorlesungsnotizen** können direkt online im Skript erfolgen: 
 * Klickt ganz oben am rechten Seitenrand auf den Pfeil, das Auge oder das Papier.

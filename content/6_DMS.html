@@ -53,6 +53,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
@@ -136,7 +138,17 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="1_Messen_Einheit.html">
-     Messen und Einheiten
+     Einführung in ein Messsystem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Einheiten.html">
+     Einheiten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Kalibrieren.html">
+     Messsysteme kalibrieren
     </a>
    </li>
   </ul>
@@ -399,42 +411,8 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="V9.html">
-   Woche 9: Sensoren
+   Woche 9: Dark Lecture
   </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Übung 📖
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="Aufgabenpool.html">
-   Aufgabenpool
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-  <label for="toctree-checkbox-9">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="Messen_Einleitung.html">
-     Messen von Zeit, Länge, Masse, Strom, Temperatur, Lichtstärke und Stoffmenge
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="aufgabenpool/Kennlinie_Dampfdruckthermometer.html">
-     Kennlinie eines Dampfdruckthermometers
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="aufgabenpool/SystematischeMessabweichung_Messschaltung.html">
-     Systematische Messabweichung
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
@@ -448,23 +426,6 @@ const thebe_selector_output = ".output, .cell_output"
    Infos zum Praktikum
   </a>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="Versuche.html">
-   Versuche
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
-  <label for="toctree-checkbox-10">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="L_Dioden-Kennlinie.html">
-     Dioden-Kennlinie
-    </a>
-   </li>
-  </ul>
- </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -476,8 +437,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="T_Tutorials.html">
    Jupyter Notebooks
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
-  <label for="toctree-checkbox-11">
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -910,7 +871,7 @@ title="Print to PDF"
 \[k = 1 + 2\mu + \eta\]</div>
 <p>Die Änderung des spezifischen Widerstands, <span class="math notranslate nohighlight">\(\eta\)</span>, ist für die Bestimmung der <span class="math notranslate nohighlight">\(k\)</span>-Faktors meist vernachlässigbar:</p>
 <p>Schon bei kleinen Dehnungen, minimalen Kräften oder anderen kleinen Belastungen ändert sich der Widerstandswert, wenn auch nur wenig, und wird mit dem <span class="math notranslate nohighlight">\(k\)</span>-Faktor skaliert. Typische Widerstandswerte im Grundzustand sind <span class="math notranslate nohighlight">\(100-1000\,\Omega\)</span>, welcher sich je nach <span class="math notranslate nohighlight">\(k\)</span>-Faktor für Dehnungsänderungen im Promille-Bereich ebenfalls um nur diesen kleinen Betrag ändert.
-Aus diesem Grund werden DMSs häufig Widerstands-Messbrücken verwendet. Mittels verschiedenen Anordnungen können damit auch Querkräfte, Scherkräfte und andere Belastungen gemessen werden und Kompensation in Bezug auf Temperaturempfindlichkeiten können dadurch eliminiert werden <span id="id1">[<a class="reference internal" href="L_Dioden-Kennlinie.html#id5" title="Rainer Parthier. Messtechnik: Vom SI-Einheitensystem über Bewertung von Messergebnissen zu Anwendungen der elektrischen Messtechnik. Springer Fachmedien Wiesbaden, 2020. ISBN 978-3-658-27130-5 978-3-658-27131-2. URL: http://link.springer.com/10.1007/978-3-658-27131-2 (visited on 2022-09-15), doi:10.1007/978-3-658-27131-2.">Par20</a>]</span>.</p>
+Aus diesem Grund werden DMSs häufig Widerstands-Messbrücken verwendet. Mittels verschiedenen Anordnungen können damit auch Querkräfte, Scherkräfte und andere Belastungen gemessen werden und Kompensation in Bezug auf Temperaturempfindlichkeiten können dadurch eliminiert werden <span id="id1">[<a class="reference internal" href="../intro.html#id6" title="Rainer Parthier. Messtechnik: Vom SI-Einheitensystem über Bewertung von Messergebnissen zu Anwendungen der elektrischen Messtechnik. Springer Fachmedien Wiesbaden, 2020. ISBN 978-3-658-27130-5 978-3-658-27131-2. URL: http://link.springer.com/10.1007/978-3-658-27131-2 (visited on 2022-09-15), doi:10.1007/978-3-658-27131-2.">Par20</a>]</span>.</p>
 </section>
 <section id="anwendungen-und-beispiel">
 <h2>Anwendungen und Beispiel<a class="headerlink" href="#anwendungen-und-beispiel" title="Link zu dieser Überschrift">#</a></h2>
@@ -953,7 +914,7 @@ Eine eleganten Zusammensatzung wäre ein n- und p-dotierter Silizium-DMS mit jew
 Die Vorzeichen von zwei DMSs sind jeweils entgegengesetzt, da sie entweder gestaucht oder gestreckt werden. Somit lässt sich das Differentialprinzip auf die Messung hier übertragen. Die Diagonalspannung in der Messbrücke und somit die Kennlinie des Messsystems lautet:</p>
 <div class="math notranslate nohighlight">
 \[U_d = U_0 \cdot \frac{\Delta R}{R} = U_0 \cdot k \cdot \epsilon\]</div>
-<p>Typischerweise können Kräfte von 1-50 kN gemessen werden <span id="id3">[<a class="reference internal" href="L_Dioden-Kennlinie.html#id5" title="Rainer Parthier. Messtechnik: Vom SI-Einheitensystem über Bewertung von Messergebnissen zu Anwendungen der elektrischen Messtechnik. Springer Fachmedien Wiesbaden, 2020. ISBN 978-3-658-27130-5 978-3-658-27131-2. URL: http://link.springer.com/10.1007/978-3-658-27131-2 (visited on 2022-09-15), doi:10.1007/978-3-658-27131-2.">Par20</a>]</span>.</p>
+<p>Typischerweise können Kräfte von 1-50 kN gemessen werden <span id="id3">[<a class="reference internal" href="../intro.html#id6" title="Rainer Parthier. Messtechnik: Vom SI-Einheitensystem über Bewertung von Messergebnissen zu Anwendungen der elektrischen Messtechnik. Springer Fachmedien Wiesbaden, 2020. ISBN 978-3-658-27130-5 978-3-658-27131-2. URL: http://link.springer.com/10.1007/978-3-658-27131-2 (visited on 2022-09-15), doi:10.1007/978-3-658-27131-2.">Par20</a>]</span>.</p>
 </section>
 <section id="zug-und-druck">
 <h3>Zug und Druck<a class="headerlink" href="#zug-und-druck" title="Link zu dieser Überschrift">#</a></h3>

@@ -23,7 +23,7 @@ Auf der Webseite https://hypothes.is/ findet ihr eure Kollektion von Notizen und
 ## Python / Jupyter-Notebooks
 Fast jede Webseite im Metrology Lecture Book ist ein *J*Jupyter-Notebook**. 
 
-```{warning} Entwarnung
+```{info}
 Um dem **Vorlesungsskript** zu folgen, sind **keine Python-Kenntnisse erforderlich**. 
 ```
 

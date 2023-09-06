@@ -3,12 +3,16 @@
 
 # # Infos zum Praktikum
 # 
-# In den Vorlesungsunterlagen findest du grundlegende Informationen zur Messtechnik, die auch für das Praktikum relevant sind. Bevor du deinen ersten Praktikumsversuch startest, solltest du die folgenden Fragen klären:
+# Hier ist der überarbeitete Text:
 # 
-# * [**Einheiten:**](1_Einheiten.ipynb) Welche Maßeinheiten gibt es? Was sind SI-Einheiten? Welche Präfixe sind gebräuchlich?
-# * [**Messunsicherheiten:**](1_Messunsicherheiten.ipynb) Welche Arten von Unsicherheiten gibt es? Welche statistischen Methoden stehen zur Auswertung von Messreihen zur Verfügung? Wie werden Messunsicherheiten angegeben (Messwert und Fehlerbalken)?
-# * [**Fehlerfortpflanzung:**](1_Fehlerfortpflanzung.ipynb) Wie wird die Fehlerfortpflanzung durchgeführt? Welche Besonderheiten sind bei systematischen, zufälligen und korrelierten Unsicherheiten zu beachten?
-# * [**Kurvenanpassung:**](1_Kurvenanpassung.ipynb) Wie werden Messdaten sinnvoll visualisiert? Wie kann man Zusammenhänge in den Daten darstellen?
+# ## Infos zum Praktikum
+# 
+# Vor Beginn deines ersten Praktikumsversuchs ist es wichtig, folgendes Grundwissen zu beachten:
+# 
+# - [**Einheiten:**](1_Einheiten.ipynb) Welche Maßeinheiten gibt es? Was sind SI-Einheiten? Welche Präfixe sind gebräuchlich?
+# - [**Messunsicherheiten:**](1_Messunsicherheiten.ipynb) Welche Arten von Unsicherheiten gibt es? Welche statistischen Methoden stehen zur Verfügung, um Messreihen auszuwerten? Wie werden Messunsicherheiten angegeben (Messwert und Fehlerbalken)?
+# - [**Fehlerfortpflanzung:**](1_Fehlerfortpflanzung.ipynb) Wie wird die Fehlerfortpflanzung durchgeführt? Welche Besonderheiten sind bei systematischen, zufälligen und korrelierten Unsicherheiten zu beachten?
+# - [**Kurvenanpassung:**](1_Kurvenanpassung.ipynb) Wie werden Messdaten sinnvoll visualisiert? Wie kann man Zusammenhänge in den Daten darstellen?
 # 
 # :::{seealso}
 # Hier findest du ein einfaches Beispiel zur Darstellung von Messdaten und zur Fehlerfortpflanzung unter Verwendung von Fit-Parametern: [Minimal-Beispiel](0_Praktikum.ipynb).
@@ -16,15 +20,15 @@
 # 
 # ## Programme für die Datenanalyse
 # 
-# Während des **Praktikums** werdet ihr Daten aufnehmen, auswerten und grafisch darstellen müssen. Verwendet dafür eine geeignete Software, die die Datenanalyse und Fit-Analysen unterstützt. In diesem Kurs werden wir Beispiele in `python` zeigen und Jupyter Notebooks verwenden. Alternativ könnt ihr auch [Qti-Plot](https://qtiplot.com) (kostenlos) oder [Matlab](https://de.mathworks.com/products/matlab.html) (Lizenzen über die HSU verfügbar) nutzen.
+# Während des Praktikums werdet ihr Daten aufnehmen, auswerten und grafisch darstellen müssen. Verwendet dafür eine geeignete Software, die die Datenanalyse und Fit-Analysen unterstützt. In diesem Kurs werden Beispiele in Python gezeigt, und wir verwenden Jupyter Notebooks. Alternativ könnt ihr auch [Qti-Plot](https://qtiplot.com) (kostenlos) oder [Matlab](https://de.mathworks.com/products/matlab.html) (Lizenzen über die HSU verfügbar) nutzen.
 # 
-# * [Python](https://www.python.org): Frei verfügbar, und die [Tutorials](T_Tutorials) im *Lecture Book* nutzen Python in Form von [Jupyter-Notebooks](https://docs.jupyter.org/en/latest/).
-# * [Matlab](https://de.mathworks.com/products/matlab.html): Lizenzen sind über die HSU erhältlich.
-# * [QtiPlot](https://qtiplot.com): Frei verfügbar.
-# * Wir raten von der Datenanalyse in Excel ab.
+# - [Python](https://www.python.org): Kostenlos verfügbar, und die [Tutorials](T_Tutorials) im *Lecture Book* verwenden Python in Form von [Jupyter-Notebooks](https://docs.jupyter.org/en/latest/).
+# - [Matlab](https://de.mathworks.com/products/matlab.html): Lizenzen sind über die HSU erhältlich.
+# - [QtiPlot](https://qtiplot.com): Kostenlos verfügbar.
+# - Wir raten von der Datenanalyse in Excel ab.
 # 
 # ```{warning}
-# Alle Beispiele im *Metrology Lecture Book* sind [Jupyter-Notebooks](T_Tutorials.ipynb) und verwenden `python`. Hier findet ihr auch eine Sammlung von hilfreichen Jupyter-Notebooks für das Messtechnik-Praktikum.
+# Alle Beispiele im *Metrology Lecture Book* sind [Jupyter-Notebooks](T_Tutorials.ipynb) und verwenden Python. Hier findet ihr auch eine Sammlung von hilfreichen Jupyter-Notebooks für das Messtechnik-Praktikum.
 # ```
 # 
 # ### Programmieren mit Python
@@ -63,11 +67,15 @@
 # - **Anderes:** Weitere Punkte und Linien, die nicht gemessen wurden, sondern nur als *Hilfe* dienen (z.B. Fit-Funktionen, Modelle, Referenzlinien) oder Kommentare sind, sollten besonders gekennzeichnet werden. 
 # - **Messunsicherheiten:** Für Messwerte (in Form von Fehlerbalken), aber auch für Funktionsterme und Ausgleichsgeraden, müssen Messunsicherheiten in den Graphen angegeben werden. 
 # 
-# :::{seealso}
-# Das Einlesen und darstellen von Messdaten in `python` lernst du z.B. in diesem [Tutorial](T_Plotten) anhand von echten Klimadaten der NASA. Die Codes auf dieser Seite können direkt benutzt und ausgeführt werden. 
-# :::
 # 
-# Im Folgenden sind zwei Diagramme dargestellt, die jeweils die gleichen (!) Klima-Messdaten der NASA zeigen. Das zweite Diagram weist einige Defizite auf... 
+# :::{admonition} Aufgabe
+# :class: tip
+# Im Folgenden ist eine sehr ungünstige Darstellung gewählt, um die Messdaten zu zeigen. Klicke oben auf dieser Webseite auf die Rakete und starte `Live-Code` und probiere die Darstellung des Diagramms zu optimieren. Folgende Hinweise geben wir dir mit auf den Weg:
+# * Es handelt sich um Klimadaten von der NASA, die die Jahresmitteltemperaturabweichung in °C über die Jahre zeigen
+#     * Messwerte (Datenpunkte), welche aktuell in grau dargestellt sind
+#     * Geglättete Messwerte von der NASA, welche aktuell in blau dargestellt sind
+# * Durch die Messdaten soll eine Ausgleichsgerade gelegt werden, die möglichst gut den linearen Anstieg ab 1980 darstellt
+# :::
 
 # In[1]:
 
@@ -82,8 +90,40 @@ import plotly.graph_objs as go
 import plotly.tools as tls
 import seaborn as sns
 import time
-import warnings
-warnings.filterwarnings('ignore')
+
+# MatplotLib Settings:
+plt.style.use('default') # Matplotlib Style wählen
+plt.figure(figsize=(10,5)) # Plot-Größe
+plt.rcParams['font.size'] = 4; # Schriftgröße
+
+link = 'data/graph.csv' # Beispieldatei mit Klimadaten
+global_mean = pd.read_csv(link, header = 1) # Daten einlesen
+global_mean["uncertainty"] = 0.25 #Messunsicherheiten abschätzen, hier 0.25K Temperaturgenauigkeit angenommen
+
+# Lineare Regression berechnen:
+x=global_mean.loc[global_mean["Year"] >= 1880,"Year"]
+y=global_mean.loc[global_mean["Year"] >= 1880,"No_Smoothing"]
+y_err = global_mean.loc[global_mean["Year"] >= 1880,"uncertainty"]
+model = np.polyfit(x, y, deg=1, w=1/y_err, cov=True) # 1. Wert = Anstieg , 2. Wert = Schnittpunkt mit y-Achse
+y_model = model[0][0]*x+model[0][1] # Modell einer linearen Regression
+
+# print(global_mean) # Eingelesene Daten ausgeben
+plt.errorbar(global_mean["Year"],global_mean["No_Smoothing"], yerr=global_mean["uncertainty"], ls="-", lw=1, marker="s", ms=3, color="tab:gray", alpha=0.5, label="Werte");
+plt.plot(global_mean["Year"],global_mean["Lowess(5)"], lw=3,  color="tab:blue", label="Irgendeine Kurve von irgendwem berechnet");
+plt.plot(x,y_model, ls="-", lw=3, color="tab:red", label=f"fit");
+plt.xlabel('x')
+plt.ylabel('y')
+plt.xlim([1850,2040])
+plt.ylim([-5,5])
+plt.legend();
+plt.grid();
+
+# Temperaturanstieg ausgeben:
+print(f"Lineares Model Output: {model[0][0]:.3f}°C/Jahr")
+
+
+# In[2]:
+
 
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
@@ -114,41 +154,10 @@ plt.grid();
 print(f"Temperaturanstieg pro Jahr (von 1980 bis 2020): {model[0][0]:.3f}°C/Jahr")
 
 
-# In[2]:
-
-
-plt.figure(figsize=(10,5)) # Plot-Größe
-plt.rcParams['font.size'] = 10; # Schriftgröße
-
-# Lineare Regression berechnen:
-x=global_mean["Year"]
-y=global_mean["No_Smoothing"]
-y_err = global_mean["uncertainty"]
-model = np.polyfit(x, y, deg=1, w=1/y_err, cov=True) # 1. Wert = Anstieg , 2. Wert = Schnittpunkt mit y-Achse
-y_model = model[0][0]*x+model[0][1] # Modell einer linearen Regression
-
-plt.plot(global_mean["Year"],global_mean["No_Smoothing"], ls="-", lw=1, marker="s", ms=1, color="tab:gray", alpha=0.5, label="Werte");
-plt.plot(global_mean["Year"],global_mean["Lowess(5)"], lw=1,  color="tab:blue", label="Kurve");
-plt.plot(x,y_model, ls="-", lw=3, color="tab:red", label=f"Modell");
-plt.ylabel("y")
-plt.xlim([1850,2040])
-plt.ylim([-5,5])
-plt.legend();
-plt.grid();
-
-# Temperaturanstieg ausgeben:
-print(f"Temperaturanstieg pro Jahr (von 1980 bis 2020): {model[0][0]:.3f}°C/Jahr")
-
-
-# `````{admonition} Aufgabe
-# :class: tip
-# Welche Defizite fallen dir im 2. Diagramm im Vergleich zum 1. auf?
-# `````
-# 
-# :::{admonition} Lösung
+# `````{admonition} Lösung
 # :class: tip, dropdown
-# * fehlende x-Achsenbeschriftung
-# * y-Achsenbeschriftung ist nicht aussagekräftig
+# Korrekturen:
+# * x- und y-Achsenbeschriftung ist nicht aussagekräftig und zu klein
 # * fehlende Einheiten
 # * Legende ist nicht aussagekräftig
 # * keine Fehlerbalken (oder zumindest nicht erkennbar)
@@ -156,9 +165,40 @@ print(f"Temperaturanstieg pro Jahr (von 1980 bis 2020): {model[0][0]:.3f}°C/Jah
 # * Aufgrund der ungenügenden Darstellung der y-Werte wurde die lineare Regression über den kompletten Messwertebereich durchgeführt, was bei näherer Betrachtung (siehe 1. Bild) eher ungünstig ist.
 # * Aufgrund der fehlerhaften linearen Regression, ist der Temperaturanstieg der letzten Jahre um einen Faktor 2,375 zu gering abgeschätzt wurden! 
 # * ...
-# :::
-# 
-# 
+# `````
+
+# In[3]:
+
+
+# MatplotLib Settings:
+plt.style.use('default') # Matplotlib Style wählen
+plt.figure(figsize=(10,5)) # Plot-Größe
+plt.rcParams['font.size'] = 10; # Schriftgröße
+
+link = 'data/graph.csv' # Beispieldatei mit Klimadaten
+global_mean = pd.read_csv(link, header = 1) # Daten einlesen
+global_mean["uncertainty"] = 0.25 #Messunsicherheiten abschätzen, hier 0.25K Temperaturgenauigkeit angenommen
+
+# Lineare Regression berechnen:
+x=global_mean.loc[global_mean["Year"] >= 1980,"Year"]
+y=global_mean.loc[global_mean["Year"] >= 1980,"No_Smoothing"]
+y_err = global_mean.loc[global_mean["Year"] >= 1980,"uncertainty"]
+model = np.polyfit(x, y, deg=1, w=1/y_err, cov=True) # 1. Wert = Anstieg , 2. Wert = Schnittpunkt mit y-Achse
+y_model = model[0][0]*x+model[0][1] # Modell einer linearen Regression
+
+# print(global_mean) # Eingelesene Daten ausgeben
+plt.errorbar(global_mean["Year"],global_mean["No_Smoothing"], yerr=global_mean["uncertainty"], ls="-", lw=1, marker="s", ms=3, color="tab:gray", alpha=0.5, label="Werte");
+plt.plot(global_mean["Year"],global_mean["Lowess(5)"], lw=3,  color="tab:blue", label="Glättung (NASA)");
+plt.plot(x,y_model, ls="-", lw=3, color="tab:red", label=f"lineare Regression y=({model[0][0]*1000:.3f}+-{np.sqrt(model[1][0][0]*1000):.3f})1e-3*x+({model[0][1]:.3f}+-{np.sqrt(model[1][1][1]):.3f})");
+plt.xlabel('Jahr')
+plt.ylabel("Jahresmitteltemperaturabweichung [°C]")
+plt.legend();
+plt.grid();
+
+# Temperaturanstieg ausgeben:
+print(f"Temperaturanstieg pro Jahr (von 1980 bis 2020): {model[0][0]:.3f}°C/Jahr")
+
+
 # ```{seealso}
 # Wie du eine Kurve an deine Messdaten anpasst findet du unter [Kurvenanpassung](1_Kurvenanpassung.ipynb) und [Übungen in Python](T_Tutorials.ipynb).
 # ```

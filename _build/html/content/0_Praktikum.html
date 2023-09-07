@@ -937,7 +937,7 @@ title="Print to PDF"
 
 <span class="c1"># MatplotLib Settings:</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
 
 <span class="n">link</span> <span class="o">=</span> <span class="s1">&#39;data/graph.csv&#39;</span> <span class="c1"># Beispieldatei mit Klimadaten</span>
@@ -989,12 +989,14 @@ require(['plotly'], function(Plotly) {
 <img alt="../_images/0_Praktikum_1_2.png" src="../_images/0_Praktikum_1_2.png" />
 </div>
 </div>
-<p>Eine bessere Darstellung der Messergebnisse könnt ihr euch im Folgenden ansehen.</p>
-<div class="cell tag_hide-input tag_hide-output tag_thebe-init docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># MatplotLib Settings:</span>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<div class="full-width docutils">
+<div class="dropdown admonition">
+<p class="admonition-title">Mögliche Lösung</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># MatplotLib Settings:</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
 
 <span class="n">link</span> <span class="o">=</span> <span class="s1">&#39;data/graph.csv&#39;</span> <span class="c1"># Beispieldatei mit Klimadaten</span>
@@ -1019,14 +1021,12 @@ require(['plotly'], function(Plotly) {
 
 <span class="c1"># Temperaturanstieg ausgeben:</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Temperaturanstieg pro Jahr (von 1980 bis 2020): </span><span class="si">{</span><span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">°C/Jahr&quot;</span><span class="p">)</span>
+
 </pre></div>
-</div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Temperaturanstieg pro Jahr (von 1980 bis 2020): 0.019°C/Jahr
-</pre></div>
+<img alt="../_images/0_Praktikum_2_1.png" src="../_images/0_Praktikum_2_1.png" />
 </div>
-<img alt="../_images/0_Praktikum_3_1.png" src="../_images/0_Praktikum_3_1.png" />
 </div>
 </div>
 <div class="admonition seealso">
@@ -1036,17 +1036,10 @@ require(['plotly'], function(Plotly) {
 </section>
 <section id="vorlagen-fur-den-praktikumsbericht">
 <h2>Vorlagen für den Praktikumsbericht<a class="headerlink" href="#vorlagen-fur-den-praktikumsbericht" title="Link zu dieser Überschrift">#</a></h2>
-<p>Für die Erstellung eures Praktikumsberichts könnt ihr entweder Microsoft Word oder LaTeX verwenden. Alternativ ist auch die Abgabe als Jupyter-Notebook möglich. Bitte besprecht diese Möglichkeit jedoch unbedingt mit eurem Praktikumsbetreuer, der den Bericht korrigieren wird.</p>
+<p>Für die Erstellung eures Praktikumsberichts könnt ihr entweder Microsoft Word oder LaTeX verwenden. Reicht die finalen Dokumente als <strong>PDF</strong> ein. Alternativ ist auch die Abgabe als Jupyter-Notebook möglich. Bitte besprecht diese Möglichkeit jedoch unbedingt mit eurem Praktikumsbetreuer, der den Bericht korrigieren wird.</p>
 <section id="latex">
 <h3>Latex<a class="headerlink" href="#latex" title="Link zu dieser Überschrift">#</a></h3>
-<p>Wir stellen euch ein maßgeschneidertes LaTeX-Template für eure Praktikumsberichte zur Verfügung, das ihr <a class="reference download internal" download="" href="../_downloads/27a8c6e8828261546f8022d07ca36791/Vorlage%20Praktikum%20Messtechnik.zip"><code class="xref download docutils literal notranslate"><span class="pre">hier</span> <span class="pre">herunterladen</span> <span class="pre">könnt</span></code></a>. Mit diesem Template könnt ihr professionelle Dokumente erstellen, die automatische Zitierungen, mathematische Formeln und eine ansprechende Typografie unterstützen. Es enthält bereits vorgefertigte Abschnitte und Formatierungen, um euch den Einstieg zu erleichtern. Darüber hinaus eignet es sich hervorragend für eure Bachelor- und Masterarbeiten.</p>
-<p>Ihr könnt das Template ganz einfach auf Overleaf nutzen, einer Online-Plattform für kollaboratives Schreiben in LaTeX. Hier sind die Schritte:</p>
-<ol class="simple">
-<li><p>Erstellt ein kostenloses Konto auf <a class="reference external" href="http://www.overleaf.com">www.overleaf.com</a>, falls ihr noch keines habt.</p></li>
-<li><p>Klickt auf “Neues Projekt” und wählt “Projekt hochladen” aus.</p></li>
-<li><p>Ladet das heruntergeladene Praktikumsbericht-Template hoch, indem ihr auf “Datei auswählen” klickt und die entsprechende Datei auswählt.</p></li>
-<li><p>Nach dem Hochladen könnt ihr direkt mit dem Verfassen eures Praktikumsberichts beginnen. Das Template wird bereits in eurem Projekt geöffnet sein, und ihr könnt es nach Bedarf anpassen.</p></li>
-</ol>
+<p>Latex erstellt automatisch PDF’s und eignet sich hervorragend für wissenschaftliche Arbeiten. Wir empfehlen die Benutzung von <a class="reference external" href="https://www.overleaf.com/project">Overleaf</a>, dann müsst ihr die Software nicht installieren und könnte direkt im Browser mit eurem Praktikumsteam gemeinsam daran arbeiten. Ein Template für den Praktikumsbericht wurde ebenfalls in die Overleaf-Gallery hochgeladen: <a class="reference external" href="https://www.overleaf.com/latex/templates/vorlage-praktikum-messtechnik/zwjgtfpxrszg">https://www.overleaf.com/latex/templates/vorlage-praktikum-messtechnik/zwjgtfpxrszg</a>.</p>
 </section>
 <section id="word">
 <h3>Word<a class="headerlink" href="#word" title="Link zu dieser Überschrift">#</a></h3>

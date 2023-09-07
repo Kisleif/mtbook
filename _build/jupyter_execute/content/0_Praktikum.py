@@ -95,7 +95,7 @@ import time
 
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.figure(figsize=(10,5)) # Plot-Größe
+fig = plt.figure(figsize=(9,5)) # Plot-Größe
 plt.rcParams['font.size'] = 4; # Schriftgröße
 
 link = 'data/graph.csv' # Beispieldatei mit Klimadaten
@@ -124,14 +124,14 @@ plt.grid();
 print(f"Lineares Model Output: {model[0][0]:.3f}°C/Jahr")
 
 
-# Eine bessere Darstellung der Messergebnisse könnt ihr euch im Folgenden ansehen.
-
 # In[2]:
 
 
+from myst_nb import glue
+
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.figure(figsize=(10,5)) # Plot-Größe
+fig = plt.figure(figsize=(9,5)) # Plot-Größe
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 link = 'data/graph.csv' # Beispieldatei mit Klimadaten
@@ -156,7 +156,48 @@ plt.grid();
 
 # Temperaturanstieg ausgeben:
 print(f"Temperaturanstieg pro Jahr (von 1980 bis 2020): {model[0][0]:.3f}°C/Jahr")
+glue("glued_klimadaten_fig", fig, display=False)
 
+
+# `````{div} full-width
+# ````{admonition} Mögliche Lösung
+# :class: dropdown
+# 
+# ```python
+# # MatplotLib Settings:
+# plt.style.use('default') # Matplotlib Style wählen
+# fig = plt.figure(figsize=(9,5)) # Plot-Größe
+# plt.rcParams['font.size'] = 10; # Schriftgröße
+# 
+# link = 'data/graph.csv' # Beispieldatei mit Klimadaten
+# global_mean = pd.read_csv(link, header = 1) # Daten einlesen
+# global_mean["uncertainty"] = 0.25 #Messunsicherheiten abschätzen, hier 0.25K Temperaturgenauigkeit angenommen
+# 
+# # Lineare Regression berechnen:
+# x=global_mean.loc[global_mean["Year"] >= 1980,"Year"]
+# y=global_mean.loc[global_mean["Year"] >= 1980,"No_Smoothing"]
+# y_err = global_mean.loc[global_mean["Year"] >= 1980,"uncertainty"]
+# model = np.polyfit(x, y, deg=1, w=1/y_err, cov=True) # 1. Wert = Anstieg , 2. Wert = Schnittpunkt mit y-Achse
+# y_model = model[0][0]*x+model[0][1] # Modell einer linearen Regression
+# 
+# # print(global_mean) # Eingelesene Daten ausgeben
+# plt.errorbar(global_mean["Year"],global_mean["No_Smoothing"], yerr=global_mean["uncertainty"], ls="-", lw=1, marker="s", ms=3, color="tab:gray", alpha=0.5, label="Werte");
+# plt.plot(global_mean["Year"],global_mean["Lowess(5)"], lw=3,  color="tab:blue", label="Glättung (NASA)");
+# plt.plot(x,y_model, ls="-", lw=3, color="tab:red", label=f"lineare Regression y=({model[0][0]*1000:.3f}+-{np.sqrt(model[1][0][0]*1000):.3f})1e-3*x+({model[0][1]:.3f}+-{np.sqrt(model[1][1][1]):.3f})");
+# plt.xlabel('Jahr')
+# plt.ylabel("Jahresmitteltemperaturabweichung [°C]")
+# plt.legend();
+# plt.grid();
+# 
+# # Temperaturanstieg ausgeben:
+# print(f"Temperaturanstieg pro Jahr (von 1980 bis 2020): {model[0][0]:.3f}°C/Jahr")
+# 
+# ```
+# 
+# ```{glue:} glued_klimadaten_fig
+# ```
+# ````
+# `````
 
 # ```{seealso}
 # Wie du eine Kurve an deine Messdaten anpasst findet du unter [Kurvenanpassung](1_Kurvenanpassung.ipynb) und [Übungen in Python](T_Tutorials.ipynb).
@@ -164,17 +205,11 @@ print(f"Temperaturanstieg pro Jahr (von 1980 bis 2020): {model[0][0]:.3f}°C/Jah
 
 # ## Vorlagen für den Praktikumsbericht
 # 
-# Für die Erstellung eures Praktikumsberichts könnt ihr entweder Microsoft Word oder LaTeX verwenden. Alternativ ist auch die Abgabe als Jupyter-Notebook möglich. Bitte besprecht diese Möglichkeit jedoch unbedingt mit eurem Praktikumsbetreuer, der den Bericht korrigieren wird.
+# Für die Erstellung eures Praktikumsberichts könnt ihr entweder Microsoft Word oder LaTeX verwenden. Reicht die finalen Dokumente als **PDF** ein. Alternativ ist auch die Abgabe als Jupyter-Notebook möglich. Bitte besprecht diese Möglichkeit jedoch unbedingt mit eurem Praktikumsbetreuer, der den Bericht korrigieren wird.
+# 
 # 
 # ### Latex 
-# Wir stellen euch ein maßgeschneidertes LaTeX-Template für eure Praktikumsberichte zur Verfügung, das ihr {Download}`hier herunterladen könnt <Vorlage Praktikum Messtechnik.zip>`. Mit diesem Template könnt ihr professionelle Dokumente erstellen, die automatische Zitierungen, mathematische Formeln und eine ansprechende Typografie unterstützen. Es enthält bereits vorgefertigte Abschnitte und Formatierungen, um euch den Einstieg zu erleichtern. Darüber hinaus eignet es sich hervorragend für eure Bachelor- und Masterarbeiten.
-# 
-# Ihr könnt das Template ganz einfach auf Overleaf nutzen, einer Online-Plattform für kollaboratives Schreiben in LaTeX. Hier sind die Schritte:
-# 
-# 1. Erstellt ein kostenloses Konto auf www.overleaf.com, falls ihr noch keines habt.
-# 2. Klickt auf "Neues Projekt" und wählt "Projekt hochladen" aus.
-# 3. Ladet das heruntergeladene Praktikumsbericht-Template hoch, indem ihr auf "Datei auswählen" klickt und die entsprechende Datei auswählt.
-# 4. Nach dem Hochladen könnt ihr direkt mit dem Verfassen eures Praktikumsberichts beginnen. Das Template wird bereits in eurem Projekt geöffnet sein, und ihr könnt es nach Bedarf anpassen.
+# Latex erstellt automatisch PDF's und eignet sich hervorragend für wissenschaftliche Arbeiten. Wir empfehlen die Benutzung von [Overleaf](https://www.overleaf.com/project), dann müsst ihr die Software nicht installieren und könnte direkt im Browser mit eurem Praktikumsteam gemeinsam daran arbeiten. Ein Template für den Praktikumsbericht wurde ebenfalls in die Overleaf-Gallery hochgeladen: https://www.overleaf.com/latex/templates/vorlage-praktikum-messtechnik/zwjgtfpxrszg. 
 # 
 # ### Word
 # 

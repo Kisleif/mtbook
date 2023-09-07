@@ -3,6 +3,23 @@
 
 # # Infos zum Praktikum
 # 
+# Bitte reiche deine Praktikumsberichte unbedingt als **PDF** ein. In Absprache mit dem jeweiligen Praktikumsbetruer, ist auch die Abgabe als Jupyter-Notebook möglich.
+# 
+# ::::{grid}
+# :gutter: 3
+# 
+# :::{grid-item-card} [Versuchsanleitungen](https://hsuhhde.sharepoint.com/:f:/r/sites/MesstechnikHT23_mst/Freigegebene%20Dokumente/General/Praktikumsanleitungen?csf=1&web=1&e=TNzgex)
+# :::
+# 
+# :::{grid-item-card} [Latex-Vorlage in Overleaf](https://www.overleaf.com/latex/templates/vorlage-praktikum-messtechnik/zwjgtfpxrsz)
+# :::
+# 
+# :::{grid-item-card} ![Vorlage in Word](content/Vorlage Praktikum Messtechnik/Vorlage_Praktikum_Messtechnik.docx)
+# {doc}`content/Vorlage Praktikum Messtechnik/Vorlage_Praktikum_Messtechnik.docx`
+# :::
+# ::::
+# 
+# 
 # Vor Beginn deines ersten Praktikumsversuchs ist es wichtig, folgendes Grundwissen zu beachten:
 # 
 # - [**Einheiten:**](1_Einheiten.ipynb) Welche Maßeinheiten gibt es? Was sind SI-Einheiten? Welche Präfixe sind gebräuchlich?
@@ -10,11 +27,17 @@
 # - [**Fehlerfortpflanzung:**](1_Fehlerfortpflanzung.ipynb) Wie wird die Fehlerfortpflanzung durchgeführt? Welche Besonderheiten sind bei systematischen, zufälligen und korrelierten Unsicherheiten zu beachten?
 # - [**Kurvenanpassung:**](1_Kurvenanpassung.ipynb) Wie werden Messdaten sinnvoll visualisiert? Wie kann man Zusammenhänge in den Daten darstellen?
 # 
-# :::{seealso}
-# Hier findest du ein einfaches Beispiel zur Darstellung von Messdaten und zur Fehlerfortpflanzung unter Verwendung von Fit-Parametern: [Minimal-Beispiel](0_Praktikum.ipynb).
-# :::
+# ## Grundidee: Daten sammeln
 # 
-# ## Programme für die Datenanalyse
+# Die Messtechnik dient dazu, physikalische Größen quantitativ zu beobachten und ist daher ein wesentlicher Bestandteil der Physik. Eine *quantitative* Beschreibung erfordert immer einen Zahlenwert, $x$, und eine Maßeinheit, $E$. Um einen möglichst *genauen* experimentellen Wert zu erzielen, wird ein erheblicher Teil der Experimentierzeit für die Vorbereitung und Planung des Experiments sowie für die Datenauswertung aufgewendet. Dabei werden auch Daten aufgenommen und visualisiert, um Ergebnisse zu überprüfen und gegebenenfalls Messungen zu wiederholen. Es ist wichtig zu beachten, dass Messungen immer zufälligen Schwankungen unterliegen, was bedeutet, dass das Messergebnis immer variieren wird. Eine Messung wird niemals den *wahren* Wert liefern können, daher ist eine sorgfältige Messung und Auswertung notwendig. In der Wissenschaft gibt es bewährte Methoden und Techniken, um Unsicherheiten und Schwankungen der Messgröße quantitativ zu beschreiben und somit die Qualität der Messung oder des Experiments zu bewerten. Die grundlegenden Normen für die Messtechnik sind in der *DIN-Norm DIN 1319* und dem *GUM* (Guide to the Expression of Uncertainty in Measurement) festgehalten.
+# 
+# - **Planung:** Was soll gemessen werden? Welche Vorbereitungen sind erforderlich? Welche Fehlerquellen oder Störeinflüsse sind zu beachten, und welche systematischen Unsicherheiten sind bekannt?
+# - **Durchführung:** Führe ein Protokoll! Wurden alle relevanten Informationen sorgfältig dokumentiert und in Tabellen zusammengefasst, notiert oder fotografiert?
+# - **Auswertung:** Überprüfe die Ergebnisse auf Vollständigkeit und Übersichtlichkeit. Dies umfasst auch eine umfassende Bewertung der Messunsicherheiten.
+# - **Überprüfung:** Ergeben die Ergebnisse Sinn und stimmen sie mit den Erwartungen überein? Sind sie konsistent mit anderen Ergebnissen in der Literatur?
+# - **Präsentation:** Stelle die Messergebnisse vollständig dar, einschließlich des Messwerts, der Maßeinheit und der Messunsicherheit. Verwende die wissenschaftliche Notation für Potenzen von Zehn.
+# 
+# ## Datenauswertung
 # 
 # Während des Praktikums werdet ihr Daten aufnehmen, auswerten und grafisch darstellen müssen. Verwendet dafür eine geeignete Software, die die Datenanalyse und Fit-Analysen unterstützt. In diesem Kurs werden Beispiele in Python gezeigt, und wir verwenden Jupyter Notebooks. Alternativ könnt ihr auch [Qti-Plot](https://qtiplot.com) (kostenlos) oder [Matlab](https://de.mathworks.com/products/matlab.html) (Lizenzen über die HSU verfügbar) nutzen.
 # 
@@ -38,21 +61,8 @@
 # * **Datenverarbeitung:** [pandas](https://pandas.pydata.org) (z.B. DataFrames)
 # * **Datenvisualisierung:** [matplotlib](https://matplotlib.org)
 # 
-# ## Grundidee: Daten sammeln
 # 
-# Die Messtechnik dient dazu, physikalische Größen quantitativ zu beobachten und ist daher ein wesentlicher Bestandteil der Physik. Eine *quantitative* Beschreibung erfordert immer einen Zahlenwert, $x$, und eine Maßeinheit, $E$. Um einen möglichst *genauen* experimentellen Wert zu erzielen, wird ein erheblicher Teil der Experimentierzeit für die Vorbereitung und Planung des Experiments sowie für die Datenauswertung aufgewendet. Dabei werden auch Daten aufgenommen und visualisiert, um Ergebnisse zu überprüfen und gegebenenfalls Messungen zu wiederholen. Es ist wichtig zu beachten, dass Messungen immer zufälligen Schwankungen unterliegen, was bedeutet, dass das Messergebnis immer variieren wird. Eine Messung wird niemals den *wahren* Wert liefern können, daher ist eine sorgfältige Messung und Auswertung notwendig. In der Wissenschaft gibt es bewährte Methoden und Techniken, um Unsicherheiten und Schwankungen der Messgröße quantitativ zu beschreiben und somit die Qualität der Messung oder des Experiments zu bewerten. Die grundlegenden Normen für die Messtechnik sind in der *DIN-Norm DIN 1319* und dem *GUM* (Guide to the Expression of Uncertainty in Measurement) festgehalten.
-# 
-# - **Planung:** Was soll gemessen werden? Welche Vorbereitungen sind erforderlich? Welche Fehlerquellen oder Störeinflüsse sind zu beachten, und welche systematischen Unsicherheiten sind bekannt?
-# - **Durchführung:** Führe ein Protokoll! Wurden alle relevanten Informationen sorgfältig dokumentiert und in Tabellen zusammengefasst, notiert oder fotografiert?
-# - **Auswertung:** Überprüfe die Ergebnisse auf Vollständigkeit und Übersichtlichkeit. Dies umfasst auch eine umfassende Bewertung der Messunsicherheiten.
-# - **Überprüfung:** Ergeben die Ergebnisse Sinn und stimmen sie mit den Erwartungen überein? Sind sie konsistent mit anderen Ergebnissen in der Literatur?
-# - **Präsentation:** Stelle die Messergebnisse vollständig dar, einschließlich des Messwerts, der Maßeinheit und der Messunsicherheit. Verwende die wissenschaftliche Notation für Potenzen von Zehn.
-# 
-# ```{seealso}
-# In den Vorlesungsunterlagen findest du Informationen zu [Messen, Einheiten, Kalibrierung](1_Messen_Einheit.ipynb), [Ursachen und Arten von Messunsicherheiten
-# ```
-# 
-# ## Diagramme zeichnen
+# ## Anschauliche Diagramme
 # 
 # Mittels Diagrammen (engl. *Plots*) werden Messwerte dargestellt. Die folgenden Regeln helfen dabei, dass die Diagramme anschaulich sind und der Betrachter direkt erkennt, worum es geht:
 # 
@@ -160,7 +170,7 @@ glue("glued_klimadaten_fig", fig, display=False)
 
 
 # `````{div} full-width
-# ````{admonition} Mögliche Lösung
+# ````{admonition} Beispiel-Lösung
 # :class: dropdown
 # 
 # ```python
@@ -200,18 +210,9 @@ glue("glued_klimadaten_fig", fig, display=False)
 # `````
 
 # ```{seealso}
-# Wie du eine Kurve an deine Messdaten anpasst findet du unter [Kurvenanpassung](1_Kurvenanpassung.ipynb) und [Übungen in Python](T_Tutorials.ipynb).
+# [Beispiel zu einer Kurvenpassung mit Python](T_Tutorials.ipynb).
 # ```
 
-# ## Vorlagen für den Praktikumsbericht
-# 
-# Für die Erstellung eures Praktikumsberichts könnt ihr entweder Microsoft Word oder LaTeX verwenden. Reicht die finalen Dokumente als **PDF** ein. Alternativ ist auch die Abgabe als Jupyter-Notebook möglich. Bitte besprecht diese Möglichkeit jedoch unbedingt mit eurem Praktikumsbetreuer, der den Bericht korrigieren wird.
-# 
-# 
-# ### Latex 
-# Latex erstellt automatisch PDF's und eignet sich hervorragend für wissenschaftliche Arbeiten. Wir empfehlen die Benutzung von [Overleaf](https://www.overleaf.com/project), dann müsst ihr die Software nicht installieren und könnte direkt im Browser mit eurem Praktikumsteam gemeinsam daran arbeiten. Ein Template für den Praktikumsbericht wurde ebenfalls in die Overleaf-Gallery hochgeladen: https://www.overleaf.com/latex/templates/vorlage-praktikum-messtechnik/zwjgtfpxrszg. 
-# 
-# ### Word
 # 
 
 # In[ ]:

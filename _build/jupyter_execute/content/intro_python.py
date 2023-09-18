@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Intro Python & Jupyter-Notebooks
+# # Über dieses Skript - Jupyter Notebooks
 # Fast jede Webseite im Metrology Lecture Book ist ein **Jupyter-Notebook**. Das heißt es gibt Code-Zellen mit Python-Code, die ihr selbst verändern und ausführen könnt. 
 # 
 # ```{info}

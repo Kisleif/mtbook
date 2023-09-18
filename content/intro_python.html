@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Dehnungsmessstreifen (DMS) &#8212; Metrology Lecture Book</title>
+    <title>Intro Python &amp; Jupyter-Notebooks &#8212; Metrology Lecture Book</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -53,12 +53,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="Piezoelektrische Sensoren" href="6_PZT.html" />
-    <link rel="prev" title="Einführung" href="6_Einf%C3%BChrung.html" />
+    <link rel="next" title="Woche 1: Einleitung" href="V1.html" />
+    <link rel="prev" title="Welcome" href="../intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="de">
     
@@ -118,12 +116,19 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Intro Python &amp; Jupyter-Notebooks
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Vorlesung ✍️
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="V1.html">
    Woche 1: Einleitung
@@ -350,23 +355,23 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="V8.html">
    Woche 8: Sensoren
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
   <label for="toctree-checkbox-8">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="6_Einf%C3%BChrung.html">
      Einführung
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_DMS.html">
      Dehnungsmessstreifen (DMS)
     </a>
    </li>
@@ -527,7 +532,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/Kisleif/mtbook/main?urlpath=tree/content/6_DMS.ipynb"
+        <a href="https://mybinder.org/v2/gh/Kisleif/mtbook/main?urlpath=tree/content/intro_python.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -545,7 +550,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/Kisleif/mtbook/blob/main/content/6_DMS.ipynb"
+        <a href="https://colab.research.google.com/github/Kisleif/mtbook/blob/main/content/intro_python.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -623,7 +628,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/Kisleif/mtbook/issues/new?title=Issue%20on%20page%20%2Fcontent/6_DMS.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/Kisleif/mtbook/issues/new?title=Issue%20on%20page%20%2Fcontent/intro_python.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -640,7 +645,7 @@ title="Open an issue"
       </li>
       
       <li>
-        <a href="https://github.com/Kisleif/mtbook/edit/main/content/6_DMS.ipynb"
+        <a href="https://github.com/Kisleif/mtbook/edit/main/content/intro_python.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -668,7 +673,7 @@ title="Edit this page"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/content/6_DMS.ipynb"
+        <a href="../_sources/content/intro_python.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -728,40 +733,28 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#grundlagen">
-   Grundlagen
+  <a class="reference internal nav-link" href="#live-code-auf-der-webseite">
+   Live Code auf der Webseite
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#anwendungen-und-beispiel">
-   Anwendungen und Beispiel
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#biegungsbeanspruchung">
-     Biegungsbeanspruchung
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#zug-und-druck">
-     Zug und Druck
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#scherkraftemessung">
-     Scherkräftemessung
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#temperaturkompensation">
-   Temperaturkompensation
+  <a class="reference internal nav-link" href="#notebooks-im-browser-mit-colab">
+   Notebooks im Browser mit ‘Colab’
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#referenzen">
-   Referenzen
+  <a class="reference internal nav-link" href="#programm-jupyter-lab">
+   Programm: Jupyter Lab
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#programm-anaconda">
+   Programm: Anaconda
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#programmieren-mit-python">
+   Programmieren mit Python
   </a>
  </li>
 </ul>
@@ -773,7 +766,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Dehnungsmessstreifen (DMS)</h1>
+                <h1>Intro Python & Jupyter-Notebooks</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -784,40 +777,28 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#grundlagen">
-   Grundlagen
+  <a class="reference internal nav-link" href="#live-code-auf-der-webseite">
+   Live Code auf der Webseite
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#anwendungen-und-beispiel">
-   Anwendungen und Beispiel
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#biegungsbeanspruchung">
-     Biegungsbeanspruchung
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#zug-und-druck">
-     Zug und Druck
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#scherkraftemessung">
-     Scherkräftemessung
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#temperaturkompensation">
-   Temperaturkompensation
+  <a class="reference internal nav-link" href="#notebooks-im-browser-mit-colab">
+   Notebooks im Browser mit ‘Colab’
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#referenzen">
-   Referenzen
+  <a class="reference internal nav-link" href="#programm-jupyter-lab">
+   Programm: Jupyter Lab
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#programm-anaconda">
+   Programm: Anaconda
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#programmieren-mit-python">
+   Programmieren mit Python
   </a>
  </li>
 </ul>
@@ -830,129 +811,60 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="dehnungsmessstreifen-dms">
-<h1>Dehnungsmessstreifen (DMS)<a class="headerlink" href="#dehnungsmessstreifen-dms" title="Link zu dieser Überschrift">#</a></h1>
-<section id="grundlagen">
-<h2>Grundlagen<a class="headerlink" href="#grundlagen" title="Link zu dieser Überschrift">#</a></h2>
-<p>Ein Dehnungsmessstreifen (DMS) ist lediglich eine elektrische Leiterbahn, die auf einer kleinen Trägerfolie z.B. mäanderförmig aufgebracht ist, wie in <a class="reference internal" href="#dms"><span class="std std-numref">Abb. 90</span></a> dargestellt. Meistens besteht diese Folie aus einem chemisch sehr robusten Material, wie z.B. Kapton (Polyimid), welches auch bei hohen Temperaturen verwendet werden kann. Hierauf wird die Leiterbahn mit einem speziellen Kleber aufgebracht, sodass diese den Oberflächendehnungen eines Körpers folgen kann. Dadurch können Dehnungen, Stauchungen, Kräfte oder Drücke auf der Oberfläche gemessen werden. Die Dehnung wird dann in Richtung des Leiterbahnabschnittes gemessen, dessen ohm’scher Widerstand sich ändert:</p>
-<div class="math notranslate nohighlight">
-\[R = \frac{\rho \cdot l}{r^2 \pi}\]</div>
-<p><span class="math notranslate nohighlight">\(\rho\)</span> ist der spezifische Widerstand, der vom Material der Leiterbahn abhängt und <span class="math notranslate nohighlight">\(l\)</span> und <span class="math notranslate nohighlight">\(r\)</span> sind Länge und Radius der Leiterbahn. In der Formel wird durch die Querschnittsfläche geteilt, die näherungsweise dem kreisförmigen Querschnitt <span class="math notranslate nohighlight">\(A = \pi r^2\)</span> entspricht.</p>
-<figure class="align-default" id="dms">
-<a class="reference internal image-reference" href="../_images/dms.jpg"><img alt="dms" src="../_images/dms.jpg" style="width: 400px;" /></a>
-<figcaption>
-<p><span class="caption-number">Abb. 90 </span><span class="caption-text">Dehnungsmessstreifen (DMS).</span><a class="headerlink" href="#dms" title="Link zu diesem Bild">#</a></p>
-</figcaption>
-</figure>
-<p>Für</p>
-<ul class="simple">
-<li><p><strong>Leiter</strong> ist <span class="math notranslate nohighlight">\(\rho &lt; 100\,\mathrm{\frac{\Omega mm^2}{m}}\)</span>,</p></li>
-<li><p><strong>Halbleiter</strong> liegt <span class="math notranslate nohighlight">\(\rho\)</span> zwischen <span class="math notranslate nohighlight">\(100\,\mathrm{\frac{\Omega mm^2}{m}}\)</span> bis <span class="math notranslate nohighlight">\(10^{12}\,\mathrm{\frac{\Omega mm^2}{m}}\)</span>,</p></li>
-<li><p><strong>Isolatoren oder Nichtleiter</strong> ist <span class="math notranslate nohighlight">\(\rho &gt; 10^{^12}\,\mathrm{\frac{\Omega mm^2}{m}}\)</span></p></li>
-</ul>
-<p>Als Material für die Leiterbahn wird beispielsweise Konstanten, eine Legierung aus 55% Cu, 44% Ni, 1 % Mn, verwendet, deren spezifischer Widerstand kaum von der Temperatur abhängt und <span class="math notranslate nohighlight">\(\rho = 0,5\,\mathrm{\frac{\Omega mm^2}{m}}\)</span> beträgt.</p>
-<p>Nehmen wir nun, dass es sich um sehr kleine Änderungen handelt, können wir die obige Gleichungs wieder mittels Taylor-Entwicklung abschätzen, wie wir es auch bei der Fehlerfortpflanzung gemacht haben:</p>
-<div class="math notranslate nohighlight">
-\[\frac{\Delta R}{R} \approx \frac{\Delta \rho}{\rho} + \frac{\Delta L}{L} - 2\cdot \frac{\Delta r}{r} = \left( \eta + 1 + 2\cdot \mu\right) \cdot \epsilon = k\cdot \epsilon\]</div>
-<p>wobei</p>
-<div class="math notranslate nohighlight">
-\[\epsilon = \frac{\Delta l}{l}\]</div>
-<p>die <strong>Dehnung <span class="math notranslate nohighlight">\(\epsilon\)</span></strong> des zu untersuchenden Stücks ist,</p>
-<div class="math notranslate nohighlight">
-\[\mu = - \frac{\frac{\Delta r}{r}}{\frac{\Delta l}{l}} = - \frac{\frac{\Delta r}{r}}{\epsilon}\]</div>
-<p>die <strong>Poisson-Zahl <span class="math notranslate nohighlight">\(\mu\)</span></strong> und:</p>
-<div class="math notranslate nohighlight">
-\[\eta = \frac{\frac{\Delta \rho}{\rho}}{\frac{\Delta l}{l}} = \frac{\frac{\Delta \rho}{\rho}}{\epsilon}\]</div>
-<p>die <strong>Änderung des spezifischen Widerstands</strong>.</p>
-<p><span class="math notranslate nohighlight">\(k\)</span> ist der <em>K-Faktor</em> und ist für Konstantan 2,05:</p>
-<div class="math notranslate nohighlight">
-\[k = 1 + 2\mu + \eta\]</div>
-<p>Die Änderung des spezifischen Widerstands, <span class="math notranslate nohighlight">\(\eta\)</span>, ist für die Bestimmung der <span class="math notranslate nohighlight">\(k\)</span>-Faktors meist vernachlässigbar:</p>
-<p>Schon bei kleinen Dehnungen, minimalen Kräften oder anderen kleinen Belastungen ändert sich der Widerstandswert, wenn auch nur wenig, und wird mit dem <span class="math notranslate nohighlight">\(k\)</span>-Faktor skaliert. Typische Widerstandswerte im Grundzustand sind <span class="math notranslate nohighlight">\(100-1000\,\Omega\)</span>, welcher sich je nach <span class="math notranslate nohighlight">\(k\)</span>-Faktor für Dehnungsänderungen im Promille-Bereich ebenfalls um nur diesen kleinen Betrag ändert.
-Aus diesem Grund werden DMSs häufig Widerstands-Messbrücken verwendet. Mittels verschiedenen Anordnungen können damit auch Querkräfte, Scherkräfte und andere Belastungen gemessen werden und Kompensation in Bezug auf Temperaturempfindlichkeiten können dadurch eliminiert werden <span id="id1">[<a class="reference internal" href="../intro-Copy1.html#id6">Par</a>]</span>.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="intro-python-jupyter-notebooks">
+<h1>Intro Python &amp; Jupyter-Notebooks<a class="headerlink" href="#intro-python-jupyter-notebooks" title="Link zu dieser Überschrift">#</a></h1>
+<p>Fast jede Webseite im Metrology Lecture Book ist ein <strong>Jupyter-Notebook</strong>. Das heißt es gibt Code-Zellen mit Python-Code, die ihr selbst verändern und ausführen könnt.</p>
+<p>Dadurch habt ihr die Möglichkeit, den Code selbst auszuführen, Parameter anzupassen, zu experimentieren und ganz nebenbei Python zu lernen. Zusätzlich könnt ihr Python nutzen, um eure Messdaten aus dem Praktikum auszuwerten. Wir stellen bereits eine Sammlung von Jupyter-Notebooks für ausgewählte Praktikumsversuche zur Verfügung, um den Einstieg zu erleichtern. Das Schöne daran ist, dass Python Open Source ist, und ihr  sofort loslegen könnt:</p>
+<section id="live-code-auf-der-webseite">
+<h2>Live Code auf der Webseite<a class="headerlink" href="#live-code-auf-der-webseite" title="Link zu dieser Überschrift">#</a></h2>
+<p>Klickt oben auf die <em>Rakete</em> und wählt ‘Live Code’ aus. Innerhalb der Webseite sollte nun ein Kernel gestartet werden. Jetzt könnte ihr den Code in den Zellen verändern und neu ausführen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">beispiel_string</span> <span class="o">=</span> <span class="s1">&#39;Dies ist eine Python-Variable&#39;</span>
+<span class="n">beispiel_zahl</span> <span class="o">=</span> <span class="mi">12345</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">beispiel_string</span><span class="p">,</span> <span class="s1">&#39;und die Zahl-Variable lautet: &#39;</span> <span class="p">,</span> <span class="n">beispiel_zahl</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dies ist eine Python-Variable und die Zahl-Variable lautet:  12346
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-<section id="anwendungen-und-beispiel">
-<h2>Anwendungen und Beispiel<a class="headerlink" href="#anwendungen-und-beispiel" title="Link zu dieser Überschrift">#</a></h2>
+<section id="notebooks-im-browser-mit-colab">
+<h2>Notebooks im Browser mit ‘Colab’<a class="headerlink" href="#notebooks-im-browser-mit-colab" title="Link zu dieser Überschrift">#</a></h2>
+<p>Ihr habt die Möglichkeit, die in unserem <em>Metrology Lecture Book</em> enthaltenen <strong>Jupyter-Notebooks</strong> direkt im Browser (<em>ohne lokale Python Installation</em>) auszuführen. Dazu klickt ihr oben auf das Symbol der <em>Rakete</em> und wählt anschließend <code class="docutils literal notranslate"><span class="pre">Colab</span></code> aus. Dies öffnet eine interaktive Umgebung im Browser, in der das Jupyter-Notebook gestartet wird. Beachtet, dass das Symbol der <em>Rakete</em> nur auf den Seiten erscheint, die als Jupyter-Notebooks vorliegen.
+Wenn Daten aus einer Mess<em>datei</em> innerhalb der Code-Zelle benutzt werden, funktioniert diese Methode leider nicht.</p>
+</section>
+<section id="programm-jupyter-lab">
+<h2>Programm: Jupyter Lab<a class="headerlink" href="#programm-jupyter-lab" title="Link zu dieser Überschrift">#</a></h2>
+<p>Jede Webseite, die als Jupyter-Notebook existiert, könnt ihr über den Download Button oben als <code class="docutils literal notranslate"><span class="pre">ipynb</span></code> herunter laden, welches ihr dann auf eure PC ausführen könnt.
+Wir empfehlen hierfür die Installation von <strong>Jupyter Lab</strong>:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jZ952vChhuI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<p>Mit Jupyter Lab können die Jupyter-Notebooks (<code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>-Dateien) ganz einfach per Doppelklick aus dem lokalen Dateisystem geöffnet werden.</p>
+<p>Habt ihr einmal Jupyter Notebooks auf eurem PC installiert, könnt ihr auch ganz einfach Praktikums-Templates herunter laden und eure Messdateien neu einlesen und auswerten.</p>
+</section>
+<section id="programm-anaconda">
+<h2>Programm: Anaconda<a class="headerlink" href="#programm-anaconda" title="Link zu dieser Überschrift">#</a></h2>
+<p>Für eine vollständige Python Installation empfehlen wir Anaconda. Mittels Anaconda werden sehr viele Bibliotheken bereits mitinstalliert, um die ihr euch später keine weiteren Gedanken mehr machen müsst. Eine Anleitung, wie ihr hiermit nicht nur Python, sondern auch Notebooks ausführt, findet ihr im folgenden Video:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/WUeBzT43JyY?si=slVswaODWeloo1BQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</section>
+<section id="programmieren-mit-python">
+<h2>Programmieren mit Python<a class="headerlink" href="#programmieren-mit-python" title="Link zu dieser Überschrift">#</a></h2>
+<p>Es gibt zahlreiche Tutorials und Online-Ressourcen, die euch das Erlernen der Python-Programmierung leicht und verständlich ermöglichen. Für die Tutorials sind folgende Grundkenntnisse erforderlich, die ihr innerhalb der Tutorials erlernen könnt:</p>
 <ul class="simple">
-<li><p>Kraft (und somit auch Beschleunigung)</p></li>
-<li><p>Waagen (Haushaltswaagen bis hin zu Kranwaagen)</p></li>
-<li><p>Druck</p></li>
-<li><p>Drehmoment</p></li>
-<li><p>Verformungsmessungen (experimentelle Beanspruchungsanalyse, Spannungsanalyse) auf vielen Werkstoffen</p>
+<li><p><strong>Grundlagen:</strong> Schleifen, Funktionen, Listen, Tupel, Mengen, Wörterbücher.</p></li>
+<li><p><strong>Algebra:</strong> <a class="reference external" href="https://numpy.org">numpy</a>, <a class="reference external" href="https://scipy.org">scipy</a></p>
 <ul>
-<li><p>Biegung</p></li>
-<li><p>Druck und Zug</p></li>
-<li><p>Scherkräfte</p></li>
+<li><p><strong>Fit/Modellanpassungen:</strong> <a class="reference external" href="https://pypi.org/project/lmfit/">lmfit</a>, <a class="reference external" href="https://scipy.org">scipy</a> (z.B. curve_fit), <a class="reference external" href="https://numpy.org">numpy</a> (z.B. polyfit)</p></li>
+<li><p><strong>Spektralanalyse:</strong> <a class="reference external" href="https://scipy.org">scipy</a> (z.B. rfft)</p></li>
 </ul>
 </li>
+<li><p><strong>Datenverarbeitung:</strong> <a class="reference external" href="https://pandas.pydata.org">pandas</a> (z.B. DataFrames)</p></li>
+<li><p><strong>Datenvisualisierung:</strong> <a class="reference external" href="https://matplotlib.org">matplotlib</a></p></li>
 </ul>
-<div class="tip admonition">
-<p class="admonition-title">Beispiel</p>
-<p>Ein unbekannter Metalldraht hat die Länge <span class="math notranslate nohighlight">\(l = 2\,\mathrm m\)</span> und einen Querschnitt von <span class="math notranslate nohighlight">\(A = 0,01\,\mathrm{mm^2}\)</span>. Die Testspannung beträgt <span class="math notranslate nohighlight">\(U=2\,\mathrm V\)</span> und wir messen einen Strom von <span class="math notranslate nohighlight">\(I = 0,75\,\mathrm A\)</span>. Wie hoch ist der spezifische Widerstand des Metalldrahtes?</p>
-</div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Lösung</p>
-<div class="math notranslate nohighlight">
-\[\rho = \frac{R\cdot A}{l} = \frac{U \cdot A}{I \cdot l} = \frac{3,5\,\Omega \cdot 0,01\,\mathrm{mm^2}}{2\,\mathrm m} = 0,0175\,\mathrm{\frac{\Omega \cdot mm^2}{m}}\]</div>
-<p>Es könnte sich um Kupfer handeln!</p>
-</div>
-<p>Es gibt auch Halbleiter-DMS. Bei diesen Materialien ist die Änderung des spezifischen Widerstands nicht mehr zu vernachlässigen, da er sich aufgrund des <strong>piezoresistiven Effekts</strong> sehr stark ändert. P-dotiertes Silizium weist beispielsweise ein <span class="math notranslate nohighlight">\(k\)</span> von bis zu 190 auf, n-dotiertes Silizium sinkt den <span class="math notranslate nohighlight">\(k\)</span>-Faktor auf - 100 ab. Das heißt, dass der Widerstandswert mit zunehmender Dehnung kleiner wird! Halbleiter-DMS haben also einen höheren <span class="math notranslate nohighlight">\(k\)</span>-Faktor, jedoch auch eine höhere Temperaturabhängigkeit, weshalb immer Temperaturkompensationssysteme miteingebraucht werden müssen. Für Präzisionsmessungen benötigt man eine solche Temperaturkompensation allerdings auch bei Metall-DMSs. Außerdem können Metall-DMSs um das 10-fache mehr Dehnung aufnehmen.<br />
-Eine eleganten Zusammensatzung wäre ein n- und p-dotierter Silizium-DMS mit jeweils dem gleichen, aber entgegengesetzten <span class="math notranslate nohighlight">\(k\)</span>-Faktor, welche in einer Messbrücke zusammengeschaltet werden <span id="id2">[<a class="reference internal" href="../intro-Copy1.html#id5">Bot</a>]</span>.</p>
-<section id="biegungsbeanspruchung">
-<h3>Biegungsbeanspruchung<a class="headerlink" href="#biegungsbeanspruchung" title="Link zu dieser Überschrift">#</a></h3>
-<p>Es gibt verschiedene Möglicheiten DMS zur Kraftmessung zu nutzen. Die Sensoren können beispielsweise an einen Biegebalken angebracht werden, wie es in <a class="reference internal" href="#dms-bieg-mess"><span class="std std-numref">Abb. 91</span></a> dargestellt ist, wodurch man die <strong>Biegung</strong> des Körpers messen kann.</p>
-<figure class="align-default" id="dms-bieg-mess">
-<a class="reference internal image-reference" href="../_images/dms_bieg_mess.jpg"><img alt="dms_bieg_mess" src="../_images/dms_bieg_mess.jpg" style="width: 600px;" /></a>
-<figcaption>
-<p><span class="caption-number">Abb. 91 </span><span class="caption-text">DMSs sind an einem Biegebalken angebracht und können so die Wölbung messen.</span><a class="headerlink" href="#dms-bieg-mess" title="Link zu diesem Bild">#</a></p>
-</figcaption>
-</figure>
-<p>Erfährt der Balken eine Kraft von außen, aufgrund derer er sich zu verformen beginnt, kann die resultierende Wölbung an den Oberflächen mittels DMS gemessen werden. Hierbei sieht der DMS oben eine Stauchung und der DMS auf der Unterseite (gegenüber der Krafteinwirkung) eine Streckung.</p>
-<p>Die vier DMSs können direkt mittels einer Vollbrücke ausgelesen werden.
-Die Vorzeichen von zwei DMSs sind jeweils entgegengesetzt, da sie entweder gestaucht oder gestreckt werden. Somit lässt sich das Differentialprinzip auf die Messung hier übertragen. Die Diagonalspannung in der Messbrücke und somit die Kennlinie des Messsystems lautet:</p>
-<div class="math notranslate nohighlight">
-\[U_d = U_0 \cdot \frac{\Delta R}{R} = U_0 \cdot k \cdot \epsilon\]</div>
-<p>Typischerweise können Kräfte von 1-50 kN gemessen werden <span id="id3">[<a class="reference internal" href="../intro-Copy1.html#id6">Par</a>]</span>.</p>
-</section>
-<section id="zug-und-druck">
-<h3>Zug und Druck<a class="headerlink" href="#zug-und-druck" title="Link zu dieser Überschrift">#</a></h3>
-<p><strong>Zug und Druck</strong> können mit der Anordnung von DMSs gemessen werden, wie es in <a class="reference internal" href="#dms-druck"><span class="std std-numref">Abb. 92</span></a> dargestellt ist.</p>
-<figure class="align-default" id="dms-druck">
-<a class="reference internal image-reference" href="../_images/dms_druck.jpg"><img alt="dms_druck" src="../_images/dms_druck.jpg" style="width: 300px;" /></a>
-<figcaption>
-<p><span class="caption-number">Abb. 92 </span><span class="caption-text">DMSs sind innen in einem Hohlkörper angebracht an der Innenwand angebracht und können so die Zug- und Druckkräfte an der Zylinderwand zu messen.</span><a class="headerlink" href="#dms-druck" title="Link zu diesem Bild">#</a></p>
-</figcaption>
-</figure>
-<p>Auch hierfür werden die DMS wieder innenliegend an den Hohlkörper angebracht. Werden die DMS entlang der Kraftrichtung angebracht, so werden sie längs ihrer Anbringungsrichtung gedehnt und gestaucht. Sie können jedoch auch quer zur Krafteinwirkungsrichtung installiert werden, wodurch sie dann genau entgegengesetzt gestaucht bzw. gedehnt werden. Es können Kräfte zwischen 20 kN  bis einige MN gemessen werden <span id="id4">[<a class="reference internal" href="../intro-Copy1.html#id5">Bot</a>]</span>.</p>
-</section>
-<section id="scherkraftemessung">
-<h3>Scherkräftemessung<a class="headerlink" href="#scherkraftemessung" title="Link zu dieser Überschrift">#</a></h3>
-<p>Hat man in einem Festkörper beispielsweise zwei Hohlräume oder Bohrungen, können in diesen DMSs eingebracht werden um <strong>Scherkräfte</strong> innerhalb der Körper zu messen. Dies ist in <a class="reference internal" href="#dms-scher"><span class="std std-numref">Abb. 93</span></a> dargestellt.</p>
-<figure class="align-default" id="dms-scher">
-<a class="reference internal image-reference" href="../_images/dms_scher.jpg"><img alt="dms_scher" src="../_images/dms_scher.jpg" style="width: 300px;" /></a>
-<figcaption>
-<p><span class="caption-number">Abb. 93 </span><span class="caption-text">DMSs sind innen an der Innenwand von zwei Bohrungen angebracht um Scherkräfte zu messen.</span><a class="headerlink" href="#dms-scher" title="Link zu diesem Bild">#</a></p>
-</figcaption>
-</figure>
-<p>Die Scherkräfte werden gemessen indem die DMS in einem 45° Winkel an die Rand geklebt werden. Nutzt man weitere Sensoren mit einem -45° Winkel so können wieder 4 Sensoren mittels einer Vollbrücke ausgelesen werden. Hierbei können Kräfte im Bereich von 20kN bis einigen MN gemessen werden <span id="id5">[<a class="reference internal" href="../intro-Copy1.html#id5">Bot</a>]</span>.</p>
-</section>
-</section>
-<section id="temperaturkompensation">
-<h2>Temperaturkompensation<a class="headerlink" href="#temperaturkompensation" title="Link zu dieser Überschrift">#</a></h2>
-<p>Wie oben erwähnt sind für Präzisionsmessungen Temperaturkompensationen notwendig. Hierfür kann ein zweiter, baugleicher DMS an die Messbrücke mitangeschlossen werden, der jedoch so installiert ist, dass er keine Dehnung erfährt. Er steht lediglich in thermischen Kontakt mit dem zu messenden Körper und liefert eine Referenzmessung für die Temperaturabhängigkeit der DMS-Messung.</p>
-</section>
-<section id="referenzen">
-<h2>Referenzen<a class="headerlink" href="#referenzen" title="Link zu dieser Überschrift">#</a></h2>
-<div class="docutils container" id="id6">
-<dl class="citation">
-<dt class="label" id="id7"><span class="brackets">Bot</span><span class="fn-backref">(<a href="#id2">1</a>,<a href="#id4">2</a>,<a href="#id5">3</a>)</span></dt>
-<dd><p><strong>missing year in boettcher2020</strong></p>
-</dd>
-<dt class="label" id="id8"><span class="brackets">Par</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id3">2</a>)</span></dt>
-<dd><p><strong>missing year in parthier2020</strong></p>
-</dd>
-</dl>
-</div>
 </section>
 </section>
 
@@ -983,17 +895,17 @@ Die Vorzeichen von zwei DMSs sind jeweils entgegengesetzt, da sie entweder gesta
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="6_Einf%C3%BChrung.html" title="zurück Seite">
+    <a class='left-prev' id="prev-link" href="../intro.html" title="zurück Seite">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">zurück</p>
-            <p class="prev-next-title">Einführung</p>
+            <p class="prev-next-title">Welcome</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="6_PZT.html" title="weiter Seite">
+    <a class='right-next' id="next-link" href="V1.html" title="weiter Seite">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title">Piezoelektrische Sensoren</p>
+        <p class="prev-next-title">Woche 1: Einleitung</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

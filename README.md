@@ -1,6 +1,6 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Kisleif/mtbook/HEAD)
 
-# Vorlesungsskript Messtechnik
+# Vorlesungsskript Messtechnik ([Webseite](https://kisleif.github.io/mtbook/intro.html))
 Interaktives Vorlesungsskript **Metrology Lecture Book** für die Veranstaltung Messtechnik an der Fakultät für Maschinenbau der Helmut-Schmidt-Universität, Universität der Bundeswehr von Junior-Professorin Dr. rer. nat. Katharina-Sophie Isleif.
 
 Dieses Vorlesungsskript besteht aus Jupyter Notebooks, welche als Jupyter Book auf der Webseite des [Metrology Lecture Books](https://kisleif.github.io/mtbook/intro.html) veröffentlicht werden. 

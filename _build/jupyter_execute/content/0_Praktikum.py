@@ -14,7 +14,7 @@
 # ```
 # :::
 # 
-# :::{grid-item-card} [Online Latex-Vorlage](https://www.overleaf.com/latex/templates/vorlage-praktikum-messtechnik/zwjgtfpxrsz)
+# :::{grid-item-card} [Online Latex-Vorlage](https://www.overleaf.com/latex/templates/vorlage-praktikum-messtechnik/zwjgtfpxrszg)
 # ```{image} content/pictures/vorlage.jpg
 # :height: 120
 # ```

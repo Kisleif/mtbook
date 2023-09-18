@@ -50,6 +50,11 @@ print(beispiel_string, 'und die Zahl-Variable lautet: ' , beispiel_zahl + 1)
 #   * **Spektralanalyse:** [scipy](https://scipy.org) (z.B. rfft)
 # * **Datenverarbeitung:** [pandas](https://pandas.pydata.org) (z.B. DataFrames)
 # * **Datenvisualisierung:** [matplotlib](https://matplotlib.org)
+# 
+# ```{info}
+# Installationshinweise & Grundlagen der Programmierung in Python findet ihr im [Github von Nils Fleischer](https://nbviewer.jupyter.org/github/nilsleiffischer/python-course/blob/master/setup.ipynb). 
+# ```
+# 
 
 # In[ ]:
 

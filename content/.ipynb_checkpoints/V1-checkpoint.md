@@ -1,75 +1,11 @@
 # Woche 1: Einleitung
 
-```{admonition} Teste dein Wissen...
-:class: tip
-[Hier geht's zum Quiz](jupyterquiz/Q1.ipynb)
-```
+Wie messen wir *richtig* im Praktikum? In der ersten Vorlesung klären wir die wichtigsten Begrifflichkeiten eines Messsystems. Außerdem beginnen wir direkt mit einer kleinen Einführung in die Messunsicherheiten, damit ihr perfekt für den Praktikumsversuch vorbereitet seid. 
 
-In dieser Vorlesung werden wir die Kunst des Messens erkunden, Einheiten und Präfixe kennenlernen, uns mit den internationalen Standard-SI-Einheiten vertraut machen und die Bedeutung von Messunsicherheiten und Fehlerfortpflanzung verstehen. Diese Grundlagen sind in Wissenschaft, Technik und Alltag von zentraler Bedeutung und bilden die Basis für präzise und zuverlässige Messungen.
-
-## Inhalte
+## Inhaltsverzeichnis
 
 ```{tableofcontents}
 ```
-
-## Videos
-::::{grid} 1 1 2 3
-:class-container: text-center
-:gutter: 3
-
-:::{grid-item-card}
-:class-header: bg-light
-SI-System: Die Basiseinheiten des SI-Systems I (Lehrer-Online)
-
-<iframe width="200" height="113" src="https://www.youtube.com/embed/bELd5_zkhKQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-:::
-
-:::{grid-item-card}
-:class-header: bg-light
-SI-System: Die Basiseinheiten des SI-Systems II (Lehrer-Online)
-
-<iframe width="200" height="113" src="https://www.youtube.com/embed/-mSO24hkRxE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-:::
-
-
-:::{grid-item-card}
-:class-header: bg-light
-Learn the Metric System in 5 minutes (englisch) (MooMooMath and Science)
-
-<iframe width="200" height="113" src="https://www.youtube.com/embed/5iXyyQBGl-Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-:::
-
-:::{grid-item-card}
-:class-header: bg-light
-Das Urkilogramm geht in Rente | Gut zu wissen (Bayerischer Rundfunk)
-
-<iframe width="200" height="113" src="https://www.youtube.com/embed/bu-wGOhw1Zw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-:::
-
-:::{grid-item-card}
-:class-header: bg-light
-:link: https://www.htwins.net/scale2/
-[Klicke hier](https://www.htwins.net/scale2/) für eine Reise durch die Dimensionen.
-
-
-<img src="pictures/dimensionen.jpg" alt="dimensionen" label = dimensionen></img>
-:::
-
-:::{grid-item-card}
-:class-header: bg-light
-Logarithmische Achsen – Grundlagen (Mathe - simpleclub)
-
-<iframe width="200" height="113" src="https://www.youtube.com/embed/tC3vqTB_IrA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-:::
-
-:::{grid-item-card}
-:class-header: bg-light
-Messgeräte kalibrieren | Was ist der Unterschied zwischen Kalibrierung, Eichung und Justage? (WIKA Gruppe)
-
-<iframe width="200" height="113" src="https://www.youtube.com/embed/QJuB-Sijdu0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-:::
-
-::::
 
 ## Zusammenfassung
 
@@ -79,15 +15,23 @@ Messgeräte kalibrieren | Was ist der Unterschied zwischen Kalibrierung, Eichung
 |Maßeinheit|Festgelegter Vergleichswert für eine physikalische Messgröße|
 |Messwert|Bei der Messung ermittelter Faktor. Zahlenmäßiges Verhältnis zwischen Einheit und Messgröße|
 |Messgröße|Physikalische Größe, die Gegenstand einer Messung ist|
-|Messsignal|Ein Signal mit dem Messinformationen transportiert werden|
-|Dezibel|Logarithmisches Übertragungsmaß, dessen Zahlenwert mit einer vereinbarten Berechnungsvorschrift ermittelt wird.|
-|Kalibrieren|Untersuchen, ob der Prüfgegenstand bestimmte Bedingungen erfüllt (Entspricht der Messwert eines Messgeräts dem „richtigen“ Wert des Messgröße?)|
-|Eichen|Prüfung und Stempelung des Messsystems nach Eichvorschriften (Entspricht der Messwert eines Messgeräts dem „richtigen“ Wert des Messgröße unter staatlicher Hoheit?)|
-|Justieren|Einstellen eines Messsystems so, dass der Messwert der Messgröße möglichst gut entspricht|
-|Normale|Eine handhabbare Verkörperung einer Maßeinheit|
 |Richtiger Wert|Mit denkbar größten technischem und theoretischem Aufwand ermittelter Messwert, der als Bezugswert zur Bewertung eines Messergebnisses benutzt wird. |
-|SI-Einheitensystem|Vereinbartes System von Maßeinheiten|
 |Wahrer Wert|Tatsächlich vorhandener Wert einer physikalischen Größe, er ist durch eine endliche Genauigkeit der verwendeten Messmittel nicht exakt bestimbar. |
+|SI-Einheitensystem|Vereinbartes System von Maßeinheiten|
+|Dezibel|Logarithmisches Übertragungsmaß, dessen Zahlenwert mit einer vereinbarten Berechnungsvorschrift ermittelt wird.|
+|Messsignal|Ein Signal mit dem Messinformationen transportiert werden|
+|Messergebnis / Messwert | (Schätz-)Wert, den die Messgröße durch Auswertung einer Messung bekommt|
+|Messreihe|Aufnahme von mehreren Messwerten von einem Messaufbau unter möglichst identischen Messbedingungen, d. h. unter Wiederholbedingungen. Die Messreihe wird zur statistischen Analyse und damit zur Bewertung der zufälligen Einflüsse auf ein Messergebnis benötigt.|
+|Messabweichung|Differenz zwischen ermitteltem Messwert (Schätzwert der Messgröße) und dem richtigen Wert der Messgröße|
+|Unsicherheit|Von zufälligen Einflüssen verursachte Abweichungen eines Messergebnisses (z.B. über Statistik abschätzen)|
+|arithmetischer Mittelwert $\overline x$ | Schätzwert für den wahren Wert einer Messgröße aus einer Messreihe mit den Messwerten $x_j$ und der Anzahl der Messwerte $m$: $\overline x = \frac{1}{m}\sum_{j=1}^m x_j$|
+|Erwartungswert|Mittelwert einer unendlichen Gesamtheit|
+|Messunsicherheit $u(x)$ | Wichtiger Bestandteil zur Angabe eines Messergebnisses. Die Unsicherheit charakterisiert einen Vertrauensbereich, der der Messgröße zugeschrieben wird: $\overline x \pm u(x)$ |
+|relative Messunsicherheit | Messunsicherheit dividiert durch den Betrag des Mittelwerts: $A_{r} = \frac{u(x)}{\lvert (\overline x)\rvert}$| 
+|Varianz: mittlere quadratische Abweichung $s^2(x)$ | Beschreibt die quadratische Abweichung einer Zufallsvariable von dem Erwartungswert der betrachteten Gesamtheit. Ein Maß für die Messunsicherheit. $s^2 = \frac{1}{m-1} \sum_{j=1}^m (x_j - \overline x)^2$|
+|Standardabweichung | In der Messtechnik auch als Streuung bezeichnet, sie ist die Quadratwurzel aus der von zufälligen Einflüssen verursachte Abweichung eines Messergebnisses (Wurzel der Varianz). Wurzel aus der mittleren quadratischen Abweichung:  $s = \sqrt{\frac{1}{m-1} \sum_{j=1}^m (x_j - \overline x)^2}$ |
+|empirische Varianz $\sigma^2(x)$ | Schätzung der Varianz bezogen auf den *wahren* Wert (nicht auf den Mittelwert der Messreihe) der Messgröße: $\sigma^2 = \lim_{m\rightarrow \infty}\frac{1}{m} \sum_{j=1}^m (x_j - \mu)^2$|
+|empirische Standardabweichung $\sigma(x)$ | Wurzel aus der empirischen Varianz: $\sigma = \lim_{m\rightarrow \infty}\sqrt{\frac{1}{m} \sum_{j=1}^m (x_j - \mu)^2}$|
 
 
 ```{bibliography}

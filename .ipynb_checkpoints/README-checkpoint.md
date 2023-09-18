@@ -6,7 +6,7 @@ Interaktives Vorlesungsskript **Metrology Lecture Book** für die Veranstaltung 
 Dieses Vorlesungsskript besteht aus Jupyter Notebooks, welche als Jupyter Book auf der Webseite des [Metrology Lecture Books](https://kisleif.github.io/mtbook/intro.html) veröffentlicht werden. 
 
 <div>
-<img src="content/pictures/mt.png" width="1000"/>
+<img src="content/draw/mt.png" width="1000"/>
 </div>
 
 ## Jupyter Notebooks

@@ -9,15 +9,6 @@ Dieses Vorlesungsskript besteht aus Jupyter Notebooks, welche als Jupyter Book a
 <img src="content/draw/messtechnik_xs.jpg" width="1000"/>
 </div>
 
-## Jupyter Notebooks
-Dieses github-Repository beinhaltet eine Anzahl von [Jupyter](https://jupyter.org/) Notebooks. Hier finden Studierende das Vorlesungsskript mit [IPython 3](http://ipython.org/)-Code, welche bei Interesse ausgeführt werden können. Neben dem Live-Code auf der Webseite [Metrology Lecture Book](https://kisleif.github.io/mtbook/intro.html) bestehen folgende Möglichkeiten, sich die Jupyter Notebooks anzusehen bzw. auszuführen:
-
-- [**Webseite Metrology Lecture Book öffnen**](https://kisleif.github.io/mtbook/intro.html) und von hier aus alle weiteren Sachen ausführen.
-- [*Interaktive Kursmaterialien in Colab starten*](https://mybinder.org/v2/gh/Kisleif/messtechnik-lecture/HEAD?filepath=00_Inhalt.ipynb)
-- [*Interaktive Kursmaterialien in Binder starten*](https://mybinder.org/v2/gh/Kisleif/mtbook/HEAD)
-- [Kursmaterialien nur lesen](https://nbviewer.org/github/Kisleif/mtbook/tree/main/content/)
-- [Installationshinweise & Grundlagen der Programmierung in Python (Github von Nils Fleischer für einen anderen Kurs)](https://nbviewer.jupyter.org/github/nilsleiffischer/python-course/blob/master/setup.ipynb)
-
 ## Vorlesungsinhalt
 Was ist die Aufgabe der Messtechnik, wozu wird sie benötigt und wo kommt sie zum Einsatz? Wer sind die Anwender?
 
@@ -26,6 +17,16 @@ Im Rahmen dieser Vorlesung werden wir die folgenden Fragen beantworten:
 2. *Welche* Messgeräte benutze ich für welche Messverfahren und Messgrößen? 
 3. *Wie* verwende ich Messgeräte *richtig* und *präzise*? 
 4. *Was* fange ich mit den Messdaten an?
+
+## Jupyter Notebooks
+Dieses github-Repository beinhaltet eine Anzahl von [Jupyter](https://jupyter.org/) Notebooks. Hier finden Studierende das Vorlesungsskript zur Messtechnik mit [IPython 3](http://ipython.org/)-Code, welche bei Interesse ausgeführt werden können. Neben dem Live-Code auf der Webseite [Metrology Lecture Book](https://kisleif.github.io/mtbook/intro.html) bestehen folgende Möglichkeiten, sich die Jupyter Notebooks anzusehen bzw. auszuführen:
+
+- [**Webseite Metrology Lecture Book öffnen**](https://kisleif.github.io/mtbook/intro.html) und von hier aus alle weiteren Sachen ausführen.
+- [*Interaktive Kursmaterialien in Colab starten*](https://mybinder.org/v2/gh/Kisleif/messtechnik-lecture/HEAD?filepath=00_Inhalt.ipynb)
+- [*Interaktive Kursmaterialien in Binder starten*](https://mybinder.org/v2/gh/Kisleif/mtbook/HEAD)
+- [Kursmaterialien nur lesen](https://nbviewer.org/github/Kisleif/mtbook/tree/main/content/)
+- [Installationshinweise & Grundlagen der Programmierung in Python (Github von Nils Fleischer für einen anderen Kurs)](https://nbviewer.jupyter.org/github/nilsleiffischer/python-course/blob/master/setup.ipynb)
+
 
 ## Literatur
 * Parthier, R. (2020). Messtechnik: Vom SI-Einheitensystem über Bewertung von Messergebnissen zu Anwendungen der elektrischen Messtechnik (9th 2020 ed.). Wiesbaden: Springer Vieweg

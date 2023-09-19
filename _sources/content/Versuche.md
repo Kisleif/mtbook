@@ -11,7 +11,7 @@
 **Dioden-Kennlinie (DK)**
 ^^^
 ```{image} pictures/IMG_5597.jpeg
-:height: 120
+:height: 150
 ```
 :::
 
@@ -23,6 +23,7 @@
 **Ballistisches Pendel (BP)**
 ^^^
 ```{image} pictures/IMG_8362.jpeg
+:height: 150
 ```
 :::
 
@@ -33,7 +34,7 @@
 **Digitale Signalverarbeitung (DSV)**
 ^^^
 ```{image} pictures/l.jpg
-:height: 120
+:height: 150
 ```
 :::
 
@@ -44,7 +45,7 @@
 **Fertigungsmesstechnik (FMT)**
 ^^^
 ```{image} pictures/l.jpeg
-:height: 120
+:height: 150
 ```
 :::
 
@@ -56,7 +57,7 @@
 **Strahlungsmesstechnik (SMT)**
 ^^^
 ```{image} pictures/l.jpeg
-:height: 120
+:height: 150
 ```
 :::
 
@@ -67,7 +68,7 @@
 **Optische Messtechnik (OMT)**
 ^^^
 ```{image} pictures/l.jpg
-:height: 120
+:height: 150
 ```
 :::
 

@@ -22,7 +22,7 @@ plt.rcParams['font.size'] = 12; # Schriftgröße einstellen
 
 # ## Daten einlesen, zuschneiden und plotten
 # 
-# Auswahl der Messdatei mit den Namen `MokuOscilloscopeData_20221007_133233_Traces.csv`, welche in `data_file` gespeichert wird. 
+# Auswahl der Messdatei mit den Namen `MokuOscilloscopeData_20221007_133233_Traces.csv`, welche in `data_file` gespeichert wird. Die Messdatei kann aus dem [GitHub Repository](https://github.com/Kisleif/mtbook/blob/36a7260056dc5ba83466250d266b013e478f9df4/content/data/MokuOscilloscopeData_20221007_133233_Traces.csv) heruntergeladen werden. 
 
 # In[2]:
 

@@ -9,19 +9,19 @@
 # :gutter: 3
 # 
 # :::{grid-item-card} [Versuchsanleitungen](https://hsuhhde.sharepoint.com/:f:/r/sites/MesstechnikHT23_mst/Freigegebene%20Dokumente/General/Praktikumsanleitungen?csf=1&web=1&e=TNzgex)
-# ```{image} draw/SI.png
+# ```{image} pictures/IMG_5597.jpeg
 # :height: 120
 # ```
 # :::
 # 
 # :::{grid-item-card} [Online Latex-Vorlage](https://www.overleaf.com/latex/templates/vorlage-praktikum-messtechnik/zwjgtfpxrszg)
-# ```{image} pictures/vorlage.jpg
+# ```{image} pictures/vorlage Kopie.jpg
 # :height: 120
 # ```
 # :::
 # 
 # :::{grid-item-card} [Word-Vorlage](https://hsuhhde.sharepoint.com/:w:/r/sites/MesstechnikHT23_mst/Freigegebene%20Dokumente/General/Praktikumsvorlagen/Word-Vorlage_Praktikum_Messtechnik.docx?d=wa845bbc7dd434471b44313d9275da187&csf=1&web=1&e=7N30sW)
-# ```{image} pictures/vorlage.jpg
+# ```{image} pictures/vorlage Kopie.jpg
 # :height: 120
 # ```
 # :::

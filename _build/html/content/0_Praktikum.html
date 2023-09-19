@@ -901,9 +901,15 @@ title="Print to PDF"
 <h2>Anschauliche Diagramme<a class="headerlink" href="#anschauliche-diagramme" title="Link zu dieser Überschrift">#</a></h2>
 <p>Mittels Diagrammen (engl. <em>Plots</em>) werden Messwerte dargestellt. Die folgenden Regeln helfen dabei, dass die Diagramme anschaulich sind und der Betrachter direkt erkennt, worum es geht:</p>
 <ul class="simple">
+<li><p><strong>Schriftgröße:</strong> Nutze eine gut leserliche Schriftgröße.</p></li>
 <li><p><strong>Achsenbeschriftung:</strong> Beschrifte die Achsen richtig, eindeutig und mit vollständiger Angabe: physikalische Größe und Maßeinheit!</p></li>
-<li><p><strong>Skalierung:</strong> Wähle eine passende Skalierung in 1er-/2er-/5er oder 10er- (Dakaden) Schritten</p></li>
-<li><p><strong>Markierungen:</strong> Wähle eine gute erkennbare Markierung für Messpunkte und ggf. eine angebrachte Linienbreite für Kurven. Hierbei können unterschiedliche Farben, Strichdicken, Stricharten und Markierungspunkte verwendet werden, oder eine Kombination.</p></li>
+<li><p><strong>Skalierung:</strong> Wähle eine passende Skalierung in 1er-/2er-/5er oder 10er- (Dekaden) Schritten auf den Achsen.</p></li>
+<li><p><strong>Markierungen:</strong></p>
+<ul>
+<li><p>Wähle eine gute erkennbare Markierung für Messpunkte: <code class="docutils literal notranslate"><span class="pre">lw=0.4</span></code>, <code class="docutils literal notranslate"><span class="pre">ms=0.1</span></code></p></li>
+<li><p>Wähle eine angebrachte Linienbreite für Kurven:</p></li>
+</ul>
+</li>
 <li><p><strong>Titel:</strong> Nutze passende Über-/ oder Unterschriften für das Diagramm, insbesondere wenn diese in der Auswertung im Text erwähnt werden.</p></li>
 <li><p><strong>Anderes:</strong> Weitere Punkte und Linien, die nicht gemessen wurden, sondern nur als <em>Hilfe</em> dienen (z.B. Fit-Funktionen, Modelle, Referenzlinien) oder Kommentare sind, sollten besonders gekennzeichnet werden.</p></li>
 <li><p><strong>Messunsicherheiten:</strong> Für Messwerte (in Form von Fehlerbalken), aber auch für Funktionsterme und Ausgleichsgeraden, müssen Messunsicherheiten in den Graphen angegeben werden.</p></li>
@@ -912,19 +918,27 @@ title="Print to PDF"
 <p class="admonition-title">Aufgabe</p>
 <p>Im Folgenden ist eine sehr ungünstige Darstellung gewählt, um die Messdaten zu zeigen. Klicke oben auf dieser Webseite auf die Rakete und starte <code class="docutils literal notranslate"><span class="pre">Live</span> <span class="pre">Code</span></code> und optimier die Darstellung des Diagramms. Folgende Hinweise geben wir dir mit auf den Weg:</p>
 <ul class="simple">
-<li><p>Es handelt sich um Klimadaten von der NASA, die die Jahresmitteltemperaturabweichung in °C über die Jahre zeigen</p>
+<li><p>Änder die Schriftgröße: <code class="docutils literal notranslate"><span class="pre">plt.rcParams['font.size']</span> <span class="pre">=</span> <span class="pre">4;</span></code></p></li>
+<li><p>Lösch die Limitierungen auf den Achsen oder passe sie an:</p>
 <ul>
-<li><p>Messwerte (Datenpunkte), welche aktuell in grau dargestellt sind</p></li>
-<li><p>Geglättete Messwerte von der NASA, welche aktuell in blau dargestellt sind</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">plt.xlim([1850,2040])</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">plt.ylim([-5,5])</span></code></p></li>
 </ul>
 </li>
-<li><p>Durch die Messdaten soll eine Ausgleichsgerade (hier in rot, “Fit”) gelegt werden, die möglichst gut den linearen Anstieg ab 1980 darstellt. Änder hierfür die <code class="docutils literal notranslate"><span class="pre">1880</span></code> an mehreren Stellen.</p></li>
+<li><p>Wähle eine geeignete Achsenbeschriftung (Hinweis: Es handelt sich um Klimadaten von der NASA, die die Jahresmitteltemperaturabweichung in °C über die Jahre zeigen)</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">plt.xlabel('x')</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">plt.ylabel('y')</span></code></p></li>
 </ul>
-<p>Änder alles, was noch stört:</p>
-<ul class="simple">
-<li><p>Änder die Schriftgröße.</p></li>
-<li><p>Lösch die Limitierungen auf der y-Achse oder passe sie an.</p></li>
-<li><p>Änder die Einträge in der Legende</p></li>
+</li>
+<li><p>Änder die Einträge in der Legende</p>
+<ul>
+<li><p>Messwerte (graue Datenpunkte): <code class="docutils literal notranslate"><span class="pre">label=&quot;Werte&quot;</span></code></p></li>
+<li><p>Geglättete Messwerte von der NASA (blau): <code class="docutils literal notranslate"><span class="pre">label=&quot;Irgendeine</span> <span class="pre">Kurve</span> <span class="pre">von</span> <span class="pre">irgendwem</span> <span class="pre">berechnet&quot;</span></code></p></li>
+<li><p>Fit-Funktion/Modell-Funktion (rot): label=“fit”</p></li>
+</ul>
+</li>
+<li><p>Durch die Messdaten (blau) soll eine Ausgleichsgerade (rot, “Fit”) gelegt werden, die möglichst gut den linearen Anstieg ab 1980 darstellt. Änder hierfür die <code class="docutils literal notranslate"><span class="pre">1880</span></code> an mehreren Stellen.</p></li>
 <li><p>…</p></li>
 </ul>
 </div>
@@ -958,9 +972,9 @@ title="Print to PDF"
 <span class="n">y_model</span> <span class="o">=</span> <span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># Modell einer linearen Regression</span>
 
 <span class="c1"># print(global_mean) # Eingelesene Daten ausgeben</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">],</span> <span class="n">yerr</span><span class="o">=</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;uncertainty&quot;</span><span class="p">],</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:gray&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Werte&quot;</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Lowess(5)&quot;</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>  <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Irgendeine Kurve von irgendwem berechnet&quot;</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y_model</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;fit&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">],</span> <span class="n">yerr</span><span class="o">=</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;uncertainty&quot;</span><span class="p">],</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:gray&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Werte&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Lowess(5)&quot;</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>  <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Irgendeine Kurve von irgendwem berechnet&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y_model</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;fit&quot;</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">1850</span><span class="p">,</span><span class="mi">2040</span><span class="p">])</span>
@@ -1034,10 +1048,6 @@ require(['plotly'], function(Plotly) {
 <img alt="../_images/0_Praktikum_2_1.png" src="../_images/0_Praktikum_2_1.png" />
 </div>
 </div>
-</div>
-<div class="admonition seealso">
-<p class="admonition-title">Siehe auch</p>
-<p><a class="reference internal" href="T_Tutorials.html"><span class="doc std std-doc">Beispiel zu einer Kurvenpassung mit Python</span></a>.</p>
 </div>
 </section>
 </section>

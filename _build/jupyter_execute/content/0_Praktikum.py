@@ -74,9 +74,12 @@
 # 
 # Mittels Diagrammen (engl. *Plots*) werden Messwerte dargestellt. Die folgenden Regeln helfen dabei, dass die Diagramme anschaulich sind und der Betrachter direkt erkennt, worum es geht:
 # 
+# - **Schriftgröße:** Nutze eine gut leserliche Schriftgröße. 
 # - **Achsenbeschriftung:** Beschrifte die Achsen richtig, eindeutig und mit vollständiger Angabe: physikalische Größe und Maßeinheit!
-# - **Skalierung:** Wähle eine passende Skalierung in 1er-/2er-/5er oder 10er- (Dakaden) Schritten
-# - **Markierungen:** Wähle eine gute erkennbare Markierung für Messpunkte und ggf. eine angebrachte Linienbreite für Kurven. Hierbei können unterschiedliche Farben, Strichdicken, Stricharten und Markierungspunkte verwendet werden, oder eine Kombination. 
+# - **Skalierung:** Wähle eine passende Skalierung in 1er-/2er-/5er oder 10er- (Dekaden) Schritten auf den Achsen.
+# - **Markierungen:** 
+#     - Wähle eine gute erkennbare Markierung für Messpunkte: `lw=0.4`, `ms=0.1`
+#     - Wähle eine angebrachte Linienbreite für Kurven: 
 # - **Titel:** Nutze passende Über-/ oder Unterschriften für das Diagramm, insbesondere wenn diese in der Auswertung im Text erwähnt werden.
 # - **Anderes:** Weitere Punkte und Linien, die nicht gemessen wurden, sondern nur als *Hilfe* dienen (z.B. Fit-Funktionen, Modelle, Referenzlinien) oder Kommentare sind, sollten besonders gekennzeichnet werden. 
 # - **Messunsicherheiten:** Für Messwerte (in Form von Fehlerbalken), aber auch für Funktionsterme und Ausgleichsgeraden, müssen Messunsicherheiten in den Graphen angegeben werden. 
@@ -85,15 +88,19 @@
 # :::{admonition} Aufgabe
 # :class: tip
 # Im Folgenden ist eine sehr ungünstige Darstellung gewählt, um die Messdaten zu zeigen. Klicke oben auf dieser Webseite auf die Rakete und starte `Live Code` und optimier die Darstellung des Diagramms. Folgende Hinweise geben wir dir mit auf den Weg:
-# * Es handelt sich um Klimadaten von der NASA, die die Jahresmitteltemperaturabweichung in °C über die Jahre zeigen
-#     * Messwerte (Datenpunkte), welche aktuell in grau dargestellt sind
-#     * Geglättete Messwerte von der NASA, welche aktuell in blau dargestellt sind
-# * Durch die Messdaten soll eine Ausgleichsgerade (hier in rot, "Fit") gelegt werden, die möglichst gut den linearen Anstieg ab 1980 darstellt. Änder hierfür die `1880` an mehreren Stellen.
 # 
-# Änder alles, was noch stört:
-# * Änder die Schriftgröße.
-# * Lösch die Limitierungen auf der y-Achse oder passe sie an.
+# * Änder die Schriftgröße: `plt.rcParams['font.size'] = 4;`
+# * Lösch die Limitierungen auf den Achsen oder passe sie an: 
+#     - `plt.xlim([1850,2040])`
+#     - `plt.ylim([-5,5])`
+# * Wähle eine geeignete Achsenbeschriftung (Hinweis: Es handelt sich um Klimadaten von der NASA, die die Jahresmitteltemperaturabweichung in °C über die Jahre zeigen)
+#     - `plt.xlabel('x')`
+#     - `plt.ylabel('y')`
 # * Änder die Einträge in der Legende
+#     * Messwerte (graue Datenpunkte): `label="Werte"`
+#     * Geglättete Messwerte von der NASA (blau): `label="Irgendeine Kurve von irgendwem berechnet"`
+#     * Fit-Funktion/Modell-Funktion (rot): label="fit"
+# * Durch die Messdaten (blau) soll eine Ausgleichsgerade (rot, "Fit") gelegt werden, die möglichst gut den linearen Anstieg ab 1980 darstellt. Änder hierfür die `1880` an mehreren Stellen.
 # * ...
 # :::
 
@@ -128,9 +135,9 @@ model = np.polyfit(x, y, deg=1, w=1/y_err, cov=True) # 1. Wert = Anstieg , 2. We
 y_model = model[0][0]*x+model[0][1] # Modell einer linearen Regression
 
 # print(global_mean) # Eingelesene Daten ausgeben
-plt.errorbar(global_mean["Year"],global_mean["No_Smoothing"], yerr=global_mean["uncertainty"], ls="-", lw=1, marker="s", ms=3, color="tab:gray", alpha=0.5, label="Werte");
-plt.plot(global_mean["Year"],global_mean["Lowess(5)"], lw=3,  color="tab:blue", label="Irgendeine Kurve von irgendwem berechnet");
-plt.plot(x,y_model, ls="-", lw=3, color="tab:red", label=f"fit");
+plt.errorbar(global_mean["Year"],global_mean["No_Smoothing"], yerr=global_mean["uncertainty"], ls="-", lw=0.4, marker="s", ms=0.1, color="tab:gray", alpha=0.5, label="Werte");
+plt.plot(global_mean["Year"],global_mean["Lowess(5)"], lw=4,  color="tab:blue", label="Irgendeine Kurve von irgendwem berechnet");
+plt.plot(x,y_model, ls="-", lw=4, color="tab:red", label=f"fit");
 plt.xlabel('x')
 plt.ylabel('y')
 plt.xlim([1850,2040])
@@ -216,15 +223,3 @@ glue("glued_klimadaten_fig", fig, display=False)
 # ```
 # ````
 # `````
-
-# ```{seealso}
-# [Beispiel zu einer Kurvenpassung mit Python](T_Tutorials.ipynb).
-# ```
-
-# 
-
-# In[ ]:
-
-
-
-

@@ -1,6 +1,6 @@
 # Versuche
 
-::::{grid} 1 1 2 3
+::::{grid} 1 1 3 2
 :class-container: text-center
 :gutter: 3
 
@@ -31,7 +31,7 @@
 :::{grid-item-card}
 :link-type: doc
 :class-header: bg-light
-**Digitale Signal-verarbeitung (DSV)**
+**Digitale Signalverarbeitung (DSV)**
 ^^^
 ```{image} pictures/l.jpg
 :height: 120

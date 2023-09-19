@@ -1,4 +1,4 @@
-# Woche 1: Einleitung
+# Woche 1: *Richtig* Messen
 
 Wie messen wir *richtig* im Praktikum? In der ersten Vorlesung klären wir die wichtigsten Begrifflichkeiten eines Messsystems. Außerdem beginnen wir direkt mit einer kleinen Einführung in die Messunsicherheiten, damit ihr perfekt für den Praktikumsversuch vorbereitet seid. 
 

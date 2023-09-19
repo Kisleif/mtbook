@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Einführung in die Messtechnik
+# # Einführung in Messsysteme
 # 
 # 
 # <iframe width="560" height="315" src="https://www.youtube.com/embed/nuuRDvRqePg?si=zK4wNP_FB-8r-yKe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -55,45 +55,3 @@
 # 
 # Beispiel-Messkette einer Regelschleife für eine Heizungsregelung.
 # :::
-# 
-# ## Messabweichung
-# 
-# Wie man an der oben dargestellten Temperaturmessung sieht, sind die Werte, die gemessen werden, nicht *exakt*, sondern weichen von dem *wahren* Wert ab. Dies ist die sogenannte [Messabweichungen](1_Messunsicherheiten.ipynb) deren Ursache unterschiedliche Gründe haben kann. Sie ist ein Maß für die Qualität der Messung: Desto kleiner die Messabweichung, die *genauer* oder *präziser* ist die Messung. Daher ist es wichtig, dass jeder Messwert, $x$, stets mit einer Messabweichung, $\Delta x$, versehen wird. Man schreibt dann:
-# 
-# $$x \pm \Delta x$$
-# 
-# wobei $\Delta x$ die *absolute Messabweichung* ist und dieselbe Einheit wie der eigentliche Messwert besitzt. 
-# 
-# Die *relative Messabweichung* wird auf einen Referenzwert bezogen, der häufig der Messwert $x$ ist:
-# 
-# $$\Delta x_\mathrm{relativ} = \frac{\Delta x}{x}$$
-# 
-# Die Einheit der relativen Messabweichung ist somit *einheitenlos* und wird häufig in Prozent (%) angeben.
-
-# :::{admonition} Aufgabe
-# :class: tip
-# Wie groß ist die in {numref}`messgroesse` dargestellte absolute und relative Messabweichung?
-# :::
-# 
-# :::{admonition} Lösung
-# :class: tip, dropdown
-# Die Differenz zwischen *wahren* und *gemessenen* Wert beträgt 0,88°C, was der absoluten Messabweichung entspricht. Bezogen auf den Messwert beträgt die relative Messabweichung 3,52%.
-# :::
-
-# In[1]:
-
-
-import numpy as np
-x_wahr = 24.1286941
-x_gemessen = 25.01
-dx_absolut = np.abs(x_gemessen - x_wahr)
-
-print('Die absolute Messabweichung beträgt: ', dx_absolut, '°C')
-print('Die relative Messabweichung beträgt: ', dx_absolut/x_gemessen, ' = ', dx_absolut/x_gemessen*100, '%')
-
-
-# In[ ]:
-
-
-
-

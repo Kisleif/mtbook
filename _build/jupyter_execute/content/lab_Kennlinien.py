@@ -27,7 +27,7 @@ plt.rcParams['font.size'] = 12; # Schriftgröße einstellen
 # In[2]:
 
 
-data_file = 'MokuOscilloscopeData_20221007_133233_Traces.csv'
+data_file = 'data/MokuOscilloscopeData_20221007_133233_Traces.csv'
 
 
 # Als nächstes werden die Messdaten aus der Datei `data_file` als Panda-Dataframe in der Variablen `data1` gespeichert. Da die Messdaten in der .csv-Datei mit Kommas getrennt sind, setzen wir als *Separator* `sep=','`. Die ersten 10 Zeilen sind in der .csv-Datei sind Kopfzeilen und beinhalten Metadaten. Sie werden beim Einlesen der Messdaten übersprungen mittels `header = 10`. Danach geben wir den drei einzelnen Spalten entsprechende Namen. 
@@ -40,7 +40,7 @@ data1 = pd.read_csv(data_file, sep = ',', header = 10, names = ['time_sec', 'Ch1
 
 # Wir tragen die beiden Messkanäle des Moku:Gos über die Zeit in einem Diagramm auf:
 
-# In[28]:
+# In[4]:
 
 
 plt.figure(figsize=(8,5)) # Diagramm-Größe einstellen
@@ -54,7 +54,7 @@ plt.show()
 
 # Wir sehen die angelegt Dreiecks-Spannung aus dem Versuchaufbau und schneiden die Messdaten für die weitere Verarbeitung entsprechend zu. Ziel ist es, die beiden Kanäle synchron auf eine Rampe zuzuschneiden. Wir wählen hierfür manuell Sample-Punkte `start` und `stop` die ihr auf eure Messdaten anpassen müsst. Kontrolliert zwischendurch immer das Diagramm.
 
-# In[31]:
+# In[5]:
 
 
 plt.figure(figsize=(8,5)) # Diagramm-Größe einstellen
@@ -73,18 +73,18 @@ plt.show()
 # Sobald die Messdatenreihe so ausgewählt wurde, dass die Messdaten ausschließlich auf einer steigenden oder fallenden Flanke liegen (wie im obigen Beispiel) ist der richtige Bereich ausgewählt und wir speichern diesen Zeitabschnitt in einem neuen Datenset ab, indem wir `data1` mit dem Befehl `iloc[start:end]` zerschneiden. 
 # Die zugeschnittenen und konvertierten Messdaten speichern wir im Dataframe `data1_cut`.
 
-# In[45]:
+# In[6]:
 
 
 data1_cut = {}
-data1_cut['time_sec'] = data1['time_sec'].iloc[start:end].dropna()
-data1_cut['Ch1_Volt'] = data1['Ch1_Volt'].iloc[start:end].dropna()
-data1_cut['Ch2_Volt'] = data1['Ch2_Volt'].iloc[start:end].dropna()
+data1_cut['time_sec'] = data1['time_sec'].iloc[start:stop].dropna()
+data1_cut['Ch1_Volt'] = data1['Ch1_Volt'].iloc[start:stop].dropna()
+data1_cut['Ch2_Volt'] = data1['Ch2_Volt'].iloc[start:stop].dropna()
 
 
 # Kontrolliere die Daten indem du `data1_cut` erneut zeichnest:
 
-# In[46]:
+# In[7]:
 
 
 plt.figure(figsize=(8,5)) # Diagramm-Größe einstellen
@@ -108,7 +108,7 @@ plt.show()
 # 
 # (Kontrolliert unbedingt ob ihr wirklich $R_2 = 100 \Omega$ eingebaut hattet! Ansonten müsst ihr den Wert hier entsprechend ändern.)
 
-# In[49]:
+# In[8]:
 
 
 R2 = 100
@@ -118,7 +118,7 @@ data1_cut['U_diode'] = data1_cut['Ch2_Volt'] - data1_cut['Ch1_Volt']
 
 # Zeichnen der UI-Kennlinie mittels `Scatter`-Plot, um einzelne Messdatenpunkte darzustellen.
 
-# In[52]:
+# In[9]:
 
 
 plt.figure(figsize=(8,5)) # Diagramm-Größe einstellen
@@ -137,7 +137,7 @@ plt.show()
 # 
 # Hierfür definieren wir zunächst die Funktion in Python, $I(U)$, mit den entsprechenden Naturkonstanten:
 
-# In[57]:
+# In[10]:
 
 
 def I_U(U):
@@ -150,7 +150,7 @@ def I_U(U):
 
 # Messdaten und Funktion werden in einem Diagramm gezeichnet. Um die Funktion darzustellen nutzen wir die gemessenen Spannungsdaten als x-Achse. Alternativ hätten wir auch ein neues Array erstellen können. 
 
-# In[59]:
+# In[11]:
 
 
 plt.figure(figsize=(8,5)) # Diagramm-Größe einstellen
@@ -164,11 +164,11 @@ plt.show()
 
 # Das gleiche zeichnen wir nun auf einer lagorithmischen Y-Achse:
 
-# In[61]:
+# In[12]:
 
 
-plt.semilogy(data1_cut['U_Volt'],data1_cut['I_Ampere'], 'o', label = 'gemessen Kennlinie der Diode XY')
-plt.semilogy(data1_cut['U_Volt'], I_U(data1_cut['U_Volt']), label = 'Ideale Kennlinie, 300K', color = 'tab:orange')
+plt.semilogy(data1_cut['U_diode'],data1_cut['I_diode'], 'o', label = 'gemessen Kennlinie der Diode XY')
+plt.semilogy(data1_cut['U_diode'], I_U(data1_cut['U_diode']), label = 'Ideale Kennlinie, 300K', color = 'tab:orange')
 plt.xlabel('Spannung U (V)')
 plt.ylabel('Stromstärke I (A)')
 plt.legend()
@@ -179,7 +179,7 @@ plt.show()
 # 
 # Zum fitten benutzen wir die `curve_fit` Funktion von `scipy`.
 
-# In[62]:
+# In[13]:
 
 
 from scipy.optimize import curve_fit
@@ -187,11 +187,11 @@ from scipy.optimize import curve_fit
 
 # Wir fitten in logerithmischen Einheiten auf der Y-Achse und rechnen daher die Stromstärke in die Einheit dB um und speichern sie in der Variablen `y`. Die Spannungsdaten bleiben unverändert, werden nur in `x` abgespeichert.
 
-# In[66]:
+# In[14]:
 
 
-x = data1_cut['U_Volt'].dropna()
-y = 10*np.log10(data1_cut['I_Ampere'].dropna())
+x = data1_cut['U_diode'].dropna()
+y = 10*np.log10(data1_cut['I_diode'].dropna())
 
 plt.plot(x,y, 'o', label = 'gemessen Kennlinie der Diode XY')
 plt.xlabel('Spannung U (V)')
@@ -204,7 +204,7 @@ plt.show()
 # 
 # $$y = ax + b$$
 
-# In[67]:
+# In[15]:
 
 
 def fit_func(x, a, b):
@@ -213,7 +213,7 @@ def fit_func(x, a, b):
 
 # Dann fitten wir die Funktion an die Messdaten an:
 
-# In[68]:
+# In[16]:
 
 
 popt, pcov = curve_fit(fit_func, x , y)
@@ -221,7 +221,7 @@ popt, pcov = curve_fit(fit_func, x , y)
 
 # Anschließend zeichnen wir das Ergebnis gemeinsam mit den Messwerten in ein Diagramm und geben uns das Fit-Ergebnis aus:
 
-# In[74]:
+# In[17]:
 
 
 plt.plot(x,y, 'o', label = 'gemessen Kennlinie der Diode XY')
@@ -236,13 +236,13 @@ print('Y-Achsenabschnitt für y = U = 0 ist: ', popt[1], 'dB = ',  10**(popt[1]/
 
 # Der Parameter `popt` beinhaltet die Werte für $a,b$ der Fit-Funktion und `pcov` die Kovarianzmatrix.
 
-# In[75]:
+# In[18]:
 
 
 popt
 
 
-# In[76]:
+# In[19]:
 
 
 pcov

@@ -10,7 +10,7 @@
 :class-header: bg-light
 **Dioden-Kennlinie (DK)**
 ^^^
-```{image} content/pictures/IMG_5597.jpeg
+```{image} pictures/IMG_5597.jpeg
 :height: 120
 ```
 :::
@@ -22,7 +22,7 @@
 :class-header: bg-light
 **Ballistisches Pendel (BP)**
 ^^^
-```{image} content/pictures/IMG_8362.jpeg
+```{image} pictures/IMG_8362.jpeg
 :height: 120
 ```
 :::
@@ -31,9 +31,9 @@
 :::{grid-item-card}
 :link-type: doc
 :class-header: bg-light
-**Digitale Signalverarbeitung (DSV)**
+**Digitale Signal-verarbeitung (DSV)**
 ^^^
-```{image} content/pictures/l.jpg
+```{image} pictures/l.jpg
 :height: 120
 ```
 :::
@@ -44,7 +44,7 @@
 :class-header: bg-light
 **Fertigungsmesstechnik (FMT)**
 ^^^
-```{image} content/pictures/l.jpeg
+```{image} pictures/l.jpeg
 :height: 120
 ```
 :::
@@ -56,7 +56,7 @@
 :class-header: bg-light
 **Strahlungsmesstechnik (SMT)**
 ^^^
-```{image} content/pictures/l.jpeg
+```{image} pictures/l.jpeg
 :height: 120
 ```
 :::
@@ -67,7 +67,7 @@
 :class-header: bg-light
 **Optische Messtechnik (OMT)**
 ^^^
-```{image} content/pictures/l.jpg
+```{image} pictures/l.jpg
 :height: 120
 ```
 :::

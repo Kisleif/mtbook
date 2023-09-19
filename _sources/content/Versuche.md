@@ -29,7 +29,7 @@ In Vorbereitung
 :::
 
 
-:::{grid-item-card}[Versuchsanleitung](https://hsuhhde.sharepoint.com/:b:/s/MesstechnikHT23_mst/EXdQY_MtTFhGjhVFgB6FFR8BUnC3seHI0jO9eud8xZMZvw?e=Bd5Lqf)
+:::{grid-item-card} [Versuchsanleitung](https://hsuhhde.sharepoint.com/:b:/s/MesstechnikHT23_mst/EXdQY_MtTFhGjhVFgB6FFR8BUnC3seHI0jO9eud8xZMZvw?e=Bd5Lqf)
 :class-header: bg-light
 **Digitale Signalverarbeitung (DSV)**
 ^^^
@@ -38,7 +38,7 @@ In Vorbereitung
 ```
 :::
 
-:::{grid-item-card}[Versuchsanleitung](https://hsuhhde.sharepoint.com/:b:/s/MesstechnikHT23_mst/Ebi5apWgdFBHlAeml2f2e7kBRVF9dMD_pfloocUZPQmp7w?e=js9U3T)
+:::{grid-item-card} [Versuchsanleitung](https://hsuhhde.sharepoint.com/:b:/s/MesstechnikHT23_mst/Ebi5apWgdFBHlAeml2f2e7kBRVF9dMD_pfloocUZPQmp7w?e=js9U3T)
 :class-header: bg-light
 **Fertigungsmesstechnik (FMT)**
 ^^^
@@ -48,7 +48,7 @@ In Vorbereitung
 :::
 
 
-:::{grid-item-card}[Versuchsanleitung](https://hsuhhde.sharepoint.com/:b:/s/MesstechnikHT23_mst/EWaOUiVawtRDsu0oYj-mvXsBBxlxM9YB5_hImD-rayh20w?e=ET8d9T)
+:::{grid-item-card} [Versuchsanleitung](https://hsuhhde.sharepoint.com/:b:/s/MesstechnikHT23_mst/EWaOUiVawtRDsu0oYj-mvXsBBxlxM9YB5_hImD-rayh20w?e=ET8d9T)
 :class-header: bg-light
 **Strahlungsmesstechnik (SMT)**
 ^^^
@@ -58,7 +58,7 @@ In Vorbereitung
 :::
 
 
-:::{grid-item-card}[Versuchsanleitung](https://hsuhhde.sharepoint.com/:b:/s/MesstechnikHT23_mst/ERe3ddR5CMtCm4CyuqnSDngBv3m5RVHQN7ohuRSuBvX1YA?e=2lY1LT)
+:::{grid-item-card} [Versuchsanleitung](https://hsuhhde.sharepoint.com/:b:/s/MesstechnikHT23_mst/ERe3ddR5CMtCm4CyuqnSDngBv3m5RVHQN7ohuRSuBvX1YA?e=2lY1LT)
 :class-header: bg-light
 **Optische Messtechnik (OMT)**
 ^^^

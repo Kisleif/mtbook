@@ -5,7 +5,7 @@
 :gutter: 3
 
 :::{grid-item-card}
-:link: content/lab_kennlinie
+:link: lab_DK
 :link-type: doc
 :class-header: bg-light
 **Dioden-Kennlinie (DK)**
@@ -17,7 +17,7 @@
 
 
 :::{grid-item-card}
-:link: content/lab_BP
+:link: lab_BP
 :link-type: doc
 :class-header: bg-light
 **Ballistisches Pendel (BP)**
@@ -39,7 +39,7 @@
 :::
 
 :::{grid-item-card}
-:link: content/lab_kennlinie
+:link: lab_DK
 :link-type: doc
 :class-header: bg-light
 **Fertigungsmesstechnik (FMT)**
@@ -51,7 +51,7 @@
 
 
 :::{grid-item-card}
-:link: content/lab_BP
+:link: lab_BP
 :link-type: doc
 :class-header: bg-light
 **Strahlungsmesstechnik (SMT)**

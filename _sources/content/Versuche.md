@@ -23,7 +23,6 @@
 **Ballistisches Pendel (BP)**
 ^^^
 ```{image} pictures/IMG_8362.jpeg
-:height: 120
 ```
 :::
 

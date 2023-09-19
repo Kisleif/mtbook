@@ -15,13 +15,13 @@
 # :::
 # 
 # :::{grid-item-card} [Online Latex-Vorlage](https://www.overleaf.com/latex/templates/vorlage-praktikum-messtechnik/zwjgtfpxrszg)
-# ```{image} pictures/vorlage Kopie.jpg
+# ```{image} pictures/vorlage2.jpg
 # :height: 120
 # ```
 # :::
 # 
 # :::{grid-item-card} [Word-Vorlage](https://hsuhhde.sharepoint.com/:w:/r/sites/MesstechnikHT23_mst/Freigegebene%20Dokumente/General/Praktikumsvorlagen/Word-Vorlage_Praktikum_Messtechnik.docx?d=wa845bbc7dd434471b44313d9275da187&csf=1&web=1&e=7N30sW)
-# ```{image} pictures/vorlage Kopie.jpg
+# ```{image} pictures/vorlage2.jpg
 # :height: 120
 # ```
 # :::

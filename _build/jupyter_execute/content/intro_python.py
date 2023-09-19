@@ -21,11 +21,11 @@ beispiel_zahl = 12345
 print(beispiel_string, 'und die Zahl-Variable lautet: ' , beispiel_zahl + 1)
 
 
-# ## Notebooks im Browser mit 'Colab'
-# Ihr habt die Möglichkeit, die in unserem *Metrology Lecture Book* enthaltenen **Jupyter-Notebooks** direkt im Browser (*ohne lokale Python Installation*) auszuführen. Dazu klickt ihr oben auf das Symbol der *Rakete* und wählt anschließend `Colab` aus. Dies öffnet eine interaktive Umgebung im Browser, in der das Jupyter-Notebook gestartet wird. Beachtet, dass das Symbol der *Rakete* nur auf den Seiten erscheint, die als Jupyter-Notebooks vorliegen.
+# ## Notebooks im Browser ausführen
+# Ihr habt die Möglichkeit, die in unserem *Metrology Lecture Book* enthaltenen **Jupyter-Notebooks** direkt im Browser (*ohne lokale Python Installation*) auszuführen. Dazu klickt ihr oben auf das Symbol der *Rakete* und wählt anschließend `Colab` oder `Binder` (teilweise lange Kernel-Zeiten) aus. Dies öffnet eine interaktive Umgebung im Browser, in der das Jupyter-Notebook gestartet wird. Beachtet, dass das Symbol der *Rakete* nur auf den Seiten erscheint, die als Jupyter-Notebooks vorliegen.
 # Wenn Daten aus einer Mess*datei* innerhalb der Code-Zelle benutzt werden, funktioniert diese Methode leider nicht.
 # 
-# ## Installation
+# ## Python Installation
 # Jede Webseite, die als Jupyter-Notebook existiert, könnt ihr über den Download Button oben als `.ipynb` herunterladen. Diese Datei könnt ihr dann auf eurem PC ausführen. Bitte beachtet, dass ihr für manche Notebooks Messdaten benötigt. Diese müsst ihr separat aus dem [**GitHub-Repository**](https://github.com/Kisleif/mtbook) herunterladen (`content/data/`). 
 # 
 # ### Jupyter Lab Desktop
@@ -34,7 +34,7 @@ print(beispiel_string, 'und die Zahl-Variable lautet: ' , beispiel_zahl + 1)
 # 
 # Mit Jupyter Lab können die Jupyter-Notebooks (`.ipynb`-Dateien) ganz einfach per Doppelklick aus dem lokalen Dateisystem geöffnet werden.
 # 
-# Habt ihr einmal Jupyter Notebooks auf eurem PC installiert, könnt ihr auch ganz einfach Praktikums-Templates herunterladen und eure Messwerte auswerten. 
+# Habt ihr einmal Jupyter Notebooks auf eurem PC installiert, könnt ihr auch ganz einfach Praktikums-Templates herunterladen und dürft diese gerne zum Auswerten eurer Messdaten verwenden. 
 # 
 # ### Anaconda
 # Für eine vollständige Python Installation empfehlen wir als Alternative zu Jupyter Lab Desktop das Programm **Anaconda**. Mittels Anaconda werden sehr viele Bibliotheken bereits mitinstalliert, um die ihr euch später keine weiteren Gedanken mehr machen müsst. Eine Anleitung, wie ihr hiermit nicht nur Python, sondern auch Notebooks und auch Jupyter Lab auf euren PC bekommt, findet ihr im folgenden Video:
@@ -51,7 +51,7 @@ print(beispiel_string, 'und die Zahl-Variable lautet: ' , beispiel_zahl + 1)
 # * **Datenverarbeitung:** [pandas](https://pandas.pydata.org) (z.B. DataFrames)
 # * **Datenvisualisierung:** [matplotlib](https://matplotlib.org)
 # 
-# ```{info}
+# ```{seealso}
 # Installationshinweise & Grundlagen der Programmierung in Python findet ihr im [Github von Nils Fleischer](https://nbviewer.jupyter.org/github/nilsleiffischer/python-course/blob/master/setup.ipynb). 
 # ```
 # 

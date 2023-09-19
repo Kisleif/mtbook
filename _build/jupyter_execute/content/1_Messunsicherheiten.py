@@ -40,6 +40,11 @@
 # Wie groß ist die in {numref}`messgroesse` dargestellte absolute und relative Messabweichung?
 # :::
 
+# :::{admonition} Lösung
+# :class: dropdown
+# Die Differenz zwischen *wahren* und *gemessenen* Wert beträgt $\Delta x = 0,88°C$. Bezogen auf den Messwert beträgt die relative Messabweichung 3,52%.
+# :::
+
 # In[1]:
 
 
@@ -51,11 +56,6 @@ dx_absolut = np.abs(x_gemessen - x_wahr)
 print('Die absolute Messabweichung beträgt: ', dx_absolut, '°C')
 print('Die relative Messabweichung beträgt: ', dx_absolut/x_gemessen, ' = ', dx_absolut/x_gemessen*100, '%')
 
-
-# :::{admonition} Lösung
-# :class: tip, dropdown
-# Die Differenz zwischen *wahren* und *gemessenen* Wert beträgt $\Delta x = 0,88°C$. Bezogen auf den Messwert beträgt die relative Messabweichung 3,52%.
-# :::
 
 # ## Typen von Unsicherheiten
 # 

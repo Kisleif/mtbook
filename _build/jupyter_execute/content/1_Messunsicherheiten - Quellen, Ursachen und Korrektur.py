@@ -66,7 +66,9 @@ print('eine absolute Unsicherheit von ', u*U_end, 'V')
 # :::::
 # 
 # 
-# Das Gerät im Bild zeigt den Messwert 5.847V an. Laut Hersteller ist die Maximalabweichung (unter Referenzbedingungen) $a = \pm$ (0,5% vom *Messwert* + 9 Digit). Die Anzahl der Nachkommastellen (also der Digits) ist in diesem Falle 3, also 0,001V. Genauer kann das Messgerät keine Spannung angeben. Die Messabweichung setzt sich also wiefolgt zusammen (zwei signifikante Stellen reichen hierbei, da der Messwert selber nicht genauer angezeigt wird):
+# ```{admonition} Beispiel
+# :class: tip
+# Das Gerät im Bild zeigt den Messwert 5,847V an. Laut Hersteller ist die Maximalabweichung (unter Referenzbedingungen) $a = \pm$ (0,5% vom *Messwert* + 9 Digit). Die Anzahl der Nachkommastellen (also der Digits) ist in diesem Falle 3, also 0,001V. Genauer kann das Messgerät keine Spannung angeben. Die Messabweichung setzt sich also wiefolgt zusammen (zwei signifikante Stellen reichen hierbei, da der Messwert selber nicht genauer angezeigt wird):
 # 
 # $$a = \pm (0,5\% \cdot 5,847\,\mathrm{V} + 9 \cdot 0,001\,\mathrm V) \approx \pm 0,038\,\mathrm V = \pm 38,235\,\mathrm{mV}$$
 # 
@@ -75,6 +77,8 @@ print('eine absolute Unsicherheit von ', u*U_end, 'V')
 # $$u(U) = \frac{a}{\sqrt{3}} = \frac{38,235\,\mathrm{mV}}{\sqrt{3}} \approx 22\,\mathrm{mV}$$
 # 
 # Ist nichts weiter bekannt, schätzt man die Unsicherheit über einen Mindestfehler von a = 1 Digit ab.
+# ```
+# 
 
 # In[2]:
 
@@ -115,6 +119,17 @@ print('Die Unsicherheit beträgt: +-',round(A_total/np.sqrt(3),Nachkommastellen)
 # Angenommen man habe ein $2\,\mathrm m$ langes Kabel, das einen Querschnitt von $0,5\,\mathrm{mm^2}$ aufweist und aus Kupfer (mit einem spezifischen Widerstand von $0,0175\,\mathrm{\Omega mm^2/m}$) ist. Wie groß ist die systematische Messabweichung für eine Stromstärke von $I = 100\,\mathrm{mA}$, wenn jeweils ein solches Kabel zum Anschluss der Spannungsmessung genommen wird?
 # :::
 
+# :::{admonition} Lösung
+# :class: dropdown
+# Angenommen man habe keine Zuleitungskabeln, wo wäre die Spannung an einem Widerstand $R_x$ durch $U_x = R_x \cdot I$ gegeben. 
+# Bei Zuleitungskabeln werden die unvermeidbaren Zusatz-Widerstände in Reihe zu dem eigentlichen Widerstand $R_x$ geschaltet. Das heißt die gemessene Spannung setzt sich nun aus der Spannung an $R_x$ und an den jeweils 2 Kabeln, $U_L$ zusammen: $U = U_x + 2\cdot U_L$. 
+# Der Wert für $U_L$ beträgt:
+# 
+# $$U_L = \frac{\zeta \cdot l}{A} \cdot I = 7\,\mathrm{mV}$$
+# 
+# Damit wird die Spannung mit 2m-Kupferkabeln um $14\,\mathrm{mV}$ zu hoch gemessen!
+# :::
+
 # In[3]:
 
 
@@ -127,17 +142,6 @@ I = 100e-3 #in A
 U = zeta * l / A * I
 print('Die Spannung wird um ', 2*U*1000, 'mV zu hoch gemessen')
 
-
-# :::{admonition} Lösung
-# :class: tip, dropdown
-# Angenommen man habe keine Zuleitungskabeln, wo wäre die Spannung an einem Widerstand $R_x$ durch $U_x = R_x \cdot I$ gegeben. 
-# Bei Zuleitungskabeln werden die unvermeidbaren Zusatz-Widerstände in Reihe zu dem eigentlichen Widerstand $R_x$ geschaltet. Das heißt die gemessene Spannung setzt sich nun aus der Spannung an $R_x$ und an den jeweils 2 Kabeln, $U_L$ zusammen: $U = U_x + 2\cdot U_L$. 
-# Der Wert für $U_L$ beträgt:
-# 
-# $$U_L = \frac{\zeta \cdot l}{A} \cdot I = 7\,\mathrm{mV}$$
-# 
-# Damit wird die Spannung mit 2m-Kupferkabeln um $14\,\mathrm{mV}$ zu hoch gemessen!
-# :::
 
 # ## Korrektur von systematischen Messabweichungen
 # 

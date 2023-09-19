@@ -80,7 +80,7 @@ print('relative Messabweichung der Cheops-Pyramide: ', relative_abweichung*100, 
 # Die anfängliche Definition des *Meters*.
 # :::
 
-# ### SI-Einheiten 
+# ## SI-Einheiten 
 # 
 # ::::::{margin}
 # :::::{grid}
@@ -172,6 +172,8 @@ print('relative Messabweichung der Cheops-Pyramide: ', relative_abweichung*100, 
 # Das klingt erstmal nicht viel, wird aber in unserer Hightech-Welt, in der schon in Nanometern (Millionstel Millimeter) oder Femtosekunden (Millionstel einer Milliardstel Sekunde) gemessen wird, mehr und mehr zum Problem.
 # ```
 # 
+# ## Naturkonstanten
+# 
 # Seit 2018 werden *alle* SI-Einheiten von Naturkonstanten abgeleitet. Bei den drei Basiseinheiten Meter, Sekunde und Candela hat sich nichts substantielles geändert, lediglich die Formulierung der Definition wurde angepasst, z.B.:
 # 
 # * Die **Sekunde** ist ab sofort dadurch definiert, dass die Frequenz der Cäsium-Strahlung, $\Delta \nu_\mathrm{133Cs}$, exakt den Wert 9192631770 annimmt, wenn man diese in 1/s ausdrückt     (Cäsiumuhren haben übrigens eine Störanfälligkeit von 1:1e13, das entspricht einer Abweichung von 1s in 300000 Jahren.):
@@ -208,7 +210,7 @@ print('relative Messabweichung der Cheops-Pyramide: ', relative_abweichung*100, 
 # Die Definition der SI-Einheiten mittels Naturkonstanten und wie sich diese voneinander ableiten.
 # :::
 
-# ### Abgeleitete / Ergänzende SI-Einheiten
+# ## Abgeleitete / Ergänzende SI-Einheiten
 # <a id="SubSec-Abgeleitete_Ergänzende_SI-Einheiten"></a>
 # 
 # SI umfasst auch eine Aufzählung weiterer Einheiten, welche von den 7 Basiseinheiten, oder über physikalische Gesetzmäßigkeiten, abgeleitetet werden können. Hier nur einige Beispiele:
@@ -227,7 +229,7 @@ print('relative Messabweichung der Cheops-Pyramide: ', relative_abweichung*100, 
 # * 1 rad (Radiant) = 1 m/m, welches der ebene Winkel zwischen zwei Radien eines Kreises ist, falls der dadurch beschriebene Kreisbogen genauso groß ist wie der Radius. Der Umfang eines Kreises ist bekannterweise $2\pi \cdot r$, wobei $r$ der Kreisradius ist. Dadurch entspricht eine komplette Drehung einem Winkel von $2\pi\,\mathrm{rad}$
 # * 1 sr (Steradiant) = 1 m$^2$/m$^2$ ist der räumliche Winkel (analog zum Radiant). Dieser schließt mit der Kugelmitte als Scheitelpunkt eine Fläche auf der Kugeloberfläche ein. Diese Fläche ist quadratisch mit einer Seitenlänge die dem Kugelradius entspricht. Die Einheit kann also ebenfalls auf Basiseinheiten zurückgeführt werden, hier 1 sr = m$^2$/m$^2$.
 
-# ### Nicht-SI-Einheiten
+# ## Nicht-SI-Einheiten
 # <a id="SubSec-Nicht-Si-Einheiten"></a>
 # 
 # Es gibt diverse zusätzliche Einheiten, welche keine offiziellen SI-Einheiten sind, aber aufgrund ihrer großen Beliebtheit und Handhabbarkeit gerne benutzt werden. Im Allgemeinen gibt es aber immer Zusammenhänge zu den SI-Einheiten, sodass sie sich in solche umformen lassen. Beispiele sind z.B.:
@@ -253,7 +255,7 @@ print('relative Messabweichung der Cheops-Pyramide: ', relative_abweichung*100, 
 # * den Seegang
 # * die Stärke von Erdbeben
 
-# ### Vorsätze und Präfix im SI
+# ## Vorsätze und Präfix im SI
 # 
 # Zum SI, bzw. prinzipiell angewendet in allen anderen Einheiten, sind sogenannte Präfixe / Vorsätze definiert. Teile oder Vielfache von SI-Einheiten können in Kurzform geschrieben werden, was das Lesen erleichtert. So können besonders große oder besonders kleine Zahlen übersichtlicher dargestellt werden. Dafür muss der oder die Forschende oder Ingeneur:in lediglich ein paar Vokabeln können.
 # 
@@ -305,7 +307,7 @@ print('relative Messabweichung der Cheops-Pyramide: ', relative_abweichung*100, 
 # 
 # ::::
 
-# ### Logarithmische Einheiten
+# ## Logarithmische Einheiten
 # 
 # ::::::{margin}
 # :::::{grid}
@@ -413,17 +415,20 @@ plt.savefig('log_plot1.pdf')
 # ```{admonition} Aufgabe
 # :class: tip
 # In folgendem Code-Block können Umrechungen für verschiedene Messwerte ausprobiert werden:
+# * Änder den Referenzwert `P_ref` von 1mW auf 1W und 1$\mu$W.
+# * Änder den Messwert `P`
+# * Beachte, dass bei der Angabe des Pegelwertes der Referenzwert immer in Klammern mitangebeben werden muss!
 # ```
 
 # In[3]:
 
 
-import numpy as np
-P = 1e-6     # Messwerts, hier 1 uW
+import numpy as np # lade numpy Library
+P = 1e-6     # Messwert, hier 1 uW
 P_ref = 1e-3 # Referenzwert = 1 mW
 P_dB = 10 * np.log10(P/P_ref) # Achtung: in numpy ist "log" der natürlich Logarithmus ln
-print('Leistung = %.e W = %.10f W' %(P, P))
-print('Pegel in dB: ', P_dB, '(%.3f)' %(P_ref))# In diesem Code Block können Umrechnungen für verschiedene Messwerte ausprobiert werden:
+print('Leistungswert = %.e W = %.10f W' %(P, P))
+print('Pegel in dB: ', P_dB, '(%.3f)' %(P_ref))
 
 
 # In[ ]:

@@ -128,10 +128,7 @@ glue("fig_häufigkeitsdichte", fig, display=False)
 print('Integral über die Häufigkeitsdichte: ',(bconts * np.diff(bedges)).sum())
 
 
-# ```{admonition} Bemerke:
-# :class: tip
 # Die Wahrscheinlichkeit, einen Messwert innerhalb eines kleinen Intervalls $\Delta x$ um den Wert $\overline x$ zu finden, ist $dP(X) = d(x)\cdot \Delta x$, wobei $d(x) = d_i$.
-# ```
 
 # ## Zentraler Grenzwertsatz
 # 
@@ -196,7 +193,7 @@ glue("fig_häufigkeitsdichte_normalverteilung", fig, display=False)
 # 
 # $$\sigma^2  =  \frac{1}{m} \sum_{j=1}^m \left( x_j - \mu \right)^2$$
 # 
-# ```{warning} 
+# ```{admonition} Bemerke: 
 # Der arithmetische Mittelwert zeichnet sich dadurch aus, dass für diesen Wert die Summe der Abweichungsquadrate minimal ist. Die Varianz hängt nicht von der Anzahl der Messungen ab. Die Streuung kann *ausschließlich* durch ein besseres Messverfahren verkleinert werden. Anschaulich ist das direkt nachvollziehbar: Die „Punktwolke“ der Messergebnisse um den Mittelwert schmiegt sich nicht enger an den Mittelwert, nur weil häufiger gemessen wurde. Ein stark streuendes Messverfahren streut durch seine Wiederholung nicht weniger. 
 # ```
 # 
@@ -278,7 +275,7 @@ print(tabulate(zusammenfassung_df, headers='keys', tablefmt='pretty'))
 
 
 # ```{warning} 
-# Die Größen $\sigma$ und $s$ unterscheiden sich aufgrund von $m \rightarrow m-1$! Für kleinere $n$ wird der Unterschied signifikanter.
+# Die Größen $\sigma$ und $s$ unterscheiden sich aufgrund von $m \rightarrow m-1$! Je weniger Messwerte $m$, desto signifikanter ist der Unterschied.
 # Welche Größe, s oder $\sigma$, als Messunsicherheit für die Einzelmessung $x$ verwendet wird hängt vom Einzelfall ab. Wichtig ist, dass man dazu schreibt, welcher Wert verwendet wurde, damit die Argumentation nochvollzogen werden kann. Generell sollte $s$ insbesondere bei wenigen Messwerten verwendet werden, denn mit $s$ ist auch der etwas seltsame Fall einer Einzelmessung abgedeckt: für m = 1 wäre $\sigma$ = 0, $s$ dagegen nicht definiert. Die zweite Aussage ist, bezogen auf die statistische Interpretation, sicher sinnvoller.
 # ```
 
@@ -308,18 +305,6 @@ print(tabulate(zusammenfassung_df, headers='keys', tablefmt='pretty'))
 # Das heißt aus den verschiedenen Mittelwerten von $k$ Stichproben könnte theoretisch wieder ein Mitelwert berechnet werden und folglich auch eine **Standardabweichung der Mittelwerte**:
 # 
 # $$s(\overline x) = \frac{s}{\sqrt{m}} = \sqrt{\frac{1}{m(m-1)} \sum_{j=1}^m (x_j - \overline x)^2}$$
-# 
-# ```{warning} 
-# Die **Standardabweichung des Mittelwertes $s(\overline x)$** einer Messreihe ist gegenüber der Abweichung der Einzelmessungen $s(x)$ um den Faktor $\sqrt{m}$ reduziert. Der Grund dafür ist, dass sich statistisch ermittelte Unsicherheiten teilweise herausmitteln. 
-# ```
-# 
-# Bei einer großen Anzahl Messungen (>30) liegen etwa 68% der **Einzel**-Messungen im Intervall $\pm s(x)$ **um den Mittelwert** der Messreihe herum. Würden man den wahren Wert kennen, könnte man weiter herausfinden, dass etwa 68% der **Mittelwerte** im Intervall $\pm s(\overline x)$ **um den wahren** Wert lägen.
-# 
-# ```{admonition} Standardabweichung des Mittelwertes
-# :class: tip
-# Für die Standardabweichung des Mittelwertes des obigen Zeitmessreihe erhalten wir dadurch
-# $$u_{\overline x} = \frac{s}{\sqrt{m}} = \frac{0,0433\,\mathrm s}{\sqrt{22}} = 0,009\,\mathrm s$$
-# ```
 
 # In[9]:
 
@@ -387,6 +372,20 @@ plt.legend(bbox_to_anchor=(1,1), loc="upper left")
 plt.show()
 
 
+# ```{warning} 
+# Die **Standardabweichung des Mittelwertes $s(\overline x)$** einer Messreihe ist gegenüber der Abweichung der Einzelmessungen $s(x)$ um den Faktor $\sqrt{m}$ reduziert. Der Grund dafür ist, dass sich statistisch ermittelte Unsicherheiten teilweise herausmitteln. 
+# ```
+# 
+# Bei einer großen Anzahl Messungen (>30) liegen etwa 68% der **Einzel**-Messungen im Intervall $\pm s(x)$ **um den Mittelwert** der Messreihe herum. Würden man den wahren Wert kennen, könnte man weiter herausfinden, dass etwa 68% der **Mittelwerte** im Intervall $\pm s(\overline x)$ **um den wahren** Wert lägen.
+# 
+# ```{admonition} Standardabweichung des Mittelwertes
+# :class: tip
+# Für die Standardabweichung des Mittelwertes des obigen Zeitmessreihe erhalten wir dadurch
+# 
+# $$u_{\overline x} = \frac{s}{\sqrt{m}} = \frac{0,0433\,\mathrm s}{\sqrt{22}} = 0,009\,\mathrm s$$
+# 
+# ```
+
 # ### Normierte Normalverteilung
 # 
 # Laut dem zentralen Grenzwertsatz folgen also viele Messungen einer Normalverteilung. Um verschiedene Messungen miteinander zu vergleichen, benutzt man häufig die normierte Normalverteilung. Dadurch können die Verteilungen verschiedener Messwerte miteinander verglichen werden, unabhängig von deren physikalischen Einheit. 
@@ -433,7 +432,19 @@ plt.show()
 # :::::
 # ::::::
 # 
-# Wir haben eben bereits erwähnt, dass 68% der Messwerte innerhalb des Intervalls $\pm s(x)$ liegen. Bei bekannter  Wahrscheinlichkeitsverteilung $p(x)$ der Messwerte $x$ um den Mittelwert $\overline x$, lässt sich die Wahrscheinlichkeit dafür berechnen, einen Messwert im Intervall $[x_1, x_2]$ um den Mittelwert zu finden. Wir nehmen im Folgenden eine Normalverteilung, mit Standardabweichung $\sigma$, der Messwerte an, dann ist die Wahrscheinlichkeit für
+# Wir haben eben bereits erwähnt, dass 68% der Messwerte innerhalb des Intervalls $\pm \sigma(x)$ liegen. 
+# 
+# ```{admonition} Weitere Sigma-Umbegbungen, die man kennen sollte:
+# :class: tip
+# Bei einer echten Normalverteilung gilt folgendes:
+# * 68,3% aller Messwerte liegen im Bereich $\pm \sigma$
+# * 95,5% aller Messwerte liegen im Bereich $\pm 2\sigma$
+# * 99,7% aller Messwerte liegen im Bereich $\pm 3\sigma$
+# * Im Abstand $\pm \sigma$ sind die Wendestellen
+# * Die Normalverteilung reicht von $-\infty$ bis $+\infty$ 
+# ```
+# 
+# Bei bekannter  Wahrscheinlichkeitsverteilung $p(x)$ der Messwerte $x$ um den Mittelwert $\overline x$, lässt sich die Wahrscheinlichkeit dafür berechnen, einen Messwert im Intervall $[x_1, x_2]$ um den Mittelwert zu finden. Wir nehmen im Folgenden eine Normalverteilung, mit Standardabweichung $\sigma$, der Messwerte an, dann ist die Wahrscheinlichkeit für
 # - einen Messwert innerhalb $x\pm dx$: 
 # 
 # $$p(x)dx = \frac{1}{\sigma \sqrt{2\pi}}\mathrm{exp}\left(-\frac{(x-\overline x)^2}{2\sigma^2}\right) dx$$
@@ -446,28 +457,15 @@ plt.show()
 # 
 # $$P(x_1 < x < x_2) = \int_{x_1}^{x_2} p(x)dx =  \frac{1}{\sigma \sqrt{2\pi}}\int_{x_1}^{x_2} \mathrm{exp}\left(-\frac{(x-\overline x)^2}{2\sigma^2}\right) dx$$
 # 
-# Das hier auftretende Integral ist nicht elementar berechenbar und man findet stattdessen Tabellen, aus denen man die zugehörigen Wahrscheinlichkeitswerte ablesen kann. 
-# Eine Beispiel-Tabelle kann im folgenden Block angezeigt werden und gibt die Wahrscheinlichkeiten für verschiedene $z-$Werte der normierten Normalverteilung an. Die Spalten geben die erste Nachkommastelle von $z$ an, die Zeilen die zweite.
+# Das hier auftretende Integral ist nicht elementar berechenbar und man findet stattdessen Tabellen, aus denen man die zugehörigen Wahrscheinlichkeitswerte ablesen kann:
 # 
 # :::{admonition} Tabelle der normierten Wahrscheinlichkeiten in Abhängigkeit von $z$
-# :class: tip, dropdown
+# :class: dropdown
+# Die Spalten geben die erste Nachkommastelle von $z$ an, die Zeilen die zweite.
 # ![Bild](pictures/normalverteilung_tabelle.png)
 # :::
 # 
 # Mit $x_1 = \mu - t\cdot \sigma$ und $x_2 = \mu + t\cdot \sigma$ findet man die Wahrscheinlichkeit $P(\mu-t\cdot\sigma \leq x \leq \mu+t\cdot\sigma)$ dafür, dass der Messwert innerhalb einer $t\cdot\sigma$-Umgebung um den Mittelwert liegt. 
-# 
-# ```{admonition} Sigma-Umbegbungen, die man kennen sollte:
-# :class: tip
-# Bei einer echten Normalverteilung gilt folgendes:
-# * 68,3% aller Messwerte liegen im Bereich $\pm \sigma$
-# * 95,5% aller Messwerte liegen im Bereich $\pm 2\sigma$
-# * 99,7% aller Messwerte liegen im Bereich $\pm 3\sigma$
-# * Im Abstand $\pm \sigma$ sind die Wendestellen
-# * Die Normalverteilung reicht von $-\infty$ bis $+\infty$ 
-# ```
-# 
-# Als wichtigste Erkenntnis gilt es festzuhalten, dass zu jeder Aussage zu zufälligen Abweichungen die zugehörige Wahrscheinlichkeit für das Zutreffen dieser Aussage zwingend erforderlich ist. Dies sollte immer mit angegeben werden, wenn die Messabweichung angegeben wird. 
-# Messwertangaben ohne Aussage zur Wahrscheinlichkeit bezüglich der zufälligen Abweichungen sind in der betrieblichen Praxis nicht brauchbar!
 # 
 # :::{admonition} Aufgabe: Wahrscheinlichkeit im Intervall $P(x_1 < x < x_2)$ berechnen
 # :class: tip
@@ -477,25 +475,32 @@ plt.show()
 # :::
 # 
 # :::{admonition} Lösung: Wahrscheinlichkeit im Intervall $P(x_1 < x < x_2)$ berechnen
-# :class: tip
+# :class: dropdown
 # * Obere und untere Grenze werden in den $z$-Wert umgerechnet:
 # 
-# > $z_o = \frac{x-\mu}{\sigma} = \frac{(0,69-0,7)\,\mathrm l}{0,005\,\mathrm l} = -2$
+#  $z_o = \frac{x-\mu}{\sigma} = \frac{(0,69-0,7)\,\mathrm l}{0,005\,\mathrm l} = -2$
 # 
-# > $z_u = \frac{x-\mu}{\sigma} = \frac{(0,71-0,7)\,\mathrm l}{0,005\,\mathrm l} = 2$
+#  $z_u = \frac{x-\mu}{\sigma} = \frac{(0,71-0,7)\,\mathrm l}{0,005\,\mathrm l} = 2$
 # 
 # * Aus der Tabelle werden die Werte für $z = 2,00$ abgelesen:
 # 
-# > $\phi(2) = 0.97725$ (Wahrscheinlichkeit dafür, dass der Messwert zwischen 0 l und 0,71 l liegt)
+#  $\phi(2) = 0.97725$ (Wahrscheinlichkeit dafür, dass der Messwert zwischen 0 l und 0,71 l liegt)
 # 
-# > $\phi(-2) = 1 - \phi(2) =  1-0,97725 = 0,02275$ (Wahrscheinlichkeit dafür, dass der Messwert NICHT zwischen 0 l und 0,69 l liegt)
+#  $\phi(-2) = 1 - \phi(2) =  1-0,97725 = 0,02275$ (Wahrscheinlichkeit dafür, dass der Messwert NICHT zwischen 0 l und 0,69 l liegt)
 # 
 # * Berechnung der Wahrscheinlichkeit, dass die Saftflaschen mit einem Inhalt zwischen 0,69 l und 0,71 l befüllt werden:
 # 
-# > $\phi(2) - \phi(-2) = 0,97725-0,02275 = 0,9545$
+#  $\phi(2) - \phi(-2) = 0,97725-0,02275 = 0,9545$
 # 
 # Mit einer Wahrscheinlichkeit von 95,45 % werden die Flaschen in der Abfüllanlage mit einem Inhalt von 0,69 l – 0,71 l befüllt. Dies entspricht auch genau der Wahrscheinlichkeit der $2\sigma$-Umgebung (siehe vorheriges Kapitel), was für $z = \pm 2$ natürlich auch so sein sollte. 
 # :::
+# 
+# ```{warning}
+# Als wichtigste Erkenntnis gilt es festzuhalten, dass zu jeder Aussage zu zufälligen Abweichungen die zugehörige Wahrscheinlichkeit für das Zutreffen dieser Aussage zwingend erforderlich ist.
+# Messwertangaben ohne Aussage zur Wahrscheinlichkeit bezüglich der zufälligen Abweichungen sind in der betrieblichen Praxis nicht brauchbar!
+# ```
+# 
+# 
 # 
 # ### Güteklassen von Messgeräten 
 # 
@@ -505,11 +510,11 @@ plt.show()
 # | Intervallgrenzen | Transformation | $P(x) = \Phi(z)$ | Bezeichnung | Wahrscheinlichkeit
 # |:-------|:-------|:-------|:-------|:-------|
 # | $\mu \pm 1 \cdot \sigma$ | 1 | 0,6827| Orientierende Messung | 68,27% |
-# | $\mu \pm 1.96 \cdot \sigma$ | 1 | 0,95| Betriebsmessung | 95% |
-# | $\mu \pm 2 \cdot \sigma$ | 1 | 0,9545| Betriebsmessung | 95,45% |
-# | $\mu \pm 2.58 \cdot \sigma$ | 1 | 0,99| Präzisionsmessung | 99% |
-# | $\mu \pm 3 \cdot \sigma$ | 1 | 0,9973| Präzisionsmessung | 99,73% |
-# | $\mu \pm 4 \cdot \sigma$ | 1 | 0,9999| Präzisionsmessung | 99,99% |
+# | $\mu \pm 1.96 \cdot \sigma$ | 1,96 | 0,95| Betriebsmessung | 95% |
+# | $\mu \pm 2 \cdot \sigma$ | 2 | 0,9545| Betriebsmessung | 95,45% |
+# | $\mu \pm 2.58 \cdot \sigma$ | 2,58 | 0,99| Präzisionsmessung | 99% |
+# | $\mu \pm 3 \cdot \sigma$ | 3 | 0,9973| Präzisionsmessung | 99,73% |
+# | $\mu \pm 4 \cdot \sigma$ | 4 | 0,9999| Präzisionsmessung | 99,99% |
 # 
 # 
 # ## Angabe des Messergebnisses mit Unsicherheit
@@ -538,22 +543,26 @@ plt.show()
 # :::
 # 
 # :::{admonition} Lösung: Gib das Messergebnis für obige Zeitmessreihe an!
-# :class: tip
+# :class: dropdown
 # Für die Zeitmessreihe aus dem oben aufgeführten Beispiel waren folgende Parameter gegeben:
 # * Anzahl der Messwerte $m=22$
 # * Mittelwert: $\overline x = 1,40227\,\mathrm{s}$
 # * Standardabweichung der Einzelmessung: $s = 0,0433\,\mathrm{s}$
 # 
 # Für die Standardabweichung des Mittelwertes erhalten wir dadurch: 
+# 
 # $$u_{\overline x} = \frac{s}{\sqrt{m}} = \frac{0,0433\,\mathrm s}{\sqrt{22}} = 0,009\,\mathrm s$$
 # 
 # Mit einer Sicherheit von über 68% sind die Messwerte im folgenden Intervall zu erwarten:
+# 
 # $$x = (1,402 \pm 2\cdot 0,009)\,\mathrm s = (1,402 \pm 0,009)\,\mathrm s \quad (68,27\%)$$
 # 
 # Mit einer Sicherheit von über 95% sind die Messwerte im folgenden Intervall zu erwarten:
+# 
 # $$x = (1,402 \pm 2\cdot 0,009)\,\mathrm s = (1,402 \pm 0,018)\,\mathrm s \quad (95\%)$$
 # 
 # Mit einer Sicherheit von über 99% sind die Messwerte im folgenden Intervall zu erwarten:
+# 
 # $$x = (1,402 \pm 3\cdot 0,009)\,\mathrm s = (1,402 \pm 0,027)\,\mathrm s \quad (99,73\%)$$
 # :::
 
@@ -582,7 +591,7 @@ print('Das Messergebnis für ein Vertrauensintervall von 99,73% (3-sigma Umgebun
 # Die unten stehende Quantil-Tabelle zeigt die zugehörigen Werte von $t$ in Abhängigkeit von der Messwertanzahl, und dem gewählten Vertrauensniveau, dass die geforderte statistische Sicherheit beschreibt:
 # 
 # :::{admonition} Tabelle der $s-p$-Quantile
-# :class: tip, dropdown
+# :class: dropdown
 # ![Bild](pictures/student-t.png)
 # :::
 # 

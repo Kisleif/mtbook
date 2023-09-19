@@ -58,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
     <link rel="next" title="Statistische Messunsicherheit" href="1_Mittelwert_StdAbw.html" />
-    <link rel="prev" title="Messabweichungen" href="1_Messunsicherheiten.html" />
+    <link rel="prev" title="Messunsicherheiten" href="1_Messunsicherheiten.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="de">
     
@@ -157,7 +157,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="1_Messunsicherheiten.html">
-     Messabweichungen
+     Messunsicherheiten
     </a>
    </li>
    <li class="toctree-l2 current active">
@@ -834,7 +834,7 @@ title="Print to PDF"
 <section id="anzeigefehler-von-messgeraten-systematisch">
 <h2>Anzeigefehler von Messgeräten (systematisch)<a class="headerlink" href="#anzeigefehler-von-messgeraten-systematisch" title="Link zu dieser Überschrift">#</a></h2>
 <p>Messgeräte werden anhand ihrer Genauigkeit in Klassen eingruppiert. Die Klasse entspricht der relativen Messabweichung. Präzisionsmessgeräte besitzen somit Abweichungen die zwischen 0,001% und 0,05% liegen. Die Genauigkeitsklasse K 2,5 (Angabe auf der Messskala nach DIN EN 60051 Abb. 1) bedeutet: Ist der Endwert des eingestellten Messbereichs <span class="math notranslate nohighlight">\(U_\mathrm{end}\)</span>, dann beträgt die Typ B-Unsicherheit über den gesamten Messbereich <span class="math notranslate nohighlight">\(u(U) = 0,0025\cdot U_\mathrm{end}\)</span>. Für <span class="math notranslate nohighlight">\(U_\mathrm{end} = 15\,\mathrm V\)</span> erhält man also:</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">U_end</span> <span class="o">=</span> <span class="mi">15</span>
 <span class="n">u</span> <span class="o">=</span> <span class="mf">0.0025</span>
@@ -911,14 +911,17 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>Das Gerät im Bild zeigt den Messwert 5.847V an. Laut Hersteller ist die Maximalabweichung (unter Referenzbedingungen) <span class="math notranslate nohighlight">\(a = \pm\)</span> (0,5% vom <em>Messwert</em> + 9 Digit). Die Anzahl der Nachkommastellen (also der Digits) ist in diesem Falle 3, also 0,001V. Genauer kann das Messgerät keine Spannung angeben. Die Messabweichung setzt sich also wiefolgt zusammen (zwei signifikante Stellen reichen hierbei, da der Messwert selber nicht genauer angezeigt wird):</p>
+<div class="tip admonition">
+<p class="admonition-title">Beispiel</p>
+<p>Das Gerät im Bild zeigt den Messwert 5,847V an. Laut Hersteller ist die Maximalabweichung (unter Referenzbedingungen) <span class="math notranslate nohighlight">\(a = \pm\)</span> (0,5% vom <em>Messwert</em> + 9 Digit). Die Anzahl der Nachkommastellen (also der Digits) ist in diesem Falle 3, also 0,001V. Genauer kann das Messgerät keine Spannung angeben. Die Messabweichung setzt sich also wiefolgt zusammen (zwei signifikante Stellen reichen hierbei, da der Messwert selber nicht genauer angezeigt wird):</p>
 <div class="math notranslate nohighlight">
 \[a = \pm (0,5\% \cdot 5,847\,\mathrm{V} + 9 \cdot 0,001\,\mathrm V) \approx \pm 0,038\,\mathrm V = \pm 38,235\,\mathrm{mV}\]</div>
 <p>Innerhalb dieses <span class="math notranslate nohighlight">\(\pm\)</span> Bereiches der Breite <span class="math notranslate nohighlight">\(2a\)</span> unterstellt man eine Gleichverteilung der Messwerte und bekommt damit die Standardunsicherheit:</p>
 <div class="math notranslate nohighlight">
 \[u(U) = \frac{a}{\sqrt{3}} = \frac{38,235\,\mathrm{mV}}{\sqrt{3}} \approx 22\,\mathrm{mV}\]</div>
 <p>Ist nichts weiter bekannt, schätzt man die Unsicherheit über einen Mindestfehler von a = 1 Digit ab.</p>
-<div class="cell docutils container">
+</div>
+<div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">Messwert</span> <span class="o">=</span> <span class="mf">5.847</span> <span class="c1"># in V</span>
@@ -965,6 +968,15 @@ Die Unsicherheit beträgt: +- 0.02207 V = +- 22.07499 mV
 <p class="admonition-title">Aufgabe</p>
 <p>Angenommen man habe ein <span class="math notranslate nohighlight">\(2\,\mathrm m\)</span> langes Kabel, das einen Querschnitt von <span class="math notranslate nohighlight">\(0,5\,\mathrm{mm^2}\)</span> aufweist und aus Kupfer (mit einem spezifischen Widerstand von <span class="math notranslate nohighlight">\(0,0175\,\mathrm{\Omega mm^2/m}\)</span>) ist. Wie groß ist die systematische Messabweichung für eine Stromstärke von <span class="math notranslate nohighlight">\(I = 100\,\mathrm{mA}\)</span>, wenn jeweils ein solches Kabel zum Anschluss der Spannungsmessung genommen wird?</p>
 </div>
+<div class="dropdown admonition">
+<p class="admonition-title">Lösung</p>
+<p>Angenommen man habe keine Zuleitungskabeln, wo wäre die Spannung an einem Widerstand <span class="math notranslate nohighlight">\(R_x\)</span> durch <span class="math notranslate nohighlight">\(U_x = R_x \cdot I\)</span> gegeben.
+Bei Zuleitungskabeln werden die unvermeidbaren Zusatz-Widerstände in Reihe zu dem eigentlichen Widerstand <span class="math notranslate nohighlight">\(R_x\)</span> geschaltet. Das heißt die gemessene Spannung setzt sich nun aus der Spannung an <span class="math notranslate nohighlight">\(R_x\)</span> und an den jeweils 2 Kabeln, <span class="math notranslate nohighlight">\(U_L\)</span> zusammen: <span class="math notranslate nohighlight">\(U = U_x + 2\cdot U_L\)</span>.
+Der Wert für <span class="math notranslate nohighlight">\(U_L\)</span> beträgt:</p>
+<div class="math notranslate nohighlight">
+\[U_L = \frac{\zeta \cdot l}{A} \cdot I = 7\,\mathrm{mV}\]</div>
+<p>Damit wird die Spannung mit 2m-Kupferkabeln um <span class="math notranslate nohighlight">\(14\,\mathrm{mV}\)</span> zu hoch gemessen!</p>
+</div>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zeta</span> <span class="o">=</span> <span class="mf">0.0175</span> <span class="c1">#in Ohm mm^2 / m</span>
@@ -983,15 +995,6 @@ Die Unsicherheit beträgt: +- 0.02207 V = +- 22.07499 mV
 </pre></div>
 </div>
 </div>
-</div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Lösung</p>
-<p>Angenommen man habe keine Zuleitungskabeln, wo wäre die Spannung an einem Widerstand <span class="math notranslate nohighlight">\(R_x\)</span> durch <span class="math notranslate nohighlight">\(U_x = R_x \cdot I\)</span> gegeben.
-Bei Zuleitungskabeln werden die unvermeidbaren Zusatz-Widerstände in Reihe zu dem eigentlichen Widerstand <span class="math notranslate nohighlight">\(R_x\)</span> geschaltet. Das heißt die gemessene Spannung setzt sich nun aus der Spannung an <span class="math notranslate nohighlight">\(R_x\)</span> und an den jeweils 2 Kabeln, <span class="math notranslate nohighlight">\(U_L\)</span> zusammen: <span class="math notranslate nohighlight">\(U = U_x + 2\cdot U_L\)</span>.
-Der Wert für <span class="math notranslate nohighlight">\(U_L\)</span> beträgt:</p>
-<div class="math notranslate nohighlight">
-\[U_L = \frac{\zeta \cdot l}{A} \cdot I = 7\,\mathrm{mV}\]</div>
-<p>Damit wird die Spannung mit 2m-Kupferkabeln um <span class="math notranslate nohighlight">\(14\,\mathrm{mV}\)</span> zu hoch gemessen!</p>
 </div>
 </section>
 <section id="korrektur-von-systematischen-messabweichungen">
@@ -1039,7 +1042,7 @@ Der Wert für <span class="math notranslate nohighlight">\(U_L\)</span> beträgt
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">zurück</p>
-            <p class="prev-next-title">Messabweichungen</p>
+            <p class="prev-next-title">Messunsicherheiten</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="1_Mittelwert_StdAbw.html" title="weiter Seite">

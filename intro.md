@@ -8,10 +8,10 @@ Willkommen im *Metrology Lecture Book*, dem **Vorlesungsskript** zur Messtechnik
 :gutter: 3
 
 :::{grid-item-card}
-:link: content/intro_python
+:link: content/intro_book
 :link-type: doc
 :class-header: bg-light
-**Über das Skript** 📖+🐍
+**Über dieses Book** 📖+🐍
 ^^^
 <iframe width="213" height="120" src="https://www.youtube.com/embed/jZ952vChhuI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 Einführung in Python und Jupyter-Notebooks.
@@ -52,24 +52,6 @@ Im Rahmen dieser Vorlesung werden wir die folgenden Fragen beantworten:
 2. *Welche* Messgeräte benutze ich für welche Messverfahren und Messgrößen? 
 3. *Wie* verwende ich Messgeräte *richtig* und *präzise*? 
 4. *Was* fange ich mit den Messdaten an?
-
-
-## Kommentare und Markierungen
-Du bestimmst dein Lerntempo und kannst hierfür die Videos nutzen. Stelle Fragen, diskutiere mit anderen und gestalte dein Lernen aktiv mit, indem du zum Beispiel die **Kommentier- und Highlight-Funktion** in https://hypothes.is/ benutzt: 
-
-* Klickt ganz oben am rechten Seitenrand auf den Pfeil, das Auge oder das Papier.
-* Unter https://hypothes.is/ registrieren bzw. einloggen, wenn bereits ein Account besteht.
-* Ggf. auf https://hypothes.is/ eine neue Gruppe für eigene Notizen erstellen.
-* Auf der Seite die entsprechende Gruppen auswählen, in der ihr Notizen anlegen wollt.
-* Text auf der Seite markieren und ggf. Notizen hinzufügen. 
-
-```{seealso}
-Auf der Webseite https://hypothes.is/ findet ihr eure Kollektion von Notizen und könnt sie direkt als Karteikarten benutzen. 
-```
-
-```{tip}
-Legt eine gemeinsame Gruppe für die Klausurvorbereitung an!
-```
 
 
 

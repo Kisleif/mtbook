@@ -2,13 +2,30 @@
 # coding: utf-8
 
 # # Über dieses Lecture Book
-# Fast jede Webseite im Metrology Lecture Book ist ein **Jupyter-Notebook**. Das heißt es gibt Code-Zellen mit Python-Code, die ihr selbst verändern und ausführen könnt. 
+# 
+# Das Metrology Lecture Book ist eine Webseite (JupyterBook) für das Vorlesungsskript Messtechnik, welches aus einzelnen Jupyter-Notebooks (in Python programmiert) aufgebaut ist.
+# Wie ihr diese Infastruktur optimal nutzen könnt, soll im Folgenden erläutert werden.
 # 
 # ```{info}
 # Um dem **Vorlesungsskript** zu folgen, sind **keine Python-Kenntnisse erforderlich**. 
 # ```
 # 
-# Dadurch habt ihr die Möglichkeit, den Code selbst auszuführen, Parameter anzupassen, zu experimentieren und ganz nebenbei Python zu lernen. Zusätzlich könnt ihr Python nutzen, um eure Messdaten aus dem Praktikum auszuwerten. Wir stellen bereits eine Sammlung von Jupyter-Notebooks für ausgewählte Praktikumsversuche zur Verfügung, um den Einstieg zu erleichtern. Das Schöne daran ist, dass Python Open Source ist, und ihr  sofort loslegen könnt:
+# ## {fa}`check` Kommentare und Markierungen
+# Stelle Fragen, diskutiere mit anderen und gestalte dein Lernen aktiv, indem du zum Beispiel die **Kommentier- und Highlight-Funktion** in https://hypothes.is/ benutzt: 
+# 
+# * Klickt ganz oben am rechten Seitenrand auf den Pfeil, das Auge oder das Papier.
+# * Unter https://hypothes.is/ registrieren bzw. einloggen, wenn bereits ein Account besteht.
+# * Ggf. auf https://hypothes.is/ eine neue Gruppe für eigene Notizen erstellen.
+# * Auf der Seite die entsprechende Gruppen auswählen, in der ihr Notizen anlegen wollt.
+# * Text auf der Seite markieren und ggf. Notizen hinzufügen. 
+# 
+# ```{seealso}
+# Auf der Webseite https://hypothes.is/ findet ihr eure Kollektion von Notizen und könnt sie direkt als Karteikarten benutzen. 
+# ```
+# 
+# ```{tip}
+# Legt eine gemeinsame Gruppe für die Klausurvorbereitung an!
+# ```
 # 
 # ## {fa}`download` Download
 # Jede Webseite kann über den {fa}`download` Button in folgenden Formation heruntergeladen werden. 
@@ -17,7 +34,7 @@
 # * `.md` wenn die Webseite als Markdown hinterlegt ist
 # 
 # ## {fa}`rocket` Python-Code im Browser
-# Über die {fa}`rocket` oben könnt ihr jede Webseite, die als Jupyter-Notebook hinterlegt ist, direkt im Browser ohne lokale Python-Installation auf eurem Rechner ausführen. Ihr könnt den Code live verändern und Berechnungen neu durchführen. 
+# Über die {fa}`rocket` oben könnt ihr jede Webseite, die als Jupyter-Notebook hinterlegt ist, direkt im Browser ohne lokale Python-Installation auf eurem Rechner ausführen. Dadurch habt ihr die Möglichkeit, den Code selbst auszuführen, Parameter anzupassen, zu experimentieren und ganz nebenbei Python zu lernen. 
 # * {guilabel}`Live Code`: Innerhalb der Webseite sollte nun ein Kernel gestartet werden, dies kann ein paar Sekunden dauern. Jetzt könnte ihr den Code in den Zellen direkt auf der Webseite verändern und neu ausführen. Da der Live Code auf Binder basiert, kann es unter Umständen ein paar Minuten dauern, bis der Live Code ausgeführt werden kann. 
 # * {guilabel}`Colab`: Das Jupyter-Notebook wird in der Python Umgebung von Goggle geöffnet und kann dort ausgeführt werden. Habt ihr einen Google-Account, könnt ihr dort auch eine Kopie des Notebooks ablegen.
 # * {guilabel}`Binder`: Das Jupyter-Notebook wird im Binder-Browser gestartet. Dies kann einige Minuten dauern.
@@ -37,7 +54,10 @@ print(beispiel_string, 'und die Zahl-Variable lautet: ' , beispiel_zahl + 1)
 
 
 # ## 💻 Python Installation
-# Jede Webseite, die als Jupyter-Notebook existiert, könnt ihr über den Download Button oben als `.ipynb` herunterladen. Diese Datei könnt ihr dann auf eurem PC ausführen. Bitte beachtet, dass ihr für manche Notebooks Messdaten benötigt. Diese müsst ihr separat aus dem [**GitHub-Repository**](https://github.com/Kisleif/mtbook) herunterladen (`content/data/`). 
+# Zusätzlich könnt ihr Python nutzen, um eure Messdaten aus dem Praktikum auszuwerten. Wir stellen bereits eine Sammlung von Jupyter-Notebooks für ausgewählte Praktikumsversuche zur Verfügung, um den Einstieg zu erleichtern. 
+# 
+# ### Download der Jupyter-Botebooks
+# Wie bereits erwähnt, könnte ihr jedes Notebook über den {fa}`download` Button als `.ipynb` herunterladen. Diese Datei könnt ihr dann auf eurem PC ausführen. Bitte beachtet, dass ihr für manche Notebooks Messdaten benötigt. Diese müsst ihr separat aus dem [**GitHub-Repository**](https://github.com/Kisleif/mtbook) herunterladen (`content/data/`). 
 # 
 # ### Jupyter Lab Desktop
 # Wir empfehlen die Installation von [**Jupyter Lab Desktop**](https://github.com/jupyterlab/jupyterlab-desktop)

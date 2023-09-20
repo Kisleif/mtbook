@@ -820,7 +820,7 @@ title="Print to PDF"
 <p>In diesem Notebook werden Messdaten vom Moku:Go eingelesen, in einem Diagramm gezeichnet und weiter verarbeitet.
 Dieses Notebook beinahltet nicht die komplette Versucheauswertung und dient nur als Startpunkt.</p>
 <p>Folgende Bibliotheken werden benötigt:</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -836,7 +836,7 @@ Dieses Notebook beinahltet nicht die komplette Versucheauswertung und dient nur 
 <section id="daten-einlesen-zuschneiden-und-plotten">
 <h2>Daten einlesen, zuschneiden und plotten<a class="headerlink" href="#daten-einlesen-zuschneiden-und-plotten" title="Link zu dieser Überschrift">#</a></h2>
 <p>Auswahl der Messdatei mit den Namen <code class="docutils literal notranslate"><span class="pre">MokuOscilloscopeData_20221007_133233_Traces.csv</span></code>, welche in <code class="docutils literal notranslate"><span class="pre">data_file</span></code> gespeichert wird. Die Messdatei kann aus dem <a class="reference external" href="https://github.com/Kisleif/mtbook/blob/36a7260056dc5ba83466250d266b013e478f9df4/content/data/MokuOscilloscopeData_20221007_133233_Traces.csv">GitHub Repository</a> heruntergeladen werden.</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_file</span> <span class="o">=</span> <span class="s1">&#39;data/MokuOscilloscopeData_20221007_133233_Traces.csv&#39;</span>
 </pre></div>
@@ -844,7 +844,7 @@ Dieses Notebook beinahltet nicht die komplette Versucheauswertung und dient nur 
 </div>
 </div>
 <p>Als nächstes werden die Messdaten aus der Datei <code class="docutils literal notranslate"><span class="pre">data_file</span></code> als Panda-Dataframe in der Variablen <code class="docutils literal notranslate"><span class="pre">data1</span></code> gespeichert. Da die Messdaten in der .csv-Datei mit Kommas getrennt sind, setzen wir als <em>Separator</em> <code class="docutils literal notranslate"><span class="pre">sep=','</span></code>. Die ersten 10 Zeilen sind in der .csv-Datei sind Kopfzeilen und beinhalten Metadaten. Sie werden beim Einlesen der Messdaten übersprungen mittels <code class="docutils literal notranslate"><span class="pre">header</span> <span class="pre">=</span> <span class="pre">10</span></code>. Danach geben wir den drei einzelnen Spalten entsprechende Namen.</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_file</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;time_sec&#39;</span><span class="p">,</span> <span class="s1">&#39;Ch1_Volt&#39;</span><span class="p">,</span> <span class="s1">&#39;Ch2_Volt&#39;</span><span class="p">])</span> 
 </pre></div>
@@ -852,7 +852,7 @@ Dieses Notebook beinahltet nicht die komplette Versucheauswertung und dient nur 
 </div>
 </div>
 <p>Wir tragen die beiden Messkanäle des Moku:Gos über die Zeit in einem Diagramm auf:</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># Diagramm-Größe einstellen</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data1</span><span class="p">[</span><span class="s1">&#39;time_sec&#39;</span><span class="p">],</span> <span class="n">data1</span><span class="p">[</span><span class="s1">&#39;Ch1_Volt&#39;</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CH1&#39;</span><span class="p">)</span>
@@ -869,7 +869,7 @@ Dieses Notebook beinahltet nicht die komplette Versucheauswertung und dient nur 
 </div>
 </div>
 <p>Wir sehen die angelegt Dreiecks-Spannung aus dem Versuchaufbau und schneiden die Messdaten für die weitere Verarbeitung entsprechend zu. Ziel ist es, die beiden Kanäle synchron auf eine Rampe zuzuschneiden. Wir wählen hierfür manuell Sample-Punkte <code class="docutils literal notranslate"><span class="pre">start</span></code> und <code class="docutils literal notranslate"><span class="pre">stop</span></code> die ihr auf eure Messdaten anpassen müsst. Kontrolliert zwischendurch immer das Diagramm.</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># Diagramm-Größe einstellen</span>
 <span class="n">start</span> <span class="o">=</span> <span class="mi">48</span>
@@ -891,7 +891,7 @@ Dieses Notebook beinahltet nicht die komplette Versucheauswertung und dient nur 
 </div>
 <p>Sobald die Messdatenreihe so ausgewählt wurde, dass die Messdaten ausschließlich auf einer steigenden oder fallenden Flanke liegen (wie im obigen Beispiel) ist der richtige Bereich ausgewählt und wir speichern diesen Zeitabschnitt in einem neuen Datenset ab, indem wir <code class="docutils literal notranslate"><span class="pre">data1</span></code> mit dem Befehl <code class="docutils literal notranslate"><span class="pre">iloc[start:end]</span></code> zerschneiden.
 Die zugeschnittenen und konvertierten Messdaten speichern wir im Dataframe <code class="docutils literal notranslate"><span class="pre">data1_cut</span></code>.</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data1_cut</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="n">data1_cut</span><span class="p">[</span><span class="s1">&#39;time_sec&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data1</span><span class="p">[</span><span class="s1">&#39;time_sec&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">stop</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
@@ -902,7 +902,7 @@ Die zugeschnittenen und konvertierten Messdaten speichern wir im Dataframe <code
 </div>
 </div>
 <p>Kontrolliere die Daten indem du <code class="docutils literal notranslate"><span class="pre">data1_cut</span></code> erneut zeichnest:</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># Diagramm-Größe einstellen</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data1_cut</span><span class="p">[</span><span class="s1">&#39;time_sec&#39;</span><span class="p">],</span> <span class="n">data1_cut</span><span class="p">[</span><span class="s1">&#39;Ch1_Volt&#39;</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CH1&#39;</span><span class="p">)</span>
@@ -928,7 +928,7 @@ Die zugeschnittenen und konvertierten Messdaten speichern wir im Dataframe <code
 <div class="math notranslate nohighlight">
 \[U_\mathrm{diode} = U_\mathrm{ch2} - U_\mathrm{R_{2}} = U_\mathrm{ch2}  - U_\mathrm{ch1}\]</div>
 <p>(Kontrolliert unbedingt ob ihr wirklich <span class="math notranslate nohighlight">\(R_2 = 100 \Omega\)</span> eingebaut hattet! Ansonten müsst ihr den Wert hier entsprechend ändern.)</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R2</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">data1_cut</span><span class="p">[</span><span class="s1">&#39;I_diode&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data1_cut</span><span class="p">[</span><span class="s1">&#39;Ch1_Volt&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">R2</span>
@@ -938,7 +938,7 @@ Die zugeschnittenen und konvertierten Messdaten speichern wir im Dataframe <code
 </div>
 </div>
 <p>Zeichnen der UI-Kennlinie mittels <code class="docutils literal notranslate"><span class="pre">Scatter</span></code>-Plot, um einzelne Messdatenpunkte darzustellen.</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># Diagramm-Größe einstellen</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data1_cut</span><span class="p">[</span><span class="s1">&#39;U_diode&#39;</span><span class="p">],</span> <span class="n">data1_cut</span><span class="p">[</span><span class="s1">&#39;I_diode&#39;</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;gemessen Kennlinie der Diode XY&#39;</span><span class="p">)</span>
@@ -960,7 +960,7 @@ Die zugeschnittenen und konvertierten Messdaten speichern wir im Dataframe <code
 <div class="math notranslate nohighlight">
 \[I(U) = I_{R}(U) + I_{G} = I_{R}(U) - I_{R}(0) = I_{R}(0)\cdot \exp\left(\frac{eU}{k_{B}T}-1  \right)\]</div>
 <p>Hierfür definieren wir zunächst die Funktion in Python, <span class="math notranslate nohighlight">\(I(U)\)</span>, mit den entsprechenden Naturkonstanten:</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">I_U</span><span class="p">(</span><span class="n">U</span><span class="p">):</span>
     <span class="n">T</span> <span class="o">=</span> <span class="mi">300</span> <span class="c1"># als Temperatur wählen wir 300K, was in etwa Raumtemperatur entspricht. </span>
@@ -973,7 +973,7 @@ Die zugeschnittenen und konvertierten Messdaten speichern wir im Dataframe <code
 </div>
 </div>
 <p>Messdaten und Funktion werden in einem Diagramm gezeichnet. Um die Funktion darzustellen nutzen wir die gemessenen Spannungsdaten als x-Achse. Alternativ hätten wir auch ein neues Array erstellen können.</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># Diagramm-Größe einstellen</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data1_cut</span><span class="p">[</span><span class="s1">&#39;U_diode&#39;</span><span class="p">],</span> <span class="n">data1_cut</span><span class="p">[</span><span class="s1">&#39;I_diode&#39;</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;gemessen Kennlinie der Diode XY&#39;</span><span class="p">)</span>
@@ -990,7 +990,7 @@ Die zugeschnittenen und konvertierten Messdaten speichern wir im Dataframe <code
 </div>
 </div>
 <p>Das gleiche zeichnen wir nun auf einer lagorithmischen Y-Achse:</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">data1_cut</span><span class="p">[</span><span class="s1">&#39;U_diode&#39;</span><span class="p">],</span><span class="n">data1_cut</span><span class="p">[</span><span class="s1">&#39;I_diode&#39;</span><span class="p">],</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;gemessen Kennlinie der Diode XY&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">data1_cut</span><span class="p">[</span><span class="s1">&#39;U_diode&#39;</span><span class="p">],</span> <span class="n">I_U</span><span class="p">(</span><span class="n">data1_cut</span><span class="p">[</span><span class="s1">&#39;U_diode&#39;</span><span class="p">]),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Ideale Kennlinie, 300K&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;tab:orange&#39;</span><span class="p">)</span>
@@ -1009,7 +1009,7 @@ Die zugeschnittenen und konvertierten Messdaten speichern wir im Dataframe <code
 <section id="funktion-an-messdaten-anpassen">
 <h2>Funktion an Messdaten anpassen<a class="headerlink" href="#funktion-an-messdaten-anpassen" title="Link zu dieser Überschrift">#</a></h2>
 <p>Zum fitten benutzen wir die <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> Funktion von <code class="docutils literal notranslate"><span class="pre">scipy</span></code>.</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
 </pre></div>
@@ -1017,7 +1017,7 @@ Die zugeschnittenen und konvertierten Messdaten speichern wir im Dataframe <code
 </div>
 </div>
 <p>Wir fitten in logerithmischen Einheiten auf der Y-Achse und rechnen daher die Stromstärke in die Einheit dB um und speichern sie in der Variablen <code class="docutils literal notranslate"><span class="pre">y</span></code>. Die Spannungsdaten bleiben unverändert, werden nur in <code class="docutils literal notranslate"><span class="pre">x</span></code> abgespeichert.</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">data1_cut</span><span class="p">[</span><span class="s1">&#39;U_diode&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
 <span class="n">y</span> <span class="o">=</span> <span class="mi">10</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">data1_cut</span><span class="p">[</span><span class="s1">&#39;I_diode&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">())</span>
@@ -1037,7 +1037,7 @@ Die zugeschnittenen und konvertierten Messdaten speichern wir im Dataframe <code
 <p>Das Diagramm zeigt eine identische Repräsentation der Messdaten wie im vorangegangenen Abschnitt mit der logarithmischen Y-Achse. Nun wurden jedoch die Y-Messwerte anstelle der Achse umgerechnet und wir können die Messdaten mit einer einfachen linearen Regression anpassen (ansonsten hätten wir eine exponentielle Fit-Funktion benötigt). Zunächst definieren wie hierfür die lineare Funktion</p>
 <div class="math notranslate nohighlight">
 \[y = ax + b\]</div>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fit_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
@@ -1046,7 +1046,7 @@ Die zugeschnittenen und konvertierten Messdaten speichern wir im Dataframe <code
 </div>
 </div>
 <p>Dann fitten wir die Funktion an die Messdaten an:</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">popt</span><span class="p">,</span> <span class="n">pcov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">fit_func</span><span class="p">,</span> <span class="n">x</span> <span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
@@ -1054,7 +1054,7 @@ Die zugeschnittenen und konvertierten Messdaten speichern wir im Dataframe <code
 </div>
 </div>
 <p>Anschließend zeichnen wir das Ergebnis gemeinsam mit den Messwerten in ein Diagramm und geben uns das Fit-Ergebnis aus:</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;gemessen Kennlinie der Diode XY&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">fit_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">*</span><span class="n">popt</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Modellfunktion&#39;</span><span class="p">)</span>
@@ -1075,7 +1075,7 @@ Die zugeschnittenen und konvertierten Messdaten speichern wir im Dataframe <code
 </div>
 </div>
 <p>Der Parameter <code class="docutils literal notranslate"><span class="pre">popt</span></code> beinhaltet die Werte für <span class="math notranslate nohighlight">\(a,b\)</span> der Fit-Funktion und <code class="docutils literal notranslate"><span class="pre">pcov</span></code> die Kovarianzmatrix.</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">popt</span>
 </pre></div>
@@ -1087,7 +1087,7 @@ Die zugeschnittenen und konvertierten Messdaten speichern wir im Dataframe <code
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pcov</span>
 </pre></div>

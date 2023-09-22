@@ -14,18 +14,13 @@
 # :::::
 # ::::::
 # 
-# :::{figure-md} messgroesse
-# <img src="draw/messgroesse.jpg" alt="messgroesse" width="600px" label = messgroesse>
 # 
-# Darstellung der **Messkette**.
-# :::
-# 
-# 
-# Wie man an der oben dargestellten Temperaturmessung sieht, sind die Werte, die gemessen werden, nicht *exakt*, sondern weichen von dem *wahren* Wert $x_w$ ab. Dies ist die sogenannte Messabweichung deren Ursache unterschiedliche Gründe haben kann. Sie ist ein Maß für die Qualität der Messung: Desto kleiner die Messabweichung, die *genauer* oder *präziser* ist die Messung. Daher ist es wichtig, dass jeder Messwert, $x$, stets mit einer Messabweichung, $A$ oder häufig auch mit $\Delta x$ bezeichnet, versehen wird. Man schreibt dann:
+# Jede Messung, egal ob von Temperatur, Strecke oder Geschwindigkeit, ist immer mit einer Messunsicherheit verbunden. Der Messwerte, ohne Angabe einer Messunsicherheit, ist daher wertlos. 
+# Die Messunsicherheit ist ein Maß für die Qualität der Messung: Desto kleiner die Messabweichung, desto *genauer* oder *präziser* ist die Messung. Daher ist es wichtig, dass jeder Messwert, $x$, stets mit einer Messabweichung, $A$ oder häufig auch mit $\Delta x$ bezeichnet, versehen wird. Man schreibt dann:
 # 
 # $$x \pm \Delta x$$
 # 
-# wobei $\Delta x$ die *absolute Messabweichung* ist und dieselbe Einheit wie der eigentliche Messwert besitzt. 
+# wobei $\Delta x$ die *absolute Messabweichung* ist und dieselbe Einheit wie der eigentliche Messwert $x$ besitzt. 
 # 
 # Die *relative Messabweichung* wird auf einen Referenzwert bezogen, der häufig der Messwert $x$ ist:
 # 
@@ -34,28 +29,6 @@
 # Die Einheit der relativen Messabweichung ist somit *einheitenlos* und wird häufig in Prozent (%) angeben.
 # 
 # Früher hat man statt *Abweichung* noch den Begriff *Messfehler* verwendet. Man dachte, dass man mit genügend Aufwand, Sorgfalt und bestmöglicher Technologie den Fehler vollständig eliminieren könne. Spätestens seit der Theorie der *Quantenphysik* ist uns allerdings bekannt, dass zufällige Einflüsse auf die beobachteten Messgrößen  unvermeidlich sind und auch nicht vorhergesagt werden können. Statt eines einzig *wahren* Wertes, $x_w$, werden in der Quantenphysik Messgrößen durch deren Erwartungswerte vorhergesagt. Diesen Messgrößen liegt eine Wahrscheinlichkeitsdichte zu Grunde, dessen Varianz (bzw. Standardabweichung) nicht verschwindet! Somit werden für ein und dieselbe physikalische Messgröße verschiedene Ergebnisse gemessen, obwohl nahezu identische Bedingungen herrschen. Das Eintreten eines bestimmten Messergebnisses ist an eine bestimmte Wahrscheinlichkeit gekoppelt, mit der dieses Ergebnis eintritt. 
-
-# :::{admonition} Aufgabe
-# :class: tip
-# Wie groß ist die in {numref}`messgroesse` dargestellte absolute und relative Messabweichung?
-# :::
-
-# :::{admonition} Lösung
-# :class: dropdown
-# Die Differenz zwischen *wahren* und *gemessenen* Wert beträgt $\Delta x = 0,88°C$. Bezogen auf den Messwert beträgt die relative Messabweichung 3,52%.
-# :::
-
-# In[1]:
-
-
-import numpy as np
-x_wahr = 24.1286941
-x_gemessen = 25.01
-dx_absolut = np.abs(x_gemessen - x_wahr)
-
-print('Die absolute Messabweichung beträgt: ', dx_absolut, '°C')
-print('Die relative Messabweichung beträgt: ', dx_absolut/x_gemessen, ' = ', dx_absolut/x_gemessen*100, '%')
-
 
 # ## Typen von Unsicherheiten
 # 
@@ -146,7 +119,7 @@ print('Die relative Messabweichung beträgt: ', dx_absolut/x_gemessen, ' = ', dx
 # 
 # Die grafische Darstellung eines solchen Messwertes in einem Diagramm kann im folgenden Code-Block ausgeführt und angesehen werden. Prinzipiell gilt, dass für jeden Messwert in der Regel ein solcher **Fehlerbalken** stets anzugeben ist. 
 
-# In[2]:
+# In[1]:
 
 
 #Benötigte Libraries:
@@ -187,7 +160,7 @@ plt.show()
 # - $g = (9,73 \pm 0,05)\,\mathrm{m/s^2}$ und $g = (9,76 \pm 0,04)\,\mathrm{m/s^2}$ sind *konsistent*, nicht jedoch $g = (9,71 \pm 0,02)\,\mathrm{m/s^2}$ und $g = (9,76 \pm 0,04)\,\mathrm{m/s^2}$
 # - Ist $g = (8.9 \pm 1,5)\,\mathrm{m/s^2}$ das Ergebnis einer Messung des Ortsfaktors, dann ist die Messung zwar nicht sonderlich präzise, aber mit dem Literaturwert von $g = 9,81\,\mathrm{m/s^2}$ vereinbar.
 
-# In[3]:
+# In[2]:
 
 
 plt.style.use('default') # Matplotlib Style wählen
@@ -213,3 +186,15 @@ plt.show()
 
 
 # Nur einer der Messwerte überlappt mit dem *wahren* Wert der Erdbeschleunigung Die Fehlerbalken der zweiten Messung hingegen sind davon entfernt, in den *wahren* Bereich überzulappen. D.h. es existiert hier ein Widerspruch zu vorherigen Messungen, die den wahren Wert kennzeichnete. Würde es sich hierbei nicht um die Messung der Erdbeschleunigung, sondern um die einer Natur*konstante* handeln, gäbe es sogar einen Widerspruch zum SI-Einheitensystem. 
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+

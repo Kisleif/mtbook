@@ -11,10 +11,11 @@ Willkommen im *Metrology Lecture Book*, dem **Vorlesungsskript** zur Messtechnik
 :link: content/intro_book
 :link-type: doc
 :class-header: bg-light
-**Über dieses Book** 📖+🐍
+**Das Lecture Book** 📖
 ^^^
 <iframe width="213" height="120" src="https://www.youtube.com/embed/jZ952vChhuI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-Einführung in Python und Jupyter-Notebooks.
++++
+Über Jupyter-Notebooks.
 :::
 
 
@@ -25,9 +26,9 @@ Einführung in Python und Jupyter-Notebooks.
 **Tips für's Praktikum** 👩‍🔬
 ^^^
 ```{image} content/pictures/IMG_5597.jpeg
-:height: 120
 ```
-Messdaten richtig sammeln, dokumentieren und analysieren.
++++
+Umgang mit Messdaten.
 :::
 
 
@@ -38,8 +39,8 @@ Messdaten richtig sammeln, dokumentieren und analysieren.
 **Jupyter Notebooks** 🐍
 ^^^
 ```{image} content/pictures/notebook_screenshot.jpg
-:height: 120
 ```
++++
 Übungen zur Messtechnik.
 :::
 ::::

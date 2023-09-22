@@ -52,7 +52,7 @@ In Vorbereitung
 :class-header: bg-light
 **Strahlungsmesstechnik (SMT)**
 ^^^
-```{image} pictures/l.jpeg
+```{image} pictures/SMT.jpg
 :height: 170
 ```
 :::

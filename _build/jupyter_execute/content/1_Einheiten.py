@@ -43,9 +43,9 @@ relative_abweichung = abweichung / laenge_pyramide
 print('relative Messabweichung der Cheops-Pyramide: ', relative_abweichung*100, '%')
 
 
-# Die Vielfalt und regionalen Unterschiede in den Maßeinheiten bis zum 18. Jahrhundert, wie zum Beispiel die unterschiedlichen Ellenmaße wie die Regensburger Elle mit $81,1\,\mathrm{cm}$ und die Bremer Elle mit $54,7\,\mathrm{cm}$, führten zu erheblichen Schwierigkeiten in Handel, Wissenschaft und Kommunikation. Um diese Herausforderungen zu bewältigen und eine weltweite Vergleichbarkeit von Messungen sicherzustellen, wurde das Internationale Einheitensystem (SI) entwickelt. Dieses System basiert auf Naturkonstanten und schafft eine global akzeptierte Standardgrundlage für wissenschaftliche und technische Messungen, was essentiell für die Präzision, Zuverlässigkeit und Effizienz in verschiedenen Bereichen ist.
+# Die Vielfalt und regionalen Unterschiede in den Maßeinheiten bis zum 18. Jahrhundert, wie zum Beispiel die unterschiedlichen Ellenmaße wie die Regensburger Elle mit $81,1\,\mathrm{cm}$ und die Bremer Elle mit $54,7\,\mathrm{cm}$, führten zu erheblichen Schwierigkeiten in Handel, Wissenschaft und Kommunikation. 
 # 
-# ```{admonition} Weitere regionale Maßstäbe
+# ````{admonition} Weitere regionale Maßstäbe
 # :class: dropdown
 # 
 # :::{figure-md} massstab
@@ -61,8 +61,9 @@ print('relative Messabweichung der Cheops-Pyramide: ', relative_abweichung*100, 
 # * Der Mathematiker J. Kölbel schlägt an Stelle eines Körpermaßes ein sogenanntes Naturmaß vor: "16 Männer groß und klein", die nach einer Messe der Reihe nach aus der Kirche kommen, stellen ihre Füße hintereinander. Der sechzehnte Teil der Gesamtlänge soll dann ein Fuß sein.
 # ````
 # 
-# Es wird deutlich, wie zufällig jedes Herzogtum seine eigenen Einheiten eingeführt hatte was teilweise zu großem Chaos geführt hatte. 
-# Die Körpermaße einzelner Herrscher wurden als Längeneinheit benutzt, die nur lokal Gültigkeit besaßen und auch lokal Individuell festgelegten Einheiten erschwerten internationalen Handel und Probleme in Forschung, Technik und Kommunikation.
+# ```{admonition}
+# Die Zufälligkeit, wie jedes Herzogtum seine eigenen Einheiten eingeführt hatte, führte zu großem Chaos. 
+# Die Körpermaße einzelner Herrscher wurden als Längeneinheit benutzt, die nur lokal Gültigkeit besaßen. Diese individuell festgelegten Einheiten erschwerten internationalen Handel und Probleme in Forschung, Technik und Kommunikation. Um diese Herausforderungen zu bewältigen und eine weltweite Vergleichbarkeit von Messungen sicherzustellen, wurde das Internationale Einheitensystem (SI) entwickelt. Dieses System basiert auf Naturkonstanten und schafft eine global akzeptierte Standardgrundlage für wissenschaftliche und technische Messungen, was essentiell für die Präzision, Zuverlässigkeit und Effizienz in verschiedenen Bereichen ist.
 # ```
 
 # ## Maßeinheiten

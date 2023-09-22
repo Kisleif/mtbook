@@ -329,9 +329,85 @@ print('relative Messabweichung der Cheops-Pyramide: ', relative_abweichung*100, 
 # :::::
 # ::::::
 # 
-# In der Messtechnik können Messwerte in sehr unterschiedlichen Größenordnungen auftreten. Wir haben bereits im vorherigen Kapitel die Präfixe und Vorsätze betrachtet, um diese Vielfalt zu handhaben. Dennoch kann es schwierig sein, die gesamte Messreihe übersichtlich auf einem Diagramm darzustellen, da die Achsen normalerweise feste Einheiten haben. Aus diesem Grund greifen wir oft auf die logarithmische Darstellung zurück, obwohl sie auf den ersten Blick komplex erscheinen mag. Diese Methode bietet jedoch erhebliche Vorteile und ist auch im Rahmen des SI-Systems anerkannt.
+# In der Messtechnik können Messwerte in sehr unterschiedlichen Größenordnungen auftreten. Wir haben bereits im vorherigen Kapitel die Präfixe und Vorsätze betrachtet, um diese Vielfalt zu handhaben. Dennoch kann es schwierig sein, die gesamte Messreihe übersichtlich auf einem Diagramm darzustellen, da die Achsen normalerweise feste Einheiten haben. Aus diesem Grund greifen wir oft auf die logarithmische Darstellung zurück, obwohl sie auf den ersten Blick komplex erscheinen mag. Diese Methode bietet jedoch erhebliche Vorteile und ist auch im Rahmen des SI-Systems anerkannt. 
+# 
+# Im folgenden Diagramm ist die Funktion 
+# 
+# $$f(x) = 2 \cdot \log(x)$$
+# 
+# gezeichnet. Man erkennt, dass die y-Werte mit steigendem x-Wert nur sehr langsam ansteigen. Bei x=1000 ist  y = 6 und man müsste noch größere x-Werte zeichnen, um den weiteren Trend zu erkennen. 
+# Ein neues Koordinationsystem hilft in der Darstellung. Prinzipiell könnte aber auch der natürlich Logarithmus gewählt werden, dies sollte man dann aber unbedingt dazu schreiben, damit keine Verwirrung entsteht. Das Prinzip ist aber immer das gleiche:
+# 
+# | $\log(x)$ (neue $x$-Achse) | $10^{\log(x)}$ (Umrechnung) | $x$ (alte Achse) |
+# |:-----------------|:-----------------|:-----------------|
+# | 0 | $10^{0}$| $\Rightarrow x = 1 $ |
+# | 1 | $10^{1}$| $\Rightarrow x = 10 $ |
+# | 2 | $10^{2}$|$\Rightarrow x = 100 $ |
+# | 3 | $10^{3}$|$\Rightarrow x = 1000 $ |
+# |...|...|...|
+# 
+# Jeder Schritt auf der x-Achse wird in der logarithmischen Darstellung nicht nur +1 mehr, sondern jeder Schritt verzehnfacht sich, wodurch die x-Achse optisch gestaucht wird. 
 
 # In[2]:
+
+
+import scipy.signal as signal
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import plotly.offline as py
+py.init_notebook_mode(connected=True)
+import plotly.graph_objs as go
+import plotly.tools as tls
+import seaborn as sns
+import time
+import warnings
+warnings.filterwarnings('ignore')
+
+# MatplotLib Settings:
+plt.style.use('default') # Matplotlib Style wählen
+plt.figure(figsize=(8,5)) # Plot-Größe
+plt.rcParams['font.size'] = 10; # Schriftgröße
+
+def f(x):
+    return 2*np.log10(x)
+
+# Daten:
+x = np.logspace(-1,3,200)
+data = {"frequenz": x, "amplitude_V":f(x), "amplitude_dB": 20*np.log(f(x))}
+data_df = pd.DataFrame(data)
+#data_df["amplitude_V"] = 10**(data_df["amplitude"]/20)
+
+plt.subplot(2,2,1)
+plt.plot(data_df["frequenz"], data_df["amplitude_V"])
+#plt.fill_between(data_df["frequenz"],data_df["amplitude_V"],0,color='tab:blue', alpha=0.2)
+plt.ylabel("y")
+plt.xlabel("x")
+plt.text(200,2,r'$f(x) = 2\cdot \log(x)$')
+plt.title('Lineare Achsen')
+
+plt.subplot(2,2,3)
+plt.semilogx(data_df["frequenz"], data_df["amplitude_V"])
+#plt.fill_between(data_df["frequenz"],data_df["amplitude_V"],0,color='tab:blue', alpha=0.2)
+plt.ylabel("y")
+plt.xlabel("x")
+plt.text(10,0,r'$f(x) = 2\cdot \log(x)$')
+plt.title('Halblogarithmisches Diagramm in x')
+
+plt.subplot(2,2,4)
+plt.plot(np.log10(data_df["frequenz"]), data_df["amplitude_V"])
+#plt.fill_between(data_df["frequenz"],data_df["amplitude_V"],0,color='tab:blue', alpha=0.2)
+plt.ylabel("y")
+plt.xlabel("log(x)")
+plt.text(1.7,0,r'$f(x) = 2\cdot \log(x)$')
+plt.text(-0.1,-1,r'Geradenvergleich: $f(x) = m\cdot x$')
+
+plt.title('Logarithmische x-Werte')
+
+plt.tight_layout()
+
+
+# In[3]:
 
 
 import scipy.signal as signal
@@ -397,17 +473,31 @@ plt.savefig('log_plot1.png')
 plt.savefig('log_plot1.pdf')
 
 
-# Der Messwert wird im Vergleich zu einem definierten Referenzwert bewertet, indem der Quotient aus Messwert und Referenzwert gebildet wird. Dies ergibt $P/P_\mathrm{ref}$ für Leistungen oder $U/U_\mathrm{ref}$ für Spannungen. Anschließend werden diese Quotienten logarithmiert, in der Regel unter Verwendung des Zehnerlogarithmus (log). Der resultierende Wert ist per Definition dimensionslos, wird jedoch der Einheit "Dezibel" (dB) zugeordnet, was einem Zehntel eines "Bels" entspricht. Gelegentlich wird auch der natürliche Logarithmus verwendet, wodurch die Einheit "Neper" (Np) entsteht.
+# ::::::{margin}
+# :::::{grid}
+# ::::{grid-item-card}
+# :class-header: bg-light
+# Was ist ein Dezibel? Kann es "negative" Dezibel geben? (englisch)
 # 
-# In der Messtechnik hat sich eine ungeschriebene Regel etabliert, die besagt, dass Leistungen gemäß dieser Vorgehensweise in die Einheit dB umgewandelt werden, wobei dies als "Leistungsgröße" bezeichnet wird:
+# <iframe width="200" height="113" src="https://www.youtube.com/embed/XU782Xb9J04?si=xv33rD-uh3iPMhQX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+# ::::
+# :::::
+# ::::::
+# 
+# 
+# Statt einer logarithmischen *Darstellung* im Diagramm können Messwerte auch in die logarithmische Einheit Dezibel (dB) umgerechnet werden. Dies wir häufig bei akustischen und elektronischen  Signalen verwendet, insbesondere in der Hochfrequenztechnik. Bei der Umrechnung wird der Messwert im Vergleich zu einem definierten Referenzwert bewertet, indem der Quotient aus Messwert und Referenzwert gebildet wird. Dies ergibt 
+# $P/P_\mathrm{ref}$ für Leistungen oder $U/U_\mathrm{ref}$ für Spannungen. Anschließend werden diese Quotienten logarithmiert, in der Regel unter Verwendung des Zehnerlogarithmus. 
+# In der Messtechnik hat sich eine ungeschriebene Regel etabliert, die besagt, dass Leistungen gemäß dieser Vorgehensweise in die Einheit dB umgewandelt werden, wobei dies als **Leistungsgröße** bezeichnet wird:
 # 
 # $$1\,\mathrm{dB} = 10 \cdot \log\frac{P}{P_\mathrm{ref}}$$
 # 
-# Wenn Spannungen nach dieser Methode in die Einheit dB umgewandelt werden, spricht man von der "Feldgröße":
+# Wenn Spannungen nach dieser Methode in die Einheit dB umgewandelt werden, spricht man von der **Feldgröße**:
 # 
 # $$1\,\mathrm{dB} = 20 \cdot \log\frac{U}{U_\mathrm{ref}}$$
 # 
-# Logarithmische Darstellungen finden normalerweise bei elektrischen Leistungen und Spannungen Anwendung. Das Dezibel wird häufig in der Hochfrequenztechnik und bei der Charakterisierung von Frequenzgängen verwendet. Im Allgemeinen spricht man von "Pegeln", wenn Messwerte logarithmisch ausgedrückt werden. Bei der Verwendung der Einheit Dezibel ist es **unbedingt erforderlich**, den Referenzwert anzugeben. Typische Schreibweisen sind beispielsweise:
+# Der resultierende Wert ist per Definition dimensionslos, wird jedoch der Einheit "Dezibel" (dB) zugeordnet, was einem Zehntel eines "Bels" entspricht. Gelegentlich wird auch der natürliche Logarithmus verwendet, wodurch die Einheit "Neper" (Np) entsteht.
+# 
+# Im Allgemeinen spricht man von "Pegeln", wenn Messwerte logarithmisch ausgedrückt werden. Bei der Verwendung der Einheit Dezibel ist es **unbedingt erforderlich**, den Referenzwert anzugeben. Typische Schreibweisen sind beispielsweise:
 # 
 # - dB(mW): Dies bezieht sich auf einen Leistungspegel mit einem Referenzwert von 1 mW.
 # - dB(mV): Dies bezieht sich auf einen Spannungspegel mit einem Referenzwert von 1 mV.
@@ -415,21 +505,27 @@ plt.savefig('log_plot1.pdf')
 # 
 # Ohne Angabe des Referenzwerts sind weder die physikalische Größe noch der Skalierungsfaktor bekannt, was besonders wichtig ist, wenn der Dezibel-Wert später in absolute Einheiten zurückkonvertiert werden muss.
 # 
-# Für Leistungspegel gilt im Allgemeinen (bei einem typischen Referenzwert von 1 mW):
+# Für Leistungspegel gilt im Allgemeinen (bei einem typischen Referenzwert von 1 mW) 1 $\mu$W = 0,000001 W = -30 dB(mW).
 # 
-# - 1 $\mu$W = 0,000001 W = -30 dB(mW)
 # 
-# **Hinweis**: In der folgenden Übung können Sie verschiedene Umrechnungen für Messwerte ausprobieren. Sie können den Referenzwert $P_\mathrm{ref}$ ändern, den Messwert $P$ anpassen und beobachten, wie sich der Dezibel-Wert ändert. Beachten Sie dabei, dass der Dezibel-Wert immer den Referenzwert in Klammern beinhalten muss.
+# ```{admonition} Beispiel aus der Akustik
+# :class: 
+# * 0dB bedeutet, dass sich der Ton direkt an der Grenze des menschlich hörbaren befindet.
+# * Ein positiver dB Wert bedeutet, dass der Ton um ein *Vielfaches lauter* ist als die 0dB Grenze.
+# * Ein negativer dB Wert bedeutet, dass der Ton um ein *Vielfaches leister* ist als die 0dB Grenze.
+# ```
+# 
+# 
 # 
 # ```{admonition} Aufgabe
 # :class: tip
-# In folgendem Code-Block können Umrechungen für verschiedene Messwerte ausprobiert werden:
+# In der folgenden Code-Cell können verschiedene Umrechnungen für Messwerte ausprobiert werden. Einfach Referenzwert $P_\mathrm{ref}$ im Live-Code ändern, den Messwert $P$ anpassen und beobachten, wie sich der Dezibel-Wert ändert. 
 # * Änder den Referenzwert `P_ref` von 1mW auf 1W und 1$\mu$W.
 # * Änder den Messwert `P`
 # * Beachte, dass bei der Angabe des Pegelwertes der Referenzwert immer in Klammern mitangebeben werden muss!
 # ```
 
-# In[3]:
+# In[4]:
 
 
 import numpy as np # lade numpy Library

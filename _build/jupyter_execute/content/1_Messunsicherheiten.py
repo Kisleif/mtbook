@@ -3,7 +3,7 @@
 
 # # Messunsicherheiten
 # 
-# 
+# ::::::{margin}
 # :::::{grid}
 # ::::{grid-item-card}
 # :class-header: bg-light
@@ -12,6 +12,7 @@
 # <iframe width="200" height="113" src="https://www.youtube.com/embed/8jK2o9NuA5E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 # ::::
 # :::::
+# ::::::
 # 
 # Jede Messung, egal ob von Temperatur, Strecke oder Geschwindigkeit, ist immer mit einer Messunsicherheit verbunden. Der Messwerte, ohne Angabe einer Messunsicherheit, ist daher wertlos. 
 # Die Messunsicherheit ist ein Maß für die Qualität der Messung: Desto kleiner die Messabweichung, desto *genauer* oder *präziser* ist die Messung. 
@@ -37,11 +38,11 @@
 # 
 # ```{admonition} Beispiel: Datenblatt eines digitalen Messschiebers
 # :class: dropdown
-# Laut Angaben des Herstellers ist die zulässige Längenmessabweichung (MPE E: maximum permissible error  = maximal zulässiger Wert der Messabweichung der Längenmessung) 0,05mm. Der Ziffernschrittwert von 0,01mm gibt die minimale Änderung des Messwertes auf der Skala an. Bei einem Digital-Messschieber ist dies die letzte Stelle der Digitalanzeige. 
+# Laut [Angaben des Herstellers](https://shop.mitutoyo.de/web/mitutoyo/de_BE/mitutoyo/01.03.07a/Digital%20ABS%20Messschieber/$catalogue/mitutoyoData/PR/500-500-10/index.xhtml) ist die zulässige Längenmessabweichung (MPE E: maximum permissible error  = maximal zulässiger Wert der Messabweichung der Längenmessung) 0,05mm. Der Ziffernschrittwert von 0,01mm gibt die minimale Änderung des Messwertes auf der Skala an. Bei einem Digital-Messschieber ist dies die letzte Stelle der Digitalanzeige. 
 # :::{figure-md} messschieber
 # <img src="pictures/datenblatt_messschieber.jpg" alt="datenblatt_messschieber" class="bg-primary mb-1" width="800px" label = datenblatt_messschieber>
 # 
-# Screenshot der Produktdetails von der [Webseite]((https://shop.mitutoyo.de/web/mitutoyo/de_BE/mitutoyo/01.03.07a/Digital%20ABS%20Messschieber/$catalogue/mitutoyoData/PR/500-500-10/index.xhtml)) des Herstellers.
+# Screenshot der Produktdetails von der [Webseite](https://shop.mitutoyo.de/web/mitutoyo/de_BE/mitutoyo/01.03.07a/Digital%20ABS%20Messschieber/$catalogue/mitutoyoData/PR/500-500-10/index.xhtml) des Herstellers.
 # :::
 # ```
 # 

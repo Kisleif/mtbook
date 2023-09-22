@@ -1,4 +1,4 @@
-# Woche 6: Dynamische Messsysteme
+# Dynamische Messsysteme
 
 Nachdem wir uns intensiv mit stationären Messungen und den Eigenschaften von Messsignalen beschäftigt haben, ist es jetzt an der Zeit, in die Welt der dynamischen Messsysteme einzutauchen.
 

@@ -1,4 +1,4 @@
-# Woche 7: Messen elektrischer Größen
+# Messen elektrischer Größen
 
 Die elektronische Messtechnik spielt eine zentrale Rolle in der modernen Technologie und ist in zahlreichen Anwendungen unverzichtbar. Ob es um die Erfassung von elektrischen Spannungen, Strömen, Leistungen, Widerständen, Kapazitäten oder Induktivitäten geht - das Messen elektronischer Größen ist von fundamentaler Bedeutung für die Elektronik, die Kommunikationstechnik, die Energieversorgung und viele weitere Branchen.
 

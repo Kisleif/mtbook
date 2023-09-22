@@ -1,4 +1,4 @@
-# Woche 8: Sensoren
+# Sensoren
 
 ## Inhalte
 ```{tableofcontents}

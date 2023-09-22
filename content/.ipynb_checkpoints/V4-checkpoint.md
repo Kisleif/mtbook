@@ -1,4 +1,4 @@
-# Woche 4: Stationäre Messysteme
+# Stationäre Messysteme
 
 Wir verwenden Messsysteme, um eine Messgröße in einen Messwert umzuwandeln. Dabei bleibt der reale, tatsächliche Wert der Messgröße oft ungewiss (weitere Details dazu findet ihr im Kapitel  [Messunsicherheiten](1_Messunsicherheiten.ipynb)).
 

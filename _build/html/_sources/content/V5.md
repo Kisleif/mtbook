@@ -1,4 +1,4 @@
-# Woche 5: Messsignale
+# Messsignale
 
 Ihr habt bereits einen soliden Einblick in die Grundlagen der stationären Messungen, Kennlinien, Sensitivität sowie der Abschätzung von Störungen und Unsicherheiten erhalten. Jetzt ist es an der Zeit, einen Schritt weiter zu gehen und die zeitliche Abhängigkeit mit einzubeziehen.
 

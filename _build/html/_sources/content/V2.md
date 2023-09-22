@@ -1,14 +1,4 @@
-# Woche 2: Messabweichungen
-
-:::{figure-md} zusammenfassung_abw
-<img src="draw/zusammenfassung_abw.jpg" alt="zusammenfassung_abw" width="600px" label = zusammenfassung_abw>
-
-Korrektur und Angabe des Messergebnisses
-:::
-
-Im Praktikum sammelst du Erfahrung im Umgang mit Messdaten. Du wirst dazu angeleitet, deine eigenen Messreihen aufzunehmen und diese anschließend begründet und nachvollziehbar auszuwerten und darzustellen. Im Verlauf deines Studiums, sei es während deiner Semester-, Abschluss- oder sogar Promotionsarbeit, ist es von großer Bedeutung, dass du die Analyse und Präsentation deiner Daten wissenschaftlich und sachgemäß durchführst.
-
-Um dich dabei zu unterstützen, haben wir auf den folgenden Seiten das absolute Minimum an notwendigen Hilfsmitteln, Grundideen und bewährten Praktiken zusammengestellt, die du unbedingt bei der Auswertung deiner Messdaten im Praktikum berücksichtigen solltest! Diese wertvollen Ressourcen werden dir dabei helfen, die Qualität deiner Analysen zu verbessern und deine Ergebnisse auf eine klare und überzeugende Weise zu präsentieren. Nimm dir die Zeit, diese Informationen zu verinnerlichen und in dein wissenschaftliches Arbeiten zu integrieren, um deine Fähigkeiten in der Datenanalyse weiterzuentwickeln und deinen akademischen Fortschritt voranzutreiben. Du wirst sehen, dass du dadurch in der Lage sein wirst, komplexe Herausforderungen in der Datenauswertung besser zu bewältigen und erfolgreiche wissenschaftliche Arbeiten zu verfassen. Viel Erfolg!
+# Datenanalyse
 
 ## Inhalte
 ```{tableofcontents}
@@ -17,15 +7,12 @@ Um dich dabei zu unterstützen, haben wir auf den folgenden Seiten das absolute 
 ## Zusammenfassung
 
 | Begriff | Beschreibung |
-|:--------------------|:----------------------------------------|
-|Messgröße | die spezielle Größe der Messung, $x$ |
-|Wahrer Wert | Tatsächlich vorhandener Wert einer physikalischen Größe, er ist durch eine endliche Genauigkeit der verwendeten Messmittel nicht exakt bestimmbar. |
-|Richtiger Wert|Mit denkbar größtem technischem und theoretischem Aufwand ermittelter Messwert, der als Bezugswert zur Bewertung eines Messergebnisses benutzt wird. |
-|Kalibrieren|Untersuchen, ob der Prüfgegenstand bestimmte Bedingungen erfüllt (Entspricht der Messwert eines Messgeräts dem „richtigen“ Wert des Messgröße?)|
-|Eichen|Prüfung und Stempelung des Messsystems nach Eichvorschriften (Entspricht der Messwert eines Messgeräts dem „richtigen“ Wert des Messgröße unter staatlicher Hoheit?)|
-|Justieren|Einstellen eines Messsystems so, dass der Messwert der Messgröße möglichst gut entspricht|
-|Normale|Eine handhabbare Verkörperung einer Maßeinheit|
-|Korrektur|Von der systematischen Abweichung abgeleiteter Korrekturwert zur Berichtigung eines Schätzwertes einer Messgröße.|
-|Genauigkeitsklasse|Von den Fehlergrenzen abgeleitete Genauigkeitsangabe für Messeinrichtungen.|
+|:-----------------|:----------------------------------------|
+|Interpolation | Analytische Kennlinie läuft exakt durch alle Messpunkte und wird beispielsweise unter Verwendung von Polynomen bestimmt. |
+|Regression | statistisches Analyseverfahren zur Feststellung funktionaler Beziehungen zwischen einer abhängigen und einer oder mehreren unabhängigen Variablen (Untersuchung von Korrelationen) |
+| Anpassung| Wie Regression, aber unter Berücksichtigung von Messfehlern (Fehlerbalken) |
+| Approximation | Kennlinienannäherung mittels Linearkombination geeigneter analytischer Basisfunktionen (beispielsweise durch Fourier-Reihen, siehe kommende Kapitel (Regression und Anpassung sind Approximationen)|
+|Bestimmtheitsmaß | Das Bestimmtheitsmaß, auch Determinationskoeffizient (von lateinisch determinatio „Abgrenzung, Bestimmung“ bzw. determinare „eingrenzen“, „festlegen“, „bestimmen“ und coefficere „mitwirken“), R2, ist in der Statistik eine Kennzahl zur Beurteilung der Anpassungsgüte einer Regression – beispielsweise, um zu bewerten, wie gut Messwerte zu einem Modell passen. Das Bestimmtheitsmaß beruht auf der Quadratsummenzerlegung, bei der die totale Quadratsumme in die (durch das Regressionsmodell) erklärte Quadratsumme und in die Residuenquadratsumme zerlegt wird.|
 |Korrelation|Maß für die lineare Korrelation zweier Messgrößen!|
-|Wahrscheinlichkeitsverteilung $dP(x)$ | eine Funktion, die die Wahrscheinlichkeit angibt, dass eine Messgröße $x$ durch Messung einen bestimmten Wert $x_j + dx$ annehmen wird.| 
+| Methode der kleinsten Quadrate | ist das mathematische Standardverfahren zur Ausgleichungsrechnung. |
+| Residuenquadratsumme | Die Residuenquadratsumme, Quadratsumme der Residuen, oder auch Summe der Residuenquadrate, bezeichnet in der Statistik die Summe der quadrierten (Kleinste-Quadrate-)Residuen (Abweichungen zwischen Beobachtungswerten und den vorhergesagten Werten) aller Beobachtungen |

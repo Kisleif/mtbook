@@ -3,7 +3,6 @@
 
 # # Einführung in Messsysteme
 # 
-# 
 # <iframe width="560" height="315" src="https://www.youtube.com/embed/nuuRDvRqePg?si=zK4wNP_FB-8r-yKe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 # 
 # Ein Messobjekt hat eine bestimmte **Messgröße** $x$ (physikalische Größe, Temperatur, Stromstärke, ..., chemische Messgröße, ...) von welcher der Messwert bestimmt werden soll. Hierfür wird ein Verfahren benötigt, um die Größe zu extrahieren, was durch ein passendes Messgerät geschieht. 

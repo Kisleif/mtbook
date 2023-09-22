@@ -3,7 +3,7 @@
 
 # # Messunsicherheiten
 # 
-# ::::::{margin}
+# 
 # :::::{grid}
 # ::::{grid-item-card}
 # :class-header: bg-light
@@ -12,29 +12,81 @@
 # <iframe width="200" height="113" src="https://www.youtube.com/embed/8jK2o9NuA5E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 # ::::
 # :::::
-# ::::::
-# 
 # 
 # Jede Messung, egal ob von Temperatur, Strecke oder Geschwindigkeit, ist immer mit einer Messunsicherheit verbunden. Der Messwerte, ohne Angabe einer Messunsicherheit, ist daher wertlos. 
-# Die Messunsicherheit ist ein Maß für die Qualität der Messung: Desto kleiner die Messabweichung, desto *genauer* oder *präziser* ist die Messung. Daher ist es wichtig, dass jeder Messwert, $x$, stets mit einer Messabweichung, $A$ oder häufig auch mit $\Delta x$ bezeichnet, versehen wird. Man schreibt dann:
+# Die Messunsicherheit ist ein Maß für die Qualität der Messung: Desto kleiner die Messabweichung, desto *genauer* oder *präziser* ist die Messung. 
 # 
-# $$x \pm \Delta x$$
 # 
-# wobei $\Delta x$ die *absolute Messabweichung* ist und dieselbe Einheit wie der eigentliche Messwert $x$ besitzt. 
+# :::{figure-md} coffee_toleranz
+# <img src="draw/coffee_toleranz.jpg" alt="coffee_toleranz" class="bg-primary mb-1" width="800px" label = coffee_toleranz>
 # 
-# Die *relative Messabweichung* wird auf einen Referenzwert bezogen, der häufig der Messwert $x$ ist:
+# Kaffeehalter und Kaffeebecher zeigen den gleichen Wert auf dem Messschieber an. Warum passt es trotzdem nicht?
+# :::
 # 
-# $$\Delta x_\mathrm{relativ} = \frac{\Delta x}{x}$$
+# In {numref}`coffee_toleranz` ist ein Beispiel aus der Produktion gegeben. Für einen Kaffeebecher mit Durchmesser $x = 55\,\mathrm{mm}$ soll eine einfach Halterung produziert werden. Der Durchmesser $x$ des Kaffeebechers wird mit dem Messschieber bestimmt und an zwei Firmen weitergegeben. Im ersten Produkt ist der Halter zu groß, der Becher rutscht durch. Im zweiten Fall wird das Loch noch einmal mit dem Messschieber überprüft. Dieser zeigt den richtigen Wert von $55\,\mathrm{mm}$ an, dennoch passt der Becher nicht. Woran liegt das?
 # 
-# Die Einheit der relativen Messabweichung ist somit *einheitenlos* und wird häufig in Prozent (%) angeben.
+# ## Toleranz
+# 
+# Was in diesem Beispiel fehlt ist die Angabe der *Toleranz*. 
+# Die Toleranz erhält man durch die Bestimmung der *Messunsicherheit*. 
+# Ohne die Kenntnis der verwendeten Messinstrumente, kann keine Fertigungstoleranz spezifiziert werden. 
+# 
+# Es gibt zwei Möglichkeiten, die Messunsicherheit zu bestimmten:
+# 1. Der Durchmesser des Kaffeebechers wird 100 Mal gemessen. Dadurch erhalten wir eine Streuung der Messwerte, woraus ein Mittelwert der Streuung berechnet werden kann. Hierfür werden Formeln aus statistischen Mathematik verwendet, um die Messunsicherheit und somit die Toleranz zu bestimmen. 
+# 2. Mittels dem Datenblatt des Herstellers des Messschiebers können die Spzifikationen direkt abgelesen werden. Es ist ratsam trotzdem noch mehrere Messungen durchzuführen, 10 genügen in den meisten Fällen aus. Die Angaben aus dem Datenblatt werden mit den gemittelten Streuwerten kombiniert und sollten eine ähnliche Toleranz ergeben.  
+# 
+# ```{admonition} Beispiel: Datenblatt eines digitalen Messschiebers
+# :class: dropdown
+# Laut Angaben des Herstellers ist die zulässige Längenmessabweichung (MPE E: maximum permissible error  = maximal zulässiger Wert der Messabweichung der Längenmessung) 0,05mm. Der Ziffernschrittwert von 0,01mm gibt die minimale Änderung des Messwertes auf der Skala an. Bei einem Digital-Messschieber ist dies die letzte Stelle der Digitalanzeige. 
+# :::{figure-md} messschieber
+# <img src="pictures/datenblatt_messschieber.jpg" alt="datenblatt_messschieber" class="bg-primary mb-1" width="800px" label = datenblatt_messschieber>
+# 
+# Screenshot der Produktdetails von der [Webseite]((https://shop.mitutoyo.de/web/mitutoyo/de_BE/mitutoyo/01.03.07a/Digital%20ABS%20Messschieber/$catalogue/mitutoyoData/PR/500-500-10/index.xhtml)) des Herstellers.
+# :::
+# ```
+# 
+# Der Messwert inklusive Toleranz (Messunsicherheit) muss an den Hersteller für Kaffeebecherhalter weitergegeben werden. Entweder in Form der *absoluten* Messunsicherheit $A$, die die gleiche Einheit wie der Messwert hat:
+# 
+# $$x \pm A = 55 \pm 1\,\mathrm{mm}$$
+# 
+# oder in Form der *relativen* Messunsicherheit:
+# 
+# $$x \pm A_\mathrm{rel} = x \pm \frac{A}{x} = 55\,\mathrm{mm} \pm 1,8\%$$
+# 
+# Hier ist die Einheit *einheitenlos* und wird in Prozent (%) wird.
+# 
+# 
+# ```{admonition} Mess*unsicherheit* vs. Mess*fehler*
+# :class: dropdown
 # 
 # Früher hat man statt *Abweichung* noch den Begriff *Messfehler* verwendet. Man dachte, dass man mit genügend Aufwand, Sorgfalt und bestmöglicher Technologie den Fehler vollständig eliminieren könne. Spätestens seit der Theorie der *Quantenphysik* ist uns allerdings bekannt, dass zufällige Einflüsse auf die beobachteten Messgrößen  unvermeidlich sind und auch nicht vorhergesagt werden können. Statt eines einzig *wahren* Wertes, $x_w$, werden in der Quantenphysik Messgrößen durch deren Erwartungswerte vorhergesagt. Diesen Messgrößen liegt eine Wahrscheinlichkeitsdichte zu Grunde, dessen Varianz (bzw. Standardabweichung) nicht verschwindet! Somit werden für ein und dieselbe physikalische Messgröße verschiedene Ergebnisse gemessen, obwohl nahezu identische Bedingungen herrschen. Das Eintreten eines bestimmten Messergebnisses ist an eine bestimmte Wahrscheinlichkeit gekoppelt, mit der dieses Ergebnis eintritt. 
+# ```
+# 
+# ## Ursache von Messunsicherheiten
+# 
+# Warum erhält man überhaupt verschiedene Messwerte mit demselben, hochpräzisen Messinstrument? Das liegt daran, dass auf die Messung verschiedene Einflussfaktoren einwirken. z.B. Umgebungstemperatur, wie ich den Messschieber bediene und die Digitalanzeige haben Einfluss auf das Messergebnis, wie in {numref}`fehlerklassen` dargestellt.
+# 
+# :::{figure-md} fehlerklassen
+# <img src="draw/fehlerklassen.jpg" alt="fehlerklassen" width="600px" label = fehlerklassen>
+# 
+# Vereinfachtes Modell eines Messsystems mit Störeinflüssen.
+# :::
+# 
+# Folgende Störungen können während der Messung auftreten:
+# * **Innere Störgrößen:** Hierbei handelt es sich um Störgrößen im Messgerät selbst. Beispiele dafür sind Alterungseffekte an für die Messung wichtigen Bauteilen. Bei Drehspulinstrumenten oder Waagen ist eine Feder eingebaut, deren Eigenschaften sich im Laufe der Lebensdauer verändert, was sich in einer fehlerhaften Anzeige bemerkbar macht.
+# * **Äußere Störgrößen:** Messungen werden meist durch mehrere unerwünschte Einflüsse gestört. Eine Widerstandsbrückenschaltung ist beispielsweise temperaturabhängig. Hierbei gibt es sowohl systematische Abweichungen, d.h. man kann den Einfluss isolieren und deterministisch beschreiben und die Messung korrigieren. Eine andere Art von äußeren Störgrößen sind zufällige Einstreuungen, die man nicht kompensieren kann. Zu ihrer Unterdrückung kommen u. a. einfache Mittelwertfilter zum Einsatz.
+# * **Beobachtungsfehler:** Wenn du eine Messung durchführst, kannst auch du, der Beobachter, zu einer Fehlerquelle werden, wenn z.B. die Anzeige falsch abgelesen wird (Müdigkeit, Sehschärfe, Übung). 
+# * **Dynamische Fehler:** Jedes Messsystem braucht eine bestimmte Zeit um sich einzupendeln. Daher sollte man immer einen Moment warten, bis man das Messsignal abliest. Die Abweichung entspricht hierbei der Größe des Toleranzbereichs. Optimalerweise wird das gemessene Signal der eigentlichen Messgröße verzögerungsfrei folgen. Sollte dies nicht der Fall sein, wird dies als dynamischer Fehler bezeichnet.
+# * **Rückwirkung** Jedes Messgerät braucht für den Messprozess Energie oder Leistung, die dem Prozess entzogen wird. Der Wert der Messgröße mit angeschlossener Messeinrichtung unterscheidet sich vom Wert, der ohne Messeinrichtung erreicht worden wäre. Auch bei externen Spannungsversorgungen entsteht eine Rückwirkung und Kopplung aufgrund von Wärme, die äußere Störgrößen antreibt. 
+# * **Quantisierungsfehler**: Diese Fehler entstehen bei der Digitalisierung. Es existiert nur eine endliche Anzahl von Möglichkeiten einen analogen Messwerte mittels Bits darzustellen.
+# 
+# Um die Messunsicherheiten und Störungen zu reduzieren, sollten immer die vom Hersteller spezifizierten Normalbedingungen (Messbereich, Messgenauigkeit, Betriebsbedingung, Einbauvorschrift, Energieversorgung, Abmessungen) eingehalten werden.
 
 # ## Typen von Unsicherheiten
 # 
 # Messungen liefern dennoch lediglich Schätzwerte für die *wahren* Werte einer Größe. Es gibt prinzipiell keine Möglichkeit, den wahren Wert einer Messgröße zu messen. Im Rahmen internationaler Anstrengungen für eine einheitliche Bewertung von Einflussgrößen auf eine Messung werden zwei Kategorien von Methoden der Berechnung von Unsicherheiten unterschieden [[GUM]](https://www.iso.org/sites/JCGM/GUM/JCGM100/C045315e-html/C045315e.html?csnumber=50461):
-# - **Typ A ("Zufällige Abweichung"):** Berechnung der Messunsicherheit durch statistische Analyse der Messungen
-# - **Typ B ("Systematische Abweichung"):** Berechnung der Messunsicherheit mit anderen Mitteln als der statistischen Analyse
+# - **Typ A (["Zufällige Abweichung"](1_StatistischeMessunsicherheit)):** Berechnung der Messunsicherheit durch statistische Analyse der Messungen
+# - **Typ B (["Systematische Abweichung"](1_SystematischeMessabweichung)):** Berechnung der Messunsicherheit mit anderen Mitteln als der statistischen Analyse
 # 
 # :::{figure-md} zielscheibe
 # <img src="draw/zielscheibe.jpg" alt="zielscheibe" class="bg-primary mb-1" width="800px" label = zielscheibe>
@@ -50,7 +102,7 @@
 # * Sie machen ein Ergebnis **unpräzise**
 # * Es sind **wiederholte Messungen und statistische Analysen** notwendig, wodurch Mittelwert und Standardabweichung von sogenannten *Stichproben* ermittelt wird. 
 # 
-# Wie gewinnt man aus einer Messreihe $x_j$ den besten Schätzewert, der mit maximaler Wahrscheinlichkeit am nähesten am *wahren* Wert, $x_w$, liegt? Mit welcher Wahrscheinlichkeit liegt das Messergebnis innerhalb eines bestimmten Intervalls um den wahren Wert, $x = x_w + \Delta x ?$ Hiermit befassen wir uns im Kapitel [Statistische Größen](1_Mittelwert_StdAbw).
+# Wie gewinnt man aus einer Messreihe $x_j$ den besten Schätzewert, der mit maximaler Wahrscheinlichkeit am nähesten am *wahren* Wert, $x_w$, liegt? Mit welcher Wahrscheinlichkeit liegt das Messergebnis innerhalb eines bestimmten Intervalls um den wahren Wert, $x = x_w + \Delta x ?$ Hiermit befassen wir uns im Kapitel [Statistische Messunsicherheiten](1_StatistischeMessunsicherheit).
 # 
 # ### Typ B-Unsicherheiten ("Systematische Fehler")
 # 
@@ -71,7 +123,7 @@
 # :::::
 # ::::::
 # 
-# Es gibt keine allgemeingültige Definition oder allgemeine Verfahren zur Korrektur. Das heißt für jeden Fall müssen neue Verfahren entwickelt werden.
+# Es gibt keine allgemeingültige Definition oder allgemeine Verfahren zur Korrektur. Das heißt für jeden Fall müssen neue Verfahren entwickelt werden. Hiermit befassen wir uns im Kapitel [Systematische Messabweichungen](1_SystematischeMessabweichung).
 
 # ## Schreibweise eines Messwertes mit Messabweichung
 # 
@@ -90,13 +142,13 @@
 # 
 # $$A = A_r +  A_s$$
 # 
-# wobei $A_r$ zufällige und $A_s$ systematische Messabweichungen sind. Ein Messwert setzt sich also zusammen aus dem *wahren* oder *richtigen* Wert, den wir niemals kennen werden, und der Messabweichung. Es gelten folgende Zusammenhänge:
+# wobei $A_r$ die zufälligen Messunsicherheiten und die $A_s$ systematische Messabweichungen sind. Ein Messwert setzt sich also zusammen aus dem *wahren* oder *richtigen* Wert, den wir niemals kennen werden, und der Messabweichung. Es gelten folgende Zusammenhänge:
 # 
 # * Der **ermittelte Messwert** lässt sich wie folgt schreiben, wobei $x_w$ der *wahre*, aber uns unbekannte, Wert ist. $A$ ist die Messabweichung: 
 # 
 # $$x = x_w + A$$
 # 
-# * Die **absolute Messabweichung** ergibt sich aus Umstellen der Gleichung:
+# * Die **absolute Messabweichung** ergibt sich aus Umstellen der obigen Gleichung. Häufig verwendet man auch die Notation $\Delta x$ für die Angabe der absoluten Messabweichung.
 # 
 # $$A = x - x_w = \Delta x$$
 # 

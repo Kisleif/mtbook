@@ -1,4 +1,4 @@
-# Woche 1: *Richtig* Messen
+# *Richtig* Messen
 
 Wie messen wir *richtig* im Praktikum? In der ersten Vorlesung klären wir die wichtigsten Begrifflichkeiten eines Messsystems. Außerdem beginnen wir direkt mit einer kleinen Einführung in die Messunsicherheiten, damit ihr perfekt für den Praktikumsversuch vorbereitet seid. 
 
@@ -32,6 +32,14 @@ Wie messen wir *richtig* im Praktikum? In der ersten Vorlesung klären wir die w
 |Standardabweichung | In der Messtechnik auch als Streuung bezeichnet, sie ist die Quadratwurzel aus der von zufälligen Einflüssen verursachte Abweichung eines Messergebnisses (Wurzel der Varianz). Wurzel aus der mittleren quadratischen Abweichung:  $s = \sqrt{\frac{1}{m-1} \sum_{j=1}^m (x_j - \overline x)^2}$ |
 |empirische Varianz $\sigma^2(x)$ | Schätzung der Varianz bezogen auf den *wahren* Wert (nicht auf den Mittelwert der Messreihe) der Messgröße: $\sigma^2 = \lim_{m\rightarrow \infty}\frac{1}{m} \sum_{j=1}^m (x_j - \mu)^2$|
 |empirische Standardabweichung $\sigma(x)$ | Wurzel aus der empirischen Varianz: $\sigma = \lim_{m\rightarrow \infty}\sqrt{\frac{1}{m} \sum_{j=1}^m (x_j - \mu)^2}$|
+|Kalibrieren|Untersuchen, ob der Prüfgegenstand bestimmte Bedingungen erfüllt (Entspricht der Messwert eines Messgeräts dem „richtigen“ Wert des Messgröße?)|
+|Eichen|Prüfung und Stempelung des Messsystems nach Eichvorschriften (Entspricht der Messwert eines Messgeräts dem „richtigen“ Wert des Messgröße unter staatlicher Hoheit?)|
+|Justieren|Einstellen eines Messsystems so, dass der Messwert der Messgröße möglichst gut entspricht|
+|Normale|Eine handhabbare Verkörperung einer Maßeinheit|
+|Korrektur|Von der systematischen Abweichung abgeleiteter Korrekturwert zur Berichtigung eines Schätzwertes einer Messgröße.|
+|Genauigkeitsklasse|Von den Fehlergrenzen abgeleitete Genauigkeitsangabe für Messeinrichtungen.|
+|Korrelation|Maß für die lineare Korrelation zweier Messgrößen!|
+|Wahrscheinlichkeitsverteilung $dP(x)$ | eine Funktion, die die Wahrscheinlichkeit angibt, dass eine Messgröße $x$ durch Messung einen bestimmten Wert $x_j + dx$ annehmen wird.| 
 
 
 ```{bibliography}

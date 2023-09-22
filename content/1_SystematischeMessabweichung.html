@@ -1,0 +1,1050 @@
+
+<!DOCTYPE html>
+
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Systematische Messabweichung &#8212; Metrology Lecture Book</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
+    <link rel="search" title="Suche" href="../search.html" />
+    <link rel="next" title="Fortpflanzung von Messunsicherheiten" href="1_Fehlerfortpflanzung.html" />
+    <link rel="prev" title="Statistische Messunsicherheit" href="1_StatistischeMessunsicherheit.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="de">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/i_mt.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Metrology Lecture Book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro_book.html">
+   Über dieses Lecture Book
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  ✍️ Vorlesung
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_Einf%C3%BChrung%20in%20die%20Messtechnik.html">
+   Einführung in Messsysteme
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="V1.html">
+   <em>
+    Richtig
+   </em>
+   Messen
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Einheiten.html">
+     Einheiten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Messunsicherheiten.html">
+     Messunsicherheiten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_StatistischeMessunsicherheit.html">
+     Statistische Messunsicherheit
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Systematische Messabweichung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Fehlerfortpflanzung.html">
+     Fortpflanzung von Messunsicherheiten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Kalibrieren.html">
+     Messsysteme kalibrieren
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="V2.html">
+   Datenanalyse
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Interpol_Approx.html">
+     Interpolation vs. Anpassung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Kurvenanpassung.html">
+     Anpassung und lineare Regression
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="V4.html">
+   Woche 4: Stationäre Messysteme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2_Messsystem.html">
+     Grundstruktur eines Messsystems
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2_idealeKennlinie.html">
+     Ideale Kennlinie
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2_realeKennlinie.html">
+     Reale Kennlinie
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="V5.html">
+   Woche 5: Messsignale
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3_basics.html">
+     Grundlagen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3_Kenngroessen.html">
+     Kenngrößen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3_Modulationen.html">
+     Modulation von Messsignalen
+     <a id="SubSec-Information">
+     </a>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3_FourierAnalyse.html">
+     Fourier-Analyse
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3_Digital.html">
+     Digitalisierung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="V6.html">
+   Woche 6: Dynamische Messsysteme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5_LTI.html">
+     Linear zeitinvariante (LZI/LTI) Systeme
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5_DGL.html">
+     Systeme chatakterisieren im Zeitraum
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5_Uebertragungsfunktion.html">
+     Übertragungsfunktion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5_Faltung.html">
+     Faltung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5_Rauschen.html">
+     Rauschen und spektrale Dichte
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="V7.html">
+   Woche 7: Messen elektrischer Größen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_U-Messeingang.html">
+     Spannungsmesseingang
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_I-Messeingang.html">
+     Strommesseingang
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_OP.html">
+     Operationsverstärker (OP)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_P-Messung.html">
+     Leistungsmessung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_R-Messung.html">
+     Widerstandsmessung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_CL-Messung.html">
+     Messung von Kapazitäten und Induktivitäten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_F-Messung.html">
+     Frequenz- und Zeitmessung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="V8.html">
+   Woche 8: Sensoren
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_Einf%C3%BChrung.html">
+     Einführung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_DMS.html">
+     Dehnungsmessstreifen (DMS)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_PZT.html">
+     Piezoelektrische Sensoren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_GPS.html">
+     Satellitennavigationssysteme
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_Kapazitiv.html">
+     Kapazitive und Induktive Sensoren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_Temp.html">
+     Temperaturmessungen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_Beschleunigung.html">
+     Beschleunigungssensoren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_Radar.html">
+     Radar
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_Ifo.html">
+     Laserinterferometrie
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  🧪 Praktikum
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0_Praktikum.html">
+   Infos zum Praktikum
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Versuche.html">
+   Versuche
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  🐍 Übungen
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="T_Tutorials.html">
+   Jupyter Notebooks
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="T_Plotten.html">
+     Messdaten analysieren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="T_Fehlerfortpflanzung.html">
+     Fehlerfortpflanzung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="T_LinReg.html">
+     Vergleich verschiedener Fit-Funktionen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="T_FitmitFehlerbalken.html">
+     Lineare Regression mit Berücksichtigung von Fehlerbalken
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="T_Spektralanalyse_Audio.html">
+     Fourier-Transformation: Entfernung von Hintergrundrauschen in einem Audiosignal
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/Kisleif/mtbook/main?urlpath=tree/content/1_SystematischeMessabweichung.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/Kisleif/mtbook/blob/main/content/1_SystematischeMessabweichung.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/Kisleif/mtbook"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/Kisleif/mtbook/issues/new?title=Issue%20on%20page%20%2Fcontent/1_SystematischeMessabweichung.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/Kisleif/mtbook/edit/main/content/1_SystematischeMessabweichung.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/content/1_SystematischeMessabweichung.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#anzeigefehler-von-messgeraten">
+   Anzeigefehler von Messgeräten
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#digitalstellenfehler">
+   Digitalstellenfehler
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#abweichung-aufgrund-von-verbindungskabel">
+   Abweichung aufgrund von Verbindungskabel
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#korrektur">
+   Korrektur
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Systematische Messabweichung</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#anzeigefehler-von-messgeraten">
+   Anzeigefehler von Messgeräten
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#digitalstellenfehler">
+   Digitalstellenfehler
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#abweichung-aufgrund-von-verbindungskabel">
+   Abweichung aufgrund von Verbindungskabel
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#korrektur">
+   Korrektur
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="systematische-messabweichung">
+<h1>Systematische Messabweichung<a class="headerlink" href="#systematische-messabweichung" title="Link zu dieser Überschrift">#</a></h1>
+<section id="anzeigefehler-von-messgeraten">
+<h2>Anzeigefehler von Messgeräten<a class="headerlink" href="#anzeigefehler-von-messgeraten" title="Link zu dieser Überschrift">#</a></h2>
+<p>Messgeräte werden anhand ihrer Genauigkeit in Klassen eingruppiert. Die Klasse entspricht der relativen Messabweichung. Präzisionsmessgeräte besitzen somit Abweichungen die zwischen 0,001% und 0,05% liegen. Die Genauigkeitsklasse K 2,5 (Angabe auf der Messskala nach DIN EN 60051 Abb. 1) bedeutet: Ist der Endwert des eingestellten Messbereichs <span class="math notranslate nohighlight">\(U_\mathrm{end}\)</span>, dann beträgt die Typ B-Unsicherheit über den gesamten Messbereich <span class="math notranslate nohighlight">\(u(U) = 0,0025\cdot U_\mathrm{end}\)</span>. Für <span class="math notranslate nohighlight">\(U_\mathrm{end} = 15\,\mathrm V\)</span> erhält man also:</p>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">U_end</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">u</span> <span class="o">=</span> <span class="mf">0.0025</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;eine absolute Unsicherheit von &#39;</span><span class="p">,</span> <span class="n">u</span><span class="o">*</span><span class="n">U_end</span><span class="p">,</span> <span class="s1">&#39;V&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eine absolute Unsicherheit von  0.0375 V
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dieser Wert von 0,375V gilt unabhängig davon, wie groß der Zeigerausschlag beim Messgerät ist. Um die relative Unsicherheit gering zu halten, sollte der Messbereich möglichst so gewählt werden, dass der Messwert am Skalen<em>ende</em> abgelesen wird.</p>
+</section>
+<section id="digitalstellenfehler">
+<h2>Digitalstellenfehler<a class="headerlink" href="#digitalstellenfehler" title="Link zu dieser Überschrift">#</a></h2>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Messgeräte-Kategorie</p></th>
+<th class="text-align:left head"><p>Genauigkeits-Klasse (%)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>Präzisions-Messgeräte</p></td>
+<td class="text-align:left"><p>0.001</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p></p></td>
+<td class="text-align:left"><p>0.002</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p></p></td>
+<td class="text-align:left"><p>0.005</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p></p></td>
+<td class="text-align:left"><p>0.01</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p></p></td>
+<td class="text-align:left"><p>0.05</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Fein-Messgeräte</p></td>
+<td class="text-align:left"><p>0.1</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p></p></td>
+<td class="text-align:left"><p>0.2</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p></p></td>
+<td class="text-align:left"><p>0.5</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Betriebs-Messgeräte</p></td>
+<td class="text-align:left"><p>1.0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p></p></td>
+<td class="text-align:left"><p>1.5</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p></p></td>
+<td class="text-align:left"><p>2.5</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p></p></td>
+<td class="text-align:left"><p>5.0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<figure class="align-default" id="voltmeter">
+<a class="reference internal image-reference" href="../_images/voltmeter.jpg"><img alt="voltmeter" src="../_images/voltmeter.jpg" style="width: 175px;" /></a>
+<figcaption>
+<p><span class="caption-number">Abb. 18 </span><span class="caption-text">Voltmeter mit Digitalanzeige.</span><a class="headerlink" href="#voltmeter" title="Link zu diesem Bild">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Beispiel</p>
+<p>Das Gerät im Bild zeigt den Messwert 5,847V an. Laut Hersteller ist die Maximalabweichung (unter Referenzbedingungen) <span class="math notranslate nohighlight">\(a = \pm\)</span> (0,5% vom <em>Messwert</em> + 9 Digit). Die Anzahl der Nachkommastellen (also der Digits) ist in diesem Falle 3, also 0,001V. Genauer kann das Messgerät keine Spannung angeben. Die Messabweichung setzt sich also wiefolgt zusammen (zwei signifikante Stellen reichen hierbei, da der Messwert selber nicht genauer angezeigt wird):</p>
+<div class="math notranslate nohighlight">
+\[a = \pm (0,5\% \cdot 5,847\,\mathrm{V} + 9 \cdot 0,001\,\mathrm V) \approx \pm 0,038\,\mathrm V = \pm 38,235\,\mathrm{mV}\]</div>
+<p>Innerhalb dieses <span class="math notranslate nohighlight">\(\pm\)</span> Bereiches der Breite <span class="math notranslate nohighlight">\(2a\)</span> unterstellt man eine Gleichverteilung der Messwerte und bekommt damit die Standardunsicherheit:</p>
+<div class="math notranslate nohighlight">
+\[u(U) = \frac{a}{\sqrt{3}} = \frac{38,235\,\mathrm{mV}}{\sqrt{3}} \approx 22\,\mathrm{mV}\]</div>
+<p>Ist nichts weiter bekannt, schätzt man die Unsicherheit über einen Mindestfehler von a = 1 Digit ab.</p>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">Messwert</span> <span class="o">=</span> <span class="mf">5.847</span> <span class="c1"># in V</span>
+<span class="n">Nachkommastellen</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">A_rel</span> <span class="o">=</span> <span class="mf">0.005</span> <span class="c1"># = 0.5%</span>
+<span class="n">Digit</span> <span class="o">=</span> <span class="mf">0.001</span> <span class="c1"># in V </span>
+<span class="n">A_total</span> <span class="o">=</span> <span class="n">A_rel</span> <span class="o">*</span> <span class="n">Messwert</span> <span class="o">+</span> <span class="mi">9</span> <span class="o">*</span> <span class="n">Digit</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Messtoleranz beträgt: +-&#39;</span><span class="p">,</span><span class="nb">round</span><span class="p">(</span><span class="n">A_total</span><span class="p">,</span><span class="n">Nachkommastellen</span><span class="p">),</span> <span class="s1">&#39;V = +-&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">A_total</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span><span class="n">Nachkommastellen</span><span class="p">),</span> <span class="s1">&#39;mV&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Unsicherheit beträgt: +-&#39;</span><span class="p">,</span><span class="nb">round</span><span class="p">(</span><span class="n">A_total</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="n">Nachkommastellen</span><span class="p">),</span> <span class="s1">&#39;V = +-&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">A_total</span><span class="o">*</span><span class="mi">1000</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="n">Nachkommastellen</span><span class="p">),</span> <span class="s1">&#39;mV&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Messtoleranz beträgt: +- 0.03824 V = +- 38.235 mV
+Die Unsicherheit beträgt: +- 0.02207 V = +- 22.07499 mV
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="abweichung-aufgrund-von-verbindungskabel">
+<h2>Abweichung aufgrund von Verbindungskabel<a class="headerlink" href="#abweichung-aufgrund-von-verbindungskabel" title="Link zu dieser Überschrift">#</a></h2>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Leitungswiderstand und Spannungsabfall einer Leitung berechnen (Kfz-Technik einfach erklärt)</p>
+<iframe width="200" height="113" src="https://www.youtube.com/embed/kzjpePkDTjQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<p>Verbindungskabel besitzen Innenwiderstände, wo ebenfalls Spannungen abfallen:</p>
+<div class="math notranslate nohighlight">
+\[R_L = \frac{\zeta \cdot l}{A}\]</div>
+<p>Hierbei ist <span class="math notranslate nohighlight">\(\zeta\)</span> der spezifische Widerstand, der für Kupfer <span class="math notranslate nohighlight">\(0,0175\,\mathrm{\Omega mm^2/m}\)</span> beträgt. <span class="math notranslate nohighlight">\(l\)</span> ist die Länge der Zuleitung und <span class="math notranslate nohighlight">\(A\)</span> der Querschnittfläche des Kabels.</p>
+<p>Eine gemessene Spannung ist also zu hoch und muss korrigiert werden.</p>
+<div class="tip admonition">
+<p class="admonition-title">Aufgabe</p>
+<p>Angenommen man habe ein <span class="math notranslate nohighlight">\(2\,\mathrm m\)</span> langes Kabel, das einen Querschnitt von <span class="math notranslate nohighlight">\(0,5\,\mathrm{mm^2}\)</span> aufweist und aus Kupfer (mit einem spezifischen Widerstand von <span class="math notranslate nohighlight">\(0,0175\,\mathrm{\Omega mm^2/m}\)</span>) ist. Wie groß ist die systematische Messabweichung für eine Stromstärke von <span class="math notranslate nohighlight">\(I = 100\,\mathrm{mA}\)</span>, wenn jeweils ein solches Kabel zum Anschluss der Spannungsmessung genommen wird?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Lösung</p>
+<p>Angenommen man habe keine Zuleitungskabeln, wo wäre die Spannung an einem Widerstand <span class="math notranslate nohighlight">\(R_x\)</span> durch <span class="math notranslate nohighlight">\(U_x = R_x \cdot I\)</span> gegeben.
+Bei Zuleitungskabeln werden die unvermeidbaren Zusatz-Widerstände in Reihe zu dem eigentlichen Widerstand <span class="math notranslate nohighlight">\(R_x\)</span> geschaltet. Das heißt die gemessene Spannung setzt sich nun aus der Spannung an <span class="math notranslate nohighlight">\(R_x\)</span> und an den jeweils 2 Kabeln, <span class="math notranslate nohighlight">\(U_L\)</span> zusammen: <span class="math notranslate nohighlight">\(U = U_x + 2\cdot U_L\)</span>.
+Der Wert für <span class="math notranslate nohighlight">\(U_L\)</span> beträgt:</p>
+<div class="math notranslate nohighlight">
+\[U_L = \frac{\zeta \cdot l}{A} \cdot I = 7\,\mathrm{mV}\]</div>
+<p>Damit wird die Spannung mit 2m-Kupferkabeln um <span class="math notranslate nohighlight">\(14\,\mathrm{mV}\)</span> zu hoch gemessen!</p>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zeta</span> <span class="o">=</span> <span class="mf">0.0175</span> <span class="c1">#in Ohm mm^2 / m</span>
+<span class="n">l</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1">#in m</span>
+<span class="n">A</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="c1">#in mm^2</span>
+<span class="n">I</span> <span class="o">=</span> <span class="mf">100e-3</span> <span class="c1">#in A</span>
+
+<span class="c1"># Strom durch ein Zuleitungskabel</span>
+<span class="n">U</span> <span class="o">=</span> <span class="n">zeta</span> <span class="o">*</span> <span class="n">l</span> <span class="o">/</span> <span class="n">A</span> <span class="o">*</span> <span class="n">I</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Spannung wird um &#39;</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">U</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span> <span class="s1">&#39;mV zu hoch gemessen&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Spannung wird um  14.000000000000002 mV zu hoch gemessen
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="korrektur">
+<h2>Korrektur<a class="headerlink" href="#korrektur" title="Link zu dieser Überschrift">#</a></h2>
+<p>Man merkt, dass systematische Fehler sehr unangenehm sein können, da Gegenmaßnahmen fallabhängig entwickelt werden müssen. In einigen Fällen gelangt man zu einer brauchbaren Abschätzung der Unsicherheit, wenn man den „worst case“ annimmt.</p>
+<p>Abschätzungen von systematischen Messabweichungen, wie es z.B. im vergangenen Beispiel des Verbindungskabels geschehen ist, müssen unbedingt benutzt werden, um den Messwert am Ende zu korrigieren! Ansonsten misst man einen <em>ungenauen</em> Wert, der entweder zu groß oder zu klein ist. Dies wird auch häufig als “Offset” bezeichnet. Die Messung kann dann noch so <em>präzise</em> wie möglich sein, der Wert ist dennoch <em>falsch</em>.</p>
+<p>Bei zufälligen Messabweichungen ist eine Korrektur nicht möglich. In diesem Fall muss die Messabweichung mit Methoden der Statistik bestimmt und mit dem Messwert zusammen angegeben werden.</p>
+<figure class="align-default" id="messabw">
+<a class="reference internal image-reference" href="../_images/zusammenfassung_abw.jpg"><img alt="messabw" src="../_images/zusammenfassung_abw.jpg" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Abb. 19 </span><span class="caption-text">Korrektur und Angabe des Messergebnisses</span><a class="headerlink" href="#messabw" title="Link zu diesem Bild">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Kisleif/mtbook",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="1_StatistischeMessunsicherheit.html" title="zurück Seite">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">zurück</p>
+            <p class="prev-next-title">Statistische Messunsicherheit</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="1_Fehlerfortpflanzung.html" title="weiter Seite">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">weiter</p>
+        <p class="prev-next-title">Fortpflanzung von Messunsicherheiten</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Katharina-S. Isleif<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -1,309 +1,271 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Anpassung und lineare Regression
-
-# Bei der Kurvenanpassung handelt es sich um ein statistisches Analyseverfahren zur Feststellung funktionaler Beziehungen zwischen einer abhängigen und einer oder mehreren unabhängigen Variablen. Der Begriff **lineare Regression** ist weit verbreitet, doch dies ist nur der einfachste Fall eines Modells, nämlich der einer Geraden: $y = a \cdot x +b$. Grundsätzlich sollte man den Typ der Fit-Funktion $y = f(x)$ immer vorher festlegen und auch begründen können. Es ist keine wissenschaftliche oder messtechnische Vorgehensweise alle möglichen Funktionen nur auf Verdacht *auszuprobieren* und sich für die besten zu entscheiden. Hierbei wäre es möglich, dass unbrauchbare Näherungen oder sogar falsche (unsinnige) und nicht-wissenschaftliche Ergebnisinterpretationen auftreten könnten, was es zu vermeiden gilt. 
+# # Regressionsrechnung
 # 
-# Zusammengefasst suchen wir nun also ein bestimmtes Modell für ein bestimmtes Set an Daten und wollen die Modellparameter bestimmen. Dabei soll das Modell möglichst gut die Messdaten vorhersagen. Die Modellanpassung wird häufig über die Methode der kleinsten Quadrate verwendet, mit welcher sich fast alle Messdaten modellieren lassen (auch kompliziertere Situationen wie beispielsweise korrelierte Unsicherheiten). 
-
-# :::{admonition} Tutorial
-# :class: tip
-# Python-Beispiele für Kurvenanpassungen findet ihr hier:
-# * [Vergleich verschiedener Fit-Routinen in Python](T_LinReg)
-# * [Fitten mit Fehlerbalken in Python](T_FitmitFehlerbalken)
-# * [Fitten von *echten* Klimadaten](T_Plotten)
-# :::
-
-# ## Modellanpassung <a id="Sec-Modellanpassung"></a>
+# ::::::{margin}
+# :::::{grid}
+# ::::{grid-item-card}
+# :class-header: bg-light
+# 5.2 Regression | Methode der kleinsten Quadrate (Statistik Grundlagen)
 # 
-# Um ein Regressionsmodell zu berechnen, benötigen wir ein objektives Maß um die Zuverlässigkeit und Güte unserer Modellfunktion zu bestimmen. Dies nennt man auch das **Bestimmtheitsmaß**, bzw. auf englisch **coefficient of determination** oder **goodness of fit**. Dieses Maß 
-# * bestimmt die Verkleinerung des Vorhersagefehlers der Ausgangsgröße $y$
-# * definiert die Größe der Streuung von $y$
-# * zeigt die Qualität der linearen Regression, aber nicht ob das Modell richtig ist
-# * sagt nichts über die statistische Signifikanz des ermittelten Zusammenhangs der einzelnen Regressoren aus (Signifikanztest notwendig)
+# <iframe width="200" height="113" src="https://www.youtube.com/embed/lQU2tBGOgzo?si=tOTZxzwBWsZj8tsA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+# ::::
+# :::::
+# ::::::
 # 
-# Als erstes soll überprüft werden, inwiefern die Funktion oder das Modell mit den Messdaten übereinstimmt. Ausgangspunkt ist also unsere Messreihe mit $N$ Messpunkten $(x_i, y_i)$ und wir haben eine Funktion $f(x_i)$ definiert, die die Messwerte $y_i$ möglichst gut vorhersagen soll. In der unteren Grafik (geborgt von [Wikipedia](https://de.wikipedia.org/wiki/Methode_der_kleinsten_Quadrate)), sind Messpunkte in grau und eine Modellfunktion in blau aufgezeichnet. Die Parameter der gesuchten Modellfunktion werden nun so bestimmt, dass die Modellfunktion möglichst wenig von den Messwerten abweicht, d.h. das Residuum (rote Balken)
+# Bisher haben wir uns auf die Analyse von Messreihen konzentriert, bei denen einzelne Messwerte betrachtet wurden, um Mittelwerte und Standardabweichungen zu berechnen. Im letzten Kapitel haben wir jedoch bereits gesehen, dass es Situationen gibt, in denen verschiedene Messgrößen gemessen werden und diese unter Umständen eine Abhängigkeit oder Korrelation untereinander aufweisen können.
 # 
-# $$\epsilon = \left( f(x_i) - y_i\right)$$
+# Dies bedeutet beispielsweise, dass wir eine Messgröße y haben, die eine Funktion einer anderen Messgröße x ist:
 # 
-# soll möglichst klein werden. 
+# $$y = f(x)$$
+# 
+# Grundsätzlich ist jeder funktionale Zusammenhang $f(x)$ möglich. Es kann jedoch auch vorkommen, dass der Zusammenhang linear ist. In jedem Fall sollte der Typ der Fit-Funktion $y = f(x)$ im Voraus festgelegt und begründet werden. Es ist keine wissenschaftliche oder messtechnische Vorgehensweise, alle möglichen Funktionen ohne klaren Grund auszuprobieren und sich dann für die besten zu entscheiden. Dies könnte zu unbrauchbaren Näherungen oder sogar zu falschen und nicht wissenschaftlichen Ergebnissen führen, was vermieden werden sollte.
+# 
+# Wenn wir Messungen von y für verschiedene Werte von x durchführen, erhalten wir verschiedene Punkte im Messbereich. Die Werte werden wahrscheinlich um eine Gerade streuen, das heißt, sie liegen nicht perfekt auf einer Geraden. Dies liegt einfach daran, dass es zufällige Fehler gibt.
 
 # In[1]:
 
 
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 from scipy import interpolate
 
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.figure(figsize=(6,3)) # Plot-Größe
-#plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 plt.figure(figsize=(5,4)) # Plot-Größe
 
-# ANPASSUNG:
-x = np.arange(10, 200, 10)
-stoerung = np.random.normal(scale=1.4, size=x.shape)
-y = np.sqrt(x)+stoerung
+# Erzeugen von Daten:
+x = [12, 24, 36, 42, 60, 72, 84, 96, 108, 120] # Messwerte der Strecke x in m
+y = [12.2, 17, 22.1, 33.2, 34.4, 59.1, 60.2, 65.7, 69.9, 70.1] # Messwerte der Zeit t in sek.
+x = np.array(x) #konvertiere die Messwerte in ein Numpy-Array
+y = np.array(y) #konvertiere die Messwerte in ein Numpy-Array
+
 plt.plot(x,y,'o', color='tab:gray', zorder=3)
 
 # Anpassung / Fit:
-def anpassung(x, a):
-    return a*np.sqrt(x)
+def anpassung(x, a, b):
+    return a + b*x
 popt, pcov = curve_fit(anpassung, x, y)
 plt.plot(x,anpassung(x,*popt), zorder=0, color = 'tab:blue')
 plt.plot((x,x),([i for i in y], [j for (j) in anpassung(x,*popt)]),c='tab:red', zorder=1)
 plt.xlabel('x')
 plt.ylabel('y')
-plt.xticks([])
-plt.yticks([])
-plt.title('Residuum')
-plt.legend(['Messwerte', 'Modellfunktion', 'Residuum'])
+#plt.xticks([])
+#plt.yticks([])
+plt.legend(['Messwerte', 'Modellfunktion (hier eine Gerade)', 'Residuum (Fehler)'])
 plt.show()
 
 
-# ### Least-Squares: Methode der kleinsten Quadrate <a id="SubSec-least_squares"></a>
+# Um die optimale Gerade zu bestimmen, führen wir eine **lineare Regression** durch, um die Daten anzunähern. Die optimale Gerade hat im Idealfall die Form:
 # 
-# ::::::{margin}
-# :::::{grid}
-# ::::{grid-item-card}
-# :class-header: bg-light
-# 5.2 Regression | Methode der kleinsten Quadrate (FIVE PROFS)
+# $$y = a + b \cdot x + E$$
 # 
-# <iframe width="200" height="113" src="https://www.youtube.com/embed/lQU2tBGOgzo?si=3NQqtUm86Qk_sMrS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-# ::::
-# :::::
-# ::::::
+# Hierbei ist $b$ die Steigung der Geraden, $a$ der Achsenabschnitt und $E$ der Fehler, der durch den Abstand der Geraden von den Messpunkten entsteht.
 # 
-# Laut Carl Friedrich Gauß kann also der Abstand der Funktionswerte zu den Messwerten wie folgt definiert werden:
+# Wie bestimmen wir diese Gerade? Kurz gesagt, suchen wir ein geeignetes Modell für unsere Daten und möchten die Modellparameter ermitteln. Das Modell soll möglichst gut die Messdaten vorhersagen. Die Anpassung des Modells erfolgt häufig mithilfe der Methode der kleinsten Quadrate, die sich für die Modellierung von nahezu allen Arten von Messdaten eignet.
 # 
-# > Methode der Gauß'schen Fehlerquadrate (Gütefunktion): 
 # 
-# $$Q := \sum_{i=1}^N \left( f(x_i) - y_i\right)^2 :=  \sum_{i=1}^N \epsilon_i^2 = \mathrm{min!}$$
-# 
-# Die Gütefunktion, die gleichbedeutend mit den SQT ist, ist wieder so gewählt, dass sich Abweichungen aufgrund unterschiedlicher Vorzeichen nicht aufheben können und dass größere Abweichungen stärker gewichtet werden (durch die Quadrierung). Die Modellfunktion $f(x)$ wird bestimmt, indem das Minimierungsproblem gelöst wird. Dies kann entweder analytisch geschehen (siehe [Lineare Modellanpassung](#SubSec-Lineare_Modellanpassung)) oder man lässt sich die Regression mittels Software berechnen. 
-# 
-# Es handelt sich um ein *Minimierungsproblem* welches je nach Art der Modellfunktion unterschiedlich gelöst wird. Man sollte stets die Regressionsgerade zusammen mit den Datenpunkten in ein Diagramm zeichnen, um zu sehen, wie "gut" die Messdaten durch die Kurvenanpassung beschrieben werden. 
-# Je enger die Datenpunkte um die Regressionsgerade herum konzentriert sind, d. h. je kleiner also die Residuenquadrate sind, desto „besser“. Die Residuenquadrate sind meistens relativ klein, insbesondere dann, wenn die abhängige Variable sehr konstant ist. Das heißt man möchte eigentlich auch die Streuung der abhängigen Variablen mit ins Spiel bringen.
-# Sowohl die Streuung der Messwerte zum Mittelwert, als auch die der geschätzten Werte, sollte in Relation zueinander gebracht werden. Das heißt wir definieren im Folgenden zwei Summen der Abweichungsquadrate. Die **Summe der Abweichungsquadrate (Sum of Squares) SQT oder SST** gibt die Streuung der Messwerte um ihren Mittelwert an. Das *mittlere* Abweichungsquadrat bestimmt deren Varianz. 
-# 
-# * Die **Summe der Quadrate der Erklärten Abweichungen (Sum of Squares Explained) SQE oder SSE** gibt die Streuung der Schätzwerte $f(x_i)$ des Fits um den Mittelwert $\bar f = \bar y$ der gemessenen Messwerte an:
-# 
-# $$\mathrm{SQE} = \mathrm{SSE} = \sum_{i=1}^N (f(x_i) - \bar y)^2$$
-# 
-# * Die **totale Quadratsumme (Summe der Quadrate der Totalen Abweichungen bzw. Sum of Squares Total) SQT oder SST** gibt die Streuung der Messwerte $y_i$ um deren Mittelwert $\bar y$ an:
-# 
-# $$\mathrm{SQT} = \mathrm{SST} = \sum_{i=1}^N (y_i - \bar y)^2$$
-# 
-# * Die **Restabweichungen** (nicht erklärte Abweichungen), welche nach der Regression übrig bleiben sind ein Maß für die Abweichung der Datenpunkte von der Regressionskurve und werden durch die Residuenquadratsumme (**Summe der Quadrate der Restabweichungen** (oder: „Residuen“) bzw. englisch Sum of Squares Residual) SQR oder SSR) erfasst:
-# 
-# $$\mathrm{SQR} = \mathrm{SSR} = \sum_{i=1}^N(y_i-f(x_i))^2$$
-# 
-# * Man kann beweisen, dass Folgendes gilt:
-# 
-# $$\mathrm{SQT} = \mathrm{SQR} + \mathrm{SQE}$$
+# :::{admonition} Tutorial
+# :class: tip
+# Python-Beispiele für Kurvenanpassungen findet ihr hier:
+# * [Vergleich verschiedener Fit-Routinen](T_LinReg)
+# * [Regression mit Fehlerbalken](T_FitmitFehlerbalken)
+# * [Klimadaten anpassen](T_Plotten)
+# :::
 
-# ### Bestimmtheitsmaß <a id="SubSec-Bestimmtheitsmaß"></a>
+# ## Least-Squares: Methode der kleinsten Quadrate
 # 
-# ::::::{margin}
-# :::::{grid}
-# ::::{grid-item-card}
-# :class-header: bg-light
-# Bestimmtheitsmaß Regression berechnen & interpretieren 📚 einfach erklärt (Alles Andy)
+# Unser Ziel ist es, die Abweichung der Messwerte von der Geraden (oder allgemein von der Funktion $f$) so gering wie möglich zu halten. Wie bereits beim Berechnen von Mittelwerten und Standardabweichungen verwenden wir die Quadrate der Abweichungen. Dadurch werden positive und negative Abweichungen nicht ausgeglichen, und größere Abweichungen werden stärker (quadratisch) gewichtet.
 # 
-# <iframe width="200" height="113" src="https://www.youtube.com/embed/3JR95ubOuL4?si=BXOo43Ch5Ks4fuvo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-# ::::
-# :::::
-# ::::::
+# Hierfür definieren wir die Funktion $Q$, die von den Geradenparametern $b$ und $a$ abhängt und als **Gütefunktion** definiert ist:
 # 
-# Für das **Bestimmtheitsmaß** gelten folgende Punkte:
-# * Es beschreibt den Anteil der Varianz einer abhängigen Variablen $y$ durch ein statistisches Modell
-# * Es ist nur für lineare Regressionen eindeutig definiert:
+# $$Q(b,a) = \sum_{i = 1}^N [y_i - (b\cdot x + a)]^2 = \mathrm{min !}$$
 # 
-# $$\mathit{R}^2 = r^2 (=\textrm{Korrelation}^2)$$
+# In dieser Funktion werden zunächst die Unterschiede zwischen den Messwerten und der theoretischen Geradenfunktion berechnet. Diese Differenzen werden dann quadriert und schließlich für alle Messwerte $y_i$ aufsummiert. Unser Ziel ist es, diese Summe zu minimieren.
 # 
-# * Es kann bedingt zur Beschreibung der Güte einer Regression verwendet werden. 
+# ```{warning}
+# Es handelt sich um ein *Minimierungsproblem*, das je nach Art der Modellfunktion unterschiedlich gelöst wird. Im Folgenden werden wir es für eine lineare Funktion lösen.
+# ```
 # 
-# * Das Verhältnis der beiden Größen SQE und SQT wird das **Bestimmtheitsmaß** der Regression genannt und gibt an, wie gut die gefundene geschätzte Modellfunktion zu den Messdaten passt, oder wie gut sich die Regression an die Daten annähert. 
+# Um die Parameter $a$ und $b$ zu minimieren, leiten wir die Funktion $Q$ nach diesen Parametern ab und setzen die Ableitungen gleich Null, um die Extremstellen (in diesem Fall das Minimum) zu finden. Wir leiten $Q$ also nach $b$ und $a$ ab:
 # 
-# $$\mathit{R}^2 \equiv \frac{SQE}{SQT}=
-# \frac{\displaystyle\sum_{i=1}^N \left(f(x_i)- \overline{y}\right)^2}{\displaystyle\sum_{i=1}^N \left(y_i - \overline{y}\right)^2} = 1 - \frac{SQR}{SQT}=1-\frac{\displaystyle\sum_{i=1}^N \left(y_i - f(x_i)\right)^2}{\displaystyle\sum_{i=1}^N \left(y_i - \overline{y}\right)^2}$$
+# $$\frac{dQ}{db} = -2 \sum_{i = 1}^{N} x_i (y_i - bx_i - a) = 0$$
 # 
-# wobei:
-# * $f(x_i)$ der Funktionswert der Regression ist
-# * $x_i$ der Datenwert ist
-# * und $\bar y$ der Mittelwert $y_i$ der Messwerte ist
+# $$\frac{dQ}{da} = -2 \sum_{i = 1}^{N} (y_i - bx_i - a) = 0$$
 # 
-# Das Bestimmtheitsmaß lässt sich mit 100 multiplizieren, um es in Prozent anzugeben, dies entspricht dann dem prozentualen Anteil der Streuung in $y$, der durch das lineare Modell beschrieben wird und liegt somit zwischen 0% und 100%:
-# * 0%: es existiert kein linearer Zusammenhang
-# * 100%: perfekter linearer Zusammenhang
+# Durch Differentiation nach den Parametern und Gleichsetzen der Ableitungen auf Null erhalten wir die folgenden Gleichungen:
 # 
-# Allgemein gilt für das **Bestimmtheitsmaß**:
-# * je näher $\mathit{R}^2$ an 1 liegt, desto höher ist die Güte der Kurvenanpassung
-# * für $\mathit{R}^2=0$ ist der Schätzer im Modell völlig unbrauchbar für irgendeine Vorhersage eines Zusammenhangs zwischen $x_i$ und $y_i$. 
-# * für $\mathit{R}^2=1$ lässt sich $y$ vollständig durch ein lineares Modell beschreiben und alle Messpunkte liegen auf einer nicht-horizontalen Geraden. In diesem Falle würde man davon sprechen, dass ein deterministischer Zusammenhang besteht, kein stochastischer. 
+# $$b\sum_{i = 1}^{N} x_i^2 + a\sum_{i = 1}^{N}x_i  = \sum_{i = 1}^{N}x_i y_i$$
 # 
-# **Nachteile des Bestimmheitsmaßes:**
-# Für immer mehr Messwerte steigt $\mathit{R}^2$ an, ohne dass die Korrelation oder die Regression besser wird.
-# Dies könnte durch ein korrigiertes $\mathit{R}^2$ behoben werden:
-#     
-# $$\mathit{\overline R}^2 = 1-(1-\mathit{R}^2)\cdot \frac{n-1}{n-p-1}$$
-# 
-# mit 
-# * $n$ Anzahl der Messwerte und
-# * $p$ Anzahl der Variablen im Regressionsmodell
-# 
-# Ein weiterer Nachteil ist, dass keine Aussage darüber geliefert werden kann, ob ein *korrektes* Regressionsmodell verwendet wurde.
+# $$b\sum_{i = 1}^{N} x_i + N a  = \sum_{i = 1}^{N} y_i$$
 
-# ### Berücksichtigung von Unsicherheiten <a id="SubSec-Modellanpassung_unsicherheiten"></a>
+# ## Regressionskoeffizienten
 # 
-# Im allgemeinen Fall, d.h. wenn die Messwerte $y_i$ mit Unsicherheiten $s_i$ behaftet sind, lässt sich die Residuensumme wiefolgt definieren:
+# Durch Umstellen dieser Gleichungen erhalten wir die folgenden Ausdrücke für die gesuchten besten Schätzwerte der Regressionsgeraden, auch **Regressionskoeffizienten** genannt:
+# 
+# $$ b = \frac{\sum_{i=1}^N (x_i y_i) - n\sum_{i=1}^N x_i }{\sum_{i=1}^N x_i^2 } = \frac{\mathrm{cov}_{xy}}{S_{x}^2} = \frac{\overline{x\cdot y} - \overline x \cdot \overline y}{\overline{x^2} - (\overline x)^2}$$
+# 
+# $$a = \frac{\sum_{i=1}^N y_i - b \sum_{i=1}^N x_i}{N} = \bar y - b \cdot \bar x$$
+# 
+# Hierbei bedeuten $\bar x$ und $\bar y$ die Durchschnittswerte der jeweiligen Messwerte:
+# 
+# $$\bar x = \sum_{i = 1}^N x_i$$
+# 
+# $$\bar y = \sum_{i = 1}^N y_i$$
+# 
+# und die Kovarianz $\mathrm{cov}_{xy}$ und die Standardabweichung $S_{x}$ der Messwerte sind:
+# 
+# $$\mathrm{cov}_{xy} = \frac{1}{N-1}\sum_{i = 1}^N (x_i-\bar x)(y_i - \bar y)$$
+# 
+# $$S_{x}^2 = \frac{1}{N-1}\sum_{i = 1}^N (x_i-\bar x)^2$$
+# 
+# Es ist wichtig anzumerken, dass wir hier die Mittelwerte für $x$ und $y$ verwenden, obwohl die $x$-Werte absichtlich während der Versuchsreihe variiert werden, wodurch sich die Größen $x$ und $y$ kontinuierlich ändern. Dies ist eine besondere Eigenschaft der Methode der kleinsten Quadrate in der linearen Regression.
+# 
+# Mittels diesen Gleichungen können wir für das oben gezeigte Beispiel der Messdaten die Parameter $a$ und $b$ manuell berechnen:
+
+# In[2]:
+
+
+# Erstellen der DataFrames
+data = pd.DataFrame({'x': x, 'y': y})
+
+# Berechnung der Regressionskoeffizienten
+x_mean = data['x'].mean()
+y_mean = data['y'].mean()
+xy_mean = (data['x'] * data['y']).mean()
+x_squared_mean = (data['x']**2).mean()
+
+b = (xy_mean - x_mean * y_mean) / (x_squared_mean - x_mean**2)
+a = y_mean - b * x_mean
+
+print("Regressionskoeffizient b (Geraden-Steigung):", b)
+print("Regressionskoeffizient a (Ordinatenabschnitt):", a)
+
+# Berechnung der Gütefunktion
+data['b*x+a'] = b * data['x'] + a
+data['y-(b*x+a)'] = data['y'] - data['b*x+a']
+data['[y-(b*x+a)]^2'] = data['y-(b*x+a)']**2
+sum_of_squared_residuals = data['[y-(b*x+a)]^2'].sum()
+
+
+# In[3]:
+
+
+display(data)
+print("Summe der quadrierten Abweichungen (Gütefunktion):", sum_of_squared_residuals)
+
+
+# In[4]:
+
+
+# MatplotLib Settings:
+plt.style.use('default') # Matplotlib Style wählen
+plt.rcParams['font.size'] = 10; # Schriftgröße
+
+plt.figure(figsize=(5,4)) # Plot-Größe
+plt.plot(x,y,'o', color='tab:gray', zorder=3)
+plt.plot(x,b*x+a,lw=3, color="black", ls = ':')  # plot Ausgleichsgerade mit m und b
+plt.plot((x,x),([i for i in y], [j for (j) in anpassung(x,*popt)]),c='tab:red', zorder=1)
+plt.xlabel('x')
+plt.ylabel('y')
+#plt.xticks([])
+#plt.yticks([])
+plt.legend(['Messwerte', 'analytische Regression: y = %5.3f*x+%5.3f'%(b,a), 'Residuum (Fehler)'])
+plt.show()
+
+
+# Die Regressionskoeffizienten ermöglichen uns, die Gerade zu bestimmen. In der Praxis verwendet man jedoch in der Regel nicht diese komplexen Berechnungen, sondern greift auf Funktionen zurück, die bereits in vielen Programmen vorimplementiert sind. Ein Beispiel hierfür ist die in Python vorhandene Funktion `curve_fit`. Wie das folgende Beispiel zeigt, führen sowohl die manuelle Berechnung von $b$ und $a$ als auch die Verwendung der integrierten Python-Funktion zu derselben Regressionsgeraden:
+
+# In[5]:
+
+
+# MatplotLib Settings:
+plt.style.use('default') # Matplotlib Style wählen
+plt.rcParams['font.size'] = 10; # Schriftgröße
+
+plt.figure(figsize=(5,4)) # Plot-Größe
+plt.plot(x,y,'o', color='tab:gray', zorder=3, label = 'Messwerte')
+plt.plot(x,anpassung(x,*popt), zorder=0, color = 'tab:blue', label = 'Modellfunktion mit Curve_Fit')
+plt.plot(x,b*x+a,lw=3, color="black", ls = ':', label = 'analytische Regression: y = %5.3f*x+%5.3f' %(b,a))  # plot Ausgleichsgerade mit m und b
+plt.plot((x,x),([i for i in y], [j for (j) in anpassung(x,*popt)]),c='tab:red', zorder=1)
+plt.xlabel('x')
+plt.ylabel('y')
+#plt.xticks([])
+#plt.yticks([])
+plt.legend()
+plt.show()
+
+
+# ## Fehler der Regressionsgeraden
+# 
+# Der Fehler oder die Abweichung der Regression wird durch die Standardabweichung der Funktion $Q(b,A)$ angegeben. Dieser Fehler wird wie folgt berechnet:
+# 
+# $$E^2 = s^2(Q(b,a)) = \frac{Q(b,a)}{N-2}$$
+# 
+# Hierbei wird durch die Anzahl der Freiheitsgrade, $N-2$, geteilt, da die Messreihe endlich ist. Für endliche Messergebnisse muss $N-2$ berücksichtigt werden. In einer unendlichen Messreihe wäre dieser Faktor unendlich groß und der Fehler würde gegen Null gehen.
+# 
+# Der Fehler unseres $y$-Schätzwertes kann folgendermaßen ausgedrückt werden:
+# 
+# $$s_y = E = \sqrt{\frac{1}{N-2}\sum(y_i - bx_i - a)^2 }$$
+
+# In[6]:
+
+
+N = len(y)
+diff_y = 0
+for i in range(N):
+    diff_y += ( y[i] - b * x[i] - a )**2
+
+streuung_y = 1/(N-2)*diff_y
+s_y = np.sqrt(streuung_y)
+print('Die Unsicherheit von y ist \t s_y = %5.4f' %(s_y))
+
+
+# ### Berücksichtigung von Unsicherheiten
+# 
+# Im allgemeinen Fall, d.h. wenn die Messwerte $y_i$ mit Unsicherheiten $s_i$ behaftet sind, lässt sich die **Residuensumme** wiefolgt definieren:
 # 
 # $$\chi^2 = \sum_{i=1}^N \left(\frac{f(x_i)-y_i}{s_i}\right)^2$$
 # 
 # Für die obigen Berechnungen, und auch im Falle von konstanten Unsicherheiten, d.h. wenn für alle Werte von $y_i$ die gleiche absolute Unsicherheit existiert, ändert sich nichts. Denn es gilt $s_i = s = \mathrm{const}$ und beim "Nullsetzen" werden diese einfach eliminiert.
 # Gelten für die $N$ Messwerte allerdings unterschiedliche Unsicherheiten, so müssen diese miteinbezogen werden. 
 
-# ## Lineare Modellanpassung <a id="SubSec-Lineare_Modellanpassung"></a>
+# ### Unsicherheiten der Regressionskoeffizienten
 # 
-# Da wir als Messtechniker immer danach streben möglichst lineare Kennlinien zu erreichen, ist die Gerade eine häufig auftretende Kurve, die angepasst werden soll. Daher wollen wir uns in diesem Abschnitt mit der Herleitung der linearen Regression befassen. Die Herleitung für andere Modellfunktionen, welche quadratische Terme, noch höhere Terme oder ganz andere Zusammenhänge beinhalten, ist auch deutlich schwieriger.
-
-# In[2]:
-
-
-import numpy as np
-import matplotlib.pyplot as plt
-# MatplotLib Settings:
-plt.style.use('default') # Matplotlib Style wählen
-plt.figure(figsize=(4,4)) # Plot-Größe
-#plt.xkcd()
-plt.rcParams['font.size'] = 10; # Schriftgröße
-
-x = [12, 24, 36, 42, 60, 72, 84, 96, 108, 120] # Messwerte der Strecke x in m
-y = [12.2, 17, 22.1, 33.2, 34.4, 59.1, 60.2, 65.7, 69.9, 70.1] # Messwerte der Zeit t in sek.
-x = np.array(x) #konvertiere die Messwerte in ein Numpy-Array
-y = np.array(y) #konvertiere die Messwerte in ein Numpy-Array
-
-plt.plot(x,y, 'o', label = 'Messwerte', ms=6, color="tab:gray")
-plt.xlabel('x')
-plt.ylabel('y')
-plt.legend()
-plt.show()
-
-
-# Unser Ausgangspunkt ist also eine Gerade der Form 
+# Natürlich kann man auch die Abweichungen, Toleranzen und Vertrauensintervalle für die Regressionskoeffizienten $b$ und $a$ betrachten.
 # 
-# $$f(x) = mx + b$$
+# Der Fehler der Geradensteigung $b$ beträgt:
 # 
-# Die Parameter $m$ und $b$ werden nun durch das Minimierungsproblem bestimmt mithilfe der Gütefunktion, die nun wiefolgt geschrieben werden kann:
+# $$s_b = s_y \cdot \sqrt{\frac{N}{N\cdot \sum x_i^2 - \left(\sum x_i\right)^2}} = s_y \cdot \sqrt{\frac{1}{\sum x_i^2 - N\cdot \bar x^2}} = s_y \cdot \sqrt{\frac{1}{\sum \left(x_i - \bar x \right)^2}} = s_y \cdot \sqrt{\frac{1}{N\cdot (\overline{x^2} - (\overline x)^2)}}$$
 # 
-# $$Q = \sum_{i = 1}^{N} (y_i - f(x_i))^2 = \sum_{i = 1}^{N} (y_i - mx_i - b)^2 = \mathrm{min!}$$
+# Der Fehler des Ordinatenabschnitts $a$ beträgt:
 # 
-# wobei $y_i$ und $x_i$ die Messwerte (Datenpunkte) sind. 
+# $$s_a = s_y \cdot \sqrt{\frac{\sum x_i^2}{N\cdot \sum x_i^2 - \left(\sum x_i\right)^2}} = s_y \cdot \sqrt{\frac{1}{N}\frac{\sum x_i^2}{\sum x_i^2 - N\cdot \bar x^2}} = s_y \cdot \sqrt{\frac{1}{N}\frac{\sum x_i^2}{\sum \left(x_i - \bar x \right)^2}} = s_b \cdot \sqrt{\overline{x^2}}$$
 # 
-# Durch Differentation nach den Parametern und Gleichsetzen auf Null können die Parameter bestimmt werden:
-# 
-# $$\frac{dQ}{dm} = -2 \sum_{i = 1}^{N} x_i (y_i - mx_i - b) = 0$$
-# 
-# $$\frac{dQ}{db} = -2 \sum_{i = 1}^{N} (y_i - mx_i - b) = 0$$
-# 
-# Nach Umstellen der beiden Ableitungen gelangt man zu folgendem Gleichungssystem:
-# 
-# $$m\sum_{i = 1}^{N} x_i^2 + b\sum_{i = 1}^{N}x_i  = \sum_{i = 1}^{N}x_i y_i$$
-# 
-# $$m\sum_{i = 1}^{N} x_i + N b  = \sum_{i = 1}^{N} y_i$$
-# 
-# Durch Auflösen nach den gesuchten Parametern erhält man folgende Gleichungen für die gesuchten besten Schätzparameter der Regressionsgeraden, auch **Regressionskoeffizienten** genannt:
-# 
-# $$ m = \frac{\sum_{i=1}^N (x_i y_i) - b\sum_{i=1}^N x_i }{\sum_{i=1}^N x_i^2 } = \frac{S_{xy}}{S_{x}^2} = \frac{\overline{x\cdot y} - \overline x \cdot \overline y}{\overline{x^2} - (\overline x)^2}$$
-# 
-# $$b = \frac{\sum_{i=1}^N y_i - m \sum_{i=1}^N x_i}{N} = \bar y - m \cdot \bar x$$
-# 
-# mit folgenden Definitionen:
-# 
-# > $\bar x = \sum_{i = 1}^N x_i$
-# 
-# > $\bar y = \sum_{i = 1}^N y_i$
-# 
-# > $S_{xy} = \frac{1}{N-1}\sum_{i = 1}^N (x_i-\bar x)(y_i - \bar y)$
-# 
-# > $S_{x}^2 = \frac{1}{N-1}\sum_{i = 1}^N (x_i-\bar x)^2$
-# 
-# Wir sind hier in der verrückten Situation, dass tatsächlich  Mittelwerte für $x$ und $y$ bestimmt werden müssen, obwohl die $x$-Werte absichtlich während der Versuchsreihe verändert werden, sich also die Grössen $x$ und $y$ laufend ändern.
+# Mithilfe dieser Standardabweichungen für $a$ und $b$ können mit der Student-t-Verteilung und Quantilen kombiniert werden, um den Vertrauensbereich anzugeben.
 
-# In[3]:
+# In[7]:
 
 
-# MatplotLib Settings:
-plt.style.use('default') # Matplotlib Style wählen
-plt.figure(figsize=(4,4)) # Plot-Größe
-#plt.xkcd()
-plt.rcParams['font.size'] = 10; # Schriftgröße
+s_b = s_y * np.sqrt(1 / (N*(np.mean(x**2) - np.mean(x)**2)))
+print('Die Unsicherheit von b ist \t s_b = %5.4f' %(s_b))
 
-m = (np.mean(x*y) - np.mean(x)*np.mean(y))/(np.mean(x**2) - np.mean(x)**2)
-b = np.mean(y) - m * np.mean(x)
-print('Die Steigung ist \t\t m = %5.4f s/m' %(m))
-print('Der Ordinatenabschnitt ist \t b = %5.4f s' %(b))
-
-plt.plot(x,y, 'o', label = 'Messwerte', ms=6, color="tab:gray")
-plt.plot(x,m*x+b,lw=3, color="tab:blue", label = 'analytische lineare Regression: y = %5.3f*x+%5.3f' %(m,b))  # plot Ausgleichsgerade mit m und b
-plt.xlabel('x')
-plt.ylabel('y')
-plt.legend(bbox_to_anchor=(1,1), loc="upper left")
-plt.show()
+s_a = s_b * np.sqrt(np.mean(x**2))
+print('Die Unsicherheit von a ist \t s_a = %5.4f' %(s_a))
 
 
-# Nun sind die Schätzwerte allerdings zusätzlich fehlerbehaftet (wie sollte es auch anders sein). Mithilfe der Gleichung der Größtfehlers/Maximalfehlers kann man zeigen (den Beweis überspringen wir hier), dass für den Fehler von $y$ folgendes gilt:
-# 
-# $$s_y = \sqrt{\frac{1}{N-2}\sum(y_i - mx_i - b)^2 }$$
-
-# In[4]:
-
-
-N = len(y)
-diff_y = 0
-for i in range(N):
-    diff_y += ( y[i] - m * x[i] - b )**2
-
-streuung_y = 1/(N-2)*diff_y
-s_y = np.sqrt(streuung_y)
-print('Die Unsicherheit von y ist \t s_y = %5.4f s' %(s_y))
-
-
-# Dies ist auch die Standardabweichung der Einzelmessung aber *nicht* der Fehlerbalken, der im Diagramm als Fehlerbalken eingezeichnet wird. Die Abweichung der Einzelmessung wurde bisher mit $N-1$ definiert, damals hat es sich aber um die Abweichung vom *Mittelwert* gehandelt. Nun betrachten wir die Abweichung zu einem linearen Modell, welches 2 offene Parameter, $m$ und $b$, hat, und somit einen Freiheitsgrad mehr bestitzt. Erst ab 3 Messwertepaaren können also Fehler für Steigung und Achsenabschnitt berechnet werden.
-# Die besten Schätzwerte für die Abweichungen von $m$ und $b$ können nun wie folgt berechnet werden. Der Fehler der Geradensteigung beträgt:
-# 
-# $$s_m = s_y \cdot \sqrt{\frac{N}{N\cdot \sum x_i^2 - \left(\sum x_i\right)^2}} = s_y \cdot \sqrt{\frac{1}{\sum x_i^2 - N\cdot \bar x^2}} = s_y \cdot \sqrt{\frac{1}{\sum \left(x_i - \bar x \right)^2}} = s_y \cdot \sqrt{\frac{1}{N\cdot (\overline{x^2} - (\overline x)^2)}}$$
-
-# In[5]:
-
-
-s_m = s_y * np.sqrt(1 / (N*(np.mean(x**2) - np.mean(x)**2)))
-print('Die Unsicherheit von m ist \t s_m = %5.4f s/m' %(s_m))
-
-
-# Der Fehler des Ordinatenabschnitts beträgt:
-# 
-# $$s_b = s_y \cdot \sqrt{\frac{\sum x_i^2}{N\cdot \sum x_i^2 - \left(\sum x_i\right)^2}} = s_y \cdot \sqrt{\frac{1}{N}\frac{\sum x_i^2}{\sum x_i^2 - N\cdot \bar x^2}} = s_y \cdot \sqrt{\frac{1}{N}\frac{\sum x_i^2}{\sum \left(x_i - \bar x \right)^2}} = s_m \cdot \sqrt{\overline{x^2}}$$
-
-# In[6]:
-
-
-s_b = s_m * np.sqrt(np.mean(x**2))
-print('Die Unsicherheit von b ist \t s_b = %5.4f s' %(s_b))
-
-
-# ### Korrelationskoeffizient <a id="SubSec-Korrelationskoeffizient"></a>
+# ## Korrelationskoeffizient <a id="SubSec-Korrelationskoeffizient"></a>
 # 
 # Für lineare Zusammenhänge ist es häufig sinnvoll den Korrelationskoeffizient zu berechnen:
 #     
 # $$r = \frac{\overline{x\cdot t} - \overline x \cdot \overline t}{\sqrt{\overline{x^2} - (\overline x)^2} \cdot {\sqrt{\overline{t^2} - (\overline t)^2}}} $$    
 
-# In[7]:
+# In[8]:
 
 
 # Analytische Methode:
@@ -316,4 +278,49 @@ print('Die Korrelationsmatrix zwischen x und t mittels numpy-Paket lautet:')
 print(r)
 
 
-# Der Korrelationskoeffizient von $+ 0,97035$ zeigt mit positivem Vorzeichen eine direkte Proportionalität zwischen $x$ und $t$. Die geringfügige Abweichung zu +1 zeigt, dass die Messwerte dennoch leicht von dem erwarteten linearen Zusammenhang abweichen.
+# Der Korrelationskoeffizient von $+ 0,97035$ zeigt mit positivem Vorzeichen eine direkte Proportionalität zwischen $x$ und $y$. Die geringfügige Abweichung zu +1 zeigt, dass die Messwerte dennoch leicht von dem erwarteten linearen Zusammenhang abweichen.
+# 
+# ### Bestimmtheitsmaß <a id="SubSec-Bestimmtheitsmaß"></a>
+# 
+# ::::::{margin}
+# :::::{grid}
+# ::::{grid-item-card}
+# :class-header: bg-light
+# Bestimmtheitsmaß Regression berechnen & interpretieren 📚 einfach erklärt [Theorie/Formel] (Alles Andy)
+# 
+# <iframe width="200" height="113" src="https://www.youtube.com/embed/3JR95ubOuL4?si=SpqKGVuZUWvKJBvS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+# ::::
+# :::::
+# ::::::
+# 
+# 
+# Das **Bestimmtheitsmaß** gibt an, wie gut die Regressionsgerade zur tatsächlichen Realität passt. Es basiert auf dem Korrelationskoeffizienten, den wir bereits aus der Fehlerfortpflanzung kennen, und quadriert diesen:
+# 
+# $$\mathit{R}^2 = r^2 (= \textrm{Korrelation}^2)$$
+# 
+# Da der Korrelationskoeffizient lediglich angibt, wie stark die Messwerte um einen linearen Zusammenhang streuen, ist auch das Bestimmtheitsmaß nur für lineare Regressionen definiert. Das Bestimmtheitsmaß kann mit 100 multipliziert werden, um es in Prozent auszudrücken. Dies entspricht dem prozentualen Anteil der Streuung in $y$, der durch das lineare Modell beschrieben wird, und liegt zwischen 0% und 100%:
+# 
+# - 0%: Es existiert kein linearer Zusammenhang.
+# - 100%: Perfekter linearer Zusammenhang.
+# 
+# Allgemein gilt für das **Bestimmtheitsmaß**:
+# 
+# - Je näher $\mathit{R}^2$ an 1 liegt, desto besser passt die Kurvenanpassung.
+# - Für $\mathit{R}^2 = 0$ ist das Modell völlig ungeeignet, um einen Zusammenhang zwischen $x_i$ und $y_i$ vorherzusagen.
+# - Für $\mathit{R}^2 = 1$ kann $y$ vollständig durch das lineare Modell beschrieben werden, und alle Messpunkte liegen auf einer nicht-horizontalen Geraden. In diesem Fall besteht ein deterministischer Zusammenhang, kein stochastischer.
+# 
+# **Nachteile des Bestimmtheitsmaßes:**
+# 
+# Bei einer steigenden Anzahl von Messwerten erhöht sich $\mathit{R}^2$, ohne dass die Korrelation oder die Regression tatsächlich besser wird. Dieses Problem könnte durch ein korrigiertes $\mathit{R}^2$ behoben werden:
+# 
+# $$\mathit{\overline R}^2 = 1 - (1 - \mathit{R}^2) \cdot \frac{n-1}{n-p-1}$$
+# 
+# Dabei stehen:
+# - $n$ für die Anzahl der Messwerte und
+# - $p$ für die Anzahl der Variablen im Regressionsmodell.
+# 
+# Ein weiterer Nachteil ist, dass das Bestimmtheitsmaß keine Aussage darüber trifft, ob das verwendete Regressionsmodell tatsächlich korrekt ist.
+
+# ## Erweiterung auf allgemeine Funktionen
+# 
+# Die Methode der kleinsten Quadrate kann auf jede Funktion angewendet werden, sei es beispielsweise eine Parabel. Dabei ist es von entscheidender Bedeutung, mit gesundem Menschenverstand zu prüfen, welche Funktion sich für den jeweiligen Verlauf der Messwerte am besten eignet.

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Interpolation vs. Anpassung &#8212; Metrology Lecture Book</title>
+    <title>Interpolation vs. Regression &#8212; Metrology Lecture Book</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -53,10 +53,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="Anpassung und lineare Regression" href="1_Kurvenanpassung.html" />
-    <link rel="prev" title="Datenanalyse" href="V2.html" />
+    <link rel="next" title="Stationäre Messysteme" href="V4.html" />
+    <link rel="prev" title="Regressionsrechnung" href="1_Kurvenanpassung.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="de">
     
@@ -131,22 +133,22 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="1_Einf%C3%BChrung%20in%20die%20Messtechnik.html">
-   Einführung in Messsysteme
+   Einführung in die Messtechnik
   </a>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="V1.html">
    <em>
     Richtig
    </em>
    Messen
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="1_Einheiten.html">
      Einheiten
@@ -173,40 +175,23 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="1_Kalibrieren.html">
-     Messsysteme kalibrieren
+    <a class="reference internal" href="1_Kurvenanpassung.html">
+     Regressionsrechnung
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="V2.html">
-   Datenanalyse
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Interpolation vs. Anpassung
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="1_Kurvenanpassung.html">
-     Anpassung und lineare Regression
+     Interpolation vs. Regression
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="V4.html">
-   Woche 4: Stationäre Messysteme
+   Stationäre Messysteme
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -214,6 +199,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="2_Messsystem.html">
      Grundstruktur eines Messsystems
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Kalibrieren.html">
+     Kalibrieren und Eichen von Messsystemen
     </a>
    </li>
    <li class="toctree-l2">
@@ -230,10 +220,10 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="V5.html">
-   Woche 5: Messsignale
+   Messsignale
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -269,10 +259,10 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="V6.html">
-   Woche 6: Dynamische Messsysteme
+   Dynamische Messsysteme
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -306,10 +296,10 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="V7.html">
-   Woche 7: Messen elektrischer Größen
+   Messen elektrischer Größen
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -353,10 +343,10 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="V8.html">
-   Woche 8: Sensoren
+   Sensoren
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-  <label for="toctree-checkbox-7">
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -436,8 +426,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="T_Tutorials.html">
    Jupyter Notebooks
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-  <label for="toctree-checkbox-8">
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -729,6 +719,11 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lineare-interpolation">
+   Lineare Interpolation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#was-benutzt-man-wann-und-warum">
    Was benutzt man wann und warum?
   </a>
@@ -742,7 +737,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Interpolation vs. Anpassung</h1>
+                <h1>Interpolation vs. Regression</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -752,6 +747,11 @@ title="Print to PDF"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lineare-interpolation">
+   Lineare Interpolation
+  </a>
+ </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#was-benutzt-man-wann-und-warum">
    Was benutzt man wann und warum?
@@ -767,13 +767,30 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="interpolation-vs-anpassung">
-<h1>Interpolation vs. Anpassung<a class="headerlink" href="#interpolation-vs-anpassung" title="Link zu dieser Überschrift">#</a></h1>
-<p>Man unterscheidet allgemein zwischen Interpolation und Anpassung/Approximation/Regression:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="interpolation-vs-regression">
+<h1>Interpolation vs. Regression<a class="headerlink" href="#interpolation-vs-regression" title="Link zu dieser Überschrift">#</a></h1>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Lineare Interpolation, Herleitung, Formel | Mathe by Daniel Jung</p>
+<iframe width="200" height="113" src="https://www.youtube.com/embed/KYiIGZYrb9M?si=s_kiYrsBAeFq9hkW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<p>Interpolation und Anpassung (Regression) sind zwei verschiedene Methoden in der Datenanalyse und haben unterschiedliche Zwecke. Die Interpolation zielt darauf ab, fehlende Werte zwischen bekannten Datenpunkten zu schätzen, um eine kontinuierliche Funktion oder Kurve zu erstellen, die die vorhandenen Datenpunkte exakt durchläuft. Dies ist nützlich, wenn wir genaue Werte für bestimmte Zwischenpunkte benötigen und sicherstellen möchten, dass unsere Schätzung die vorhandenen Daten genau wiedergibt. Interpolation wird häufig in Bereichen wie Geoinformationssystemen verwendet, um topografische Karten zu erstellen, oder in der Bildverarbeitung, um Pixeldaten zu glätten.</p>
+<p>Auf der anderen Seite dient die Anpassung oder Regression dazu, den besten passenden mathematischen Ausdruck (z. B. eine Gerade, Parabel oder höhergradige Funktion) an vorhandene Daten anzupassen. Dabei wird nicht erwartet, dass die Kurve die Datenpunkte exakt durchläuft, sondern dass sie den allgemeinen Trend der Daten wiedergibt. Regression wird verwendet, um Beziehungen zwischen Variablen zu modellieren, Vorhersagen zu treffen oder Muster in den Daten zu identifizieren. Zum Beispiel kann die lineare Regression dazu verwendet werden, den Zusammenhang zwischen zwei Variablen zu analysieren, wie den Einfluss von Werbeausgaben auf den Umsatz eines Unternehmens.</p>
+<p>Insgesamt kann gesagt werden, dass Interpolation verwendet wird, um fehlende Werte zwischen bekannten Punkten genau zu schätzen, während die Regression dazu dient, mathematische Modelle zur Beschreibung von Trends oder Beziehungen zwischen Variablen auf Grundlage vorhandener Daten zu entwickeln. Beide Techniken haben wichtige Anwendungsgebiete in Wissenschaft, Ingenieurwesen und Datenanalyse, je nach den spezifischen Anforderungen eines Problems.</p>
 <ul class="simple">
 <li><p><strong>Regression</strong>: Untersuchung der <em>Korrelation</em> von Datenpunkten ohne Messfehler mit angenommenem Zusammenhang</p></li>
 <li><p><strong>Fit/Anpassung</strong>: wie die Regression, allerdings unter Berücksichtigung von Messfehlern.</p></li>
-<li><p><strong>Interpolation</strong>: Hierbei handelt es sich nicht um eine Regression bzw. Approximation. Anstelle eines funktionalen Zusammenhangs, der an die Messwerte angenähert wird, verwendet man Polynome hohen Grades, um eine analytische Kennlinie zu beschreiben, die <em>exakt</em> durch alle Messpunkte geht. Für eine große Anzahl von Messwerten wird die Interpolationsfunktion sehr schnell unhandlich.</p></li>
+<li><p><strong>Interpolation</strong>: Hierbei handelt es sich nicht um eine Regression bzw. Approximation. Anstelle eines funktionalen Zusammenhangs, der an die Messwerte angenähert wird, verwendet man Polynome hohen Grades, um eine analytische Funktion zu beschreiben, die <strong>exakt</strong> durch alle Messpunkte geht. Für eine große Anzahl von Messwerten wird die Interpolationsfunktion sehr schnell unhandlich.</p></li>
 </ul>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -832,23 +849,57 @@ title="Print to PDF"
 <img alt="../_images/1_Interpol_Approx_1_0.png" src="../_images/1_Interpol_Approx_1_0.png" />
 </div>
 </div>
+<section id="lineare-interpolation">
+<h2>Lineare Interpolation<a class="headerlink" href="#lineare-interpolation" title="Link zu dieser Überschrift">#</a></h2>
+<p>In der Interpolation wird oft der funktionale Zusammenhang <span class="math notranslate nohighlight">\(f(x)\)</span> zwischen den Messgrößen <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span> nicht explizit gegeben. Stattdessen werden lediglich einige Stützstellen gemessen, und man möchte den Wert von <span class="math notranslate nohighlight">\(y\)</span> für einen Zwischenpunkt <span class="math notranslate nohighlight">\(x\)</span> schätzen, der zwischen den vorhandenen Datenpunkten liegt. Dies ist besonders nützlich, wenn wir kontinuierliche Informationen aus diskreten Daten extrahieren möchten.</p>
+<p>Angenommen, wir haben zwei Messpunkte:</p>
+<div class="math notranslate nohighlight">
+\[f(2) = 4\]</div>
+<div class="math notranslate nohighlight">
+\[f(3) = 25\]</div>
+<p>Nun möchten wir den Wert von <span class="math notranslate nohighlight">\(f(2,4)\)</span> schätzen. Bei der linearen Interpolation wird eine Gerade, auch als Sekante bezeichnet, zwischen diesen beiden Punkten gezeichnet. Diese Sekante wird durch eine lineare Funktion <span class="math notranslate nohighlight">\(f(x) = mx + b\)</span> beschrieben, die durch die beiden gegebenen Punkte definiert ist.</p>
+<p>Die Steigung der Sekante, <span class="math notranslate nohighlight">\(m\)</span>, kann durch den Anstieg zwischen den Punkten berechnet werden:</p>
+<div class="math notranslate nohighlight">
+\[m = \frac{y_2 - y_1}{x_2 - x_1} = \frac{f(3) - f(2)}{3 - 2} = 21\]</div>
+<p>Alternativ kann die Steigung auch durch den gesuchten Punkt <span class="math notranslate nohighlight">\((x, y)\)</span> und einen der gegebenen Punkte, zum Beispiel <span class="math notranslate nohighlight">\(y_1\)</span>, definiert werden:</p>
+<div class="math notranslate nohighlight">
+\[m = \frac{y - y_1}{x - x_1} = \frac{y - f(2)}{x - 2}\]</div>
+<p>Da beide Steigungen identisch sind, können wir die Gleichungen gleichsetzen:</p>
+<div class="math notranslate nohighlight">
+\[\frac{y - f(2)}{x - 2} = \frac{f(3) - f(2)}{3 - 2}\]</div>
+<p>Daraus ergibt sich eine Formel zur Berechnung des geschätzten Werts <span class="math notranslate nohighlight">\(y\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[y = f(2) + \frac{x - 2}{3 - 2} \cdot (f(3) - f(2))\]</div>
+<p>Indem wir die gegebenen Werte in diese Formel einsetzen, erhalten wir eine Näherung für <span class="math notranslate nohighlight">\(y\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[y = 4 + \frac{2,4 - 2}{3 - 2} \cdot (25 - 4) = 12,4\]</div>
+<p>Die lineare Interpolation ermöglicht es uns also, den Wert einer Funktion zwischen zwei gegebenen Punkten abzuschätzen und kontinuierliche Informationen aus diskreten Daten zu gewinnen.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x1</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="mi">4</span>
+
+<span class="n">x2</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="mi">25</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mf">2.4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y1</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">x1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">x2</span><span class="o">-</span><span class="n">x1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">y2</span><span class="o">-</span><span class="n">y1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12.399999999999999
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warnung</p>
+<p>In solchen Fällen können <span class="math notranslate nohighlight">\(y\)</span>-Werte erfolgreich approximiert werden, solange die <span class="math notranslate nohighlight">\(x\)</span>-Werte eng beieinander liegen. Allerdings führt die Interpolation bei weit voneinander entfernten Werten zu erheblichen Fehlern.</p>
+</div>
+</section>
 <section id="was-benutzt-man-wann-und-warum">
 <h2>Was benutzt man wann und warum?<a class="headerlink" href="#was-benutzt-man-wann-und-warum" title="Link zu dieser Überschrift">#</a></h2>
-<aside class="margin sidebar">
-<p class="sidebar-title"></p>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row docutils">
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<p class="sd-card-text">Approximation vs. interpolation (englisch, Melvin Leok)</p>
-<iframe width="200" height="113" src="https://www.youtube.com/embed/YCBP_PEU8Go?si=wSMKRHgMwS1t2y_U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</div>
-</div>
-</div>
-</div>
-</div>
-</aside>
 <ul class="simple">
 <li><p><strong>Interpolation</strong>…</p>
 <ul>
@@ -899,17 +950,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="V2.html" title="zurück Seite">
+    <a class='left-prev' id="prev-link" href="1_Kurvenanpassung.html" title="zurück Seite">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">zurück</p>
-            <p class="prev-next-title">Datenanalyse</p>
+            <p class="prev-next-title">Regressionsrechnung</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="1_Kurvenanpassung.html" title="weiter Seite">
+    <a class='right-next' id="next-link" href="V4.html" title="weiter Seite">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title">Anpassung und lineare Regression</p>
+        <p class="prev-next-title">Stationäre Messysteme</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

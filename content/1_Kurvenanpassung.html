@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Anpassung und lineare Regression &#8212; Metrology Lecture Book</title>
+    <title>Regressionsrechnung &#8212; Metrology Lecture Book</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -57,8 +57,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="Woche 4: Stationäre Messysteme" href="V4.html" />
-    <link rel="prev" title="Interpolation vs. Anpassung" href="1_Interpol_Approx.html" />
+    <link rel="next" title="Interpolation vs. Anpassung" href="1_Interpol_Approx.html" />
+    <link rel="prev" title="Fortpflanzung von Messunsicherheiten" href="1_Fehlerfortpflanzung.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="de">
     
@@ -133,22 +133,22 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="1_Einf%C3%BChrung%20in%20die%20Messtechnik.html">
-   Einführung in Messsysteme
+   Einführung in die Messtechnik
   </a>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="V1.html">
    <em>
     Richtig
    </em>
    Messen
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="1_Einheiten.html">
      Einheiten
@@ -174,41 +174,24 @@ const thebe_selector_output = ".output, .cell_output"
      Fortpflanzung von Messunsicherheiten
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="1_Kalibrieren.html">
-     Messsysteme kalibrieren
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Regressionsrechnung
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="V2.html">
-   Datenanalyse
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="1_Interpol_Approx.html">
      Interpolation vs. Anpassung
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Anpassung und lineare Regression
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="V4.html">
-   Woche 4: Stationäre Messysteme
+   Stationäre Messysteme
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -216,6 +199,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="2_Messsystem.html">
      Grundstruktur eines Messsystems
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Kalibrieren.html">
+     Kalibrieren und Eichen von Messsystemen
     </a>
    </li>
    <li class="toctree-l2">
@@ -232,10 +220,10 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="V5.html">
-   Woche 5: Messsignale
+   Messsignale
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -271,10 +259,10 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="V6.html">
-   Woche 6: Dynamische Messsysteme
+   Dynamische Messsysteme
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -308,10 +296,10 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="V7.html">
-   Woche 7: Messen elektrischer Größen
+   Messen elektrischer Größen
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -355,10 +343,10 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="V8.html">
-   Woche 8: Sensoren
+   Sensoren
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-  <label for="toctree-checkbox-7">
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -438,8 +426,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="T_Tutorials.html">
    Jupyter Notebooks
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-  <label for="toctree-checkbox-8">
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -731,19 +719,39 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#modellanpassung-a-id-sec-modellanpassung-a">
-   Modellanpassung
-   <a id="Sec-Modellanpassung">
-   </a>
+  <a class="reference internal nav-link" href="#least-squares-methode-der-kleinsten-quadrate">
+   Least-Squares: Methode der kleinsten Quadrate
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regressionskoeffizienten">
+   Regressionskoeffizienten
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fehler-der-regressionsgeraden">
+   Fehler der Regressionsgeraden
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#least-squares-methode-der-kleinsten-quadrate-a-id-subsec-least-squares-a">
-     Least-Squares: Methode der kleinsten Quadrate
-     <a id="SubSec-least_squares">
-     </a>
+    <a class="reference internal nav-link" href="#berucksichtigung-von-unsicherheiten">
+     Berücksichtigung von Unsicherheiten
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#unsicherheiten-der-regressionskoeffizienten">
+     Unsicherheiten der Regressionskoeffizienten
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#korrelationskoeffizient-a-id-subsec-korrelationskoeffizient-a">
+   Korrelationskoeffizient
+   <a id="SubSec-Korrelationskoeffizient">
+   </a>
+  </a>
+  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#bestimmtheitsmasz-a-id-subsec-bestimmtheitsmasz-a">
      Bestimmtheitsmaß
@@ -751,30 +759,12 @@ title="Print to PDF"
      </a>
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#berucksichtigung-von-unsicherheiten-a-id-subsec-modellanpassung-unsicherheiten-a">
-     Berücksichtigung von Unsicherheiten
-     <a id="SubSec-Modellanpassung_unsicherheiten">
-     </a>
-    </a>
-   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#lineare-modellanpassung-a-id-subsec-lineare-modellanpassung-a">
-   Lineare Modellanpassung
-   <a id="SubSec-Lineare_Modellanpassung">
-   </a>
+  <a class="reference internal nav-link" href="#erweiterung-auf-allgemeine-funktionen">
+   Erweiterung auf allgemeine Funktionen
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#korrelationskoeffizient-a-id-subsec-korrelationskoeffizient-a">
-     Korrelationskoeffizient
-     <a id="SubSec-Korrelationskoeffizient">
-     </a>
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -785,7 +775,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Anpassung und lineare Regression</h1>
+                <h1>Regressionsrechnung</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -796,19 +786,39 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#modellanpassung-a-id-sec-modellanpassung-a">
-   Modellanpassung
-   <a id="Sec-Modellanpassung">
-   </a>
+  <a class="reference internal nav-link" href="#least-squares-methode-der-kleinsten-quadrate">
+   Least-Squares: Methode der kleinsten Quadrate
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regressionskoeffizienten">
+   Regressionskoeffizienten
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fehler-der-regressionsgeraden">
+   Fehler der Regressionsgeraden
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#least-squares-methode-der-kleinsten-quadrate-a-id-subsec-least-squares-a">
-     Least-Squares: Methode der kleinsten Quadrate
-     <a id="SubSec-least_squares">
-     </a>
+    <a class="reference internal nav-link" href="#berucksichtigung-von-unsicherheiten">
+     Berücksichtigung von Unsicherheiten
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#unsicherheiten-der-regressionskoeffizienten">
+     Unsicherheiten der Regressionskoeffizienten
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#korrelationskoeffizient-a-id-subsec-korrelationskoeffizient-a">
+   Korrelationskoeffizient
+   <a id="SubSec-Korrelationskoeffizient">
+   </a>
+  </a>
+  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#bestimmtheitsmasz-a-id-subsec-bestimmtheitsmasz-a">
      Bestimmtheitsmaß
@@ -816,30 +826,12 @@ title="Print to PDF"
      </a>
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#berucksichtigung-von-unsicherheiten-a-id-subsec-modellanpassung-unsicherheiten-a">
-     Berücksichtigung von Unsicherheiten
-     <a id="SubSec-Modellanpassung_unsicherheiten">
-     </a>
-    </a>
-   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#lineare-modellanpassung-a-id-subsec-lineare-modellanpassung-a">
-   Lineare Modellanpassung
-   <a id="SubSec-Lineare_Modellanpassung">
-   </a>
+  <a class="reference internal nav-link" href="#erweiterung-auf-allgemeine-funktionen">
+   Erweiterung auf allgemeine Funktionen
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#korrelationskoeffizient-a-id-subsec-korrelationskoeffizient-a">
-     Korrelationskoeffizient
-     <a id="SubSec-Korrelationskoeffizient">
-     </a>
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -851,214 +843,317 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="anpassung-und-lineare-regression">
-<h1>Anpassung und lineare Regression<a class="headerlink" href="#anpassung-und-lineare-regression" title="Link zu dieser Überschrift">#</a></h1>
-<p>Bei der Kurvenanpassung handelt es sich um ein statistisches Analyseverfahren zur Feststellung funktionaler Beziehungen zwischen einer abhängigen und einer oder mehreren unabhängigen Variablen. Der Begriff <strong>lineare Regression</strong> ist weit verbreitet, doch dies ist nur der einfachste Fall eines Modells, nämlich der einer Geraden: <span class="math notranslate nohighlight">\(y = a \cdot x +b\)</span>. Grundsätzlich sollte man den Typ der Fit-Funktion <span class="math notranslate nohighlight">\(y = f(x)\)</span> immer vorher festlegen und auch begründen können. Es ist keine wissenschaftliche oder messtechnische Vorgehensweise alle möglichen Funktionen nur auf Verdacht <em>auszuprobieren</em> und sich für die besten zu entscheiden. Hierbei wäre es möglich, dass unbrauchbare Näherungen oder sogar falsche (unsinnige) und nicht-wissenschaftliche Ergebnisinterpretationen auftreten könnten, was es zu vermeiden gilt.</p>
-<p>Zusammengefasst suchen wir nun also ein bestimmtes Modell für ein bestimmtes Set an Daten und wollen die Modellparameter bestimmen. Dabei soll das Modell möglichst gut die Messdaten vorhersagen. Die Modellanpassung wird häufig über die Methode der kleinsten Quadrate verwendet, mit welcher sich fast alle Messdaten modellieren lassen (auch kompliziertere Situationen wie beispielsweise korrelierte Unsicherheiten).</p>
-<div class="tip admonition">
-<p class="admonition-title">Tutorial</p>
-<p>Python-Beispiele für Kurvenanpassungen findet ihr hier:</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="T_LinReg.html"><span class="doc std std-doc">Vergleich verschiedener Fit-Routinen in Python</span></a></p></li>
-<li><p><a class="reference internal" href="T_FitmitFehlerbalken.html"><span class="doc std std-doc">Fitten mit Fehlerbalken in Python</span></a></p></li>
-<li><p><a class="reference internal" href="T_Plotten.html"><span class="doc std std-doc">Fitten von <em>echten</em> Klimadaten</span></a></p></li>
-</ul>
+  <section class="tex2jax_ignore mathjax_ignore" id="regressionsrechnung">
+<h1>Regressionsrechnung<a class="headerlink" href="#regressionsrechnung" title="Link zu dieser Überschrift">#</a></h1>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">5.2 Regression | Methode der kleinsten Quadrate (Statistik Grundlagen)</p>
+<iframe width="200" height="113" src="https://www.youtube.com/embed/lQU2tBGOgzo?si=tOTZxzwBWsZj8tsA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
-<section id="modellanpassung-a-id-sec-modellanpassung-a">
-<h2>Modellanpassung <a id="Sec-Modellanpassung"></a><a class="headerlink" href="#modellanpassung-a-id-sec-modellanpassung-a" title="Link zu dieser Überschrift">#</a></h2>
-<p>Um ein Regressionsmodell zu berechnen, benötigen wir ein objektives Maß um die Zuverlässigkeit und Güte unserer Modellfunktion zu bestimmen. Dies nennt man auch das <strong>Bestimmtheitsmaß</strong>, bzw. auf englisch <strong>coefficient of determination</strong> oder <strong>goodness of fit</strong>. Dieses Maß</p>
-<ul class="simple">
-<li><p>bestimmt die Verkleinerung des Vorhersagefehlers der Ausgangsgröße <span class="math notranslate nohighlight">\(y\)</span></p></li>
-<li><p>definiert die Größe der Streuung von <span class="math notranslate nohighlight">\(y\)</span></p></li>
-<li><p>zeigt die Qualität der linearen Regression, aber nicht ob das Modell richtig ist</p></li>
-<li><p>sagt nichts über die statistische Signifikanz des ermittelten Zusammenhangs der einzelnen Regressoren aus (Signifikanztest notwendig)</p></li>
-</ul>
-<p>Als erstes soll überprüft werden, inwiefern die Funktion oder das Modell mit den Messdaten übereinstimmt. Ausgangspunkt ist also unsere Messreihe mit <span class="math notranslate nohighlight">\(N\)</span> Messpunkten <span class="math notranslate nohighlight">\((x_i, y_i)\)</span> und wir haben eine Funktion <span class="math notranslate nohighlight">\(f(x_i)\)</span> definiert, die die Messwerte <span class="math notranslate nohighlight">\(y_i\)</span> möglichst gut vorhersagen soll. In der unteren Grafik (geborgt von <a class="reference external" href="https://de.wikipedia.org/wiki/Methode_der_kleinsten_Quadrate">Wikipedia</a>), sind Messpunkte in grau und eine Modellfunktion in blau aufgezeichnet. Die Parameter der gesuchten Modellfunktion werden nun so bestimmt, dass die Modellfunktion möglichst wenig von den Messwerten abweicht, d.h. das Residuum (rote Balken)</p>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<p>Bisher haben wir uns auf die Analyse von Messreihen konzentriert, bei denen einzelne Messwerte betrachtet wurden, um Mittelwerte und Standardabweichungen zu berechnen. Im letzten Kapitel haben wir jedoch bereits gesehen, dass es Situationen gibt, in denen verschiedene Messgrößen gemessen werden und diese unter Umständen eine Abhängigkeit oder Korrelation untereinander aufweisen können.</p>
+<p>Dies bedeutet beispielsweise, dass wir eine Messgröße y haben, die eine Funktion einer anderen Messgröße x ist:</p>
 <div class="math notranslate nohighlight">
-\[\epsilon = \left( f(x_i) - y_i\right)\]</div>
-<p>soll möglichst klein werden.</p>
-<div class="cell tag_hide-input docutils container">
+\[y = f(x)\]</div>
+<p>Grundsätzlich ist jeder funktionale Zusammenhang <span class="math notranslate nohighlight">\(f(x)\)</span> möglich. Es kann jedoch auch vorkommen, dass der Zusammenhang linear ist. In jedem Fall sollte der Typ der Fit-Funktion <span class="math notranslate nohighlight">\(y = f(x)\)</span> im Voraus festgelegt und begründet werden. Es ist keine wissenschaftliche oder messtechnische Vorgehensweise, alle möglichen Funktionen ohne klaren Grund auszuprobieren und sich dann für die besten zu entscheiden. Dies könnte zu unbrauchbaren Näherungen oder sogar zu falschen und nicht wissenschaftlichen Ergebnissen führen, was vermieden werden sollte.</p>
+<p>Wenn wir Messungen von y für verschiedene Werte von x durchführen, erhalten wir verschiedene Punkte im Messbereich. Die Werte werden wahrscheinlich um eine Gerade streuen, das heißt, sie liegen nicht perfekt auf einer Geraden. Dies liegt einfach daran, dass es zufällige Fehler gibt.</p>
+<div class="cell tag_hide-input tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">interpolate</span>
 
 <span class="c1"># MatplotLib Settings:</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
-<span class="c1">#plt.xkcd()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
 
-<span class="c1"># ANPASSUNG:</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<span class="n">stoerung</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mf">1.4</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="n">stoerung</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:gray&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-
-<span class="c1"># Anpassung / Fit:</span>
-<span class="k">def</span> <span class="nf">anpassung</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">popt</span><span class="p">,</span> <span class="n">pcov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">anpassung</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">anpassung</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">*</span><span class="n">popt</span><span class="p">),</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">),([</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">y</span><span class="p">],</span> <span class="p">[</span><span class="n">j</span> <span class="k">for</span> <span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="ow">in</span> <span class="n">anpassung</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">*</span><span class="n">popt</span><span class="p">)]),</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;tab:red&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Residuum&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Messwerte&#39;</span><span class="p">,</span> <span class="s1">&#39;Modellfunktion&#39;</span><span class="p">,</span> <span class="s1">&#39;Residuum&#39;</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 600x300 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../_images/1_Kurvenanpassung_4_1.png" src="../_images/1_Kurvenanpassung_4_1.png" />
-</div>
-</div>
-<section id="least-squares-methode-der-kleinsten-quadrate-a-id-subsec-least-squares-a">
-<h3>Least-Squares: Methode der kleinsten Quadrate <a id="SubSec-least_squares"></a><a class="headerlink" href="#least-squares-methode-der-kleinsten-quadrate-a-id-subsec-least-squares-a" title="Link zu dieser Überschrift">#</a></h3>
-<aside class="margin sidebar">
-<p class="sidebar-title"></p>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row docutils">
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<p class="sd-card-text">5.2 Regression | Methode der kleinsten Quadrate (FIVE PROFS)</p>
-<iframe width="200" height="113" src="https://www.youtube.com/embed/lQU2tBGOgzo?si=3NQqtUm86Qk_sMrS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</div>
-</div>
-</div>
-</div>
-</div>
-</aside>
-<p>Laut Carl Friedrich Gauß kann also der Abstand der Funktionswerte zu den Messwerten wie folgt definiert werden:</p>
-<blockquote>
-<div><p>Methode der Gauß’schen Fehlerquadrate (Gütefunktion):</p>
-</div></blockquote>
-<div class="math notranslate nohighlight">
-\[Q := \sum_{i=1}^N \left( f(x_i) - y_i\right)^2 :=  \sum_{i=1}^N \epsilon_i^2 = \mathrm{min!}\]</div>
-<p>Die Gütefunktion, die gleichbedeutend mit den SQT ist, ist wieder so gewählt, dass sich Abweichungen aufgrund unterschiedlicher Vorzeichen nicht aufheben können und dass größere Abweichungen stärker gewichtet werden (durch die Quadrierung). Die Modellfunktion <span class="math notranslate nohighlight">\(f(x)\)</span> wird bestimmt, indem das Minimierungsproblem gelöst wird. Dies kann entweder analytisch geschehen (siehe <a class="reference external" href="#SubSec-Lineare_Modellanpassung">Lineare Modellanpassung</a>) oder man lässt sich die Regression mittels Software berechnen.</p>
-<p>Es handelt sich um ein <em>Minimierungsproblem</em> welches je nach Art der Modellfunktion unterschiedlich gelöst wird. Man sollte stets die Regressionsgerade zusammen mit den Datenpunkten in ein Diagramm zeichnen, um zu sehen, wie “gut” die Messdaten durch die Kurvenanpassung beschrieben werden.
-Je enger die Datenpunkte um die Regressionsgerade herum konzentriert sind, d. h. je kleiner also die Residuenquadrate sind, desto „besser“. Die Residuenquadrate sind meistens relativ klein, insbesondere dann, wenn die abhängige Variable sehr konstant ist. Das heißt man möchte eigentlich auch die Streuung der abhängigen Variablen mit ins Spiel bringen.
-Sowohl die Streuung der Messwerte zum Mittelwert, als auch die der geschätzten Werte, sollte in Relation zueinander gebracht werden. Das heißt wir definieren im Folgenden zwei Summen der Abweichungsquadrate. Die <strong>Summe der Abweichungsquadrate (Sum of Squares) SQT oder SST</strong> gibt die Streuung der Messwerte um ihren Mittelwert an. Das <em>mittlere</em> Abweichungsquadrat bestimmt deren Varianz.</p>
-<ul class="simple">
-<li><p>Die <strong>Summe der Quadrate der Erklärten Abweichungen (Sum of Squares Explained) SQE oder SSE</strong> gibt die Streuung der Schätzwerte <span class="math notranslate nohighlight">\(f(x_i)\)</span> des Fits um den Mittelwert <span class="math notranslate nohighlight">\(\bar f = \bar y\)</span> der gemessenen Messwerte an:</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[\mathrm{SQE} = \mathrm{SSE} = \sum_{i=1}^N (f(x_i) - \bar y)^2\]</div>
-<ul class="simple">
-<li><p>Die <strong>totale Quadratsumme (Summe der Quadrate der Totalen Abweichungen bzw. Sum of Squares Total) SQT oder SST</strong> gibt die Streuung der Messwerte <span class="math notranslate nohighlight">\(y_i\)</span> um deren Mittelwert <span class="math notranslate nohighlight">\(\bar y\)</span> an:</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[\mathrm{SQT} = \mathrm{SST} = \sum_{i=1}^N (y_i - \bar y)^2\]</div>
-<ul class="simple">
-<li><p>Die <strong>Restabweichungen</strong> (nicht erklärte Abweichungen), welche nach der Regression übrig bleiben sind ein Maß für die Abweichung der Datenpunkte von der Regressionskurve und werden durch die Residuenquadratsumme (<strong>Summe der Quadrate der Restabweichungen</strong> (oder: „Residuen“) bzw. englisch Sum of Squares Residual) SQR oder SSR) erfasst:</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[\mathrm{SQR} = \mathrm{SSR} = \sum_{i=1}^N(y_i-f(x_i))^2\]</div>
-<ul class="simple">
-<li><p>Man kann beweisen, dass Folgendes gilt:</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[\mathrm{SQT} = \mathrm{SQR} + \mathrm{SQE}\]</div>
-</section>
-<section id="bestimmtheitsmasz-a-id-subsec-bestimmtheitsmasz-a">
-<h3>Bestimmtheitsmaß <a id="SubSec-Bestimmtheitsmaß"></a><a class="headerlink" href="#bestimmtheitsmasz-a-id-subsec-bestimmtheitsmasz-a" title="Link zu dieser Überschrift">#</a></h3>
-<aside class="margin sidebar">
-<p class="sidebar-title"></p>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row docutils">
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<p class="sd-card-text">Bestimmtheitsmaß Regression berechnen &amp; interpretieren 📚 einfach erklärt (Alles Andy)</p>
-<iframe width="200" height="113" src="https://www.youtube.com/embed/3JR95ubOuL4?si=BXOo43Ch5Ks4fuvo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</div>
-</div>
-</div>
-</div>
-</div>
-</aside>
-<p>Für das <strong>Bestimmtheitsmaß</strong> gelten folgende Punkte:</p>
-<ul class="simple">
-<li><p>Es beschreibt den Anteil der Varianz einer abhängigen Variablen <span class="math notranslate nohighlight">\(y\)</span> durch ein statistisches Modell</p></li>
-<li><p>Es ist nur für lineare Regressionen eindeutig definiert:</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[\mathit{R}^2 = r^2 (=\textrm{Korrelation}^2)\]</div>
-<ul class="simple">
-<li><p>Es kann bedingt zur Beschreibung der Güte einer Regression verwendet werden.</p></li>
-<li><p>Das Verhältnis der beiden Größen SQE und SQT wird das <strong>Bestimmtheitsmaß</strong> der Regression genannt und gibt an, wie gut die gefundene geschätzte Modellfunktion zu den Messdaten passt, oder wie gut sich die Regression an die Daten annähert.</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[\mathit{R}^2 \equiv \frac{SQE}{SQT}=
-\frac{\displaystyle\sum_{i=1}^N \left(f(x_i)- \overline{y}\right)^2}{\displaystyle\sum_{i=1}^N \left(y_i - \overline{y}\right)^2} = 1 - \frac{SQR}{SQT}=1-\frac{\displaystyle\sum_{i=1}^N \left(y_i - f(x_i)\right)^2}{\displaystyle\sum_{i=1}^N \left(y_i - \overline{y}\right)^2}\]</div>
-<p>wobei:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(f(x_i)\)</span> der Funktionswert der Regression ist</p></li>
-<li><p><span class="math notranslate nohighlight">\(x_i\)</span> der Datenwert ist</p></li>
-<li><p>und <span class="math notranslate nohighlight">\(\bar y\)</span> der Mittelwert <span class="math notranslate nohighlight">\(y_i\)</span> der Messwerte ist</p></li>
-</ul>
-<p>Das Bestimmtheitsmaß lässt sich mit 100 multiplizieren, um es in Prozent anzugeben, dies entspricht dann dem prozentualen Anteil der Streuung in <span class="math notranslate nohighlight">\(y\)</span>, der durch das lineare Modell beschrieben wird und liegt somit zwischen 0% und 100%:</p>
-<ul class="simple">
-<li><p>0%: es existiert kein linearer Zusammenhang</p></li>
-<li><p>100%: perfekter linearer Zusammenhang</p></li>
-</ul>
-<p>Allgemein gilt für das <strong>Bestimmtheitsmaß</strong>:</p>
-<ul class="simple">
-<li><p>je näher <span class="math notranslate nohighlight">\(\mathit{R}^2\)</span> an 1 liegt, desto höher ist die Güte der Kurvenanpassung</p></li>
-<li><p>für <span class="math notranslate nohighlight">\(\mathit{R}^2=0\)</span> ist der Schätzer im Modell völlig unbrauchbar für irgendeine Vorhersage eines Zusammenhangs zwischen <span class="math notranslate nohighlight">\(x_i\)</span> und <span class="math notranslate nohighlight">\(y_i\)</span>.</p></li>
-<li><p>für <span class="math notranslate nohighlight">\(\mathit{R}^2=1\)</span> lässt sich <span class="math notranslate nohighlight">\(y\)</span> vollständig durch ein lineares Modell beschreiben und alle Messpunkte liegen auf einer nicht-horizontalen Geraden. In diesem Falle würde man davon sprechen, dass ein deterministischer Zusammenhang besteht, kein stochastischer.</p></li>
-</ul>
-<p><strong>Nachteile des Bestimmheitsmaßes:</strong>
-Für immer mehr Messwerte steigt <span class="math notranslate nohighlight">\(\mathit{R}^2\)</span> an, ohne dass die Korrelation oder die Regression besser wird.
-Dies könnte durch ein korrigiertes <span class="math notranslate nohighlight">\(\mathit{R}^2\)</span> behoben werden:</p>
-<div class="math notranslate nohighlight">
-\[\mathit{\overline R}^2 = 1-(1-\mathit{R}^2)\cdot \frac{n-1}{n-p-1}\]</div>
-<p>mit</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(n\)</span> Anzahl der Messwerte und</p></li>
-<li><p><span class="math notranslate nohighlight">\(p\)</span> Anzahl der Variablen im Regressionsmodell</p></li>
-</ul>
-<p>Ein weiterer Nachteil ist, dass keine Aussage darüber geliefert werden kann, ob ein <em>korrektes</em> Regressionsmodell verwendet wurde.</p>
-</section>
-<section id="berucksichtigung-von-unsicherheiten-a-id-subsec-modellanpassung-unsicherheiten-a">
-<h3>Berücksichtigung von Unsicherheiten <a id="SubSec-Modellanpassung_unsicherheiten"></a><a class="headerlink" href="#berucksichtigung-von-unsicherheiten-a-id-subsec-modellanpassung-unsicherheiten-a" title="Link zu dieser Überschrift">#</a></h3>
-<p>Im allgemeinen Fall, d.h. wenn die Messwerte <span class="math notranslate nohighlight">\(y_i\)</span> mit Unsicherheiten <span class="math notranslate nohighlight">\(s_i\)</span> behaftet sind, lässt sich die Residuensumme wiefolgt definieren:</p>
-<div class="math notranslate nohighlight">
-\[\chi^2 = \sum_{i=1}^N \left(\frac{f(x_i)-y_i}{s_i}\right)^2\]</div>
-<p>Für die obigen Berechnungen, und auch im Falle von konstanten Unsicherheiten, d.h. wenn für alle Werte von <span class="math notranslate nohighlight">\(y_i\)</span> die gleiche absolute Unsicherheit existiert, ändert sich nichts. Denn es gilt <span class="math notranslate nohighlight">\(s_i = s = \mathrm{const}\)</span> und beim “Nullsetzen” werden diese einfach eliminiert.
-Gelten für die <span class="math notranslate nohighlight">\(N\)</span> Messwerte allerdings unterschiedliche Unsicherheiten, so müssen diese miteinbezogen werden.</p>
-</section>
-</section>
-<section id="lineare-modellanpassung-a-id-subsec-lineare-modellanpassung-a">
-<h2>Lineare Modellanpassung <a id="SubSec-Lineare_Modellanpassung"></a><a class="headerlink" href="#lineare-modellanpassung-a-id-subsec-lineare-modellanpassung-a" title="Link zu dieser Überschrift">#</a></h2>
-<p>Da wir als Messtechniker immer danach streben möglichst lineare Kennlinien zu erreichen, ist die Gerade eine häufig auftretende Kurve, die angepasst werden soll. Daher wollen wir uns in diesem Abschnitt mit der Herleitung der linearen Regression befassen. Die Herleitung für andere Modellfunktionen, welche quadratische Terme, noch höhere Terme oder ganz andere Zusammenhänge beinhalten, ist auch deutlich schwieriger.</p>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="c1"># MatplotLib Settings:</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
-<span class="c1">#plt.xkcd()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
-
+<span class="c1"># Erzeugen von Daten:</span>
 <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">108</span><span class="p">,</span> <span class="mi">120</span><span class="p">]</span> <span class="c1"># Messwerte der Strecke x in m</span>
 <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mf">12.2</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mf">22.1</span><span class="p">,</span> <span class="mf">33.2</span><span class="p">,</span> <span class="mf">34.4</span><span class="p">,</span> <span class="mf">59.1</span><span class="p">,</span> <span class="mf">60.2</span><span class="p">,</span> <span class="mf">65.7</span><span class="p">,</span> <span class="mf">69.9</span><span class="p">,</span> <span class="mf">70.1</span><span class="p">]</span> <span class="c1"># Messwerte der Zeit t in sek.</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1">#konvertiere die Messwerte in ein Numpy-Array</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="c1">#konvertiere die Messwerte in ein Numpy-Array</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Messwerte&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:gray&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:gray&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># Anpassung / Fit:</span>
+<span class="k">def</span> <span class="nf">anpassung</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="n">x</span>
+<span class="n">popt</span><span class="p">,</span> <span class="n">pcov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">anpassung</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">anpassung</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">*</span><span class="n">popt</span><span class="p">),</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">),([</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">y</span><span class="p">],</span> <span class="p">[</span><span class="n">j</span> <span class="k">for</span> <span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="ow">in</span> <span class="n">anpassung</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">*</span><span class="n">popt</span><span class="p">)]),</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;tab:red&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="c1">#plt.xticks([])</span>
+<span class="c1">#plt.yticks([])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Messwerte&#39;</span><span class="p">,</span> <span class="s1">&#39;Modellfunktion (hier eine Gerade)&#39;</span><span class="p">,</span> <span class="s1">&#39;Residuum (Fehler)&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/1_Kurvenanpassung_1_0.png" src="../_images/1_Kurvenanpassung_1_0.png" />
+</div>
+</div>
+<p>Um die optimale Gerade zu bestimmen, führen wir eine <strong>lineare Regression</strong> durch, um die Daten anzunähern. Die optimale Gerade hat im Idealfall die Form:</p>
+<div class="math notranslate nohighlight">
+\[y = a + b \cdot x + E\]</div>
+<p>Hierbei ist <span class="math notranslate nohighlight">\(b\)</span> die Steigung der Geraden, <span class="math notranslate nohighlight">\(a\)</span> der Achsenabschnitt und <span class="math notranslate nohighlight">\(E\)</span> der Fehler, der durch den Abstand der Geraden von den Messpunkten entsteht.</p>
+<p>Wie bestimmen wir diese Gerade? Kurz gesagt, suchen wir ein geeignetes Modell für unsere Daten und möchten die Modellparameter ermitteln. Das Modell soll möglichst gut die Messdaten vorhersagen. Die Anpassung des Modells erfolgt häufig mithilfe der Methode der kleinsten Quadrate, die sich für die Modellierung von nahezu allen Arten von Messdaten eignet.</p>
+<div class="tip admonition">
+<p class="admonition-title">Tutorial</p>
+<p>Python-Beispiele für Kurvenanpassungen findet ihr hier:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="T_LinReg.html"><span class="doc std std-doc">Vergleich verschiedener Fit-Routinen</span></a></p></li>
+<li><p><a class="reference internal" href="T_FitmitFehlerbalken.html"><span class="doc std std-doc">Regression mit Fehlerbalken</span></a></p></li>
+<li><p><a class="reference internal" href="T_Plotten.html"><span class="doc std std-doc">Klimadaten anpassen</span></a></p></li>
+</ul>
+</div>
+<section id="least-squares-methode-der-kleinsten-quadrate">
+<h2>Least-Squares: Methode der kleinsten Quadrate<a class="headerlink" href="#least-squares-methode-der-kleinsten-quadrate" title="Link zu dieser Überschrift">#</a></h2>
+<p>Unser Ziel ist es, die Abweichung der Messwerte von der Geraden (oder allgemein von der Funktion <span class="math notranslate nohighlight">\(f\)</span>) so gering wie möglich zu halten. Wie bereits beim Berechnen von Mittelwerten und Standardabweichungen verwenden wir die Quadrate der Abweichungen. Dadurch werden positive und negative Abweichungen nicht ausgeglichen, und größere Abweichungen werden stärker (quadratisch) gewichtet.</p>
+<p>Hierfür definieren wir die Funktion <span class="math notranslate nohighlight">\(Q\)</span>, die von den Geradenparametern <span class="math notranslate nohighlight">\(b\)</span> und <span class="math notranslate nohighlight">\(a\)</span> abhängt und als <strong>Gütefunktion</strong> definiert ist:</p>
+<div class="math notranslate nohighlight">
+\[Q(b,a) = \sum_{i = 1}^N [y_i - (b\cdot x + a)]^2 = \mathrm{min !}\]</div>
+<p>In dieser Funktion werden zunächst die Unterschiede zwischen den Messwerten und der theoretischen Geradenfunktion berechnet. Diese Differenzen werden dann quadriert und schließlich für alle Messwerte <span class="math notranslate nohighlight">\(y_i\)</span> aufsummiert. Unser Ziel ist es, diese Summe zu minimieren.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warnung</p>
+<p>Es handelt sich um ein <em>Minimierungsproblem</em>, das je nach Art der Modellfunktion unterschiedlich gelöst wird. Im Folgenden werden wir es für eine lineare Funktion lösen.</p>
+</div>
+<p>Um die Parameter <span class="math notranslate nohighlight">\(a\)</span> und <span class="math notranslate nohighlight">\(b\)</span> zu minimieren, leiten wir die Funktion <span class="math notranslate nohighlight">\(Q\)</span> nach diesen Parametern ab und setzen die Ableitungen gleich Null, um die Extremstellen (in diesem Fall das Minimum) zu finden. Wir leiten <span class="math notranslate nohighlight">\(Q\)</span> also nach <span class="math notranslate nohighlight">\(b\)</span> und <span class="math notranslate nohighlight">\(a\)</span> ab:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dQ}{db} = -2 \sum_{i = 1}^{N} x_i (y_i - bx_i - a) = 0\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{dQ}{da} = -2 \sum_{i = 1}^{N} (y_i - bx_i - a) = 0\]</div>
+<p>Durch Differentiation nach den Parametern und Gleichsetzen der Ableitungen auf Null erhalten wir die folgenden Gleichungen:</p>
+<div class="math notranslate nohighlight">
+\[b\sum_{i = 1}^{N} x_i^2 + a\sum_{i = 1}^{N}x_i  = \sum_{i = 1}^{N}x_i y_i\]</div>
+<div class="math notranslate nohighlight">
+\[b\sum_{i = 1}^{N} x_i + N a  = \sum_{i = 1}^{N} y_i\]</div>
+</section>
+<section id="regressionskoeffizienten">
+<h2>Regressionskoeffizienten<a class="headerlink" href="#regressionskoeffizienten" title="Link zu dieser Überschrift">#</a></h2>
+<p>Durch Umstellen dieser Gleichungen erhalten wir die folgenden Ausdrücke für die gesuchten besten Schätzwerte der Regressionsgeraden, auch <strong>Regressionskoeffizienten</strong> genannt:</p>
+<div class="math notranslate nohighlight">
+\[ b = \frac{\sum_{i=1}^N (x_i y_i) - n\sum_{i=1}^N x_i }{\sum_{i=1}^N x_i^2 } = \frac{\mathrm{cov}_{xy}}{S_{x}^2} = \frac{\overline{x\cdot y} - \overline x \cdot \overline y}{\overline{x^2} - (\overline x)^2}\]</div>
+<div class="math notranslate nohighlight">
+\[a = \frac{\sum_{i=1}^N y_i - b \sum_{i=1}^N x_i}{N} = \bar y - b \cdot \bar x\]</div>
+<p>Hierbei bedeuten <span class="math notranslate nohighlight">\(\bar x\)</span> und <span class="math notranslate nohighlight">\(\bar y\)</span> die Durchschnittswerte der jeweiligen Messwerte:</p>
+<div class="math notranslate nohighlight">
+\[\bar x = \sum_{i = 1}^N x_i\]</div>
+<div class="math notranslate nohighlight">
+\[\bar y = \sum_{i = 1}^N y_i\]</div>
+<p>und die Kovarianz <span class="math notranslate nohighlight">\(\mathrm{cov}_{xy}\)</span> und die Standardabweichung <span class="math notranslate nohighlight">\(S_{x}\)</span> der Messwerte sind:</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{cov}_{xy} = \frac{1}{N-1}\sum_{i = 1}^N (x_i-\bar x)(y_i - \bar y)\]</div>
+<div class="math notranslate nohighlight">
+\[S_{x}^2 = \frac{1}{N-1}\sum_{i = 1}^N (x_i-\bar x)^2\]</div>
+<p>Es ist wichtig anzumerken, dass wir hier die Mittelwerte für <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span> verwenden, obwohl die <span class="math notranslate nohighlight">\(x\)</span>-Werte absichtlich während der Versuchsreihe variiert werden, wodurch sich die Größen <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span> kontinuierlich ändern. Dies ist eine besondere Eigenschaft der Methode der kleinsten Quadrate in der linearen Regression.</p>
+<p>Mittels diesen Gleichungen können wir für das oben gezeigte Beispiel der Messdaten die Parameter <span class="math notranslate nohighlight">\(a\)</span> und <span class="math notranslate nohighlight">\(b\)</span> manuell berechnen:</p>
+<div class="cell tag_hide-input tag_thebe-init docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Erstellen der DataFrames</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">y</span><span class="p">})</span>
+
+<span class="c1"># Berechnung der Regressionskoeffizienten</span>
+<span class="n">x_mean</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">y_mean</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">xy_mean</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">x_squared_mean</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="n">xy_mean</span> <span class="o">-</span> <span class="n">x_mean</span> <span class="o">*</span> <span class="n">y_mean</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">x_squared_mean</span> <span class="o">-</span> <span class="n">x_mean</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">y_mean</span> <span class="o">-</span> <span class="n">b</span> <span class="o">*</span> <span class="n">x_mean</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Regressionskoeffizient b (Geraden-Steigung):&quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Regressionskoeffizient a (Ordinatenabschnitt):&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+
+<span class="c1"># Berechnung der Gütefunktion</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;b*x+a&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span> <span class="o">*</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;y-(b*x+a)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;b*x+a&#39;</span><span class="p">]</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;[y-(b*x+a)]^2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;y-(b*x+a)&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">sum_of_squared_residuals</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;[y-(b*x+a)]^2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Regressionskoeffizient b (Geraden-Steigung): 0.6066538042940539
+Regressionskoeffizient a (Ordinatenabschnitt): 4.714841199168873
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell tag_thebe-init docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Summe der quadrierten Abweichungen (Gütefunktion):&quot;</span><span class="p">,</span> <span class="n">sum_of_squared_residuals</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>x</th>
+      <th>y</th>
+      <th>b*x+a</th>
+      <th>y-(b*x+a)</th>
+      <th>[y-(b*x+a)]^2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>12</td>
+      <td>12.2</td>
+      <td>11.994687</td>
+      <td>0.205313</td>
+      <td>0.042153</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>24</td>
+      <td>17.0</td>
+      <td>19.274533</td>
+      <td>-2.274533</td>
+      <td>5.173498</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>36</td>
+      <td>22.1</td>
+      <td>26.554378</td>
+      <td>-4.454378</td>
+      <td>19.841485</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>42</td>
+      <td>33.2</td>
+      <td>30.194301</td>
+      <td>3.005699</td>
+      <td>9.034227</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>60</td>
+      <td>34.4</td>
+      <td>41.114069</td>
+      <td>-6.714069</td>
+      <td>45.078729</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>72</td>
+      <td>59.1</td>
+      <td>48.393915</td>
+      <td>10.706085</td>
+      <td>114.620254</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>84</td>
+      <td>60.2</td>
+      <td>55.673761</td>
+      <td>4.526239</td>
+      <td>20.486842</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>96</td>
+      <td>65.7</td>
+      <td>62.953606</td>
+      <td>2.746394</td>
+      <td>7.542678</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>108</td>
+      <td>69.9</td>
+      <td>70.233452</td>
+      <td>-0.333452</td>
+      <td>0.111190</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>120</td>
+      <td>70.1</td>
+      <td>77.513298</td>
+      <td>-7.413298</td>
+      <td>54.956983</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Summe der quadrierten Abweichungen (Gütefunktion): 276.88803799347016
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input tag_thebe-init docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># MatplotLib Settings:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:gray&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">b</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">a</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;:&#39;</span><span class="p">)</span>  <span class="c1"># plot Ausgleichsgerade mit m und b</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">),([</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">y</span><span class="p">],</span> <span class="p">[</span><span class="n">j</span> <span class="k">for</span> <span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="ow">in</span> <span class="n">anpassung</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">*</span><span class="n">popt</span><span class="p">)]),</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;tab:red&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="c1">#plt.xticks([])</span>
+<span class="c1">#plt.yticks([])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Messwerte&#39;</span><span class="p">,</span> <span class="s1">&#39;analytische Regression: y = </span><span class="si">%5.3f</span><span class="s1">*x+</span><span class="si">%5.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">),</span> <span class="s1">&#39;Residuum (Fehler)&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/1_Kurvenanpassung_7_0.png" src="../_images/1_Kurvenanpassung_7_0.png" />
+</div>
+</div>
+<p>Die Regressionskoeffizienten ermöglichen uns, die Gerade zu bestimmen. In der Praxis verwendet man jedoch in der Regel nicht diese komplexen Berechnungen, sondern greift auf Funktionen zurück, die bereits in vielen Programmen vorimplementiert sind. Ein Beispiel hierfür ist die in Python vorhandene Funktion <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code>. Wie das folgende Beispiel zeigt, führen sowohl die manuelle Berechnung von <span class="math notranslate nohighlight">\(b\)</span> und <span class="math notranslate nohighlight">\(a\)</span> als auch die Verwendung der integrierten Python-Funktion zu derselben Regressionsgeraden:</p>
+<div class="cell tag_hide-input tag_thebe-init docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># MatplotLib Settings:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:gray&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Messwerte&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">anpassung</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">*</span><span class="n">popt</span><span class="p">),</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Modellfunktion mit Curve_Fit&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">b</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">a</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;analytische Regression: y = </span><span class="si">%5.3f</span><span class="s1">*x+</span><span class="si">%5.3f</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">))</span>  <span class="c1"># plot Ausgleichsgerade mit m und b</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">),([</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">y</span><span class="p">],</span> <span class="p">[</span><span class="n">j</span> <span class="k">for</span> <span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="ow">in</span> <span class="n">anpassung</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">*</span><span class="n">popt</span><span class="p">)]),</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;tab:red&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="c1">#plt.xticks([])</span>
+<span class="c1">#plt.yticks([])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -1068,133 +1163,78 @@ Gelten für die <span class="math notranslate nohighlight">\(N\)</span> Messwert
 <img alt="../_images/1_Kurvenanpassung_9_0.png" src="../_images/1_Kurvenanpassung_9_0.png" />
 </div>
 </div>
-<p>Unser Ausgangspunkt ist also eine Gerade der Form</p>
+</section>
+<section id="fehler-der-regressionsgeraden">
+<h2>Fehler der Regressionsgeraden<a class="headerlink" href="#fehler-der-regressionsgeraden" title="Link zu dieser Überschrift">#</a></h2>
+<p>Der Fehler oder die Abweichung der Regression wird durch die Standardabweichung der Funktion <span class="math notranslate nohighlight">\(Q(b,A)\)</span> angegeben. Dieser Fehler wird wie folgt berechnet:</p>
 <div class="math notranslate nohighlight">
-\[f(x) = mx + b\]</div>
-<p>Die Parameter <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span> werden nun durch das Minimierungsproblem bestimmt mithilfe der Gütefunktion, die nun wiefolgt geschrieben werden kann:</p>
+\[E^2 = s^2(Q(b,a)) = \frac{Q(b,a)}{N-2}\]</div>
+<p>Hierbei wird durch die Anzahl der Freiheitsgrade, <span class="math notranslate nohighlight">\(N-2\)</span>, geteilt, da die Messreihe endlich ist. Für endliche Messergebnisse muss <span class="math notranslate nohighlight">\(N-2\)</span> berücksichtigt werden. In einer unendlichen Messreihe wäre dieser Faktor unendlich groß und der Fehler würde gegen Null gehen.</p>
+<p>Der Fehler unseres <span class="math notranslate nohighlight">\(y\)</span>-Schätzwertes kann folgendermaßen ausgedrückt werden:</p>
 <div class="math notranslate nohighlight">
-\[Q = \sum_{i = 1}^{N} (y_i - f(x_i))^2 = \sum_{i = 1}^{N} (y_i - mx_i - b)^2 = \mathrm{min!}\]</div>
-<p>wobei <span class="math notranslate nohighlight">\(y_i\)</span> und <span class="math notranslate nohighlight">\(x_i\)</span> die Messwerte (Datenpunkte) sind.</p>
-<p>Durch Differentation nach den Parametern und Gleichsetzen auf Null können die Parameter bestimmt werden:</p>
-<div class="math notranslate nohighlight">
-\[\frac{dQ}{dm} = -2 \sum_{i = 1}^{N} x_i (y_i - mx_i - b) = 0\]</div>
-<div class="math notranslate nohighlight">
-\[\frac{dQ}{db} = -2 \sum_{i = 1}^{N} (y_i - mx_i - b) = 0\]</div>
-<p>Nach Umstellen der beiden Ableitungen gelangt man zu folgendem Gleichungssystem:</p>
-<div class="math notranslate nohighlight">
-\[m\sum_{i = 1}^{N} x_i^2 + b\sum_{i = 1}^{N}x_i  = \sum_{i = 1}^{N}x_i y_i\]</div>
-<div class="math notranslate nohighlight">
-\[m\sum_{i = 1}^{N} x_i + N b  = \sum_{i = 1}^{N} y_i\]</div>
-<p>Durch Auflösen nach den gesuchten Parametern erhält man folgende Gleichungen für die gesuchten besten Schätzparameter der Regressionsgeraden, auch <strong>Regressionskoeffizienten</strong> genannt:</p>
-<div class="math notranslate nohighlight">
-\[ m = \frac{\sum_{i=1}^N (x_i y_i) - b\sum_{i=1}^N x_i }{\sum_{i=1}^N x_i^2 } = \frac{S_{xy}}{S_{x}^2} = \frac{\overline{x\cdot y} - \overline x \cdot \overline y}{\overline{x^2} - (\overline x)^2}\]</div>
-<div class="math notranslate nohighlight">
-\[b = \frac{\sum_{i=1}^N y_i - m \sum_{i=1}^N x_i}{N} = \bar y - m \cdot \bar x\]</div>
-<p>mit folgenden Definitionen:</p>
-<blockquote>
-<div><p><span class="math notranslate nohighlight">\(\bar x = \sum_{i = 1}^N x_i\)</span></p>
-</div></blockquote>
-<blockquote>
-<div><p><span class="math notranslate nohighlight">\(\bar y = \sum_{i = 1}^N y_i\)</span></p>
-</div></blockquote>
-<blockquote>
-<div><p><span class="math notranslate nohighlight">\(S_{xy} = \frac{1}{N-1}\sum_{i = 1}^N (x_i-\bar x)(y_i - \bar y)\)</span></p>
-</div></blockquote>
-<blockquote>
-<div><p><span class="math notranslate nohighlight">\(S_{x}^2 = \frac{1}{N-1}\sum_{i = 1}^N (x_i-\bar x)^2\)</span></p>
-</div></blockquote>
-<p>Wir sind hier in der verrückten Situation, dass tatsächlich  Mittelwerte für <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span> bestimmt werden müssen, obwohl die <span class="math notranslate nohighlight">\(x\)</span>-Werte absichtlich während der Versuchsreihe verändert werden, sich also die Grössen <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span> laufend ändern.</p>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># MatplotLib Settings:</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
-<span class="c1">#plt.xkcd()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
-
-<span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">-</span> <span class="n">m</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Steigung ist </span><span class="se">\t\t</span><span class="s1"> m = </span><span class="si">%5.4f</span><span class="s1"> s/m&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Der Ordinatenabschnitt ist </span><span class="se">\t</span><span class="s1"> b = </span><span class="si">%5.4f</span><span class="s1"> s&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Messwerte&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:gray&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">m</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">b</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;analytische lineare Regression: y = </span><span class="si">%5.3f</span><span class="s1">*x+</span><span class="si">%5.3f</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">b</span><span class="p">))</span>  <span class="c1"># plot Ausgleichsgerade mit m und b</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Steigung ist 		 m = 0.6067 s/m
-Der Ordinatenabschnitt ist 	 b = 4.7148 s
-</pre></div>
-</div>
-<img alt="../_images/1_Kurvenanpassung_11_1.png" src="../_images/1_Kurvenanpassung_11_1.png" />
-</div>
-</div>
-<p>Nun sind die Schätzwerte allerdings zusätzlich fehlerbehaftet (wie sollte es auch anders sein). Mithilfe der Gleichung der Größtfehlers/Maximalfehlers kann man zeigen (den Beweis überspringen wir hier), dass für den Fehler von <span class="math notranslate nohighlight">\(y\)</span> folgendes gilt:</p>
-<div class="math notranslate nohighlight">
-\[s_y = \sqrt{\frac{1}{N-2}\sum(y_i - mx_i - b)^2 }\]</div>
-<div class="cell tag_hide-input docutils container">
+\[s_y = E = \sqrt{\frac{1}{N-2}\sum(y_i - bx_i - a)^2 }\]</div>
+<div class="cell tag_hide-input tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 <span class="n">diff_y</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-    <span class="n">diff_y</span> <span class="o">+=</span> <span class="p">(</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">m</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">b</span> <span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">diff_y</span> <span class="o">+=</span> <span class="p">(</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">b</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">a</span> <span class="p">)</span><span class="o">**</span><span class="mi">2</span>
 
 <span class="n">streuung_y</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">diff_y</span>
 <span class="n">s_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">streuung_y</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Unsicherheit von y ist </span><span class="se">\t</span><span class="s1"> s_y = </span><span class="si">%5.4f</span><span class="s1"> s&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">s_y</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Unsicherheit von y ist </span><span class="se">\t</span><span class="s1"> s_y = </span><span class="si">%5.4f</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">s_y</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Unsicherheit von y ist 	 s_y = 5.8831 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Unsicherheit von y ist 	 s_y = 5.8831
 </pre></div>
 </div>
 </div>
 </div>
-<p>Dies ist auch die Standardabweichung der Einzelmessung aber <em>nicht</em> der Fehlerbalken, der im Diagramm als Fehlerbalken eingezeichnet wird. Die Abweichung der Einzelmessung wurde bisher mit <span class="math notranslate nohighlight">\(N-1\)</span> definiert, damals hat es sich aber um die Abweichung vom <em>Mittelwert</em> gehandelt. Nun betrachten wir die Abweichung zu einem linearen Modell, welches 2 offene Parameter, <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span>, hat, und somit einen Freiheitsgrad mehr bestitzt. Erst ab 3 Messwertepaaren können also Fehler für Steigung und Achsenabschnitt berechnet werden.
-Die besten Schätzwerte für die Abweichungen von <span class="math notranslate nohighlight">\(m\)</span> und <span class="math notranslate nohighlight">\(b\)</span> können nun wie folgt berechnet werden. Der Fehler der Geradensteigung beträgt:</p>
+<section id="berucksichtigung-von-unsicherheiten">
+<h3>Berücksichtigung von Unsicherheiten<a class="headerlink" href="#berucksichtigung-von-unsicherheiten" title="Link zu dieser Überschrift">#</a></h3>
+<p>Im allgemeinen Fall, d.h. wenn die Messwerte <span class="math notranslate nohighlight">\(y_i\)</span> mit Unsicherheiten <span class="math notranslate nohighlight">\(s_i\)</span> behaftet sind, lässt sich die <strong>Residuensumme</strong> wiefolgt definieren:</p>
 <div class="math notranslate nohighlight">
-\[s_m = s_y \cdot \sqrt{\frac{N}{N\cdot \sum x_i^2 - \left(\sum x_i\right)^2}} = s_y \cdot \sqrt{\frac{1}{\sum x_i^2 - N\cdot \bar x^2}} = s_y \cdot \sqrt{\frac{1}{\sum \left(x_i - \bar x \right)^2}} = s_y \cdot \sqrt{\frac{1}{N\cdot (\overline{x^2} - (\overline x)^2)}}\]</div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s_m</span> <span class="o">=</span> <span class="n">s_y</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">N</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Unsicherheit von m ist </span><span class="se">\t</span><span class="s1"> s_m = </span><span class="si">%5.4f</span><span class="s1"> s/m&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">s_m</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Unsicherheit von m ist 	 s_m = 0.0534 s/m
-</pre></div>
-</div>
-</div>
-</div>
-<p>Der Fehler des Ordinatenabschnitts beträgt:</p>
+\[\chi^2 = \sum_{i=1}^N \left(\frac{f(x_i)-y_i}{s_i}\right)^2\]</div>
+<p>Für die obigen Berechnungen, und auch im Falle von konstanten Unsicherheiten, d.h. wenn für alle Werte von <span class="math notranslate nohighlight">\(y_i\)</span> die gleiche absolute Unsicherheit existiert, ändert sich nichts. Denn es gilt <span class="math notranslate nohighlight">\(s_i = s = \mathrm{const}\)</span> und beim “Nullsetzen” werden diese einfach eliminiert.
+Gelten für die <span class="math notranslate nohighlight">\(N\)</span> Messwerte allerdings unterschiedliche Unsicherheiten, so müssen diese miteinbezogen werden.</p>
+</section>
+<section id="unsicherheiten-der-regressionskoeffizienten">
+<h3>Unsicherheiten der Regressionskoeffizienten<a class="headerlink" href="#unsicherheiten-der-regressionskoeffizienten" title="Link zu dieser Überschrift">#</a></h3>
+<p>Natürlich kann man auch die Abweichungen, Toleranzen und Vertrauensintervalle für die Regressionskoeffizienten <span class="math notranslate nohighlight">\(b\)</span> und <span class="math notranslate nohighlight">\(a\)</span> betrachten.</p>
+<p>Der Fehler der Geradensteigung <span class="math notranslate nohighlight">\(b\)</span> beträgt:</p>
 <div class="math notranslate nohighlight">
-\[s_b = s_y \cdot \sqrt{\frac{\sum x_i^2}{N\cdot \sum x_i^2 - \left(\sum x_i\right)^2}} = s_y \cdot \sqrt{\frac{1}{N}\frac{\sum x_i^2}{\sum x_i^2 - N\cdot \bar x^2}} = s_y \cdot \sqrt{\frac{1}{N}\frac{\sum x_i^2}{\sum \left(x_i - \bar x \right)^2}} = s_m \cdot \sqrt{\overline{x^2}}\]</div>
-<div class="cell tag_hide-input docutils container">
+\[s_b = s_y \cdot \sqrt{\frac{N}{N\cdot \sum x_i^2 - \left(\sum x_i\right)^2}} = s_y \cdot \sqrt{\frac{1}{\sum x_i^2 - N\cdot \bar x^2}} = s_y \cdot \sqrt{\frac{1}{\sum \left(x_i - \bar x \right)^2}} = s_y \cdot \sqrt{\frac{1}{N\cdot (\overline{x^2} - (\overline x)^2)}}\]</div>
+<p>Der Fehler des Ordinatenabschnitts <span class="math notranslate nohighlight">\(a\)</span> beträgt:</p>
+<div class="math notranslate nohighlight">
+\[s_a = s_y \cdot \sqrt{\frac{\sum x_i^2}{N\cdot \sum x_i^2 - \left(\sum x_i\right)^2}} = s_y \cdot \sqrt{\frac{1}{N}\frac{\sum x_i^2}{\sum x_i^2 - N\cdot \bar x^2}} = s_y \cdot \sqrt{\frac{1}{N}\frac{\sum x_i^2}{\sum \left(x_i - \bar x \right)^2}} = s_b \cdot \sqrt{\overline{x^2}}\]</div>
+<p>Mithilfe dieser Standardabweichungen für <span class="math notranslate nohighlight">\(a\)</span> und <span class="math notranslate nohighlight">\(b\)</span> können mit der Student-t-Verteilung und Quantilen kombiniert werden, um den Vertrauensbereich anzugeben.</p>
+<div class="cell tag_thebe-init tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s_b</span> <span class="o">=</span> <span class="n">s_m</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Unsicherheit von b ist </span><span class="se">\t</span><span class="s1"> s_b = </span><span class="si">%5.4f</span><span class="s1"> s&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">s_b</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s_b</span> <span class="o">=</span> <span class="n">s_y</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">N</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Unsicherheit von b ist </span><span class="se">\t</span><span class="s1"> s_b = </span><span class="si">%5.4f</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">s_b</span><span class="p">))</span>
+
+<span class="n">s_a</span> <span class="o">=</span> <span class="n">s_b</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Unsicherheit von a ist </span><span class="se">\t</span><span class="s1"> s_a = </span><span class="si">%5.4f</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">s_a</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Unsicherheit von b ist 	 s_b = 3.9581 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Unsicherheit von b ist 	 s_b = 0.0534
+Die Unsicherheit von a ist 	 s_a = 3.9581
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+</section>
 <section id="korrelationskoeffizient-a-id-subsec-korrelationskoeffizient-a">
-<h3>Korrelationskoeffizient <a id="SubSec-Korrelationskoeffizient"></a><a class="headerlink" href="#korrelationskoeffizient-a-id-subsec-korrelationskoeffizient-a" title="Link zu dieser Überschrift">#</a></h3>
+<h2>Korrelationskoeffizient <a id="SubSec-Korrelationskoeffizient"></a><a class="headerlink" href="#korrelationskoeffizient-a-id-subsec-korrelationskoeffizient-a" title="Link zu dieser Überschrift">#</a></h2>
 <p>Für lineare Zusammenhänge ist es häufig sinnvoll den Korrelationskoeffizient zu berechnen:</p>
 <div class="math notranslate nohighlight">
 \[r = \frac{\overline{x\cdot t} - \overline x \cdot \overline t}{\sqrt{\overline{x^2} - (\overline x)^2} \cdot {\sqrt{\overline{t^2} - (\overline t)^2}}} \]</div>
-<div class="cell tag_hide-input docutils container">
+<div class="cell tag_hide-input tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Analytische Methode:</span>
 <span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
@@ -1217,8 +1257,53 @@ Die Korrelationsmatrix zwischen x und t mittels numpy-Paket lautet:
 </div>
 </div>
 </div>
-<p>Der Korrelationskoeffizient von <span class="math notranslate nohighlight">\(+ 0,97035\)</span> zeigt mit positivem Vorzeichen eine direkte Proportionalität zwischen <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(t\)</span>. Die geringfügige Abweichung zu +1 zeigt, dass die Messwerte dennoch leicht von dem erwarteten linearen Zusammenhang abweichen.</p>
+<p>Der Korrelationskoeffizient von <span class="math notranslate nohighlight">\(+ 0,97035\)</span> zeigt mit positivem Vorzeichen eine direkte Proportionalität zwischen <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span>. Die geringfügige Abweichung zu +1 zeigt, dass die Messwerte dennoch leicht von dem erwarteten linearen Zusammenhang abweichen.</p>
+<section id="bestimmtheitsmasz-a-id-subsec-bestimmtheitsmasz-a">
+<h3>Bestimmtheitsmaß <a id="SubSec-Bestimmtheitsmaß"></a><a class="headerlink" href="#bestimmtheitsmasz-a-id-subsec-bestimmtheitsmasz-a" title="Link zu dieser Überschrift">#</a></h3>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Bestimmtheitsmaß Regression berechnen &amp; interpretieren 📚 einfach erklärt [Theorie/Formel] (Alles Andy)</p>
+<iframe width="200" height="113" src="https://www.youtube.com/embed/3JR95ubOuL4?si=SpqKGVuZUWvKJBvS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<p>Das <strong>Bestimmtheitsmaß</strong> gibt an, wie gut die Regressionsgerade zur tatsächlichen Realität passt. Es basiert auf dem Korrelationskoeffizienten, den wir bereits aus der Fehlerfortpflanzung kennen, und quadriert diesen:</p>
+<div class="math notranslate nohighlight">
+\[\mathit{R}^2 = r^2 (= \textrm{Korrelation}^2)\]</div>
+<p>Da der Korrelationskoeffizient lediglich angibt, wie stark die Messwerte um einen linearen Zusammenhang streuen, ist auch das Bestimmtheitsmaß nur für lineare Regressionen definiert. Das Bestimmtheitsmaß kann mit 100 multipliziert werden, um es in Prozent auszudrücken. Dies entspricht dem prozentualen Anteil der Streuung in <span class="math notranslate nohighlight">\(y\)</span>, der durch das lineare Modell beschrieben wird, und liegt zwischen 0% und 100%:</p>
+<ul class="simple">
+<li><p>0%: Es existiert kein linearer Zusammenhang.</p></li>
+<li><p>100%: Perfekter linearer Zusammenhang.</p></li>
+</ul>
+<p>Allgemein gilt für das <strong>Bestimmtheitsmaß</strong>:</p>
+<ul class="simple">
+<li><p>Je näher <span class="math notranslate nohighlight">\(\mathit{R}^2\)</span> an 1 liegt, desto besser passt die Kurvenanpassung.</p></li>
+<li><p>Für <span class="math notranslate nohighlight">\(\mathit{R}^2 = 0\)</span> ist das Modell völlig ungeeignet, um einen Zusammenhang zwischen <span class="math notranslate nohighlight">\(x_i\)</span> und <span class="math notranslate nohighlight">\(y_i\)</span> vorherzusagen.</p></li>
+<li><p>Für <span class="math notranslate nohighlight">\(\mathit{R}^2 = 1\)</span> kann <span class="math notranslate nohighlight">\(y\)</span> vollständig durch das lineare Modell beschrieben werden, und alle Messpunkte liegen auf einer nicht-horizontalen Geraden. In diesem Fall besteht ein deterministischer Zusammenhang, kein stochastischer.</p></li>
+</ul>
+<p><strong>Nachteile des Bestimmtheitsmaßes:</strong></p>
+<p>Bei einer steigenden Anzahl von Messwerten erhöht sich <span class="math notranslate nohighlight">\(\mathit{R}^2\)</span>, ohne dass die Korrelation oder die Regression tatsächlich besser wird. Dieses Problem könnte durch ein korrigiertes <span class="math notranslate nohighlight">\(\mathit{R}^2\)</span> behoben werden:</p>
+<div class="math notranslate nohighlight">
+\[\mathit{\overline R}^2 = 1 - (1 - \mathit{R}^2) \cdot \frac{n-1}{n-p-1}\]</div>
+<p>Dabei stehen:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(n\)</span> für die Anzahl der Messwerte und</p></li>
+<li><p><span class="math notranslate nohighlight">\(p\)</span> für die Anzahl der Variablen im Regressionsmodell.</p></li>
+</ul>
+<p>Ein weiterer Nachteil ist, dass das Bestimmtheitsmaß keine Aussage darüber trifft, ob das verwendete Regressionsmodell tatsächlich korrekt ist.</p>
 </section>
+</section>
+<section id="erweiterung-auf-allgemeine-funktionen">
+<h2>Erweiterung auf allgemeine Funktionen<a class="headerlink" href="#erweiterung-auf-allgemeine-funktionen" title="Link zu dieser Überschrift">#</a></h2>
+<p>Die Methode der kleinsten Quadrate kann auf jede Funktion angewendet werden, sei es beispielsweise eine Parabel. Dabei ist es von entscheidender Bedeutung, mit gesundem Menschenverstand zu prüfen, welche Funktion sich für den jeweiligen Verlauf der Messwerte am besten eignet.</p>
 </section>
 </section>
 
@@ -1249,17 +1334,17 @@ Die Korrelationsmatrix zwischen x und t mittels numpy-Paket lautet:
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="1_Interpol_Approx.html" title="zurück Seite">
+    <a class='left-prev' id="prev-link" href="1_Fehlerfortpflanzung.html" title="zurück Seite">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">zurück</p>
-            <p class="prev-next-title">Interpolation vs. Anpassung</p>
+            <p class="prev-next-title">Fortpflanzung von Messunsicherheiten</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="V4.html" title="weiter Seite">
+    <a class='right-next' id="next-link" href="1_Interpol_Approx.html" title="weiter Seite">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title">Woche 4: Stationäre Messysteme</p>
+        <p class="prev-next-title">Interpolation vs. Anpassung</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

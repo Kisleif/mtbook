@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Fourier-Transformation: Entfernung von Hintergrundrauschen in einem Audiosignal
+# # Fourier-Transformation und Filtern
 # 
 # Um das Verständnis für die Fourier-Transformation und ihre Möglichkeiten zu vertiefen, werden wir hier einige Audiosignale filtern. Zuerst wirst du ein Audiosignal mit einem hohen Brummton erzeugen und dann den Brummton mit Hilfe der Fourier-Transformation entfernen.
 # 

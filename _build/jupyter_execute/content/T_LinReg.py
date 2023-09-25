@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Vergleich verschiedener Fit-Funktionen
+# # Verschiedene Fit-Routinen 
 # 
 # ## Messdaten: Karussel
 # 

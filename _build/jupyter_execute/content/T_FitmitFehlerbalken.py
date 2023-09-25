@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Lineare Regression mit Berücksichtigung von Fehlerbalken
+# # Lineare Regression mit Fehlerbalken
 # 
 # **Gegeben** sei eine Messreihe von 10 Messwerten $y_i$ mit annäherend konstanten Verhalten, d.h. es wurde 10 mal ein Wert um 10 herum gemessen. 
 # Diese Messwerte sind im folgenden Diagramm inklusive Fehlerbalken (Anzeige der Messunsicherheit) dargestellt. Die Unsicherheit der $x$-Achse wird vernachlässigt.

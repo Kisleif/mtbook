@@ -57,8 +57,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="Kalibrieren und Eichen" href="2_Kalibrieren.html" />
-    <link rel="prev" title="Stationäre Messysteme" href="V4.html" />
+    <link rel="next" title="Kennlinie &amp; Empfindlichkeit" href="2_idealeKennlinie.html" />
+    <link rel="prev" title="Kalibrieren und Eichen" href="2_Kalibrieren.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="de">
     
@@ -171,7 +171,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="1_Fehlerfortpflanzung.html">
-     Fortpflanzung von Messunsicherheiten
+     Fehlerfortpflanzung
     </a>
    </li>
    <li class="toctree-l2">
@@ -196,19 +196,19 @@ const thebe_selector_output = ".output, .cell_output"
    </i>
   </label>
   <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="2_Kalibrieren.html">
+     Kalibrieren und Eichen
+    </a>
+   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Grundstruktur eines Messsystems
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="2_Kalibrieren.html">
-     Kalibrieren und Eichen
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="2_idealeKennlinie.html">
-     Ideale Kennlinie
+     Kennlinie &amp; Empfindlichkeit
     </a>
    </li>
    <li class="toctree-l2">
@@ -434,7 +434,12 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="T_Plotten.html">
-     Messdaten analysieren
+     Ausgleichsgerade für Klimadaten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="T_Log.html">
+     Logarithmische Darstellung
     </a>
    </li>
    <li class="toctree-l2">
@@ -444,17 +449,17 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="T_LinReg.html">
-     Vergleich verschiedener Fit-Funktionen
+     Verschiedene Fit-Routinen
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="T_FitmitFehlerbalken.html">
-     Lineare Regression mit Berücksichtigung von Fehlerbalken
+     Lineare Regression mit Fehlerbalken
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="T_Spektralanalyse_Audio.html">
-     Fourier-Transformation: Entfernung von Hintergrundrauschen in einem Audiosignal
+     Fourier-Transformation und Filtern
     </a>
    </li>
   </ul>
@@ -696,12 +701,36 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#verhalten">
+   Verhalten
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -713,6 +742,19 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#verhalten">
+   Verhalten
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -722,11 +764,11 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="grundstruktur-eines-messsystems">
 <h1>Grundstruktur eines Messsystems<a class="headerlink" href="#grundstruktur-eines-messsystems" title="Link zu dieser Überschrift">#</a></h1>
-<p><a class="reference internal" href="#grundstruktur"><span class="std std-numref">Abb. 22</span></a> zeigt die generelle Struktur eines Messsystems.</p>
+<p><a class="reference internal" href="#grundstruktur"><span class="std std-numref">Abb. 24</span></a> zeigt die generelle Struktur eines Messsystems.</p>
 <figure class="align-default" id="grundstruktur">
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/grundstruktur.jpg"><img alt="grundstruktur" class="bg-primary mb-1" src="../_images/grundstruktur.jpg" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 22 </span><span class="caption-text">Generelle Grundstruktur eines Messsystems, bzw Messkette.</span><a class="headerlink" href="#grundstruktur" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-number">Abb. 24 </span><span class="caption-text">Generelle Grundstruktur eines Messsystems, bzw Messkette.</span><a class="headerlink" href="#grundstruktur" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
 <p>Dies ist eine der ersten Messketten, die wir kennenlernen. Allgemein findet man immer wieder die gleichen Komponenten in solchen Ketten, die im Folgenden aufgelistet werden:</p>
@@ -738,9 +780,12 @@ title="Print to PDF"
 <li><p><strong>Digitalisierung</strong>: Dies ist die häufigste Art der <em>Messwertausgabe</em>. Das analog vorliegende elektrische Signal wird in ein Digitalwort umgewandelt.</p></li>
 <li><p><strong>Digitale Signalverarbeitung</strong>: Durch Algorithmik wird der Messwert digital weiterverarbeitet. Häufig können an dieser Stelle auch Korrekturen vorgenommen werden, um beispielsweise Kennenlinienfehler zu minimieren und zu korrigieren. Dies werden wir gleich noch genauer betrachten. Ausgegeben wird schließlich ein Messwert <span class="math notranslate nohighlight">\(y\)</span>.</p></li>
 </ul>
-<p>Jede einzelne der Komponenten führt das jeweilige Eingangssignal in ein Ausgangssignal über. Im Folgenden werden wir die wichtigste statische Kenngröße, nämlich den <strong>Übertragungsfaktor</strong> <span class="math notranslate nohighlight">\(k\)</span> kennenlernen. Dieser gilt auch für dynamische Systeme, sobald diese sich in einem eingeschwungenen Zustand befinden und als stationär angenommen werden können.
-Der Übertragungsfaktor <span class="math notranslate nohighlight">\(k\)</span> wird auch <em>Verstärkungsfaktor</em> genannt.
-Über den gesamten Eingangsbereich der Messeinrichtung wird der Übertragungsfaktor durch die statische <strong>Kennlinie</strong> beschrieben. Danach ergibt sich mit einem bestimmten Eingangsbereich der Messeinrichtung ein korrespondierender Ausgangssbereich.</p>
+<section id="verhalten">
+<h2>Verhalten<a class="headerlink" href="#verhalten" title="Link zu dieser Überschrift">#</a></h2>
+<p>Jede einzelne der Komponenten wandelt das jeweilige Eingangssignal in ein Ausgangssignal um. Dies wird durch den <strong>Übertragungsfaktor</strong> <span class="math notranslate nohighlight">\(k\)</span> beschrieben und stellt eine der wichtigsten <strong>statischen</strong> Kenngrößen eines Messsystems dar. Der Übertragungsfaktor sollte für jede Komponente ein lineares Verhalten aufweisen, was bedeutet, dass sich die Ausgangsgröße verdoppeln sollte, wenn sich die Eingangsgröße verdoppelt.</p>
+<p>Zusätzlich zum statischen Verhalten hat jedes Messsystem auch ein <strong>dynamisches Verhalten</strong>. Dabei geht es nicht um die Linearität zwischen Ausgangs- und Eingangsgröße, sondern darum, wie das System auf schnelle Änderungen der Eingangsgröße reagiert. Je schneller sich die Eingangsgröße ändert, desto schneller müssen das Messsystem und der Sensor reagieren, um die Ausgangsgröße anzupassen. Hierbei zeigen sich unterschiedliche Verhaltensweisen, da Sensoren und Messgeräte in ihrer Reaktionsgeschwindigkeit nach oben oder unten begrenzt sein können.</p>
+<p>Im Folgenden werden wir die wichtigste statische Kenngröße, den <strong>Übertragungsfaktor</strong> <span class="math notranslate nohighlight">\(k\)</span>, genauer kennenlernen. Dieser gilt auch für dynamische Systeme, sobald sie sich in einem eingeschwungenen Zustand befinden und als stationär betrachtet werden können. Der Übertragungsfaktor <span class="math notranslate nohighlight">\(k\)</span> wird auch als <strong>Verstärkungsfaktor</strong> bezeichnet. Über den gesamten Eingangsbereich der Messeinrichtung wird der Übertragungsfaktor durch die statische <strong>Kennlinie</strong> beschrieben. Diese beschreibt das Verhältnis zwischen einem bestimmten Bereich der Eingangsgröße und dem korrespondierenden Bereich der Ausgangsgröße.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -770,17 +815,17 @@ Der Übertragungsfaktor <span class="math notranslate nohighlight">\(k\)</span> 
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="V4.html" title="zurück Seite">
+    <a class='left-prev' id="prev-link" href="2_Kalibrieren.html" title="zurück Seite">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">zurück</p>
-            <p class="prev-next-title">Stationäre Messysteme</p>
+            <p class="prev-next-title">Kalibrieren und Eichen</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="2_Kalibrieren.html" title="weiter Seite">
+    <a class='right-next' id="next-link" href="2_idealeKennlinie.html" title="weiter Seite">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title">Kalibrieren und Eichen</p>
+        <p class="prev-next-title">Kennlinie &amp; Empfindlichkeit</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Ideale Kennlinie &#8212; Metrology Lecture Book</title>
+    <title>Kennlinie &amp; Empfindlichkeit &#8212; Metrology Lecture Book</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -58,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
     <link rel="next" title="Reale Kennlinie" href="2_realeKennlinie.html" />
-    <link rel="prev" title="Kalibrieren und Eichen" href="2_Kalibrieren.html" />
+    <link rel="prev" title="Grundstruktur eines Messsystems" href="2_Messsystem.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="de">
     
@@ -171,7 +171,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="1_Fehlerfortpflanzung.html">
-     Fortpflanzung von Messunsicherheiten
+     Fehlerfortpflanzung
     </a>
    </li>
    <li class="toctree-l2">
@@ -197,18 +197,18 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="2_Messsystem.html">
-     Grundstruktur eines Messsystems
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="2_Kalibrieren.html">
      Kalibrieren und Eichen
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2_Messsystem.html">
+     Grundstruktur eines Messsystems
+    </a>
+   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Ideale Kennlinie
+     Kennlinie &amp; Empfindlichkeit
     </a>
    </li>
    <li class="toctree-l2">
@@ -434,7 +434,12 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="T_Plotten.html">
-     Messdaten analysieren
+     Ausgleichsgerade für Klimadaten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="T_Log.html">
+     Logarithmische Darstellung
     </a>
    </li>
    <li class="toctree-l2">
@@ -444,17 +449,17 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="T_LinReg.html">
-     Vergleich verschiedener Fit-Funktionen
+     Verschiedene Fit-Routinen
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="T_FitmitFehlerbalken.html">
-     Lineare Regression mit Berücksichtigung von Fehlerbalken
+     Lineare Regression mit Fehlerbalken
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="T_Spektralanalyse_Audio.html">
-     Fourier-Transformation: Entfernung von Hintergrundrauschen in einem Audiosignal
+     Fourier-Transformation und Filtern
     </a>
    </li>
   </ul>
@@ -729,18 +734,18 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#beispiele">
-   Beispiele
+  <a class="reference internal nav-link" href="#kennlinienbeispiele">
+   Kennlinienbeispiele
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#kennlinie-von-widerstandsthermometern">
-     Kennlinie von Widerstandsthermometern
+    <a class="reference internal nav-link" href="#widerstandsthermometer">
+     Widerstandsthermometer
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#wunder-an-empfindlichkeit">
-     Wunder an Empfindlichkeit
+    <a class="reference internal nav-link" href="#laserinterferometer">
+     Laserinterferometer
     </a>
    </li>
   </ul>
@@ -754,7 +759,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Ideale Kennlinie</h1>
+                <h1>Kennlinie & Empfindlichkeit</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -775,18 +780,18 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#beispiele">
-   Beispiele
+  <a class="reference internal nav-link" href="#kennlinienbeispiele">
+   Kennlinienbeispiele
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#kennlinie-von-widerstandsthermometern">
-     Kennlinie von Widerstandsthermometern
+    <a class="reference internal nav-link" href="#widerstandsthermometer">
+     Widerstandsthermometer
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#wunder-an-empfindlichkeit">
-     Wunder an Empfindlichkeit
+    <a class="reference internal nav-link" href="#laserinterferometer">
+     Laserinterferometer
     </a>
    </li>
   </ul>
@@ -801,14 +806,14 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="ideale-kennlinie">
-<h1>Ideale Kennlinie<a class="headerlink" href="#ideale-kennlinie" title="Link zu dieser Überschrift">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="kennlinie-empfindlichkeit">
+<h1>Kennlinie &amp; Empfindlichkeit<a class="headerlink" href="#kennlinie-empfindlichkeit" title="Link zu dieser Überschrift">#</a></h1>
 <p><a id="Sec-Kennlinie"></a></p>
-<p>Jede einzelne der Komponenten führt die an ihr anliegenden Eingangssignal in Ausgangssignale über. Wie diese Überführung genau aussieht beschreibt die sogenannte <strong>Kennlinie</strong>, die für jede Komponente unterschiedlich aussehen kann. In <a class="reference internal" href="#id1"><span class="std std-numref">Abb. 25</span></a> ist beispielhaft eine lineare, ideale Kennlinie dargestellt:</p>
-<figure class="align-default" id="id1">
+<p>Jede einzelne der Komponenten führt die an ihr anliegenden Eingangssignal in Ausgangssignale über. Wie diese Überführung genau aussieht beschreibt die sogenannte <strong>Kennlinie</strong>, die für jede Komponente unterschiedlich aussehen kann. In <a class="reference internal" href="#ideale-kennlinie"><span class="std std-numref">Abb. 25</span></a> ist beispielhaft eine lineare, ideale Kennlinie dargestellt.</p>
+<figure class="align-default" id="ideale-kennlinie">
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/ideale_kennlinie.jpg"><img alt="ideale_kennlinie" class="bg-primary mb-1" src="../_images/ideale_kennlinie.jpg" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 25 </span><span class="caption-text">Ideale Messkennlinie.</span><a class="headerlink" href="#id1" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-number">Abb. 25 </span><span class="caption-text">Ideale Messkennlinie.</span><a class="headerlink" href="#ideale-kennlinie" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
 <section id="statische-kenngroszen">
@@ -834,13 +839,14 @@ title="Print to PDF"
 <p>Die Kennlinie sollte immer eine gewisse Steigung aufweisen. Oder man könnte auch sagen, dass wenn sich die Eingangsgröße <span class="math notranslate nohighlight">\(u\)</span> ändert, dass dies auch immer eine Änderung in der Ausgangsgröße <span class="math notranslate nohighlight">\(y\)</span> mit sich ziehen sollte. Im Falle einer Verstärkungseinheit könnte diese Änderung sogar vergrößert werden und das System reagiert somit <em>empfindlicher</em> auf Änderungen der Eingangsgröße. Mathematisch betrachtet bedeutet die Steilheit nichts anderes als die Steigung bzw. die Ableitung der Ausgangsgröße <span class="math notranslate nohighlight">\(y(u)\)</span> an einer bestimmten Stelle <span class="math notranslate nohighlight">\(u\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[S(u) = \frac{\partial y(u)}{\partial u} = \frac{\partial f(u)}{\partial u}\]</div>
-<p>Dies wird auch die Empfindlichkeit <span class="math notranslate nohighlight">\(S(u)\)</span> genannt und entspricht der Tangente im Punkt <span class="math notranslate nohighlight">\(u\)</span>.</p>
+<p>Dies wird auch die Empfindlichkeit <span class="math notranslate nohighlight">\(S(u)\)</span> genannt und entspricht der Tangente im Punkt <span class="math notranslate nohighlight">\(u\)</span>.
+Bei einer Messeinrichtung mit linearer Kennlinie sind die Empfindlichkeit <span class="math notranslate nohighlight">\(S\)</span> und die Übertragungsfunktion <span class="math notranslate nohighlight">\(k\)</span> demzufolge identisch.</p>
 </section>
-<section id="beispiele">
-<h2>Beispiele<a class="headerlink" href="#beispiele" title="Link zu dieser Überschrift">#</a></h2>
+<section id="kennlinienbeispiele">
+<h2>Kennlinienbeispiele<a class="headerlink" href="#kennlinienbeispiele" title="Link zu dieser Überschrift">#</a></h2>
 <p><a id="SubSec-Beispiel"></a></p>
-<section id="kennlinie-von-widerstandsthermometern">
-<h3>Kennlinie von Widerstandsthermometern<a class="headerlink" href="#kennlinie-von-widerstandsthermometern" title="Link zu dieser Überschrift">#</a></h3>
+<section id="widerstandsthermometer">
+<h3>Widerstandsthermometer<a class="headerlink" href="#widerstandsthermometer" title="Link zu dieser Überschrift">#</a></h3>
 <p>Reine Metalle sind <strong>Kaltleiter</strong>. Platin hat beispielsweise einen Widerstandswert von R0 = R(0) = 100 Ohm bei 0 °C, daher der Name PT100. Sie können bei geeigneter Ausrüstung bis 850 °C eingesetzt werden. Sie haben eine fast lineare Kennlinie bei einer relativen Widerstandsänderung von knapp 0,4 % pro °C:</p>
 <div class="math notranslate nohighlight">
 \[R(T) = R_0 \cdot (1 + AT + BT^2)\]</div>
@@ -949,8 +955,8 @@ require(['plotly'], function(Plotly) {
 </div>
 </div>
 </section>
-<section id="wunder-an-empfindlichkeit">
-<h3>Wunder an Empfindlichkeit<a class="headerlink" href="#wunder-an-empfindlichkeit" title="Link zu dieser Überschrift">#</a></h3>
+<section id="laserinterferometer">
+<h3>Laserinterferometer<a class="headerlink" href="#laserinterferometer" title="Link zu dieser Überschrift">#</a></h3>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
@@ -973,32 +979,36 @@ Es hilft auf jeden Fall, das Interferometer so groß wie möglich zu machen. Die
 Das bedeutet eine relative Längenänderung von lediglich:</p>
 <div class="math notranslate nohighlight">
 \[h = \frac{dL}{L} \approx 5\cdot 10^{-22}\]</div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="mi">4000</span> <span class="c1"># Armlänge in m</span>
 <span class="n">dL</span> <span class="o">=</span> <span class="mf">1e-19</span> <span class="c1"># Spiegelbewegung in m</span>
 <span class="n">h</span> <span class="o">=</span> <span class="n">dL</span> <span class="o">/</span> <span class="n">L</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;relative Armlängenänderung bei einer Gravitationswelle: &#39;</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;relative Armlängenänderung durch Gravitationswelle:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>relative Armlängenänderung bei einer Gravitationswelle:  2.4999999999999998e-23
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>relative Armlängenänderung durch Gravitationswelle:
+2.4999999999999998e-23
 </pre></div>
 </div>
 </div>
 </div>
 <p>Nimmt man den Abstand von Erde und Sonne (150 000 000 km), würde sich dieser beim Einfall einer Gravitationswellen um weniger als einen Atomdurchmesser ändern:</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d_Erde_Sonne</span> <span class="o">=</span> <span class="mf">150e9</span> <span class="c1"># Abstand Erde Sonne in m</span>
 <span class="n">dL_Erde_Sonne</span> <span class="o">=</span> <span class="n">d_Erde_Sonne</span> <span class="o">*</span> <span class="n">h</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Abstandsänderung Erde-Sonne verursacht durch Gravitationswellen: &#39;</span><span class="p">,</span><span class="n">dL_Erde_Sonne</span><span class="p">,</span> <span class="s1">&#39; = &#39;</span><span class="p">,</span><span class="n">dL_Erde_Sonne</span><span class="o">*</span><span class="mf">1e12</span><span class="p">,</span> <span class="s1">&#39;pm&#39;</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Abstandsänderung Erde-Sonne verursacht durch Gravitationswelle: &#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dL_Erde_Sonne</span><span class="p">,</span> <span class="s1">&#39; = &#39;</span><span class="p">,</span><span class="n">dL_Erde_Sonne</span><span class="o">*</span><span class="mf">1e12</span><span class="p">,</span> <span class="s1">&#39;pm&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Abstandsänderung Erde-Sonne verursacht durch Gravitationswellen:  3.75e-12  =  3.75 pm
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Abstandsänderung Erde-Sonne verursacht durch Gravitationswelle: 
+3.75e-12  =  3.75 pm
 </pre></div>
 </div>
 </div>
@@ -1041,11 +1051,11 @@ Das bedeutet eine relative Längenänderung von lediglich:</p>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="2_Kalibrieren.html" title="zurück Seite">
+    <a class='left-prev' id="prev-link" href="2_Messsystem.html" title="zurück Seite">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">zurück</p>
-            <p class="prev-next-title">Kalibrieren und Eichen</p>
+            <p class="prev-next-title">Grundstruktur eines Messsystems</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="2_realeKennlinie.html" title="weiter Seite">

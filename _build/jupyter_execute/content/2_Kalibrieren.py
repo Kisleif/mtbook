@@ -16,7 +16,6 @@
 # :::::
 # ::::::
 # 
-# ## Unterscheidung zwischen Messen, Prüfen, Kalibrieren und Eichen
 # 
 # In der Messtechnik ist es wichtig, zwischen verschiedenen Begrifflichkeiten zu unterscheiden, da in der Umgangssprache häufig Unklarheiten auftreten. Ein grundlegender Unterschied besteht zwischen dem **Messen** und dem **Prüfen** von Größen.
 # 

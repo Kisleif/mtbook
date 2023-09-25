@@ -55,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="Grundstruktur eines Messsystems" href="2_Messsystem.html" />
+    <link rel="next" title="Kalibrieren und Eichen" href="2_Kalibrieren.html" />
     <link rel="prev" title="Interpolation vs. Regression" href="1_Interpol_Approx.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="de">
@@ -169,7 +169,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="1_Fehlerfortpflanzung.html">
-     Fortpflanzung von Messunsicherheiten
+     Fehlerfortpflanzung
     </a>
    </li>
    <li class="toctree-l2">
@@ -195,18 +195,18 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="2_Messsystem.html">
-     Grundstruktur eines Messsystems
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="2_Kalibrieren.html">
      Kalibrieren und Eichen
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="2_Messsystem.html">
+     Grundstruktur eines Messsystems
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="2_idealeKennlinie.html">
-     Ideale Kennlinie
+     Kennlinie &amp; Empfindlichkeit
     </a>
    </li>
    <li class="toctree-l2">
@@ -432,7 +432,12 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="T_Plotten.html">
-     Messdaten analysieren
+     Ausgleichsgerade für Klimadaten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="T_Log.html">
+     Logarithmische Darstellung
     </a>
    </li>
    <li class="toctree-l2">
@@ -442,17 +447,17 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="T_LinReg.html">
-     Vergleich verschiedener Fit-Funktionen
+     Verschiedene Fit-Routinen
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="T_FitmitFehlerbalken.html">
-     Lineare Regression mit Berücksichtigung von Fehlerbalken
+     Lineare Regression mit Fehlerbalken
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="T_Spektralanalyse_Audio.html">
-     Fourier-Transformation: Entfernung von Hintergrundrauschen in einem Audiosignal
+     Fourier-Transformation und Filtern
     </a>
    </li>
   </ul>
@@ -703,15 +708,15 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="stationare-messysteme">
 <h1>Stationäre Messysteme<a class="headerlink" href="#stationare-messysteme" title="Link zu dieser Überschrift">#</a></h1>
 <p>Wir verwenden Messsysteme, um eine Messgröße in einen Messwert umzuwandeln. Dabei bleibt der reale, tatsächliche Wert der Messgröße oft ungewiss (weitere Details dazu findet ihr im Kapitel  <a class="reference internal" href="1_Messunsicherheiten.html"><span class="doc std std-doc">Messunsicherheiten</span></a>).</p>
-<p>Ein Messwert kann entweder direkt auf dem Messgerät angezeigt werden, beispielsweise über ein Display, oder er liegt als Datenwert in analoger oder digitaler Form vor. Um diese Daten weiterzuverarbeiten, benötigen wir entsprechende Geräte oder Algorithmen.</p>
+<p>Ein Messwert kann entweder direkt auf dem Messgerät angezeigt werden, beispielsweise über ein Display, oder er liegt als Datenwert in analoger oder digitaler Form vor. Um sicherzustellen, dass der Messwert <em>genau</em> ist, werden Messsysteme kalibriert, bzw. wenn es sich um einen hoheitlichen Akt handelt (wie z.B. beim Verbraucherschutz) geeicht.</p>
 <p>In diesem Kapitel werden wir uns mit den Begrifflichkeiten und Kenngrößen von Messsystemen beschäftigen. Zunächst gehen wir davon aus, dass sich die Messwerte während des Messprozesses nicht über die Zeit ändern. Diese Art von Messsystemen bezeichnen wir als <em>statische Messsysteme</em>.</p>
 <section id="inhalte">
 <h2>Inhalte<a class="headerlink" href="#inhalte" title="Link zu dieser Überschrift">#</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="2_Messsystem.html">Grundstruktur eines Messsystems</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2_Kalibrieren.html">Kalibrieren und Eichen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_idealeKennlinie.html">Ideale Kennlinie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Messsystem.html">Grundstruktur eines Messsystems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_idealeKennlinie.html">Kennlinie &amp; Empfindlichkeit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2_realeKennlinie.html">Reale Kennlinie</a></li>
 </ul>
 </div>
@@ -725,6 +730,18 @@ title="Print to PDF"
 </tr>
 </thead>
 <tbody>
+<tr class="row-even"><td class="text-align:left"><p>Kalibrieren</p></td>
+<td class="text-align:left"><p>Untersuchen, ob der Prüfgegenstand bestimmte Bedingungen erfüllt (Entspricht der Messwert eines Messgeräts dem „richtigen“ Wert des Messgröße?)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Eichen</p></td>
+<td class="text-align:left"><p>Prüfung und Stempelung des Messsystems nach Eichvorschriften (Entspricht der Messwert eines Messgeräts dem „richtigen“ Wert des Messgröße unter staatlicher Hoheit?)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Justieren</p></td>
+<td class="text-align:left"><p>Einstellen eines Messsystems so, dass der Messwert der Messgröße möglichst gut entspricht</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Normale</p></td>
+<td class="text-align:left"><p>Eine handhabbare Verkörperung einer Maßeinheit</p></td>
+</tr>
 <tr class="row-even"><td class="text-align:left"><p>Empfindlichkeit</p></td>
 <td class="text-align:left"><p>Das Verhältnis von Änderung der Ausgangsgröße zu der sie verursachenden Änderung der Eingangsgröße wird als Empfindlichkeit bezeichnet.</p></td>
 </tr>
@@ -791,10 +808,10 @@ title="Print to PDF"
             <p class="prev-next-title">Interpolation vs. Regression</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="2_Messsystem.html" title="weiter Seite">
+    <a class='right-next' id="next-link" href="2_Kalibrieren.html" title="weiter Seite">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title">Grundstruktur eines Messsystems</p>
+        <p class="prev-next-title">Kalibrieren und Eichen</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

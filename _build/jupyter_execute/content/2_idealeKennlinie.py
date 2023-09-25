@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Ideale Kennlinie
+# # Kennlinie & Empfindlichkeit
 # <a id="Sec-Kennlinie"></a>
 # 
-# Jede einzelne der Komponenten führt die an ihr anliegenden Eingangssignal in Ausgangssignale über. Wie diese Überführung genau aussieht beschreibt die sogenannte **Kennlinie**, die für jede Komponente unterschiedlich aussehen kann. In {numref}`ideale_kennlinie` ist beispielhaft eine lineare, ideale Kennlinie dargestellt:
+# Jede einzelne der Komponenten führt die an ihr anliegenden Eingangssignal in Ausgangssignale über. Wie diese Überführung genau aussieht beschreibt die sogenannte **Kennlinie**, die für jede Komponente unterschiedlich aussehen kann. In {numref}`ideale_kennlinie` ist beispielhaft eine lineare, ideale Kennlinie dargestellt. 
 # 
 # :::{figure-md} ideale_kennlinie
 # <img src="draw/ideale_kennlinie.jpg" alt="ideale_kennlinie" class="bg-primary mb-1" width="400px" label = ideale_kennlinie>
@@ -35,11 +35,12 @@
 # $$S(u) = \frac{\partial y(u)}{\partial u} = \frac{\partial f(u)}{\partial u}$$
 # 
 # Dies wird auch die Empfindlichkeit $S(u)$ genannt und entspricht der Tangente im Punkt $u$.
+# Bei einer Messeinrichtung mit linearer Kennlinie sind die Empfindlichkeit $S$ und die Übertragungsfunktion $k$ demzufolge identisch. 
 # 
-# ## Beispiele
+# ## Kennlinienbeispiele
 # <a id="SubSec-Beispiel"></a>
 # 
-# ### Kennlinie von Widerstandsthermometern
+# ### Widerstandsthermometer
 # 
 # Reine Metalle sind **Kaltleiter**. Platin hat beispielsweise einen Widerstandswert von R0 = R(0) = 100 Ohm bei 0 °C, daher der Name PT100. Sie können bei geeigneter Ausrüstung bis 850 °C eingesetzt werden. Sie haben eine fast lineare Kennlinie bei einer relativen Widerstandsänderung von knapp 0,4 % pro °C:
 # 
@@ -133,7 +134,7 @@ plt.tight_layout()
 plt.show()
 
 
-# ### Wunder an Empfindlichkeit
+# ### Laserinterferometer
 # 
 # ::::::{margin}
 # :::::{grid}
@@ -161,7 +162,8 @@ plt.show()
 L = 4000 # Armlänge in m
 dL = 1e-19 # Spiegelbewegung in m
 h = dL / L
-print('relative Armlängenänderung bei einer Gravitationswelle: ', h)
+print('relative Armlängenänderung durch Gravitationswelle:')
+print(h)
 
 
 # Nimmt man den Abstand von Erde und Sonne (150 000 000 km), würde sich dieser beim Einfall einer Gravitationswellen um weniger als einen Atomdurchmesser ändern:
@@ -171,7 +173,8 @@ print('relative Armlängenänderung bei einer Gravitationswelle: ', h)
 
 d_Erde_Sonne = 150e9 # Abstand Erde Sonne in m
 dL_Erde_Sonne = d_Erde_Sonne * h
-print('Abstandsänderung Erde-Sonne verursacht durch Gravitationswellen: ',dL_Erde_Sonne, ' = ',dL_Erde_Sonne*1e12, 'pm' )
+print('Abstandsänderung Erde-Sonne verursacht durch Gravitationswelle: ')
+print(dL_Erde_Sonne, ' = ',dL_Erde_Sonne*1e12, 'pm')
 
 
 # Die Größe eines Atoms beträgt um die 100 pm = 1 A (Angstrom = 10 $^{-10}$). 

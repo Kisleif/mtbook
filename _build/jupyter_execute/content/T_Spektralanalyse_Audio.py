@@ -31,7 +31,6 @@ warnings.filterwarnings('ignore')
 
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
-plt.figure(figsize=(8,4)) # Plot-Größe
 plt.rcParams['font.size'] = 10; # Schriftgröße
 
 

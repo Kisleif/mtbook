@@ -55,8 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="Ideale Kennlinie" href="2_idealeKennlinie.html" />
-    <link rel="prev" title="Grundstruktur eines Messsystems" href="2_Messsystem.html" />
+    <link rel="next" title="Grundstruktur eines Messsystems" href="2_Messsystem.html" />
+    <link rel="prev" title="Stationäre Messysteme" href="V4.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="de">
     
@@ -169,7 +169,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="1_Fehlerfortpflanzung.html">
-     Fortpflanzung von Messunsicherheiten
+     Fehlerfortpflanzung
     </a>
    </li>
    <li class="toctree-l2">
@@ -194,19 +194,19 @@ const thebe_selector_output = ".output, .cell_output"
    </i>
   </label>
   <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="2_Messsystem.html">
-     Grundstruktur eines Messsystems
-    </a>
-   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Kalibrieren und Eichen
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="2_Messsystem.html">
+     Grundstruktur eines Messsystems
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="2_idealeKennlinie.html">
-     Ideale Kennlinie
+     Kennlinie &amp; Empfindlichkeit
     </a>
    </li>
    <li class="toctree-l2">
@@ -432,7 +432,12 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="T_Plotten.html">
-     Messdaten analysieren
+     Ausgleichsgerade für Klimadaten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="T_Log.html">
+     Logarithmische Darstellung
     </a>
    </li>
    <li class="toctree-l2">
@@ -442,17 +447,17 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="T_LinReg.html">
-     Vergleich verschiedener Fit-Funktionen
+     Verschiedene Fit-Routinen
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="T_FitmitFehlerbalken.html">
-     Lineare Regression mit Berücksichtigung von Fehlerbalken
+     Lineare Regression mit Fehlerbalken
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="T_Spektralanalyse_Audio.html">
-     Fourier-Transformation: Entfernung von Hintergrundrauschen in einem Audiosignal
+     Fourier-Transformation und Filtern
     </a>
    </li>
   </ul>
@@ -717,11 +722,6 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#unterscheidung-zwischen-messen-prufen-kalibrieren-und-eichen">
-   Unterscheidung zwischen Messen, Prüfen, Kalibrieren und Eichen
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#kalibrieren">
    Kalibrieren
   </a>
@@ -755,11 +755,6 @@ title="Print to PDF"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#unterscheidung-zwischen-messen-prufen-kalibrieren-und-eichen">
-   Unterscheidung zwischen Messen, Prüfen, Kalibrieren und Eichen
-  </a>
- </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#kalibrieren">
    Kalibrieren
@@ -803,14 +798,11 @@ title="Print to PDF"
 </div>
 </div>
 </aside>
-<section id="unterscheidung-zwischen-messen-prufen-kalibrieren-und-eichen">
-<h2>Unterscheidung zwischen Messen, Prüfen, Kalibrieren und Eichen<a class="headerlink" href="#unterscheidung-zwischen-messen-prufen-kalibrieren-und-eichen" title="Link zu dieser Überschrift">#</a></h2>
 <p>In der Messtechnik ist es wichtig, zwischen verschiedenen Begrifflichkeiten zu unterscheiden, da in der Umgangssprache häufig Unklarheiten auftreten. Ein grundlegender Unterschied besteht zwischen dem <strong>Messen</strong> und dem <strong>Prüfen</strong> von Größen.</p>
 <ul class="simple">
 <li><p><strong>Messen</strong>: Beim Messen erfasst man den Wert einer physikalischen Größe, ohne eine spezifische Prüfung oder Überprüfung durchzuführen.</p></li>
 <li><p><strong>Prüfen</strong>: Das Prüfen hingegen bezieht sich auf die Überprüfung, ob ein Prüfgegenstand bestimmte Vorgaben oder Spezifikationen erfüllt. Dabei werden Prüfbedingungen festgelegt, die in Normen oder Standards festgehalten sind. Zum Beispiel kann die elektromagnetische Verträglichkeit (EMV) geprüft werden, wobei konkrete Randbedingungen für Messaufbauten bei Messgeräten definiert sind. Prüfen geht somit über das bloße Messen einer Größe hinaus.</p></li>
 </ul>
-</section>
 <section id="kalibrieren">
 <h2>Kalibrieren<a class="headerlink" href="#kalibrieren" title="Link zu dieser Überschrift">#</a></h2>
 <p>Messsysteme weisen in der Regel Messgenauigkeiten auf, die die Präzision der Messungen begrenzen. Diese Messgenauigkeit kann werksseitig während des Herstellungsprozesses oder später in der gewünschten Testumgebung verbessert werden. Hierzu benötigt man eine <strong>bekannte Referenz</strong>, die an das Messgerät angeschlossen werden kann. Das Messsystem kann dann so eingestellt werden, dass der angezeigte Messwert möglichst genau dem <strong>bekannten</strong> Referenzwert entspricht. Alternativ kann auch ein Präzisionsmessgerät als Referenz benutzt werden, mit dem das zu kalibrierende Gerät verglichen wird. Das Referenzgerät muss genauer als das Messgerät sein und rückführbar sein.</p>
@@ -818,7 +810,7 @@ title="Print to PDF"
 <figure class="align-default" id="eichung">
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/eichung.jpg"><img alt="eichung" class="bg-primary mb-1" src="../_images/eichung.jpg" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 23 </span><span class="caption-text">Die Kalibrierung eines Messystems kann auf zwei Arten und Weisen entstehen: Entweder durch den Vergleich mit einem zusätzlichen Präzisionsmessgerät (links) oder durch Vermessung eines <em>Normals</em>, was den <em>wahren</em> Wert wiederspiegelt (rechts).</span><a class="headerlink" href="#eichung" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-number">Abb. 22 </span><span class="caption-text">Die Kalibrierung eines Messystems kann auf zwei Arten und Weisen entstehen: Entweder durch den Vergleich mit einem zusätzlichen Präzisionsmessgerät (links) oder durch Vermessung eines <em>Normals</em>, was den <em>wahren</em> Wert wiederspiegelt (rechts).</span><a class="headerlink" href="#eichung" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -837,7 +829,7 @@ title="Print to PDF"
 <figure class="align-default" id="normal">
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/normal.jpg"><img alt="normal" class="bg-primary mb-1" src="../_images/normal.jpg" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 24 </span><span class="caption-text">Die verschiedenen Stadien eines <em>Normals</em> für verschiedene Anwendungen und Benutzer.</span><a class="headerlink" href="#normal" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-number">Abb. 23 </span><span class="caption-text">Die verschiedenen Stadien eines <em>Normals</em> für verschiedene Anwendungen und Benutzer.</span><a class="headerlink" href="#normal" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -870,17 +862,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="2_Messsystem.html" title="zurück Seite">
+    <a class='left-prev' id="prev-link" href="V4.html" title="zurück Seite">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">zurück</p>
-            <p class="prev-next-title">Grundstruktur eines Messsystems</p>
+            <p class="prev-next-title">Stationäre Messysteme</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="2_idealeKennlinie.html" title="weiter Seite">
+    <a class='right-next' id="next-link" href="2_Messsystem.html" title="weiter Seite">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title">Ideale Kennlinie</p>
+        <p class="prev-next-title">Grundstruktur eines Messsystems</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

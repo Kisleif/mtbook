@@ -61,7 +61,7 @@ print('relative Messabweichung der Cheops-Pyramide: ', relative_abweichung*100, 
 # * Der Mathematiker J. Kölbel schlägt an Stelle eines Körpermaßes ein sogenanntes Naturmaß vor: "16 Männer groß und klein", die nach einer Messe der Reihe nach aus der Kirche kommen, stellen ihre Füße hintereinander. Der sechzehnte Teil der Gesamtlänge soll dann ein Fuß sein.
 # ````
 # 
-# ```{admonition}
+# ```{admonition} Warum SI Einheiten?
 # Die Zufälligkeit, wie jedes Herzogtum seine eigenen Einheiten eingeführt hatte, führte zu großem Chaos. 
 # Die Körpermaße einzelner Herrscher wurden als Längeneinheit benutzt, die nur lokal Gültigkeit besaßen. Diese individuell festgelegten Einheiten erschwerten internationalen Handel und Probleme in Forschung, Technik und Kommunikation. Um diese Herausforderungen zu bewältigen und eine weltweite Vergleichbarkeit von Messungen sicherzustellen, wurde das Internationale Einheitensystem (SI) entwickelt. Dieses System basiert auf Naturkonstanten und schafft eine global akzeptierte Standardgrundlage für wissenschaftliche und technische Messungen, was essentiell für die Präzision, Zuverlässigkeit und Effizienz in verschiedenen Bereichen ist.
 # ```

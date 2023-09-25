@@ -33,7 +33,7 @@ In Vorbereitung
 :class-header: bg-light
 **Digitale Signalverarbeitung (DSV)**
 ^^^
-```{image} pictures/l.jpg
+```{image} pictures/DSV.jpg
 :height: 170
 ```
 :::
@@ -42,7 +42,7 @@ In Vorbereitung
 :class-header: bg-light
 **Fertigungsmesstechnik (FMT)**
 ^^^
-```{image} pictures/l.jpeg
+```{image} pictures/FMT.jpg
 :height: 170
 ```
 :::
@@ -62,7 +62,7 @@ In Vorbereitung
 :class-header: bg-light
 **Optische Messtechnik (OMT)**
 ^^^
-```{image} pictures/l.jpg
+```{image} pictures/OMT.jpg
 :height: 170
 ```
 :::

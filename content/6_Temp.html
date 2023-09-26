@@ -26,6 +26,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -171,7 +172,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="1_Fehlerfortpflanzung.html">
-     Fortpflanzung von Messunsicherheiten
+     Fehlerfortpflanzung
     </a>
    </li>
    <li class="toctree-l2">
@@ -197,18 +198,18 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="2_Messsystem.html">
-     Grundstruktur eines Messsystems
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="2_Kalibrieren.html">
      Kalibrieren und Eichen
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="2_Messsystem.html">
+     Grundstruktur eines Messsystems
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="2_idealeKennlinie.html">
-     Ideale Kennlinie
+     Kennlinie &amp; Empfindlichkeit
     </a>
    </li>
    <li class="toctree-l2">
@@ -234,6 +235,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="3_Digital.html">
+     Digitalisierung
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="3_Kenngroessen.html">
      Kenngrößen
     </a>
@@ -248,11 +254,6 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="3_FourierAnalyse.html">
      Fourier-Analyse
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="3_Digital.html">
-     Digitalisierung
     </a>
    </li>
   </ul>
@@ -434,7 +435,12 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="T_Plotten.html">
-     Messdaten analysieren
+     Ausgleichsgerade für Klimadaten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="T_Log.html">
+     Logarithmische Darstellung
     </a>
    </li>
    <li class="toctree-l2">
@@ -444,17 +450,17 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="T_LinReg.html">
-     Vergleich verschiedener Fit-Funktionen
+     Verschiedene Fit-Routinen
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="T_FitmitFehlerbalken.html">
-     Lineare Regression mit Berücksichtigung von Fehlerbalken
+     Lineare Regression mit Fehlerbalken
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="T_Spektralanalyse_Audio.html">
-     Fourier-Transformation: Entfernung von Hintergrundrauschen in einem Audiosignal
+     Fourier-Transformation und Filtern
     </a>
    </li>
   </ul>
@@ -3464,8 +3470,8 @@ Sie weisen gegenüber Platin-Messwiderständen eine deutlich höhere Empfindlich
 \[k_{x,y} = k_{x,Pt} - k_{y,Pt}\]</div>
 <p>Weiterhin gilt natürlich <span class="math notranslate nohighlight">\(k_{x,y} = - k_{y,x}\)</span></p>
 <p>Mit diesen beiden Formeln können wir die obige Gleichung für die Spannung weiter umformen:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-36039a93-e9e7-4b0c-9dd5-667d33893ce3">
-<span class="eqno">(1)<a class="headerlink" href="#equation-36039a93-e9e7-4b0c-9dd5-667d33893ce3" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c140cd58-c94d-4928-bf24-44c978e3f699">
+<span class="eqno">(1)<a class="headerlink" href="#equation-c140cd58-c94d-4928-bf24-44c978e3f699" title="Permalink to this equation">#</a></span>\[\begin{align}
 U &amp;= k_{Cu,A}\cdot T_R + k_{AB} \cdot T_M + k_{B,Cu} \cdot T_R\\
 &amp;= (k_{Cu,Pt} - k_{A,Pt})\cdot T_R + (k_{A,Pt} - k_{B,Pt})\cdot T_M + (k_{B,Pt} - k_{Cu,Pt})\cdot T_R\\
 &amp;= k_{A,B} \cdot (T_M - T_R)

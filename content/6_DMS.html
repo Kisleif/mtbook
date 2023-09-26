@@ -26,6 +26,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -171,7 +172,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="1_Fehlerfortpflanzung.html">
-     Fortpflanzung von Messunsicherheiten
+     Fehlerfortpflanzung
     </a>
    </li>
    <li class="toctree-l2">
@@ -197,18 +198,18 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="2_Messsystem.html">
-     Grundstruktur eines Messsystems
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="2_Kalibrieren.html">
      Kalibrieren und Eichen
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="2_Messsystem.html">
+     Grundstruktur eines Messsystems
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="2_idealeKennlinie.html">
-     Ideale Kennlinie
+     Kennlinie &amp; Empfindlichkeit
     </a>
    </li>
    <li class="toctree-l2">
@@ -234,6 +235,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="3_Digital.html">
+     Digitalisierung
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="3_Kenngroessen.html">
      Kenngrößen
     </a>
@@ -248,11 +254,6 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="3_FourierAnalyse.html">
      Fourier-Analyse
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="3_Digital.html">
-     Digitalisierung
     </a>
    </li>
   </ul>
@@ -434,7 +435,12 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="T_Plotten.html">
-     Messdaten analysieren
+     Ausgleichsgerade für Klimadaten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="T_Log.html">
+     Logarithmische Darstellung
     </a>
    </li>
    <li class="toctree-l2">
@@ -444,17 +450,17 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="T_LinReg.html">
-     Vergleich verschiedener Fit-Funktionen
+     Verschiedene Fit-Routinen
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="T_FitmitFehlerbalken.html">
-     Lineare Regression mit Berücksichtigung von Fehlerbalken
+     Lineare Regression mit Fehlerbalken
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="T_Spektralanalyse_Audio.html">
-     Fourier-Transformation: Entfernung von Hintergrundrauschen in einem Audiosignal
+     Fourier-Transformation und Filtern
     </a>
    </li>
   </ul>
@@ -825,14 +831,14 @@ title="Print to PDF"
 <h1>Dehnungsmessstreifen (DMS)<a class="headerlink" href="#dehnungsmessstreifen-dms" title="Link zu dieser Überschrift">#</a></h1>
 <section id="grundlagen">
 <h2>Grundlagen<a class="headerlink" href="#grundlagen" title="Link zu dieser Überschrift">#</a></h2>
-<p>Ein Dehnungsmessstreifen (DMS) ist lediglich eine elektrische Leiterbahn, die auf einer kleinen Trägerfolie z.B. mäanderförmig aufgebracht ist, wie in <a class="reference internal" href="#dms"><span class="std std-numref">Abb. 95</span></a> dargestellt. Meistens besteht diese Folie aus einem chemisch sehr robusten Material, wie z.B. Kapton (Polyimid), welches auch bei hohen Temperaturen verwendet werden kann. Hierauf wird die Leiterbahn mit einem speziellen Kleber aufgebracht, sodass diese den Oberflächendehnungen eines Körpers folgen kann. Dadurch können Dehnungen, Stauchungen, Kräfte oder Drücke auf der Oberfläche gemessen werden. Die Dehnung wird dann in Richtung des Leiterbahnabschnittes gemessen, dessen ohm’scher Widerstand sich ändert:</p>
+<p>Ein Dehnungsmessstreifen (DMS) ist lediglich eine elektrische Leiterbahn, die auf einer kleinen Trägerfolie z.B. mäanderförmig aufgebracht ist, wie in <a class="reference internal" href="#dms"><span class="std std-numref">Abb. 93</span></a> dargestellt. Meistens besteht diese Folie aus einem chemisch sehr robusten Material, wie z.B. Kapton (Polyimid), welches auch bei hohen Temperaturen verwendet werden kann. Hierauf wird die Leiterbahn mit einem speziellen Kleber aufgebracht, sodass diese den Oberflächendehnungen eines Körpers folgen kann. Dadurch können Dehnungen, Stauchungen, Kräfte oder Drücke auf der Oberfläche gemessen werden. Die Dehnung wird dann in Richtung des Leiterbahnabschnittes gemessen, dessen ohm’scher Widerstand sich ändert:</p>
 <div class="math notranslate nohighlight">
 \[R = \frac{\rho \cdot l}{r^2 \pi}\]</div>
 <p><span class="math notranslate nohighlight">\(\rho\)</span> ist der spezifische Widerstand, der vom Material der Leiterbahn abhängt und <span class="math notranslate nohighlight">\(l\)</span> und <span class="math notranslate nohighlight">\(r\)</span> sind Länge und Radius der Leiterbahn. In der Formel wird durch die Querschnittsfläche geteilt, die näherungsweise dem kreisförmigen Querschnitt <span class="math notranslate nohighlight">\(A = \pi r^2\)</span> entspricht.</p>
 <figure class="align-default" id="dms">
 <a class="reference internal image-reference" href="../_images/dms.jpg"><img alt="dms" src="../_images/dms.jpg" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 95 </span><span class="caption-text">Dehnungsmessstreifen (DMS).</span><a class="headerlink" href="#dms" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-number">Abb. 93 </span><span class="caption-text">Dehnungsmessstreifen (DMS).</span><a class="headerlink" href="#dms" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
 <p>Für</p>
@@ -891,11 +897,11 @@ Aus diesem Grund werden DMSs häufig Widerstands-Messbrücken verwendet. Mittels
 Eine eleganten Zusammensatzung wäre ein n- und p-dotierter Silizium-DMS mit jeweils dem gleichen, aber entgegengesetzten <span class="math notranslate nohighlight">\(k\)</span>-Faktor, welche in einer Messbrücke zusammengeschaltet werden <span id="id2">[<a class="reference internal" href="../intro-Copy1.html#id5">Bot</a>]</span>.</p>
 <section id="biegungsbeanspruchung">
 <h3>Biegungsbeanspruchung<a class="headerlink" href="#biegungsbeanspruchung" title="Link zu dieser Überschrift">#</a></h3>
-<p>Es gibt verschiedene Möglicheiten DMS zur Kraftmessung zu nutzen. Die Sensoren können beispielsweise an einen Biegebalken angebracht werden, wie es in <a class="reference internal" href="#dms-bieg-mess"><span class="std std-numref">Abb. 96</span></a> dargestellt ist, wodurch man die <strong>Biegung</strong> des Körpers messen kann.</p>
+<p>Es gibt verschiedene Möglicheiten DMS zur Kraftmessung zu nutzen. Die Sensoren können beispielsweise an einen Biegebalken angebracht werden, wie es in <a class="reference internal" href="#dms-bieg-mess"><span class="std std-numref">Abb. 94</span></a> dargestellt ist, wodurch man die <strong>Biegung</strong> des Körpers messen kann.</p>
 <figure class="align-default" id="dms-bieg-mess">
 <a class="reference internal image-reference" href="../_images/dms_bieg_mess.jpg"><img alt="dms_bieg_mess" src="../_images/dms_bieg_mess.jpg" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 96 </span><span class="caption-text">DMSs sind an einem Biegebalken angebracht und können so die Wölbung messen.</span><a class="headerlink" href="#dms-bieg-mess" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-number">Abb. 94 </span><span class="caption-text">DMSs sind an einem Biegebalken angebracht und können so die Wölbung messen.</span><a class="headerlink" href="#dms-bieg-mess" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
 <p>Erfährt der Balken eine Kraft von außen, aufgrund derer er sich zu verformen beginnt, kann die resultierende Wölbung an den Oberflächen mittels DMS gemessen werden. Hierbei sieht der DMS oben eine Stauchung und der DMS auf der Unterseite (gegenüber der Krafteinwirkung) eine Streckung.</p>
@@ -907,22 +913,22 @@ Die Vorzeichen von zwei DMSs sind jeweils entgegengesetzt, da sie entweder gesta
 </section>
 <section id="zug-und-druck">
 <h3>Zug und Druck<a class="headerlink" href="#zug-und-druck" title="Link zu dieser Überschrift">#</a></h3>
-<p><strong>Zug und Druck</strong> können mit der Anordnung von DMSs gemessen werden, wie es in <a class="reference internal" href="#dms-druck"><span class="std std-numref">Abb. 97</span></a> dargestellt ist.</p>
+<p><strong>Zug und Druck</strong> können mit der Anordnung von DMSs gemessen werden, wie es in <a class="reference internal" href="#dms-druck"><span class="std std-numref">Abb. 95</span></a> dargestellt ist.</p>
 <figure class="align-default" id="dms-druck">
 <a class="reference internal image-reference" href="../_images/dms_druck.jpg"><img alt="dms_druck" src="../_images/dms_druck.jpg" style="width: 300px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 97 </span><span class="caption-text">DMSs sind innen in einem Hohlkörper angebracht an der Innenwand angebracht und können so die Zug- und Druckkräfte an der Zylinderwand zu messen.</span><a class="headerlink" href="#dms-druck" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-number">Abb. 95 </span><span class="caption-text">DMSs sind innen in einem Hohlkörper angebracht an der Innenwand angebracht und können so die Zug- und Druckkräfte an der Zylinderwand zu messen.</span><a class="headerlink" href="#dms-druck" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
 <p>Auch hierfür werden die DMS wieder innenliegend an den Hohlkörper angebracht. Werden die DMS entlang der Kraftrichtung angebracht, so werden sie längs ihrer Anbringungsrichtung gedehnt und gestaucht. Sie können jedoch auch quer zur Krafteinwirkungsrichtung installiert werden, wodurch sie dann genau entgegengesetzt gestaucht bzw. gedehnt werden. Es können Kräfte zwischen 20 kN  bis einige MN gemessen werden <span id="id4">[<a class="reference internal" href="../intro-Copy1.html#id5">Bot</a>]</span>.</p>
 </section>
 <section id="scherkraftemessung">
 <h3>Scherkräftemessung<a class="headerlink" href="#scherkraftemessung" title="Link zu dieser Überschrift">#</a></h3>
-<p>Hat man in einem Festkörper beispielsweise zwei Hohlräume oder Bohrungen, können in diesen DMSs eingebracht werden um <strong>Scherkräfte</strong> innerhalb der Körper zu messen. Dies ist in <a class="reference internal" href="#dms-scher"><span class="std std-numref">Abb. 98</span></a> dargestellt.</p>
+<p>Hat man in einem Festkörper beispielsweise zwei Hohlräume oder Bohrungen, können in diesen DMSs eingebracht werden um <strong>Scherkräfte</strong> innerhalb der Körper zu messen. Dies ist in <a class="reference internal" href="#dms-scher"><span class="std std-numref">Abb. 96</span></a> dargestellt.</p>
 <figure class="align-default" id="dms-scher">
 <a class="reference internal image-reference" href="../_images/dms_scher.jpg"><img alt="dms_scher" src="../_images/dms_scher.jpg" style="width: 300px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 98 </span><span class="caption-text">DMSs sind innen an der Innenwand von zwei Bohrungen angebracht um Scherkräfte zu messen.</span><a class="headerlink" href="#dms-scher" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-number">Abb. 96 </span><span class="caption-text">DMSs sind innen an der Innenwand von zwei Bohrungen angebracht um Scherkräfte zu messen.</span><a class="headerlink" href="#dms-scher" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
 <p>Die Scherkräfte werden gemessen indem die DMS in einem 45° Winkel an die Rand geklebt werden. Nutzt man weitere Sensoren mit einem -45° Winkel so können wieder 4 Sensoren mittels einer Vollbrücke ausgelesen werden. Hierbei können Kräfte im Bereich von 20kN bis einigen MN gemessen werden <span id="id5">[<a class="reference internal" href="../intro-Copy1.html#id5">Bot</a>]</span>.</p>

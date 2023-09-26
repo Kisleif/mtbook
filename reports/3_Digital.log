@@ -1,0 +1,77 @@
+Traceback (most recent call last):
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
+
+# Initialize the figure and axis
+fig, ax = plt.subplots(figsize=(10, 4))
+f = 10
+# Create a function to update the plot for each frame of the animation
+def animate(fs):
+    ax.clear()  # Clear the previous frame
+    
+    # Set the signal frequency and time axis
+
+    t = np.linspace(0, 1, 1000)
+    
+    # Generate the analog signal
+    analog_signal = np.sin(2 * np.pi * f * t)
+    
+    # Generate the sampled signal based on the current fs
+    abtastzeitpunkte = np.arange(0, 1, 1 / fs)
+    abgetastetes_signal = np.sin(2 * np.pi * f * abtastzeitpunkte)
+    
+    next_integer = round(f/fs)
+    aliased_signal = np.sin(2 * np.pi * (next_integer*fs-f) * t)
+
+    # Plot the analog signal, sampled signal, and sampling points
+    ax.plot(t, analog_signal, label='Analoges Signal, f = %5.1f Hz' % f, alpha=0.3, lw='3')
+    ax.stem(abtastzeitpunkte, abgetastetes_signal, 'r', markerfmt='ro', basefmt=" ", linefmt='r-', label='Abtastzeitpunkte')
+    ax.plot(t, -aliased_signal, label='Aliased Signal, f = %5.1f Hz'%(np.abs((next_integer*fs-f))), color='black', lw=2)
+
+    # Set plot labels and legend
+    ax.set_title('Analog zeitdiskret: Abgetastete Sinuswelle')
+    ax.set_xlabel('Zeit (s)')
+    ax.set_ylabel('Amplitude')
+    ax.set_xlim([0, 1])
+    ax.set_ylim([-1.1, 1.1])
+    ax.grid(True)
+    ax.legend(loc='upper right')
+
+# Create an animation by varying fs from 1 to 10 with a step of 1
+ani = FuncAnimation(fig, animate, frames=range(1, 2*f+1), repeat=False)
+
+# Display the animation
+plt.tight_layout()
+plt.close()
+HTML(ani.to_jshtml())
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+Cell [0;32mIn[5], line 46[0m
+[1;32m     44[0m plt[38;5;241m.[39mtight_layout()
+[1;32m     45[0m plt[38;5;241m.[39mclose()
+[0;32m---> 46[0m [43mHTML[49m(ani[38;5;241m.[39mto_jshtml())
+
+[0;31mNameError[0m: name 'HTML' is not defined
+NameError: name 'HTML' is not defined
+

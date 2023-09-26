@@ -1,0 +1,67 @@
+Traceback (most recent call last):
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
+from IPython.display import HTML
+
+# Abtastparameter
+fs = 1000  # Abtastfrequenz in Hz
+t = np.linspace(0, 3, int(fs), endpoint=False)  # Zeitachse für 1 Sekunde
+f = 1
+T = 1/f
+# Erzeugen eines PWM-Signals mit einem Anfangs-Tastgrad von 0.5
+duty_cycle = 0.5
+pwm_signal = 0.5*(signal.square(2 * np.pi * f * t, duty=duty_cycle)+1)
+
+# Funktion zur Aktualisierung der Animation mit dem geänderten Tastgrad
+def update(duty_cycle):
+    pwm_signal = 0.5*(signal.square(2 * np.pi * 1 * t, duty=duty_cycle)+1)
+    ax.clear()
+    ax.plot(t, pwm_signal, lw=2, label = 'PWM Signal')
+    ax.axhline(np.sqrt(duty_cycle/T), color ='tab:red', label = r'Effektivwert $\sqrt{\Delta t / T}$')
+    ax.set_title(f'PWM Signal mit Tastgrad (Duty Cycle) = {duty_cycle:.2f}')
+    ax.set_xlabel('Zeit (s)')
+    ax.set_ylabel('Amplitude')
+    ax.grid(True)
+    ax.legend(loc = 'upper right')
+
+# Erstellen des Plots für die Animation
+fig, ax = plt.subplots(figsize=(10, 4))
+ani = FuncAnimation(fig, update, frames=np.linspace(0.1, 0.9, 17), repeat=False)
+
+# Display the animation
+#plt.tight_layout()
+plt.close()
+HTML(ani.to_jshtml())
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+Cell [0;32mIn[3], line 13[0m
+[1;32m     11[0m [38;5;66;03m# Erzeugen eines PWM-Signals mit einem Anfangs-Tastgrad von 0.5[39;00m
+[1;32m     12[0m duty_cycle [38;5;241m=[39m [38;5;241m0.5[39m
+[0;32m---> 13[0m pwm_signal [38;5;241m=[39m [38;5;241m0.5[39m[38;5;241m*[39m([43msignal[49m[38;5;241m.[39msquare([38;5;241m2[39m [38;5;241m*[39m np[38;5;241m.[39mpi [38;5;241m*[39m f [38;5;241m*[39m t, duty[38;5;241m=[39mduty_cycle)[38;5;241m+[39m[38;5;241m1[39m)
+[1;32m     15[0m [38;5;66;03m# Funktion zur Aktualisierung der Animation mit dem geänderten Tastgrad[39;00m
+[1;32m     16[0m [38;5;28;01mdef[39;00m [38;5;21mupdate[39m(duty_cycle):
+
+[0;31mNameError[0m: name 'signal' is not defined
+NameError: name 'signal' is not defined
+

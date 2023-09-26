@@ -26,6 +26,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -57,8 +58,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="Digitalisierung" href="3_Digital.html" />
-    <link rel="prev" title="Modulation von Messsignalen" href="3_Modulationen.html" />
+    <link rel="next" title="Modulation von Messsignalen" href="3_Modulationen.html" />
+    <link rel="prev" title="Kenngrößen" href="3_Kenngroessen.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="de">
     
@@ -171,7 +172,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="1_Fehlerfortpflanzung.html">
-     Fortpflanzung von Messunsicherheiten
+     Fehlerfortpflanzung
     </a>
    </li>
    <li class="toctree-l2">
@@ -197,18 +198,18 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="2_Messsystem.html">
-     Grundstruktur eines Messsystems
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="2_Kalibrieren.html">
      Kalibrieren und Eichen
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="2_Messsystem.html">
+     Grundstruktur eines Messsystems
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="2_idealeKennlinie.html">
-     Ideale Kennlinie
+     Kennlinie &amp; Empfindlichkeit
     </a>
    </li>
    <li class="toctree-l2">
@@ -234,15 +235,13 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="3_Kenngroessen.html">
-     Kenngrößen
+    <a class="reference internal" href="3_Digital.html">
+     Digitalisierung
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="3_Modulationen.html">
-     Modulation von Messsignalen
-     <a id="SubSec-Information">
-     </a>
+    <a class="reference internal" href="3_Kenngroessen.html">
+     Kenngrößen
     </a>
    </li>
    <li class="toctree-l2 current active">
@@ -251,8 +250,10 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="3_Digital.html">
-     Digitalisierung
+    <a class="reference internal" href="3_Modulationen.html">
+     Modulation von Messsignalen
+     <a id="SubSec-Information">
+     </a>
     </a>
    </li>
   </ul>
@@ -434,7 +435,12 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="T_Plotten.html">
-     Messdaten analysieren
+     Ausgleichsgerade für Klimadaten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="T_Log.html">
+     Logarithmische Darstellung
     </a>
    </li>
    <li class="toctree-l2">
@@ -444,17 +450,17 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="T_LinReg.html">
-     Vergleich verschiedener Fit-Funktionen
+     Verschiedene Fit-Routinen
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="T_FitmitFehlerbalken.html">
-     Lineare Regression mit Berücksichtigung von Fehlerbalken
+     Lineare Regression mit Fehlerbalken
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="T_Spektralanalyse_Audio.html">
-     Fourier-Transformation: Entfernung von Hintergrundrauschen in einem Audiosignal
+     Fourier-Transformation und Filtern
     </a>
    </li>
   </ul>
@@ -1787,7 +1793,7 @@ SyntaxError: invalid syntax
 <figure class="align-default" id="id1">
 <a class="reference internal image-reference" href="../_images/diff_Fourier-Analyse.png"><img alt="diff_Fourier-Analyse" src="../_images/diff_Fourier-Analyse.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 41 </span><span class="caption-text">Fourier-analyse (<a class="reference external" href="https://www.biancahoegel.de/mathe/analysis/fourieranalysis.html">https://www.biancahoegel.de/mathe/analysis/fourieranalysis.html</a>)</span><a class="headerlink" href="#id1" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-number">Abb. 40 </span><span class="caption-text">Fourier-analyse (<a class="reference external" href="https://www.biancahoegel.de/mathe/analysis/fourieranalysis.html">https://www.biancahoegel.de/mathe/analysis/fourieranalysis.html</a>)</span><a class="headerlink" href="#id1" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
 <ol class="simple">
@@ -1866,17 +1872,17 @@ SyntaxError: invalid syntax
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="3_Modulationen.html" title="zurück Seite">
+    <a class='left-prev' id="prev-link" href="3_Kenngroessen.html" title="zurück Seite">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">zurück</p>
-            <p class="prev-next-title">Modulation von Messsignalen <a id="SubSec-Information"></a></p>
+            <p class="prev-next-title">Kenngrößen</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="3_Digital.html" title="weiter Seite">
+    <a class='right-next' id="next-link" href="3_Modulationen.html" title="weiter Seite">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title">Digitalisierung</p>
+        <p class="prev-next-title">Modulation von Messsignalen <a id="SubSec-Information"></a></p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

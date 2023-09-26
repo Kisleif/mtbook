@@ -26,6 +26,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -57,8 +58,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="Fourier-Analyse" href="3_FourierAnalyse.html" />
-    <link rel="prev" title="Kenngrößen" href="3_Kenngroessen.html" />
+    <link rel="next" title="Dynamische Messsysteme" href="V6.html" />
+    <link rel="prev" title="Fourier-Analyse" href="3_FourierAnalyse.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="de">
     
@@ -171,7 +172,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="1_Fehlerfortpflanzung.html">
-     Fortpflanzung von Messunsicherheiten
+     Fehlerfortpflanzung
     </a>
    </li>
    <li class="toctree-l2">
@@ -197,18 +198,18 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="2_Messsystem.html">
-     Grundstruktur eines Messsystems
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="2_Kalibrieren.html">
      Kalibrieren und Eichen
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="2_Messsystem.html">
+     Grundstruktur eines Messsystems
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="2_idealeKennlinie.html">
-     Ideale Kennlinie
+     Kennlinie &amp; Empfindlichkeit
     </a>
    </li>
    <li class="toctree-l2">
@@ -234,15 +235,13 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="3_Kenngroessen.html">
-     Kenngrößen
+    <a class="reference internal" href="3_Digital.html">
+     Digitalisierung
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Modulation von Messsignalen
-     <a id="SubSec-Information">
-     </a>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3_Kenngroessen.html">
+     Kenngrößen
     </a>
    </li>
    <li class="toctree-l2">
@@ -250,9 +249,11 @@ const thebe_selector_output = ".output, .cell_output"
      Fourier-Analyse
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="3_Digital.html">
-     Digitalisierung
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Modulation von Messsignalen
+     <a id="SubSec-Information">
+     </a>
     </a>
    </li>
   </ul>
@@ -434,7 +435,12 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="T_Plotten.html">
-     Messdaten analysieren
+     Ausgleichsgerade für Klimadaten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="T_Log.html">
+     Logarithmische Darstellung
     </a>
    </li>
    <li class="toctree-l2">
@@ -444,17 +450,17 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="T_LinReg.html">
-     Vergleich verschiedener Fit-Funktionen
+     Verschiedene Fit-Routinen
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="T_FitmitFehlerbalken.html">
-     Lineare Regression mit Berücksichtigung von Fehlerbalken
+     Lineare Regression mit Fehlerbalken
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="T_Spektralanalyse_Audio.html">
-     Fourier-Transformation: Entfernung von Hintergrundrauschen in einem Audiosignal
+     Fourier-Transformation und Filtern
     </a>
    </li>
   </ul>
@@ -1154,18 +1160,18 @@ y_\mathrm{AM,demod}(t) &amp;= y_\mathrm{AM}(t) \cdot s(t) \\
 </section>
 <section id="puls-modulation">
 <h2>Puls-Modulation<a class="headerlink" href="#puls-modulation" title="Link zu dieser Überschrift">#</a></h2>
-<p>Häufig werden auch Rechteckpulsfolgen als Trägerschwingung verwendet wie z.B. <a class="reference internal" href="#puls-trager"><span class="std std-numref">Abb. 39</span></a> in dargestellt.</p>
+<p>Häufig werden auch Rechteckpulsfolgen als Trägerschwingung verwendet wie z.B. <a class="reference internal" href="#puls-trager"><span class="std std-numref">Abb. 41</span></a> in dargestellt.</p>
 <figure class="align-default" id="puls-trager">
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/puls_träger.jpg"><img alt="puls_träger" class="bg-primary mb-1" src="../_images/puls_träger.jpg" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 39 </span><span class="caption-text">Nachricht und Trägersignal, was auf einer Pulsreihe basiert.</span><a class="headerlink" href="#puls-trager" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-number">Abb. 41 </span><span class="caption-text">Nachricht und Trägersignal, was auf einer Pulsreihe basiert.</span><a class="headerlink" href="#puls-trager" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
-<p>Ähnlich wie bei der Sinusschwingung können auch hier verschiedene Modulationen, dargestellt in <a class="reference internal" href="#pulsmod"><span class="std std-numref">Abb. 40</span></a>,  vorgenommen werden, die größtenteils selbsterklärend sind (wie Pulsamplitudenmodulation oder Pulsdauermodulation). Nur die Pulscode-Modulation ist etwas anders und besonders. Hierbei wird das Messsignal kodiert und besteht aus einer Folge von Pulsgruppen. Diese Aneinanderreihung von Pulsgruppen entspricht einem bestimmten Alphabet. Vorteil dieser Variante ist, dass nur noch zwei Zustände, nämlich 0 und 1, in einer bestimmten Reihenfolge verarbeitet werden müssen. D.h. diese Art von Signalen ist direkt im Computer weiterverarbeitbar, ohne vorangegangen Analog-Digital-Wandlung.</p>
+<p>Ähnlich wie bei der Sinusschwingung können auch hier verschiedene Modulationen, dargestellt in <a class="reference internal" href="#pulsmod"><span class="std std-numref">Abb. 42</span></a>,  vorgenommen werden, die größtenteils selbsterklärend sind (wie Pulsamplitudenmodulation oder Pulsdauermodulation). Nur die Pulscode-Modulation ist etwas anders und besonders. Hierbei wird das Messsignal kodiert und besteht aus einer Folge von Pulsgruppen. Diese Aneinanderreihung von Pulsgruppen entspricht einem bestimmten Alphabet. Vorteil dieser Variante ist, dass nur noch zwei Zustände, nämlich 0 und 1, in einer bestimmten Reihenfolge verarbeitet werden müssen. D.h. diese Art von Signalen ist direkt im Computer weiterverarbeitbar, ohne vorangegangen Analog-Digital-Wandlung.</p>
 <figure class="align-default" id="pulsmod">
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/pulsmod.jpg"><img alt="pulsmod" class="bg-primary mb-1" src="../_images/pulsmod.jpg" style="width: 900px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 40 </span><span class="caption-text">Drei Varianten die Nachricht aus <a class="reference internal" href="#puls-trager"><span class="std std-numref">Abb. 39</span></a> auf eine Pulsreihe zu modulieren: Es kann die Pulsdauer, Pulsamplitude oder als Code moduliert werden.</span><a class="headerlink" href="#pulsmod" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-number">Abb. 42 </span><span class="caption-text">Drei Varianten die Nachricht aus <a class="reference internal" href="#puls-trager"><span class="std std-numref">Abb. 41</span></a> auf eine Pulsreihe zu modulieren: Es kann die Pulsdauer, Pulsamplitude oder als Code moduliert werden.</span><a class="headerlink" href="#pulsmod" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
 <p>Auch hier gilt natürlich, dass eine entsprechende Demodulation nachgeschaltet werden muss, um das eigentliche Signal zurück zu gewinnen.</p>
@@ -1199,17 +1205,17 @@ y_\mathrm{AM,demod}(t) &amp;= y_\mathrm{AM}(t) \cdot s(t) \\
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="3_Kenngroessen.html" title="zurück Seite">
+    <a class='left-prev' id="prev-link" href="3_FourierAnalyse.html" title="zurück Seite">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">zurück</p>
-            <p class="prev-next-title">Kenngrößen</p>
+            <p class="prev-next-title">Fourier-Analyse</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="3_FourierAnalyse.html" title="weiter Seite">
+    <a class='right-next' id="next-link" href="V6.html" title="weiter Seite">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title">Fourier-Analyse</p>
+        <p class="prev-next-title">Dynamische Messsysteme</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

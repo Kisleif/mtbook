@@ -26,6 +26,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -171,7 +172,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="1_Fehlerfortpflanzung.html">
-     Fortpflanzung von Messunsicherheiten
+     Fehlerfortpflanzung
     </a>
    </li>
    <li class="toctree-l2">
@@ -197,18 +198,18 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="2_Messsystem.html">
-     Grundstruktur eines Messsystems
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="2_Kalibrieren.html">
      Kalibrieren und Eichen
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="2_Messsystem.html">
+     Grundstruktur eines Messsystems
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="2_idealeKennlinie.html">
-     Ideale Kennlinie
+     Kennlinie &amp; Empfindlichkeit
     </a>
    </li>
    <li class="toctree-l2">
@@ -234,6 +235,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="3_Digital.html">
+     Digitalisierung
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="3_Kenngroessen.html">
      Kenngrößen
     </a>
@@ -248,11 +254,6 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="3_FourierAnalyse.html">
      Fourier-Analyse
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="3_Digital.html">
-     Digitalisierung
     </a>
    </li>
   </ul>
@@ -434,7 +435,12 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="T_Plotten.html">
-     Messdaten analysieren
+     Ausgleichsgerade für Klimadaten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="T_Log.html">
+     Logarithmische Darstellung
     </a>
    </li>
    <li class="toctree-l2">
@@ -444,17 +450,17 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="T_LinReg.html">
-     Vergleich verschiedener Fit-Funktionen
+     Verschiedene Fit-Routinen
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="T_FitmitFehlerbalken.html">
-     Lineare Regression mit Berücksichtigung von Fehlerbalken
+     Lineare Regression mit Fehlerbalken
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="T_Spektralanalyse_Audio.html">
-     Fourier-Transformation: Entfernung von Hintergrundrauschen in einem Audiosignal
+     Fourier-Transformation und Filtern
     </a>
    </li>
   </ul>
@@ -847,21 +853,21 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="strommesseingang">
 <h1>Strommesseingang<a class="headerlink" href="#strommesseingang" title="Link zu dieser Überschrift">#</a></h1>
-<p>Im Bild <a class="reference internal" href="#strommesseingang-motor"><span class="std std-numref">Abb. 61</span></a> ist dargestellt, wie elektrische Ströme gemessen werden. <span class="math notranslate nohighlight">\(R_L\)</span> stellt hierbei einen Lastwiderstand, z.B. den einen Motors oder eines anderen Verbrauchers, dar.</p>
+<p>Im Bild <a class="reference internal" href="#strommesseingang-motor"><span class="std std-numref">Abb. 59</span></a> ist dargestellt, wie elektrische Ströme gemessen werden. <span class="math notranslate nohighlight">\(R_L\)</span> stellt hierbei einen Lastwiderstand, z.B. den einen Motors oder eines anderen Verbrauchers, dar.</p>
 <figure class="align-default" id="strommesseingang-motor">
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/strommesseingang_motor.jpg"><img alt="strommesseingang_motor" class="bg-primary mb-1" src="../_images/strommesseingang_motor.jpg" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 61 </span><span class="caption-text">Schaltung zur Messung elektrischer Ströme.</span><a class="headerlink" href="#strommesseingang-motor" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-number">Abb. 59 </span><span class="caption-text">Schaltung zur Messung elektrischer Ströme.</span><a class="headerlink" href="#strommesseingang-motor" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
 <p>Der Strom <span class="math notranslate nohighlight">\(i\)</span>, der gemessen werden soll, fließt nun durch das Messgerät und bestimmt werden. Hierbei wollen wir sicherstellen, dass der Innenwiderstand <span class="math notranslate nohighlight">\(R_i\)</span> möglichst klein ist, um die Messabweichung der Strommessung möglichst klein zu halten. Typischerweise liegt der Wert des Innenwiderstands zwischen <span class="math notranslate nohighlight">\(0,01\,\Omega\)</span> und <span class="math notranslate nohighlight">\(10\,\Omega\)</span>. Ein Wert von <span class="math notranslate nohighlight">\(0\,\Omega\)</span> kann in der Praxis nicht erreicht werden. Die kleineren Innenwiderstandswerte werden meist gewählt, wenn es sich um hohe Stromflüsse von mehreren Ampere handelt. Eine Kapazität <span class="math notranslate nohighlight">\(C_i\)</span> ist im Ersatzschaltbild nicht vorhanden. Kapazitäten existieren bei Potentialunterschieden (also elektrische Spannungen) und versuchen diese Unterschiede aufrecht zu erhalten, wodurch eigentlich kein Stromfluss existiert.</p>
 <section id="messabweichung">
 <h2>Messabweichung<a class="headerlink" href="#messabweichung" title="Link zu dieser Überschrift">#</a></h2>
-<p>An unsere Schaltung aus dem letzten Kapitel, bestehend aus zwei Widerständen <span class="math notranslate nohighlight">\(R_1\)</span> und <span class="math notranslate nohighlight">\(R_2\)</span> zu je <span class="math notranslate nohighlight">\(100\,\mathrm{k\Omega}\)</span> schließen wir nun den Strommesseingang an, wie in <a class="reference internal" href="#strommesseingang-r1r2"><span class="std std-numref">Abb. 62</span></a> dargestellt. Der Innenwiderstand soll <span class="math notranslate nohighlight">\(R_i = 1\,\mathrm{\Omega}\)</span> betragen.</p>
+<p>An unsere Schaltung aus dem letzten Kapitel, bestehend aus zwei Widerständen <span class="math notranslate nohighlight">\(R_1\)</span> und <span class="math notranslate nohighlight">\(R_2\)</span> zu je <span class="math notranslate nohighlight">\(100\,\mathrm{k\Omega}\)</span> schließen wir nun den Strommesseingang an, wie in <a class="reference internal" href="#strommesseingang-r1r2"><span class="std std-numref">Abb. 60</span></a> dargestellt. Der Innenwiderstand soll <span class="math notranslate nohighlight">\(R_i = 1\,\mathrm{\Omega}\)</span> betragen.</p>
 <figure class="align-default" id="strommesseingang-r1r2">
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/strommesseingang_R1R2.jpg"><img alt="strommesseingang" class="bg-primary mb-1" src="../_images/strommesseingang_R1R2.jpg" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 62 </span><span class="caption-text">Strommesseingang an einer Schaltung.</span><a class="headerlink" href="#strommesseingang-r1r2" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-number">Abb. 60 </span><span class="caption-text">Strommesseingang an einer Schaltung.</span><a class="headerlink" href="#strommesseingang-r1r2" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
 <p>Der Gesamtwiderstand der Reihenschaltung beträgt nun</p>
@@ -963,11 +969,11 @@ Die Messabweichung beträgt:  -0.19999999999999996 A =  19.999999999999996 %
 <p>Bei einem Strommesseingang sind zwei typische Varianten häufig vorzufinden.</p>
 <section id="shunt-widerstand">
 <h3>Shunt-Widerstand<a class="headerlink" href="#shunt-widerstand" title="Link zu dieser Überschrift">#</a></h3>
-<p>Wie in <a class="reference internal" href="#strommesseingang-shunt"><span class="std std-numref">Abb. 63</span></a> wird ein kleiner (typischerweise <span class="math notranslate nohighlight">\(1\,\Omega\)</span>) ohmscher <em>Hilfs-Widerstand</em>, der sogenannte <strong>Shunt-Widerstand</strong> in einem Strommesseingang verwendet.</p>
+<p>Wie in <a class="reference internal" href="#strommesseingang-shunt"><span class="std std-numref">Abb. 61</span></a> wird ein kleiner (typischerweise <span class="math notranslate nohighlight">\(1\,\Omega\)</span>) ohmscher <em>Hilfs-Widerstand</em>, der sogenannte <strong>Shunt-Widerstand</strong> in einem Strommesseingang verwendet.</p>
 <figure class="align-default" id="strommesseingang-shunt">
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/strommesseingang_shunt.jpg"><img alt="strommesseingang" class="bg-primary mb-1" src="../_images/strommesseingang_shunt.jpg" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 63 </span><span class="caption-text">Strommesseingang mit Shunt-Widerstand <span class="math notranslate nohighlight">\(R_s\)</span>. Typische Größenordnungen von Shunt-Widerständen sind <span class="math notranslate nohighlight">\(R_s = 1\,\Omega\)</span>.</span><a class="headerlink" href="#strommesseingang-shunt" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-number">Abb. 61 </span><span class="caption-text">Strommesseingang mit Shunt-Widerstand <span class="math notranslate nohighlight">\(R_s\)</span>. Typische Größenordnungen von Shunt-Widerständen sind <span class="math notranslate nohighlight">\(R_s = 1\,\Omega\)</span>.</span><a class="headerlink" href="#strommesseingang-shunt" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
 <p>Der Strom <span class="math notranslate nohighlight">\(i\)</span>, der gemessen werden soll, wird mittels Shunt-Widerstand <span class="math notranslate nohighlight">\(R_s\)</span> in eine Spannung <span class="math notranslate nohighlight">\(u\)</span> umgewandelt:</p>
@@ -984,11 +990,11 @@ Die Wahl eines korrekten Wertes für den Shunt-Widerstand ist wichtig und kann u
 </section>
 <section id="strom-spannungs-messumformer">
 <h3>Strom-Spannungs-Messumformer<a class="headerlink" href="#strom-spannungs-messumformer" title="Link zu dieser Überschrift">#</a></h3>
-<p>Die Variante der Strommessung mittels Shunt-Widerstand für Ströme ab <span class="math notranslate nohighlight">\(1\,\mathrm A\)</span> verwendet. Bei kleinere Strömen, oder wenn man eine besonders hohe Messgenauigkeit erreichen möchte, verwendet man eine Verstärkerschaltung, wie in <a class="reference internal" href="#strommesseingang-shunt"><span class="std std-numref">Abb. 63</span></a> dargestellt.</p>
+<p>Die Variante der Strommessung mittels Shunt-Widerstand für Ströme ab <span class="math notranslate nohighlight">\(1\,\mathrm A\)</span> verwendet. Bei kleinere Strömen, oder wenn man eine besonders hohe Messgenauigkeit erreichen möchte, verwendet man eine Verstärkerschaltung, wie in <a class="reference internal" href="#strommesseingang-shunt"><span class="std std-numref">Abb. 61</span></a> dargestellt.</p>
 <figure class="align-default" id="strommesseingang-op">
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/strommesseingang_OP.jpg"><img alt="strommesseingang" class="bg-primary mb-1" src="../_images/strommesseingang_OP.jpg" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 64 </span><span class="caption-text">Strommesseingang mit Strom-Spannungs-Messumformer.</span><a class="headerlink" href="#strommesseingang-op" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-number">Abb. 62 </span><span class="caption-text">Strommesseingang mit Strom-Spannungs-Messumformer.</span><a class="headerlink" href="#strommesseingang-op" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
 <p>Der Strom <span class="math notranslate nohighlight">\(i\)</span>, der gemessen werden soll, wird zunächst in eine Verstärkerschaltung eingespeist. Die Verstärkerschaltung wandelt Ströme ebenfalls in eine dazu proportional Spannung um. Hierbei handelt es sich meist um sogenannte <strong>Operationsverstärker</strong>, die aufgrund ihrer Bauweise sehr geringe Innenwiderstände <span class="math notranslate nohighlight">\(R_i\)</span> aufweisen. Dadurch erhält man sehr genaue Strommessungen. Diese Variante ist jedoch auch etwas kostspieliger als die mittels Shunt-Widerstand.</p>
@@ -996,12 +1002,12 @@ Die Wahl eines korrekten Wertes für den Shunt-Widerstand ist wichtig und kann u
 <section id="drehspulmesswerk">
 <h3>Drehspulmesswerk<a class="headerlink" href="#drehspulmesswerk" title="Link zu dieser Überschrift">#</a></h3>
 <p>Bei dem Drehspulmesswerk handelt es sich um elektromechanisches Messgerät zur Messung der elektrischen Stromstärke.
-Es wird eine drehbare Spule auf Kuferdraht in einem Dauermagneten eingebaut. Zwei Spiralfedern dienen der Strumzufuhr und für die Rückstellkraft des Zeigers in seiner Ausgangslage. Der Aufbau ist in <a class="reference internal" href="#messwerk"><span class="std std-numref">Abb. 65</span></a> dargestellt.
+Es wird eine drehbare Spule auf Kuferdraht in einem Dauermagneten eingebaut. Zwei Spiralfedern dienen der Strumzufuhr und für die Rückstellkraft des Zeigers in seiner Ausgangslage. Der Aufbau ist in <a class="reference internal" href="#messwerk"><span class="std std-numref">Abb. 63</span></a> dargestellt.
 Der Zeiger sollte möglichst starr, leicht und dünn sein, damit der Skalenbereich gut ablesbar ist.</p>
 <figure class="align-default" id="messwerk">
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/messwerk.jpg"><img alt="messwerk" class="bg-primary mb-1" src="../_images/messwerk.jpg" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 65 </span><span class="caption-text">Aufbau eines Drehspulmesswerk.</span><a class="headerlink" href="#messwerk" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-number">Abb. 63 </span><span class="caption-text">Aufbau eines Drehspulmesswerk.</span><a class="headerlink" href="#messwerk" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
 <p>Der zu messende Strom wird nun über die Anschlussklemme und die Federn in die Spule geleitet. Auf die Leiter in der Spule wirkt die Lorentzkraft, wodurch sich der Spulenkörper im Feld des Magneten anfängt zu drehen, wobei die Federkraft dem entgegenwirkt, bis das Drehtmoment, <span class="math notranslate nohighlight">\(M_L\)</span>, aus der Lorentzkraft, <span class="math notranslate nohighlight">\(F_L\)</span>, dem Drehmoment <span class="math notranslate nohighlight">\(M_F\)</span> der Rückstellkraft der Spiralfedern, gleicht:</p>
@@ -1024,10 +1030,10 @@ Außerdem können Stromänderungen aufgrund der Trägheit des Zeigers nur bis zu
 <figure class="align-default" id="dreheisen">
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/dreheisen.jpg"><img alt="dreheisen" class="bg-primary mb-1" src="../_images/dreheisen.jpg" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 66 </span><span class="caption-text">Aufbau eines Dreheisenmesswerks.</span><a class="headerlink" href="#dreheisen" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-number">Abb. 64 </span><span class="caption-text">Aufbau eines Dreheisenmesswerks.</span><a class="headerlink" href="#dreheisen" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
-<p>Hierfür wird eine einzelne Spule benutzt, wie sie es in <a class="reference internal" href="#dreheisen"><span class="std std-numref">Abb. 66</span></a> dargestellt ist. Innerhalb dieser Spule befindet sich ein fixierter Eisenkern und ein weiterer beweglicher Eisenkern an der Zeigerachse. Fließt nun ein Strom durch die Spule, so magnetisieren sich die Eisenkernen gleichsinnig und stoßen sich ab. Dadurch kommt es zu einer Rotation des beweglichen Eisenkerns und der Zeiger bewegt sich. Dadurch wird eine Feder gespannt, bis die die magnetische Kraft ausgeglichen ist. Wird der Strom abgeschaltet, bringt die Feder den Zeiger zurück in seiner Ausgangslage.</p>
+<p>Hierfür wird eine einzelne Spule benutzt, wie sie es in <a class="reference internal" href="#dreheisen"><span class="std std-numref">Abb. 64</span></a> dargestellt ist. Innerhalb dieser Spule befindet sich ein fixierter Eisenkern und ein weiterer beweglicher Eisenkern an der Zeigerachse. Fließt nun ein Strom durch die Spule, so magnetisieren sich die Eisenkernen gleichsinnig und stoßen sich ab. Dadurch kommt es zu einer Rotation des beweglichen Eisenkerns und der Zeiger bewegt sich. Dadurch wird eine Feder gespannt, bis die die magnetische Kraft ausgeglichen ist. Wird der Strom abgeschaltet, bringt die Feder den Zeiger zurück in seiner Ausgangslage.</p>
 <p>Der Ausschlag ist im Gegensatz zum Zeigerausschlag in einem Drehspulmesswerk nicht mehr proportional sondern hängt von <span class="math notranslate nohighlight">\(I^2\)</span> ab. Dadurch misst das Dreheisenmesswerk den Effektivwert der Stromstärke.</p>
 </section>
 <section id="stromzange">
@@ -1037,11 +1043,11 @@ Bei den oben genannten Möglichkeiten muss immer der Stromkreis aufgetrennt werd
 Einschränkungen ergeben sich nur in der Querschnittsfläche des Leiters, da dieser vollständig von der Stromzangen umschlossen werden muss.</p>
 <section id="wechselstrom-zangenstrommesser">
 <h4>Wechselstrom-Zangenstrommesser<a class="headerlink" href="#wechselstrom-zangenstrommesser" title="Link zu dieser Überschrift">#</a></h4>
-<p>Mit dem einfachen Prinzip der Stromzange können nur Wechselströme gemessen werden, dies sind sogenannte <strong>Wechselstrom-Zangenstrommesser</strong> und basieren auf dem <strong>Transformator-Prinzip</strong>. Dies ist in <a class="reference internal" href="#stromzange-wechsel"><span class="std std-numref">Abb. 67</span></a> dargestellt.</p>
+<p>Mit dem einfachen Prinzip der Stromzange können nur Wechselströme gemessen werden, dies sind sogenannte <strong>Wechselstrom-Zangenstrommesser</strong> und basieren auf dem <strong>Transformator-Prinzip</strong>. Dies ist in <a class="reference internal" href="#stromzange-wechsel"><span class="std std-numref">Abb. 65</span></a> dargestellt.</p>
 <figure class="align-default" id="stromzange-wechsel">
 <a class="reference internal image-reference" href="../_images/stromzange_wechsel.jpg"><img alt="stromzange_wechsel" src="../_images/stromzange_wechsel.jpg" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 67 </span><span class="caption-text">Darstellung der Strommessung mittels Stromzange für Wechselstrom mittels Sekundärspule.</span><a class="headerlink" href="#stromzange-wechsel" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-number">Abb. 65 </span><span class="caption-text">Darstellung der Strommessung mittels Stromzange für Wechselstrom mittels Sekundärspule.</span><a class="headerlink" href="#stromzange-wechsel" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
 <p>Ein Eisenkern fundiert als Trafokern. In diesen Eisenkern wird der stromdurchflossene Leiter eingeführt und bildet eine Spule mit nur einer Windung, die <strong>Primärspule</strong>. Das Magnetfeld, was durch den stromdurchflossenen Leiter hervor gerufen wird, wird an den Eisenkern übertragen und magnetisiert diesen. Die Magnetisierung induziert in einer <strong>Sekundärspule</strong> einen <strong>Sekundärstrom</strong>, der proportional zu dem zu messenden Primärstrom ist. Der Sekundärstrom kann mittels Shunt-Widerstand, Oerationsverstärker oder mit einem Dreheisenmesswerk betrieben gemessen werden kann. Um diese anschließende direkte Stromstärkemessung zu gerantieren wird die Sekundärspulenwicklung direkt so gewählt, dass der resultierende Sekundärstrom groß genug für die folgenden Messgeräte ist. Die Energie zum Antrieb eines Dreheisenmesswerks wird hierbei dem Stromkreis entnommen.</p>
@@ -1049,11 +1055,11 @@ Einschränkungen ergeben sich nur in der Querschnittsfläche des Leiters, da die
 <section id="allstrom-messer">
 <h4>Allstrom-Messer<a class="headerlink" href="#allstrom-messer" title="Link zu dieser Überschrift">#</a></h4>
 <p>Gleichstrom kann mittels dem eben genannten Prinzip nicht gemessen werden, da die Wechselfelder für die Magnetfeldänderungen fehlen.
-Für Gleichstrommessungen wird der Eisenkern an einer Stelle aufgetrennt und ein Magnetfeld-Sensor (Hall-Sensor oder magnetoresisitiver Widerstand) eingebaut, der auch statische Magnetfelder messen kann und somit nicht auf sich verändernde Wechselfelder angewiesen ist. Dies ist in <a class="reference internal" href="#stromzange-gleich"><span class="std std-numref">Abb. 68</span></a> dargestellt.</p>
+Für Gleichstrommessungen wird der Eisenkern an einer Stelle aufgetrennt und ein Magnetfeld-Sensor (Hall-Sensor oder magnetoresisitiver Widerstand) eingebaut, der auch statische Magnetfelder messen kann und somit nicht auf sich verändernde Wechselfelder angewiesen ist. Dies ist in <a class="reference internal" href="#stromzange-gleich"><span class="std std-numref">Abb. 66</span></a> dargestellt.</p>
 <figure class="align-default" id="stromzange-gleich">
 <a class="reference internal image-reference" href="../_images/stromzange_gleich.jpg"><img alt="stromzange_gleich" src="../_images/stromzange_gleich.jpg" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 68 </span><span class="caption-text">Darstellung der Strommessung mittels Stromzange auch für Gleichströme, in dem in einem Luftspalt im Eisenkern ein Magnetfeld-Sensor (Hall-Sensor) eingebaut wird, der eine Hall-Spannung generiert.</span><a class="headerlink" href="#stromzange-gleich" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-number">Abb. 66 </span><span class="caption-text">Darstellung der Strommessung mittels Stromzange auch für Gleichströme, in dem in einem Luftspalt im Eisenkern ein Magnetfeld-Sensor (Hall-Sensor) eingebaut wird, der eine Hall-Spannung generiert.</span><a class="headerlink" href="#stromzange-gleich" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
 <p>Nachteil hierbei ist jedoch, dass nur sehr schwache Signale erzeugt werden, welche elektronisch verstärkt werden müssen. Dafür wird eine zusätzliche Spannungsversorgung benötigt. Wechselströme können allerdings ebenso mit diesem Messgerät gemessen werden.</p>

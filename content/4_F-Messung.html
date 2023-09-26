@@ -26,6 +26,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -171,7 +172,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="1_Fehlerfortpflanzung.html">
-     Fortpflanzung von Messunsicherheiten
+     Fehlerfortpflanzung
     </a>
    </li>
    <li class="toctree-l2">
@@ -197,18 +198,18 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="2_Messsystem.html">
-     Grundstruktur eines Messsystems
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="2_Kalibrieren.html">
      Kalibrieren und Eichen
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="2_Messsystem.html">
+     Grundstruktur eines Messsystems
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="2_idealeKennlinie.html">
-     Ideale Kennlinie
+     Kennlinie &amp; Empfindlichkeit
     </a>
    </li>
    <li class="toctree-l2">
@@ -234,6 +235,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="3_Digital.html">
+     Digitalisierung
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="3_Kenngroessen.html">
      Kenngrößen
     </a>
@@ -248,11 +254,6 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="3_FourierAnalyse.html">
      Fourier-Analyse
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="3_Digital.html">
-     Digitalisierung
     </a>
    </li>
   </ul>
@@ -434,7 +435,12 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="T_Plotten.html">
-     Messdaten analysieren
+     Ausgleichsgerade für Klimadaten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="T_Log.html">
+     Logarithmische Darstellung
     </a>
    </li>
    <li class="toctree-l2">
@@ -444,17 +450,17 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="T_LinReg.html">
-     Vergleich verschiedener Fit-Funktionen
+     Verschiedene Fit-Routinen
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="T_FitmitFehlerbalken.html">
-     Lineare Regression mit Berücksichtigung von Fehlerbalken
+     Lineare Regression mit Fehlerbalken
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="T_Spektralanalyse_Audio.html">
-     Fourier-Transformation: Entfernung von Hintergrundrauschen in einem Audiosignal
+     Fourier-Transformation und Filtern
     </a>
    </li>
   </ul>
@@ -773,11 +779,11 @@ title="Print to PDF"
 Mitunter benutzt man hierfür eine Zeitmessung, um die Periodendauer zu bestimmen. Der Vorteil, eine Messgröße an die Frequenz eines Signals zu übergeben, ist die Stabilität der Frequenz und damit geringe Messabweichung und hohe Genauigkeit, mit der wir Frequenzen bzw. Zeiten messen können, da uns hier präzise Frequenz- bzw. Zeitnormale in Form von Quarzgeneratoren oder sogar Atomuhren zur Verfügung stehen. Diese Normale liefern eine um den Faktor <span class="math notranslate nohighlight">\(10^7\)</span>-<span class="math notranslate nohighlight">\(10^8\)</span> bessere Genaugkeit als Referenznormale anderer physikalischer Größen, wie z.B. der Spannung.</p>
 <section id="frequenzmessung">
 <h2>Frequenzmessung<a class="headerlink" href="#frequenzmessung" title="Link zu dieser Überschrift">#</a></h2>
-<p>Das Grundprinzip der Frequenzmessung ist in <a class="reference internal" href="#f-messung"><span class="std std-numref">Abb. 92</span></a> dargestellt. Die Grundidee basiert darauf zu zählen, wie viele Perioden innerhalb einer bestimmten Zeit auftreten.</p>
+<p>Das Grundprinzip der Frequenzmessung ist in <a class="reference internal" href="#f-messung"><span class="std std-numref">Abb. 90</span></a> dargestellt. Die Grundidee basiert darauf zu zählen, wie viele Perioden innerhalb einer bestimmten Zeit auftreten.</p>
 <figure class="align-default" id="f-messung">
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/F_messung.jpg"><img alt="F_messung" class="bg-primary mb-1" src="../_images/F_messung.jpg" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 92 </span><span class="caption-text">Grundprinzip der Frequenzmessung.</span><a class="headerlink" href="#f-messung" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-number">Abb. 90 </span><span class="caption-text">Grundprinzip der Frequenzmessung.</span><a class="headerlink" href="#f-messung" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
@@ -787,11 +793,11 @@ Mitunter benutzt man hierfür eine Zeitmessung, um die Periodendauer zu bestimme
 </ul>
 <div class="math notranslate nohighlight">
 \[f_a = \frac{z}{T}\]</div>
-<p>Hierbei können <strong>Zählfehler</strong> passieren, da die Torzeit <span class="math notranslate nohighlight">\(T\)</span> unabhängig von der Periodendauer und dem Messsignal ist. D.h. im schlimmsten Fall kann man sich um eine ganze Periode verzählen, weshalb die Messabweichung der Zählung <span class="math notranslate nohighlight">\(\Delta z = 1\)</span> ist. Dieses Phänomen ist in <a class="reference internal" href="#f-zahlung"><span class="std std-numref">Abb. 93</span></a> dargestellt.</p>
+<p>Hierbei können <strong>Zählfehler</strong> passieren, da die Torzeit <span class="math notranslate nohighlight">\(T\)</span> unabhängig von der Periodendauer und dem Messsignal ist. D.h. im schlimmsten Fall kann man sich um eine ganze Periode verzählen, weshalb die Messabweichung der Zählung <span class="math notranslate nohighlight">\(\Delta z = 1\)</span> ist. Dieses Phänomen ist in <a class="reference internal" href="#f-zahlung"><span class="std std-numref">Abb. 91</span></a> dargestellt.</p>
 <figure class="align-default" id="f-zahlung">
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/F_zählung.jpg"><img alt="F_zählung" class="bg-primary mb-1" src="../_images/F_zählung.jpg" style="width: 300px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 93 </span><span class="caption-text">Zählfehler</span><a class="headerlink" href="#f-zahlung" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-number">Abb. 91 </span><span class="caption-text">Zählfehler</span><a class="headerlink" href="#f-zahlung" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
 <p>Die maximal zu erwartende Quantisierungsabweichung bezogen auf der Frequenzmessung beträgt also</p>

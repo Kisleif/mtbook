@@ -1,10 +1,10 @@
 # Messsignale
 
-Ihr habt bereits einen soliden Einblick in die Grundlagen der stationären Messungen, Kennlinien, Sensitivität sowie der Abschätzung von Störungen und Unsicherheiten erhalten. Jetzt ist es an der Zeit, einen Schritt weiter zu gehen und die zeitliche Abhängigkeit mit einzubeziehen.
+Ihr habt bereits solide Grundkenntnisse über stationäre Messungen, Kennlinien, Sensitivität sowie die Bewertung von Störungen und Unsicherheiten erworben. Jetzt ist es an der Zeit, einen Schritt weiterzugehen und die zeitliche Abhängigkeit in die Betrachtung einzubeziehen.
 
- Wir werden verstehen lernen, wie Messsignale entstehen, welche Arten von Signalen existieren und wie sie gemessen werden können. Außerdem werden wir uns mit entscheidenden Eigenschaften von Messsignalen befassen und erlernen, wie wir sie effektiv auswerten und interpretieren können.
+In den kommenden Lektionen werden wir die Entstehung von Messsignalen verstehen, die verschiedenen Arten von Signalen kennenlernen und untersuchen, wie sie gemessen werden können. Darüber hinaus werden wir uns mit entscheidenden Eigenschaften von Messsignalen auseinandersetzen und lernen, wie wir sie effektiv auswerten und interpretieren können.
 
-Egal, ob es sich um analoge oder digitale Messsignale handelt, ob wir es mit kontinuierlichen oder diskreten Signalen zu tun haben - all diese Aspekte werden wir genauestens unter die Lupe nehmen, um ihre Bedeutung für die präzise Datenerfassung vollständig zu verstehen.
+Egal, ob es sich um analoge oder digitale Messsignale handelt, ob wir mit kontinuierlichen oder diskreten Signalen arbeiten - all diese Aspekte werden wir detailliert analysieren, um ihre Bedeutung für die präzise Datenerfassung vollständig zu erfassen.
 
 ## Inhalte
 ```{tableofcontents}

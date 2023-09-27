@@ -25,6 +25,12 @@
 # Dabei repräsentiert $R$ den elektrischen Widerstand, $U$ die Spannung und $I$ den Strom. Dieses Gesetz bildet die Basis für das Verständnis von elektrischen Schaltungen.
 # In komplexeren Schaltungen werden oft mehrere Widerstände miteinander kombiniert. Es gibt zwei grundlegende Regeln für die Berechnung des Gesamtwiderstands solcher Kombinationen.
 # 
+# :::{figure-md} ohm
+# <img src="draw/ohm.jpg" alt="ohm" width="300px" label = ohm>
+# 
+# Schaltbild zur Daratellung des Ohm'schen Gesetzes und Parallelschaltung von zwei Widerständen. 
+# :::
+# 
 # ## Parallelschaltung
 # 
 # Bei der Parallelschaltung von Widerständen ergibt sich der Gesamtwiderstand $R_{\text{ges}}$ gemäß der Formel:
@@ -55,6 +61,12 @@
 # \sum_k I_k = 0
 # $$
 # 
+# :::{figure-md} knoten
+# <img src="draw/knoten.jpg" alt="knoten" width="200px" label = knoten>
+# 
+# Knotenregel.
+# :::
+# 
 # ### Maschenregel
 # 
 # Die Maschenregel besagt, dass die Summe der Spannungen in einer geschlossenen Schleife (Masche) einer Schaltung immer null ist:
@@ -65,9 +77,22 @@
 # 
 # Unabhängig von der gewählten Masche oder dem gewählten Knoten gelten diese Regeln immer. Sie sind entscheidend für die Analyse und das Verständnis von elektrischen Schaltungen.
 # 
+# :::{figure-md} masche
+# <img src="draw/masche.jpg" alt="masche" width="200px" label = masche>
+# 
+# Maschenregel.
+# :::
+# 
 # ## Aktive Zweipol-Theorie
 # 
+# 
 # Die Zweipol-Theorie ermöglicht die Vereinfachung komplexer Schaltungen durch den Ersatz eines Teils der Schaltung durch einen einfachen Zweipol. Dieser Zweipol besteht aus einer Spannungsquelle und einem Innenwiderstand, was einer realen Spannungsquelle entspricht. Es gibt zwei Varianten: aktive und passive Zweipole.
+# 
+# :::{figure-md} aktiverZweipol
+# <img src="draw/aktiverZweipol.jpg" alt="aktiverZweipol" width="500px" label = aktiverZweipol>
+# 
+# Aktiver Zweipol.
+# :::
 # 
 # 
 # Ein aktiver Zweipol enthält eine Spannungsquelle und wird durch die Leerlaufspannung $U_L$ und den Innenwiderstand $R_i$ definiert. Mathematisch ausgedrückt:
@@ -88,7 +113,11 @@
 # 
 # Um die Anwendung dieser Regeln besser zu verstehen, betrachten wir einige Beispiele. Nehmen wir an, wir haben eine Spannungsquelle $U_0$, an die zwei Widerstände $R_1$ und $R_2$ angeschlossen sind. 
 # 
+# :::{figure-md} bsp_zweipol
+# <img src="draw/bsp_zweipol.jpg" alt="bsp_zweipol" width="300px" label = bsp_zweipol>
 # 
+# Beispiel eines aktiven Zweipols.
+# :::
 # 
 # Wir möchten diesen Teil des Netzwerks als aktiven Zweipol modellieren. Zuerst bestimmen wir die Leerlaufspannung $U_L$:
 # 

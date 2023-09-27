@@ -197,7 +197,7 @@ HTML(ani.to_jshtml())
 # Wie der Name bereits impliziert, bestehen elektromagnetische Wellen aus gekoppelten magnetischen und elektrischen Feldern. Diese beiden Felder sind immer senkrecht zueinander angeordnet und stehen jeweils senkrecht zur Ausbreitungsrichtung der Welle.
 # 
 # 
-# :::{figure-md} EM_spectrum
+# :::{figure-md} EMwave
 # <img src="pictures/EMwave.gif" width="750" align="center">
 # 
 # Animation einer elektromagnetischen Welle. Copyright: And1mu, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:EM-Wave.gif) 

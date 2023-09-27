@@ -6,7 +6,7 @@
 # Das Metrology Lecture Book ist eine Webseite (JupyterBook) für das Vorlesungsskript Messtechnik, welches aus einzelnen Jupyter-Notebooks (in Python programmiert) aufgebaut ist.
 # Wie ihr diese Infastruktur optimal nutzen könnt, soll im Folgenden erläutert werden.
 # 
-# ```{info}
+# ```{admonition} Info
 # Um dem **Vorlesungsskript** zu folgen, sind **keine Python-Kenntnisse erforderlich**. 
 # ```
 # 

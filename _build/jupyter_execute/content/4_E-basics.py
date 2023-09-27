@@ -4,7 +4,7 @@
 # # Grundlagen der Elektrotechnik
 # 
 # <video width=" 220" height=" " 
-#        src="movie/Hazel.mov"  
+#        src="movies/Hazel.mp4"  
 #        controls>
 # </video>
 # 
@@ -20,6 +20,22 @@
 # ::::::
 # 
 # 
+# <video controls width="600">
+#  <source src="movies/Hazel.mp4" type="video/mp4">
+#  Your browser does not support the video tag.
+# </video>
+
+# In[1]:
+
+
+from IPython.display import HTML
+
+HTML("""
+    <video alt="test" controls>
+        <source src="movies/Hazel.mp4" type="video/mp4">
+    </video>
+""")
+
 
 # In[ ]:
 

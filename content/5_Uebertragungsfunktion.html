@@ -59,7 +59,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
     <link rel="next" title="Faltung" href="5_Faltung.html" />
-    <link rel="prev" title="Systeme chatakterisieren im Zeitraum" href="5_DGL.html" />
+    <link rel="prev" title="Systeme im Zeitraum" href="5_DGL.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="de">
     
@@ -245,15 +245,15 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="3_Modulationen.html">
-     Modulation von Messsignalen
-     <a id="SubSec-Information">
-     </a>
+    <a class="reference internal" href="3_FourierAnalyse.html">
+     Fourier-Analyse
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="3_FourierAnalyse.html">
-     Fourier-Analyse
+    <a class="reference internal" href="3_Modulationen.html">
+     Modulation
+     <a id="SubSec-Information">
+     </a>
     </a>
    </li>
   </ul>
@@ -270,12 +270,12 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="5_LTI.html">
-     Linear zeitinvariante (LZI/LTI) Systeme
+     Linear zeitinvariante Systeme (LTI)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="5_DGL.html">
-     Systeme chatakterisieren im Zeitraum
+     Systeme im Zeitraum
     </a>
    </li>
    <li class="toctree-l2 current active">
@@ -305,6 +305,11 @@ const thebe_selector_output = ".output, .cell_output"
    </i>
   </label>
   <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_E-basics.html">
+     Grundlagen der Elektrotechnik
+    </a>
+   </li>
    <li class="toctree-l2">
     <a class="reference internal" href="4_U-Messeingang.html">
      Spannungsmesseingang
@@ -742,8 +747,8 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#darstellung-bode-diagramm">
-   Darstellung: Bode Diagramm
+  <a class="reference internal nav-link" href="#bode-diagramm">
+   Bode Diagramm
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -759,18 +764,18 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sammlung-von-bode-diagrammen-und-sprungantworten">
-   Sammlung von Bode-Diagrammen und Sprungantworten
+  <a class="reference internal nav-link" href="#beispiel-bode-diagramme">
+   Beispiel Bode-Diagramme
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#simulation-von-testfunktionen-an-einem-tiefpass">
-   Simulation von Testfunktionen an einem Tiefpass
+  <a class="reference internal nav-link" href="#verhalten-von-testfunktionen-am-tiefpass">
+   Verhalten von Testfunktionen am Tiefpass
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#referenztabellen-fur-die-laplace-transformation">
-   Referenztabellen für die Laplace-Transformation
+  <a class="reference internal nav-link" href="#referenztabelle-laplace-transformation">
+   Referenztabelle Laplace-Transformation
   </a>
  </li>
 </ul>
@@ -810,8 +815,8 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#darstellung-bode-diagramm">
-   Darstellung: Bode Diagramm
+  <a class="reference internal nav-link" href="#bode-diagramm">
+   Bode Diagramm
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -827,18 +832,18 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sammlung-von-bode-diagrammen-und-sprungantworten">
-   Sammlung von Bode-Diagrammen und Sprungantworten
+  <a class="reference internal nav-link" href="#beispiel-bode-diagramme">
+   Beispiel Bode-Diagramme
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#simulation-von-testfunktionen-an-einem-tiefpass">
-   Simulation von Testfunktionen an einem Tiefpass
+  <a class="reference internal nav-link" href="#verhalten-von-testfunktionen-am-tiefpass">
+   Verhalten von Testfunktionen am Tiefpass
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#referenztabellen-fur-die-laplace-transformation">
-   Referenztabellen für die Laplace-Transformation
+  <a class="reference internal nav-link" href="#referenztabelle-laplace-transformation">
+   Referenztabelle Laplace-Transformation
   </a>
  </li>
 </ul>
@@ -876,7 +881,7 @@ Die DGL im Frequenz- oder Laplaceraum kann direkt benutzt werden, um die sogenan
 <figure class="align-default" id="zeit-f-block">
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/zeit-f-block.jpg"><img alt="zeit-f-block" class="bg-primary mb-1" src="../_images/zeit-f-block.jpg" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 49 </span><span class="caption-text">Signale und Messsystem im Zeit- bzw. Frequenzraum.</span><a class="headerlink" href="#zeit-f-block" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-number">Abb. 51 </span><span class="caption-text">Signale und Messsystem im Zeit- bzw. Frequenzraum.</span><a class="headerlink" href="#zeit-f-block" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
 <p>Die Übertragungsfunktion eines Messsystems, <span class="math notranslate nohighlight">\(G(j \omega)\)</span> bzw. <span class="math notranslate nohighlight">\(G(s)\)</span>, kann also wie folgt aus den Fourier-Transformierten der Ein- und Ausgangssignale ausgedrückt werden:</p>
@@ -921,8 +926,8 @@ Im Allgmeinen gilt:</p>
 <p>Die Zeitkonstante <span class="math notranslate nohighlight">\(\tau = RC\)</span> könnte nun noch in die Gleichung eingesetzt werden.</p>
 </section>
 </section>
-<section id="darstellung-bode-diagramm">
-<h2>Darstellung: Bode Diagramm<a class="headerlink" href="#darstellung-bode-diagramm" title="Link zu dieser Überschrift">#</a></h2>
+<section id="bode-diagramm">
+<h2>Bode Diagramm<a class="headerlink" href="#bode-diagramm" title="Link zu dieser Überschrift">#</a></h2>
 <p>Nachdem wir nun die Übertragungsfunktion hergeleitet haben, wollen wir wissen, was wir aus dieser Funktion ableiten, bzw. von ihr lernen können.
 Wir verwenden wieder das Beispiels eines Tiefpasses. Zunächst einmal sehen wir, dass es sich bei <span class="math notranslate nohighlight">\(G\)</span> um eine komplexe Zahl handelt. Wie für jede andere komplexe Zahl können wir hier Amplitude und Phase bestimmen. Dazu formen wir <span class="math notranslate nohighlight">\(G\)</span> in die typische Schreibe einer komplexen Zahl um, sodass Real- (<span class="math notranslate nohighlight">\(\mathrm{Re}\)</span>) und Imaginärteil (<span class="math notranslate nohighlight">\(\mathrm{Im}\)</span>) direkt abgelesen werden können. Hierfür erweitern wir <span class="math notranslate nohighlight">\(G\)</span> typischer mit dem komplex Konjugierten:</p>
 <div class="math notranslate nohighlight">
@@ -952,6 +957,9 @@ G(j \omega) &amp;= \frac{1}{1+RC j \omega} \\
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">scipy.signal</span> <span class="k">as</span> <span class="nn">signal</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
 <span class="c1"># MatplotLib Settings:</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
 <span class="c1">#plt.xkcd()</span>
@@ -1033,11 +1041,7 @@ G(j \omega) &amp;= \frac{1}{1+RC j \omega} \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/574ptfzx6v9_j7pylzkngrkm0000gp/T/ipykernel_78507/2682706030.py:26: MatplotlibDeprecationWarning: Auto-removal of overlapping axes is deprecated since 3.6 and will be removed two minor releases later; explicitly call ax.remove() as needed.
-  ax1 = plt.subplot2grid((2,2), (0,0)) # topleft
-</pre></div>
-</div>
-<img alt="../_images/5_Uebertragungsfunktion_4_1.png" src="../_images/5_Uebertragungsfunktion_4_1.png" />
+<img alt="../_images/5_Uebertragungsfunktion_4_0.png" src="../_images/5_Uebertragungsfunktion_4_0.png" />
 </div>
 </div>
 <p>Auch hier kann man, wie schon bei der Interpretation der Sprungantwort, Kenngrößen ablesen.</p>
@@ -1058,6 +1062,9 @@ In der Messtechnik bei der Überwachung von schwingenden Maschinenteilen oder de
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">scipy.signal</span> <span class="k">as</span> <span class="nn">signal</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
 <span class="c1"># MatplotLib Settings:</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
 <span class="c1">#plt.xkcd()</span>
@@ -1127,11 +1134,7 @@ In der Messtechnik bei der Überwachung von schwingenden Maschinenteilen oder de
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/574ptfzx6v9_j7pylzkngrkm0000gp/T/ipykernel_78507/3819506157.py:12: MatplotlibDeprecationWarning: Auto-removal of overlapping axes is deprecated since 3.6 and will be removed two minor releases later; explicitly call ax.remove() as needed.
-  ax1 = plt.subplot2grid((2,2), (0,0)) # topleft
-</pre></div>
-</div>
-<img alt="../_images/5_Uebertragungsfunktion_7_1.png" src="../_images/5_Uebertragungsfunktion_7_1.png" />
+<img alt="../_images/5_Uebertragungsfunktion_7_0.png" src="../_images/5_Uebertragungsfunktion_7_0.png" />
 </div>
 </div>
 <section id="dynamische-fehler">
@@ -1140,7 +1143,10 @@ In der Messtechnik bei der Überwachung von schwingenden Maschinenteilen oder de
 Dies führt zu <strong>dynamischen Fehlern</strong>, hier in hellblau als Fläche unter den Kurven gekennzeichnet. Man sollte stets eine bestimmte Zeit warten, bis sich das System eingependelt hat. Typischerweise möchte man einen Endwert erreichen, der innerhalb eines <strong>1% Toleranzbandes</strong> liegt. Hieraus folgt z.B., dass man tatsächlich eine gewisse Dämpfung haben möchte, damit die Schwingungen frühzeitig abklingen. Sollte die Dämpfung jedoch zu hoch werden, können lange Wartezeiten entstehen, bis das Aussgangssignal näherungseise dem Eingangssignal entspricht, bzw. sich diesem angenähert hat.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span> <span class="c1"># topleft</span>
 <span class="n">ax3</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">rowspan</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>            <span class="c1"># right</span>
 
@@ -1200,23 +1206,22 @@ Dies führt zu <strong>dynamischen Fehlern</strong>, hier in hellblau als Fläch
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/574ptfzx6v9_j7pylzkngrkm0000gp/T/ipykernel_78507/877076436.py:2: MatplotlibDeprecationWarning: Auto-removal of overlapping axes is deprecated since 3.6 and will be removed two minor releases later; explicitly call ax.remove() as needed.
-  ax1 = plt.subplot2grid((1,2), (0,0)) # topleft
-</pre></div>
-</div>
-<img alt="../_images/5_Uebertragungsfunktion_9_1.png" src="../_images/5_Uebertragungsfunktion_9_1.png" />
+<img alt="../_images/5_Uebertragungsfunktion_9_0.png" src="../_images/5_Uebertragungsfunktion_9_0.png" />
 </div>
 </div>
 </section>
 </section>
-<section id="sammlung-von-bode-diagrammen-und-sprungantworten">
-<h2>Sammlung von Bode-Diagrammen und Sprungantworten<a class="headerlink" href="#sammlung-von-bode-diagrammen-und-sprungantworten" title="Link zu dieser Überschrift">#</a></h2>
+<section id="beispiel-bode-diagramme">
+<h2>Beispiel Bode-Diagramme<a class="headerlink" href="#beispiel-bode-diagramme" title="Link zu dieser Überschrift">#</a></h2>
 <p>Einige Beispiele zu Systemen mit Verzögerungs, Dämpfungs bzw. auch integrierendem Verhalten sind in nachfolgenden Plots dargestellt. In der Literatur findet man häufig tabellarische Zusammenfassungen verschiedener Messsysteme inklusive Übertragungsfunktion und Bode-Diagramm, damit die DGL nicht jedes mal neu hergeleitet werden müssen. Die Hintereinanderschaltung einzelner Komponenten kann auch hier wieder ganz einfach im logarithmischen Bode-Diagramm per Addition der Übertragungsfunktionen abgeschätzt werden.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">scipy.signal</span> <span class="k">as</span> <span class="nn">signal</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
 <span class="c1"># MatplotLib Settings:</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
 <span class="c1">#plt.xkcd()</span>
@@ -1272,13 +1277,10 @@ Dies führt zu <strong>dynamischen Fehlern</strong>, hier in hellblau als Fläch
 
     <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="n">label_name</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Transfer Funktion Tiefpass:</span>
+    
+    
+
+<span class="c1"># Transfer Funktion Tiefpass:</span>
 
 <span class="n">K</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">num</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">K</span><span class="p">])</span>
@@ -1358,23 +1360,19 @@ Dies führt zu <strong>dynamischen Fehlern</strong>, hier in hellblau als Fläch
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/574ptfzx6v9_j7pylzkngrkm0000gp/T/ipykernel_78507/2531145874.py:18: MatplotlibDeprecationWarning: Auto-removal of overlapping axes is deprecated since 3.6 and will be removed two minor releases later; explicitly call ax.remove() as needed.
-  ax1 = plt.subplot2grid((2,2), (0,0)) # topleft
-</pre></div>
-</div>
-<img alt="../_images/5_Uebertragungsfunktion_12_1.png" src="../_images/5_Uebertragungsfunktion_12_1.png" />
-<img alt="../_images/5_Uebertragungsfunktion_12_2.png" src="../_images/5_Uebertragungsfunktion_12_2.png" />
-<img alt="../_images/5_Uebertragungsfunktion_12_3.png" src="../_images/5_Uebertragungsfunktion_12_3.png" />
-<img alt="../_images/5_Uebertragungsfunktion_12_4.png" src="../_images/5_Uebertragungsfunktion_12_4.png" />
-<img alt="../_images/5_Uebertragungsfunktion_12_5.png" src="../_images/5_Uebertragungsfunktion_12_5.png" />
-<img alt="../_images/5_Uebertragungsfunktion_12_6.png" src="../_images/5_Uebertragungsfunktion_12_6.png" />
-<img alt="../_images/5_Uebertragungsfunktion_12_7.png" src="../_images/5_Uebertragungsfunktion_12_7.png" />
-<img alt="../_images/5_Uebertragungsfunktion_12_8.png" src="../_images/5_Uebertragungsfunktion_12_8.png" />
+<img alt="../_images/5_Uebertragungsfunktion_11_0.png" src="../_images/5_Uebertragungsfunktion_11_0.png" />
+<img alt="../_images/5_Uebertragungsfunktion_11_1.png" src="../_images/5_Uebertragungsfunktion_11_1.png" />
+<img alt="../_images/5_Uebertragungsfunktion_11_2.png" src="../_images/5_Uebertragungsfunktion_11_2.png" />
+<img alt="../_images/5_Uebertragungsfunktion_11_3.png" src="../_images/5_Uebertragungsfunktion_11_3.png" />
+<img alt="../_images/5_Uebertragungsfunktion_11_4.png" src="../_images/5_Uebertragungsfunktion_11_4.png" />
+<img alt="../_images/5_Uebertragungsfunktion_11_5.png" src="../_images/5_Uebertragungsfunktion_11_5.png" />
+<img alt="../_images/5_Uebertragungsfunktion_11_6.png" src="../_images/5_Uebertragungsfunktion_11_6.png" />
+<img alt="../_images/5_Uebertragungsfunktion_11_7.png" src="../_images/5_Uebertragungsfunktion_11_7.png" />
 </div>
 </div>
 </section>
-<section id="simulation-von-testfunktionen-an-einem-tiefpass">
-<h2>Simulation von Testfunktionen an einem Tiefpass<a class="headerlink" href="#simulation-von-testfunktionen-an-einem-tiefpass" title="Link zu dieser Überschrift">#</a></h2>
+<section id="verhalten-von-testfunktionen-am-tiefpass">
+<h2>Verhalten von Testfunktionen am Tiefpass<a class="headerlink" href="#verhalten-von-testfunktionen-am-tiefpass" title="Link zu dieser Überschrift">#</a></h2>
 <p>Im Folgenden Bild grafisch dargestellt, wie verschiedene Signale durch einen <strong>Tiefpass</strong> mit der Übertragungsfunktion</p>
 <div class="math notranslate nohighlight">
 \[G(s) = \frac{1}{s+1}\]</div>
@@ -1386,6 +1384,8 @@ Dies führt zu <strong>dynamischen Fehlern</strong>, hier in hellblau als Fläch
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 
 <span class="n">SAMPLE_RATE</span> <span class="o">=</span> <span class="mf">100.0</span>  <span class="c1"># Hertz</span>
 <span class="n">DURATION</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># mSeconds</span>
@@ -1496,11 +1496,7 @@ Dies führt zu <strong>dynamischen Fehlern</strong>, hier in hellblau als Fläch
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/574ptfzx6v9_j7pylzkngrkm0000gp/T/ipykernel_78507/2480644811.py:39: MatplotlibDeprecationWarning: Auto-removal of overlapping axes is deprecated since 3.6 and will be removed two minor releases later; explicitly call ax.remove() as needed.
-  ax3 = plt.subplot2grid((4,3), (0,0), colspan=1) # topleft
-</pre></div>
-</div>
-<img alt="../_images/5_Uebertragungsfunktion_14_1.png" src="../_images/5_Uebertragungsfunktion_14_1.png" />
+<img alt="../_images/5_Uebertragungsfunktion_13_0.png" src="../_images/5_Uebertragungsfunktion_13_0.png" />
 </div>
 </div>
 <p>Nicht nur im Zeitraum können Sprünge oder Impulse angelegt werden. Für diese Testfunktionen können auch die Laplace, bzw. Fourier-Transformierten berechnet werden. Auch dies ist im Frequenzraum häufig einfacher, da die Testfunktionen, wie es in der Tabelle im folgenden Bild zu erkennen ist, sehr einfach sind.</p>
@@ -1520,8 +1516,8 @@ Dies führt zu <strong>dynamischen Fehlern</strong>, hier in hellblau als Fläch
 <p>Hierbei handelt es sich um <strong>Faltungen</strong> im Frequenzraum, deren Berechnungen im Zeitbereich sehr viel komplizierter wäre, wie wir im nächsten Kapitel sehen werden.</p>
 <p>Aus Übertragungsfunktionen können noch weitere Eigenschaften von Messsystemen abgeleitet werden, auf die wir hier nicht näher eingehen können. Aus den Nullstellen und Polstellen kann aber abgelesen werden, ob das System stabil ist, sprungfähig ist oder eher ein integrales Verhalten aufweist.</p>
 </section>
-<section id="referenztabellen-fur-die-laplace-transformation">
-<h2>Referenztabellen für die Laplace-Transformation<a class="headerlink" href="#referenztabellen-fur-die-laplace-transformation" title="Link zu dieser Überschrift">#</a></h2>
+<section id="referenztabelle-laplace-transformation">
+<h2>Referenztabelle Laplace-Transformation<a class="headerlink" href="#referenztabelle-laplace-transformation" title="Link zu dieser Überschrift">#</a></h2>
 <p><span class="math notranslate nohighlight">\(\sigma(t)\)</span> ist die Sprungfunktion und <span class="math notranslate nohighlight">\(\delta(t)\)</span> der Delta-Dirac-Puls.</p>
 <table class="colwidths-auto table">
 <thead>
@@ -1593,7 +1589,7 @@ Dies führt zu <strong>dynamischen Fehlern</strong>, hier in hellblau als Fläch
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">zurück</p>
-            <p class="prev-next-title">Systeme chatakterisieren im Zeitraum</p>
+            <p class="prev-next-title">Systeme im Zeitraum</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="5_Faltung.html" title="weiter Seite">

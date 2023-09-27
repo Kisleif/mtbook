@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Modulation von Messsignalen &#8212; Metrology Lecture Book</title>
+    <title>Modulation &#8212; Metrology Lecture Book</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -251,7 +251,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Modulation von Messsignalen
+     Modulation
      <a id="SubSec-Information">
      </a>
     </a>
@@ -730,8 +730,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#amplitudenmodulation">
-   Amplitudenmodulation
+  <a class="reference internal nav-link" href="#amplitudenmodulation-am">
+   Amplitudenmodulation (AM)
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -742,18 +742,18 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#phasenmodulation">
-   Phasenmodulation
+  <a class="reference internal nav-link" href="#phasenmodulation-pm">
+   Phasenmodulation  (PM)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#frequenzmodulation">
-   Frequenzmodulation
+  <a class="reference internal nav-link" href="#frequenzmodulation-fm">
+   Frequenzmodulation (FM)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#vergleich-zwischen-pm-und-fm">
-   Vergleich zwischen PM und FM
+  <a class="reference internal nav-link" href="#vergleich-zwischen-am-pm-und-fm">
+   Vergleich zwischen AM, PM und FM
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -770,7 +770,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Modulation von Messsignalen <a id="SubSec-Information"></a></h1>
+                <h1>Modulation <a id="SubSec-Information"></a></h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -786,8 +786,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#amplitudenmodulation">
-   Amplitudenmodulation
+  <a class="reference internal nav-link" href="#amplitudenmodulation-am">
+   Amplitudenmodulation (AM)
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -798,18 +798,18 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#phasenmodulation">
-   Phasenmodulation
+  <a class="reference internal nav-link" href="#phasenmodulation-pm">
+   Phasenmodulation  (PM)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#frequenzmodulation">
-   Frequenzmodulation
+  <a class="reference internal nav-link" href="#frequenzmodulation-fm">
+   Frequenzmodulation (FM)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#vergleich-zwischen-pm-und-fm">
-   Vergleich zwischen PM und FM
+  <a class="reference internal nav-link" href="#vergleich-zwischen-am-pm-und-fm">
+   Vergleich zwischen AM, PM und FM
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -827,8 +827,8 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="modulation-von-messsignalen-a-id-subsec-information-a">
-<h1>Modulation von Messsignalen <a id="SubSec-Information"></a><a class="headerlink" href="#modulation-von-messsignalen-a-id-subsec-information-a" title="Link zu dieser Überschrift">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="modulation-a-id-subsec-information-a">
+<h1>Modulation <a id="SubSec-Information"></a><a class="headerlink" href="#modulation-a-id-subsec-information-a" title="Link zu dieser Überschrift">#</a></h1>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
@@ -844,69 +844,88 @@ title="Print to PDF"
 </div>
 </div>
 </aside>
-<p>Im ersten Abschnitt haben wir schon angedeutet, dass nicht nur physikalische Größen in Messsignale umgewandelt werden, sondern auch Signale in andere Signalformen. Sehr häufiges Beispiel aus der Messtechnik ist der Informationsparameter Amplitude der in Frequenz umgewandelt wird. Dies hat den einfachen Grund, dass die Frequenz eines Messsignals extrem unempfindlich gegenüber Störeinflüssen aus der Umgebung ist. Eine Amplitude wird viel schneller verfälscht, oder abgeschwächt, als die Frequenz. Ein weiterer Vorteil ist, dass die Frequenz eines Messsignals sehr einfach digitalisiert werden kann, wodurch auch die physikalische Größe schnell digital zur Verfügung steht. Man könnte beispielsweise eine einfache Triggereinrichtung nutzen, welche die Frequenz eines Messsignals in Pulse umwandelt, die mit einer bestimmten Wiederholrate (also mit der Frequenz des Signals) zur Verfügung gestellt werden. Diese Pulse werden dann innerhalb eines definierten Zeitfensters ausgezählt. Mit solchen <em>Frequenzzählern</em> werden wir uns später noch ausführlicher beschäftigen. Für solch eine Art von Messsignal wird eine <strong>Modulation</strong> des Messsignals benötigt, welche die physikalische Größe (z.B. ein Audiosignal) auf den Träger (z.B. eine Radiowelle), aufbringt.</p>
+<p>Im Bereich der Messtechnik spielt die Modulation eine zentrale Rolle, da sie es ermöglicht, physikalische Messgrößen oder Messsignale auf eine bestimmte Signalform zu übertragen. Ein anschauliches Beispiel hierfür ist die Verwendung von Sinusschwingungen mit den Parametern Amplitude, Phase und Frequenz. Hierbei wird die physikalische Messgröße in einen dieser Parameter moduliert, indem die Amplitude, Phase oder Frequenz entsprechend angepasst werden – dies verleiht der Sinusschwingung Informationen über die gemessene Größe, beispielsweise in ihrer Frequenz.
+Dieser Ansatz hat einen klaren Vorteil: Die Frequenz eines Messsignals ist äußerst unempfindlich gegenüber Störungen aus der Umgebung, im Vergleich zur Amplitude, die leichter verfälscht oder abgeschwächt wird. Ein weiterer Pluspunkt besteht darin, dass die Frequenz eines Messsignals einfach digitalisiert werden kann, wodurch die physikalische Größe schnell in digitaler Form zur Verfügung steht.</p>
+<p>Ein praktisches Beispiel dafür wäre die Verwendung einer Trigger-Einrichtung, die die Frequenz eines Messsignals in Pulse umwandelt und sie mit einer bestimmten Wiederholrate – also der Frequenz des Signals – zur Verfügung stellt. Diese Pulse werden dann innerhalb eines definierten Zeitfensters gezählt. In späteren Abschnitten werden wir uns ausführlicher mit solchen “Frequenzzählern” beschäftigen. Für die Realisierung dieser Art von Messsignal ist eine Modulation des Ausgangssignals erforderlich, um die physikalische Größe, beispielsweise ein Audiosignal, auf den Träger, wie etwa eine Radiowelle, zu übertragen.</p>
 <section id="trager-und-nutzsignale">
 <h2>Träger- und Nutzsignale<a class="headerlink" href="#trager-und-nutzsignale" title="Link zu dieser Überschrift">#</a></h2>
-<p>Klassischerweise benutzt man eine sinusförmige Schwingung konstanter Frequenz und Amplitude als <strong>Trägerschwingung</strong>. Durch die Modulation können folgende Parameter der Trägerschwingung beeinflusst werden:</p>
+<p>In der Welt der Signalübertragung spielen Trägersignale und Nutzsignale eine grundlegende Rolle. Klassischerweise wird eine sinusförmige Schwingung mit konstanter Frequenz und Amplitude als <strong>Trägerschwingung</strong> verwendet. Durch Modulation können verschiedene Parameter der Trägerschwingung beeinflusst werden:</p>
 <ul class="simple">
-<li><p>die Amplitude. Dies ist bekannt als Amplitudenmodulation (AM)</p></li>
-<li><p>die Frequenz. Dies ist bekannt als Frequenzmodulation (FM)</p></li>
-<li><p>die Phase. Hierbei wird der Nullphasenwinkel verschoben. Dies ist bekannt als Phasenmodulation (PM)</p></li>
+<li><p>Die <strong>Amplitude</strong> kann moduliert werden, was als Amplitudenmodulation (AM) bekannt ist.</p></li>
+<li><p>Die <strong>Frequenz</strong> kann moduliert werden, was als Frequenzmodulation (FM) bezeichnet wird.</p></li>
+<li><p>Die <strong>Phase</strong> kann verschoben werden, wodurch Phasenmodulation (PM) entsteht.</p></li>
 </ul>
-<p>Im Anschluss muss mittels <strong>Demodulation</strong> der originale Zeitverlauf der physikalischen Größe zurückgewonnen werden.</p>
-<p><strong>Nutzsignale</strong> wie Sprache oder Musik können häufig nicht direkt über gewünschte Übertragungsmedien wie beispielsweise einen Funkkanal übertragen werden. Hierfür wird ein Trägersignal benötigt, mittels welchem das Nutzsignal übertragen werden kann.
-Wir nehmen ein sinusförmiges Nutzsignal (<em>message</em>) an:</p>
+<p>Die Demodulation ist ein entscheidender Schritt, um den ursprünglichen zeitlichen Verlauf der physikalischen Größe zurückzugewinnen.</p>
+<p><strong>Nutzsignale</strong> wie Sprache oder Musik können oft nicht direkt über gängige Übertragungsmedien, wie beispielsweise einen Funkkanal, übertragen werden. Stattdessen wird ein Trägersignal benötigt, um das Nutzsignal effektiv zu übertragen. Nehmen wir an, wir haben ein sinusförmiges Nutzsignal (<em>message</em>) gegeben:</p>
 <div class="math notranslate nohighlight">
 \[m(t) = A_\mathrm{m} \cdot \sin(2\pi f_\mathrm{m} t)\]</div>
-<p>mit der Amplitude <span class="math notranslate nohighlight">\(A_\mathrm{m}\)</span> and Frequenz <span class="math notranslate nohighlight">\(f_\mathrm{m} = 100\,\mathrm{Hz}\)</span>. Außerdem widmen wir uns zunächst einem <em>sinusförmigen</em> Trägersignal (<em>carrier</em>)</p>
+<p>mit der Amplitude <span class="math notranslate nohighlight">\(A_\mathrm{m}\)</span> und der Frequenz <span class="math notranslate nohighlight">\(f_\mathrm{m} = 100\,\mathrm{Hz}\)</span>. Betrachten wir zunächst ein <em>sinusförmiges</em> Trägersignal (<em>carrier</em>):</p>
 <div class="math notranslate nohighlight">
 \[s(t) = A_c \cdot \sin(2\pi f_c t + p_0)\]</div>
-<p>mit der Amplitude <span class="math notranslate nohighlight">\(A_c\)</span> und der Trägerfrequenz <span class="math notranslate nohighlight">\(f_c = 1\,\mathrm{kHz}\)</span>. <span class="math notranslate nohighlight">\(p_{0}\)</span> ist eine Konstante, die Phase zum Zeitpunkt <span class="math notranslate nohighlight">\(t=0\)</span>.
-Beide Signale sind den folgenden Diagrammen für <span class="math notranslate nohighlight">\(f_\mathrm{m} = 100\,\mathrm{Hz}\)</span> und <span class="math notranslate nohighlight">\(f_c = 1\,\mathrm{kHz}\)</span> dargestellt.</p>
+<p>Hierbei repräsentiert <span class="math notranslate nohighlight">\(A_c\)</span> die Amplitude und <span class="math notranslate nohighlight">\(f_c\)</span> die Trägerfrequenz. Die Konstante <span class="math notranslate nohighlight">\(p_0\)</span> stellt die Phase zum Zeitpunkt <span class="math notranslate nohighlight">\(t=0\)</span> dar. Die folgenden Diagramme zeigen beide Signale für <span class="math notranslate nohighlight">\(f_\mathrm{m} = 100\,\mathrm{Hz}\)</span> und <span class="math notranslate nohighlight">\(f_c = 1\,\mathrm{kHz}\)</span>.</p>
+<p>Nutzsignale wie Sprache weisen Frequenzen im Bereich von 500 Hz bis 10 kHz auf (wobei Männer tendenziell tiefere und Frauen höhere Frequenzen verwenden). Diese Frequenzen sind zu niedrig, um direkt über Funkkanäle (im Bereich von 200 MHz bis 5 GHz) übertragen zu werden. Aus diesem Grund wird zunächst ein hochfrequenter Träger mithilfe einer Oszillatorschaltung erzeugt:</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.fft</span> <span class="kn">import</span> <span class="n">rfft</span><span class="p">,</span> <span class="n">rfftfreq</span>
-<span class="kn">from</span> <span class="nn">scipy.io.wavfile</span> <span class="kn">import</span> <span class="n">read</span> <span class="c1">#import the required function from the module</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="c1"># MatplotLib Settings:</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
-<span class="c1">#plt.xkcd()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
 
-<span class="n">samplerate</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s1">&#39;CantinaBand3.wav&#39;</span><span class="p">)</span>
-<span class="n">duration</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">/</span><span class="n">samplerate</span>
-<span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">duration</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="n">samplerate</span><span class="p">)</span> <span class="c1">#time vector</span>
+<span class="c1"># Matplotlib-Einstellungen:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
 
-<span class="n">Fs</span> <span class="o">=</span> <span class="mf">22050.0</span><span class="p">;</span>  <span class="c1"># sampling rate</span>
-<span class="n">Ts</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">Fs</span><span class="p">;</span> <span class="c1"># sampling interval</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.02</span><span class="p">,</span><span class="n">Ts</span><span class="p">)</span> <span class="c1"># time vector</span>
-<span class="n">ff</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span>   <span class="c1"># frequency of the carrier</span>
-<span class="n">f_m</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">maxN</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">Fs</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-<span class="c1"># Sinusschwingung</span>
-<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">freq</span><span class="p">,</span> <span class="n">ampl</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span>  <span class="n">ampl</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">freq</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">ff</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
-<span class="n">y_nutz</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">f_m</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
+<span class="c1"># Parameter für die Signale</span>
+<span class="n">Fs</span> <span class="o">=</span> <span class="mf">22050.0</span>  <span class="c1"># Abtastrate</span>
+<span class="n">Ts</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">Fs</span>  <span class="c1"># Abtastintervall</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="n">Ts</span><span class="p">)</span>  <span class="c1"># Zeitvektor</span>
+<span class="n">ff</span> <span class="o">=</span> <span class="mi">1000</span>  <span class="c1"># Frequenz des Trägersignals</span>
+<span class="n">f_m</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># Frequenz des Nutzsignals</span>
 
-<span class="n">data_norm</span> <span class="o">=</span> <span class="n">data</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="n">y_nutz_norm</span> <span class="o">=</span> <span class="n">y_nutz</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">y_nutz</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="c1">#plt.plot(time, data_norm, &#39;tab:blue&#39;)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y_nutz_norm</span><span class="p">,</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit (s)&#39;</span><span class="p">)</span>
+<span class="c1"># Funktion zur Erzeugung einer Sinusschwingung</span>
+<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">freq</span><span class="p">,</span> <span class="n">ampl</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> <span class="n">ampl</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">freq</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
+
+<span class="c1"># Erzeugen der Signale</span>
+<span class="n">y_nutz</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">f_m</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+<span class="n">y_nutz_norm</span> <span class="o">=</span> <span class="n">y_nutz</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">y_nutz</span><span class="p">)</span>
+<span class="n">y_träger</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">ff</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+
+<span class="c1"># Plot für die Nachricht</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">1000</span><span class="o">*</span><span class="n">t</span><span class="p">,</span> <span class="n">y_nutz_norm</span><span class="p">,</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit (ms)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Nachricht&#39;</span><span class="p">)</span>
-<span class="c1">#plt.xlim([0.0,0.3])</span>
-<span class="c1">#plt.ylim([-0.4,0.4])</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit (s)&#39;</span><span class="p">)</span>
+<span class="c1"># Plot für das Trägersignal</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">1000</span><span class="o">*</span><span class="n">t</span><span class="p">,</span> <span class="n">y_träger</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit (ms)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Trägersignal&#39;</span><span class="p">)</span>
-<span class="c1">#plt.xlim([0.0,0.3])</span>
+
+<span class="c1"># Frequenzspektrum der Nachricht</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_nutz_norm</span><span class="p">)</span>
+<span class="n">frequencies</span> <span class="o">=</span> <span class="n">rfftfreq</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">Ts</span><span class="p">)</span>
+<span class="n">y_nutz_fft</span> <span class="o">=</span> <span class="n">rfft</span><span class="p">(</span><span class="n">y_nutz_norm</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">frequencies</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">y_nutz_fft</span><span class="p">),</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">markerfmt</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">basefmt</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">linefmt</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1500</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequenz (Hz)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Frequenzspektrum der Nachricht&#39;</span><span class="p">)</span>
+
+<span class="c1"># Frequenzspektrum des Trägersignals</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">y_träger_fft</span> <span class="o">=</span> <span class="n">rfft</span><span class="p">(</span><span class="n">y_träger</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">frequencies</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">y_träger_fft</span><span class="p">),</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">markerfmt</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">basefmt</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">linefmt</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1500</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequenz (Hz)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Frequenzspektrum des Trägersignals&#39;</span><span class="p">)</span>
+
 
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -917,10 +936,9 @@ Beide Signale sind den folgenden Diagrammen für <span class="math notranslate n
 <img alt="../_images/3_Modulationen_1_0.png" src="../_images/3_Modulationen_1_0.png" />
 </div>
 </div>
-<p>Es gibt nun verschiedene Methoden, um die Nachricht auf das Trägersignal zu modulieren und so zu übertragen:</p>
 </section>
-<section id="amplitudenmodulation">
-<h2>Amplitudenmodulation<a class="headerlink" href="#amplitudenmodulation" title="Link zu dieser Überschrift">#</a></h2>
+<section id="amplitudenmodulation-am">
+<h2>Amplitudenmodulation (AM)<a class="headerlink" href="#amplitudenmodulation-am" title="Link zu dieser Überschrift">#</a></h2>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
@@ -951,11 +969,13 @@ Beide Signale sind den folgenden Diagrammen für <span class="math notranslate n
 </div>
 </div>
 </aside>
-<p>Zur Übertragung wird das Nutzsignal in einen anderen Frequenzbereich verschoben, was beispielsweise durch eine <strong>Amplitudenmodulation (AM)</strong> geschehen kann. Durch das Verschieben können auch mehrere Nutzsignale gleichzeitig und ohne gegenseitige Störung übertragen werden.</p>
+<p>Die Amplitudenmodulation kennt ihr vom Radio, wenn ihr die AM Taste drückt.<br />
+Mittels Amplitudenmodulation kann das Nutzsignal <span class="math notranslate nohighlight">\(m(t)\)</span>, was z.B. Sprache oder Musik ist, in einen anderen Frequenzbereich verschoben.
+Durch das Verschieben können auch mehrere Nutzsignale gleichzeitig und ohne gegenseitige Störung übertragen werden.</p>
 <div class="math notranslate nohighlight">
 \[y_\mathrm{AM}(t) = \left[A_c + M_a \cdot m(t)\right] \cdot \sin(2\pi  f_c  t)\]</div>
-<p><span class="math notranslate nohighlight">\(M_a\)</span> ist die Modulationsstärke und <span class="math notranslate nohighlight">\(m(t)\)</span> die modulierende Funktion oder kurz der Modulator. Hier wäre es entsprechend die Nachricht, die auf das Trägersignal moduliert wird.</p>
-<p>Setzt man ein sinusförmiges Nutzsignal ein, so erhält man:</p>
+<p><span class="math notranslate nohighlight">\(M_a\)</span> ist die Modulationsstärke und <span class="math notranslate nohighlight">\(m(t)\)</span> die modulierende Funktion oder kurz der Modulator (z.B. Sprache oder Musik). Alternativ zur Modulationsstärke könnte man auch das Nutzsignal vorher um den Gleichanteil verschieben, um zu verhindern, dass die Amplitudemodulation in den negativen Bereich moduliert.</p>
+<p>Setzt man beispielsweise ein sinusförmiges Nutzsignal ein, so erhält man für eine sinusfürmige Trägerschwingung:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align} 
@@ -974,58 +994,66 @@ y_\mathrm{AM}(t) &amp; = \left[A_c + M_a \cdot A_\mathrm{m} \cdot \sin(2\pi f_\m
 <p>Eine Amplitudenmodulation für einen Modulationsgrad von 0,5 sieht wie folgt für die beiden oben definierten Nutz- und Trägersignale aus:</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># MatplotLib Settings:</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
-<span class="c1">#plt.xkcd()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.fft</span> <span class="kn">import</span> <span class="n">rfft</span><span class="p">,</span> <span class="n">rfftfreq</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Matplotlib-Einstellungen:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="c1"># Parameter für die Signale</span>
+<span class="n">Fs</span> <span class="o">=</span> <span class="mf">22050.0</span>  <span class="c1"># Abtastrate</span>
+<span class="n">Ts</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">Fs</span>  <span class="c1"># Abtastintervall</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="n">Ts</span><span class="p">)</span>  <span class="c1"># Zeitvektor</span>
+<span class="n">ff</span> <span class="o">=</span> <span class="mi">1000</span>  <span class="c1"># Frequenz des Trägersignals</span>
+<span class="n">f_m</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># Frequenz des Nutzsignals</span>
+
+<span class="c1"># Funktion zur Erzeugung einer Sinusschwingung</span>
+<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">freq</span><span class="p">,</span> <span class="n">ampl</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> <span class="n">ampl</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">freq</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
+
+<span class="c1"># Erzeugen der Signale</span>
+<span class="n">y_nutz</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">f_m</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+<span class="n">y_nutz_norm</span> <span class="o">=</span> <span class="n">y_nutz</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">y_nutz</span><span class="p">)</span>
+<span class="n">y_träger</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">ff</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+
 <span class="n">A</span> <span class="o">=</span> <span class="mf">1.0</span>
 <span class="n">M_a</span> <span class="o">=</span> <span class="mf">0.5</span>
 <span class="n">AM</span> <span class="o">=</span> <span class="p">(</span><span class="n">A</span><span class="o">+</span><span class="n">M_a</span><span class="o">*</span><span class="n">y_nutz_norm</span><span class="p">)</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">ff</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Träger&#39;</span><span class="p">)</span>
+<span class="c1"># Plot für die Nachricht</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span> <span class="n">y_träger</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Träger&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span><span class="n">AM</span><span class="p">,</span> <span class="s1">&#39;tab:red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.65</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;AM&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span> <span class="p">(</span><span class="n">A</span><span class="o">+</span><span class="n">M_a</span><span class="o">*</span><span class="n">y_nutz_norm</span><span class="p">),</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Einhüllende&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Amplitudenmodulation (AM)&#39;</span><span class="p">)</span>
-<span class="c1">#plt.xlim([0.276,0.285])</span>
-<span class="c1">#plt.ylim([-1.5,1.5])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit (ms)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Zeitserie&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># Frequenzspektrum der Nachricht</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_nutz_norm</span><span class="p">)</span>
+<span class="n">frequencies</span> <span class="o">=</span> <span class="n">rfftfreq</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">Ts</span><span class="p">)</span>
+<span class="n">y_nutz_fft</span> <span class="o">=</span> <span class="n">rfft</span><span class="p">(</span><span class="n">AM</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">frequencies</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">y_nutz_fft</span><span class="p">),</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">markerfmt</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">basefmt</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">linefmt</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1500</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequenz (Hz)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Frequenzspektrum&#39;</span><span class="p">)</span>
+
+
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <img alt="../_images/3_Modulationen_3_0.png" src="../_images/3_Modulationen_3_0.png" />
-</div>
-</div>
-<p>Alternativ zur Berechnung des modulierten Signals im Zeitbereich kann dies auch über die Fourier-Transformation im Frequenzbereich geschehen. Die dazu inverse Fourier-Transformation führt wieder in den Zeitbereich (siehe <a class="reference internal" href="3_FourierAnalyse.html"><span class="doc std std-doc">Fourier-Analyse</span></a>).</p>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.fft</span> <span class="kn">import</span> <span class="n">rfft</span><span class="p">,</span> <span class="n">rfftfreq</span>
-<span class="c1"># MatplotLib Settings:</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
-<span class="c1">#plt.xkcd()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
-<span class="c1"># Note the extra &#39;r&#39; at the front</span>
-<span class="n">AMyf</span> <span class="o">=</span> <span class="n">rfft</span><span class="p">(</span><span class="n">AM</span><span class="p">)</span>
-<span class="n">AMxf</span> <span class="o">=</span> <span class="n">rfftfreq</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">AM</span><span class="p">),</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">Fs</span><span class="p">)</span>
-<span class="n">markerline</span><span class="p">,</span> <span class="n">stemlines</span><span class="p">,</span> <span class="n">baseline</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">AMxf</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">AMyf</span><span class="p">),</span> <span class="n">markerfmt</span> <span class="o">=</span> <span class="s1">&#39;D&#39;</span><span class="p">)</span> <span class="c1"># plotting the spectrum</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequenz (Hz)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;FFT&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;AM im Frequenzbereich&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">500</span><span class="p">,</span><span class="mi">1500</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/3_Modulationen_5_0.png" src="../_images/3_Modulationen_5_0.png" />
 </div>
 </div>
 <section id="demodulation">
@@ -1049,9 +1077,10 @@ y_\mathrm{AM,demod}(t) &amp;= y_\mathrm{AM}(t) \cdot s(t) \\
 <p>Auf Grund der Einfachheit dieses Verfahrens kann das empfangene Signal leicht durch Verzerrungen gestört werden.</p>
 </section>
 </section>
-<section id="phasenmodulation">
-<h2>Phasenmodulation<a class="headerlink" href="#phasenmodulation" title="Link zu dieser Überschrift">#</a></h2>
-<p>Frequenzmodulation und Phasenmodulation hängen mathematisch eng zusammen. Eine Phasenmodulation eines sinusförmigen Trägers kann man sehr einfach ausdrücken. Zunächst der unmodulierte Träger:</p>
+<section id="phasenmodulation-pm">
+<h2>Phasenmodulation  (PM)<a class="headerlink" href="#phasenmodulation-pm" title="Link zu dieser Überschrift">#</a></h2>
+<p>Die Amplitudenmodulation ist sehr störanfällig, daher benutzt man heutzutage nur noch Frequenz- oder Phasenmodulationen.
+Frequenzmodulation und Phasenmodulation hängen mathematisch eng zusammen. Eine Phasenmodulation eines sinusförmigen Trägers kann man sehr einfach ausdrücken. Zunächst der unmodulierte Träger:</p>
 <div class="math notranslate nohighlight">
 \[ s(t) = A_c \cdot \sin(2\pi f_c t + p_0)\]</div>
 <p>Wir können die momentane Phase als Funktion der Zeit schreiben:</p>
@@ -1066,8 +1095,8 @@ y_\mathrm{AM,demod}(t) &amp;= y_\mathrm{AM}(t) \cdot s(t) \\
 \[ p(t)=2\pi f_c t+p_{0}+M_{p}m(t)\]</div>
 <p>Man sieht, dass eine Phasenmodulation mathematisch sehr einfach auszudrücken ist.</p>
 </section>
-<section id="frequenzmodulation">
-<h2>Frequenzmodulation<a class="headerlink" href="#frequenzmodulation" title="Link zu dieser Überschrift">#</a></h2>
+<section id="frequenzmodulation-fm">
+<h2>Frequenzmodulation (FM)<a class="headerlink" href="#frequenzmodulation-fm" title="Link zu dieser Überschrift">#</a></h2>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
@@ -1083,39 +1112,57 @@ y_\mathrm{AM,demod}(t) &amp;= y_\mathrm{AM}(t) \cdot s(t) \\
 </div>
 </div>
 </aside>
-<p>Vom heutigen Stand der Technik betrachtet ist die AM allerdings überholt, weil die Qualitätsansprüche gestiegen sind und mit modernen Bauelementen die <strong>Frequenzmodulation (FM)</strong> erheblich einfacher, billiger und leistungssparender gebaut werden können. Außerdem haben die FM einen höheren Dynamikumfang des Informationssignals und ist weniger anfällig gegenüber Störungen. Eine Frequenzmodulation setzt voraus, dass sich die Frequenz ständig ändert. Dieses lässt sich nicht mehr durch einen Term der Form <span class="math notranslate nohighlight">\(\omega_c t = 2\pi f_c t\)</span> ausdrücken, sondern wir müssen den Begriff der momentanen Kreisfrequenz einführen:</p>
+<p>Die Amplitudenmodulation (AM) wird heutzutage oft durch die Frequenzmodulation (FM) ersetzt, da die Qualitätsanforderungen gestiegen sind und moderne Bauelemente die FM-Technik effizienter, kostengünstiger und energieeffizienter gestalten. FM bietet auch einen größeren Dynamikbereich für die Übertragung von Informationen und ist weniger anfällig für Störungen. Dies macht FM zur bevorzugten Wahl für Anwendungen wie das FM-Radio und die bidirektionale Kommunikation per Funk.</p>
+<p>Die Grundidee der Frequenzmodulation besteht darin, die momentane Frequenz des Trägersignals <span class="math notranslate nohighlight">\(\omega_c\)</span> kontinuierlich zu ändern, um Informationen zu übertragen. Dies kann nicht mehr einfach durch den linearen Term <span class="math notranslate nohighlight">\(\omega_c t = 2\pi f_c t\)</span> ausgedrückt werden. Stattdessen verwenden wir den Begriff der momentanen Kreisfrequenz:</p>
 <div class="math notranslate nohighlight">
 \[\omega(t) = \frac{d}{dt}p(t)\]</div>
-<p>wobei <span class="math notranslate nohighlight">\(p(t)\)</span> eine sich verändernde Phase ist. Die <strong>momentane Frequenz</strong> ist also ganz allgemein die zeitliche Ableitung der Phasenfunktion (vgl. in diesem Zusammenhang die Beziehung zwischen Geschwindigkeit und Ort und die Analogie zwischen Phase und Ort bzw. Frequenz und Geschwindigkeit). Eine Frequenzmodulation fordert nun, dass sich die momentane Frequenz verändert:</p>
+<p>Hier ist <span class="math notranslate nohighlight">\(p(t)\)</span> die sich ständig ändernde Phase. Die momentane Frequenz <span class="math notranslate nohighlight">\(\omega (t)\)</span> ist die zeitliche Ableitung der Phasenfunktion, ähnlich zur Beziehung zwischen Geschwindigkeit und Ortsveränderung oder der Analogie zwischen Phase und Ort sowie Frequenz und Geschwindigkeit.</p>
+<p>In der Frequenzmodulation wird gefordert, dass sich die momentane Frequenz des Trägersignals, <span class="math notranslate nohighlight">\(\omega_c\)</span>, ändert:</p>
 <div class="math notranslate nohighlight">
-\[\omega (t)=\omega_c+M_{f} m(t)\]</div>
-<p>wobei <span class="math notranslate nohighlight">\(M_f\)</span> wieder die Modulationstärke ist und <span class="math notranslate nohighlight">\(m(t)\)</span> die modulierende Funktion, bzw. <em>message</em>.</p>
-<p>Für die Berechnung der Kurvenform zu jedem Zeitpunkt benötigen wir jedoch nicht die momentane Frequenz, sondern die Phasenfunktion. Wenn die Frequenz die Ableitung der Phase ist, so ist umgekehrt die Phase das Integral der Frequenz:</p>
+\[\omega (t)=\omega_c+M_{f} m(t) = \omega_c + \Delta \omega\]</div>
+<p>oder</p>
+<div class="math notranslate nohighlight">
+\[f (t)=f_c+ \frac{1}{2\pi}M_{f} m(t) = f_c + \Delta f\]</div>
+<p>Hierbei repräsentiert <span class="math notranslate nohighlight">\(M_f\)</span> die Modulationstärke und <span class="math notranslate nohighlight">\(m(t)\)</span> die modulierende Funktion, auch als <em>message</em> bezeichnet. <span class="math notranslate nohighlight">\(\Delta f\)</span> ist die resultierende Frequenzänderung oder der Frequenzhub (englisch: <em>deviation</em>) aufgrund der Modulation. Der Wert von <span class="math notranslate nohighlight">\(\Delta f\)</span> kann sowohl negativ als auch positiv sein. Zum Beispiel bewirkt eine Frequenzänderung von <span class="math notranslate nohighlight">\(\Delta f = +15\,\mathrm{kHz}\)</span>, dass der Träger um 15 kHz über <span class="math notranslate nohighlight">\(f_c\)</span> verschoben wird. Häufig wird mit <span class="math notranslate nohighlight">\(\Delta f\)</span> die <em>maximale</em> Frequenzänderung <span class="math notranslate nohighlight">\(\Delta f_\mathrm{max}\)</span> bezeichnet, um die die Trägerfrequenz <span class="math notranslate nohighlight">\(f_c\)</span> maximal verschoben wird. Der genaue Wert von <span class="math notranslate nohighlight">\(\Delta f_\mathrm{max}\)</span> hängt vom Design des Senders, der Konfiguration und den Anforderungen der jeweiligen Anwendung ab.</p>
+<p>Um die Kurvenform zu einem bestimmten Zeitpunkt zu berechnen, benötigen wir jedoch nicht die momentane Frequenz, sondern die Phasenfunktion. Da die Frequenz die Ableitung der Phase ist, ist die Phase das Integral der Frequenz:</p>
 <div class="math notranslate nohighlight">
 \[ p(t)=\int \omega (t)\,\mathrm {d} t \]</div>
-<p>Setzen wir dies nun in die Gleichung für momentane Frequenz ein, erhalten wir folglich:</p>
+<p>Wenn wir dies in die Gleichung für die momentane Frequenz einsetzen, erhalten wir:</p>
 <div class="math notranslate nohighlight">
 \[ p(t)=\int \omega_c+M_{f} m(t)\,\mathrm {d} t = \omega_c t + p_0 + M_{f} \int  m(t)\,\mathrm {d} t\]</div>
-<p>Damit erhält man für die Frequenzmodulation folgenden Ausdruck:</p>
+<p>Somit ergibt sich für die Frequenzmodulation folgender Ausdruck:</p>
 <div class="math notranslate nohighlight">
 \[y_\mathrm{FM}(t) = A_c \cdot \sin\left(2\pi f_c t + p_0 + M_f\int m(t) dt \right)\]</div>
-<p>Die Frequenzänderung ist durch die Amplitude des Nachrichtensignals gegeben.</p>
-</section>
-<section id="vergleich-zwischen-pm-und-fm">
-<h2>Vergleich zwischen PM und FM<a class="headerlink" href="#vergleich-zwischen-pm-und-fm" title="Link zu dieser Überschrift">#</a></h2>
-<p>Wir setzen als Beispiel das oben eingeführte sinusförmige Nachrichtensignal, <span class="math notranslate nohighlight">\(m(t) = A_{m} \cdot \sin(2\pi f_\mathrm{m} t)\)</span>, mit <span class="math notranslate nohighlight">\(A_m=1\)</span> und <span class="math notranslate nohighlight">\(A_c=1\)</span> in die PM und FM Formeln ein:</p>
+<p>Wenn wir ein beliebiges Signal mit einer beliebigen Frequenz <span class="math notranslate nohighlight">\(f_m\)</span> in diese Gleichung einsetzen, erhalten wir:</p>
 <div class="math notranslate nohighlight">
-\[ y_\mathrm{PM}(t) = \sin\left(2\pi f_c t  +p_0 + M_p \sin[2\pi f_m t]\right)\]</div>
+\[\begin{split}
+\begin{align}
+y_\mathrm{FM}(t) &amp;= A_c \cdot \sin\left(2\pi f_c t + p_0 + M_f\int A_\mathrm{m} \cdot \sin(2\pi f_\mathrm{m} t) dt \right)\\
+ &amp;= A_c \cdot \sin\left(2\pi f_c t + p_0 - \frac{M_f A_\mathrm{m}}{2 \pi f_\mathrm m} \cdot \cos(2\pi f_\mathrm{m} t) \right)\\
+\end{align}
+\end{split}\]</div>
+<p>Der <strong>Modulationsindex</strong> (englisch: <em>deviation ratio</em>) wird als Verhältnis von maximaler Frequenzänderung zu maximaler Modulationsfrequenz (<em>message</em>) definiert:</p>
+<div class="math notranslate nohighlight">
+\[\eta = \frac{\Delta f}{f_m}\]</div>
+<p>Hierbei steht <span class="math notranslate nohighlight">\(f_m\)</span> für die maximale Frequenz im zu übertragenden Nachrichtensignal. Je nach Anwendung können unterschiedliche Modulationsindizes gewählt werden. In der Musik gibt es beispielsweise sehr hohe Frequenzen, weshalb eine große Frequenzänderung <span class="math notranslate nohighlight">\(\Delta f\)</span> erforderlich ist, um einen hohen Modulationsindex und somit eine höhere Übertragungsqualität zu erreichen. Bei der Übertragung von Sprache mit eher niedrigen Frequenzen kann eine kleinere Frequenzänderung verwendet werden. Der Modulationsindex kann durch die Wahl der Frequenzänderung angepasst werden, und es wird grundsätzlich zwischen <strong>breitbandiger</strong> FM (wenn <span class="math notranslate nohighlight">\(\eta &gt; 1\)</span>) und <strong>schmalbandiger</strong></p>
+</section>
+<section id="vergleich-zwischen-am-pm-und-fm">
+<h2>Vergleich zwischen AM, PM und FM<a class="headerlink" href="#vergleich-zwischen-am-pm-und-fm" title="Link zu dieser Überschrift">#</a></h2>
+<p>Um die Unterschiede zwischen Amplitudenmodulation (AM), Phasenmodulation (PM) und Frequenzmodulation (FM) zu verdeutlichen, betrachten wir ein sinusförmiges Nachrichtensignal, (m(t) = A_{m} \cdot \sin(2\pi f_\mathrm{m} t)), mit (A_m=1) und (A_c=1), und setzen es in die Formeln für PM und FM ein:</p>
+<div class="math notranslate nohighlight">
+\[ y_\mathrm{PM}(t) = \sin\left(2\pi f_c t  + p_0 + M_p \sin[2\pi f_m t]\right)\]</div>
 <div class="math notranslate nohighlight">
 \[y_\mathrm{FM}(t) = \sin\left(2\pi f_c t + p_0 - \frac{M_f}{2\pi f_m}\cos[2\pi f_m t] \right)\]</div>
-<p>Folgende Eigenschaften können beobachtet werden:</p>
+<p>Hier sind einige wichtige Beobachtungen:</p>
 <ul class="simple">
-<li><p>Der Phasenhub für die Phasenmodulation ist immer noch <span class="math notranslate nohighlight">\(M_{p}\)</span></p></li>
-<li><p>Der Phasenhub für die Frequenzmodulation ist <span class="math notranslate nohighlight">\({\frac {M_{f}}{\omega_m}}\)</span>.</p></li>
-<li><p>Die momentane Frequenz für die Phasenmodulation ist <span class="math notranslate nohighlight">\(\omega_c+M_{p}\omega_m\cos(\omega_m t+p_{m})\)</span></p></li>
-<li><p>Die momentane Frequenz für die Frequenzmodulation ist <span class="math notranslate nohighlight">\(\omega_c+M_{f} \sin \left(\omega _{m}t+p_{m}\right)\)</span></p></li>
+<li><p>Der Phasenhub (PM) bleibt unverändert bei (M_{p}).</p></li>
+<li><p>Der Phasenhub (FM) hängt von (\frac {M_{f}}{\omega_m}) ab.</p></li>
+<li><p>Die momentane Frequenz für PM wird durch (\omega_c+M_{p}\omega_m\cos(\omega_m t+p_{m})) bestimmt.</p></li>
+<li><p>Die momentane Frequenz für FM wird durch (\omega_c+M_{f} \sin \left(\omega <em>{m}t+p</em>{m}\right)) bestimmt.</p></li>
 </ul>
-<p>In beiden Fällen findet eine Modulation der Phase statt. Allerdings wirkt bei der Frequenzmodulation nicht der Modulator direkt auf die Phase ein, sondern es ist erst das Integral des Modulators zu rechnen. Das Integral hat eine Tiefpasswirkung. Der Phasenhub wird also bei der Frequenzmodulation mit zunehmender Frequenz des Modulators geringer. Umgekehrt wird der Frequenzhub bei der Phasenmodulation mit niedrig werdender Modulatorfrequenz immer geringer.</p>
+<p>In beiden Fällen erfolgt eine Modulation der Phase. Der Unterschied besteht darin, wie der Modulator auf die Phase einwirkt. Bei der Frequenzmodulation ist es notwendig, das Integral des Modulators zu berechnen, was eine Tiefpasswirkung hat. Das führt dazu, dass der Phasenhub bei steigender Modulatorfrequenz abnimmt, während der Frequenzhub bei Phasenmodulation mit sinkender Modulatorfrequenz abnimmt.</p>
+<p>Wie bereits erwähnt, sind FM und PM unempfindlich gegenüber Änderungen in der Amplitude, was sie ideal für mobile Kommunikationsgeräte macht, bei denen sich die Umgebungsbedingungen schnell ändern können. In Anwendungen, in denen die Amplitude nicht zur Informationsübertragung verwendet wird, können nichtlineare Verstärker verwendet werden. Diese Verstärker sind energieeffizienter und verlängern die Batterielaufzeit, was für mobile Kommunikation von entscheidender Bedeutung ist.</p>
+<p>Es ist jedoch wichtig zu beachten, dass FM im Vergleich zu anderen Modulationsmethoden wie AM und Single Sideband (SSB) eine höhere Bandbreite benötigt, was ihre spektrale Effizienz beeinträchtigt. Die Bandbreite eines FM-Signals hängt vom Frequenzhub (\textit{deviation}) ab.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># MatplotLib Settings:</span>
@@ -1127,7 +1174,7 @@ y_\mathrm{AM,demod}(t) &amp;= y_\mathrm{AM}(t) \cdot s(t) \\
 <span class="n">M_p</span> <span class="o">=</span> <span class="mf">4.0</span>
 <span class="n">PM</span> <span class="o">=</span> <span class="n">A</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">ff</span><span class="o">*</span><span class="n">t</span> <span class="o">+</span> <span class="n">M_p</span><span class="o">*</span><span class="n">y_nutz_norm</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Träger&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y_träger</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Träger&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">PM</span><span class="p">,</span> <span class="s1">&#39;tab:red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.65</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;AM&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y_nutz_norm</span><span class="p">,</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Nachricht&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Phasenmodulation (PM)&#39;</span><span class="p">)</span>
@@ -1140,7 +1187,7 @@ y_\mathrm{AM,demod}(t) &amp;= y_\mathrm{AM}(t) \cdot s(t) \\
 <span class="n">M_f</span> <span class="o">=</span> <span class="mf">1.0</span>
 <span class="n">FM</span> <span class="o">=</span> <span class="n">A</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">ff</span><span class="o">*</span><span class="n">t</span> <span class="o">+</span> <span class="n">M_f</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">y_nutz_norm</span><span class="p">)))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Träger&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y_träger</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Träger&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">FM</span><span class="p">,</span> <span class="s1">&#39;tab:red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.65</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;FM&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y_nutz_norm</span><span class="p">,</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Nachricht&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Frequenzmodulation (FM)&#39;</span><span class="p">)</span>
@@ -1154,7 +1201,7 @@ y_\mathrm{AM,demod}(t) &amp;= y_\mathrm{AM}(t) \cdot s(t) \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3_Modulationen_8_0.png" src="../_images/3_Modulationen_8_0.png" />
+<img alt="../_images/3_Modulationen_7_0.png" src="../_images/3_Modulationen_7_0.png" />
 </div>
 </div>
 </section>

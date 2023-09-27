@@ -26,6 +26,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -57,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="Fortpflanzung von Messunsicherheiten" href="1_Fehlerfortpflanzung.html" />
+    <link rel="next" title="Fehlerfortpflanzung" href="1_Fehlerfortpflanzung.html" />
     <link rel="prev" title="Statistische Messunsicherheit" href="1_StatistischeMessunsicherheit.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="de">
@@ -171,7 +172,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="1_Fehlerfortpflanzung.html">
-     Fortpflanzung von Messunsicherheiten
+     Fehlerfortpflanzung
     </a>
    </li>
    <li class="toctree-l2">
@@ -197,18 +198,18 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="2_Messsystem.html">
-     Grundstruktur eines Messsystems
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="2_Kalibrieren.html">
      Kalibrieren und Eichen
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="2_Messsystem.html">
+     Grundstruktur eines Messsystems
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="2_idealeKennlinie.html">
-     Ideale Kennlinie
+     Kennlinie &amp; Empfindlichkeit
     </a>
    </li>
    <li class="toctree-l2">
@@ -234,6 +235,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="3_Digital.html">
+     Digitalisierung
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="3_Kenngroessen.html">
      Kenngrößen
     </a>
@@ -248,11 +254,6 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="3_FourierAnalyse.html">
      Fourier-Analyse
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="3_Digital.html">
-     Digitalisierung
     </a>
    </li>
   </ul>
@@ -434,7 +435,12 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="T_Plotten.html">
-     Messdaten analysieren
+     Ausgleichsgerade für Klimadaten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="T_Log.html">
+     Logarithmische Darstellung
     </a>
    </li>
    <li class="toctree-l2">
@@ -444,17 +450,17 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="T_LinReg.html">
-     Vergleich verschiedener Fit-Funktionen
+     Verschiedene Fit-Routinen
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="T_FitmitFehlerbalken.html">
-     Lineare Regression mit Berücksichtigung von Fehlerbalken
+     Lineare Regression mit Fehlerbalken
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="T_Spektralanalyse_Audio.html">
-     Fourier-Transformation: Entfernung von Hintergrundrauschen in einem Audiosignal
+     Fourier-Transformation und Filtern
     </a>
    </li>
   </ul>
@@ -791,7 +797,7 @@ title="Print to PDF"
 <h1>Systematische Messabweichung<a class="headerlink" href="#systematische-messabweichung" title="Link zu dieser Überschrift">#</a></h1>
 <section id="anzeigefehler-von-messgeraten">
 <h2>Anzeigefehler von Messgeräten<a class="headerlink" href="#anzeigefehler-von-messgeraten" title="Link zu dieser Überschrift">#</a></h2>
-<p>Messgeräte werden anhand ihrer Genauigkeit in Klassen eingruppiert. Die Klasse entspricht der relativen Messabweichung. Präzisionsmessgeräte besitzen somit Abweichungen die zwischen 0,001% und 0,05% liegen. Die Genauigkeitsklasse K 2,5 (Angabe auf der Messskala nach DIN EN 60051 Abb. 1) bedeutet: Ist der Endwert des eingestellten Messbereichs <span class="math notranslate nohighlight">\(U_\mathrm{end}\)</span>, dann beträgt die Typ B-Unsicherheit über den gesamten Messbereich <span class="math notranslate nohighlight">\(u(U) = 0,0025\cdot U_\mathrm{end}\)</span>. Für <span class="math notranslate nohighlight">\(U_\mathrm{end} = 15\,\mathrm V\)</span> erhält man also:</p>
+<p>Messgeräte werden anhand ihrer Genauigkeit in Klassen eingruppiert. Die Klasse entspricht der relativen Messabweichung. Präzisionsmessgeräte besitzen somit Abweichungen die zwischen 0,001% und 0,05% liegen. Die Genauigkeitsklasse K 2,5 (Angabe auf der Messskala nach DIN EN 60051 Abb. 1) bedeutet: Ist der Endwert des eingestellten Messbereichs <span class="math notranslate nohighlight">\(U_\mathrm{end}\)</span>, dann beträgt die Typ B-Unsicherheit über den gesamten Messbereich <span class="math notranslate nohighlight">\(u(U) = 0{,}0025\cdot U_\mathrm{end}\)</span>. Für <span class="math notranslate nohighlight">\(U_\mathrm{end} = 15\,\mathrm V\)</span> erhält man also:</p>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">U_end</span> <span class="o">=</span> <span class="mi">15</span>
@@ -821,40 +827,40 @@ title="Print to PDF"
 </thead>
 <tbody>
 <tr class="row-even"><td class="text-align:left"><p>Präzisions-Messgeräte</p></td>
-<td class="text-align:left"><p>0.001</p></td>
+<td class="text-align:left"><p>0,001</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p></p></td>
-<td class="text-align:left"><p>0.002</p></td>
+<td class="text-align:left"><p>0,002</p></td>
 </tr>
 <tr class="row-even"><td class="text-align:left"><p></p></td>
-<td class="text-align:left"><p>0.005</p></td>
+<td class="text-align:left"><p>0,005</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p></p></td>
-<td class="text-align:left"><p>0.01</p></td>
+<td class="text-align:left"><p>0,01</p></td>
 </tr>
 <tr class="row-even"><td class="text-align:left"><p></p></td>
-<td class="text-align:left"><p>0.05</p></td>
+<td class="text-align:left"><p>0,05</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>Fein-Messgeräte</p></td>
-<td class="text-align:left"><p>0.1</p></td>
+<td class="text-align:left"><p>0,1</p></td>
 </tr>
 <tr class="row-even"><td class="text-align:left"><p></p></td>
-<td class="text-align:left"><p>0.2</p></td>
+<td class="text-align:left"><p>0,2</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p></p></td>
-<td class="text-align:left"><p>0.5</p></td>
+<td class="text-align:left"><p>0,5</p></td>
 </tr>
 <tr class="row-even"><td class="text-align:left"><p>Betriebs-Messgeräte</p></td>
-<td class="text-align:left"><p>1.0</p></td>
+<td class="text-align:left"><p>1,0</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p></p></td>
-<td class="text-align:left"><p>1.5</p></td>
+<td class="text-align:left"><p>1,5</p></td>
 </tr>
 <tr class="row-even"><td class="text-align:left"><p></p></td>
-<td class="text-align:left"><p>2.5</p></td>
+<td class="text-align:left"><p>2,5</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p></p></td>
-<td class="text-align:left"><p>5.0</p></td>
+<td class="text-align:left"><p>5,0</p></td>
 </tr>
 </tbody>
 </table>
@@ -871,12 +877,12 @@ title="Print to PDF"
 </div>
 <div class="tip admonition">
 <p class="admonition-title">Beispiel</p>
-<p>Das Gerät im Bild zeigt den Messwert 5,847V an. Laut Hersteller ist die Maximalabweichung (unter Referenzbedingungen) <span class="math notranslate nohighlight">\(a = \pm\)</span> (0,5% vom <em>Messwert</em> + 9 Digit). Die Anzahl der Nachkommastellen (also der Digits) ist in diesem Falle 3, also 0,001V. Genauer kann das Messgerät keine Spannung angeben. Die Messabweichung setzt sich also wiefolgt zusammen (zwei signifikante Stellen reichen hierbei, da der Messwert selber nicht genauer angezeigt wird):</p>
+<p>Das Gerät im Bild zeigt den Messwert 5,847V an. Laut Hersteller ist die Maximalabweichung (unter Referenzbedingungen) <span class="math notranslate nohighlight">\(a = \pm\)</span> (0{,}5% vom <em>Messwert</em> + 9 Digit). Die Anzahl der Nachkommastellen (also der Digits) ist in diesem Falle 3, also 0,001V. Genauer kann das Messgerät keine Spannung angeben. Die Messabweichung setzt sich also wiefolgt zusammen (zwei signifikante Stellen reichen hierbei, da der Messwert selber nicht genauer angezeigt wird):</p>
 <div class="math notranslate nohighlight">
-\[a = \pm (0,5\% \cdot 5,847\,\mathrm{V} + 9 \cdot 0,001\,\mathrm V) \approx \pm 0,038\,\mathrm V = \pm 38,235\,\mathrm{mV}\]</div>
+\[a = \pm (0{,}5\% \cdot 5{,}847\,\mathrm{V} + 9 \cdot 0{,}001\,\mathrm V) \approx \pm 0{,}038\,\mathrm V = \pm 38{,}235\,\mathrm{mV}\]</div>
 <p>Innerhalb dieses <span class="math notranslate nohighlight">\(\pm\)</span> Bereiches der Breite <span class="math notranslate nohighlight">\(2a\)</span> unterstellt man eine Gleichverteilung der Messwerte und bekommt damit die Standardunsicherheit:</p>
 <div class="math notranslate nohighlight">
-\[u(U) = \frac{a}{\sqrt{3}} = \frac{38,235\,\mathrm{mV}}{\sqrt{3}} \approx 22\,\mathrm{mV}\]</div>
+\[u(U) = \frac{a}{\sqrt{3}} = \frac{38{,}235\,\mathrm{mV}}{\sqrt{3}} \approx 22\,\mathrm{mV}\]</div>
 <p>Ist nichts weiter bekannt, schätzt man die Unsicherheit über einen Mindestfehler von a = 1 Digit ab.</p>
 </div>
 <div class="cell tag_hide-cell docutils container">
@@ -920,11 +926,11 @@ Die Unsicherheit beträgt: +- 0.02207 V = +- 22.07499 mV
 <p>Verbindungskabel besitzen Innenwiderstände, wo ebenfalls Spannungen abfallen:</p>
 <div class="math notranslate nohighlight">
 \[R_L = \frac{\zeta \cdot l}{A}\]</div>
-<p>Hierbei ist <span class="math notranslate nohighlight">\(\zeta\)</span> der spezifische Widerstand, der für Kupfer <span class="math notranslate nohighlight">\(0,0175\,\mathrm{\Omega mm^2/m}\)</span> beträgt. <span class="math notranslate nohighlight">\(l\)</span> ist die Länge der Zuleitung und <span class="math notranslate nohighlight">\(A\)</span> der Querschnittfläche des Kabels.</p>
+<p>Hierbei ist <span class="math notranslate nohighlight">\(\zeta\)</span> der spezifische Widerstand, der für Kupfer <span class="math notranslate nohighlight">\(0{,}0175\,\mathrm{\Omega mm^2/m}\)</span> beträgt. <span class="math notranslate nohighlight">\(l\)</span> ist die Länge der Zuleitung und <span class="math notranslate nohighlight">\(A\)</span> der Querschnittfläche des Kabels.</p>
 <p>Eine gemessene Spannung ist also zu hoch und muss korrigiert werden.</p>
 <div class="tip admonition">
 <p class="admonition-title">Aufgabe</p>
-<p>Angenommen man habe ein <span class="math notranslate nohighlight">\(2\,\mathrm m\)</span> langes Kabel, das einen Querschnitt von <span class="math notranslate nohighlight">\(0,5\,\mathrm{mm^2}\)</span> aufweist und aus Kupfer (mit einem spezifischen Widerstand von <span class="math notranslate nohighlight">\(0,0175\,\mathrm{\Omega mm^2/m}\)</span>) ist. Wie groß ist die systematische Messabweichung für eine Stromstärke von <span class="math notranslate nohighlight">\(I = 100\,\mathrm{mA}\)</span>, wenn jeweils ein solches Kabel zum Anschluss der Spannungsmessung genommen wird?</p>
+<p>Angenommen man habe ein <span class="math notranslate nohighlight">\(2\,\mathrm m\)</span> langes Kabel, das einen Querschnitt von <span class="math notranslate nohighlight">\(0{,}5\,\mathrm{mm^2}\)</span> aufweist und aus Kupfer (mit einem spezifischen Widerstand von <span class="math notranslate nohighlight">\(0{,}0175\,\mathrm{\Omega mm^2/m}\)</span>) ist. Wie groß ist die systematische Messabweichung für eine Stromstärke von <span class="math notranslate nohighlight">\(I = 100\,\mathrm{mA}\)</span>, wenn jeweils ein solches Kabel zum Anschluss der Spannungsmessung genommen wird?</p>
 </div>
 <div class="dropdown admonition">
 <p class="admonition-title">Lösung</p>
@@ -1006,7 +1012,7 @@ Der Wert für <span class="math notranslate nohighlight">\(U_L\)</span> beträgt
     <a class='right-next' id="next-link" href="1_Fehlerfortpflanzung.html" title="weiter Seite">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title">Fortpflanzung von Messunsicherheiten</p>
+        <p class="prev-next-title">Fehlerfortpflanzung</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

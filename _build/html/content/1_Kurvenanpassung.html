@@ -26,6 +26,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -58,7 +59,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
     <link rel="next" title="Interpolation vs. Regression" href="1_Interpol_Approx.html" />
-    <link rel="prev" title="Fortpflanzung von Messunsicherheiten" href="1_Fehlerfortpflanzung.html" />
+    <link rel="prev" title="Fehlerfortpflanzung" href="1_Fehlerfortpflanzung.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="de">
     
@@ -171,7 +172,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="1_Fehlerfortpflanzung.html">
-     Fortpflanzung von Messunsicherheiten
+     Fehlerfortpflanzung
     </a>
    </li>
    <li class="toctree-l2 current active">
@@ -197,18 +198,18 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="2_Messsystem.html">
-     Grundstruktur eines Messsystems
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="2_Kalibrieren.html">
      Kalibrieren und Eichen
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="2_Messsystem.html">
+     Grundstruktur eines Messsystems
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="2_idealeKennlinie.html">
-     Ideale Kennlinie
+     Kennlinie &amp; Empfindlichkeit
     </a>
    </li>
    <li class="toctree-l2">
@@ -234,6 +235,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="3_Digital.html">
+     Digitalisierung
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="3_Kenngroessen.html">
      Kenngrößen
     </a>
@@ -248,11 +254,6 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="3_FourierAnalyse.html">
      Fourier-Analyse
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="3_Digital.html">
-     Digitalisierung
     </a>
    </li>
   </ul>
@@ -434,7 +435,12 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="T_Plotten.html">
-     Messdaten analysieren
+     Ausgleichsgerade für Klimadaten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="T_Log.html">
+     Logarithmische Darstellung
     </a>
    </li>
    <li class="toctree-l2">
@@ -444,17 +450,17 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="T_LinReg.html">
-     Vergleich verschiedener Fit-Funktionen
+     Verschiedene Fit-Routinen
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="T_FitmitFehlerbalken.html">
-     Lineare Regression mit Berücksichtigung von Fehlerbalken
+     Lineare Regression mit Fehlerbalken
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="T_Spektralanalyse_Audio.html">
-     Fourier-Transformation: Entfernung von Hintergrundrauschen in einem Audiosignal
+     Fourier-Transformation und Filtern
     </a>
    </li>
   </ul>
@@ -1257,7 +1263,7 @@ Die Korrelationsmatrix zwischen x und t mittels numpy-Paket lautet:
 </div>
 </div>
 </div>
-<p>Der Korrelationskoeffizient von <span class="math notranslate nohighlight">\(+ 0,97035\)</span> zeigt mit positivem Vorzeichen eine direkte Proportionalität zwischen <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span>. Die geringfügige Abweichung zu +1 zeigt, dass die Messwerte dennoch leicht von dem erwarteten linearen Zusammenhang abweichen.</p>
+<p>Der Korrelationskoeffizient von <span class="math notranslate nohighlight">\(+ 0{,}97035\)</span> zeigt mit positivem Vorzeichen eine direkte Proportionalität zwischen <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span>. Die geringfügige Abweichung zu +1 zeigt, dass die Messwerte dennoch leicht von dem erwarteten linearen Zusammenhang abweichen.</p>
 <section id="bestimmtheitsmasz-a-id-subsec-bestimmtheitsmasz-a">
 <h3>Bestimmtheitsmaß <a id="SubSec-Bestimmtheitsmaß"></a><a class="headerlink" href="#bestimmtheitsmasz-a-id-subsec-bestimmtheitsmasz-a" title="Link zu dieser Überschrift">#</a></h3>
 <aside class="margin sidebar">
@@ -1338,7 +1344,7 @@ Die Korrelationsmatrix zwischen x und t mittels numpy-Paket lautet:
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">zurück</p>
-            <p class="prev-next-title">Fortpflanzung von Messunsicherheiten</p>
+            <p class="prev-next-title">Fehlerfortpflanzung</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="1_Interpol_Approx.html" title="weiter Seite">

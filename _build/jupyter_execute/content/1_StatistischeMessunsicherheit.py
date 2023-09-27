@@ -173,8 +173,7 @@ glue("fig_häufigkeitsdichte_normalverteilung", fig, display=False)
 # Überraschenderweise ist die Verteilungsfunktion häufig auch dann immer noch normalverteilt, wenn sehr viele externe Störungen (evtl. mit unterschiedlichen Verteilungsfunktionen) zu einer gemeinsamen Störgröße kombiniert werden. Die zusammengefasste Störung ist trotzdem fast immer gaußverteilt, egal wie die Einzelverteilungen aussehen (Poissonverteilung oder anderes). Dies wird auch als der **zentrale Grenzwertsatz der Wahrscheinlichkeitstheorie** bezeichnet.
 # 
 # 
-# ```{admonition} **Zentraler Grenzwertsatz der Wahrscheinlichkeitstheorie**
-# :class: tip
+# ```{prf:definition} **Zentraler Grenzwertsatz der Wahrscheinlichkeitstheorie**
 # Der Durchschnitt einer großen Anzahl von Zufallsvariablen aus derselben Verteilung sind annäherend normalverteilt, unabhängig von der Verteilungsfunktion aus der sie herausgenommen wurden. 
 # ```
 
@@ -187,19 +186,24 @@ glue("fig_häufigkeitsdichte_normalverteilung", fig, display=False)
 # Normalverteilte Zufallsgrößen werden immer von zwei Parametern $\overline x$ und $\sigma$ beschrieben. 
 # Der **arithmetische Mittelwert $\overline x$**, der das **arithmetische Mittel $\mu$** aus $m$ Beobachtungen ist, oder auch **Erwartungswert $E(x)$** genannt, gilt:
 # 
+# ```{prf:definition} **Arithmetische Mittel**
 # $$\overline x = \frac{1}{m}\sum_{j=1}^m x_j =: E(x) = \left< x \right> = \mu$$
+# ```
 # 
 # Der *Erwartungswert der quadratischen Abweichung der Einzelmessungen vom Mittelwert*, die **Varianz** $\sigma^2$, ist:
 # 
+# ```{prf:definition} **Arithmetische Varianz**
 # $$\sigma^2  =  \frac{1}{m} \sum_{j=1}^m \left( x_j - \mu \right)^2$$
-# 
-# ```{admonition} Bemerke: 
-# Der arithmetische Mittelwert zeichnet sich dadurch aus, dass für diesen Wert die Summe der Abweichungsquadrate minimal ist. Die Varianz hängt nicht von der Anzahl der Messungen ab. Die Streuung kann *ausschließlich* durch ein besseres Messverfahren verkleinert werden. Anschaulich ist das direkt nachvollziehbar: Die „Punktwolke“ der Messergebnisse um den Mittelwert schmiegt sich nicht enger an den Mittelwert, nur weil häufiger gemessen wurde. Ein stark streuendes Messverfahren streut durch seine Wiederholung nicht weniger. 
 # ```
+# 
+# 
+# Der arithmetische Mittelwert zeichnet sich dadurch aus, dass für diesen Wert die Summe der Abweichungsquadrate minimal ist. Die Varianz hängt nicht von der Anzahl der Messungen ab. Die Streuung kann *ausschließlich* durch ein besseres Messverfahren verkleinert werden. Anschaulich ist das direkt nachvollziehbar: Die „Punktwolke“ der Messergebnisse um den Mittelwert schmiegt sich nicht enger an den Mittelwert, nur weil häufiger gemessen wurde. Ein stark streuendes Messverfahren streut durch seine Wiederholung nicht weniger. 
 # 
 # Unabhängig von der zugrundeliegenden Verteilung der Messwerte kann nun ein Maß für die Abweichung definiert werden, welche als **Standardabweichung der Einzelmessungen** bekannt ist und sich aus der Quadratwurzel der Varianz berechnen lässt:
 # 
+# ```{prf:definition} **Arithmetische Standardabweichung**
 # $$\sigma = \sqrt{\frac{1}{m} \sum_{j=1}^m (x_j - \mu)^2}$$
+# ```
 # 
 # Man nehme beispielhaft die Zeitmessung von oben. Es wurden 15 wiederholte Messungen der Zeit durchgeführt. Mittelwert, Standardabweichung der Einzelmessungen und Unsicherheit des Mittelwertes werden berechnet. 
 
@@ -247,11 +251,15 @@ print(tabulate(zusammenfassung_df, headers='keys', tablefmt='pretty'))
 # 
 # Du wirst bei deinen Messungen in der Regel weniger an der Streuung um den Mittelwert, sondern mehr an der (geschätzten) Streuung der Messwerte um den (unbekannten) *wahren* Wert interessiert sein. Diese Unsicherheit schätzt man durch die **empirische Varianz $s^2(x)$ der Messwerte der $x_j$** ab. Diese ist etwas größer als die Varianz $\sigma^2$, nämlich um den Faktor $m/(m − 1)$:
 # 
+# ```{prf:definition} **Empirische Varianz**
 # $$s^2 = \frac{1}{m-1} \sum_{j=1}^m (x_j - \overline x)^2$$
+# ```
 # 
 # Die **empirische Standardabweichung $s(x)$ der Messwerte** ist die wieder Wurzel, diesmal aus der empirischen Varianz:
 # 
+# ```{prf:definition} **Empirische Standardabweichung**
 # $$s = \sqrt{\frac{1}{m-1} \sum_{j=1}^m (x_j - \overline x)^2}$$
+# ```
 
 # In[7]:
 
@@ -274,10 +282,8 @@ print("\nZusammenfassungsstatistiken:")
 print(tabulate(zusammenfassung_df, headers='keys', tablefmt='pretty'))
 
 
-# ```{warning} 
 # Die Größen $\sigma$ und $s$ unterscheiden sich aufgrund von $m \rightarrow m-1$! Je weniger Messwerte $m$, desto signifikanter ist der Unterschied.
 # Welche Größe, s oder $\sigma$, als Messunsicherheit für die Einzelmessung $x$ verwendet wird hängt vom Einzelfall ab. Wichtig ist, dass man dazu schreibt, welcher Wert verwendet wurde, damit die Argumentation nochvollzogen werden kann. Generell sollte $s$ insbesondere bei wenigen Messwerten verwendet werden, denn mit $s$ ist auch der etwas seltsame Fall einer Einzelmessung abgedeckt: für m = 1 wäre $\sigma$ = 0, $s$ dagegen nicht definiert. Die zweite Aussage ist, bezogen auf die statistische Interpretation, sicher sinnvoller.
-# ```
 
 # In[8]:
 
@@ -304,7 +310,9 @@ print(tabulate(zusammenfassung_df, headers='keys', tablefmt='pretty'))
 # Angenommen, wir nehmen jetzt viele ($k$) Stichproben auf und berechnen jedes mal den Mittelwert, so sind laut *Grenzwertsatz* die Mittelwerte normalverteilt! 
 # Das heißt aus den verschiedenen Mittelwerten von $k$ Stichproben könnte theoretisch wieder ein Mitelwert berechnet werden und folglich auch eine **Standardabweichung der Mittelwerte**:
 # 
+# ```{prf:definition} **Standardabweichung der Mittelwerte**
 # $$s(\overline x) = \frac{s}{\sqrt{m}} = \sqrt{\frac{1}{m(m-1)} \sum_{j=1}^m (x_j - \overline x)^2}$$
+# ```
 
 # In[9]:
 
@@ -435,7 +443,7 @@ plt.show()
 # Wir haben eben bereits erwähnt, dass 68% der Messwerte innerhalb des Intervalls $\pm \sigma(x)$ liegen. 
 # 
 # ```{admonition} Weitere Sigma-Umbegbungen, die man kennen sollte:
-# :class: tip
+# :class:
 # Bei einer echten Normalverteilung gilt folgendes:
 # * 68,3% aller Messwerte liegen im Bereich $\pm \sigma$
 # * 95,5% aller Messwerte liegen im Bereich $\pm 2\sigma$
@@ -475,7 +483,7 @@ plt.show()
 # :::
 # 
 # :::{admonition} Lösung: Wahrscheinlichkeit im Intervall $P(x_1 < x < x_2)$ berechnen
-# :class: dropdown
+# :class: tip, dropdown
 # * Obere und untere Grenze werden in den $z$-Wert umgerechnet:
 # 
 #  $z_o = \frac{x-\mu}{\sigma} = \frac{(0,69-0,7)\,\mathrm l}{0,005\,\mathrm l} = -2$
@@ -495,12 +503,6 @@ plt.show()
 # Mit einer Wahrscheinlichkeit von 95,45 % werden die Flaschen in der Abfüllanlage mit einem Inhalt von 0,69 l – 0,71 l befüllt. Dies entspricht auch genau der Wahrscheinlichkeit der $2\sigma$-Umgebung (siehe vorheriges Kapitel), was für $z = \pm 2$ natürlich auch so sein sollte. 
 # :::
 # 
-# ```{warning}
-# Als wichtigste Erkenntnis gilt es festzuhalten, dass zu jeder Aussage zu zufälligen Abweichungen die zugehörige Wahrscheinlichkeit für das Zutreffen dieser Aussage zwingend erforderlich ist.
-# Messwertangaben ohne Aussage zur Wahrscheinlichkeit bezüglich der zufälligen Abweichungen sind in der betrieblichen Praxis nicht brauchbar!
-# ```
-# 
-# 
 # 
 # ### Güteklassen von Messgeräten 
 # 
@@ -510,9 +512,9 @@ plt.show()
 # | Intervallgrenzen | Transformation | $P(x) = \Phi(z)$ | Bezeichnung | Wahrscheinlichkeit
 # |:-------|:-------|:-------|:-------|:-------|
 # | $\mu \pm 1 \cdot \sigma$ | 1 | 0,6827| Orientierende Messung | 68,27% |
-# | $\mu \pm 1.96 \cdot \sigma$ | 1,96 | 0,95| Betriebsmessung | 95% |
+# | $\mu \pm 1{,}96 \cdot \sigma$ | 1,96 | 0,95| Betriebsmessung | 95% |
 # | $\mu \pm 2 \cdot \sigma$ | 2 | 0,9545| Betriebsmessung | 95,45% |
-# | $\mu \pm 2.58 \cdot \sigma$ | 2,58 | 0,99| Präzisionsmessung | 99% |
+# | $\mu \pm 2{,}58 \cdot \sigma$ | 2,58 | 0,99| Präzisionsmessung | 99% |
 # | $\mu \pm 3 \cdot \sigma$ | 3 | 0,9973| Präzisionsmessung | 99,73% |
 # | $\mu \pm 4 \cdot \sigma$ | 4 | 0,9999| Präzisionsmessung | 99,99% |
 # 
@@ -543,27 +545,27 @@ plt.show()
 # :::
 # 
 # :::{admonition} Lösung: Gib das Messergebnis für obige Zeitmessreihe an!
-# :class: dropdown
+# :class: tip, dropdown
 # Für die Zeitmessreihe aus dem oben aufgeführten Beispiel waren folgende Parameter gegeben:
 # * Anzahl der Messwerte $m=22$
-# * Mittelwert: $\overline x = 1,40227\,\mathrm{s}$
-# * Standardabweichung der Einzelmessung: $s = 0,0433\,\mathrm{s}$
+# * Mittelwert: $\overline x = 1{,}40227\,\mathrm{s}$
+# * Standardabweichung der Einzelmessung: $s = 0{,}0433\,\mathrm{s}$
 # 
 # Für die Standardabweichung des Mittelwertes erhalten wir dadurch: 
 # 
-# $$u_{\overline x} = \frac{s}{\sqrt{m}} = \frac{0,0433\,\mathrm s}{\sqrt{22}} = 0,009\,\mathrm s$$
+# $$u_{\overline x} = \frac{s}{\sqrt{m}} = \frac{0{,}0433\,\mathrm s}{\sqrt{22}} = 0{,}009\,\mathrm s$$
 # 
 # Mit einer Sicherheit von über 68% sind die Messwerte im folgenden Intervall zu erwarten:
 # 
-# $$x = (1,402 \pm 2\cdot 0,009)\,\mathrm s = (1,402 \pm 0,009)\,\mathrm s \quad (68,27\%)$$
+# $$x = (1{,}402 \pm 2\cdot 0{,}009)\,\mathrm s = (1{,}402 \pm 0{,}009)\,\mathrm s \quad (68{,}27\%)$$
 # 
 # Mit einer Sicherheit von über 95% sind die Messwerte im folgenden Intervall zu erwarten:
 # 
-# $$x = (1,402 \pm 2\cdot 0,009)\,\mathrm s = (1,402 \pm 0,018)\,\mathrm s \quad (95\%)$$
+# $$x = (1{,}402 \pm 2\cdot 0{,}009)\,\mathrm s = (1{,}402 \pm 0{,}018)\,\mathrm s \quad (95\%)$$
 # 
 # Mit einer Sicherheit von über 99% sind die Messwerte im folgenden Intervall zu erwarten:
 # 
-# $$x = (1,402 \pm 3\cdot 0,009)\,\mathrm s = (1,402 \pm 0,027)\,\mathrm s \quad (99,73\%)$$
+# $$x = (1{,}402 \pm 3\cdot 0{,}009)\,\mathrm s = (1{,}402 \pm 0{,}027)\,\mathrm s \quad (99{,}73\%)$$
 # :::
 
 # In[10]:
@@ -607,23 +609,23 @@ print('Das Messergebnis für ein Vertrauensintervall von 99,73% (3-sigma Umgebun
 # 
 # Für die Zeitmessreihe aus dem oben aufgeführten Beispiel waren folgende Parameter gegeben:
 # * Anzahl der Messwerte $m=22$
-# * Mittelwert: $\overline x = 1,40227\,\mathrm{s}$
-# * Standardabweichung der Einzelmessung: $s = 0,0433\,\mathrm{s}$
-# * Standardabweichung des Mittelwertes: $u_{\overline x} = \frac{s}{\sqrt{m}} = \frac{0,0433\,\mathrm s}{\sqrt{22}} = 0,009\,\mathrm s$
+# * Mittelwert: $\overline x = 1{,}40227\,\mathrm{s}$
+# * Standardabweichung der Einzelmessung: $s = 0{,}0433\,\mathrm{s}$
+# * Standardabweichung des Mittelwertes: $u_{\overline x} = \frac{s}{\sqrt{m}} = \frac{0{,}0433\,\mathrm s}{\sqrt{22}} = 0{,}009\,\mathrm s$
 # 
 # Oben hatten wir das Ergebnis, in dem 95% der Messwerte zu finden sind, wiefolgt angegeben ($2\sigma$-Vertrauensbereich benutzen):
 # 
-# $$x = (1,402 \pm 2\cdot 0,009)\,\mathrm s = (1,402 \pm 0,018)\,\mathrm s \quad (95\%)$$
+# $$x = (1{,}402 \pm 2\cdot 0{,}009)\,\mathrm s = (1{,}402 \pm 0{,}018)\,\mathrm s \quad (95\%)$$
 # 
 # In Anbetracht der sehr kleinen Stichprobe von lediglich $m=22$ Messwerten sollte jedoch die Student-t Verteilung hinzugezogen werden und der Vertrauensbereich für 95% korrigiert werden. Es gilt also:
 # 
-# > $P = 1-\alpha = 0,95$. Daraus folgt:
+# > $P = 1-\alpha = 0{,}95$. Daraus folgt:
 # 
-# > $\Rightarrow \alpha = 1-P = 1-0,95 = 0,05$
+# > $\Rightarrow \alpha = 1-P = 1-0{,}95 = 0{,}05$
 # 
-# > $\Rightarrow \alpha/2 = 0,025$
+# > $\Rightarrow \alpha/2 = 0{,}025$
 # 
-# > $\Rightarrow p = 1-\alpha/2 = 1-0,025 = 0,975$
+# > $\Rightarrow p = 1-\alpha/2 = 1-0{,}025 = 0{,}975$
 # 
 # Für die Berechnung des s-Quantils gilt:
 # 
@@ -631,9 +633,9 @@ print('Das Messergebnis für ein Vertrauensintervall von 99,73% (3-sigma Umgebun
 # 
 # Der $t$-Wert des korrigierten Vertrauensbereichs wird aus der Tabelle abgelesen:
 # 
-# $$t_{s;p} = t_{m-1; 1-\alpha/2} = t_{21; 0,975} = 2,080$$
+# $$t_{s;p} = t_{m-1; 1-\alpha/2} = t_{21; 0{,}975} = 2{,}080$$
 # 
-# $$x = (1,402 \pm 2,080\cdot 0,009)\,\mathrm s = (1,402 \pm 0,0187)\,\mathrm s \quad (95\% \textrm{ t-Verteilung})$$
+# $$x = (1{,}402 \pm 2{,}080\cdot 0{,}009)\,\mathrm s = (1{,}402 \pm 0{,}0187)\,\mathrm s \quad (95\% \textrm{ t-Verteilung})$$
 # 
 # Der Unterschied zum Vertrauensbereich, der aus der Normalverteilung hervorgeht, ist ein über 4% höherer Fehler.
 # 
@@ -643,7 +645,9 @@ print('Das Messergebnis für ein Vertrauensintervall von 99,73% (3-sigma Umgebun
 # 
 # Desweiteren können Vertrauensbereiche unterschiedlicher Wahrscheinlichkeiten ineinander umgerechnet werden:
 # 
+# ```{prf:definition} **Umrechnung von Vertrauensbereichen**
 # $$\frac{u_{\alpha 1}}{t_{m-1; 1-\frac{\alpha_1}{2}}} =  \frac{u_{\alpha 2}}{t_{m-1; 1-\frac{\alpha_2}{2}}}$$
+# ```
 # 
 # Hierbei ist $\alpha$ das Signifikanzniveau, also die Irrtumswahrscheinlichkeit $\alpha = 1-P$, wobei $P$ die Wahrscheinlichkeit bzw. die geforderte statistische Sicherheit ist.
 # 
@@ -651,29 +655,22 @@ print('Das Messergebnis für ein Vertrauensintervall von 99,73% (3-sigma Umgebun
 # :::{admonition} Beispiel zur Umrechnung von Vertrauensbereichen
 # :class: tip, dropdown
 # 
-# Die Umrechnung des Vertrauensbereich 95% aus dem letzten Beispiel sollen in einen Vertrauensbereich mit einem anderen Vertrauensniveau, von 99% erfolgen. Die Ergebnisse für 95% sind bekannt. Nun muss das Quantil für 99% (also $\alpha = $1%) bestimmt werden. Analog werden die $s = m-1 = 21$ und $p = 1-\alpha/2 = 1-0,005 = 0,995$ Quantile bestimmt und der $t$-Wert aus der Tabelle abgelesen: 
+# Die Umrechnung des Vertrauensbereich 95% aus dem letzten Beispiel sollen in einen Vertrauensbereich mit einem anderen Vertrauensniveau, von 99% erfolgen. Die Ergebnisse für 95% sind bekannt. Nun muss das Quantil für 99% (also $\alpha = $1%) bestimmt werden. Analog werden die $s = m-1 = 21$ und $p = 1-\alpha/2 = 1-0{,}005 = 0{,}995$ Quantile bestimmt und der $t$-Wert aus der Tabelle abgelesen: 
 # 
-# $$t_{s;p} = t_{m-1; 1-\alpha/2} = t_{21; 0,995} = 2,831$$
+# $$t_{s;p} = t_{m-1; 1-\alpha/2} = t_{21; 0,995} = 2{,}831$$
 # 
 # Hieraus kann nun nach obiger Gleichung der Vertrauensbereich für 99% berechnet werden:
 # 
-# > $\frac{u_{\alpha 1}}{t_{m-1; 1-\frac{\alpha_1}{2}}} =  \frac{u_{\alpha 2}}{t_{m-1; 1-\frac{\alpha_2}{2}}}$
+# $$\frac{u_{\alpha 1}}{t_{m-1; 1-\frac{\alpha_1}{2}}} =  \frac{u_{\alpha 2}}{t_{m-1; 1-\frac{\alpha_2}{2}}}$$
 # 
-# > $\Rightarrow u_{\alpha 2} = u_{\alpha 1} \cdot \frac{t_{m-1; 1-\frac{\alpha_2}{2}}}{t_{m-1; 1-\frac{\alpha_1}{2}}} = 0,0187\,\mathrm s \cdot 2,831 / 2,080 = 0,025\,\mathrm s$
+# $$\Rightarrow u_{\alpha 2} = u_{\alpha 1} \cdot \frac{t_{m-1; 1-\frac{\alpha_2}{2}}}{t_{m-1; 1-\frac{\alpha_1}{2}}} = 0{,}0187\,\mathrm s \cdot 2{,}831 / 2{,}080 = 0{,}025\,\mathrm s$$
 # 
 # Die Angabe des Messergebnisses lautet somit:
 # 
-# $$x = (1,402 \pm 0,025)\,\mathrm s \quad (99\%)$$
-# :::
-# 
-# :::{warning} 
-# Achtung: Verwechsel nicht die empirische Standardabweichung, $s$, mit dem $s$-Quantil der Student-t-Verteilung. 
+# $$x = (1{,}402 \pm 0{,}025)\,\mathrm s \quad (99\%)$$
 # :::
 
-# 
-# 
-# 
-# ## Zusammenfassung: Wann und wie benutze ich welche Verteilung und Vertrauensintervalle? 
+# ## Zusammenfassung
 # 
 # ![Bild](pictures/zusammenfassung_zufaellig.png)
 

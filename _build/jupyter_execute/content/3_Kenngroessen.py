@@ -99,13 +99,14 @@ plt.show()
 # 
 # * **Scheitelfaktor (Crest-Faktor)**: 
 #     
-#     $$k_S = \frac{\hat u}{u_\mathrm{eff}}$$
+#     $$k_S = \frac{\mathrm{Scheitelwert}}{\mathrm{Effektivwert}} = \frac{\hat u}{u_\mathrm{eff}}$$
 #     
 # * **Formfaktor**: 
 #     
 #     $$k_F = \frac{u_\mathrm{eff}}{\overline{|u|}}$$
 #     
 # Allgemein kann man sagen, dass je größer der Scheitelfaktor, desto mehr übersteigt der Spitzenwert eines Signals den Effektivwert. Für die Praxis bedeutet dies, dass bei der Ermittlung eines Effektivwertes die Messeinrichtung aufgrund sehr hoher Spitzenwerte bereits übersteuert, obwohl der Effektivwert eigentlich noch ausreichend Aussteuerungsreserven aufweist. Besonders kritisch ist dieses Verhalten bei Pulsfolgen mit sehr kleinem Tastverhältnis. Hier kann der Scheitelfaktor unter Umständen Werte von 10 oder mehr annehmen. Messgeräte geben daher häufig Scheitelfaktoren vor, welche nicht überschritten werden sollten. 
+# 
 # 
 # ## Kenngrößen bei der Digitalisierung 
 # 
@@ -223,10 +224,10 @@ print('Formfaktor\t', Formfaktor[0], '\t\t', Formfaktor[1])
 # | Beschreibung | Formel |
 # |:--------------------|:----------------------------------------|
 # |Linearer Mittelwert / Gleichanteil | $\overline u = 0$ |
-# |Gleichrichtwert | $\overline{\lvert u \rvert} = \frac{2}{\pi}\cdot \hat u \approx 0,64 \cdot \hat u$ |
-# |Effektivwert (RMS) | $U = u_\mathrm{eff} = \frac{\hat u}{\sqrt{2}} \approx 0,71 \cdot \hat u$ |
-# |Scheitelfaktor | $k_S = \frac{\hat u}{u_\mathrm{eff}} = \sqrt{2} \approx 1,41$ |
-# |Formfaktor | $k_F = \frac{u_\mathrm{eff}}{\overline{\lvert u \rvert}} = \frac{\pi}{2\sqrt{2}} \approx 1,11$ |
+# |Gleichrichtwert | $\overline{\lvert u \rvert} = \frac{2}{\pi}\cdot \hat u \approx 0{,}64 \cdot \hat u$ |
+# |Effektivwert (RMS) | $U = u_\mathrm{eff} = \frac{\hat u}{\sqrt{2}} \approx 0{,}71 \cdot \hat u$ |
+# |Scheitelfaktor | $k_S = \frac{\hat u}{u_\mathrm{eff}} = \sqrt{2} \approx 1{,}41$ |
+# |Formfaktor | $k_F = \frac{u_\mathrm{eff}}{\overline{\lvert u \rvert}} = \frac{\pi}{2\sqrt{2}} \approx 1{,}11$ |
 #     
 #     
 # **Sinussignal mit Gleichanteil**: $u(t) = u_0 + \hat{u}\cdot \sin(\omega t + \phi )$
@@ -257,64 +258,57 @@ print('Formfaktor\t', Formfaktor[0], '\t\t', Formfaktor[1])
 # :::::
 # ::::::
 # 
-# Ein weiteres Beispiel ist für eine Pulsweitenmodulation berechnet und die Formeln können aus folgendem Bild abgelesen werden. Es handelt sich um ein unsymmetrisches Rechtecksignal. In diesem Fall sprechen wir von einem Pulsweitenmodulierten Signal, da die 'An'-Zeit innerhalb einer bestimmten Anwendung nicht immer gleich groß sein muss. Das Verhältnis 
+# Die Pulsweitenmodulation (PWM) ist eine digitale Modulationsart, bei der die Spannung schnell ein- und ausgeschaltet wird. Es handelt sich prinzipiell um ein Rechtecksignal mit einer Ein- und Ausschaltzeit und einer konstanten Frequenz. Zur Generierung eines solchen Spannungssignals wird die Spannung einfach für eine kurze Zeit unterbrochen. Das Verhältnis aus Spannungspuls und der Pause, können gewünschte Effektivspannungen erzeugt werden. 
+# Die 'An'-Zeit innerhalb einer bestimmten Anwendung muss hierbei nicht immer gleich groß sein. Das Verhältnis 
 # 
 # $$\tau = \frac{\Delta t}{T}$$
 # 
-# wird auch Tastverhältnis genannt. Hierüber kann ein Messwert analog codiert und übertragen werden, während das Signal selber digital ist.
+# wird auch **Tastverhältnis oder Tastgrad** genannt. Hierüber kann ein Messwert analog codiert und übertragen werden, während das Signal selber digital ist.
+# Bei einem Testgrad von 50% liegt immer die Hälfte der Eingangsspannung an. 
 
 # In[3]:
 
 
-#Benötigte Libraries:
 import numpy as np
-import pandas as pd
 import matplotlib.pyplot as plt
-from scipy import signal 
-import plotly.offline as py
-py.init_notebook_mode(connected=True)
-import plotly.graph_objs as go
-import plotly.tools as tls
-import seaborn as sns
-import time
-import warnings
-warnings.filterwarnings('ignore')
+from matplotlib.animation import FuncAnimation
+from IPython.display import HTML
 
-# MatplotLib Settings:
-plt.style.use('default') # Matplotlib Style wählen
-#plt.xkcd()
-plt.rcParams['font.size'] = 10; # Schriftgröße
+# Abtastparameter
+fs = 1000  # Abtastfrequenz in Hz
+t = np.linspace(0, 3, int(fs), endpoint=False)  # Zeitachse für 1 Sekunde
+f = 1
+T = 1/f
+# Erzeugen eines PWM-Signals mit einem Anfangs-Tastgrad von 0.5
+duty_cycle = 0.5
+pwm_signal = 0.5*(signal.square(2 * np.pi * f * t, duty=duty_cycle)+1)
 
-A = 1.0   # Amplitude
-f = 10    # Frequenz in Hz
-phi = 0.  # Phase in radian
-T = 1/f   # Perdiodendauer
-t = np.linspace(0,2*T,100) # Zeitwerte der Sinusfunktion in sec
+# Funktion zur Aktualisierung der Animation mit dem geänderten Tastgrad
+def update(duty_cycle):
+    pwm_signal = 0.5*(signal.square(2 * np.pi * 1 * t, duty=duty_cycle)+1)
+    ax.clear()
+    ax.plot(t, pwm_signal, lw=2, label = 'PWM Signal')
+    ax.axhline(np.sqrt(duty_cycle/T), color ='tab:red', label = r'Effektivwert $\sqrt{\Delta t / T}$')
+    ax.set_title(f'PWM Signal mit Tastgrad (Duty Cycle) = {duty_cycle:.2f}')
+    ax.set_xlabel('Zeit (s)')
+    ax.set_ylabel('Amplitude')
+    ax.grid(True)
+    ax.legend(loc = 'upper right')
 
-fig = plt.figure(figsize=(7,3))
-ax = fig.add_axes([0.1, 0.1, 0.8, 0.8])
-ax.plot(t, 0.5*A * signal.square(2 * np.pi * 1/T * t) + 0.5*A, 'tab:blue', label = r'$\phi = 0.0\,\mathrm{rad}$')
-ax.plot(t, 0.5*A * signal.square(2 * np.pi * 1/T * t + 0.5) + 0.5*A, 'tab:red', ls = '--',label = r'$\phi = 0.5\,\mathrm{rad}$')
-#plt.arrow(0.5*T, 0.5*A, 0.5*T, 0)
-plt.annotate(r'', xy=(0.5*T, 0.5*A), xytext=(T, 0.5*A), arrowprops=dict(arrowstyle='<->'))
-plt.annotate(r'$\Delta t$', xy=(0.5*T, 0.5*A), xytext=(0.72*T, 0.48*A))
-ax.set_xlabel('Zeit')
-ax.set_ylabel('Amplitude (a.u.)')
-ax.set_xlim(0,2*T)
-ax.set_xticks([0, T, 2*T])
-ax.set_xticklabels(['0','T','2T'])
-ax.set_yticks([0, A])
-ax.set_yticklabels(['0',r'$\hat u$'])
-ax.set_title(r'u(t) = $\hat u \cdot \mathrm{rect}(t + \phi) $')
-ax.grid()
-ax.legend()
-plt.show()
+# Erstellen des Plots für die Animation
+fig, ax = plt.subplots(figsize=(10, 4))
+ani = FuncAnimation(fig, update, frames=np.linspace(0.1, 0.9, 17), repeat=False)
+
+# Display the animation
+#plt.tight_layout()
+plt.close()
+HTML(ani.to_jshtml())
 
 
 # **Pulssignal**:
 # | Beschreibung | Formel |
 # |:--------------------|:----------------------------------------|
-# |Linearer Mittelwert / Gleichanteil | $\overline u = 0,5 \cdot \hat u $ |
+# |Linearer Mittelwert / Gleichanteil | $\overline u = 0{,}5 \cdot \hat u $ |
 # |Gleichrichtwert | $\overline u = \overline{\lvert u \rvert} = \frac{\Delta t}{T}\cdot \hat u$ |
 # |Effektivwert (RMS) | $U = u_\mathrm{eff} = \sqrt{\overline{u^2}} = \sqrt{\frac{\Delta t}{T}}\cdot \hat u$ |
 # |Scheitelfaktor | $k_S = \sqrt{ \frac{T}{\Delta t}}$ |

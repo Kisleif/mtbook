@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Linear zeitinvariante (LZI/LTI) Systeme 
+# # Linear zeitinvariante Systeme (LTI)
 # <a id="Sec-LZI_system"></a>
 # 
-# LTI Systeme sind wichtig, da, obwohl sie zwar sehr vereinfacht sind und die Realität nur bedingt abbilden, sehr gut zu lösen sind. Sie sind in der Tat die einzigen Systeme, die wir lösen können (mittels Differentialgleichungen). 
+# Linear zeitinvariante Systeme (LZI, engl.: LTI) sind wichtig, da, obwohl sie zwar sehr vereinfacht sind und die Realität nur bedingt abbilden, sehr gut zu lösen sind. Sie sind in der Tat die einzigen Systeme, die wir lösen können (mittels Differentialgleichungen). 
 # 
 # Für ein LTI System können Ausgangssignale vorhergesagt werden, die man für bestimmte Eingangssignale erwarten würde. Das gleiche gilt auch für *Veränderungen* von Eingangssignalen. 
 # 

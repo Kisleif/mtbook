@@ -56,6 +56,11 @@
 # 
 # Hier ist die Einheit *einheitenlos* und wird in Prozent (%) wird.
 # 
+# ```{warning}
+# Als wichtigste Erkenntnis gilt es festzuhalten, dass zu jeder Aussage zu zufälligen Abweichungen die zugehörige Wahrscheinlichkeit für das Zutreffen dieser Aussage zwingend erforderlich ist.
+# Messwertangaben ohne Aussage zur Wahrscheinlichkeit bezüglich der zufälligen Abweichungen sind in der betrieblichen Praxis nicht brauchbar!
+# ```
+# 
 # 
 # ```{admonition} Mess*unsicherheit* vs. Mess*fehler*
 # :class: dropdown

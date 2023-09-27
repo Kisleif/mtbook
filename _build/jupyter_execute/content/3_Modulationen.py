@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Modulation von Messsignalen <a id="SubSec-Information"></a>
+# # Modulation <a id="SubSec-Information"></a>
 # 
 # ::::::{margin}
 # :::::{grid}
@@ -14,82 +14,104 @@
 # :::::
 # ::::::
 # 
-# Im ersten Abschnitt haben wir schon angedeutet, dass nicht nur physikalische Größen in Messsignale umgewandelt werden, sondern auch Signale in andere Signalformen. Sehr häufiges Beispiel aus der Messtechnik ist der Informationsparameter Amplitude der in Frequenz umgewandelt wird. Dies hat den einfachen Grund, dass die Frequenz eines Messsignals extrem unempfindlich gegenüber Störeinflüssen aus der Umgebung ist. Eine Amplitude wird viel schneller verfälscht, oder abgeschwächt, als die Frequenz. Ein weiterer Vorteil ist, dass die Frequenz eines Messsignals sehr einfach digitalisiert werden kann, wodurch auch die physikalische Größe schnell digital zur Verfügung steht. Man könnte beispielsweise eine einfache Triggereinrichtung nutzen, welche die Frequenz eines Messsignals in Pulse umwandelt, die mit einer bestimmten Wiederholrate (also mit der Frequenz des Signals) zur Verfügung gestellt werden. Diese Pulse werden dann innerhalb eines definierten Zeitfensters ausgezählt. Mit solchen *Frequenzzählern* werden wir uns später noch ausführlicher beschäftigen. Für solch eine Art von Messsignal wird eine **Modulation** des Messsignals benötigt, welche die physikalische Größe (z.B. ein Audiosignal) auf den Träger (z.B. eine Radiowelle), aufbringt. 
+# 
+# Im Bereich der Messtechnik spielt die Modulation eine zentrale Rolle, da sie es ermöglicht, physikalische Messgrößen oder Messsignale auf eine bestimmte Signalform zu übertragen. Ein anschauliches Beispiel hierfür ist die Verwendung von Sinusschwingungen mit den Parametern Amplitude, Phase und Frequenz. Hierbei wird die physikalische Messgröße in einen dieser Parameter moduliert, indem die Amplitude, Phase oder Frequenz entsprechend angepasst werden – dies verleiht der Sinusschwingung Informationen über die gemessene Größe, beispielsweise in ihrer Frequenz.
+# Dieser Ansatz hat einen klaren Vorteil: Die Frequenz eines Messsignals ist äußerst unempfindlich gegenüber Störungen aus der Umgebung, im Vergleich zur Amplitude, die leichter verfälscht oder abgeschwächt wird. Ein weiterer Pluspunkt besteht darin, dass die Frequenz eines Messsignals einfach digitalisiert werden kann, wodurch die physikalische Größe schnell in digitaler Form zur Verfügung steht.
+# 
+# Ein praktisches Beispiel dafür wäre die Verwendung einer Trigger-Einrichtung, die die Frequenz eines Messsignals in Pulse umwandelt und sie mit einer bestimmten Wiederholrate – also der Frequenz des Signals – zur Verfügung stellt. Diese Pulse werden dann innerhalb eines definierten Zeitfensters gezählt. In späteren Abschnitten werden wir uns ausführlicher mit solchen "Frequenzzählern" beschäftigen. Für die Realisierung dieser Art von Messsignal ist eine Modulation des Ausgangssignals erforderlich, um die physikalische Größe, beispielsweise ein Audiosignal, auf den Träger, wie etwa eine Radiowelle, zu übertragen.
+# 
 # 
 # ## Träger- und Nutzsignale
 # 
-# Klassischerweise benutzt man eine sinusförmige Schwingung konstanter Frequenz und Amplitude als **Trägerschwingung**. Durch die Modulation können folgende Parameter der Trägerschwingung beeinflusst werden:
-# * die Amplitude. Dies ist bekannt als Amplitudenmodulation (AM)
-# * die Frequenz. Dies ist bekannt als Frequenzmodulation (FM)
-# * die Phase. Hierbei wird der Nullphasenwinkel verschoben. Dies ist bekannt als Phasenmodulation (PM)
+# In der Welt der Signalübertragung spielen Trägersignale und Nutzsignale eine grundlegende Rolle. Klassischerweise wird eine sinusförmige Schwingung mit konstanter Frequenz und Amplitude als **Trägerschwingung** verwendet. Durch Modulation können verschiedene Parameter der Trägerschwingung beeinflusst werden:
 # 
-# Im Anschluss muss mittels **Demodulation** der originale Zeitverlauf der physikalischen Größe zurückgewonnen werden. 
+# - Die **Amplitude** kann moduliert werden, was als Amplitudenmodulation (AM) bekannt ist.
+# - Die **Frequenz** kann moduliert werden, was als Frequenzmodulation (FM) bezeichnet wird.
+# - Die **Phase** kann verschoben werden, wodurch Phasenmodulation (PM) entsteht.
 # 
-# **Nutzsignale** wie Sprache oder Musik können häufig nicht direkt über gewünschte Übertragungsmedien wie beispielsweise einen Funkkanal übertragen werden. Hierfür wird ein Trägersignal benötigt, mittels welchem das Nutzsignal übertragen werden kann.
-# Wir nehmen ein sinusförmiges Nutzsignal (*message*) an:
+# Die Demodulation ist ein entscheidender Schritt, um den ursprünglichen zeitlichen Verlauf der physikalischen Größe zurückzugewinnen.
+# 
+# **Nutzsignale** wie Sprache oder Musik können oft nicht direkt über gängige Übertragungsmedien, wie beispielsweise einen Funkkanal, übertragen werden. Stattdessen wird ein Trägersignal benötigt, um das Nutzsignal effektiv zu übertragen. Nehmen wir an, wir haben ein sinusförmiges Nutzsignal (*message*) gegeben:
 # 
 # $$m(t) = A_\mathrm{m} \cdot \sin(2\pi f_\mathrm{m} t)$$
 # 
-# mit der Amplitude $A_\mathrm{m}$ and Frequenz $f_\mathrm{m} = 100\,\mathrm{Hz}$. Außerdem widmen wir uns zunächst einem *sinusförmigen* Trägersignal (*carrier*)
+# mit der Amplitude $A_\mathrm{m}$ und der Frequenz $f_\mathrm{m} = 100\,\mathrm{Hz}$. Betrachten wir zunächst ein *sinusförmiges* Trägersignal (*carrier*):
 # 
 # $$s(t) = A_c \cdot \sin(2\pi f_c t + p_0)$$
 # 
-# mit der Amplitude $A_c$ und der Trägerfrequenz $f_c = 1\,\mathrm{kHz}$. $p_{0}$ ist eine Konstante, die Phase zum Zeitpunkt $t=0$.
-# Beide Signale sind den folgenden Diagrammen für $f_\mathrm{m} = 100\,\mathrm{Hz}$ und $f_c = 1\,\mathrm{kHz}$ dargestellt.
+# Hierbei repräsentiert $A_c$ die Amplitude und $f_c$ die Trägerfrequenz. Die Konstante $p_0$ stellt die Phase zum Zeitpunkt $t=0$ dar. Die folgenden Diagramme zeigen beide Signale für $f_\mathrm{m} = 100\,\mathrm{Hz}$ und $f_c = 1\,\mathrm{kHz}$.
+# 
+# Nutzsignale wie Sprache weisen Frequenzen im Bereich von 500 Hz bis 10 kHz auf (wobei Männer tendenziell tiefere und Frauen höhere Frequenzen verwenden). Diese Frequenzen sind zu niedrig, um direkt über Funkkanäle (im Bereich von 200 MHz bis 5 GHz) übertragen zu werden. Aus diesem Grund wird zunächst ein hochfrequenter Träger mithilfe einer Oszillatorschaltung erzeugt:
 
 # In[1]:
 
 
 from scipy.fft import rfft, rfftfreq
-from scipy.io.wavfile import read #import the required function from the module
 import matplotlib.pyplot as plt
 import numpy as np
-# MatplotLib Settings:
-plt.style.use('default') # Matplotlib Style wählen
-plt.figure(figsize=(8,3)) # Plot-Größe
-#plt.xkcd()
-plt.rcParams['font.size'] = 10; # Schriftgröße
 
-samplerate, data = read('CantinaBand3.wav')
-duration = len(data)/samplerate
-time = np.arange(0,duration,1/samplerate) #time vector
+# Matplotlib-Einstellungen:
+plt.style.use('default')
+plt.figure(figsize=(8, 6))
+plt.rcParams['font.size'] = 10
 
-Fs = 22050.0;  # sampling rate
-Ts = 1.0/Fs; # sampling interval
-t = np.arange(0,0.02,Ts) # time vector
-ff = 1000;   # frequency of the carrier
-f_m = 100
-maxN = int(Fs/2)
-# Sinusschwingung
-f = lambda freq, ampl, t:  ampl*np.sin(2*np.pi*freq*t)
-y = f(ff,1.0,t)
-y_nutz = f(f_m,1.0,t)
+# Parameter für die Signale
+Fs = 22050.0  # Abtastrate
+Ts = 1.0 / Fs  # Abtastintervall
+t = np.arange(0, 0.02, Ts)  # Zeitvektor
+ff = 1000  # Frequenz des Trägersignals
+f_m = 100  # Frequenz des Nutzsignals
 
-data_norm = data/np.max(data)
-y_nutz_norm = y_nutz/np.max(y_nutz)
-plt.subplot(1,2,1)
-#plt.plot(time, data_norm, 'tab:blue')
-plt.plot(t, y_nutz_norm, 'tab:blue')
-plt.xlabel('Zeit (s)')
+# Funktion zur Erzeugung einer Sinusschwingung
+f = lambda freq, ampl, t: ampl * np.sin(2 * np.pi * freq * t)
+
+# Erzeugen der Signale
+y_nutz = f(f_m, 1.0, t)
+y_nutz_norm = y_nutz / np.max(y_nutz)
+y_träger = f(ff, 1.0, t)
+
+# Plot für die Nachricht
+plt.subplot(3, 2, 1)
+plt.plot(1000*t, y_nutz_norm, 'tab:blue')
+plt.xlim([0,20])
+plt.xlabel('Zeit (ms)')
 plt.ylabel('Amplitude')
 plt.title('Nachricht')
-#plt.xlim([0.0,0.3])
-#plt.ylim([-0.4,0.4])
 
-plt.subplot(1,2,2)
-plt.plot(t, y, 'k')
-plt.xlabel('Zeit (s)')
+# Plot für das Trägersignal
+plt.subplot(3, 2, 3)
+plt.plot(1000*t, y_träger, 'k')
+plt.xlim([0,20])
+plt.xlabel('Zeit (ms)')
 plt.ylabel('Amplitude')
 plt.title('Trägersignal')
-#plt.xlim([0.0,0.3])
+
+# Frequenzspektrum der Nachricht
+plt.subplot(3, 2, 2)
+N = len(y_nutz_norm)
+frequencies = rfftfreq(N, Ts)
+y_nutz_fft = rfft(y_nutz_norm)
+plt.stem(frequencies, np.abs(y_nutz_fft), 'tab:blue', markerfmt='o', basefmt=" ", linefmt='-')
+plt.xlim([0,1500])
+plt.xlabel('Frequenz (Hz)')
+plt.ylabel('Amplitude')
+plt.title('Frequenzspektrum der Nachricht')
+
+# Frequenzspektrum des Trägersignals
+plt.subplot(3, 2, 4)
+y_träger_fft = rfft(y_träger)
+plt.stem(frequencies, np.abs(y_träger_fft), 'k', markerfmt='o', basefmt=" ", linefmt='-')
+plt.xlim([0,1500])
+plt.xlabel('Frequenz (Hz)')
+plt.ylabel('Amplitude')
+plt.title('Frequenzspektrum des Trägersignals')
+
 
 plt.tight_layout()
 plt.show()
 
 
-# Es gibt nun verschiedene Methoden, um die Nachricht auf das Trägersignal zu modulieren und so zu übertragen:
-# 
-# ## Amplitudenmodulation
+# ## Amplitudenmodulation (AM)
 # 
 # ::::::{margin}
 # :::::{grid}
@@ -113,13 +135,15 @@ plt.show()
 # :::::
 # ::::::
 # 
-# Zur Übertragung wird das Nutzsignal in einen anderen Frequenzbereich verschoben, was beispielsweise durch eine **Amplitudenmodulation (AM)** geschehen kann. Durch das Verschieben können auch mehrere Nutzsignale gleichzeitig und ohne gegenseitige Störung übertragen werden.
+# Die Amplitudenmodulation kennt ihr vom Radio, wenn ihr die AM Taste drückt.  
+# Mittels Amplitudenmodulation kann das Nutzsignal $m(t)$, was z.B. Sprache oder Musik ist, in einen anderen Frequenzbereich verschoben. 
+# Durch das Verschieben können auch mehrere Nutzsignale gleichzeitig und ohne gegenseitige Störung übertragen werden. 
 # 
 # $$y_\mathrm{AM}(t) = \left[A_c + M_a \cdot m(t)\right] \cdot \sin(2\pi  f_c  t)$$
 # 
-# $M_a$ ist die Modulationsstärke und $m(t)$ die modulierende Funktion oder kurz der Modulator. Hier wäre es entsprechend die Nachricht, die auf das Trägersignal moduliert wird. 
+# $M_a$ ist die Modulationsstärke und $m(t)$ die modulierende Funktion oder kurz der Modulator (z.B. Sprache oder Musik). Alternativ zur Modulationsstärke könnte man auch das Nutzsignal vorher um den Gleichanteil verschieben, um zu verhindern, dass die Amplitudemodulation in den negativen Bereich moduliert.  
 # 
-# Setzt man ein sinusförmiges Nutzsignal ein, so erhält man:
+# Setzt man beispielsweise ein sinusförmiges Nutzsignal ein, so erhält man für eine sinusfürmige Trägerschwingung:
 # 
 # $$
 # \begin{align} 
@@ -144,49 +168,60 @@ plt.show()
 # In[2]:
 
 
-# MatplotLib Settings:
-plt.style.use('default') # Matplotlib Style wählen
-plt.figure(figsize=(7,3)) # Plot-Größe
-#plt.xkcd()
-plt.rcParams['font.size'] = 10; # Schriftgröße
+from scipy.fft import rfft, rfftfreq
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Matplotlib-Einstellungen:
+plt.style.use('default')
+plt.figure(figsize=(10, 8))
+plt.rcParams['font.size'] = 10
+
+# Parameter für die Signale
+Fs = 22050.0  # Abtastrate
+Ts = 1.0 / Fs  # Abtastintervall
+t = np.arange(0, 0.02, Ts)  # Zeitvektor
+ff = 1000  # Frequenz des Trägersignals
+f_m = 100  # Frequenz des Nutzsignals
+
+# Funktion zur Erzeugung einer Sinusschwingung
+f = lambda freq, ampl, t: ampl * np.sin(2 * np.pi * freq * t)
+
+# Erzeugen der Signale
+y_nutz = f(f_m, 1.0, t)
+y_nutz_norm = y_nutz / np.max(y_nutz)
+y_träger = f(ff, 1.0, t)
+
 A = 1.0
 M_a = 0.5
 AM = (A+M_a*y_nutz_norm)*f(ff,1.0,t)
 
-plt.plot(t*1000, y, 'k', ls=':', label = 'Träger')
+# Plot für die Nachricht
+plt.subplot(3, 2, 1)
+plt.plot(t*1000, y_träger, 'k', ls=':', label = 'Träger')
 plt.plot(t*1000,AM, 'tab:red', lw=2, alpha = 0.65, label = 'AM')
 plt.plot(t*1000, (A+M_a*y_nutz_norm), 'tab:blue', label = 'Einhüllende')
-plt.title('Amplitudenmodulation (AM)')
-#plt.xlim([0.276,0.285])
-#plt.ylim([-1.5,1.5])
+plt.xlim([0,20])
 plt.xlabel('Zeit (ms)')
 plt.ylabel('Amplitude')
-plt.legend()
-plt.show()
+plt.title('Zeitserie')
 
 
-# Alternativ zur Berechnung des modulierten Signals im Zeitbereich kann dies auch über die Fourier-Transformation im Frequenzbereich geschehen. Die dazu inverse Fourier-Transformation führt wieder in den Zeitbereich (siehe [Fourier-Analyse](3_FourierAnalyse.ipynb)).
-
-# In[3]:
-
-
-from scipy.fft import rfft, rfftfreq
-# MatplotLib Settings:
-plt.style.use('default') # Matplotlib Style wählen
-plt.figure(figsize=(4,4)) # Plot-Größe
-#plt.xkcd()
-plt.rcParams['font.size'] = 10; # Schriftgröße
-# Note the extra 'r' at the front
-AMyf = rfft(AM)
-AMxf = rfftfreq(len(AM), 1 / Fs)
-markerline, stemlines, baseline = plt.stem(AMxf,np.abs(AMyf), markerfmt = 'D') # plotting the spectrum
-
+# Frequenzspektrum der Nachricht
+plt.subplot(3, 2, 2)
+N = len(y_nutz_norm)
+frequencies = rfftfreq(N, Ts)
+y_nutz_fft = rfft(AM)
+plt.stem(frequencies, np.abs(y_nutz_fft), 'tab:blue', markerfmt='o', basefmt=" ", linefmt='-')
+plt.xlim([0,1500])
 plt.xlabel('Frequenz (Hz)')
-plt.ylabel('FFT')
-plt.title('AM im Frequenzbereich')
-plt.xlim([500,1500])
-plt.tight_layout()
+plt.ylabel('Amplitude')
+plt.title('Frequenzspektrum')
 
+
+
+
+plt.tight_layout()
 plt.show()
 
 
@@ -214,8 +249,9 @@ plt.show()
 # 
 # Auf Grund der Einfachheit dieses Verfahrens kann das empfangene Signal leicht durch Verzerrungen gestört werden. 
 
-# ## Phasenmodulation 
+# ## Phasenmodulation  (PM)
 # 
+# Die Amplitudenmodulation ist sehr störanfällig, daher benutzt man heutzutage nur noch Frequenz- oder Phasenmodulationen. 
 # Frequenzmodulation und Phasenmodulation hängen mathematisch eng zusammen. Eine Phasenmodulation eines sinusförmigen Trägers kann man sehr einfach ausdrücken. Zunächst der unmodulierte Träger:
 # 
 # $$ s(t) = A_c \cdot \sin(2\pi f_c t + p_0)$$
@@ -236,7 +272,7 @@ plt.show()
 # 
 # Man sieht, dass eine Phasenmodulation mathematisch sehr einfach auszudrücken ist.
 # 
-# ## Frequenzmodulation
+# ## Frequenzmodulation (FM)
 # 
 # ::::::{margin}
 # :::::{grid}
@@ -249,47 +285,77 @@ plt.show()
 # :::::
 # ::::::
 # 
-# Vom heutigen Stand der Technik betrachtet ist die AM allerdings überholt, weil die Qualitätsansprüche gestiegen sind und mit modernen Bauelementen die **Frequenzmodulation (FM)** erheblich einfacher, billiger und leistungssparender gebaut werden können. Außerdem haben die FM einen höheren Dynamikumfang des Informationssignals und ist weniger anfällig gegenüber Störungen. Eine Frequenzmodulation setzt voraus, dass sich die Frequenz ständig ändert. Dieses lässt sich nicht mehr durch einen Term der Form $\omega_c t = 2\pi f_c t$ ausdrücken, sondern wir müssen den Begriff der momentanen Kreisfrequenz einführen:
+# 
+# Die Amplitudenmodulation (AM) wird heutzutage oft durch die Frequenzmodulation (FM) ersetzt, da die Qualitätsanforderungen gestiegen sind und moderne Bauelemente die FM-Technik effizienter, kostengünstiger und energieeffizienter gestalten. FM bietet auch einen größeren Dynamikbereich für die Übertragung von Informationen und ist weniger anfällig für Störungen. Dies macht FM zur bevorzugten Wahl für Anwendungen wie das FM-Radio und die bidirektionale Kommunikation per Funk.
+# 
+# Die Grundidee der Frequenzmodulation besteht darin, die momentane Frequenz des Trägersignals $\omega_c$ kontinuierlich zu ändern, um Informationen zu übertragen. Dies kann nicht mehr einfach durch den linearen Term $\omega_c t = 2\pi f_c t$ ausgedrückt werden. Stattdessen verwenden wir den Begriff der momentanen Kreisfrequenz:
 # 
 # $$\omega(t) = \frac{d}{dt}p(t)$$
 # 
-# wobei $p(t)$ eine sich verändernde Phase ist. Die **momentane Frequenz** ist also ganz allgemein die zeitliche Ableitung der Phasenfunktion (vgl. in diesem Zusammenhang die Beziehung zwischen Geschwindigkeit und Ort und die Analogie zwischen Phase und Ort bzw. Frequenz und Geschwindigkeit). Eine Frequenzmodulation fordert nun, dass sich die momentane Frequenz verändert:
+# Hier ist $p(t)$ die sich ständig ändernde Phase. Die momentane Frequenz $\omega (t)$ ist die zeitliche Ableitung der Phasenfunktion, ähnlich zur Beziehung zwischen Geschwindigkeit und Ortsveränderung oder der Analogie zwischen Phase und Ort sowie Frequenz und Geschwindigkeit.
 # 
-# $$\omega (t)=\omega_c+M_{f} m(t)$$ 
+# In der Frequenzmodulation wird gefordert, dass sich die momentane Frequenz des Trägersignals, $\omega_c$, ändert:
 # 
-# wobei $M_f$ wieder die Modulationstärke ist und $m(t)$ die modulierende Funktion, bzw. *message*.
+# $$\omega (t)=\omega_c+M_{f} m(t) = \omega_c + \Delta \omega$$ 
 # 
-# Für die Berechnung der Kurvenform zu jedem Zeitpunkt benötigen wir jedoch nicht die momentane Frequenz, sondern die Phasenfunktion. Wenn die Frequenz die Ableitung der Phase ist, so ist umgekehrt die Phase das Integral der Frequenz:
+# oder
+# 
+# $$f (t)=f_c+ \frac{1}{2\pi}M_{f} m(t) = f_c + \Delta f$$ 
+# 
+# Hierbei repräsentiert $M_f$ die Modulationstärke und $m(t)$ die modulierende Funktion, auch als *message* bezeichnet. $\Delta f$ ist die resultierende Frequenzänderung oder der Frequenzhub (englisch: *deviation*) aufgrund der Modulation. Der Wert von $\Delta f$ kann sowohl negativ als auch positiv sein. Zum Beispiel bewirkt eine Frequenzänderung von $\Delta f = +15\,\mathrm{kHz}$, dass der Träger um 15 kHz über $f_c$ verschoben wird. Häufig wird mit $\Delta f$ die *maximale* Frequenzänderung $\Delta f_\mathrm{max}$ bezeichnet, um die die Trägerfrequenz $f_c$ maximal verschoben wird. Der genaue Wert von $\Delta f_\mathrm{max}$ hängt vom Design des Senders, der Konfiguration und den Anforderungen der jeweiligen Anwendung ab.
+# 
+# Um die Kurvenform zu einem bestimmten Zeitpunkt zu berechnen, benötigen wir jedoch nicht die momentane Frequenz, sondern die Phasenfunktion. Da die Frequenz die Ableitung der Phase ist, ist die Phase das Integral der Frequenz:
 # 
 # $$ p(t)=\int \omega (t)\,\mathrm {d} t $$
 # 
-# Setzen wir dies nun in die Gleichung für momentane Frequenz ein, erhalten wir folglich:
+# Wenn wir dies in die Gleichung für die momentane Frequenz einsetzen, erhalten wir:
 # 
 # $$ p(t)=\int \omega_c+M_{f} m(t)\,\mathrm {d} t = \omega_c t + p_0 + M_{f} \int  m(t)\,\mathrm {d} t$$
 # 
-# Damit erhält man für die Frequenzmodulation folgenden Ausdruck:
+# Somit ergibt sich für die Frequenzmodulation folgender Ausdruck:
 # 
 # $$y_\mathrm{FM}(t) = A_c \cdot \sin\left(2\pi f_c t + p_0 + M_f\int m(t) dt \right)$$
 # 
-# Die Frequenzänderung ist durch die Amplitude des Nachrichtensignals gegeben. 
+# Wenn wir ein beliebiges Signal mit einer beliebigen Frequenz $f_m$ in diese Gleichung einsetzen, erhalten wir:
 # 
-# ## Vergleich zwischen PM und FM
+# $$
+# \begin{align}
+# y_\mathrm{FM}(t) &= A_c \cdot \sin\left(2\pi f_c t + p_0 + M_f\int A_\mathrm{m} \cdot \sin(2\pi f_\mathrm{m} t) dt \right)\\
+#  &= A_c \cdot \sin\left(2\pi f_c t + p_0 - \frac{M_f A_\mathrm{m}}{2 \pi f_\mathrm m} \cdot \cos(2\pi f_\mathrm{m} t) \right)\\
+# \end{align}
+# $$
 # 
-# Wir setzen als Beispiel das oben eingeführte sinusförmige Nachrichtensignal, $m(t) = A_{m} \cdot \sin(2\pi f_\mathrm{m} t)$, mit $A_m=1$ und $A_c=1$ in die PM und FM Formeln ein:
+# Der **Modulationsindex** (englisch: *deviation ratio*) wird als Verhältnis von maximaler Frequenzänderung zu maximaler Modulationsfrequenz (*message*) definiert:
 # 
-# $$ y_\mathrm{PM}(t) = \sin\left(2\pi f_c t  +p_0 + M_p \sin[2\pi f_m t]\right)$$
+# $$\eta = \frac{\Delta f}{f_m}$$
+# 
+# Hierbei steht $f_m$ für die maximale Frequenz im zu übertragenden Nachrichtensignal. Je nach Anwendung können unterschiedliche Modulationsindizes gewählt werden. In der Musik gibt es beispielsweise sehr hohe Frequenzen, weshalb eine große Frequenzänderung $\Delta f$ erforderlich ist, um einen hohen Modulationsindex und somit eine höhere Übertragungsqualität zu erreichen. Bei der Übertragung von Sprache mit eher niedrigen Frequenzen kann eine kleinere Frequenzänderung verwendet werden. Der Modulationsindex kann durch die Wahl der Frequenzänderung angepasst werden, und es wird grundsätzlich zwischen **breitbandiger** FM (wenn $\eta > 1$) und **schmalbandiger**
+# 
+# 
+# 
+
+# ## Vergleich zwischen AM, PM und FM
+# 
+# Um die Unterschiede zwischen Amplitudenmodulation (AM), Phasenmodulation (PM) und Frequenzmodulation (FM) zu verdeutlichen, betrachten wir ein sinusförmiges Nachrichtensignal, \(m(t) = A_{m} \cdot \sin(2\pi f_\mathrm{m} t)\), mit \(A_m=1\) und \(A_c=1\), und setzen es in die Formeln für PM und FM ein:
+# 
+# $$ y_\mathrm{PM}(t) = \sin\left(2\pi f_c t  + p_0 + M_p \sin[2\pi f_m t]\right)$$
 # 
 # $$y_\mathrm{FM}(t) = \sin\left(2\pi f_c t + p_0 - \frac{M_f}{2\pi f_m}\cos[2\pi f_m t] \right)$$
 # 
-# Folgende Eigenschaften können beobachtet werden:
-# * Der Phasenhub für die Phasenmodulation ist immer noch $M_{p}$
-# * Der Phasenhub für die Frequenzmodulation ist ${\frac {M_{f}}{\omega_m}}$. 
-# * Die momentane Frequenz für die Phasenmodulation ist $\omega_c+M_{p}\omega_m\cos(\omega_m t+p_{m})$
-# * Die momentane Frequenz für die Frequenzmodulation ist $\omega_c+M_{f} \sin \left(\omega _{m}t+p_{m}\right)$
+# Hier sind einige wichtige Beobachtungen:
 # 
-# In beiden Fällen findet eine Modulation der Phase statt. Allerdings wirkt bei der Frequenzmodulation nicht der Modulator direkt auf die Phase ein, sondern es ist erst das Integral des Modulators zu rechnen. Das Integral hat eine Tiefpasswirkung. Der Phasenhub wird also bei der Frequenzmodulation mit zunehmender Frequenz des Modulators geringer. Umgekehrt wird der Frequenzhub bei der Phasenmodulation mit niedrig werdender Modulatorfrequenz immer geringer.
+# * Der Phasenhub (PM) bleibt unverändert bei \(M_{p}\).
+# * Der Phasenhub (FM) hängt von \(\frac {M_{f}}{\omega_m}\) ab.
+# * Die momentane Frequenz für PM wird durch \(\omega_c+M_{p}\omega_m\cos(\omega_m t+p_{m})\) bestimmt.
+# * Die momentane Frequenz für FM wird durch \(\omega_c+M_{f} \sin \left(\omega _{m}t+p_{m}\right)\) bestimmt.
+# 
+# In beiden Fällen erfolgt eine Modulation der Phase. Der Unterschied besteht darin, wie der Modulator auf die Phase einwirkt. Bei der Frequenzmodulation ist es notwendig, das Integral des Modulators zu berechnen, was eine Tiefpasswirkung hat. Das führt dazu, dass der Phasenhub bei steigender Modulatorfrequenz abnimmt, während der Frequenzhub bei Phasenmodulation mit sinkender Modulatorfrequenz abnimmt.
+# 
+# Wie bereits erwähnt, sind FM und PM unempfindlich gegenüber Änderungen in der Amplitude, was sie ideal für mobile Kommunikationsgeräte macht, bei denen sich die Umgebungsbedingungen schnell ändern können. In Anwendungen, in denen die Amplitude nicht zur Informationsübertragung verwendet wird, können nichtlineare Verstärker verwendet werden. Diese Verstärker sind energieeffizienter und verlängern die Batterielaufzeit, was für mobile Kommunikation von entscheidender Bedeutung ist.
+# 
+# Es ist jedoch wichtig zu beachten, dass FM im Vergleich zu anderen Modulationsmethoden wie AM und Single Sideband (SSB) eine höhere Bandbreite benötigt, was ihre spektrale Effizienz beeinträchtigt. Die Bandbreite eines FM-Signals hängt vom Frequenzhub (\textit{deviation}) ab.
 
-# In[4]:
+# In[3]:
 
 
 # MatplotLib Settings:
@@ -301,7 +367,7 @@ A = 1.0
 M_p = 4.0
 PM = A * np.sin(2*np.pi*ff*t + M_p*y_nutz_norm)
 plt.subplot(1,2,1)
-plt.plot(t, y, 'k', ls=':', label = 'Träger')
+plt.plot(t, y_träger, 'k', ls=':', label = 'Träger')
 plt.plot(t,PM, 'tab:red', lw=2, alpha = 0.65, label = 'AM')
 plt.plot(t, y_nutz_norm, 'tab:blue', label = 'Nachricht')
 plt.title('Phasenmodulation (PM)')
@@ -314,7 +380,7 @@ plt.ylabel('Amplitude')
 M_f = 1.0
 FM = A * np.sin(2*np.pi*ff*t + M_f*(np.cumsum(y_nutz_norm)))
 plt.subplot(1,2,2)
-plt.plot(t, y, 'k', ls=':', label = 'Träger')
+plt.plot(t, y_träger, 'k', ls=':', label = 'Träger')
 plt.plot(t,FM, 'tab:red', lw=2, alpha = 0.65, label = 'FM')
 plt.plot(t, y_nutz_norm, 'tab:blue', label = 'Nachricht')
 plt.title('Frequenzmodulation (FM)')
@@ -347,9 +413,3 @@ plt.show()
 # Auch hier gilt natürlich, dass eine entsprechende Demodulation nachgeschaltet werden muss, um das eigentliche Signal zurück zu gewinnen. 
 # 
 # 
-
-# In[ ]:
-
-
-
-

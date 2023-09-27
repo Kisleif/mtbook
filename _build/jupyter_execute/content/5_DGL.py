@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Systeme chatakterisieren im Zeitraum
+# # Systeme im Zeitraum
 
 # Mit dem *white box*-Verfahren lösen wir das System-Identifizierungsproblem indem wir genau analysieren, aus welchen Komponenten unser System besteht. Anhand eines Tiefpasses 1. Ordnung, wie in {numref}`LP` dargestellt, wollen wir uns die Vorgehensweise einmal ansehen. 
 # 
@@ -33,7 +33,7 @@
 # 
 # Systeme 1. Ordnung beschreiben *Energiespeicher*, also z.B. Temperaturmesser, die warm werden, oder auch Operationsverstärker, Kapazitäten und Elektromagneten. Im Prinzip ist jedes System, was sich erwärmt, ein Energiespeicher und wird somit ein System 1. Ordnung sein. Systeme 2. Ordnung haben einen zusätzlichen Dämpfungsterm. In diesen Systemen findet auch eine Umlagerung von Energien statt, wie es z.B. in einem LC-Schwingkreis passiert. Kondensator und Spule tauschen ständig Energien aus, wodurch es zu einer periodischen Schwingung kommt. Dieses System wir durch eine DGL 2. Ordnung beschrieben. 
 
-# ## Lösung der DGL für Sprunganregung im Zeitbereich
+# ## Lösung der DGL im Zeitbereich
 # 
 # Ziel ist es jetzt, eine Funktion für Eingangs- und Ausgangsspannung zu finden, die diese Gleichung erfüllt. Hierfür geht man im Allgemeinen in 5 Schritten vor. Wir werden später in diesem Kapitel noch sehen, dass DGL im Frequenz- bzw. Laplaceraum viel einfacher gelöst werden können als wir es hier, im Zeitraum, jetzt machen.
 # 
@@ -80,7 +80,10 @@ import seaborn as sns
 import time
 import warnings
 warnings.filterwarnings('ignore')
+from myst_nb import glue
 
+
+fig, ax = plt.subplots(figsize=(5, 3))
 plt.style.use('default') # Matplotlib Style wählen
 #plt.xkcd()
 plt.rcParams['font.size'] = 10; # Schriftgröße
@@ -101,16 +104,21 @@ for i in t2:
     y_step.append(heaviside_step_function(i))
     
 # Plotting
-fig, ax = plt.subplots(figsize=(3,2))
 plt.plot(t2,y_step, color = 'tab:blue')
 ax.set_yticks([0,1], labels = ['0', r'$u_0$'])
 ax.set_xticks([0])
-plt.title('Sprungsanregung bei t = 0s')
 plt.xlabel('Zeit t')
 plt.ylabel(r'$u_e$')
-plt.show()
+
+# Use Myst-NB to display the figure with a custom label
+glue("fig_sprung", fig, display=False)
 
 
+# ```{glue:figure} fig_sprung
+# 
+# Sprunganregung zur Zeit $t = 0\,\mathrm s$.
+# ```
+# 
 # * **3. Allgemeiner Ansatz:**
 # Nun kann der allgemeine Ansatz formuliert werden. Dieser ist einfach die Addition von homogener und spezieller Ansatz:
 # 
@@ -151,6 +159,9 @@ plt.show()
 import numpy as np
 import scipy.signal as signal
 import matplotlib.pyplot as plt
+import warnings
+warnings.filterwarnings('ignore')
+
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
 #plt.xkcd()
@@ -217,9 +228,17 @@ plt.xlabel("Zeit t")
 plt.legend()
 #plt.ylabel(r'$u_a(t)/u_0$')
 plt.tight_layout
-plt.show()
+
+# Use Myst-NB to display the figure with a custom label
+glue("fig_sprung_LP", fig, display=False)
 
 
+# ```{glue:figure} fig_sprung_LP
+# 
+# Sprung- (links) und Impulsantwort (rechts) eines Tiefpasses. Zum Vergleich ist die jeweilige Anregung des Systems (also Sprung $\sigma$ bzw. Impuls $\delta$) in rot dargestellt. Die blauen Kurven zeigen das Antwortverhalten des Tiefpasses. 
+# 
+# ```
+# 
 # Folgende Eigenschaften bestehen zwischen Sprung- und Impulsantwort:
 # 
 # * Die Sprunganregung $\sigma(t)$ liefert die Sprungantwort $h(t)$
@@ -234,7 +253,7 @@ plt.show()
 # 
 # * D.h. Sprung- und Impulsverhalten eines Messsystems können mittels Ableitung bzw. Integration direkt ineinaner umgerechnet werden, ohne ein neues Testsignal anlegen zu müssen (oder die DGL neu zu lösen)
 
-# ## Lösung der DGL für Sprunganregung im Frequenzbereich
+# ## Lösung der DGL im Frequenzbereich
 # 
 # Eine handlichere Methode DGL's zu lösen ist es diese zuerst in den Frequenzbereich zu transformieren. 
 # 

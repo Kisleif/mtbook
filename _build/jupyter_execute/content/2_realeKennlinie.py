@@ -257,10 +257,11 @@
 # 
 # Nun hängt allerdings der Verlauf einer Kennlinie nicht nur von der Herstellung ab, sondern auch von (äußeren) Einflusseffekten während des Messprozesses. Es hängt folglich immer von der Herstellung und Anwendung eines Messsystems ab, wie genau man wirklich messen kann.
 # 
-# `````{admonition} Aufgabe
+# ```{admonition} Aufgabe
 # :class: tip
-# *Aufgabe: Versuche im nächsten Code-Block eine ideale Gesamtkennlinienfunktion in einem bestimmten Bereich zu erhalten, ohne dass alle einzelnen Kennlinien linear sind. Verändere hierfür die Funktionen f1, f2, f3 und deren Parameter a_i, b_i, c_i*.
-# `````
+# Versuche im nächsten Code-Block eine ideale Gesamtkennlinienfunktion in einem bestimmten Bereich zu erhalten, ohne dass alle einzelnen Kennlinien linear sind. Verändere hierfür die Funktionen `f1`, `f2`, `f3` und deren Parameter `a_i`, `b_i`, `c_i``
+# .
+# ```
 
 # In[1]:
 
@@ -312,17 +313,17 @@ f, axs = plt.subplots(1,3,figsize=(8,3))
 axs[0].plot(u, x1)
 axs[0].set_xlabel('u')
 axs[0].set_ylabel('f1(u) = x1')
-axs[0].set_title('Kennlinie S1(u)')
+axs[0].set_title('Kennlinie f1(u)')
 
 axs[1].plot(x1, x2)
 axs[1].set_xlabel('x1')
 axs[1].set_ylabel('f2(x1) = x2')
-axs[1].set_title('Kennlinie S2(x1)')
+axs[1].set_title('Kennlinie f2(x1)')
 
 axs[2].plot(x2, x3)
 axs[2].set_xlabel('x2')
 axs[2].set_ylabel('f3(x2) = x3')
-axs[2].set_title('Kennlinie S3(x2)')
+axs[2].set_title('Kennlinie f3(x2)')
 plt.tight_layout()
 plt.show()
 
@@ -331,7 +332,7 @@ f, axs = plt.subplots(1,1,figsize=(9,3))
 axs.plot(u, x1*x2*x3)
 axs.set_xlabel('u')
 axs.set_ylabel('f1(u) * f2(x1) * f3(x2)')
-axs.set_title('Gesamtkennlinie: S1(u) * S2(x1) * S3(x2)')
+axs.set_title('Gesamtkennlinie: f1(u) * f2(x1) * f3(x2)')
 plt.show()
 
 

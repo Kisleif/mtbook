@@ -107,7 +107,7 @@ plt.tight_layout()
 # 
 # Indem wir die gegebenen Werte in diese Formel einsetzen, erhalten wir eine Näherung für $y$:
 # 
-# $$y = 4 + \frac{2,4 - 2}{3 - 2} \cdot (25 - 4) = 12,4$$
+# $$y = 4 + \frac{2,4 - 2}{3 - 2} \cdot (25 - 4) = 12{,}4$$
 # 
 # Die lineare Interpolation ermöglicht es uns also, den Wert einer Funktion zwischen zwei gegebenen Punkten abzuschätzen und kontinuierliche Informationen aus diskreten Daten zu gewinnen.
 

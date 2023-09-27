@@ -10,7 +10,7 @@ Von Oszilloskopen zur Analyse von Signalverläufen bis hin zu Multimetern zur Me
 ```{tableofcontents}
 ```
 
-## Checkliste, was du wissen solltest...
+## Zusammenfassung
 
 | Begriff | Beschreibung |
 |:--------------------|:----------------------------------------|

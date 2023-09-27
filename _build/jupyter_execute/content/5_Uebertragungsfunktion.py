@@ -79,7 +79,7 @@
 # 
 # Die Zeitkonstante $\tau = RC$ könnte nun noch in die Gleichung eingesetzt werden.
 
-# ## Darstellung: Bode Diagramm
+# ## Bode Diagramm
 # 
 # Nachdem wir nun die Übertragungsfunktion hergeleitet haben, wollen wir wissen, was wir aus dieser Funktion ableiten, bzw. von ihr lernen können. 
 # Wir verwenden wieder das Beispiels eines Tiefpasses. Zunächst einmal sehen wir, dass es sich bei $G$ um eine komplexe Zahl handelt. Wie für jede andere komplexe Zahl können wir hier Amplitude und Phase bestimmen. Dazu formen wir $G$ in die typische Schreibe einer komplexen Zahl um, sodass Real- ($\mathrm{Re}$) und Imaginärteil ($\mathrm{Im}$) direkt abgelesen werden können. Hierfür erweitern wir $G$ typischer mit dem komplex Konjugierten:
@@ -116,6 +116,9 @@
 import numpy as np
 import scipy.signal as signal
 import matplotlib.pyplot as plt
+import warnings
+warnings.filterwarnings('ignore')
+
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
 #plt.xkcd()
@@ -220,6 +223,9 @@ fig.tight_layout()
 import numpy as np
 import scipy.signal as signal
 import matplotlib.pyplot as plt
+import warnings
+warnings.filterwarnings('ignore')
+
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
 #plt.xkcd()
@@ -295,6 +301,9 @@ plt.tight_layout()
 # In[3]:
 
 
+import warnings
+warnings.filterwarnings('ignore')
+
 fig, ax = plt.subplots(figsize=(8,4))
 ax1 = plt.subplot2grid((1,2), (0,0)) # topleft
 ax3 = plt.subplot2grid((1,2), (0,1), rowspan=1)            # right
@@ -353,7 +362,7 @@ ax3.legend(loc=4)
 plt.tight_layout()
 
 
-# ## Sammlung von Bode-Diagrammen und Sprungantworten
+# ## Beispiel Bode-Diagramme
 # 
 # Einige Beispiele zu Systemen mit Verzögerungs, Dämpfungs bzw. auch integrierendem Verhalten sind in nachfolgenden Plots dargestellt. In der Literatur findet man häufig tabellarische Zusammenfassungen verschiedener Messsysteme inklusive Übertragungsfunktion und Bode-Diagramm, damit die DGL nicht jedes mal neu hergeleitet werden müssen. Die Hintereinanderschaltung einzelner Komponenten kann auch hier wieder ganz einfach im logarithmischen Bode-Diagramm per Addition der Übertragungsfunktionen abgeschätzt werden. 
 
@@ -363,6 +372,9 @@ plt.tight_layout()
 import numpy as np
 import scipy.signal as signal
 import matplotlib.pyplot as plt
+import warnings
+warnings.filterwarnings('ignore')
+
 # MatplotLib Settings:
 plt.style.use('default') # Matplotlib Style wählen
 #plt.xkcd()
@@ -418,10 +430,8 @@ def plot_bode_sprung(H, label_name, label_bode, label_sprung):
 
     fig.suptitle(label_name, fontsize=16)
     fig.tight_layout()
-
-
-# In[5]:
-
+    
+    
 
 # Transfer Funktion Tiefpass:
 
@@ -501,7 +511,7 @@ H = signal.TransferFunction(num , den)
 plot_bode_sprung(H, 'Tiefpass PT$_2$\n DGL: $T \cdot \ddot u_a + 2DT \cdot \dot u_a + u_a = K \cdot u_e$', r'$G(s) = \frac{K}{T s^2 + 2DT s+1} $',r'instabiler Kriechfall, D<-1')
 
 
-# ## Simulation von Testfunktionen an einem Tiefpass
+# ## Verhalten von Testfunktionen am Tiefpass
 # 
 # Im Folgenden Bild grafisch dargestellt, wie verschiedene Signale durch einen **Tiefpass** mit der Übertragungsfunktion 
 # 
@@ -512,10 +522,12 @@ plot_bode_sprung(H, 'Tiefpass PT$_2$\n DGL: $T \cdot \ddot u_a + 2DT \cdot \dot 
 # * Je größer $\tau$, desto langsamer ist das System
 # * Je kleiner $\tau$, desto schneller ist das System
 
-# In[6]:
+# In[5]:
 
 
 from scipy import signal
+import warnings
+warnings.filterwarnings('ignore')
 
 SAMPLE_RATE = 100.0  # Hertz
 DURATION = 10  # mSeconds
@@ -642,7 +654,7 @@ fig.tight_layout()
 # 
 # Aus Übertragungsfunktionen können noch weitere Eigenschaften von Messsystemen abgeleitet werden, auf die wir hier nicht näher eingehen können. Aus den Nullstellen und Polstellen kann aber abgelesen werden, ob das System stabil ist, sprungfähig ist oder eher ein integrales Verhalten aufweist. 
 # 
-# ## Referenztabellen für die Laplace-Transformation
+# ## Referenztabelle Laplace-Transformation
 # 
 # $\sigma(t)$ ist die Sprungfunktion und $\delta(t)$ der Delta-Dirac-Puls.
 # 

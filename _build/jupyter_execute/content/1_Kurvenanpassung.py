@@ -278,7 +278,7 @@ print('Die Korrelationsmatrix zwischen x und t mittels numpy-Paket lautet:')
 print(r)
 
 
-# Der Korrelationskoeffizient von $+ 0,97035$ zeigt mit positivem Vorzeichen eine direkte Proportionalität zwischen $x$ und $y$. Die geringfügige Abweichung zu +1 zeigt, dass die Messwerte dennoch leicht von dem erwarteten linearen Zusammenhang abweichen.
+# Der Korrelationskoeffizient von $+ 0{,}97035$ zeigt mit positivem Vorzeichen eine direkte Proportionalität zwischen $x$ und $y$. Die geringfügige Abweichung zu +1 zeigt, dass die Messwerte dennoch leicht von dem erwarteten linearen Zusammenhang abweichen.
 # 
 # ### Bestimmtheitsmaß <a id="SubSec-Bestimmtheitsmaß"></a>
 # 

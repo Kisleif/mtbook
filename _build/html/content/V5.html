@@ -26,6 +26,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -169,7 +170,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="1_Fehlerfortpflanzung.html">
-     Fortpflanzung von Messunsicherheiten
+     Fehlerfortpflanzung
     </a>
    </li>
    <li class="toctree-l2">
@@ -195,18 +196,18 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="2_Messsystem.html">
-     Grundstruktur eines Messsystems
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="2_Kalibrieren.html">
      Kalibrieren und Eichen
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="2_Messsystem.html">
+     Grundstruktur eines Messsystems
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="2_idealeKennlinie.html">
-     Ideale Kennlinie
+     Kennlinie &amp; Empfindlichkeit
     </a>
    </li>
    <li class="toctree-l2">
@@ -232,15 +233,13 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="3_Kenngroessen.html">
-     Kenngrößen
+    <a class="reference internal" href="3_Digital.html">
+     Digitalisierung
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="3_Modulationen.html">
-     Modulation von Messsignalen
-     <a id="SubSec-Information">
-     </a>
+    <a class="reference internal" href="3_Kenngroessen.html">
+     Kenngrößen
     </a>
    </li>
    <li class="toctree-l2">
@@ -249,8 +248,10 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="3_Digital.html">
-     Digitalisierung
+    <a class="reference internal" href="3_Modulationen.html">
+     Modulation
+     <a id="SubSec-Information">
+     </a>
     </a>
    </li>
   </ul>
@@ -432,7 +433,12 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="T_Plotten.html">
-     Messdaten analysieren
+     Ausgleichsgerade für Klimadaten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="T_Log.html">
+     Logarithmische Darstellung
     </a>
    </li>
    <li class="toctree-l2">
@@ -442,17 +448,17 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="T_LinReg.html">
-     Vergleich verschiedener Fit-Funktionen
+     Verschiedene Fit-Routinen
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="T_FitmitFehlerbalken.html">
-     Lineare Regression mit Berücksichtigung von Fehlerbalken
+     Lineare Regression mit Fehlerbalken
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="T_Spektralanalyse_Audio.html">
-     Fourier-Transformation: Entfernung von Hintergrundrauschen in einem Audiosignal
+     Fourier-Transformation und Filtern
     </a>
    </li>
   </ul>
@@ -702,18 +708,18 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="messsignale">
 <h1>Messsignale<a class="headerlink" href="#messsignale" title="Link zu dieser Überschrift">#</a></h1>
-<p>Ihr habt bereits einen soliden Einblick in die Grundlagen der stationären Messungen, Kennlinien, Sensitivität sowie der Abschätzung von Störungen und Unsicherheiten erhalten. Jetzt ist es an der Zeit, einen Schritt weiter zu gehen und die zeitliche Abhängigkeit mit einzubeziehen.</p>
-<p>Wir werden verstehen lernen, wie Messsignale entstehen, welche Arten von Signalen existieren und wie sie gemessen werden können. Außerdem werden wir uns mit entscheidenden Eigenschaften von Messsignalen befassen und erlernen, wie wir sie effektiv auswerten und interpretieren können.</p>
-<p>Egal, ob es sich um analoge oder digitale Messsignale handelt, ob wir es mit kontinuierlichen oder diskreten Signalen zu tun haben - all diese Aspekte werden wir genauestens unter die Lupe nehmen, um ihre Bedeutung für die präzise Datenerfassung vollständig zu verstehen.</p>
+<p>Ihr habt bereits solide Grundkenntnisse über stationäre Messungen, Kennlinien, Sensitivität sowie die Bewertung von Störungen und Unsicherheiten erworben. Jetzt ist es an der Zeit, einen Schritt weiterzugehen und die zeitliche Abhängigkeit in die Betrachtung einzubeziehen.</p>
+<p>In den kommenden Lektionen werden wir die Entstehung von Messsignalen verstehen, die verschiedenen Arten von Signalen kennenlernen und untersuchen, wie sie gemessen werden können. Darüber hinaus werden wir uns mit entscheidenden Eigenschaften von Messsignalen auseinandersetzen und lernen, wie wir sie effektiv auswerten und interpretieren können.</p>
+<p>Egal, ob es sich um analoge oder digitale Messsignale handelt, ob wir mit kontinuierlichen oder diskreten Signalen arbeiten - all diese Aspekte werden wir detailliert analysieren, um ihre Bedeutung für die präzise Datenerfassung vollständig zu erfassen.</p>
 <section id="inhalte">
 <h2>Inhalte<a class="headerlink" href="#inhalte" title="Link zu dieser Überschrift">#</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="3_basics.html">Grundlagen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_Kenngroessen.html">Kenngrößen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_Modulationen.html">Modulation von Messsignalen <a id="SubSec-Information"></a></a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_FourierAnalyse.html">Fourier-Analyse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3_Digital.html">Digitalisierung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Kenngroessen.html">Kenngrößen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_FourierAnalyse.html">Fourier-Analyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Modulationen.html">Modulation <a id="SubSec-Information"></a></a></li>
 </ul>
 </div>
 </section>

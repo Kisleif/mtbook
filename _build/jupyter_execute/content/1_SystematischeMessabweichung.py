@@ -5,7 +5,7 @@
 # 
 # ## Anzeigefehler von Messgeräten
 # 
-# Messgeräte werden anhand ihrer Genauigkeit in Klassen eingruppiert. Die Klasse entspricht der relativen Messabweichung. Präzisionsmessgeräte besitzen somit Abweichungen die zwischen 0,001% und 0,05% liegen. Die Genauigkeitsklasse K 2,5 (Angabe auf der Messskala nach DIN EN 60051 Abb. 1) bedeutet: Ist der Endwert des eingestellten Messbereichs $U_\mathrm{end}$, dann beträgt die Typ B-Unsicherheit über den gesamten Messbereich $u(U) = 0,0025\cdot U_\mathrm{end}$. Für $U_\mathrm{end} = 15\,\mathrm V$ erhält man also:
+# Messgeräte werden anhand ihrer Genauigkeit in Klassen eingruppiert. Die Klasse entspricht der relativen Messabweichung. Präzisionsmessgeräte besitzen somit Abweichungen die zwischen 0,001% und 0,05% liegen. Die Genauigkeitsklasse K 2,5 (Angabe auf der Messskala nach DIN EN 60051 Abb. 1) bedeutet: Ist der Endwert des eingestellten Messbereichs $U_\mathrm{end}$, dann beträgt die Typ B-Unsicherheit über den gesamten Messbereich $u(U) = 0{,}0025\cdot U_\mathrm{end}$. Für $U_\mathrm{end} = 15\,\mathrm V$ erhält man also:
 
 # In[1]:
 
@@ -24,18 +24,18 @@ print('eine absolute Unsicherheit von ', u*U_end, 'V')
 # ::::{grid-item}
 # | Messgeräte-Kategorie | Genauigkeits-Klasse (%) |
 # |:--------|:-----------|
-# |Präzisions-Messgeräte | 0.001 |
-# | | 0.002|
-# | | 0.005|
-# | | 0.01|
-# | | 0.05|
-# | Fein-Messgeräte | 0.1|
-# | | 0.2|
-# | | 0.5|
-# | Betriebs-Messgeräte | 1.0|
-# | | 1.5|
-# | | 2.5|
-# | | 5.0|
+# |Präzisions-Messgeräte | 0,001 |
+# | | 0,002|
+# | | 0,005|
+# | | 0,01|
+# | | 0,05|
+# | Fein-Messgeräte | 0,1|
+# | | 0,2|
+# | | 0,5|
+# | Betriebs-Messgeräte | 1,0|
+# | | 1,5|
+# | | 2,5|
+# | | 5,0|
 # ::::     
 #         
 # ::::{grid-item}
@@ -50,13 +50,13 @@ print('eine absolute Unsicherheit von ', u*U_end, 'V')
 # 
 # ```{admonition} Beispiel
 # :class: tip
-# Das Gerät im Bild zeigt den Messwert 5,847V an. Laut Hersteller ist die Maximalabweichung (unter Referenzbedingungen) $a = \pm$ (0,5% vom *Messwert* + 9 Digit). Die Anzahl der Nachkommastellen (also der Digits) ist in diesem Falle 3, also 0,001V. Genauer kann das Messgerät keine Spannung angeben. Die Messabweichung setzt sich also wiefolgt zusammen (zwei signifikante Stellen reichen hierbei, da der Messwert selber nicht genauer angezeigt wird):
+# Das Gerät im Bild zeigt den Messwert 5,847V an. Laut Hersteller ist die Maximalabweichung (unter Referenzbedingungen) $a = \pm$ (0{,}5% vom *Messwert* + 9 Digit). Die Anzahl der Nachkommastellen (also der Digits) ist in diesem Falle 3, also 0,001V. Genauer kann das Messgerät keine Spannung angeben. Die Messabweichung setzt sich also wiefolgt zusammen (zwei signifikante Stellen reichen hierbei, da der Messwert selber nicht genauer angezeigt wird):
 # 
-# $$a = \pm (0,5\% \cdot 5,847\,\mathrm{V} + 9 \cdot 0,001\,\mathrm V) \approx \pm 0,038\,\mathrm V = \pm 38,235\,\mathrm{mV}$$
+# $$a = \pm (0{,}5\% \cdot 5{,}847\,\mathrm{V} + 9 \cdot 0{,}001\,\mathrm V) \approx \pm 0{,}038\,\mathrm V = \pm 38{,}235\,\mathrm{mV}$$
 # 
 # Innerhalb dieses $\pm$ Bereiches der Breite $2a$ unterstellt man eine Gleichverteilung der Messwerte und bekommt damit die Standardunsicherheit:
 # 
-# $$u(U) = \frac{a}{\sqrt{3}} = \frac{38,235\,\mathrm{mV}}{\sqrt{3}} \approx 22\,\mathrm{mV}$$
+# $$u(U) = \frac{a}{\sqrt{3}} = \frac{38{,}235\,\mathrm{mV}}{\sqrt{3}} \approx 22\,\mathrm{mV}$$
 # 
 # Ist nichts weiter bekannt, schätzt man die Unsicherheit über einen Mindestfehler von a = 1 Digit ab.
 # ```
@@ -92,13 +92,13 @@ print('Die Unsicherheit beträgt: +-',round(A_total/np.sqrt(3),Nachkommastellen)
 # 
 # $$R_L = \frac{\zeta \cdot l}{A}$$
 # 
-# Hierbei ist $\zeta$ der spezifische Widerstand, der für Kupfer $0,0175\,\mathrm{\Omega mm^2/m}$ beträgt. $l$ ist die Länge der Zuleitung und $A$ der Querschnittfläche des Kabels.
+# Hierbei ist $\zeta$ der spezifische Widerstand, der für Kupfer $0{,}0175\,\mathrm{\Omega mm^2/m}$ beträgt. $l$ ist die Länge der Zuleitung und $A$ der Querschnittfläche des Kabels.
 # 
 # Eine gemessene Spannung ist also zu hoch und muss korrigiert werden.
 # 
 # :::{admonition} Aufgabe
 # :class: tip
-# Angenommen man habe ein $2\,\mathrm m$ langes Kabel, das einen Querschnitt von $0,5\,\mathrm{mm^2}$ aufweist und aus Kupfer (mit einem spezifischen Widerstand von $0,0175\,\mathrm{\Omega mm^2/m}$) ist. Wie groß ist die systematische Messabweichung für eine Stromstärke von $I = 100\,\mathrm{mA}$, wenn jeweils ein solches Kabel zum Anschluss der Spannungsmessung genommen wird?
+# Angenommen man habe ein $2\,\mathrm m$ langes Kabel, das einen Querschnitt von $0{,}5\,\mathrm{mm^2}$ aufweist und aus Kupfer (mit einem spezifischen Widerstand von $0{,}0175\,\mathrm{\Omega mm^2/m}$) ist. Wie groß ist die systematische Messabweichung für eine Stromstärke von $I = 100\,\mathrm{mA}$, wenn jeweils ein solches Kabel zum Anschluss der Spannungsmessung genommen wird?
 # :::
 
 # :::{admonition} Lösung

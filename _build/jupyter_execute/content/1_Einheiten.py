@@ -3,7 +3,18 @@
 
 # # Einheiten
 # 
-# <iframe width="560" height="315" src="https://www.youtube.com/embed/5iXyyQBGl-Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+# 
+# ::::::{margin}
+# :::::{grid}
+# ::::{grid-item-card}
+# :class-header: bg-light
+# Learn the Metric System in 5 minutes (english)
+# 
+# <iframe width="200" height="113" src="https://www.youtube.com/embed/5iXyyQBGl-Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+# ::::
+# :::::
+# ::::::
+# 
 # 
 # Die monumentalen Pyramiden Ägyptens, faszinierende Meisterwerke der antiken Baukunst, stellen bis heute ein beeindruckendes Rätsel dar. Wie konnten die Erbauer vor über 4.600 Jahren, im Jahr 2600 v. Chr., eine solch bemerkenswerte Präzision und Symmetrie in ihren Bauwerken erreichen? Eine entscheidende Antwort auf diese Frage liegt in der erstaunlichen Methode, mit der die alten Ägypter die Präzision im Pyramidenbau sicherten.
 # 
@@ -82,10 +93,6 @@ print('relative Messabweichung der Cheops-Pyramide: ', relative_abweichung*100, 
 # :::
 
 # ## SI-Einheiten - "The big 7"
-# 
-# <iframe width="560" height="315" src="https://www.youtube.com/embed/bELd5_zkhKQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-# 
-# <iframe width="560" height="315" src="https://www.youtube.com/embed/-mSO24hkRxE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 # 
 # ::::::{margin}
 # :::::{grid}

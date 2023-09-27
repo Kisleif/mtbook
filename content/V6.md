@@ -4,8 +4,6 @@ Nachdem wir uns intensiv mit stationären Messungen und den Eigenschaften von Me
 
 Dynamische Messsysteme spielen eine entscheidende Rolle, wenn es darum geht, sich verändernde Phänomene und Vorgänge zu erfassen und zu analysieren. Ob es um schnelle Bewegungen, zeitabhängige Signale oder sich rasch ändernde Prozesse geht - wir werden lernen, wie wir diese dynamischen Messungen durchführen und auswerten können.
 
-In diesem Kapitel werden wir uns mit den besonderen Anforderungen und Techniken beschäftigen, die für die Erfassung und Auswertung von dynamischen Messgrößen erforderlich sind. Wir werden uns mit Begriffen wie Frequenzgang, Dämpfung, Resonanz und Zeitverhalten vertraut machen, um diese komplexen Phänomene besser zu verstehen.
-
 ## To prepare...
 ```{tableofcontents}
 ```

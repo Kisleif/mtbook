@@ -54,6 +54,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
     <link rel="next" title="Spannungsmesseingang" href="4_U-Messeingang.html" />
@@ -705,12 +707,63 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#parallelschaltung">
+   Parallelschaltung
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reihenschaltung">
+   Reihenschaltung
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kirchhoffsche-gesetze">
+   Kirchhoffsche Gesetze
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#knotenregel-knotensatz">
+     Knotenregel (Knotensatz)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#maschenregel">
+     Maschenregel
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aktive-zweipol-theorie">
+   Aktive Zweipol-Theorie
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -722,6 +775,46 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#parallelschaltung">
+   Parallelschaltung
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reihenschaltung">
+   Reihenschaltung
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kirchhoffsche-gesetze">
+   Kirchhoffsche Gesetze
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#knotenregel-knotensatz">
+     Knotenregel (Knotensatz)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#maschenregel">
+     Maschenregel
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aktive-zweipol-theorie">
+   Aktive Zweipol-Theorie
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -731,10 +824,6 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="grundlagen-der-elektrotechnik">
 <h1>Grundlagen der Elektrotechnik<a class="headerlink" href="#grundlagen-der-elektrotechnik" title="Link zu dieser Überschrift">#</a></h1>
-<p><video width=" 220" height=" " 
-       src="movies/Hazel.mp4"  
-       controls>
-</video></p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
@@ -750,28 +839,86 @@ title="Print to PDF"
 </div>
 </div>
 </aside>
-<video controls width="600">
- <source src="movies/Hazel.mp4" type="video/mp4">
- Your browser does not support the video tag.
-</video><div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
-
-<span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">    &lt;video alt=&quot;test&quot; controls&gt;</span>
-<span class="s2">        &lt;source src=&quot;movies/Hazel.mp4&quot; type=&quot;video/mp4&quot;&gt;</span>
-<span class="s2">    &lt;/video&gt;</span>
-<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html">
-<video alt="test" controls>
-    <source src="movies/Hazel.mp4" type="video/mp4">
-</video>
-</div></div>
-</div>
+<p>In der Elektrotechnik bilden die elektrischen Grundgleichungen die Grundlage für das Verständnis elektrischer Schaltungen. Eine der fundamentalen Gleichungen ist das ohmsche Gesetz, welches den Zusammenhang zwischen Spannung, Strom und Widerstand beschreibt:</p>
+<div class="math notranslate nohighlight">
+\[
+R = \frac{U}{I}
+\]</div>
+<p>Dabei repräsentiert <span class="math notranslate nohighlight">\(R\)</span> den elektrischen Widerstand, <span class="math notranslate nohighlight">\(U\)</span> die Spannung und <span class="math notranslate nohighlight">\(I\)</span> den Strom. Dieses Gesetz bildet die Basis für das Verständnis von elektrischen Schaltungen.
+In komplexeren Schaltungen werden oft mehrere Widerstände miteinander kombiniert. Es gibt zwei grundlegende Regeln für die Berechnung des Gesamtwiderstands solcher Kombinationen.</p>
+<section id="parallelschaltung">
+<h2>Parallelschaltung<a class="headerlink" href="#parallelschaltung" title="Link zu dieser Überschrift">#</a></h2>
+<p>Bei der Parallelschaltung von Widerständen ergibt sich der Gesamtwiderstand <span class="math notranslate nohighlight">\(R_{\text{ges}}\)</span> gemäß der Formel:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{1}{R_{\text{ges}}} = \frac{1}{R_1} + \frac{1}{R_2}
+\]</div>
+</section>
+<section id="reihenschaltung">
+<h2>Reihenschaltung<a class="headerlink" href="#reihenschaltung" title="Link zu dieser Überschrift">#</a></h2>
+<p>In einer Reihenschaltung addieren sich die Widerstände einfach:</p>
+<div class="math notranslate nohighlight">
+\[
+R_{\text{ges}} = R_1 + R_2
+\]</div>
+<p>Diese Regeln sind einfach herleitbar und spielen eine entscheidende Rolle in der Elektrotechnik.</p>
+</section>
+<section id="kirchhoffsche-gesetze">
+<h2>Kirchhoffsche Gesetze<a class="headerlink" href="#kirchhoffsche-gesetze" title="Link zu dieser Überschrift">#</a></h2>
+<p>Die Kirchhoffschen Gesetze sind fundamentale Prinzipien in der Elektrotechnik und ermöglichen die Analyse komplexer Schaltungen.</p>
+<section id="knotenregel-knotensatz">
+<h3>Knotenregel (Knotensatz)<a class="headerlink" href="#knotenregel-knotensatz" title="Link zu dieser Überschrift">#</a></h3>
+<p>Die Knotenregel besagt, dass die Summe der Ströme, die in einen Knoten hineinfließen, gleich der Summe der Ströme ist, die aus dem Knoten herausfließen. Mathematisch ausgedrückt:</p>
+<div class="math notranslate nohighlight">
+\[
+\sum_k I_k = 0
+\]</div>
+</section>
+<section id="maschenregel">
+<h3>Maschenregel<a class="headerlink" href="#maschenregel" title="Link zu dieser Überschrift">#</a></h3>
+<p>Die Maschenregel besagt, dass die Summe der Spannungen in einer geschlossenen Schleife (Masche) einer Schaltung immer null ist:</p>
+<div class="math notranslate nohighlight">
+\[
+\sum_k U_k = 0
+\]</div>
+<p>Unabhängig von der gewählten Masche oder dem gewählten Knoten gelten diese Regeln immer. Sie sind entscheidend für die Analyse und das Verständnis von elektrischen Schaltungen.</p>
+</section>
+</section>
+<section id="aktive-zweipol-theorie">
+<h2>Aktive Zweipol-Theorie<a class="headerlink" href="#aktive-zweipol-theorie" title="Link zu dieser Überschrift">#</a></h2>
+<p>Die Zweipol-Theorie ermöglicht die Vereinfachung komplexer Schaltungen durch den Ersatz eines Teils der Schaltung durch einen einfachen Zweipol. Dieser Zweipol besteht aus einer Spannungsquelle und einem Innenwiderstand, was einer realen Spannungsquelle entspricht. Es gibt zwei Varianten: aktive und passive Zweipole.</p>
+<p>Ein aktiver Zweipol enthält eine Spannungsquelle und wird durch die Leerlaufspannung <span class="math notranslate nohighlight">\(U_L\)</span> und den Innenwiderstand <span class="math notranslate nohighlight">\(R_i\)</span> definiert. Mathematisch ausgedrückt:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+U_L &amp;= U_{\text{K}} \\
+R_i &amp;= \frac{U_L}{I_K}
+\end{align*}
+\end{split}\]</div>
+<p>Die Bestimmung von <span class="math notranslate nohighlight">\(U_L\)</span>, <span class="math notranslate nohighlight">\(I_K\)</span>, <span class="math notranslate nohighlight">\(R_i\)</span> und <span class="math notranslate nohighlight">\(G_i\)</span> erfolgt durch geeignete Messungen unter bestimmten Bedingungen.</p>
+<ol class="simple">
+<li><p>Zur Bestimmung der Spannung <span class="math notranslate nohighlight">\(U_L\)</span> und <span class="math notranslate nohighlight">\(R_i\)</span> nimmt man an, dass der Lastwiderstand <span class="math notranslate nohighlight">\(R_L\)</span> unendlich groß wird. Jetzt bestimmt man die Spannung, die an <span class="math notranslate nohighlight">\(R_i\)</span> bzw. <span class="math notranslate nohighlight">\(R_L\)</span> abfällt.</p></li>
+<li><p>Zur Bestimmung des Kurzschlusstroms nimmt man <span class="math notranslate nohighlight">\(R_L = 0\)</span>, also einen Kurzschluss, an.</p></li>
+<li><p>Für die Innenwiderstabndsberechnung werden alle Spannungsquellen zu einem Kurzschluss und alle Stromquellen werden durchtrennt (unendlich hoher Widerstand)</p></li>
+</ol>
+<p>Um die Anwendung dieser Regeln besser zu verstehen, betrachten wir einige Beispiele. Nehmen wir an, wir haben eine Spannungsquelle <span class="math notranslate nohighlight">\(U_0\)</span>, an die zwei Widerstände <span class="math notranslate nohighlight">\(R_1\)</span> und <span class="math notranslate nohighlight">\(R_2\)</span> angeschlossen sind.</p>
+<p>Wir möchten diesen Teil des Netzwerks als aktiven Zweipol modellieren. Zuerst bestimmen wir die Leerlaufspannung <span class="math notranslate nohighlight">\(U_L\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+U_L = \frac{R_2}{R_1 + R_2} U_0
+\]</div>
+<p>Der Kurzschlussstrom <span class="math notranslate nohighlight">\(I_K\)</span> ergibt sich zu:</p>
+<div class="math notranslate nohighlight">
+\[
+I_K = \frac{U_0}{R_1}
+\]</div>
+<p>Schließlich können wir den Innenwiderstand <span class="math notranslate nohighlight">\(R_i\)</span> wie folgt berechnen:</p>
+<div class="math notranslate nohighlight">
+\[
+R_i = \frac{U_L}{I_K} = \frac{R_1 R_2}{R_1 + R_2}
+\]</div>
+<p>Diese Beispiele veranschaulichen die Anwendung der Zweipol-Theorie zur Vereinfachung von Schaltungen.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">

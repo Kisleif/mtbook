@@ -80,8 +80,6 @@ import seaborn as sns
 import time
 import warnings
 warnings.filterwarnings('ignore')
-from myst_nb import glue
-
 
 fig, ax = plt.subplots(figsize=(5, 3))
 plt.style.use('default') # Matplotlib Style wählen
@@ -110,14 +108,9 @@ ax.set_xticks([0])
 plt.xlabel('Zeit t')
 plt.ylabel(r'$u_e$')
 
-# Use Myst-NB to display the figure with a custom label
-glue("fig_sprung", fig, display=False)
 
-
-# ```{glue:figure} fig_sprung
+# Im Diagramm ist eine Sprunganregung zur Zeit $t = 0\,\mathrm s$ dargestellt.
 # 
-# Sprunganregung zur Zeit $t = 0\,\mathrm s$.
-# ```
 # 
 # * **3. Allgemeiner Ansatz:**
 # Nun kann der allgemeine Ansatz formuliert werden. Dieser ist einfach die Addition von homogener und spezieller Ansatz:
@@ -229,15 +222,11 @@ plt.legend()
 #plt.ylabel(r'$u_a(t)/u_0$')
 plt.tight_layout
 
-# Use Myst-NB to display the figure with a custom label
-glue("fig_sprung_LP", fig, display=False)
 
-
-# ```{glue:figure} fig_sprung_LP
 # 
-# Sprung- (links) und Impulsantwort (rechts) eines Tiefpasses. Zum Vergleich ist die jeweilige Anregung des Systems (also Sprung $\sigma$ bzw. Impuls $\delta$) in rot dargestellt. Die blauen Kurven zeigen das Antwortverhalten des Tiefpasses. 
 # 
-# ```
+# Im Diagramm sind Sprung- (links) und Impulsantwort (rechts) eines Tiefpasses dargestellt. Zum Vergleich ist die jeweilige Anregung des Systems (also Sprung $\sigma$ bzw. Impuls $\delta$) in rot dargestellt. Die blauen Kurven zeigen das Antwortverhalten des Tiefpasses. 
+# 
 # 
 # Folgende Eigenschaften bestehen zwischen Sprung- und Impulsantwort:
 # 

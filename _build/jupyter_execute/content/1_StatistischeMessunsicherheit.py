@@ -42,7 +42,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import warnings
-from myst_nb import glue
 
 # Matplotlib settings
 plt.style.use('default')
@@ -62,14 +61,8 @@ ax.hist(t_sec, bins=klasse)
 ax.set_ylabel('Absolute Häufigkeit f')
 ax.set_xlabel('Klassenverteilung der Zeit (s)')
 
-# Use Myst-NB to display the figure with a custom label
-glue("fig_häufigkeit", fig, display=False)
 
-
-# ```{glue:figure} fig_häufigkeit
-# 
-# Absolute Häufigkeit der Zeitmessung. Hier müssen die Klassen gleich groß sein! Hier ist eine einzelne Klasse 0,04s breit. In der ersten befinden sich die Messwerte von 1.3s-1.34s. 
-# ```
+# Im Diagramm ist die absolute Häufigkeit der Zeitmessung dargestellt. Die Klassen sind jeweils gleich groß mit einer Breite von 0,04s. In der ersten befinden sich die Messwerte von 1.3s-1.34s. 
 
 # In[2]:
 
@@ -114,13 +107,10 @@ bconts, bedges, _p = plt.hist(t_sec, density=True, bins=np.linspace(1.3, 1.5, 6)
 plt.ylabel('Häufigkeitsdichte d')
 plt.xlabel('Klassenverteilung der Zeit (s)')
 
-glue("fig_häufigkeitsdichte", fig, display=False)
 
-
-# ```{glue:figure} fig_häufigkeitsdichte
 # 
-# Relative Häufigkeitsdichte $d$ der Zeitmessung. Die Fläche der Balken gibt die relative Häufigkeit $h$ an. In Summe muss diese 1 betragen (100% im Falle der absoluten Häufigkeitsdichte).
-# ```
+# Im Diagramm ist die relative Häufigkeitsdichte $d$ der Zeitmessung dargestellt. Die Fläche der Balken gibt die relative Häufigkeit $h$ an. In Summe muss diese 1 betragen (100% im Falle der absoluten Häufigkeitsdichte).
+# 
 
 # In[4]:
 
@@ -162,13 +152,10 @@ plt.axvline(x=mean, color="tab:red", ls='--', label='Mittelwert')
 plt.ylabel('Häufigkeitsdichte d(x)')
 plt.xlabel('Klassenverteilung der Zeitmessung (s)')
 plt.legend()
-glue("fig_häufigkeitsdichte_normalverteilung", fig, display=False)
 
 
-# ```{glue:figure} fig_häufigkeitsdichte_normalverteilung
+# Im Diagramm sind die relative Häufigkeitsdichte $d$ der Zeitmessung und ein Modell der Normalverteilung $P(x)$ dargestellt.
 # 
-# Relative Häufigkeitsdichte $d$ der Zeitmessung und ein Modell der Normalverteilung $P(x)$.
-# ```
 # 
 # Überraschenderweise ist die Verteilungsfunktion häufig auch dann immer noch normalverteilt, wenn sehr viele externe Störungen (evtl. mit unterschiedlichen Verteilungsfunktionen) zu einer gemeinsamen Störgröße kombiniert werden. Die zusammengefasste Störung ist trotzdem fast immer gaußverteilt, egal wie die Einzelverteilungen aussehen (Poissonverteilung oder anderes). Dies wird auch als der **zentrale Grenzwertsatz der Wahrscheinlichkeitstheorie** bezeichnet.
 # 
@@ -524,7 +511,7 @@ plt.show()
 # 
 # Das **Endergebnis** der oben dargestellten Messreihe von $m$ Messwerten wird in der Regel wiefolgt angegeben. Als Messwert wird nicht das Ergebnis einer Einzelmessung angegeben, sondern stets der Mittelwert der Messreihe inkl. seiner Unsicherheit:
 # 
-# $$ s(\overline x) = \frac{s}{\sqrt{n}} = u_{\overline x} $$
+# $$ s(\overline x) = \frac{s}{\sqrt{m}} = u_{\overline x} $$
 # 
 # Der Mittelwert ist der beste Schätzwert, den wir für den *wahren* Wert ermitteln können. Die Angabe des Messergebnisses erfolgt also wiefolgt:
 # 

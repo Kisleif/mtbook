@@ -937,7 +937,7 @@ title="Print to PDF"
  1.40, 1.42, 1.40, 1.38, 1.37,  1.36,
  1.37, 1.32, 1.47, 1.40\]</div>
 <p>die <strong>absolute Häufigkeit</strong> der einzelnen Werte in einer bestimmten Klasse grafisch dargestellt. Dafür werden sogenannten <em>Klassen</em> erstellt, inwelche die einzelnen Messwerte eingruppiert werden. Diese Klassen müssen nicht zwangsläufig die gleiche Breite haben. Bei gleich großen Klassen (gleich breite Balken) kann die absolute Häufigkeit als Höhe angegeben werden, was für die oben gegebene Messreihe im nachfogenden Diagramm gezeigt ist:</p>
-<div class="cell tag_hide-input tag_remove-output docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import necessary libraries</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -945,7 +945,6 @@ title="Print to PDF"
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
-<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
 
 <span class="c1"># Matplotlib settings</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span>
@@ -964,21 +963,23 @@ title="Print to PDF"
 <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">t_sec</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">klasse</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Absolute Häufigkeit f&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Klassenverteilung der Zeit (s)&#39;</span><span class="p">)</span>
-
-<span class="c1"># Use Myst-NB to display the figure with a custom label</span>
-<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;fig_häufigkeit&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-</div>
-<figure class="align-default" id="id1">
 <div class="cell_output docutils container">
-<img alt="../_images/1_StatistischeMessunsicherheit_1_0.png" src="../_images/1_StatistischeMessunsicherheit_1_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Klassenverteilung der Zeit (s)&#39;)
+</pre></div>
 </div>
+<figure class="align-default" id="seaborn-example-1">
+<img alt="../_images/1_StatistischeMessunsicherheit_1_1.png" src="../_images/1_StatistischeMessunsicherheit_1_1.png" />
 <figcaption>
-<p><span class="caption-number">Abb. 14 </span><span class="caption-text">Absolute Häufigkeit der Zeitmessung. Hier müssen die Klassen gleich groß sein! Hier ist eine einzelne Klasse 0,04s breit. In der ersten befinden sich die Messwerte von 1.3s-1.34s.</span><a class="headerlink" href="#id1" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-text"><p><code class="docutils literal notranslate"><span class="pre">displot()</span></code> example histogram</p>
+</span><a class="headerlink" href="#seaborn-example-1" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
+</div>
+</div>
+<p>Im Diagramm ist die absolute Häufigkeit der Zeitmessung dargestellt. Die Klassen sind jeweils gleich groß mit einer Breite von 0,04s. In der ersten befinden sich die Messwerte von 1.3s-1.34s.</p>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print histogram data as a table</span>
@@ -1021,7 +1022,7 @@ Die Häufigkeitsdichte gibt bei einem Histogramm die Höhe des Rechtecks an (Die
 \[ D_i = \frac{\textrm{absolute Häufigkeit ($f_i$)}}{\textrm{obere Grenze der Klasse i} - \textrm{untere Grenze der Klasse i}} = \frac{f_i}{b_i}\]</div>
 <p>Das Integral über die relative Häufigkeitsdichte ist immer auf 1 normiert, bzw. auf 100% im Falle der absoluten Häufigkeitsdichte.</p>
 <p>Im nachstehenden Code-Block wird die relative Häufigkeitsdichte, <span class="math notranslate nohighlight">\(d_i\)</span>, für die obenstehende Messreihe geplottet und das Integral berechnet.</p>
-<div class="cell tag_hide-input tag_remove-output docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># MatplotLib Settings:</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
@@ -1030,20 +1031,17 @@ Die Häufigkeitsdichte gibt bei einem Histogramm die Höhe des Rechtecks an (Die
 <span class="n">bconts</span><span class="p">,</span> <span class="n">bedges</span><span class="p">,</span> <span class="n">_p</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">t_sec</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1.3</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Häufigkeitsdichte d&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Klassenverteilung der Zeit (s)&#39;</span><span class="p">)</span>
-
-<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;fig_häufigkeitsdichte&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-</div>
-<figure class="align-default" id="id2">
 <div class="cell_output docutils container">
-<img alt="../_images/1_StatistischeMessunsicherheit_6_0.png" src="../_images/1_StatistischeMessunsicherheit_6_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Klassenverteilung der Zeit (s)&#39;)
+</pre></div>
 </div>
-<figcaption>
-<p><span class="caption-number">Abb. 15 </span><span class="caption-text">Relative Häufigkeitsdichte <span class="math notranslate nohighlight">\(d\)</span> der Zeitmessung. Die Fläche der Balken gibt die relative Häufigkeit <span class="math notranslate nohighlight">\(h\)</span> an. In Summe muss diese 1 betragen (100% im Falle der absoluten Häufigkeitsdichte).</span><a class="headerlink" href="#id2" title="Link zu diesem Bild">#</a></p>
-</figcaption>
-</figure>
+<img alt="../_images/1_StatistischeMessunsicherheit_6_1.png" src="../_images/1_StatistischeMessunsicherheit_6_1.png" />
+</div>
+</div>
+<p>Im Diagramm ist die relative Häufigkeitsdichte <span class="math notranslate nohighlight">\(d\)</span> der Zeitmessung dargestellt. Die Fläche der Balken gibt die relative Häufigkeit <span class="math notranslate nohighlight">\(h\)</span> an. In Summe muss diese 1 betragen (100% im Falle der absoluten Häufigkeitsdichte).</p>
 <div class="cell tag_hide-input tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Integral über die Häufigkeitsdichte: &#39;</span><span class="p">,(</span><span class="n">bconts</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">bedges</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
@@ -1063,7 +1061,7 @@ Die Häufigkeitsdichte gibt bei einem Histogramm die Höhe des Rechtecks an (Die
 <p>Je größer die Stichprobe <span class="math notranslate nohighlight">\(m\)</span> (Anzahl der Messungen), desto eher erkennt man die zugrundeliegende Verteilung, der die Messreihe unterliegt. Häufig handelt es sich in der Praxis um eine <em>Normalverteilung</em> (oder auch Gaußverteilung genannt):</p>
 <div class="math notranslate nohighlight">
 \[P(x) = \frac{1}{\sigma \sqrt{2\pi}}\int_{x_1}^{x_2} \mathrm{exp}\left(-\frac{(x-\overline x)^2}{2\sigma^2}\right) dx\]</div>
-<div class="cell tag_hide-input tag_remove-output docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
 <span class="c1"># MatplotLib Settings:</span>
@@ -1088,19 +1086,17 @@ Die Häufigkeitsdichte gibt bei einem Histogramm die Höhe des Rechtecks an (Die
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Häufigkeitsdichte d(x)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Klassenverteilung der Zeitmessung (s)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;fig_häufigkeitsdichte_normalverteilung&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-</div>
-<figure class="align-default" id="id3">
 <div class="cell_output docutils container">
-<img alt="../_images/1_StatistischeMessunsicherheit_11_0.png" src="../_images/1_StatistischeMessunsicherheit_11_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fe142dbceb0&gt;
+</pre></div>
 </div>
-<figcaption>
-<p><span class="caption-number">Abb. 16 </span><span class="caption-text">Relative Häufigkeitsdichte <span class="math notranslate nohighlight">\(d\)</span> der Zeitmessung und ein Modell der Normalverteilung <span class="math notranslate nohighlight">\(P(x)\)</span>.</span><a class="headerlink" href="#id3" title="Link zu diesem Bild">#</a></p>
-</figcaption>
-</figure>
+<img alt="../_images/1_StatistischeMessunsicherheit_11_1.png" src="../_images/1_StatistischeMessunsicherheit_11_1.png" />
+</div>
+</div>
+<p>Im Diagramm sind die relative Häufigkeitsdichte <span class="math notranslate nohighlight">\(d\)</span> der Zeitmessung und ein Modell der Normalverteilung <span class="math notranslate nohighlight">\(P(x)\)</span> dargestellt.</p>
 <p>Überraschenderweise ist die Verteilungsfunktion häufig auch dann immer noch normalverteilt, wenn sehr viele externe Störungen (evtl. mit unterschiedlichen Verteilungsfunktionen) zu einer gemeinsamen Störgröße kombiniert werden. Die zusammengefasste Störung ist trotzdem fast immer gaußverteilt, egal wie die Einzelverteilungen aussehen (Poissonverteilung oder anderes). Dies wird auch als der <strong>zentrale Grenzwertsatz der Wahrscheinlichkeitstheorie</strong> bezeichnet.</p>
 <div class="proof definition admonition" id="definition-0">
 <p class="admonition-title"><span class="caption-number">Definition 1 </span> (<strong>Zentraler Grenzwertsatz der Wahrscheinlichkeitstheorie</strong>)</p>
@@ -1380,7 +1376,7 @@ Das heißt aus den verschiedenen Mittelwerten von <span class="math notranslate 
 <figure class="align-default" id="normal-normiert-trafo">
 <a class="reference internal image-reference" href="../_images/normal_normiert_trafo.jpg"><img alt="normal_normiert_trafo" src="../_images/normal_normiert_trafo.jpg" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 17 </span><span class="caption-text">Transformation der Normalverteilung in eine normierte Normalverteilung.</span><a class="headerlink" href="#normal-normiert-trafo" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-number">Abb. 14 </span><span class="caption-text">Transformation der Normalverteilung in eine normierte Normalverteilung.</span><a class="headerlink" href="#normal-normiert-trafo" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
 <p>Der Flächeninhalt unterhalb dieser Verteilungsfunktion ist wieder auf 100% normiert, wenn von <span class="math notranslate nohighlight">\(\pm \infty\)</span> integriert wird. Die maximale Amplitude ist jetzt <span class="math notranslate nohighlight">\(1/\sqrt{2 \pi}\)</span>. Die <span class="math notranslate nohighlight">\(z\)</span>-Achse (vorher Messwerte <span class="math notranslate nohighlight">\(x\)</span>) ist jetzt dimensionslos (einheitenlos). Somit können mit normierten Gaußverteilungen verschiedene physikalische Größen auch von verschiedenen Messgeräten bezüglich ihrer Streuung verglichen werden.</p>
@@ -1536,7 +1532,7 @@ Der Messtechniker kann somit mit der gegebenen Wahrscheinlichkeit abschätzen, o
 <p>Als Messtechniker gehen wir immer daher davon aus, dass innerhalb <span class="math notranslate nohighlight">\(\pm 3s\)</span> alle Messwerte liegen. Auf dieser Basis wird entsprechend auch die Messabweichung berechnet, also A = <span class="math notranslate nohighlight">\(\pm 3s\)</span>.</p>
 <p>Das <strong>Endergebnis</strong> der oben dargestellten Messreihe von <span class="math notranslate nohighlight">\(m\)</span> Messwerten wird in der Regel wiefolgt angegeben. Als Messwert wird nicht das Ergebnis einer Einzelmessung angegeben, sondern stets der Mittelwert der Messreihe inkl. seiner Unsicherheit:</p>
 <div class="math notranslate nohighlight">
-\[ s(\overline x) = \frac{s}{\sqrt{n}} = u_{\overline x} \]</div>
+\[ s(\overline x) = \frac{s}{\sqrt{m}} = u_{\overline x} \]</div>
 <p>Der Mittelwert ist der beste Schätzwert, den wir für den <em>wahren</em> Wert ermitteln können. Die Angabe des Messergebnisses erfolgt also wiefolgt:</p>
 <div class="math notranslate nohighlight">
 \[x = \overline x \pm t \cdot u_{\overline x}\]</div>

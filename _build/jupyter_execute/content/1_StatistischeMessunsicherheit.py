@@ -659,3 +659,9 @@ print('Das Messergebnis für ein Vertrauensintervall von 99,73% (3-sigma Umgebun
 
 
 
+
+# In[ ]:
+
+
+
+

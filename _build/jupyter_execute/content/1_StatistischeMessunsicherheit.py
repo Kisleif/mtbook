@@ -60,6 +60,7 @@ hist_values, bin_edges = np.histogram(t_sec, bins=klasse)
 ax.hist(t_sec, bins=klasse)
 ax.set_ylabel('Absolute Häufigkeit f')
 ax.set_xlabel('Klassenverteilung der Zeit (s)')
+plt.show()
 
 
 # Im Diagramm ist die absolute Häufigkeit der Zeitmessung dargestellt. Die Klassen sind jeweils gleich groß mit einer Breite von 0,04s. In der ersten befinden sich die Messwerte von 1.3s-1.34s. 
@@ -106,6 +107,7 @@ plt.figure(figsize=(4,4)) # Plot-Größe
 bconts, bedges, _p = plt.hist(t_sec, density=True, bins=np.linspace(1.3, 1.5, 6))
 plt.ylabel('Häufigkeitsdichte d')
 plt.xlabel('Klassenverteilung der Zeit (s)')
+plt.show()
 
 
 # 
@@ -152,6 +154,7 @@ plt.axvline(x=mean, color="tab:red", ls='--', label='Mittelwert')
 plt.ylabel('Häufigkeitsdichte d(x)')
 plt.xlabel('Klassenverteilung der Zeitmessung (s)')
 plt.legend()
+plt.show()
 
 
 # Im Diagramm sind die relative Häufigkeitsdichte $d$ der Zeitmessung und ein Modell der Normalverteilung $P(x)$ dargestellt.
@@ -173,24 +176,17 @@ plt.legend()
 # Normalverteilte Zufallsgrößen werden immer von zwei Parametern $\overline x$ und $\sigma$ beschrieben. 
 # Der **arithmetische Mittelwert $\overline x$**, der das **arithmetische Mittel $\mu$** aus $m$ Beobachtungen ist, oder auch **Erwartungswert $E(x)$** genannt, gilt:
 # 
-# ```{prf:definition} **Arithmetische Mittel**
 # $$\overline x = \frac{1}{m}\sum_{j=1}^m x_j =: E(x) = \left< x \right> = \mu$$
-# ```
 # 
 # Der *Erwartungswert der quadratischen Abweichung der Einzelmessungen vom Mittelwert*, die **Varianz** $\sigma^2$, ist:
 # 
-# ```{prf:definition} **Arithmetische Varianz**
 # $$\sigma^2  =  \frac{1}{m} \sum_{j=1}^m \left( x_j - \mu \right)^2$$
-# ```
-# 
 # 
 # Der arithmetische Mittelwert zeichnet sich dadurch aus, dass für diesen Wert die Summe der Abweichungsquadrate minimal ist. Die Varianz hängt nicht von der Anzahl der Messungen ab. Die Streuung kann *ausschließlich* durch ein besseres Messverfahren verkleinert werden. Anschaulich ist das direkt nachvollziehbar: Die „Punktwolke“ der Messergebnisse um den Mittelwert schmiegt sich nicht enger an den Mittelwert, nur weil häufiger gemessen wurde. Ein stark streuendes Messverfahren streut durch seine Wiederholung nicht weniger. 
 # 
 # Unabhängig von der zugrundeliegenden Verteilung der Messwerte kann nun ein Maß für die Abweichung definiert werden, welche als **Standardabweichung der Einzelmessungen** bekannt ist und sich aus der Quadratwurzel der Varianz berechnen lässt:
 # 
-# ```{prf:definition} **Arithmetische Standardabweichung**
 # $$\sigma = \sqrt{\frac{1}{m} \sum_{j=1}^m (x_j - \mu)^2}$$
-# ```
 # 
 # Man nehme beispielhaft die Zeitmessung von oben. Es wurden 15 wiederholte Messungen der Zeit durchgeführt. Mittelwert, Standardabweichung der Einzelmessungen und Unsicherheit des Mittelwertes werden berechnet. 
 
@@ -238,15 +234,12 @@ print(tabulate(zusammenfassung_df, headers='keys', tablefmt='pretty'))
 # 
 # Du wirst bei deinen Messungen in der Regel weniger an der Streuung um den Mittelwert, sondern mehr an der (geschätzten) Streuung der Messwerte um den (unbekannten) *wahren* Wert interessiert sein. Diese Unsicherheit schätzt man durch die **empirische Varianz $s^2(x)$ der Messwerte der $x_j$** ab. Diese ist etwas größer als die Varianz $\sigma^2$, nämlich um den Faktor $m/(m − 1)$:
 # 
-# ```{prf:definition} **Empirische Varianz**
 # $$s^2 = \frac{1}{m-1} \sum_{j=1}^m (x_j - \overline x)^2$$
-# ```
+# 
 # 
 # Die **empirische Standardabweichung $s(x)$ der Messwerte** ist die wieder Wurzel, diesmal aus der empirischen Varianz:
 # 
-# ```{prf:definition} **Empirische Standardabweichung**
 # $$s = \sqrt{\frac{1}{m-1} \sum_{j=1}^m (x_j - \overline x)^2}$$
-# ```
 
 # In[7]:
 

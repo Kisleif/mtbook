@@ -19,9 +19,12 @@ print('eine absolute Unsicherheit von ', u*U_end, 'V')
 
 # ## Digitalstellenfehler
 # 
-# :::::{grid} 2
+# :::{figure-md} voltmeter
+# <img src="draw/voltmeter.jpg" alt="voltmeter" width="175px" label = voltmeter>
 # 
-# ::::{grid-item}
+# Voltmeter mit Digitalanzeige.
+# :::
+# 
 # | Messgeräte-Kategorie | Genauigkeits-Klasse (%) |
 # |:--------|:-----------|
 # |Präzisions-Messgeräte | 0,001 |
@@ -36,16 +39,10 @@ print('eine absolute Unsicherheit von ', u*U_end, 'V')
 # | | 1,5|
 # | | 2,5|
 # | | 5,0|
-# ::::     
+#     
 #         
-# ::::{grid-item}
-# :::{figure-md} voltmeter
-# <img src="draw/voltmeter.jpg" alt="voltmeter" width="175px" label = voltmeter>
 # 
-# Voltmeter mit Digitalanzeige.
-# :::
-# ::::
-# :::::
+# 
 # 
 # 
 # ```{admonition} Beispiel

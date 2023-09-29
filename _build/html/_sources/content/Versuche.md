@@ -1,5 +1,7 @@
 # Versuche
 
+Auswerteskript zum Probeversuch [Messunsicherheiten](T_Schwerependel.ipynb).
+
 ::::{grid} 1 1 3 2
 :class-container: text-center
 :gutter: 3

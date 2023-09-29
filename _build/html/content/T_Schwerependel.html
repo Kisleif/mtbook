@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Schwerependel &#8212; Metrology Lecture Book</title>
+    <title>Schwerependel und Messunsicherheiten &#8212; Metrology Lecture Book</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -742,6 +742,11 @@ title="Print to PDF"
    Bestimmung der Erdbeschleunigung
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pendellange-diagramm-zeichnen">
+   Pendellänge - Diagramm zeichnen
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -751,7 +756,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Schwerependel</h1>
+                <h1>Schwerependel und Messunsicherheiten</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -776,6 +781,11 @@ title="Print to PDF"
    Bestimmung der Erdbeschleunigung
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pendellange-diagramm-zeichnen">
+   Pendellänge - Diagramm zeichnen
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -786,8 +796,8 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="schwerependel">
-<h1>Schwerependel<a class="headerlink" href="#schwerependel" title="Link zu dieser Überschrift">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="schwerependel-und-messunsicherheiten">
+<h1>Schwerependel und Messunsicherheiten<a class="headerlink" href="#schwerependel-und-messunsicherheiten" title="Link zu dieser Überschrift">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -800,7 +810,7 @@ title="Print to PDF"
 <p>Messung der Periodendauer aus der Vorlesung:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="mf">1.3</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T_messwert</span> <span class="o">=</span> <span class="mf">1.3</span>
 </pre></div>
 </div>
 </div>
@@ -810,20 +820,20 @@ title="Print to PDF"
 <p>Erstelle ein Array oder ein DataFrame deiner persönlichen Messdaten um die Schrecksekunde zu ermitteln.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T_schrecksekunde</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">5.1</span><span class="p">,</span> <span class="mf">5.4</span><span class="p">,</span> <span class="mf">4.9</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">4.9</span><span class="p">,</span> <span class="mf">5.1</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T_schrecksekunde</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">5.1</span><span class="p">,</span> <span class="mf">4.9</span><span class="p">,</span> <span class="mf">4.9</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">4.9</span><span class="p">,</span> <span class="mf">5.05</span><span class="p">])</span>
 <span class="n">T_schrecksekunde_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">T_schrecksekunde</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">T_schrecksekunde_df</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     0
-0  5.1
-1  5.4
-2  4.9
-3  5.0
-4  4.9
-5  5.1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      0
+0  5.10
+1  4.90
+2  4.90
+3  5.00
+4  4.90
+5  5.05
 </pre></div>
 </div>
 </div>
@@ -841,10 +851,10 @@ Achtung, bei der Standardabweichung musst du aufpassen ob das Programm die empir
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Standardabweichung (DataFrame) 0    0.18619
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Standardabweichung (DataFrame) 0    0.088034
 dtype: float64
-Standardabweichung (Numpy ohne ddof1) 0.16996731711975946
-Standardabweichung (Numpy mit ddof1) 0.1861898672502525
+Standardabweichung (Numpy ohne ddof1) 0.08036375634160767
+Standardabweichung (Numpy mit ddof1) 0.08803408430829474
 </pre></div>
 </div>
 </div>
@@ -856,7 +866,7 @@ Standardabweichung (Numpy mit ddof1) 0.1861898672502525
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Damit beträgt die Messunsicherheit deiner persönlichen Zeitmessung:  0.1861898672502525 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Damit beträgt die Messunsicherheit deiner persönlichen Zeitmessung:  0.08803408430829474 s
 </pre></div>
 </div>
 </div>
@@ -866,7 +876,7 @@ Standardabweichung (Numpy mit ddof1) 0.1861898672502525
 <h2>Pendellänge<a class="headerlink" href="#pendellange" title="Link zu dieser Überschrift">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="mf">42e-2</span> <span class="c1"># in m</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l_messwert</span> <span class="o">=</span> <span class="mf">42e-2</span> <span class="c1"># in m</span>
 <span class="n">u_l</span> <span class="o">=</span> <span class="mf">1e-3</span> <span class="c1"># in m</span>
 </pre></div>
 </div>
@@ -883,8 +893,8 @@ Standardabweichung (Numpy mit ddof1) 0.1861898672502525
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">l</span><span class="p">):</span> <span class="c1"># Definition der Funktion für g</span>
     <span class="k">return</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">T</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">l</span>
 
-<span class="n">g</span> <span class="o">=</span> <span class="n">g</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Schwerebeschleunigung ist&#39;</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="s1">&#39;m/s^2&#39;</span><span class="p">)</span>
+<span class="n">g_messwert</span> <span class="o">=</span> <span class="n">g</span><span class="p">(</span><span class="n">T_messwert</span><span class="p">,</span> <span class="n">l_messwert</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Schwerebeschleunigung ist&#39;</span><span class="p">,</span> <span class="n">g_messwert</span><span class="p">,</span> <span class="s1">&#39;m/s^2&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -897,16 +907,120 @@ Standardabweichung (Numpy mit ddof1) 0.1861898672502525
 <p>Bestimmung der Messunsicherheit von <span class="math notranslate nohighlight">\(g\)</span> erfolgt durch Fehlerfortpflanzung nach Gauß.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">sympy</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sym</span>
+
+<span class="n">T</span><span class="p">,</span> <span class="n">l</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;T l&#39;</span><span class="p">)</span>
+<span class="n">g_func</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">T</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">l</span>
+
+<span class="n">dg_dT</span> <span class="o">=</span> <span class="n">g_func</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<span class="n">dg_dl</span> <span class="o">=</span> <span class="n">g_func</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+
+
+<span class="c1"># Verwenden Sie lambdify auf den ursprünglichen Ausdruck g_func</span>
+<span class="n">f_dg_dT</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">lambdify</span><span class="p">((</span><span class="n">T</span><span class="p">,</span> <span class="n">l</span><span class="p">),</span> <span class="n">dg_dT</span><span class="p">,</span> <span class="n">modules</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;numpy&#39;</span><span class="p">])</span>
+<span class="n">f_dg_dl</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">lambdify</span><span class="p">((</span><span class="n">T</span><span class="p">,</span> <span class="n">l</span><span class="p">),</span> <span class="n">dg_dl</span><span class="p">,</span> <span class="n">modules</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;numpy&#39;</span><span class="p">])</span>
+
+
+<span class="n">result_dgdT</span> <span class="o">=</span> <span class="n">f_dg_dT</span><span class="p">(</span><span class="n">T_messwert</span><span class="p">,</span> <span class="n">l_messwert</span><span class="p">)</span>
+<span class="c1">#print(result_dgdT)</span>
+
+<span class="n">result_dgdl</span> <span class="o">=</span> <span class="n">f_dg_dl</span><span class="p">(</span><span class="n">T_messwert</span><span class="p">,</span> <span class="n">l_messwert</span><span class="p">)</span>
+<span class="c1">#print(result_dgdl)</span>
+
+<span class="n">u_g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">result_dgdT</span> <span class="o">*</span> <span class="n">u_T</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">result_dgdl</span> <span class="o">*</span> <span class="n">u_l</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Messunsicherheit der Schwerebeschleunigung ist&#39;</span><span class="p">,</span> <span class="n">u_g</span><span class="p">,</span> <span class="s1">&#39;m/s^2&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: sympy in /Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages (1.11.1)
-Requirement already satisfied: mpmath&gt;=0.19 in /Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages (from sympy) (1.2.1)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Messunsicherheit der Schwerebeschleunigung ist 1.329005920753836 m/s^2
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
+</div>
+</div>
+</section>
+<section id="pendellange-diagramm-zeichnen">
+<h2>Pendellänge - Diagramm zeichnen<a class="headerlink" href="#pendellange-diagramm-zeichnen" title="Link zu dieser Überschrift">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">42e-2</span><span class="p">,</span> <span class="mf">35e-2</span><span class="p">,</span> <span class="mf">30e-2</span><span class="p">,</span> <span class="mf">25e-2</span><span class="p">])</span>
+<span class="n">u_l_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">u_l</span><span class="p">,</span> <span class="n">u_l</span><span class="p">,</span> <span class="n">u_l</span><span class="p">,</span> <span class="n">u_l</span><span class="p">])</span>
+<span class="n">T_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.3</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">])</span>
+<span class="n">u_T_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">u_T</span><span class="p">,</span> <span class="n">u_T</span><span class="p">,</span> <span class="n">u_T</span><span class="p">,</span> <span class="n">u_T</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">42e-2</span><span class="p">,</span> <span class="mf">35e-2</span><span class="p">,</span> <span class="mf">30e-2</span><span class="p">,</span> <span class="mf">25e-2</span><span class="p">])</span>
+<span class="n">u_l_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">u_l</span><span class="p">,</span> <span class="n">u_l</span><span class="p">,</span> <span class="n">u_l</span><span class="p">,</span> <span class="n">u_l</span><span class="p">])</span>
+<span class="n">T_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.3</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">])</span>
+<span class="n">u_T_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">u_T</span><span class="p">,</span> <span class="n">u_T</span><span class="p">,</span> <span class="n">u_T</span><span class="p">,</span> <span class="n">u_T</span><span class="p">])</span>
+<span class="n">u_T2_data</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">T_data</span><span class="o">*</span><span class="n">u_T_data</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fit_lin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span> <span class="c1"># Funktion für lineare Regression</span>
+    <span class="k">return</span> <span class="n">b</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">a</span>
+
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
+<span class="c1"># ----- Mit Fehlerbalken: ---- #</span>
+
+<span class="n">lin_fit</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">fit_lin</span><span class="p">,</span> <span class="n">l_data</span><span class="p">,</span> <span class="n">T_data</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">u_T2_data</span><span class="p">)</span> <span class="c1"># mit Fehlerbalken </span>
+<span class="c1">#lin_fit = curve_fit(fit_lin, l_data, T_data**2) # ohne Fehlerbalken</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">l_data</span><span class="p">,</span><span class="n">T_data</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">xerr</span> <span class="o">=</span> <span class="n">u_l_data</span><span class="p">,</span> <span class="n">yerr</span> <span class="o">=</span> <span class="n">u_T2_data</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Messwerte&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">l_data</span><span class="p">,</span><span class="n">fit_lin</span><span class="p">(</span><span class="n">l_data</span><span class="p">,</span> <span class="n">lin_fit</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">lin_fit</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Lin. Fit: y = </span><span class="si">%5.3f</span><span class="s1">*x+</span><span class="si">%5.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">lin_fit</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">lin_fit</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Pendellänge l in m&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Periodendauer $T^2$ in $s^2$&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/T_Schwerependel_18_0.png" src="../_images/T_Schwerependel_18_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lin_fit</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">lin_fit</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6446793558011779
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Erdbeschleunigung nach Steigung berechnet beträgt &#39;</span><span class="p">,</span><span class="n">lin_fit</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="p">,</span><span class="s1">&#39;+-&#39;</span><span class="p">,</span>  <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">lin_fit</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]),</span> <span class="s1">&#39;m/s^2&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Erdbeschleunigung nach Steigung berechnet beträgt  8.485406795372532 +- 0.8029192710361222 m/s^2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u_T2_data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.22888862, 0.15846135, 0.12324772, 0.05282045])
 </pre></div>
 </div>
 </div>

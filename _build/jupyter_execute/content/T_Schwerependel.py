@@ -122,7 +122,7 @@ l_data = np.array([42e-2, 35e-2, 30e-2, 25e-2])
 u_l_data = np.array([u_l, u_l, u_l, u_l])
 T_data = np.array([1.3, 0.9, 0.7, 0.3])
 u_T_data = np.array([u_T, u_T, u_T, u_T])
-u_T2_data = 0.5*T_data*u_T_data
+u_T2_data = 2*T_data*u_T_data
 
 
 # In[11]:

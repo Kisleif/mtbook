@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Lösung Woche 1 - Schwerependel und Messunsicherheiten
+# # Schwerependel und Messunsicherheiten
 
 # In[1]:
 

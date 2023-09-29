@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Schwerependel
+# # Lösung Woche 1 - Schwerependel und Messunsicherheiten
 
 # In[1]:
 
@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 # In[2]:
 
 
-T = 1.3
+T_messwert = 1.3
 
 
 # ## Schrecksekunde - Statistische Messunsicherheit
@@ -26,7 +26,7 @@ T = 1.3
 # In[3]:
 
 
-T_schrecksekunde = np.array([5.1, 5.4, 4.9, 5.0, 4.9, 5.1])
+T_schrecksekunde = np.array([5.1, 4.9, 4.9, 5.0, 4.9, 5.05])
 T_schrecksekunde_df = pd.DataFrame(T_schrecksekunde)
 print(T_schrecksekunde_df)
 
@@ -55,7 +55,7 @@ print('Damit beträgt die Messunsicherheit deiner persönlichen Zeitmessung: ',u
 # In[6]:
 
 
-l = 42e-2 # in m
+l_messwert = 42e-2 # in m
 u_l = 1e-3 # in m
 
 
@@ -71,8 +71,8 @@ u_l = 1e-3 # in m
 def g(T,l): # Definition der Funktion für g
     return (2*np.pi/T)**2 * l
 
-g = g(T, l)
-print('Die Schwerebeschleunigung ist', g, 'm/s^2')
+g_messwert = g(T_messwert, l_messwert)
+print('Die Schwerebeschleunigung ist', g_messwert, 'm/s^2')
 
 
 # Bestimmung der Messunsicherheit von $g$ erfolgt durch Fehlerfortpflanzung nach Gauß. 
@@ -80,5 +80,94 @@ print('Die Schwerebeschleunigung ist', g, 'm/s^2')
 # In[8]:
 
 
-pip install sympy
+import sympy as sym
+
+T, l = sym.symbols('T l')
+g_func = (2*np.pi/T)**2 * l
+
+dg_dT = g_func.diff(T)
+dg_dl = g_func.diff(l)
+
+
+# Verwenden Sie lambdify auf den ursprünglichen Ausdruck g_func
+f_dg_dT = sym.lambdify((T, l), dg_dT, modules=['numpy'])
+f_dg_dl = sym.lambdify((T, l), dg_dl, modules=['numpy'])
+
+
+result_dgdT = f_dg_dT(T_messwert, l_messwert)
+#print(result_dgdT)
+
+result_dgdl = f_dg_dl(T_messwert, l_messwert)
+#print(result_dgdl)
+
+u_g = np.sqrt((result_dgdT * u_T)**2 + (result_dgdl * u_l)**2)
+print('Die Messunsicherheit der Schwerebeschleunigung ist', u_g, 'm/s^2')
+
+
+# ## Pendellänge - Diagramm zeichnen
+
+# In[9]:
+
+
+l_data = np.array([42e-2, 35e-2, 30e-2, 25e-2])
+u_l_data = np.array([u_l, u_l, u_l, u_l])
+T_data = np.array([1.3, 1.0, 0.8, 0.6])
+u_T_data = np.array([u_T, u_T, u_T, u_T])
+
+
+# In[10]:
+
+
+l_data = np.array([42e-2, 35e-2, 30e-2, 25e-2])
+u_l_data = np.array([u_l, u_l, u_l, u_l])
+T_data = np.array([1.3, 0.9, 0.7, 0.3])
+u_T_data = np.array([u_T, u_T, u_T, u_T])
+u_T2_data = 0.5*T_data*u_T_data
+
+
+# In[11]:
+
+
+def fit_lin(x, b, a): # Funktion für lineare Regression
+    return b*x + a
+
+from scipy.optimize import curve_fit
+# ----- Mit Fehlerbalken: ---- #
+
+lin_fit = curve_fit(fit_lin, l_data, T_data**2, sigma=u_T2_data) # mit Fehlerbalken 
+#lin_fit = curve_fit(fit_lin, l_data, T_data**2) # ohne Fehlerbalken
+
+
+plt.errorbar(l_data,T_data**2, fmt='o', xerr = u_l_data, yerr = u_T2_data, label = 'Messwerte')
+plt.plot(l_data,fit_lin(l_data, lin_fit[0][0], lin_fit[0][1]), label = 'Lin. Fit: y = %5.3f*x+%5.3f'%(lin_fit[0][0], lin_fit[0][1]))
+plt.xlabel('Pendellänge l in m')
+plt.ylabel(r'Periodendauer $T^2$ in $s^2$')
+
+plt.legend()
+plt.show()
+
+
+# In[12]:
+
+
+lin_fit[1]
+lin_fit[1][0][0]
+
+
+# In[13]:
+
+
+print('Die Erdbeschleunigung nach Steigung berechnet beträgt ',lin_fit[0][0] ,'+-',  np.sqrt(lin_fit[1][0][0]), 'm/s^2')
+
+
+# In[14]:
+
+
+u_T2_data
+
+
+# In[ ]:
+
+
+
 

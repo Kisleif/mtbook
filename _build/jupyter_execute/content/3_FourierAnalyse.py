@@ -554,40 +554,37 @@ plt.tight_layout()
 plt.show()
 
 
-# In[9]:
-
-
-### Dirac-Delta-Impuls
-
-Wir können den klassischen Rechteckpuls nun anpassen. Die Höhe beträgt statt 1 nun $1/2\tau$:
-
-$$h(t) = \left\{\begin{array}{cl} 1/2\tau &\textrm{für}\,\,\left| t \right|\leq \tau = T/2\\  0&\textrm{für}\,\, \left| t \right| > \tau = T/2 \end{array}\right.
-$$
-
-wodurch die Fläche unter dem *Quadrat* nun 1 wird.
-Für die Fourier-Transformierte gilt:
-
-$$
-\begin{align}
-H(\omega) &= \frac{2}{2\tau} \frac{\sin{\omega \tau}}{\omega} = \frac{\sin{\omega \tau}}{\omega \tau}\\lim_{\tau \rightarrow 0}  H(\omega) &= \lim_{\tau \rightarrow 0} \frac{\sin{\omega \tau}}{\omega \tau}\ = 1
-\end{align}
-$$
-
-Der Grenzwert, $\tau \rightarrow 0$ führt direkt zu der Definition des **Dirac-Delta-Impuls**:
-
-$$\delta(t) = \left\{\begin{array}{cl} \infty &\textrm{für}\,\, t = 0\\  0&\textrm{für}\,\, t  \neq 0 \end{array}\right.
-$$
-
-Dirac-Delta-Impuls hat folgende Eigenschaften:
-
-* Das Integral ist 1: $\int_{-\infty}^{\infty} \delta(t) dt = 1$
-* Die Fourier-Transformierte ist: $\int_{-\infty}^{\infty} \delta(t) \mathrm e^{-j \omega t} dt = 1$
-* Mit $g(\tau) = \mathrm e^{-j \omega t}$ kann der Delta-Impuls wiefolgt definiert werden: $\int_{\infty}^{\infty} \delta(0-\tau)g(\tau) d\tau = g(0)$
-
+# ### Dirac-Delta-Impuls
+# 
+# Wir können den klassischen Rechteckpuls nun anpassen. Die Höhe beträgt statt 1 nun $1/2\tau$:
+# 
+# $$h(t) = \left\{\begin{array}{cl} 1/2\tau &\textrm{für}\,\,\left| t \right|\leq \tau = T/2\\  0&\textrm{für}\,\, \left| t \right| > \tau = T/2 \end{array}\right.
+# $$
+# 
+# wodurch die Fläche unter dem *Quadrat* nun 1 wird.
+# Für die Fourier-Transformierte gilt:
+# 
+# $$
+# \begin{align}
+# H(\omega) &= \frac{2}{2\tau} \frac{\sin{\omega \tau}}{\omega} = \frac{\sin{\omega \tau}}{\omega \tau}\\
+# \lim_{\tau \rightarrow 0}  H(\omega) &= \lim_{\tau \rightarrow 0} \frac{\sin{\omega \tau}}{\omega \tau}\ = 1
+# \end{align}
+# $$
+# 
+# Der Grenzwert, $\tau \rightarrow 0$ führt direkt zu der Definition des **Dirac-Delta-Impuls**:
+# 
+# $$\delta(t) = \left\{\begin{array}{cl} \infty &\textrm{für}\,\, t = 0\\  0&\textrm{für}\,\, t  \neq 0 \end{array}\right.
+# $$
+# 
+# Dirac-Delta-Impuls hat folgende Eigenschaften:
+# 
+# * Das Integral ist 1: $\int_{-\infty}^{\infty} \delta(t) dt = 1$
+# * Die Fourier-Transformierte ist: $\int_{-\infty}^{\infty} \delta(t) \mathrm e^{-j \omega t} dt = 1$
+# * Mit $g(\tau) = \mathrm e^{-j \omega t}$ kann der Delta-Impuls wiefolgt definiert werden: $\int_{\infty}^{\infty} \delta(0-\tau)g(\tau) d\tau = g(0)$
 
 # ## Fourier-Transformierte von Messsignalen
 
-# In[8]:
+# In[9]:
 
 
 # MatplotLib Settings:
@@ -624,7 +621,7 @@ plt.tight_layout()
 plt.show()
 
 
-# In[9]:
+# In[10]:
 
 
 # MatplotLib Settings:
@@ -662,7 +659,7 @@ plt.tight_layout()
 plt.show()
 
 
-# In[10]:
+# In[11]:
 
 
 from scipy.fft import fft, fftfreq
@@ -699,7 +696,7 @@ plt.tight_layout()
 plt.show()
 
 
-# In[11]:
+# In[12]:
 
 
 # MatplotLib Settings:
@@ -736,7 +733,7 @@ plt.tight_layout()
 plt.show()
 
 
-# In[12]:
+# In[13]:
 
 
 # MatplotLib Settings:
@@ -770,7 +767,7 @@ plt.tight_layout()
 plt.show()
 
 
-# In[13]:
+# In[14]:
 
 
 # MatplotLib Settings:
@@ -819,7 +816,7 @@ plt.show()
 # :::{figure-md} Fourier-Analyse
 # <img src="pictures/diff_Fourier-Analyse.png" alt="diff_Fourier-Analyse" class="" width="400px" label = diff_Fourier-Analyse>
 # 
-# Fourier-analyse (https://www.biancahoegel.de/mathe/analysis/fourieranalysis.html)
+# Fourier-Analyse (https://www.biancahoegel.de/mathe/analysis/fourieranalysis.html)
 # :::
 # 
 # 1. Periodische Funktion in einem endlichen Intervall: **Fourier-Reihe (diskretes Spektrum)**

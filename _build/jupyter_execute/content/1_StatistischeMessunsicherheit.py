@@ -46,7 +46,7 @@ import warnings
 # Matplotlib settings
 plt.style.use('default')
 plt.rcParams['font.size'] = 10
-fig, ax = plt.subplots(figsize=(4, 4))
+plt.figure(figsize=(4,4)) # Plot-Größe
 
 # Sample data
 t_sec = pd.DataFrame([1.41, 1.35, 1.45, 1.43, 1.44, 1.43,
@@ -56,10 +56,10 @@ t_sec = pd.DataFrame([1.41, 1.35, 1.45, 1.43, 1.44, 1.43,
 klasse = np.linspace(1.3, 1.5, 6)
 
 # Calculate the histogram using np.histogram
-hist_values, bin_edges = np.histogram(t_sec, bins=klasse)
-ax.hist(t_sec, bins=klasse)
-ax.set_ylabel('Absolute Häufigkeit f')
-ax.set_xlabel('Klassenverteilung der Zeit (s)')
+#hist_values, bin_edges = np.histogram(t_sec, bins=klasse)
+bconts, bedges, _p= plt.hist(t_sec, bins=klasse)
+plt.ylabel('Absolute Häufigkeit f')
+plt.xlabel('Klassenverteilung der Zeit (s)')
 plt.show()
 
 
@@ -72,7 +72,7 @@ plt.show()
 from tabulate import tabulate
 
 # Create a DataFrame from the histogram data
-hist_df = pd.DataFrame({'Klasse (s)': bin_edges[:-1], 'Häufigkeit f': hist_values})
+hist_df = pd.DataFrame({'Klasse (s)': bedges[:-1], 'Häufigkeit f': bconts})
 
 print(tabulate(hist_df, headers='keys', tablefmt='pretty'))
 
@@ -163,8 +163,10 @@ plt.show()
 # Überraschenderweise ist die Verteilungsfunktion häufig auch dann immer noch normalverteilt, wenn sehr viele externe Störungen (evtl. mit unterschiedlichen Verteilungsfunktionen) zu einer gemeinsamen Störgröße kombiniert werden. Die zusammengefasste Störung ist trotzdem fast immer gaußverteilt, egal wie die Einzelverteilungen aussehen (Poissonverteilung oder anderes). Dies wird auch als der **zentrale Grenzwertsatz der Wahrscheinlichkeitstheorie** bezeichnet.
 # 
 # 
-# ```{prf:definition} **Zentraler Grenzwertsatz der Wahrscheinlichkeitstheorie**
+# ```{admonition} **Zentraler Grenzwertsatz der Wahrscheinlichkeitstheorie**
+# 
 # Der Durchschnitt einer großen Anzahl von Zufallsvariablen aus derselben Verteilung sind annäherend normalverteilt, unabhängig von der Verteilungsfunktion aus der sie herausgenommen wurden. 
+# 
 # ```
 
 # ## Statistische Größen: Normalverteilung
@@ -290,9 +292,9 @@ print(tabulate(zusammenfassung_df, headers='keys', tablefmt='pretty'))
 # Angenommen, wir nehmen jetzt viele ($k$) Stichproben auf und berechnen jedes mal den Mittelwert, so sind laut *Grenzwertsatz* die Mittelwerte normalverteilt! 
 # Das heißt aus den verschiedenen Mittelwerten von $k$ Stichproben könnte theoretisch wieder ein Mitelwert berechnet werden und folglich auch eine **Standardabweichung der Mittelwerte**:
 # 
-# ```{prf:definition} **Standardabweichung der Mittelwerte**
+# 
 # $$s(\overline x) = \frac{s}{\sqrt{m}} = \sqrt{\frac{1}{m(m-1)} \sum_{j=1}^m (x_j - \overline x)^2}$$
-# ```
+# 
 
 # In[9]:
 

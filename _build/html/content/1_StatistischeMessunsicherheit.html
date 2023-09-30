@@ -949,7 +949,7 @@ title="Print to PDF"
 <span class="c1"># Matplotlib settings</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
 
 <span class="c1"># Sample data</span>
 <span class="n">t_sec</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="mf">1.41</span><span class="p">,</span> <span class="mf">1.35</span><span class="p">,</span> <span class="mf">1.45</span><span class="p">,</span> <span class="mf">1.43</span><span class="p">,</span> <span class="mf">1.44</span><span class="p">,</span> <span class="mf">1.43</span><span class="p">,</span>
@@ -959,22 +959,16 @@ title="Print to PDF"
 <span class="n">klasse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1.3</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
 
 <span class="c1"># Calculate the histogram using np.histogram</span>
-<span class="n">hist_values</span><span class="p">,</span> <span class="n">bin_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">t_sec</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">klasse</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">t_sec</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">klasse</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Absolute Häufigkeit f&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Klassenverteilung der Zeit (s)&#39;</span><span class="p">)</span>
+<span class="c1">#hist_values, bin_edges = np.histogram(t_sec, bins=klasse)</span>
+<span class="n">bconts</span><span class="p">,</span> <span class="n">bedges</span><span class="p">,</span> <span class="n">_p</span><span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">t_sec</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">klasse</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Absolute Häufigkeit f&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Klassenverteilung der Zeit (s)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<figure class="align-default" id="seaborn-example-1">
 <img alt="../_images/1_StatistischeMessunsicherheit_1_0.png" src="../_images/1_StatistischeMessunsicherheit_1_0.png" />
-<figcaption>
-<p><span class="caption-text"><p><code class="docutils literal notranslate"><span class="pre">displot()</span></code> example histogram</p>
-</span><a class="headerlink" href="#seaborn-example-1" title="Link zu diesem Bild">#</a></p>
-</figcaption>
-</figure>
 </div>
 </div>
 <p>Im Diagramm ist die absolute Häufigkeit der Zeitmessung dargestellt. Die Klassen sind jeweils gleich groß mit einer Breite von 0,04s. In der ersten befinden sich die Messwerte von 1.3s-1.34s.</p>
@@ -984,7 +978,7 @@ title="Print to PDF"
 <span class="kn">from</span> <span class="nn">tabulate</span> <span class="kn">import</span> <span class="n">tabulate</span>
 
 <span class="c1"># Create a DataFrame from the histogram data</span>
-<span class="n">hist_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Klasse (s)&#39;</span><span class="p">:</span> <span class="n">bin_edges</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;Häufigkeit f&#39;</span><span class="p">:</span> <span class="n">hist_values</span><span class="p">})</span>
+<span class="n">hist_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Klasse (s)&#39;</span><span class="p">:</span> <span class="n">bedges</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;Häufigkeit f&#39;</span><span class="p">:</span> <span class="n">bconts</span><span class="p">})</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">tabulate</span><span class="p">(</span><span class="n">hist_df</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="s1">&#39;keys&#39;</span><span class="p">,</span> <span class="n">tablefmt</span><span class="o">=</span><span class="s1">&#39;pretty&#39;</span><span class="p">))</span>
 </pre></div>
@@ -1092,12 +1086,11 @@ Die Häufigkeitsdichte gibt bei einem Histogramm die Höhe des Rechtecks an (Die
 </div>
 <p>Im Diagramm sind die relative Häufigkeitsdichte <span class="math notranslate nohighlight">\(d\)</span> der Zeitmessung und ein Modell der Normalverteilung <span class="math notranslate nohighlight">\(P(x)\)</span> dargestellt.</p>
 <p>Überraschenderweise ist die Verteilungsfunktion häufig auch dann immer noch normalverteilt, wenn sehr viele externe Störungen (evtl. mit unterschiedlichen Verteilungsfunktionen) zu einer gemeinsamen Störgröße kombiniert werden. Die zusammengefasste Störung ist trotzdem fast immer gaußverteilt, egal wie die Einzelverteilungen aussehen (Poissonverteilung oder anderes). Dies wird auch als der <strong>zentrale Grenzwertsatz der Wahrscheinlichkeitstheorie</strong> bezeichnet.</p>
-<div class="proof definition admonition" id="definition-0">
-<p class="admonition-title"><span class="caption-number">Definition 1 </span> (<strong>Zentraler Grenzwertsatz der Wahrscheinlichkeitstheorie</strong>)</p>
-<section class="definition-content" id="proof-content">
+<div class="admonition-zentraler-grenzwertsatz-der-wahrscheinlichkeitstheorie admonition">
+<p class="admonition-title"><strong>Zentraler Grenzwertsatz der Wahrscheinlichkeitstheorie</strong></p>
 <p>Der Durchschnitt einer großen Anzahl von Zufallsvariablen aus derselben Verteilung sind annäherend normalverteilt, unabhängig von der Verteilungsfunktion aus der sie herausgenommen wurden.</p>
+</div>
 </section>
-</div></section>
 <section id="statistische-groszen-normalverteilung">
 <h2>Statistische Größen: Normalverteilung<a class="headerlink" href="#statistische-groszen-normalverteilung" title="Link zu dieser Überschrift">#</a></h2>
 <section id="arithmetisches-mittel-und-varianz-unendliche-stichprobe">
@@ -1250,13 +1243,9 @@ Welche Größe, s oder <span class="math notranslate nohighlight">\(\sigma\)</sp
 Das heißt, als Messwert von einer Stichprobe geben wir den Mittelwert an. Dieser muss noch mit einer Unsicherheit versehen werden, um das Messergebnis komplett zu machen. Wie wirkt sich die zu erwartende Messunsicherheit der einzelnen Messwerte <span class="math notranslate nohighlight">\(s(x)\)</span> auf die Unsicherheit des Mittelwerts <span class="math notranslate nohighlight">\(s(\overline x)\)</span> der Messreihe aus?</p>
 <p>Angenommen, wir nehmen jetzt viele (<span class="math notranslate nohighlight">\(k\)</span>) Stichproben auf und berechnen jedes mal den Mittelwert, so sind laut <em>Grenzwertsatz</em> die Mittelwerte normalverteilt!
 Das heißt aus den verschiedenen Mittelwerten von <span class="math notranslate nohighlight">\(k\)</span> Stichproben könnte theoretisch wieder ein Mitelwert berechnet werden und folglich auch eine <strong>Standardabweichung der Mittelwerte</strong>:</p>
-<div class="proof definition admonition" id="definition-1">
-<p class="admonition-title"><span class="caption-number">Definition 2 </span> (<strong>Standardabweichung der Mittelwerte</strong>)</p>
-<section class="definition-content" id="proof-content">
 <div class="math notranslate nohighlight">
 \[s(\overline x) = \frac{s}{\sqrt{m}} = \sqrt{\frac{1}{m(m-1)} \sum_{j=1}^m (x_j - \overline x)^2}\]</div>
-</section>
-</div><div class="cell tag_hide-input docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># MatplotLib Settings:</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
@@ -1629,8 +1618,8 @@ Die unten stehende Quantil-Tabelle zeigt die zugehörigen Werte von <span class=
 <section id="umrechnung-von-vertrauensintervallen">
 <h2>Umrechnung von Vertrauensintervallen<a class="headerlink" href="#umrechnung-von-vertrauensintervallen" title="Link zu dieser Überschrift">#</a></h2>
 <p>Desweiteren können Vertrauensbereiche unterschiedlicher Wahrscheinlichkeiten ineinander umgerechnet werden:</p>
-<div class="proof definition admonition" id="definition-2">
-<p class="admonition-title"><span class="caption-number">Definition 3 </span> (<strong>Umrechnung von Vertrauensbereichen</strong>)</p>
+<div class="proof definition admonition" id="definition-0">
+<p class="admonition-title"><span class="caption-number">Definition 1 </span> (<strong>Umrechnung von Vertrauensbereichen</strong>)</p>
 <section class="definition-content" id="proof-content">
 <div class="math notranslate nohighlight">
 \[\frac{u_{\alpha 1}}{t_{m-1; 1-\frac{\alpha_1}{2}}} =  \frac{u_{\alpha 2}}{t_{m-1; 1-\frac{\alpha_2}{2}}}\]</div>

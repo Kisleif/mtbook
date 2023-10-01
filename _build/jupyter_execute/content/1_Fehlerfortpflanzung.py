@@ -237,17 +237,8 @@ plt.grid();
 
 # ## Gauß'sche Fehlerfortpflanzung <a id="SubSec-Fehlerfortpflanzung_bei_unabhängigen_Unsicherheiten"></a> 
 # 
-# Wie im Kapitel [Statistische Messunsicherheiten](1_StatistischeMessunsicherheit.ipynb) eingeführt, wird aus einer Messreihe (mit $m$ Messwerten) Mittelwert und Unsicherheit mittels der statistischen Mathematik bestimmt:
-# 
-# $$\overline x = \frac{1}{m}\sum_{j=1}^m x_j$$
-# 
-# $$s(\overline x) = \frac{s}{\sqrt{m}} = \sqrt{\frac{1}{m(m-1)} \sum_{j=1}^m (x_j - \overline x)^2} $$
-# 
-# $$u_{\overline x} = t \cdot s(\overline x)$$
-# 
 # ### Zufällige unabhängige Unsicherheiten
-# Haben wir nun den Fall, dass sich die gesuchte Größe $y$ aus mehreren **voneinander unabhängigen** Eingangsgrößen $\bar x_1, \bar x_2, ...$ und deren Unsicherheiten $u_1, u_2, ...$ zusammensetzt. 
-# Um die Unsicherheit $u_y$ zu bestimmen, wird wieder mit der linearen Näherung bei mehreren unabhängigen Variablen begonnen (partielle Ableitungen bilden!), allerdings müssen jetzt, wie bei der Berechnung der Standardunsicherheit, die *quadrierten* Beiträge der Einzelunsicherheiten addiert werden:
+# Haben wir nun den Fall, dass sich die gesuchte Größe $y$ aus mehreren **voneinander unabhängigen** Eingangsgrößen $\bar x_1, \bar x_2, ...$ und deren Unsicherheiten $u_1, u_2, ...$ zusammensetzt, werden jetzt, wie bei der Berechnung der Standardunsicherheit, die *quadrierten* Beiträge der Einzelunsicherheiten addiert werden:
 # 
 # $$u_y = \sqrt{\left (\frac{\partial y}{\partial x_1} \cdot u_1 \right)^2 +\left (\frac{\partial y}{\partial x_2} \cdot u_2 \right)^2 +\cdots}$$
 # 

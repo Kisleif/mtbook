@@ -1050,7 +1050,7 @@ Die Häufigkeitsdichte gibt bei einem Histogramm die Höhe des Rechtecks an (Die
 <h2>Zentraler Grenzwertsatz<a class="headerlink" href="#zentraler-grenzwertsatz" title="Link zu dieser Überschrift">#</a></h2>
 <p>Je größer die Stichprobe <span class="math notranslate nohighlight">\(m\)</span> (Anzahl der Messungen), desto eher erkennt man die zugrundeliegende Verteilung, der die Messreihe unterliegt. Häufig handelt es sich in der Praxis um eine <em>Normalverteilung</em> (oder auch Gaußverteilung genannt):</p>
 <div class="math notranslate nohighlight">
-\[P(x) = \frac{1}{\sigma \sqrt{2\pi}}\int_{x_1}^{x_2} \mathrm{exp}\left(-\frac{(x-\overline x)^2}{2\sigma^2}\right) dx\]</div>
+\[P(x) = \frac{1}{\sigma \sqrt{2\pi}}\int_{x_1}^{x_2} \mathrm{exp}\left(-\frac{(x-\mu)^2}{2\sigma^2}\right) dx\]</div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
@@ -1097,9 +1097,9 @@ Die Häufigkeitsdichte gibt bei einem Histogramm die Höhe des Rechtecks an (Die
 <h3>Arithmetisches Mittel und Varianz (unendliche Stichprobe)<a class="headerlink" href="#arithmetisches-mittel-und-varianz-unendliche-stichprobe" title="Link zu dieser Überschrift">#</a></h3>
 <p>Für normalverteilte Zufalslgrößen (wie in unsere obigen Messreihe) können wir mittels statistischen Methoden Messwerte und Messunsicherheit aus der Stichprobe bestimmen.</p>
 <p>Normalverteilte Zufallsgrößen werden immer von zwei Parametern <span class="math notranslate nohighlight">\(\overline x\)</span> und <span class="math notranslate nohighlight">\(\sigma\)</span> beschrieben.
-Der <strong>arithmetische Mittelwert <span class="math notranslate nohighlight">\(\overline x\)</span></strong>, der das <strong>arithmetische Mittel <span class="math notranslate nohighlight">\(\mu\)</span></strong> aus <span class="math notranslate nohighlight">\(m\)</span> Beobachtungen ist, oder auch <strong>Erwartungswert <span class="math notranslate nohighlight">\(E(x)\)</span></strong> genannt, gilt:</p>
+Der <strong>arithmetische Mittelwert <span class="math notranslate nohighlight">\(\overline x\)</span></strong>, der das <strong>arithmetische Mittel <span class="math notranslate nohighlight">\(\mu\)</span></strong> aus <span class="math notranslate nohighlight">\(m \rightarrow \infty\)</span> Beobachtungen ist, oder auch <strong>Erwartungswert <span class="math notranslate nohighlight">\(E(x)\)</span></strong> genannt, gilt:</p>
 <div class="math notranslate nohighlight">
-\[\overline x = \frac{1}{m}\sum_{j=1}^m x_j =: E(x) = \left&lt; x \right&gt; = \mu\]</div>
+\[\mu = \frac{1}{m}\sum_{j=1}^m x_j =: E(x) = \left&lt; x \right&gt;\]</div>
 <p>Der <em>Erwartungswert der quadratischen Abweichung der Einzelmessungen vom Mittelwert</em>, die <strong>Varianz</strong> <span class="math notranslate nohighlight">\(\sigma^2\)</span>, ist:</p>
 <div class="math notranslate nohighlight">
 \[\sigma^2  =  \frac{1}{m} \sum_{j=1}^m \left( x_j - \mu \right)^2\]</div>
@@ -1335,7 +1335,7 @@ Das heißt aus den verschiedenen Mittelwerten von <span class="math notranslate 
 \[z = \frac{x-\mu}{\sigma}\]</div>
 <p>Dadurch erhält man folgende Funktion für <span class="math notranslate nohighlight">\(\mu = 0\)</span> und <span class="math notranslate nohighlight">\(\sigma = 1\)</span> und <span class="math notranslate nohighlight">\(-1\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[p(z) = \frac{1}{\sqrt{2\pi}}\mathrm e^{-\frac{z^2}{2 ^2}} \]</div>
+\[p(z) = \frac{1}{\sqrt{2\pi}}\mathrm e^{-\frac{z^2}{\sigma^2}} \]</div>
 <figure class="align-default" id="normal-normiert-trafo">
 <a class="reference internal image-reference" href="../_images/normal_normiert_trafo.jpg"><img alt="normal_normiert_trafo" src="../_images/normal_normiert_trafo.jpg" style="width: 600px;" /></a>
 <figcaption>
@@ -1495,7 +1495,7 @@ Der Messtechniker kann somit mit der gegebenen Wahrscheinlichkeit abschätzen, o
 <p>Als Messtechniker gehen wir immer daher davon aus, dass innerhalb <span class="math notranslate nohighlight">\(\pm 3s\)</span> alle Messwerte liegen. Auf dieser Basis wird entsprechend auch die Messabweichung berechnet, also A = <span class="math notranslate nohighlight">\(\pm 3s\)</span>.</p>
 <p>Das <strong>Endergebnis</strong> der oben dargestellten Messreihe von <span class="math notranslate nohighlight">\(m\)</span> Messwerten wird in der Regel wiefolgt angegeben. Als Messwert wird nicht das Ergebnis einer Einzelmessung angegeben, sondern stets der Mittelwert der Messreihe inkl. seiner Unsicherheit:</p>
 <div class="math notranslate nohighlight">
-\[ s(\overline x) = \frac{s}{\sqrt{m}} = u_{\overline x} \]</div>
+\[ s(\overline x) = \frac{s}{\sqrt{m}} u_{\overline x}\]</div>
 <p>Der Mittelwert ist der beste Schätzwert, den wir für den <em>wahren</em> Wert ermitteln können. Die Angabe des Messergebnisses erfolgt also wiefolgt:</p>
 <div class="math notranslate nohighlight">
 \[x = \overline x \pm t \cdot u_{\overline x}\]</div>
@@ -1577,7 +1577,7 @@ Die unten stehende Quantil-Tabelle zeigt die zugehörigen Werte von <span class=
 <p>Die Interpretation der Quantil-Tabelle der Student-t Verteilung kann verwirrend sein. Statt der Anzahl der Messwerte <span class="math notranslate nohighlight">\(m\)</span> wird die Anzahl der Freiheitsgrade <span class="math notranslate nohighlight">\(s = m-1\)</span> angegeben. Und statt des zweiseitigen Vertrauensbereich <span class="math notranslate nohighlight">\(P = 1-\alpha\)</span> wird der halbseitige Vertrauensbereich <span class="math notranslate nohighlight">\(p = 1-\alpha/2\)</span> gewählt. Beide <em>Quantile</em> können aber über die eben angegebenen Formel einfach bestimmt werden.</p>
 <p>Aus der empirischen Standardabweichung des Mittelwertes <span class="math notranslate nohighlight">\(s(\overline x)\)</span> berechnet man beispielsweise:</p>
 <div class="math notranslate nohighlight">
-\[u(\overline x) = t(s,p) \cdot s(\overline x) = t(s,p) \cdot \frac{s(x)}{\sqrt{m}}\]</div>
+\[u_v = t(s,p) \cdot s(\overline x) = t(s,p) \cdot \frac{s(x)}{\sqrt{m}}\]</div>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Beispiel zur Berechnung der Messabweichung einer Messreihe mittels Student-t Verteilung</p>
 <p>Für die Zeitmessreihe aus dem oben aufgeführten Beispiel waren folgende Parameter gegeben:</p>

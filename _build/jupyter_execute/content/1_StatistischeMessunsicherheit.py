@@ -126,7 +126,7 @@ print('Integral über die Häufigkeitsdichte: ',(bconts * np.diff(bedges)).sum()
 # 
 # Je größer die Stichprobe $m$ (Anzahl der Messungen), desto eher erkennt man die zugrundeliegende Verteilung, der die Messreihe unterliegt. Häufig handelt es sich in der Praxis um eine *Normalverteilung* (oder auch Gaußverteilung genannt):
 # 
-# $$P(x) = \frac{1}{\sigma \sqrt{2\pi}}\int_{x_1}^{x_2} \mathrm{exp}\left(-\frac{(x-\overline x)^2}{2\sigma^2}\right) dx$$
+# $$P(x) = \frac{1}{\sigma \sqrt{2\pi}}\int_{x_1}^{x_2} \mathrm{exp}\left(-\frac{(x-\mu)^2}{2\sigma^2}\right) dx$$
 
 # In[5]:
 
@@ -176,9 +176,9 @@ plt.show()
 # Für normalverteilte Zufalslgrößen (wie in unsere obigen Messreihe) können wir mittels statistischen Methoden Messwerte und Messunsicherheit aus der Stichprobe bestimmen. 
 # 
 # Normalverteilte Zufallsgrößen werden immer von zwei Parametern $\overline x$ und $\sigma$ beschrieben. 
-# Der **arithmetische Mittelwert $\overline x$**, der das **arithmetische Mittel $\mu$** aus $m$ Beobachtungen ist, oder auch **Erwartungswert $E(x)$** genannt, gilt:
+# Der **arithmetische Mittelwert $\overline x$**, der das **arithmetische Mittel $\mu$** aus $m \rightarrow \infty$ Beobachtungen ist, oder auch **Erwartungswert $E(x)$** genannt, gilt:
 # 
-# $$\overline x = \frac{1}{m}\sum_{j=1}^m x_j =: E(x) = \left< x \right> = \mu$$
+# $$\mu = \frac{1}{m}\sum_{j=1}^m x_j =: E(x) = \left< x \right>$$
 # 
 # Der *Erwartungswert der quadratischen Abweichung der Einzelmessungen vom Mittelwert*, die **Varianz** $\sigma^2$, ist:
 # 
@@ -386,7 +386,7 @@ plt.show()
 # 
 # Dadurch erhält man folgende Funktion für $\mu = 0$ und $\sigma = 1$ und $-1$:
 # 
-# $$p(z) = \frac{1}{\sqrt{2\pi}}\mathrm e^{-\frac{z^2}{2 ^2}} $$
+# $$p(z) = \frac{1}{\sqrt{2\pi}}\mathrm e^{-\frac{z^2}{\sigma^2}} $$
 # 
 # :::{figure-md} normal_normiert_trafo
 # <img src="draw/normal_normiert_trafo.jpg" alt="normal_normiert_trafo" width="600px" label = normal_normiert_trafo>
@@ -506,7 +506,7 @@ plt.show()
 # 
 # Das **Endergebnis** der oben dargestellten Messreihe von $m$ Messwerten wird in der Regel wiefolgt angegeben. Als Messwert wird nicht das Ergebnis einer Einzelmessung angegeben, sondern stets der Mittelwert der Messreihe inkl. seiner Unsicherheit:
 # 
-# $$ s(\overline x) = \frac{s}{\sqrt{m}} = u_{\overline x} $$
+# $$ s(\overline x) = \frac{s}{\sqrt{m}} u_{\overline x}$$
 # 
 # Der Mittelwert ist der beste Schätzwert, den wir für den *wahren* Wert ermitteln können. Die Angabe des Messergebnisses erfolgt also wiefolgt:
 # 
@@ -583,7 +583,7 @@ print('Das Messergebnis für ein Vertrauensintervall von 99,73% (3-sigma Umgebun
 # 
 # Aus der empirischen Standardabweichung des Mittelwertes $s(\overline x)$ berechnet man beispielsweise:
 # 
-# $$u(\overline x) = t(s,p) \cdot s(\overline x) = t(s,p) \cdot \frac{s(x)}{\sqrt{m}}$$
+# $$u_v = t(s,p) \cdot s(\overline x) = t(s,p) \cdot \frac{s(x)}{\sqrt{m}}$$
 # 
 # 
 # :::{admonition} Beispiel zur Berechnung der Messabweichung einer Messreihe mittels Student-t Verteilung

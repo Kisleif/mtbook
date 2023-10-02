@@ -1216,10 +1216,18 @@ Gelten für die <span class="math notranslate nohighlight">\(N\)</span> Messwert
 <p>Natürlich kann man auch die Abweichungen, Toleranzen und Vertrauensintervalle für die Regressionskoeffizienten <span class="math notranslate nohighlight">\(b\)</span> und <span class="math notranslate nohighlight">\(a\)</span> betrachten.</p>
 <p>Der Fehler der Geradensteigung <span class="math notranslate nohighlight">\(b\)</span> beträgt:</p>
 <div class="math notranslate nohighlight">
-\[s_b = s_y \cdot \sqrt{\frac{N}{N\cdot \sum x_i^2 - \left(\sum x_i\right)^2}} = s_y \cdot \sqrt{\frac{1}{\sum x_i^2 - N\cdot \bar x^2}} = s_y \cdot \sqrt{\frac{1}{\sum \left(x_i - \bar x \right)^2}} = s_y \cdot \sqrt{\frac{1}{N\cdot (\overline{x^2} - (\overline x)^2)}}\]</div>
+\[\begin{split}
+\begin{align*}
+s_b &amp;= s_y \cdot \sqrt{\frac{N}{N\cdot \sum x_i^2 - \left(\sum x_i\right)^2}} = s_y \cdot \sqrt{\frac{1}{\sum x_i^2 - N\cdot \bar x^2}} \\
+&amp; = s_y \cdot \sqrt{\frac{1}{\sum \left(x_i - \bar x \right)^2}} = s_y \cdot \sqrt{\frac{1}{N\cdot (\overline{x^2} - (\overline x)^2)}}
+\end{align*}\end{split}\]</div>
 <p>Der Fehler des Ordinatenabschnitts <span class="math notranslate nohighlight">\(a\)</span> beträgt:</p>
 <div class="math notranslate nohighlight">
-\[s_a = s_y \cdot \sqrt{\frac{\sum x_i^2}{N\cdot \sum x_i^2 - \left(\sum x_i\right)^2}} = s_y \cdot \sqrt{\frac{1}{N}\frac{\sum x_i^2}{\sum x_i^2 - N\cdot \bar x^2}} = s_y \cdot \sqrt{\frac{1}{N}\frac{\sum x_i^2}{\sum \left(x_i - \bar x \right)^2}} = s_b \cdot \sqrt{\overline{x^2}}\]</div>
+\[\begin{split}
+\begin{align*}
+s_a &amp;= s_y \cdot \sqrt{\frac{\sum x_i^2}{N\cdot \sum x_i^2 - \left(\sum x_i\right)^2}} = s_y \cdot \sqrt{\frac{1}{N}\frac{\sum x_i^2}{\sum x_i^2 - N\cdot \bar x^2}} \\
+&amp; = s_y \cdot \sqrt{\frac{1}{N}\frac{\sum x_i^2}{\sum \left(x_i - \bar x \right)^2}} = s_b \cdot \sqrt{\overline{x^2}}
+\end{align*}\end{split}\]</div>
 <p>Mithilfe dieser Standardabweichungen für <span class="math notranslate nohighlight">\(a\)</span> und <span class="math notranslate nohighlight">\(b\)</span> können mit der Student-t-Verteilung und Quantilen kombiniert werden, um den Vertrauensbereich anzugeben.</p>
 <div class="cell tag_thebe-init tag_hide-input docutils container">
 <div class="cell_input docutils container">

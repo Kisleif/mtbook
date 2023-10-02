@@ -130,7 +130,7 @@ plt.show()
 # :class-header: bg-light
 # Amplitudenmodulation - einfach erklärt (Förderverein des Rundfunkmuseums der Stadt Fürth)
 # 
-# <iframe width="560" height="315" src="https://www.youtube.com/embed/fpUHCdD-X60?si=9abV2DdRYWafeCg2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+# <iframe width="200" height="113" src="https://www.youtube.com/embed/fpUHCdD-X60?si=9abV2DdRYWafeCg2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 # ::::
 # :::::
 # ::::::

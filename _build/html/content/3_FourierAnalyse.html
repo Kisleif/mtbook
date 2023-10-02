@@ -782,6 +782,13 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#fourier-transformation-eines-rechteckpulses">
    Fourier-Transformation eines Rechteckpulses
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dirac-delta-impuls">
+     Dirac-Delta-Impuls
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#fourier-transformierte-von-messsignalen">
@@ -870,6 +877,13 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#fourier-transformation-eines-rechteckpulses">
    Fourier-Transformation eines Rechteckpulses
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dirac-delta-impuls">
+     Dirac-Delta-Impuls
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#fourier-transformierte-von-messsignalen">
@@ -1450,7 +1464,7 @@ H(\omega) &amp;= \int_{-\infty}^{\infty} h(t)  \mathrm e^{-j \omega t} dt = \int
 <li><p>Die Nulldurchgänge von <span class="math notranslate nohighlight">\(H(f)\)</span> sind bei <span class="math notranslate nohighlight">\(\pi T f_n = n \pi\)</span>, für <span class="math notranslate nohighlight">\(\lvert n \rvert = 1,2,3...\)</span></p></li>
 <li><p>Es gilt also <span class="math notranslate nohighlight">\(f_n = n/T\)</span>. Für <span class="math notranslate nohighlight">\(n=1\)</span> sieht man, dass je kürzer der Rechteckpuls ist, desto breiter (unschärfer) wird das Spektrum (<strong>Unschärferelation der Fourier-Transformation</strong>)</p></li>
 </ul>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># MatplotLib Settings:</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
@@ -1497,47 +1511,32 @@ H(\omega) &amp;= \int_{-\infty}^{\infty} h(t)  \mathrm e^{-j \omega t} dt = \int
 <img alt="../_images/3_FourierAnalyse_17_0.png" src="../_images/3_FourierAnalyse_17_0.png" />
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>### Dirac-Delta-Impuls
-
-Wir können den klassischen Rechteckpuls nun anpassen. Die Höhe beträgt statt 1 nun $1/2\tau$:
-
-$$h(t) = \left\{\begin{array}{cl} 1/2\tau &amp;\textrm{für}\,\,\left| t \right|\leq \tau = T/2\\  0&amp;\textrm{für}\,\, \left| t \right| &gt; \tau = T/2 \end{array}\right.
-$$
-
-wodurch die Fläche unter dem *Quadrat* nun 1 wird.
-Für die Fourier-Transformierte gilt:
-
-$$
+<section id="dirac-delta-impuls">
+<h3>Dirac-Delta-Impuls<a class="headerlink" href="#dirac-delta-impuls" title="Link zu dieser Überschrift">#</a></h3>
+<p>Wir können den klassischen Rechteckpuls nun anpassen. Die Höhe beträgt statt 1 nun <span class="math notranslate nohighlight">\(1/2\tau\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}h(t) = \left\{\begin{array}{cl} 1/2\tau &amp;\textrm{für}\,\,\left| t \right|\leq \tau = T/2\\  0&amp;\textrm{für}\,\, \left| t \right| &gt; \tau = T/2 \end{array}\right.
+\end{split}\]</div>
+<p>wodurch die Fläche unter dem <em>Quadrat</em> nun 1 wird.
+Für die Fourier-Transformierte gilt:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{align}
 H(\omega) &amp;= \frac{2}{2\tau} \frac{\sin{\omega \tau}}{\omega} = \frac{\sin{\omega \tau}}{\omega \tau}\\
 \lim_{\tau \rightarrow 0}  H(\omega) &amp;= \lim_{\tau \rightarrow 0} \frac{\sin{\omega \tau}}{\omega \tau}\ = 1
 \end{align}
-$$
-
-Der Grenzwert, $\tau \rightarrow 0$ führt direkt zu der Definition des **Dirac-Delta-Impuls**:
-
-$$\delta(t) = \left\{\begin{array}{cl} \infty &amp;\textrm{für}\,\, t = 0\\  0&amp;\textrm{für}\,\, t  \neq 0 \end{array}\right.
-$$
-
-Dirac-Delta-Impuls hat folgende Eigenschaften:
-
-* Das Integral ist 1: $\int_{-\infty}^{\infty} \delta(t) dt = 1$
-* Die Fourier-Transformierte ist: $\int_{-\infty}^{\infty} \delta(t) \mathrm e^{-j \omega t} dt = 1$
-* Mit $g(\tau) = \mathrm e^{-j \omega t}$ kann der Delta-Impuls wiefolgt definiert werden: $\int_{\infty}^{\infty} \delta(0-\tau)g(\tau) d\tau = g(0)$
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  Cell In[9], line 3
-    Wir können den klassischen Rechteckpuls nun anpassen. Die Höhe beträgt statt 1 nun $1/2\tau$:
-        ^
-SyntaxError: invalid syntax
-</pre></div>
-</div>
-</div>
-</div>
+\end{split}\]</div>
+<p>Der Grenzwert, <span class="math notranslate nohighlight">\(\tau \rightarrow 0\)</span> führt direkt zu der Definition des <strong>Dirac-Delta-Impuls</strong>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\delta(t) = \left\{\begin{array}{cl} \infty &amp;\textrm{für}\,\, t = 0\\  0&amp;\textrm{für}\,\, t  \neq 0 \end{array}\right.
+\end{split}\]</div>
+<p>Dirac-Delta-Impuls hat folgende Eigenschaften:</p>
+<ul class="simple">
+<li><p>Das Integral ist 1: <span class="math notranslate nohighlight">\(\int_{-\infty}^{\infty} \delta(t) dt = 1\)</span></p></li>
+<li><p>Die Fourier-Transformierte ist: <span class="math notranslate nohighlight">\(\int_{-\infty}^{\infty} \delta(t) \mathrm e^{-j \omega t} dt = 1\)</span></p></li>
+<li><p>Mit <span class="math notranslate nohighlight">\(g(\tau) = \mathrm e^{-j \omega t}\)</span> kann der Delta-Impuls wiefolgt definiert werden: <span class="math notranslate nohighlight">\(\int_{\infty}^{\infty} \delta(0-\tau)g(\tau) d\tau = g(0)\)</span></p></li>
+</ul>
+</section>
 </section>
 <section id="fourier-transformierte-von-messsignalen">
 <h2>Fourier-Transformierte von Messsignalen<a class="headerlink" href="#fourier-transformierte-von-messsignalen" title="Link zu dieser Überschrift">#</a></h2>
@@ -1798,7 +1797,7 @@ SyntaxError: invalid syntax
 <figure class="align-default" id="id1">
 <a class="reference internal image-reference" href="../_images/diff_Fourier-Analyse.png"><img alt="diff_Fourier-Analyse" src="../_images/diff_Fourier-Analyse.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 37 </span><span class="caption-text">Fourier-analyse (<a class="reference external" href="https://www.biancahoegel.de/mathe/analysis/fourieranalysis.html">https://www.biancahoegel.de/mathe/analysis/fourieranalysis.html</a>)</span><a class="headerlink" href="#id1" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-number">Abb. 37 </span><span class="caption-text">Fourier-Analyse (<a class="reference external" href="https://www.biancahoegel.de/mathe/analysis/fourieranalysis.html">https://www.biancahoegel.de/mathe/analysis/fourieranalysis.html</a>)</span><a class="headerlink" href="#id1" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
 <ol class="simple">

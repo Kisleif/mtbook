@@ -46,7 +46,7 @@ import warnings
 # Matplotlib settings
 plt.style.use('default')
 plt.rcParams['font.size'] = 10
-fig, ax = plt.subplots(figsize=(4, 4))
+plt.figure(figsize=(4,4)) # Plot-Größe
 
 # Sample data
 t_sec = pd.DataFrame([1.41, 1.35, 1.45, 1.43, 1.44, 1.43,
@@ -56,10 +56,10 @@ t_sec = pd.DataFrame([1.41, 1.35, 1.45, 1.43, 1.44, 1.43,
 klasse = np.linspace(1.3, 1.5, 6)
 
 # Calculate the histogram using np.histogram
-hist_values, bin_edges = np.histogram(t_sec, bins=klasse)
-ax.hist(t_sec, bins=klasse)
-ax.set_ylabel('Absolute Häufigkeit f')
-ax.set_xlabel('Klassenverteilung der Zeit (s)')
+#hist_values, bin_edges = np.histogram(t_sec, bins=klasse)
+bconts, bedges, _p= plt.hist(t_sec, bins=klasse)
+plt.ylabel('Absolute Häufigkeit f')
+plt.xlabel('Klassenverteilung der Zeit (s)')
 plt.show()
 
 
@@ -72,7 +72,7 @@ plt.show()
 from tabulate import tabulate
 
 # Create a DataFrame from the histogram data
-hist_df = pd.DataFrame({'Klasse (s)': bin_edges[:-1], 'Häufigkeit f': hist_values})
+hist_df = pd.DataFrame({'Klasse (s)': bedges[:-1], 'Häufigkeit f': bconts})
 
 print(tabulate(hist_df, headers='keys', tablefmt='pretty'))
 
@@ -126,7 +126,7 @@ print('Integral über die Häufigkeitsdichte: ',(bconts * np.diff(bedges)).sum()
 # 
 # Je größer die Stichprobe $m$ (Anzahl der Messungen), desto eher erkennt man die zugrundeliegende Verteilung, der die Messreihe unterliegt. Häufig handelt es sich in der Praxis um eine *Normalverteilung* (oder auch Gaußverteilung genannt):
 # 
-# $$P(x) = \frac{1}{\sigma \sqrt{2\pi}}\int_{x_1}^{x_2} \mathrm{exp}\left(-\frac{(x-\overline x)^2}{2\sigma^2}\right) dx$$
+# $$P(x) = \frac{1}{\sigma \sqrt{2\pi}}\int_{x_1}^{x_2} \mathrm{exp}\left(-\frac{(x-\mu)^2}{2\sigma^2}\right) dx$$
 
 # In[5]:
 
@@ -163,8 +163,10 @@ plt.show()
 # Überraschenderweise ist die Verteilungsfunktion häufig auch dann immer noch normalverteilt, wenn sehr viele externe Störungen (evtl. mit unterschiedlichen Verteilungsfunktionen) zu einer gemeinsamen Störgröße kombiniert werden. Die zusammengefasste Störung ist trotzdem fast immer gaußverteilt, egal wie die Einzelverteilungen aussehen (Poissonverteilung oder anderes). Dies wird auch als der **zentrale Grenzwertsatz der Wahrscheinlichkeitstheorie** bezeichnet.
 # 
 # 
-# ```{prf:definition} **Zentraler Grenzwertsatz der Wahrscheinlichkeitstheorie**
+# ```{admonition} **Zentraler Grenzwertsatz der Wahrscheinlichkeitstheorie**
+# 
 # Der Durchschnitt einer großen Anzahl von Zufallsvariablen aus derselben Verteilung sind annäherend normalverteilt, unabhängig von der Verteilungsfunktion aus der sie herausgenommen wurden. 
+# 
 # ```
 
 # ## Statistische Größen: Normalverteilung
@@ -174,9 +176,9 @@ plt.show()
 # Für normalverteilte Zufalslgrößen (wie in unsere obigen Messreihe) können wir mittels statistischen Methoden Messwerte und Messunsicherheit aus der Stichprobe bestimmen. 
 # 
 # Normalverteilte Zufallsgrößen werden immer von zwei Parametern $\overline x$ und $\sigma$ beschrieben. 
-# Der **arithmetische Mittelwert $\overline x$**, der das **arithmetische Mittel $\mu$** aus $m$ Beobachtungen ist, oder auch **Erwartungswert $E(x)$** genannt, gilt:
+# Der **arithmetische Mittelwert $\overline x$**, der das **arithmetische Mittel $\mu$** aus $m \rightarrow \infty$ Beobachtungen ist, oder auch **Erwartungswert $E(x)$** genannt, gilt:
 # 
-# $$\overline x = \frac{1}{m}\sum_{j=1}^m x_j =: E(x) = \left< x \right> = \mu$$
+# $$\mu = \frac{1}{m}\sum_{j=1}^m x_j =: E(x) = \left< x \right>$$
 # 
 # Der *Erwartungswert der quadratischen Abweichung der Einzelmessungen vom Mittelwert*, die **Varianz** $\sigma^2$, ist:
 # 
@@ -290,9 +292,9 @@ print(tabulate(zusammenfassung_df, headers='keys', tablefmt='pretty'))
 # Angenommen, wir nehmen jetzt viele ($k$) Stichproben auf und berechnen jedes mal den Mittelwert, so sind laut *Grenzwertsatz* die Mittelwerte normalverteilt! 
 # Das heißt aus den verschiedenen Mittelwerten von $k$ Stichproben könnte theoretisch wieder ein Mitelwert berechnet werden und folglich auch eine **Standardabweichung der Mittelwerte**:
 # 
-# ```{prf:definition} **Standardabweichung der Mittelwerte**
+# 
 # $$s(\overline x) = \frac{s}{\sqrt{m}} = \sqrt{\frac{1}{m(m-1)} \sum_{j=1}^m (x_j - \overline x)^2}$$
-# ```
+# 
 
 # In[9]:
 
@@ -384,7 +386,7 @@ plt.show()
 # 
 # Dadurch erhält man folgende Funktion für $\mu = 0$ und $\sigma = 1$ und $-1$:
 # 
-# $$p(z) = \frac{1}{\sqrt{2\pi}}\mathrm e^{-\frac{z^2}{2 ^2}} $$
+# $$p(z) = \frac{1}{\sqrt{2\pi}}\mathrm e^{-\frac{z^2}{\sigma^2}} $$
 # 
 # :::{figure-md} normal_normiert_trafo
 # <img src="draw/normal_normiert_trafo.jpg" alt="normal_normiert_trafo" width="600px" label = normal_normiert_trafo>
@@ -504,7 +506,7 @@ plt.show()
 # 
 # Das **Endergebnis** der oben dargestellten Messreihe von $m$ Messwerten wird in der Regel wiefolgt angegeben. Als Messwert wird nicht das Ergebnis einer Einzelmessung angegeben, sondern stets der Mittelwert der Messreihe inkl. seiner Unsicherheit:
 # 
-# $$ s(\overline x) = \frac{s}{\sqrt{m}} = u_{\overline x} $$
+# $$ s(\overline x) = \frac{s}{\sqrt{m}} u_{\overline x}$$
 # 
 # Der Mittelwert ist der beste Schätzwert, den wir für den *wahren* Wert ermitteln können. Die Angabe des Messergebnisses erfolgt also wiefolgt:
 # 
@@ -581,7 +583,7 @@ print('Das Messergebnis für ein Vertrauensintervall von 99,73% (3-sigma Umgebun
 # 
 # Aus der empirischen Standardabweichung des Mittelwertes $s(\overline x)$ berechnet man beispielsweise:
 # 
-# $$u(\overline x) = t(s,p) \cdot s(\overline x) = t(s,p) \cdot \frac{s(x)}{\sqrt{m}}$$
+# $$u_v = t(s,p) \cdot s(\overline x) = t(s,p) \cdot \frac{s(x)}{\sqrt{m}}$$
 # 
 # 
 # :::{admonition} Beispiel zur Berechnung der Messabweichung einer Messreihe mittels Student-t Verteilung

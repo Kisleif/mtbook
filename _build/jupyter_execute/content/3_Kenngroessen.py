@@ -273,6 +273,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 from IPython.display import HTML
+from scipy import signal  # Import the signal module from scipy
+
 
 # Abtastparameter
 fs = 1000  # Abtastfrequenz in Hz

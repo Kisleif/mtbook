@@ -414,6 +414,8 @@ plt.title('Logarithmische x-Werte')
 plt.tight_layout()
 
 
+# In den folgenden Diagrammen ist einmal dargestellt, wie viel besser Koordinatensysteme ausgenutzt werden können, wenn zu einer logarithmischen Darstellung gewechselt wird. Während bei linearen Achsen nur ein ganz kleiner des Diagramms ausgenutzt wird und man kaum was erkennen kann wie die Messwerte skalieren, ist bei der doppellogarithmischen Darstellung gut zu sehen, wie sich die Messwerte verhalten. 
+
 # In[3]:
 
 

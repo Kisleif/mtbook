@@ -802,28 +802,7 @@ title="Print to PDF"
 <h1>Systematische Messabweichung<a class="headerlink" href="#systematische-messabweichung" title="Link zu dieser Überschrift">#</a></h1>
 <section id="anzeigefehler-von-messgeraten">
 <h2>Anzeigefehler von Messgeräten<a class="headerlink" href="#anzeigefehler-von-messgeraten" title="Link zu dieser Überschrift">#</a></h2>
-<p>Messgeräte werden anhand ihrer Genauigkeit in Klassen eingruppiert. Die Klasse entspricht der relativen Messabweichung. Präzisionsmessgeräte besitzen somit Abweichungen die zwischen 0,001% und 0,05% liegen. Die Genauigkeitsklasse K 2,5 (Angabe auf der Messskala nach DIN EN 60051 Abb. 1) bedeutet: Ist der Endwert des eingestellten Messbereichs <span class="math notranslate nohighlight">\(U_\mathrm{end}\)</span>, dann beträgt die Typ B-Unsicherheit über den gesamten Messbereich <span class="math notranslate nohighlight">\(u(U) = 0{,}0025\cdot U_\mathrm{end}\)</span>. Für <span class="math notranslate nohighlight">\(U_\mathrm{end} = 15\,\mathrm V\)</span> erhält man also:</p>
-<div class="cell tag_hide-cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">U_end</span> <span class="o">=</span> <span class="mi">15</span>
-<span class="n">u</span> <span class="o">=</span> <span class="mf">0.0025</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;eine absolute Unsicherheit von &#39;</span><span class="p">,</span> <span class="n">u</span><span class="o">*</span><span class="n">U_end</span><span class="p">,</span> <span class="s1">&#39;V&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eine absolute Unsicherheit von  0.0375 V
-</pre></div>
-</div>
-</div>
-</div>
-<p>Dieser Wert von 0,375V gilt unabhängig davon, wie groß der Zeigerausschlag beim Messgerät ist. Um die relative Unsicherheit gering zu halten, sollte der Messbereich möglichst so gewählt werden, dass der Messwert am Skalen<em>ende</em> abgelesen wird.</p>
-</section>
-<section id="digitalstellenfehler">
-<h2>Digitalstellenfehler<a class="headerlink" href="#digitalstellenfehler" title="Link zu dieser Überschrift">#</a></h2>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
-<div class="sd-col sd-d-flex-column docutils">
+<p>Messgeräte werden anhand ihrer Genauigkeit in Klassen eingruppiert.</p>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="text-align:left head"><p>Messgeräte-Kategorie</p></th>
@@ -869,27 +848,38 @@ title="Print to PDF"
 </tr>
 </tbody>
 </table>
+<p>Die Klasse entspricht der relativen Messabweichung. Präzisionsmessgeräte besitzen somit Abweichungen die zwischen 0,001% und 0,05% liegen. Die Genauigkeitsklasse K 2,5 (Angabe auf der Messskala nach DIN EN 60051) bedeutet: Ist der Endwert des eingestellten Messbereichs <span class="math notranslate nohighlight">\(U_\mathrm{end}\)</span>, dann beträgt die Typ B-Unsicherheit über den gesamten Messbereich <span class="math notranslate nohighlight">\(u(U) = 0{,}0025\cdot U_\mathrm{end}\)</span>. Für <span class="math notranslate nohighlight">\(U_\mathrm{end} = 15\,\mathrm V\)</span> erhält man also:</p>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">U_end</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">u</span> <span class="o">=</span> <span class="mf">0.0025</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;eine absolute Unsicherheit von &#39;</span><span class="p">,</span> <span class="n">u</span><span class="o">*</span><span class="n">U_end</span><span class="p">,</span> <span class="s1">&#39;V&#39;</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="sd-col sd-d-flex-column docutils">
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eine absolute Unsicherheit von  0.0375 V
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dieser Wert von 0,375V gilt unabhängig davon, wie groß der Zeigerausschlag beim Messgerät ist. Um die relative Unsicherheit gering zu halten, sollte der Messbereich möglichst so gewählt werden, dass der Messwert am Skalen<em>ende</em> abgelesen wird.</p>
+</section>
+<section id="digitalstellenfehler">
+<h2>Digitalstellenfehler<a class="headerlink" href="#digitalstellenfehler" title="Link zu dieser Überschrift">#</a></h2>
 <figure class="align-default" id="voltmeter">
 <a class="reference internal image-reference" href="../_images/voltmeter.jpg"><img alt="voltmeter" src="../_images/voltmeter.jpg" style="width: 175px;" /></a>
 <figcaption>
 <p><span class="caption-number">Abb. 15 </span><span class="caption-text">Voltmeter mit Digitalanzeige.</span><a class="headerlink" href="#voltmeter" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
-</div>
-</div>
-</div>
-<div class="tip admonition">
-<p class="admonition-title">Beispiel</p>
-<p>Das Gerät im Bild zeigt den Messwert 5,847V an. Laut Hersteller ist die Maximalabweichung (unter Referenzbedingungen) <span class="math notranslate nohighlight">\(a = \pm\)</span> (0{,}5% vom <em>Messwert</em> + 9 Digit). Die Anzahl der Nachkommastellen (also der Digits) ist in diesem Falle 3, also 0,001V. Genauer kann das Messgerät keine Spannung angeben. Die Messabweichung setzt sich also wiefolgt zusammen (zwei signifikante Stellen reichen hierbei, da der Messwert selber nicht genauer angezeigt wird):</p>
+<p>Das Gerät im Bild zeigt den Messwert 5,847V an. Laut Hersteller ist die Maximalabweichung (unter Referenzbedingungen) <span class="math notranslate nohighlight">\(a = \pm\)</span> (0,5% vom <em>Messwert</em> + 9 Digit). Die Anzahl der Nachkommastellen (also der Digits) ist in diesem Falle 3, also 0,001V. Genauer kann das Messgerät keine Spannung angeben. Die Messabweichung setzt sich also wiefolgt zusammen (zwei signifikante Stellen reichen hierbei, da der Messwert selber nicht genauer angezeigt wird):</p>
 <div class="math notranslate nohighlight">
 \[a = \pm (0{,}5\% \cdot 5{,}847\,\mathrm{V} + 9 \cdot 0{,}001\,\mathrm V) \approx \pm 0{,}038\,\mathrm V = \pm 38{,}235\,\mathrm{mV}\]</div>
 <p>Innerhalb dieses <span class="math notranslate nohighlight">\(\pm\)</span> Bereiches der Breite <span class="math notranslate nohighlight">\(2a\)</span> unterstellt man eine Gleichverteilung der Messwerte und bekommt damit die Standardunsicherheit:</p>
 <div class="math notranslate nohighlight">
 \[u(U) = \frac{a}{\sqrt{3}} = \frac{38{,}235\,\mathrm{mV}}{\sqrt{3}} \approx 22\,\mathrm{mV}\]</div>
 <p>Ist nichts weiter bekannt, schätzt man die Unsicherheit über einen Mindestfehler von a = 1 Digit ab.</p>
-</div>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>

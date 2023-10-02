@@ -45,7 +45,7 @@ plt.rcParams['font.size'] = 13; # Schriftgröße
 
 
 # Initialize the figure and axis
-fig, ax = plt.subplots(figsize=(10, 4))
+fig, ax = plt.subplots(figsize=(7, 4))
 f = 1
 # Create a function to update the plot for each frame of the animation
 def animate(bit):
@@ -135,15 +135,13 @@ print('rel. Abweichung (Näherungsformel): \t', 1/2**n_bits*100, '%')
 # 
 # Das Nyquist-Shannon-Abtasttheorem, auch als Nyquist-Kriterium bekannt, ist ein grundlegendes Prinzip in der Signalverarbeitung. Es besagt, dass ein bandbegrenztes Signal, das auf eine maximale Frequenz von $f_\mathrm{max}$ beschränkt ist, genau dann exakt rekonstruiert werden kann, wenn es mit einer Abtastfrequenz $f_\mathrm{ab}$ abgetastet wird, die größer ist als das Doppelte der maximalen Signal-Frequenz.
 # 
-# ```{prf:theorem} Nyquist-Shannon Abtasttheorem
-# $f_\mathrm{ab} > 2\cdot f_\mathrm{max}$
-# ```
+# $$f_\mathrm{ab} > 2\cdot f_\mathrm{max}$$
 # 
 # Angenommen, wir haben ein bandbegrenztes Signal, das beispielsweise nur mit einer Bandbreite von $f_\mathrm{max} = 1\,\mathrm{kHz}$ übertragen werden kann. Das bedeutet, dass wir mit einem verfügbaren Messgerät nur eine Bandbreite von 1 kHz erfassen können, und das Signal ist dementsprechend bandbegrenzt. Die höchste Frequenzkomponente dieses Signals beträgt 1 kHz. Gemäß dem Nyquist-Shannon-Abtasttheorem muss dieses Signal mit mindestens 2 kHz abgetastet werden. 
 # 
 # Die Abtastdauer $T_\mathrm{ab}$, die den Zeitraum zwischen aufeinanderfolgenden Messungen angibt, ergibt sich aus der Formel 
 # 
-# $$T_\mathrm{ab} = \frac{1}{f_\mathrm{ab}}$$. 
+# $$T_\mathrm{ab} = \frac{1}{f_\mathrm{ab}}$$
 # 
 # Im vorliegenden Beispiel mit $f_\mathrm{ab} = 2\,\mathrm{kHz}$ beträgt die Abtastdauer $0{,}5\,\mathrm{ms}$. Das bedeutet, dass das Signal alle 0,5 ms abgetastet wird, um alle relevanten Informationen zu erfassen. 
 # Für $f_\mathrm{max} = 5\,\mathrm{Hz}$ beträgt die Abtastfrequenz 10 Hz und die Abtastdauer entsprechend 0,1 s, bzw. 10 Abtastzeitpunkte pro Sekunde (siehe folgendes Diagramm).
@@ -163,7 +161,7 @@ plt.rcParams['font.size'] = 13; # Schriftgröße
 
 
 # Initialize the figure and axis
-fig, ax = plt.subplots(figsize=(10, 4))
+fig, ax = plt.subplots(figsize=(7, 4))
 f = 5
 # Create a function to update the plot for each frame of the animation
 def animate(fs):
@@ -237,7 +235,7 @@ plt.rcParams['font.size'] = 13; # Schriftgröße
 
 
 # Initialize the figure and axis
-fig, ax = plt.subplots(figsize=(10, 4))
+fig, ax = plt.subplots(figsize=(7, 4))
 f = 10
 # Create a function to update the plot for each frame of the animation
 def animate(fs):

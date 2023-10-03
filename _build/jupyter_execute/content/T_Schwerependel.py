@@ -102,7 +102,7 @@ result_dgdl = f_dg_dl(T_messwert, l_messwert)
 
 u_g = np.sqrt((result_dgdT * u_T)**2 + (result_dgdl * u_l)**2)
 print('Die Messunsicherheit von g ist', u_g, 'm/s^2 (68%)')
-print('Die Messunsicherheit von g für 99,97% ist', 3*u_g, 'm/s^2')
+print('Die Messunsicherheit von g für 99,7% ist', 3*u_g, 'm/s^2')
 print('Das Gesamtergebnis für g mit 99,7% Vertrauensintervall lautet:')
 print('(', g_messwert, '+-', 3*u_g, ')m/s^2')
 

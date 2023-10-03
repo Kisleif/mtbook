@@ -101,7 +101,16 @@ result_dgdl = f_dg_dl(T_messwert, l_messwert)
 #print(result_dgdl)
 
 u_g = np.sqrt((result_dgdT * u_T)**2 + (result_dgdl * u_l)**2)
-print('Die Messunsicherheit der Schwerebeschleunigung ist', u_g, 'm/s^2')
+print('Die Messunsicherheit von g ist', u_g, 'm/s^2 (68%)')
+print('Die Messunsicherheit von g für 99,97% ist', 3*u_g, 'm/s^2')
+print('Das Gesamtergebnis für g mit 99,7% Vertrauensintervall lautet:')
+print('(', g_messwert, '+-', 3*u_g, ')m/s^2')
+
+
+# In[ ]:
+
+
+
 
 
 # ## Pendellänge - Diagramm zeichnen
@@ -157,7 +166,8 @@ lin_fit[1][0][0]
 # In[13]:
 
 
-print('Die Erdbeschleunigung nach Steigung berechnet beträgt ',lin_fit[0][0] ,'+-',  np.sqrt(lin_fit[1][0][0]), 'm/s^2')
+print('Die Erdbeschleunigung nach Steigung berechnet beträgt:')
+print('(',lin_fit[0][0] ,'+-',  np.sqrt(lin_fit[1][0][0]), ') m/s^2')
 
 
 # In[14]:

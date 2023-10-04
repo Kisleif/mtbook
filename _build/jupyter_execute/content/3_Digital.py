@@ -115,6 +115,12 @@ print('rel. Abweichung (Näherungsformel): \t', 1/2**n_bits*100, '%')
 
 # ## Nyquist-Shannon-Abtasttheorem
 # 
+# ```{epigraph}
+# Ein auf $f_\mathrm{max}$ bandbegrenztes Signal kann exakt rekonstruiert werden, wenn es mit einer Frequenz $> 2\cdot f_\mathrm{max}$ abgetastet wurde.
+# 
+# -- Wikipedia
+# ```
+# 
 # ::::::{margin}
 # :::::{grid}
 # ::::{grid-item-card}
@@ -125,13 +131,6 @@ print('rel. Abweichung (Näherungsformel): \t', 1/2**n_bits*100, '%')
 # ::::
 # :::::
 # ::::::
-# 
-# 
-# ```{epigraph}
-# Ein auf $f_\mathrm{max}$ bandbegrenztes Signal kann exakt rekonstruiert werden, wenn es mit einer Frequenz $> 2\cdot f_\mathrm{max}$ abgetastet wurde.
-# 
-# -- Wikipedia
-# ```
 # 
 # Das Nyquist-Shannon-Abtasttheorem, auch als Nyquist-Kriterium bekannt, ist ein grundlegendes Prinzip in der Signalverarbeitung. Es besagt, dass ein bandbegrenztes Signal, das auf eine maximale Frequenz von $f_\mathrm{max}$ beschränkt ist, genau dann exakt rekonstruiert werden kann, wenn es mit einer Abtastfrequenz $f_\mathrm{ab}$ abgetastet wird, die größer ist als das Doppelte der maximalen Signal-Frequenz.
 # 

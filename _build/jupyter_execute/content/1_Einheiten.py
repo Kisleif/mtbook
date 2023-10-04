@@ -15,8 +15,30 @@
 # :::::
 # ::::::
 # 
+# ::::::{margin}
+# :::::{grid}
+# ::::{grid-item-card}
+# :class-header: bg-light
+# Peinliche Rechenfehler in der Raumfahrtgeschichte | Sonne, Tod & Sterne
+# 
+# <iframe width="200" height="113" src="https://www.youtube.com/embed/OoJCX6mECUU?si=D2DWoIhO0DMkfu9K" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+# ::::
+# :::::
+# ::::::
+# 
 # 
 # Die monumentalen Pyramiden Ägyptens, faszinierende Meisterwerke der antiken Baukunst, stellen bis heute ein beeindruckendes Rätsel dar. Wie konnten die Erbauer vor über 4.600 Jahren, im Jahr 2600 v. Chr., eine solch bemerkenswerte Präzision und Symmetrie in ihren Bauwerken erreichen? Eine entscheidende Antwort auf diese Frage liegt in der erstaunlichen Methode, mit der die alten Ägypter die Präzision im Pyramidenbau sicherten.
+# 
+# Andererseits ist es noch gar nicht so lange her, dass hohe Kosten entstanden und Raumfahrtmissionen gescheitert sind, weil falsche Einheiten oder falsche Formelzeichen bei der NASA abgetippt worden sind. 
+# Wie konnte es dazu kommen? Sieh dir das Video an!
+# 
+# ```{epigraph}
+# Es ist sehr beruhigend, dass meine Rechenfehler mich höchstens einen Klausurversuch und Ärger beim Protokollieren kosten...noch.
+# 
+# -- Kommentar von gwendolynneko4070 "Peinliche Rechenfehler in der Raumfahrtgeschichte"
+# ```
+# 
+# 
 # 
 # ```{admonition} Wunder an Präzision (2600 v. Chr.): Cheops-Pyramide
 # :class: dropdown
@@ -40,6 +62,8 @@
 # * Sie ist auch in großer Höhe und auf kleiner Fläche anwendbar, so dass sie bei jeder neuen Schicht wiederholt werden kann.
 # 
 # ```
+# 
+# ## Erste Maßeinheiten: Körpermaße
 # 
 # Die Ägypter vertrauten dabei auf sogenannte Körpermaße, wie die Elle und den Fuß, die in ihrem Alltag üblich waren. Doch für die Bauwerke von solch monumentaler Bedeutung wie den Pyramiden bedurfte es verbindlicher und reproduzierbarer Maßeinheiten. Diese Maßeinheiten wurden in Form von Längennormalen aus Holz geschaffen, die eine entscheidende Rolle in der präzisen Konstruktion der Pyramiden spielten. Jeden Monat wurden diese "Normale" mit der "königlichen Elle" oder "meh" kalibriert, einem sogenannten "Primärnormal" aus Granit, das genau der Unterarmlänge des Pharaos entsprach. Dieses Verfahren zur Sicherung der Präzision erwies sich als äußerst effektiv, denn eine Fahrlässigkeit bei der Kalibrierung hatte schwerwiegende Konsequenzen, die mit dem Tod bestraft wurden.
 # 

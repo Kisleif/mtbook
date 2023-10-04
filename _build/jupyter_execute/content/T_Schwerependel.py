@@ -102,20 +102,52 @@ result_dgdl = f_dg_dl(T_messwert, l_messwert)
 
 u_g = np.sqrt((result_dgdT * u_T)**2 + (result_dgdl * u_l)**2)
 print('Die Messunsicherheit von g ist', u_g, 'm/s^2 (68%)')
-print('Die Messunsicherheit von g für 99,7% ist', 3*u_g, 'm/s^2')
-print('Das Gesamtergebnis für g mit 99,7% Vertrauensintervall lautet:')
-print('(', g_messwert, '+-', 3*u_g, ')m/s^2')
 
 
-# In[ ]:
+# ## Erweiterte Messunsicherheit nach Student-t-Verteilung
+
+# Korrigierte Messunsicherheit nach Student-t-Verteilung ist für die Periodendauer, d.h. 
+# 
+# $$s = m-1$$
+# 
+# $$p = 1-\alpha/2$$
+# 
+# für hier $\alpha = 1-0.99 = 0.01$ nach Aufgabenbeschreibung
+
+# In[9]:
 
 
+s = len(T_schrecksekunde)-1
+alpha = 0.01
+p = 1-alpha/2
+print('s-Quantil: ', s)
+print('p-Quantil: ', p)
 
+
+# Aus Tabelle folgt für dies Werte (s = 5 und p = 0.995):
+# 
+# $$t_{s,p} = 4,032$$
+
+# Daraus wird der Fehler für $g$ neu berechnet:
+
+# In[10]:
+
+
+t_sp = 4.032
+u_T = t_sp * u_T
+
+
+# In[11]:
+
+
+u_g = np.sqrt((result_dgdT * u_T)**2 + (result_dgdl * u_l)**2)
+print('Die Messunsicherheit von g ist', u_g, 'm/s^2 (99%)')
+print('Das Messergebnis ist g = (', g_messwert, '+-', u_g, ')m/s^2 (99%)')
 
 
 # ## Pendellänge - Diagramm zeichnen
 
-# In[9]:
+# In[12]:
 
 
 l_data = np.array([42e-2, 35e-2, 30e-2, 25e-2])
@@ -124,7 +156,7 @@ T_data = np.array([1.3, 1.0, 0.8, 0.6])
 u_T_data = np.array([u_T, u_T, u_T, u_T])
 
 
-# In[10]:
+# In[13]:
 
 
 l_data = np.array([42e-2, 35e-2, 30e-2, 25e-2])
@@ -134,7 +166,7 @@ u_T_data = np.array([u_T, u_T, u_T, u_T])
 u_T2_data = 2*T_data*u_T_data
 
 
-# In[11]:
+# In[14]:
 
 
 def fit_lin(x, b, a): # Funktion für lineare Regression
@@ -156,21 +188,21 @@ plt.legend()
 plt.show()
 
 
-# In[12]:
+# In[15]:
 
 
 lin_fit[1]
 lin_fit[1][0][0]
 
 
-# In[13]:
+# In[16]:
 
 
 print('Die Erdbeschleunigung nach Steigung berechnet beträgt:')
 print('(',lin_fit[0][0] ,'+-',  np.sqrt(lin_fit[1][0][0]), ') m/s^2')
 
 
-# In[14]:
+# In[17]:
 
 
 u_T2_data

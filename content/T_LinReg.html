@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Verschiedene Fit-Routinen &#8212; Metrology Lecture Book</title>
+    <title>Verschiedene Fit-Funktionen &#8212; Metrology Lecture Book</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -59,7 +59,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
     <link rel="next" title="Lineare Regression mit Fehlerbalken" href="T_FitmitFehlerbalken.html" />
-    <link rel="prev" title="Fehlerfortpflanzung" href="T_Fehlerfortpflanzung.html" />
+    <link rel="prev" title="Daten plotten und fitten" href="T_Plotten.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="de">
     
@@ -434,8 +434,13 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="T_Plotten.html">
-   Ausgleichsgerade für Klimadaten
+  <a class="reference internal" href="T_Schwerependel.html">
+   Messunsicherheiten beim Schwerependel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T_Fehlerfortpflanzung.html">
+   Fehlerfortpflanzung
   </a>
  </li>
  <li class="toctree-l1">
@@ -444,13 +449,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="T_Fehlerfortpflanzung.html">
-   Fehlerfortpflanzung
+  <a class="reference internal" href="T_Plotten.html">
+   Daten plotten und fitten
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Verschiedene Fit-Routinen
+   Verschiedene Fit-Funktionen
   </a>
  </li>
  <li class="toctree-l1">
@@ -460,7 +465,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="T_Spektralanalyse_Audio.html">
-   Fourier-Transformation und Filtern
+   Fourier-Transformation und Filter
   </a>
  </li>
 </ul>
@@ -755,7 +760,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Verschiedene Fit-Routinen</h1>
+                <h1>Verschiedene Fit-Funktionen</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -799,8 +804,8 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="verschiedene-fit-routinen">
-<h1>Verschiedene Fit-Routinen<a class="headerlink" href="#verschiedene-fit-routinen" title="Link zu dieser Überschrift">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="verschiedene-fit-funktionen">
+<h1>Verschiedene Fit-Funktionen<a class="headerlink" href="#verschiedene-fit-funktionen" title="Link zu dieser Überschrift">#</a></h1>
 <section id="messdaten-karussel">
 <h2>Messdaten: Karussel<a class="headerlink" href="#messdaten-karussel" title="Link zu dieser Überschrift">#</a></h2>
 <p>Wir stellen uns im Folgenden ein Kinderkarussel vor und wir wollen die Geschwindigkeit der Feuerwehrautos ermitteln. Das Auto selbst verfügt über kein Tachometer - es bleibt also eigentlich nur die Möglichkeit, die Zeit eines Umlaufs zu stoppen und aus der Geometrie des Karussells den zurückgelegten Weg zu bestimmen. Daraus lässt sich die Geschwindigkeit leicht berechnen.</p>
@@ -897,13 +902,11 @@ Der Ordinatenabschnitt ist 	 b = 4.7148 s
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die scipy-Fitparameter lauten:
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Steigung ist 		 m = (0.6067 +- 0.0534) s/m
+Die Steigung ist 		 m = (0.6067 +- 0.0534) s/m
 Der Ordinatenabschnitt ist 	 b = (4.7148 +- 3.9581) s
 </pre></div>
 </div>
-<img alt="../_images/T_LinReg_5_2.png" src="../_images/T_LinReg_5_2.png" />
+<img alt="../_images/T_LinReg_5_1.png" src="../_images/T_LinReg_5_1.png" />
 </div>
 </div>
 <p>Man erkennt, dass die Regressionskoeffizienten der beiden Methoden sehr gut übereinstimmen. Die Unterschiede betragen lediglich:</p>
@@ -1028,11 +1031,11 @@ Fit Report:
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="T_Fehlerfortpflanzung.html" title="zurück Seite">
+    <a class='left-prev' id="prev-link" href="T_Plotten.html" title="zurück Seite">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">zurück</p>
-            <p class="prev-next-title">Fehlerfortpflanzung</p>
+            <p class="prev-next-title">Daten plotten und fitten</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="T_FitmitFehlerbalken.html" title="weiter Seite">

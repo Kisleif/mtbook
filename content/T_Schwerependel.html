@@ -743,6 +743,11 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#erweiterte-messunsicherheit-nach-student-t-verteilung">
+   Erweiterte Messunsicherheit nach Student-t-Verteilung
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pendellange-diagramm-zeichnen">
    Pendellänge - Diagramm zeichnen
   </a>
@@ -779,6 +784,11 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#bestimmung-der-erdbeschleunigung">
    Bestimmung der Erdbeschleunigung
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#erweiterte-messunsicherheit-nach-student-t-verteilung">
+   Erweiterte Messunsicherheit nach Student-t-Verteilung
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -929,17 +939,64 @@ Standardabweichung (Numpy mit ddof1) 0.08803408430829474
 
 <span class="n">u_g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">result_dgdT</span> <span class="o">*</span> <span class="n">u_T</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">result_dgdl</span> <span class="o">*</span> <span class="n">u_l</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Messunsicherheit von g ist&#39;</span><span class="p">,</span> <span class="n">u_g</span><span class="p">,</span> <span class="s1">&#39;m/s^2 (68%)&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Messunsicherheit von g für 99,7</span><span class="si">% i</span><span class="s1">st&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">u_g</span><span class="p">,</span> <span class="s1">&#39;m/s^2&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Das Gesamtergebnis für g mit 99,7% Vertrauensintervall lautet:&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(&#39;</span><span class="p">,</span> <span class="n">g_messwert</span><span class="p">,</span> <span class="s1">&#39;+-&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">u_g</span><span class="p">,</span> <span class="s1">&#39;)m/s^2&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Messunsicherheit von g ist 1.329005920753836 m/s^2 (68%)
-Die Messunsicherheit von g für 99,7% ist 3.987017762261508 m/s^2
-Das Gesamtergebnis für g mit 99,7% Vertrauensintervall lautet:
-( 9.811204375047407 +- 3.987017762261508 )m/s^2
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="erweiterte-messunsicherheit-nach-student-t-verteilung">
+<h2>Erweiterte Messunsicherheit nach Student-t-Verteilung<a class="headerlink" href="#erweiterte-messunsicherheit-nach-student-t-verteilung" title="Link zu dieser Überschrift">#</a></h2>
+<p>Korrigierte Messunsicherheit nach Student-t-Verteilung ist für die Periodendauer, d.h.</p>
+<div class="math notranslate nohighlight">
+\[s = m-1\]</div>
+<div class="math notranslate nohighlight">
+\[p = 1-\alpha/2\]</div>
+<p>für hier <span class="math notranslate nohighlight">\(\alpha = 1-0.99 = 0.01\)</span> nach Aufgabenbeschreibung</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">T_schrecksekunde</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="o">/</span><span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;s-Quantil: &#39;</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;p-Quantil: &#39;</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>s-Quantil:  5
+p-Quantil:  0.995
+</pre></div>
+</div>
+</div>
+</div>
+<p>Aus Tabelle folgt für dies Werte (s = 5 und p = 0.995):</p>
+<div class="math notranslate nohighlight">
+\[t_{s,p} = 4,032\]</div>
+<p>Daraus wird der Fehler für <span class="math notranslate nohighlight">\(g\)</span> neu berechnet:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t_sp</span> <span class="o">=</span> <span class="mf">4.032</span>
+<span class="n">u_T</span> <span class="o">=</span> <span class="n">t_sp</span> <span class="o">*</span> <span class="n">u_T</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u_g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">result_dgdT</span> <span class="o">*</span> <span class="n">u_T</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">result_dgdl</span> <span class="o">*</span> <span class="n">u_l</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Messunsicherheit von g ist&#39;</span><span class="p">,</span> <span class="n">u_g</span><span class="p">,</span> <span class="s1">&#39;m/s^2 (99%)&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Das Messergebnis ist g = (&#39;</span><span class="p">,</span> <span class="n">g_messwert</span><span class="p">,</span> <span class="s1">&#39;+-&#39;</span><span class="p">,</span> <span class="n">u_g</span><span class="p">,</span> <span class="s1">&#39;)m/s^2 (99%)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Messunsicherheit von g ist 5.3577749638543315 m/s^2 (99%)
+Das Messergebnis ist g = ( 9.811204375047407 +- 5.3577749638543315 )m/s^2 (99%)
 </pre></div>
 </div>
 </div>
@@ -991,7 +1048,7 @@ Das Gesamtergebnis für g mit 99,7% Vertrauensintervall lautet:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/T_Schwerependel_19_0.png" src="../_images/T_Schwerependel_19_0.png" />
+<img alt="../_images/T_Schwerependel_25_0.png" src="../_images/T_Schwerependel_25_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1002,7 +1059,7 @@ Das Gesamtergebnis für g mit 99,7% Vertrauensintervall lautet:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6446793558011779
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6446793766617088
 </pre></div>
 </div>
 </div>
@@ -1016,7 +1073,7 @@ Das Gesamtergebnis für g mit 99,7% Vertrauensintervall lautet:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Erdbeschleunigung nach Steigung berechnet beträgt:
-( 8.485406795372532 +- 0.8029192710361222 ) m/s^2
+( 8.485406802614317 +- 0.8029192840265508 ) m/s^2
 </pre></div>
 </div>
 </div>
@@ -1028,7 +1085,7 @@ Das Gesamtergebnis für g mit 99,7% Vertrauensintervall lautet:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.22888862, 0.15846135, 0.12324772, 0.05282045])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.92287891, 0.63891617, 0.4969348 , 0.21297206])
 </pre></div>
 </div>
 </div>

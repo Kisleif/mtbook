@@ -1,47 +1,62 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Kurze Checkliste für Protokolle
+# # Checkliste für Protokolle
 # 
+# Dies ist eine Checkliste, die vor der Abgabe des Protokolls überprüft werden sollte. Sie dient als Leitfaden und sollte an jeden Versuch angepasst werden. Weitere Informationen zum Praktikum und worauf man achten sollte befinden sich auf der [**Praktikums Infoseite**](0_Praktikum.ipynb).
 # 
-# Dies ist eine Checkliste, mit Dingen, die vor Abgabe des Protokolls überprüft werden sollten. Sie ist als Stütze gedacht, und sollte an jeden Versuch angepasst werden. Weitere Infos yum Praktikum und worauf geachtet werden sollte finden sich auch unter [**Praktikum**](0_Praktikum.ipynb).   
+# ## Allgemeine Anforderungen an das Protokoll
 # 
-# ## Generell zum Protokoll
-# - Bitte reiche deine Praktikumsberichte unbedingt als **PDF** ein. In Absprache mit dem jeweiligen Praktikumsbetreuer, ist auch die Abgabe als Jupyter-Notebook möglich. </br>
-# - Sind die Namen von allen Teilnehmenden angegeben </br>
-# - Ein Protokoll besteht aus Einleitung, Versuchsaufbau, Rohdaten, Auswertung, und einer Diskussion der Ergebnisse. Im folgenden wird nochmal auf die Bestandteile der einzelnen Teile eingegangen </br>
+# ::::{grid}
+# :gutter: 2
+# 
+# :::{grid-item-card} [Online Latex-Vorlage](https://www.overleaf.com/latex/templates/vorlage-praktikum-messtechnik/zwjgtfpxrszg)
+# 
+# :::
+# 
+# :::{grid-item-card} [Word-Vorlage](https://hsuhhde.sharepoint.com/:w:/r/sites/MesstechnikHT23_mst/Freigegebene%20Dokumente/General/Praktikumsvorlagen/Word-Vorlage_Praktikum_Messtechnik.docx?d=wa845bbc7dd434471b44313d9275da187&csf=1&web=1&e=7N30sW)
+# 
+# :::
+# ::::
+# 
+# - Bitte reiche den Praktikumsbericht unbedingt im **PDF-Format** ein.
+# - Sind die Namen aller Teilnehmenden angegeben?
+# - Ein Protokoll sollte die folgenden Teile enthalten: Einleitung, Versuchsaufbau, Rohdaten, Auswertung und eine Diskussion der Ergebnisse. Im Folgenden wird genauer auf die Bestandteile dieser Abschnitte eingegangen.
 # 
 # ## Einleitung
-# Die Einleitung sollte ein kurzer Abriss von dem Versuch sein, der einen kurzen Überblick über die Ziele des Versuchs und warum es relevant ist geben. 
-# - Welcher Versuch ist es? </br>
-# - Welche Größen sollen bestimmt werden? </br>
-# - Welche Größen sollen gemessen werden? </br>
+# Die Einleitung sollte einen kurzen Überblick über den Versuch geben und die Ziele des Versuchs sowie dessen Relevanz erläutern.
+# - Welcher Versuch wird durchgeführt?
+# - Welche Größen sollen bestimmt werden?
+# - Welche Größen sollen gemessen werden?
 # 
-# ## Versuchsaufbau- und Durchführung
-# - Photo vom Aufbau einfügen </br>
-# - Beschreiben wie der Versuch durchgeführt wurde. Hier ist es wichtig, dass der Versuch anhand der Beschreibeung wiederholt  und die Ergebnisse überprüft werden könnten. Es muss z.B. klar hervorgehen welche Größen im Laufe der Versuches geändert wurden und welche Größen konstant gehalten wurden.</br>
-# - Dieser Abschnitt dient der Beschreibung. Auf Ergebnisse oder Fehler soll hier noch nicht eingegangen werden. </br>
+# ## Versuchsaufbau und Durchführung
+# - Füge ein Foto des Versuchsaufbaus ein.
+# - Beschreibe detailliert, wie der Versuch durchgeführt wurde. Es ist wichtig, dass der Versuch anhand deiner Beschreibung wiederholt und die Ergebnisse überprüft werden könnten. Es sollte klar hervorgehen, welche Größen im Laufe des Versuchs verändert wurden und welche Größen konstant gehalten wurden.
+# - Dieser Abschnitt dient der reinen Beschreibung. Ergebnisse oder Fehler sollten hier noch nicht behandelt werden.
 # 
 # ## Auswertung und Darstellung der Daten
-# - Die Auswertung ist das Herzstück des Protokolls. Hier werden die Daten verarbeitet und Schlüsse über die gemessenen Größen gezogen. Generell ist wichtig, dass alle Schritte und Gedankengänge **nachvollziehbar und deutlich** dargestellt sind. </br>
-# - Für die Auswertung sind die Daten so aufzubereiten, dass die gesuchte(n) Größe(n) klar erkennbar sind. Dies kann je nach Verusch eine reine Ausrechnung sein, eine linearisierung der Ergebnisse oder eine andere Auswertung der Messdaten, wie z.B. eine Kurvenbestimmung. </br>
-# - **Es soll in SI Einheiten gerechnet werden.** Bei der Darstellung der Ergebnisse sind ebenfalls überall Einheiten anzugeben. Hierbei sind entweder Zehnerpotenzen oder geeignete Präfixe für die SI Einheiten zu gebrauchen (z.B. mm). Mehr zu Einheiten findest du auch hier: [**Einheiten:**](1_Einheiten.ipynb) </br>
-# - Die Daten sowie die Auswertung sollen graphisch dargestellt werden. Das ist unter [**Kurvenanpassung:**](1_Kurvenanpassung.ipynb) auch nochmal nachzulesen. Besonders sind folgende Dinge zu beachten: 
-#     - Achsenbeschriftung. Diese sollte einfach zu lesen sein und den Messwert sowei die Einheit enthalten (Tipp: Python Standardschriftgröße ist zu klein). </br>
-#     - Titel der Graphik. </br>
-#     - Datenpunkte inklusive **Fehlerbalken** als Punkte darstellen.</br>
-#     - Die Auswertung kann als Linie dargestellt werden. </br>
-#     - Es hilft, geeignete Achsenskalierungen zu verwenden. Dies ist sowohl im Bezug auf die Spanne der Datenpunkte als auch auf eine etwaige Logarithmische Darstellung bezogen. </br>
-#     - Die Daten sollten leicht abzulesen sein, hierbei hilft z.B. ein "Grid" in der Darstellung. </br>
-# - Die Messunsicherheiten müssen in betracht gezogen werden. Welche Geräte oder Messwerte können abweichen? Welche Gründe gibt es für diese Annahme? Mehr über Messunsicherheiten findet sich unter: [**Messunsicherheiten:**](1_Messunsicherheiten.ipynb).
-# - Es sollen die Fehler der Daten bestimmt werden. Hierfür wird eine Fehlerfortpflanzung gemacht, die auch hier [**Fehlerfortpflanzung:**](1_Fehlerfortpflanzung.ipynb) besprochen wird. </br>
-# 
+# - Die Auswertung bildet das Herzstück des Protokolls. Hier werden die Daten verarbeitet, und Schlussfolgerungen zu den gemessenen Größen gezogen. Alle Schritte und Gedankengänge sollten nachvollziehbar und deutlich dargestellt sein.
+# - Die Daten sollten so aufbereitet werden, dass die gesuchte(n) Größe(n) klar erkennbar sind. Dies kann je nach Versuch eine einfache Berechnung, eine Linearisierung der Ergebnisse oder eine andere Form der Auswertung der Messdaten erfordern, z. B. eine Kurvenanpassung.
+# - Alle Berechnungen sollten in SI-Einheiten durchgeführt werden, und die Ergebnisse sollten ebenfalls in geeigneten [**Einheiten**](1_Einheiten.ipynb) angegeben werden (z. B. mm).
+# - Die Daten und die Auswertung sollten graphisch dargestellt werden und gegebenenfalls ein Modell angepasst ([**Kurvenanpassung**](1_Kurvenanpassung.ipynb)) werden. Besondere Aufmerksamkeit sollte auf folgende Punkte gelegt werden:
+#     - Achsenbeschriftung: Sie sollte leicht lesbar sein und den Messwert sowie die Einheit enthalten. (Hinweis: Die Standardschriftgröße in Python ist möglicherweise zu klein.)
+#     - Titel der Grafik oder aussagekräftige Bildunterschrift in Latex oder Word einfügen.
+#     - Darstellung der Datenpunkte inklusive Fehlerbalken.
+#     - Die Auswertung kann auch als Linie dargestellt werden.
+#     - Es ist hilfreich, geeignete Achsenskalierungen zu verwenden, sowohl in Bezug auf den Bereich der Datenpunkte als auch auf eine mögliche logarithmische Darstellung (siehe [**Einheiten**](1_Einheiten.ipynb)).
+#     - Die Daten sollten leicht ablesbar sein. Ein Gitternetz in der Grafik kann hierbei helfen.
+# - Die [**Unsicherheiten**](1_Messunsicherheiten.ipynb) der Messungen sollten berücksichtigt werden. Welche Geräte oder Messwerte könnten abweichen? Welche Gründe gibt es für diese Annahme?.
+# - Die Fehler der Daten sollten bestimmt werden. Dazu sollte eine [**Fehlerfortpflanzung**](1_Fehlerfortpflanzung.ipynb) durchgeführt werden.
 # 
 # ## Diskussion und Analyse
-# - Hier sollten die Messergebnisse und die Auswertung nochmals kritisch betrachtet werden. Fragen die bei relevanz zu beantworten sind wären:
-#     - Sind die Werte realistisch? Wie verhalten sie sich zum Literaturwert? Was sind mögliche Gründe für eine Abweichung? 
-#     - Wie groß ist der berechnete Fehler im Vergleich zu den Messwerten? Lässt sich eine genaue Aussage über das System treffen? 
-#     - Deuten die Ergebnisse auf einen großen systematischen Fehler hin? 
-#     - Können Anteile des Fehlers auf eine genaue Ursache zurückgeführt werden? z.B. Tauschen des Messgerätes während des Versuches, unzureichende Datenlage, Justierungen während des Versuches etc.
-# 
-# 
+# In diesem Abschnitt sollten die Messergebnisse und die Auswertung kritisch betrachtet werden. Fragen, die bei Relevanz zu beantworten sind, könnten sein:
+# - Sind die Werte realistisch? Wie verhalten sie sich im Vergleich zum Literaturwert? Was könnten mögliche Gründe für Abweichungen sein?
+# - Wie groß ist der berechnete Fehler im Vergleich zu den Messwerten? Lässt sich eine genaue Aussage über das System treffen?
+# - Deuten die Ergebnisse auf einen großen systematischen Fehler hin?
+# - Können Fehlerquellen auf eine genaue Ursache zurückgeführt werden, z. B. das Austauschen des Messgeräts während des Versuchs, unzureichende Datenlage, Justierungen während des Versuchs usw.?
+
+# In[ ]:
+
+
+
+

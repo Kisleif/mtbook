@@ -928,12 +928,18 @@ Standardabweichung (Numpy mit ddof1) 0.08803408430829474
 <span class="c1">#print(result_dgdl)</span>
 
 <span class="n">u_g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">result_dgdT</span> <span class="o">*</span> <span class="n">u_T</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">result_dgdl</span> <span class="o">*</span> <span class="n">u_l</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Messunsicherheit der Schwerebeschleunigung ist&#39;</span><span class="p">,</span> <span class="n">u_g</span><span class="p">,</span> <span class="s1">&#39;m/s^2&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Messunsicherheit von g ist&#39;</span><span class="p">,</span> <span class="n">u_g</span><span class="p">,</span> <span class="s1">&#39;m/s^2 (68%)&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Messunsicherheit von g für 99,7</span><span class="si">% i</span><span class="s1">st&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">u_g</span><span class="p">,</span> <span class="s1">&#39;m/s^2&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Das Gesamtergebnis für g mit 99,7% Vertrauensintervall lautet:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(&#39;</span><span class="p">,</span> <span class="n">g_messwert</span><span class="p">,</span> <span class="s1">&#39;+-&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">u_g</span><span class="p">,</span> <span class="s1">&#39;)m/s^2&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Messunsicherheit der Schwerebeschleunigung ist 1.329005920753836 m/s^2
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Messunsicherheit von g ist 1.329005920753836 m/s^2 (68%)
+Die Messunsicherheit von g für 99,7% ist 3.987017762261508 m/s^2
+Das Gesamtergebnis für g mit 99,7% Vertrauensintervall lautet:
+( 9.811204375047407 +- 3.987017762261508 )m/s^2
 </pre></div>
 </div>
 </div>
@@ -985,7 +991,7 @@ Standardabweichung (Numpy mit ddof1) 0.08803408430829474
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/T_Schwerependel_18_0.png" src="../_images/T_Schwerependel_18_0.png" />
+<img alt="../_images/T_Schwerependel_19_0.png" src="../_images/T_Schwerependel_19_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1003,12 +1009,14 @@ Standardabweichung (Numpy mit ddof1) 0.08803408430829474
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Erdbeschleunigung nach Steigung berechnet beträgt &#39;</span><span class="p">,</span><span class="n">lin_fit</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="p">,</span><span class="s1">&#39;+-&#39;</span><span class="p">,</span>  <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">lin_fit</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]),</span> <span class="s1">&#39;m/s^2&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Erdbeschleunigung nach Steigung berechnet beträgt:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(&#39;</span><span class="p">,</span><span class="n">lin_fit</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="p">,</span><span class="s1">&#39;+-&#39;</span><span class="p">,</span>  <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">lin_fit</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]),</span> <span class="s1">&#39;) m/s^2&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Erdbeschleunigung nach Steigung berechnet beträgt  8.485406795372532 +- 0.8029192710361222 m/s^2
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Erdbeschleunigung nach Steigung berechnet beträgt:
+( 8.485406795372532 +- 0.8029192710361222 ) m/s^2
 </pre></div>
 </div>
 </div>

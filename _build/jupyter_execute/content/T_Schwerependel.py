@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Schwerependel und Messunsicherheiten
+# # Messunsicherheiten beim Schwerependel
 
 # In[1]:
 

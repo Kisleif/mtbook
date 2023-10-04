@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Ausgleichsgerade für Klimadaten
+# # Daten plotten und fitten
 # 
 # Zunächst werden die für dieses Jupyter Notebook benötigten Libraries geladen:
 

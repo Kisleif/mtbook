@@ -1,44 +1,54 @@
 
+
 <!DOCTYPE html>
 
-<html lang="de">
+
+<html lang="de" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Daten plotten und fitten &#8212; Metrology Lecture Book</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-    
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -54,61 +64,102 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/T_Plotten';</script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
     <link rel="next" title="Verschiedene Fit-Funktionen" href="T_LinReg.html" />
     <link rel="prev" title="Logarithmische Darstellung" href="T_Log.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="de">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="de"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/i_mt.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Metrology Lecture Book</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../_static/i_mt.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/i_mt.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -118,760 +169,387 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="intro_book.html">
-   Über dieses Lecture Book
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="intro_book.html">Über dieses Lecture Book</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  ✍️ Vorlesung
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">✍️ Vorlesung</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="1_Einf%C3%BChrung%20in%20die%20Messtechnik.html">
-   Einführung in die Messtechnik
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="V1.html">
-   <em>
-    Richtig
-   </em>
-   Messen
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="1_Einheiten.html">
-     Einheiten
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="1_Messunsicherheiten.html">
-     Messunsicherheiten
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="1_StatistischeMessunsicherheit.html">
-     Statistische Messunsicherheit
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="1_SystematischeMessabweichung.html">
-     Systematische Messabweichung
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="1_Fehlerfortpflanzung.html">
-     Fehlerfortpflanzung
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="1_Kurvenanpassung.html">
-     Regressionsrechnung
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="1_Interpol_Approx.html">
-     Interpolation vs. Regression
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="V4.html">
-   Stationäre Messysteme
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="2_Kalibrieren.html">
-     Kalibrieren und Eichen
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="2_Messsystem.html">
-     Grundstruktur eines Messsystems
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="2_idealeKennlinie.html">
-     Kennlinie &amp; Empfindlichkeit
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="2_realeKennlinie.html">
-     Reale Kennlinie
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="V5.html">
-   Messsignale
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="3_basics.html">
-     Grundlagen
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="3_Digital.html">
-     Digitalisierung
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="3_Kenngroessen.html">
-     Kenngrößen
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="3_FourierAnalyse.html">
-     Fourier-Analyse
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="3_Modulationen.html">
-     Modulation
-     <a id="SubSec-Information">
-     </a>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="V6.html">
-   Dynamische Messsysteme
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="5_LTI.html">
-     Linear zeitinvariante Systeme (LTI)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="5_DGL.html">
-     Systeme im Zeitraum
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="5_Uebertragungsfunktion.html">
-     Übertragungsfunktion
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="5_Faltung.html">
-     Faltung
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="5_Rauschen.html">
-     Rauschen und spektrale Dichte
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="V7.html">
-   Messen elektrischer Größen
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="4_E-basics.html">
-     Grundlagen der Elektrotechnik
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="4_U-Messeingang.html">
-     Spannungsmesseingang
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="4_I-Messeingang.html">
-     Strommesseingang
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="4_OP.html">
-     Operationsverstärker (OP)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="4_P-Messung.html">
-     Leistungsmessung
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="4_R-Messung.html">
-     Widerstandsmessung
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="4_CL-Messung.html">
-     Messung von Kapazitäten und Induktivitäten
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="4_F-Messung.html">
-     Frequenz- und Zeitmessung
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="V8.html">
-   Sensoren
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="6_Einf%C3%BChrung.html">
-     Einführung
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="6_DMS.html">
-     Dehnungsmessstreifen (DMS)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="6_PZT.html">
-     Piezoelektrische Sensoren
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="6_GPS.html">
-     Satellitennavigationssysteme
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="6_Kapazitiv.html">
-     Kapazitive und Induktive Sensoren
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="6_Temp.html">
-     Temperaturmessungen
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="6_Beschleunigung.html">
-     Beschleunigungssensoren
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="6_Radar.html">
-     Radar
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="6_Ifo.html">
-     Laserinterferometrie
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="1_Einf%C3%BChrung%20in%20die%20Messtechnik.html">Einführung in die Messtechnik</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="V1.html"><em>Richtig</em> Messen</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_Einheiten.html">Einheiten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Messunsicherheiten.html">Messunsicherheiten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_StatistischeMessunsicherheit.html">Statistische Messunsicherheit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_SystematischeMessabweichung.html">Systematische Messabweichung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Fehlerfortpflanzung.html">Fehlerfortpflanzung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Kurvenanpassung.html">Regressionsrechnung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Interpol_Approx.html">Interpolation vs. Regression</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  🧪 Praktikum
- </span>
-</p>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="V4.html">Stationäre Messysteme</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_Kalibrieren.html">Kalibrieren und Eichen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Messsystem.html">Grundstruktur eines Messsystems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_idealeKennlinie.html">Kennlinie &amp; Empfindlichkeit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_realeKennlinie.html">Reale Kennlinie</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="V5.html">Messsignale</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_basics.html">Grundlagen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Digital.html">Digitalisierung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Kenngroessen.html">Kenngrößen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_FourierAnalyse.html">Fourier-Analyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Modulationen.html">Modulation <a id="SubSec-Information"></a></a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="V6.html">Dynamische Messsysteme</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="5_LTI.html">Linear zeitinvariante Systeme (LTI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_DGL.html">Systeme im Zeitraum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Uebertragungsfunktion.html">Übertragungsfunktion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Faltung.html">Faltung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Rauschen.html">Rauschen und spektrale Dichte</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="V7.html">Messen elektrischer Größen</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="4_E-basics.html">Grundlagen der Elektrotechnik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_U-Messeingang.html">Spannungsmesseingang</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_I-Messeingang.html">Strommesseingang</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_OP.html">Operationsverstärker (OP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_P-Messung.html">Leistungsmessung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_R-Messung.html">Widerstandsmessung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_CL-Messung.html">Messung von Kapazitäten und Induktivitäten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_F-Messung.html">Frequenz- und Zeitmessung</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="V8.html">Sensoren</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="6_Einf%C3%BChrung.html">Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_DMS.html">Dehnungsmessstreifen (DMS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_PZT.html">Piezoelektrische Sensoren</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_GPS.html">Satellitennavigationssysteme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Kapazitiv.html">Kapazitive und Induktive Sensoren</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Temp.html">Temperaturmessungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Beschleunigung.html">Beschleunigungssensoren</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Radar.html">Radar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Ifo.html">Laserinterferometrie</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">🧪 Praktikum</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="0_Praktikum.html">
-   Infos zum Praktikum
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="0_Praktikum%20-%20Checkliste.html">
-   Checkliste für Protokolle
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Versuche.html">
-   Versuche
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="0_Praktikum.html">Infos zum Praktikum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0_Praktikum%20-%20Checkliste.html">Checkliste für Protokolle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Versuche.html">Versuche</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  🐍 Jupyter Notebooks
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">🐍 Jupyter Notebooks</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="T_Schwerependel.html">
-   Messunsicherheiten beim Schwerependel
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="T_Fehlerfortpflanzung.html">
-   Fehlerfortpflanzung
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="T_Log.html">
-   Logarithmische Darstellung
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Daten plotten und fitten
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="T_LinReg.html">
-   Verschiedene Fit-Funktionen
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="T_FitmitFehlerbalken.html">
-   Lineare Regression mit Fehlerbalken
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="T_Spektralanalyse_Audio.html">
-   Fourier-Transformation und Filter
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="T_Schwerependel.html">Messunsicherheiten beim Schwerependel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T_Fehlerfortpflanzung.html">Fehlerfortpflanzung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T_Log.html">Logarithmische Darstellung</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Daten plotten und fitten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T_LinReg.html">Verschiedene Fit-Funktionen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T_FitmitFehlerbalken.html">Lineare Regression mit Fehlerbalken</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T_Spektralanalyse_Audio.html">Fourier-Transformation und Filter</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
-          
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
 
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
 <div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
 
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/Kisleif/mtbook/main?urlpath=tree/content/T_Plotten.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/Kisleif/mtbook/main?urlpath=tree/content/T_Plotten.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../_static/images/logo_binder.svg">
   </span>
-<span class="headerbtn__text-container">Binder</span>
+<span class="btn__text-container">Binder</span>
 </a>
-
-      </li>
+</li>
       
-      <li>
-        <a href="https://colab.research.google.com/github/Kisleif/mtbook/blob/main/content/T_Plotten.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Colab"
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Kisleif/mtbook/blob/main/content/T_Plotten.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../_static/images/logo_colab.png">
   </span>
-<span class="headerbtn__text-container">Colab</span>
+<span class="btn__text-container">Colab</span>
 </a>
-
-      </li>
+</li>
+      
+      
+      
       
       <li>
-        
 <button onclick="initThebeSBT()"
-  class="headerbtn headerbtn-launch-thebe"
-  data-toggle="tooltip"
-data-placement="left"
-title="Launch Thebe"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-play"></i>
   </span>
-<span class="headerbtn__text-container">Live Code</span>
+<span class="btn__text-container">Live Code</span>
 </button>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Kisleif/mtbook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Quell-Repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Kisleif/mtbook/edit/main/content/T_Plotten.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Kisleif/mtbook/issues/new?title=Issue%20on%20page%20%2Fcontent/T_Plotten.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Öffnen Sie ein Problem"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Laden Sie diese Seite herunter">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/content/T_Plotten.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Quelldatei herunterladen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="In PDF drucken"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Vollbildmodus"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/Kisleif/mtbook"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/Kisleif/mtbook/issues/new?title=Issue%20on%20page%20%2Fcontent/T_Plotten.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/Kisleif/mtbook/edit/main/content/T_Plotten.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Edit this page"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-pencil-alt"></i>
-  </span>
-<span class="headerbtn__text-container">suggest edit</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/content/T_Plotten.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#csv-datei-als-dataframe-einlesen">
-   .csv-Datei als
-   <em>
-    DataFrame
-   </em>
-   einlesen
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#daten-plotten-und-diagramm-sichern-mit-matplotlib">
-   Daten plotten und Diagramm sichern mit ‘matplotlib’
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#daten-verarbeiten">
-   Daten verarbeiten
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#statistische-groszen-mittelwert-standardabweichung-min-max">
-     Statistische Größen: Mittelwert, Standardabweichung, Min, Max
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#maximum-und-zugehoriges-jahr-ausgeben">
-     Maximum und zugehöriges Jahr ausgeben
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#daten-aufsteigend-absteigend-sortieren">
-     Daten aufsteigend/absteigend sortieren
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#daten-glatten">
-   Daten glätten
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#messunsicherheiten-als-fehlerbalken-hinzufugen">
-   Messunsicherheiten als Fehlerbalken hinzufügen
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ausgleichsgerade-berechnen-und-plotten">
-   Ausgleichsgerade berechnen und plotten
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#beliebige-funktion-fitten">
-     Beliebige Funktion fitten
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Daten plotten und fitten</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#csv-datei-als-dataframe-einlesen">
-   .csv-Datei als
-   <em>
-    DataFrame
-   </em>
-   einlesen
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#daten-plotten-und-diagramm-sichern-mit-matplotlib">
-   Daten plotten und Diagramm sichern mit ‘matplotlib’
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#daten-verarbeiten">
-   Daten verarbeiten
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#statistische-groszen-mittelwert-standardabweichung-min-max">
-     Statistische Größen: Mittelwert, Standardabweichung, Min, Max
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#maximum-und-zugehoriges-jahr-ausgeben">
-     Maximum und zugehöriges Jahr ausgeben
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#daten-aufsteigend-absteigend-sortieren">
-     Daten aufsteigend/absteigend sortieren
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#daten-glatten">
-   Daten glätten
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#messunsicherheiten-als-fehlerbalken-hinzufugen">
-   Messunsicherheiten als Fehlerbalken hinzufügen
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ausgleichsgerade-berechnen-und-plotten">
-   Ausgleichsgerade berechnen und plotten
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#beliebige-funktion-fitten">
-     Beliebige Funktion fitten
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Daten plotten und fitten</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhalt </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#csv-datei-als-dataframe-einlesen">.csv-Datei als <em>DataFrame</em> einlesen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#daten-plotten-und-diagramm-sichern-mit-matplotlib">Daten plotten und Diagramm sichern mit ‘matplotlib’</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#daten-verarbeiten">Daten verarbeiten</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistische-groszen-mittelwert-standardabweichung-min-max">Statistische Größen: Mittelwert, Standardabweichung, Min, Max</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-und-zugehoriges-jahr-ausgeben">Maximum und zugehöriges Jahr ausgeben</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#daten-aufsteigend-absteigend-sortieren">Daten aufsteigend/absteigend sortieren</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#daten-glatten">Daten glätten</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#messunsicherheiten-als-fehlerbalken-hinzufugen">Messunsicherheiten als Fehlerbalken hinzufügen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ausgleichsgerade-berechnen-und-plotten">Ausgleichsgerade berechnen und plotten</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beliebige-funktion-fitten">Beliebige Funktion fitten</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="daten-plotten-und-fitten">
-<h1>Daten plotten und fitten<a class="headerlink" href="#daten-plotten-und-fitten" title="Link zu dieser Überschrift">#</a></h1>
+<h1>Daten plotten und fitten<a class="headerlink" href="#daten-plotten-und-fitten" title="Permalink to this heading">#</a></h1>
 <p>Zunächst werden die für dieses Jupyter Notebook benötigten Libraries geladen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -913,7 +591,7 @@ require(['plotly'], function(Plotly) {
 </div></div>
 </div>
 <section id="csv-datei-als-dataframe-einlesen">
-<h2>.csv-Datei als <em>DataFrame</em> einlesen<a class="headerlink" href="#csv-datei-als-dataframe-einlesen" title="Link zu dieser Überschrift">#</a></h2>
+<h2>.csv-Datei als <em>DataFrame</em> einlesen<a class="headerlink" href="#csv-datei-als-dataframe-einlesen" title="Permalink to this heading">#</a></h2>
 <p>Im Folgenden Nutzen wir globale Klimadaten, die auf der Webseite der NASA zu finden sind: <a class="reference external" href="https://data.giss.nasa.gov/gistemp/">https://data.giss.nasa.gov/gistemp/</a>. Hierbei handelt es sich um Temperaturdaten, die Anomalien gegenüber dem Mittelwert in den Jahren 1951-1980 aufweisen.
 Es werden Daten von Dateien (online oder offline) eingelesen mit der Python Bilbiothek <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. Die Daten werden in sogenannten <em>DataFrames</em> hier mit dem Namen <code class="docutils literal notranslate"><span class="pre">global_mean</span></code> abgespeichert.</p>
 <div class="cell docutils container">
@@ -1026,7 +704,7 @@ Name: Year, Length: 142, dtype: int64
 </div>
 </section>
 <section id="daten-plotten-und-diagramm-sichern-mit-matplotlib">
-<h2>Daten plotten und Diagramm sichern mit ‘matplotlib’<a class="headerlink" href="#daten-plotten-und-diagramm-sichern-mit-matplotlib" title="Link zu dieser Überschrift">#</a></h2>
+<h2>Daten plotten und Diagramm sichern mit ‘matplotlib’<a class="headerlink" href="#daten-plotten-und-diagramm-sichern-mit-matplotlib" title="Permalink to this heading">#</a></h2>
 <p>Als Beispiel für eine gelungene grafische Darstellung wollen wir die beiden Spalten, <em>No_Smoothing</em> and <em>Lowess(5)</em> gegenüber der Zeitachse <em>Year</em> plotten. Hierfür benützen wir die Python Library <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>. Einmal geplottet kann das zuletzt angezeigte Diagramm in verschiedenen Formaten mit <code class="docutils literal notranslate"><span class="pre">plt.savefig('klima_plot1.png')</span></code> abgespeichert werden. Wenn nicht anders angegeben, wird die Datei im gleichen Ordner angelegt.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1051,10 +729,10 @@ Name: Year, Length: 142, dtype: int64
 </div>
 </section>
 <section id="daten-verarbeiten">
-<h2>Daten verarbeiten<a class="headerlink" href="#daten-verarbeiten" title="Link zu dieser Überschrift">#</a></h2>
+<h2>Daten verarbeiten<a class="headerlink" href="#daten-verarbeiten" title="Permalink to this heading">#</a></h2>
 <p>Die Bibliothek <code class="docutils literal notranslate"><span class="pre">pandas</span></code> ist sehr umfangreich und wird viel zur Datenverarbeitung genutzt. Im folgenden dazu einige Beispiele:</p>
 <section id="statistische-groszen-mittelwert-standardabweichung-min-max">
-<h3>Statistische Größen: Mittelwert, Standardabweichung, Min, Max<a class="headerlink" href="#statistische-groszen-mittelwert-standardabweichung-min-max" title="Link zu dieser Überschrift">#</a></h3>
+<h3>Statistische Größen: Mittelwert, Standardabweichung, Min, Max<a class="headerlink" href="#statistische-groszen-mittelwert-standardabweichung-min-max" title="Permalink to this heading">#</a></h3>
 <p>Für jede Spalte lassen sich statistische Größen wie z.B. die Anzahl der Einträge pro Spalte, deren Mittelwert, Standardabweichung, Minimal- und Maximalwert bestimmen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1141,7 +819,7 @@ Name: Year, Length: 142, dtype: int64
 </div>
 </section>
 <section id="maximum-und-zugehoriges-jahr-ausgeben">
-<h3>Maximum und zugehöriges Jahr ausgeben<a class="headerlink" href="#maximum-und-zugehoriges-jahr-ausgeben" title="Link zu dieser Überschrift">#</a></h3>
+<h3>Maximum und zugehöriges Jahr ausgeben<a class="headerlink" href="#maximum-und-zugehoriges-jahr-ausgeben" title="Permalink to this heading">#</a></h3>
 <p>Dies können wir benutzen, um beispielsweise die <em>maximale Temperaturdifferenz</em> zu ermitteln:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1187,7 +865,7 @@ Name: 136, dtype: float64
 </div>
 </section>
 <section id="daten-aufsteigend-absteigend-sortieren">
-<h3>Daten aufsteigend/absteigend sortieren<a class="headerlink" href="#daten-aufsteigend-absteigend-sortieren" title="Link zu dieser Überschrift">#</a></h3>
+<h3>Daten aufsteigend/absteigend sortieren<a class="headerlink" href="#daten-aufsteigend-absteigend-sortieren" title="Permalink to this heading">#</a></h3>
 <p>Mit <code class="docutils literal notranslate"><span class="pre">.sort_values(&quot;Spaltenname&quot;)</span></code> können wir auch die Tabelle nach dem definierten Spaltennamen sortieren (standardmäßig in <strong>ansteigender</strong> Reihenfolge):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1398,7 +1076,7 @@ Name: 136, dtype: float64
 </section>
 </section>
 <section id="daten-glatten">
-<h2>Daten glätten<a class="headerlink" href="#daten-glatten" title="Link zu dieser Überschrift">#</a></h2>
+<h2>Daten glätten<a class="headerlink" href="#daten-glatten" title="Permalink to this heading">#</a></h2>
 <p>Die von der NASA verwendete Glättung ist die <strong>LO</strong>cally <strong>WE</strong>ighted <strong>S</strong>catter-plot <strong>S</strong>moother (LOWESS). Dabei wird in einem lokal zu definierenden Bereich eine lineare Regression durchgeführt. Eine genauere Erklärung zur Methode findet ihr auf <a class="reference external" href="https://youtu.be/b7oryuMP3r8">Youtube</a>.</p>
 <p>Es gibt natürlich viele Methoden und Filter, um Daten zu glätten. Wir wollen nun versuchen, die Methode der NASA zu rekonstruieren. Hierfür benutzen wir die Python Library <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> und erstellen eine weitere Spalte <code class="docutils literal notranslate"><span class="pre">Lowess(own)</span></code> in unserem DataFrame <code class="docutils literal notranslate"><span class="pre">global_mean</span></code>. In diese Spalte schreiben wir die geglätteten Werte von den Rohdaten <code class="docutils literal notranslate"><span class="pre">global_mean[&quot;No_Smoothing&quot;]</span></code> indem wir die Funktion <code class="docutils literal notranslate"><span class="pre">lowess</span></code> aufrufen. Details zu Nutzung der Funktion findet ihr <a class="reference external" href="https://www.statsmodels.org/devel/generated/statsmodels.nonparametric.smoothers_lowess.lowess.html">https://www.statsmodels.org</a>:</p>
 <ul class="simple">
@@ -1551,7 +1229,7 @@ Name: 136, dtype: float64
 </div>
 </section>
 <section id="messunsicherheiten-als-fehlerbalken-hinzufugen">
-<h2>Messunsicherheiten als Fehlerbalken hinzufügen<a class="headerlink" href="#messunsicherheiten-als-fehlerbalken-hinzufugen" title="Link zu dieser Überschrift">#</a></h2>
+<h2>Messunsicherheiten als Fehlerbalken hinzufügen<a class="headerlink" href="#messunsicherheiten-als-fehlerbalken-hinzufugen" title="Permalink to this heading">#</a></h2>
 <p>Bei diesem Datenset stehen uns leider keine Messunsicherheiten zur Verfügung. Um Sie jedoch als Fehlerbalken miteinzubeziehen, wollen wir im Folgenden annehmen, dass der Temperaturunterschied auf 0.25K genau messen werden konnte und fügen die unserem Datensatz hinzu:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1597,7 +1275,7 @@ Name: 136, dtype: float64
 </div>
 </section>
 <section id="ausgleichsgerade-berechnen-und-plotten">
-<h2>Ausgleichsgerade berechnen und plotten<a class="headerlink" href="#ausgleichsgerade-berechnen-und-plotten" title="Link zu dieser Überschrift">#</a></h2>
+<h2>Ausgleichsgerade berechnen und plotten<a class="headerlink" href="#ausgleichsgerade-berechnen-und-plotten" title="Permalink to this heading">#</a></h2>
 <p>Mittels linearer Regression kann der Temperaturanstieg aus den Daten berechnet werden. Hierfür wird die Python Library <code class="docutils literal notranslate"><span class="pre">numpy</span></code> benutzt und die Funktion <code class="docutils literal notranslate"><span class="pre">polyfit</span></code> aufgerufen und in als <code class="docutils literal notranslate"><span class="pre">model</span></code> gespeichert. Diese Funktion benutzt die Least-Square Methode für polynomische Modelle. Weitere Informationen zu der Funktion findet ihr <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.polyfit.html">hier</a>. Mit der Option <code class="docutils literal notranslate"><span class="pre">cov=True</span></code> wird die Kovarianz-Matrix berechnet, welche die Unsicherheiten für die Fit-Parameter beinhaltet.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1693,7 +1371,7 @@ Temperaturanstieg seit Beginn der Messung: 1.090°C
 </div>
 </div>
 <section id="beliebige-funktion-fitten">
-<h3>Beliebige Funktion fitten<a class="headerlink" href="#beliebige-funktion-fitten" title="Link zu dieser Überschrift">#</a></h3>
+<h3>Beliebige Funktion fitten<a class="headerlink" href="#beliebige-funktion-fitten" title="Permalink to this heading">#</a></h3>
 <p>Mit der Polyfit Funktion können in erster Linie Polynome gefittet werden.
 Für beliebige Modellierung, wie z.B. Exponential-Funktionen, werden die Funktionen in aller Regel selber definiert. Hierfür eignet sich die scipy-Funktion <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code>.</p>
 <div class="cell docutils container">
@@ -1769,50 +1447,114 @@ Mit der Kovarianz-Matrix [[ 1.48554965e-06 -2.97184206e-03]
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="T_Log.html" title="zurück Seite">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">zurück</p>
-            <p class="prev-next-title">Logarithmische Darstellung</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="T_Log.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">zurück</p>
+        <p class="prev-next-title">Logarithmische Darstellung</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="T_LinReg.html" title="weiter Seite">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="T_LinReg.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
         <p class="prev-next-title">Verschiedene Fit-Funktionen</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhalt
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#csv-datei-als-dataframe-einlesen">.csv-Datei als <em>DataFrame</em> einlesen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#daten-plotten-und-diagramm-sichern-mit-matplotlib">Daten plotten und Diagramm sichern mit ‘matplotlib’</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#daten-verarbeiten">Daten verarbeiten</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistische-groszen-mittelwert-standardabweichung-min-max">Statistische Größen: Mittelwert, Standardabweichung, Min, Max</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-und-zugehoriges-jahr-ausgeben">Maximum und zugehöriges Jahr ausgeben</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#daten-aufsteigend-absteigend-sortieren">Daten aufsteigend/absteigend sortieren</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#daten-glatten">Daten glätten</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#messunsicherheiten-als-fehlerbalken-hinzufugen">Messunsicherheiten als Fehlerbalken hinzufügen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ausgleichsgerade-berechnen-und-plotten">Ausgleichsgerade berechnen und plotten</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beliebige-funktion-fitten">Beliebige Funktion fitten</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Katharina-S. Isleif<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+Durch Katharina-S. Isleif
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

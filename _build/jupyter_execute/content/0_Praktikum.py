@@ -59,7 +59,7 @@
 # - Wir raten von der Datenanalyse in Excel ab.
 # 
 # ```{warning}
-# Alle Beispiele im *Metrology Lecture Book* sind [Jupyter-Notebooks](T_Tutorials.ipynb) und verwenden Python. Hier findet ihr auch eine Sammlung von hilfreichen Jupyter-Notebooks für das Messtechnik-Praktikum.
+# Alle Beispiele im *Metrology Lecture Book* sind Jupyter-Notebooks und verwenden Python. Unter **🐍 Jupyter Notebooks** findet ihr eine Sammlung von hilfreichen Jupyter-Notebooks für das Messtechnik-Praktikum.
 # ```
 # 
 # ### Programmieren mit Python

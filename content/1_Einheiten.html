@@ -723,7 +723,7 @@ Das SI-System folgt einigen grundsätzlichen Regeln, um Missverständnisse im Um
 <li><p><strong>Dezimal</strong>, d.h. die Einheiten unterscheiden sich um 10er Potenzen.</p></li>
 <li><p>Es ist ein <strong>kohärentes System</strong>, d.h. alle Einheiten können von den Basiseinheiten abgeleitet werden.</p></li>
 </ul>
-<p>Die Definitionen der Basiseinheiten basierten nach wie vor teilweise auf materiellen Prototypen (bis 2019 war dies tatsächlich beim Kilogramm der Fall):</p>
+<p>Die Definitionen der Basiseinheiten basierten nach wie vor teilweise auf materiellen Prototypen (bis 2019 war dies tatsächlich beim Kilogramm der Fall)</p>
 <div class="dropdown admonition">
 <p class="admonition-title">Das Ur-Kilo in Paris</p>
 <aside class="margin sidebar">
@@ -798,6 +798,55 @@ Eine große Ausnahme ist und blieb das Ur-Kilo, welches als Prototyp von 1889-20
 </figcaption>
 </figure>
 <p>Diese Einheiten bilden die Grundlage für die Messung aller anderen physikalischen Größen. Geschwindigkeit, Beschleunigung und alles, was wir messen, leitet sich von diesen Basiseinheiten ab.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">How to Build Your NIST D.I.Y. Watt Balance | NIST</p>
+<iframe width="200" height="113" src="https://www.youtube.com/embed/oST_krdqLPQ?si=ajWwunW5OIDztSZy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<div class="dropdown admonition">
+<p class="admonition-title">Die Watt Waage</p>
+<p>Die Watt-Waage hat 2019 das Ur-Kilogramm abgelöst. Statt zwei Massen miteinander zu vergleichen, wird die Masse eines Objektes mit einer elektromagnetischen Kraft ausbalanciert. Das Prinzip funktioniert immer noch wie eine Balkenwaage. Die Besonderheit ist, dass auf jeder Seite eine Spule aus gewickeltem Draht an der Wiegeplattform angebracht ist. Hierbei handelt es sich um hohle Plattformen, die sich frei, inkl. der Drahtspule der Länge <span class="math notranslate nohighlight">\(L\)</span>, über zwei entgegengesetzten Magneten bewegen können. Wird nun eine Masse auf eine der beiden Plattformen gesetzt, so wird die Plattform aufgrund der Gravitationskraft <span class="math notranslate nohighlight">\(F_G\)</span> nach unten bewegt. Auf der anderen Seite wird an die Spule ein Strom <span class="math notranslate nohighlight">\(I\)</span> angelegt, der ein Magnetfeld <span class="math notranslate nohighlight">\(B\)</span> erzeugt (<em>Elektromagnet</em>). Die Spule reagiert auf diese Magnetfeld und es wird eine auftreibende Kraft (<em>Laplace</em>-Kraft) erzeugt. Jetzt muss man nur noch den richtigen Strom <span class="math notranslate nohighlight">\(I\)</span> einstellen, um die Waage auszubalancieren:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-81c053b2-bc80-4754-8a53-10a4937937a6">
+<span class="eqno">()<a class="headerlink" href="#equation-81c053b2-bc80-4754-8a53-10a4937937a6" title="Permalink to this equation">#</a></span>\[\begin{align}
+$$
+F_G &amp;= F_\mathrm{Laplace}\\
+\Rightarrow mg &amp;= BLI\\
+\Rightarrow m &amp;= \frac{BLI}{g}\\
+$$
+\end{align}\]</div>
+<p>Problem hierbei ist, dass <span class="math notranslate nohighlight">\(B\)</span> und <span class="math notranslate nohighlight">\(L\)</span> schwer zu messen sind (für <span class="math notranslate nohighlight">\(I\)</span> gibt es ja gute Eletronenzählexperimente,…). Daher bedient man sich eines Tricks und misst <em>andersherum</em>: Mittels einem elektrischen Motos wird Elektrizität erzeugt sobald eine mechanische Gewichtskraft angelegt wird. Dadurch wird die Plattform mit einer bestimmten Geschwindigkeit <span class="math notranslate nohighlight">\(v\)</span> bewegt. Durch diese Bewegung wird also ein Leiter durch das Magnetfeld <span class="math notranslate nohighlight">\(B\)</span> bewegt. Nach Faraday’schem Induktionsgesetz wird hierbei eine Spannung induziert.
+Um dies im Aufbau zu erreichen, wird an der Plattform mit dem Gewicht ein variierender Strom <span class="math notranslate nohighlight">\(I(t)\)</span> anlegt um diese zu bewegen.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-5a7161e0-a3ae-4c85-ba25-435de3fc1d3e">
+<span class="eqno">()<a class="headerlink" href="#equation-5a7161e0-a3ae-4c85-ba25-435de3fc1d3e" title="Permalink to this equation">#</a></span>\[\begin{align}
+$$
+U_\mathrm{ind} &amp;= vBL\\
+\Rightarrow Bl &amp;= \frac{U_\mathrm{ind}}{v}
+$$
+\end{align}\]</div>
+<p>Das heißt wir benötigen die schwierigen Messungen von <span class="math notranslate nohighlight">\(B\)</span> und <span class="math notranslate nohighlight">\(L\)</span> nicht mehr und benötigen lediglich eine Methode um die Spannung <span class="math notranslate nohighlight">\(U_/mathrm{ind}\)</span> und die Geschwnidigkeit <span class="math notranslate nohighlight">\(v\)</span> zu messen. Für Spannungen gibt es sehr genaue Messgeräte (über Quantennhalleffekt und die Josephsonspannung) und die Geschwindigkeit wird mittels laserinterferometrischen Sensoren realisiert.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c1b4957e-42ca-4bf6-8c8a-7774bf2d9af7">
+<span class="eqno">()<a class="headerlink" href="#equation-c1b4957e-42ca-4bf6-8c8a-7774bf2d9af7" title="Permalink to this equation">#</a></span>\[\begin{align}
+$$
+F_G &amp;= F_\mathrm{Laplace}\\
+\Rightarrow mg &amp;= BLI\\
+\Rightarrow mgv &amp;= U_\mathrm{ind}I\\
+$$
+\end{align}\]</div>
+<p>Aus der letzten Gleichung erkennt man nun auch, woher der Name <strong>Watt-Waage</strong> kommt. Hier werden zwei Leistungen (Watt) miteinander verglichen.
+Das Kilogramm wird dann wiefolgt berechnet:</p>
+<div class="math notranslate nohighlight">
+\[m = \frac{U_\mathrm{ind} I}{gv}\]</div>
+</div>
 </section>
 <section id="abgeleitete-erganzende-si-einheiten">
 <h2>Abgeleitete / Ergänzende SI-Einheiten<a class="headerlink" href="#abgeleitete-erganzende-si-einheiten" title="Permalink to this heading">#</a></h2>

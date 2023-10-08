@@ -69,7 +69,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/1_Einheiten';</script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="Messunsicherheiten" href="1_Messunsicherheiten.html" />
+    <link rel="next" title="Kalibrieren und Eichen" href="1_Kalibrieren.html" />
     <link rel="prev" title="Richtig Messen" href="V1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
@@ -178,6 +178,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="1_Einf%C3%BChrung%20in%20die%20Messtechnik.html">Einführung in die Messtechnik</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="V1.html"><em>Richtig</em> Messen</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Einheiten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Kalibrieren.html">Kalibrieren und Eichen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Messunsicherheiten.html">Messunsicherheiten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_StatistischeMessunsicherheit.html">Statistische Messunsicherheit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_SystematischeMessabweichung.html">Systematische Messabweichung</a></li>
@@ -187,7 +188,6 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="V4.html">Stationäre Messysteme</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="2_Kalibrieren.html">Kalibrieren und Eichen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_Messsystem.html">Grundstruktur eines Messsystems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_idealeKennlinie.html">Kennlinie &amp; Empfindlichkeit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_realeKennlinie.html">Reale Kennlinie</a></li>
@@ -646,7 +646,7 @@ Die Körpermaße einzelner Herrscher wurden als Längeneinheit benutzt, die nur 
 </section>
 <section id="maszeinheiten">
 <h2>Maßeinheiten<a class="headerlink" href="#maszeinheiten" title="Permalink to this heading">#</a></h2>
-<p>Die Nationalversammlung während der französischen Revolution strebte die Schaffung eines neuen Einheitensystems an, unter dem Motto „À tous les temps, à tous les peuples“ (Für alle Zeiten, für alle Völker). Der erste Antrag für die Definition der Maßeinheit Meter wurde am 7. Oktober vorgelegt. Dabei sollte ein Meter als der zehnmillionste Teil des Erdmeridianquadranten festgelegt werden. Eine Gelehrtenkommission, bestehend aus Borda, Condorcet, Lagrange, Laplace und Monge, definierte zwei Maßeinheiten wie folgt:</p>
+<p>Die Nationalversammlung während der französischen Revolution strebte die Schaffung eines neuen Einheitensystems an, unter dem Motto „À tous les temps, à tous les peuples“ (Für alle Zeiten, für alle Völker). Der erste Antrag für die Definition der Maßeinheit Meter wurde am 7. Oktober 1790 vorgelegt. Dabei sollte ein Meter als der zehnmillionste Teil des Erdmeridianquadranten festgelegt werden. Eine Gelehrtenkommission, bestehend aus Borda, Condorcet, Lagrange, Laplace und Monge, definierte zwei Maßeinheiten wie folgt:</p>
 <ul class="simple">
 <li><p>Der Meter, als universelle Einheit der Länge, sollte den zehnmillionsten Teil der Entfernung vom Nordpol zum Äquator über Paris ausmachen.</p></li>
 <li><p>Das Kilogramm, als universelle Einheit der Masse, sollte der Masse eines Kubikdezimeters Wasser entsprechen.</p></li>
@@ -767,27 +767,27 @@ Eine große Ausnahme ist und blieb das Ur-Kilo, welches als Prototyp von 1889-20
 </li>
 <li><p>Das <strong>Meter</strong> wird über die Lichtgeschwindigkeit <span class="math notranslate nohighlight">\(c\)</span> ausgedrückt.  Wir kennen den Zahlenwert der Lichtgeschwindigkeit und wissen, dass sich elektromagnetische Strahlung im Vakuum immer gleich schnell ausbreitet, nämlich <span class="math notranslate nohighlight">\(c = 299 792 458\,\mathrm{m/s}\)</span>. Dadurch können wir bestimmen, wie weit sich Licht in <span class="math notranslate nohighlight">\(1/299792458\,\mathrm s\)</span> ausbreitet. Dies bestimmt die Länge des Meters:</p>
 <div class="math notranslate nohighlight">
-\[1\,\mathrm m = \frac{c}{299 792 458} s = 30,663318...\frac{c}{\Delta \nu_\mathrm{133Cs}}\]</div>
+\[1\,\mathrm m = \frac{c}{299 792 458} s = 30{,}663318...\frac{c}{\Delta \nu_\mathrm{133Cs}}\]</div>
 </li>
-<li><p>Das <strong>Kilogramm</strong> ist nun durch Ableitung aus dem Planckschen Wirkungsquantum <span class="math notranslate nohighlight">\(h = 6,62607015 \cdot 10^{-34}\,\mathrm{Js}\)</span> definiert, wobei die Einheit J (Joule), wie unten noch aufgeführt wird, nichts anderes als kgm<span class="math notranslate nohighlight">\(^2\)</span>/s<span class="math notranslate nohighlight">\(^2\)</span> ist. <span class="math notranslate nohighlight">\(h\)</span> wird dabei in Kooperation der metrologischen Institutionen in Form aufwendiger Experimente in entsprechender Genauigkeit bestimmt. Wie schwer ein Kilogramm ist, misst die Watt-Waage mittels einer elektromagnetischen Kraft durch das Ausgleichen der Gewichtskraft.</p>
+<li><p>Das <strong>Kilogramm</strong> ist nun durch Ableitung aus dem Planckschen Wirkungsquantum <span class="math notranslate nohighlight">\(h = 6{,}62607015 \cdot 10^{-34}\,\mathrm{Js}\)</span> definiert, wobei die Einheit J (Joule), wie unten noch aufgeführt wird, nichts anderes als kgm<span class="math notranslate nohighlight">\(^2\)</span>/s<span class="math notranslate nohighlight">\(^2\)</span> ist. <span class="math notranslate nohighlight">\(h\)</span> wird dabei in Kooperation der metrologischen Institutionen in Form aufwendiger Experimente in entsprechender Genauigkeit bestimmt. Wie schwer ein Kilogramm ist, misst die Watt-Waage mittels einer elektromagnetischen Kraft durch das Ausgleichen der Gewichtskraft.</p>
 <div class="math notranslate nohighlight">
-\[1\,\mathrm{kg} = \frac{h}{6,626070040 \cdot 10^{-34}}\,\mathrm{m^{−2} s} = 1,475521... \cdot 10^{40} h \cdot \frac{\Delta \nu_\mathrm{133Cs}}{c}\]</div>
+\[1\,\mathrm{kg} = \frac{h}{6{,}626070040 \cdot 10^{-34}}\,\mathrm{m^{−2} s} = 1{,}475521... \cdot 10^{40} h \cdot \frac{\Delta \nu_\mathrm{133Cs}}{c}\]</div>
 </li>
-<li><p>Das <strong>Kelvin</strong> ist die Einheit der thermodynamischen Temperatur, über die Boltzmann-Konstante <span class="math notranslate nohighlight">\(k_B = 1,380 648 52 \cdot 10^{−23}\,\mathrm{kg m^2 s^{−2} K^{−1}}\)</span>. Im Alltag benutzen wir die davon abgeleitete Einheit °C. <span class="math notranslate nohighlight">\(0\,\mathrm K\)</span> entsprechen <span class="math notranslate nohighlight">\(-273,15\,\mathrm K\)</span> und drücken den absoluten Temperaturnullpunkt aus.</p></li>
+<li><p>Das <strong>Kelvin</strong> ist die Einheit der thermodynamischen Temperatur, über die Boltzmann-Konstante <span class="math notranslate nohighlight">\(k_B = 1{,}380 648 52 \cdot 10^{−23}\,\mathrm{kg m^2 s^{−2} K^{−1}}\)</span>. Im Alltag benutzen wir die davon abgeleitete Einheit °C. <span class="math notranslate nohighlight">\(0\,\mathrm K\)</span> entsprechen <span class="math notranslate nohighlight">\(-273{,}15\,\mathrm K\)</span> und drücken den absoluten Temperaturnullpunkt aus.</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[ 1\,\mathrm K = \frac{1,38064852\cdot 10^{−23}}{k_B}\,\mathrm{kg m^2 s^{−1}} = 2,266665 \Delta \nu_\mathrm{133Cs} \cdot \frac{h}{k_B} \]</div>
+\[ 1\,\mathrm K = \frac{1{,}38064852\cdot 10^{−23}}{k_B}\,\mathrm{kg m^2 s^{−1}} = 2{,}266665 \Delta \nu_\mathrm{133Cs} \cdot \frac{h}{k_B} \]</div>
 <ul class="simple">
-<li><p>Das <strong>Ampere</strong> wird dadurch definiert, dass die Elementarladung <span class="math notranslate nohighlight">\(e = 1,602 176 620 8 \cdot 10^{−19}\,\mathrm{As}\)</span> beträgt. Im Experiment wird zur Bestimmung des Ampere <span class="math notranslate nohighlight">\(e\)</span> benutzt und im Stromfluss die Anzahl der Elektronen pro Sekunde gemessen.</p></li>
+<li><p>Das <strong>Ampere</strong> wird dadurch definiert, dass die Elementarladung <span class="math notranslate nohighlight">\(e = 1{,}602 176 620 8 \cdot 10^{−19}\,\mathrm{As}\)</span> beträgt. Im Experiment wird zur Bestimmung des Ampere <span class="math notranslate nohighlight">\(e\)</span> benutzt und im Stromfluss die Anzahl der Elektronen pro Sekunde gemessen.</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[ 1\,\mathrm A = \frac{e}{1,6021766208\cdot 10^{−19}}s^{−1} = 6,789687...\cdot 10^8 \Delta \nu_\mathrm{133Cs}\cdot e \]</div>
+\[ 1\,\mathrm A = \frac{e}{1{,}6021766208\cdot 10^{−19}}s^{−1} = 6{,}789687...\cdot 10^8 \Delta \nu_\mathrm{133Cs}\cdot e \]</div>
 <p>Die Basisgrößen für Licht und Stoffmenge begegnen uns im Alltag nicht so häufig und werden meist von Wissenschaftlern verwendet.</p>
 <ul class="simple">
-<li><p>Das <strong>Mol</strong> ist dadurch definiert, dass die Avogadro-Konstante <span class="math notranslate nohighlight">\(N_A = 6,022 140 857 \cdot 10^{23}\,\mathrm{mol^{−1}}\)</span> beträgt. <span class="math notranslate nohighlight">\(N_A\)</span> ist die Zahl, der in einem Mol enthaltenen Atome. Sie ist so definiert, dass 12 g Kohlenstoff (12C) genau einem Mol entspricht.</p></li>
+<li><p>Das <strong>Mol</strong> ist dadurch definiert, dass die Avogadro-Konstante <span class="math notranslate nohighlight">\(N_A = 6{,}022 140 857 \cdot 10^{23}\,\mathrm{mol^{−1}}\)</span> beträgt. <span class="math notranslate nohighlight">\(N_A\)</span> ist die Zahl, der in einem Mol enthaltenen Atome. Sie ist so definiert, dass 12 g Kohlenstoff (12C) genau einem Mol entspricht.</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[ 1\,\mathrm{mol} = \frac{6,022 140 857 \cdot 10^{23}}{N_A}\]</div>
+\[ 1\,\mathrm{mol} = \frac{6{,}022 140 857 \cdot 10^{23}}{N_A}\]</div>
 <ul class="simple">
 <li><p>Die <strong>Candela</strong> wird vom photometrischen Strahlungsäquivalent <span class="math notranslate nohighlight">\(\mathrm K_\mathrm{cd}\)</span> (ebenfalls eine Naturkonstante) abgeleitet. Sie wird über die SI-Einheiten kg, m, s und Steradiant (sr = m<span class="math notranslate nohighlight">\(^2\)</span>/m<span class="math notranslate nohighlight">\(^2\)</span>) definiert.</p></li>
 </ul>
@@ -827,12 +827,12 @@ Eine große Ausnahme ist und blieb das Ur-Kilo, welches als Prototyp von 1889-20
 <p>Es gibt diverse zusätzliche Einheiten, welche keine offiziellen SI-Einheiten sind, aber aufgrund ihrer großen Beliebtheit und Handhabbarkeit gerne benutzt werden. Im Allgemeinen gibt es aber immer Zusammenhänge zu den SI-Einheiten, sodass sie sich in solche umformen lassen. Beispiele sind z.B.:</p>
 <ul class="simple">
 <li><p>Grad Celsius: 1°C = K + 273,15</p></li>
-<li><p>Grad Fahrenheit: 9/5 K - 459,67</p></li>
+<li><p>Grad Fahrenheit: 1°F = 9/5 K - 459,67</p></li>
 <li><p>Minute: 1 min = 60 s</p></li>
 <li><p>(Winkel-)Grad: 1° = <span class="math notranslate nohighlight">\(\pi\)</span>/180 rad</p></li>
 <li><p>(Winkel-)Minute: 1’  1/60°</p></li>
 <li><p>Liter: 1 l = 1 dm<span class="math notranslate nohighlight">\(^3\)</span></p></li>
-<li><p>Tonne: 1 t  10<span class="math notranslate nohighlight">\(^3\)</span> kg</p></li>
+<li><p>Tonne: 1 t = 10<span class="math notranslate nohighlight">\(^3\)</span> kg</p></li>
 <li><p>Bar: 1 bar = 10<span class="math notranslate nohighlight">\(^5\)</span> Pa</p></li>
 </ul>
 <p>Dann gibt es noch historisch gewachsene Einheiten, wie z.B. die Meile, yard, foot, inch, once, pound, gallon, welche sich analog in SI-Einheiten umrechnen lassen. Diese Umrechnung ist global nicht immer die gleiche und es existieren für dieselbe Einheit unterschiedliche Umrechnungen (USA und UK sind hier die wohl bekanntesten Beispiele). Doch auch je nach Anwendungsgebiet gibt es Unterschiede:</p>
@@ -1003,39 +1003,7 @@ Eine große Ausnahme ist und blieb das Ur-Kilo, welches als Prototyp von 1889-20
 <p>Im folgenden Diagramm ist die Funktion</p>
 <div class="math notranslate nohighlight">
 \[f(x) = 2 \cdot \log(x)\]</div>
-<p>gezeichnet. Man erkennt, dass die y-Werte mit steigendem x-Wert nur sehr langsam ansteigen. Bei x=1000 ist  y = 6 und man müsste noch größere x-Werte zeichnen, um den weiteren Trend zu erkennen.
-Ein neues Koordinationsystem hilft in der Darstellung. Prinzipiell könnte aber auch der natürlich Logarithmus gewählt werden, dies sollte man dann aber unbedingt dazu schreiben, damit keine Verwirrung entsteht. Das Prinzip ist aber immer das gleiche:</p>
-<table class="table">
-<thead>
-<tr class="row-odd"><th class="head text-align:left"><p><span class="math notranslate nohighlight">\(\log(x)\)</span> (neue <span class="math notranslate nohighlight">\(x\)</span>-Achse)</p></th>
-<th class="head text-align:left"><p><span class="math notranslate nohighlight">\(10^{\log(x)}\)</span> (Umrechnung)</p></th>
-<th class="head text-align:left"><p><span class="math notranslate nohighlight">\(x\)</span> (alte Achse)</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-align:left"><p>0</p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(10^{0}\)</span></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\Rightarrow x = 1 \)</span></p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p>1</p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(10^{1}\)</span></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\Rightarrow x = 10 \)</span></p></td>
-</tr>
-<tr class="row-even"><td class="text-align:left"><p>2</p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(10^{2}\)</span></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\Rightarrow x = 100 \)</span></p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p>3</p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(10^{3}\)</span></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\Rightarrow x = 1000 \)</span></p></td>
-</tr>
-<tr class="row-even"><td class="text-align:left"><p>…</p></td>
-<td class="text-align:left"><p>…</p></td>
-<td class="text-align:left"><p>…</p></td>
-</tr>
-</tbody>
-</table>
-<p>Jeder Schritt auf der x-Achse wird in der logarithmischen Darstellung nicht nur +1 mehr, sondern jeder Schritt verzehnfacht sich, wodurch die x-Achse optisch gestaucht wird.</p>
+<p>gezeichnet.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.signal</span> <span class="k">as</span> <span class="nn">signal</span>
@@ -1114,6 +1082,39 @@ require(['plotly'], function(Plotly) {
 </div><img alt="../_images/1_Einheiten_9_1.png" src="../_images/1_Einheiten_9_1.png" />
 </div>
 </div>
+<p>Man erkennt, dass die y-Werte mit steigendem x-Wert nur sehr langsam ansteigen. Bei x=1000 ist  y = 6 und man müsste noch größere x-Werte zeichnen, um den weiteren Trend zu erkennen.
+Ein neues Koordinationsystem hilft in der Darstellung. Prinzipiell können der 10er oder der natürliche Logarithmus gewählt werden, dies sollte man dann aber unbedingt dazu schreiben, damit keine Verwirrung entsteht. Das Prinzip ist aber immer das gleiche:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-align:left"><p><span class="math notranslate nohighlight">\(\log(x)\)</span> (neue <span class="math notranslate nohighlight">\(x\)</span>-Achse)</p></th>
+<th class="head text-align:left"><p><span class="math notranslate nohighlight">\(10^{\log(x)}\)</span> (Umrechnung)</p></th>
+<th class="head text-align:left"><p><span class="math notranslate nohighlight">\(x\)</span> (alte Achse)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>0</p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(10^{0}\)</span></p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\Rightarrow x = 1 \)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>1</p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(10^{1}\)</span></p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\Rightarrow x = 10 \)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>2</p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(10^{2}\)</span></p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\Rightarrow x = 100 \)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>3</p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(10^{3}\)</span></p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\Rightarrow x = 1000 \)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>…</p></td>
+<td class="text-align:left"><p>…</p></td>
+<td class="text-align:left"><p>…</p></td>
+</tr>
+</tbody>
+</table>
+<p>Jeder Schritt auf der x-Achse wird in der logarithmischen Darstellung nicht nur +1 mehr, sondern jeder Schritt verzehnfacht sich, wodurch die x-Achse optisch gestaucht wird.</p>
 <p>In den folgenden Diagrammen ist einmal dargestellt, wie viel besser Koordinatensysteme ausgenutzt werden können, wenn zu einer logarithmischen Darstellung gewechselt wird. Während bei linearen Achsen nur ein ganz kleiner des Diagramms ausgenutzt wird und man kaum was erkennen kann wie die Messwerte skalieren, ist bei der doppellogarithmischen Darstellung gut zu sehen, wie sich die Messwerte verhalten.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -1197,7 +1198,7 @@ require(['plotly'], function(Plotly) {
 });
 }
 </script>
-</div><img alt="../_images/1_Einheiten_11_1.png" src="../_images/1_Einheiten_11_1.png" />
+</div><img alt="../_images/1_Einheiten_12_1.png" src="../_images/1_Einheiten_12_1.png" />
 </div>
 </div>
 <aside class="margin sidebar">
@@ -1224,6 +1225,12 @@ In der Messtechnik hat sich eine ungeschriebene Regel etabliert, die besagt, das
 <div class="math notranslate nohighlight">
 \[1\,\mathrm{dB} = 20 \cdot \log\frac{U}{U_\mathrm{ref}}\]</div>
 <p>Der resultierende Wert ist per Definition dimensionslos, wird jedoch der Einheit “Dezibel” (dB) zugeordnet, was einem Zehntel eines “Bels” entspricht. Gelegentlich wird auch der natürliche Logarithmus verwendet, wodurch die Einheit “Neper” (Np) entsteht.</p>
+<p>Die Rücktransformation erfolgt über folgende Gleichungen für Leistungsgrößen</p>
+<div class="math notranslate nohighlight">
+\[\frac{P}{P_\mathrm{ref}} = 10^{\frac{P_\mathrm{dB}}{10}}\]</div>
+<p>und Spannungsgrößen:</p>
+<div class="math notranslate nohighlight">
+\[\frac{U}{U_\mathrm{ref}} = 10^{\frac{U_\mathrm{dB}}{20}}\]</div>
 <p>Im Allgemeinen spricht man von “Pegeln”, wenn Messwerte logarithmisch ausgedrückt werden. Bei der Verwendung der Einheit Dezibel ist es <strong>unbedingt erforderlich</strong>, den Referenzwert anzugeben. Typische Schreibweisen sind beispielsweise:</p>
 <ul class="simple">
 <li><p>dB(mW): Dies bezieht sich auf einen Leistungspegel mit einem Referenzwert von 1 mW.</p></li>
@@ -1232,6 +1239,8 @@ In der Messtechnik hat sich eine ungeschriebene Regel etabliert, die besagt, das
 </ul>
 <p>Ohne Angabe des Referenzwerts sind weder die physikalische Größe noch der Skalierungsfaktor bekannt, was besonders wichtig ist, wenn der Dezibel-Wert später in absolute Einheiten zurückkonvertiert werden muss.</p>
 <p>Für Leistungspegel gilt im Allgemeinen (bei einem typischen Referenzwert von 1 mW) 1 <span class="math notranslate nohighlight">\(\mu\)</span>W = 0,000001 W = -30 dB(mW).</p>
+<p><strong>Absolute</strong> Größen sind über einen Leistungsnormpegel von <span class="math notranslate nohighlight">\(P_\mathrm{ref} = 1\,\mathrm{mW}\)</span> definiert, welcher an einem Widerstand von <span class="math notranslate nohighlight">\(R = 600\,\Omega\)</span> abfällt und zu einem äquivalenten Spannungsnormpegel von <span class="math notranslate nohighlight">\(U_\mathrm{ref} = 0{,}775\,\mathrm V\)</span> führt.</p>
+<p>Für Hochfrequenzsignale gilt der Spezialfall, dass der Widerstandswert <span class="math notranslate nohighlight">\(R = 50\,\Omege\)</span> angenommen wird. Das liegt daran, dass bei hoch frequenten Signalen Reflektionen in den Kabeln und Schnittstellen auftreten, weshalb häufig Messgeräte mit nierohmigen  <em>Innenwiderständen</em> verwendet werden. Der Leistungsnormpegel bleibt bei <span class="math notranslate nohighlight">\(P_\mathrm{ref} = 1\,\mathrm{mW}\)</span>, die reduzierte Widerstandswert führt zu einen Spannungsnormpegel von <span class="math notranslate nohighlight">\(U_\mathrm{ref} = 0{,}224\,\mathrm V\)</span>. In diesem Speziallfall wird statt der Einheit dB die Einheit dBm verwendet (nicht zu verwechseln mit dB(mW)!).</p>
 <div class="admonition">
 <p class="admonition-title">Beispiel aus der Akustik</p>
 <ul class="simple">
@@ -1310,11 +1319,11 @@ Pegel in dB:  -30.0 (0.001)
       </div>
     </a>
     <a class="right-next"
-       href="1_Messunsicherheiten.html"
+       href="1_Kalibrieren.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title">Messunsicherheiten</p>
+        <p class="prev-next-title">Kalibrieren und Eichen</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

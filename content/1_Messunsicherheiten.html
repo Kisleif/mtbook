@@ -70,7 +70,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
     <link rel="next" title="Statistische Messunsicherheit" href="1_StatistischeMessunsicherheit.html" />
-    <link rel="prev" title="Einheiten" href="1_Einheiten.html" />
+    <link rel="prev" title="Kalibrieren und Eichen" href="1_Kalibrieren.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
   </head>
@@ -178,6 +178,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="1_Einf%C3%BChrung%20in%20die%20Messtechnik.html">Einführung in die Messtechnik</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="V1.html"><em>Richtig</em> Messen</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="1_Einheiten.html">Einheiten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Kalibrieren.html">Kalibrieren und Eichen</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Messunsicherheiten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_StatistischeMessunsicherheit.html">Statistische Messunsicherheit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_SystematischeMessabweichung.html">Systematische Messabweichung</a></li>
@@ -187,7 +188,6 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="V4.html">Stationäre Messysteme</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="2_Kalibrieren.html">Kalibrieren und Eichen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_Messsystem.html">Grundstruktur eines Messsystems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_idealeKennlinie.html">Kennlinie &amp; Empfindlichkeit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_realeKennlinie.html">Reale Kennlinie</a></li>
@@ -569,10 +569,10 @@ Die Messunsicherheit ist ein Maß für die Qualität der Messung: Desto kleiner 
 <figure class="align-default" id="coffee-toleranz">
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/coffee_toleranz.jpg"><img alt="coffee_toleranz" class="bg-primary mb-1" src="../_images/coffee_toleranz.jpg" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 10 </span><span class="caption-text">Kaffeehalter und Kaffeebecher zeigen den gleichen Wert auf dem Messschieber an. Warum passt es trotzdem nicht?</span><a class="headerlink" href="#coffee-toleranz" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-number">Abb. 12 </span><span class="caption-text">Kaffeehalter und Kaffeebecher zeigen den gleichen Wert auf dem Messschieber an. Warum passt es trotzdem nicht?</span><a class="headerlink" href="#coffee-toleranz" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
-<p>In <a class="reference internal" href="#coffee-toleranz"><span class="std std-numref">Abb. 10</span></a> ist ein Beispiel aus der Produktion gegeben. Für einen Kaffeebecher mit Durchmesser <span class="math notranslate nohighlight">\(x = 55\,\mathrm{mm}\)</span> soll eine einfach Halterung produziert werden. Der Durchmesser <span class="math notranslate nohighlight">\(x\)</span> des Kaffeebechers wird mit dem Messschieber bestimmt und an zwei Firmen weitergegeben. Im ersten Produkt ist der Halter zu groß, der Becher rutscht durch. Im zweiten Fall wird das Loch noch einmal mit dem Messschieber überprüft. Dieser zeigt den richtigen Wert von <span class="math notranslate nohighlight">\(55\,\mathrm{mm}\)</span> an, dennoch passt der Becher nicht. Woran liegt das?</p>
+<p>In <a class="reference internal" href="#coffee-toleranz"><span class="std std-numref">Abb. 12</span></a> ist ein Beispiel aus der Produktion gegeben. Für einen Kaffeebecher mit Durchmesser <span class="math notranslate nohighlight">\(x = 55\,\mathrm{mm}\)</span> soll eine einfach Halterung produziert werden. Der Durchmesser <span class="math notranslate nohighlight">\(x\)</span> des Kaffeebechers wird mit dem Messschieber bestimmt und an zwei Firmen weitergegeben. Im ersten Produkt ist der Halter zu groß, der Becher rutscht durch. Im zweiten Fall wird das Loch noch einmal mit dem Messschieber überprüft. Dieser zeigt den richtigen Wert von <span class="math notranslate nohighlight">\(55\,\mathrm{mm}\)</span> an, dennoch passt der Becher nicht. Woran liegt das?</p>
 <section id="toleranz">
 <h2>Toleranz<a class="headerlink" href="#toleranz" title="Permalink to this heading">#</a></h2>
 <p>Was in diesem Beispiel fehlt ist die Angabe der <em>Toleranz</em>.
@@ -589,7 +589,7 @@ Ohne die Kenntnis der verwendeten Messinstrumente, kann keine Fertigungstoleranz
 <figure class="align-default" id="messschieber">
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/datenblatt_messschieber.jpg"><img alt="datenblatt_messschieber" class="bg-primary mb-1" src="../_images/datenblatt_messschieber.jpg" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 11 </span><span class="caption-text">Screenshot der Produktdetails von der <a class="reference external" href="https://shop.mitutoyo.de/web/mitutoyo/de_BE/mitutoyo/01.03.07a/Digital%20ABS%20Messschieber/%24catalogue/mitutoyoData/PR/500-500-10/index.xhtml">Webseite</a> des Herstellers.</span><a class="headerlink" href="#messschieber" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-number">Abb. 13 </span><span class="caption-text">Screenshot der Produktdetails von der <a class="reference external" href="https://shop.mitutoyo.de/web/mitutoyo/de_BE/mitutoyo/01.03.07a/Digital%20ABS%20Messschieber/%24catalogue/mitutoyoData/PR/500-500-10/index.xhtml">Webseite</a> des Herstellers.</span><a class="headerlink" href="#messschieber" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
 </div>
@@ -612,11 +612,11 @@ Messwertangaben ohne Aussage zur Wahrscheinlichkeit bezüglich der zufälligen A
 </section>
 <section id="ursache-von-messunsicherheiten">
 <h2>Ursache von Messunsicherheiten<a class="headerlink" href="#ursache-von-messunsicherheiten" title="Permalink to this heading">#</a></h2>
-<p>Warum erhält man überhaupt verschiedene Messwerte mit demselben, hochpräzisen Messinstrument? Das liegt daran, dass auf die Messung verschiedene Einflussfaktoren einwirken. z.B. Umgebungstemperatur, wie ich den Messschieber bediene und die Digitalanzeige haben Einfluss auf das Messergebnis, wie in <a class="reference internal" href="#fehlerklassen"><span class="std std-numref">Abb. 12</span></a> dargestellt.</p>
+<p>Warum erhält man überhaupt verschiedene Messwerte mit demselben, hochpräzisen Messinstrument? Das liegt daran, dass auf die Messung verschiedene Einflussfaktoren einwirken. z.B. Umgebungstemperatur, wie ich den Messschieber bediene und die Digitalanzeige haben Einfluss auf das Messergebnis, wie in <a class="reference internal" href="#fehlerklassen"><span class="std std-numref">Abb. 14</span></a> dargestellt.</p>
 <figure class="align-default" id="fehlerklassen">
 <a class="reference internal image-reference" href="../_images/fehlerklassen.jpg"><img alt="fehlerklassen" src="../_images/fehlerklassen.jpg" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 12 </span><span class="caption-text">Vereinfachtes Modell eines Messsystems mit Störeinflüssen.</span><a class="headerlink" href="#fehlerklassen" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-number">Abb. 14 </span><span class="caption-text">Vereinfachtes Modell eines Messsystems mit Störeinflüssen.</span><a class="headerlink" href="#fehlerklassen" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
 <p>Folgende Störungen können während der Messung auftreten:</p>
@@ -640,7 +640,7 @@ Messwertangaben ohne Aussage zur Wahrscheinlichkeit bezüglich der zufälligen A
 <figure class="align-default" id="zielscheibe">
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/zielscheibe.jpg"><img alt="zielscheibe" class="bg-primary mb-1" src="../_images/zielscheibe.jpg" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 13 </span><span class="caption-text">Darstellung von zufälligen und systematischen Fehlern anhand einer Zielscheibe. Die zufällige Abweichung gibt eine Art Streuung, die <em>Präzision</em>, der Messwerte an. Die systematische Abweichung gibt die <em>Genauigkeit</em> an.</span><a class="headerlink" href="#zielscheibe" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-number">Abb. 15 </span><span class="caption-text">Darstellung von zufälligen und systematischen Fehlern anhand einer Zielscheibe. Die zufällige Abweichung gibt eine Art Streuung, die <em>Präzision</em>, der Messwerte an. Die systematische Abweichung gibt die <em>Genauigkeit</em> an.</span><a class="headerlink" href="#zielscheibe" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
 <section id="typ-a-unsicherheiten-zufallige-fehler">
@@ -858,12 +858,12 @@ require(['plotly'], function(Plotly) {
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="1_Einheiten.html"
+       href="1_Kalibrieren.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">zurück</p>
-        <p class="prev-next-title">Einheiten</p>
+        <p class="prev-next-title">Kalibrieren und Eichen</p>
       </div>
     </a>
     <a class="right-next"

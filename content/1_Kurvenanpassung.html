@@ -178,6 +178,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="1_Einf%C3%BChrung%20in%20die%20Messtechnik.html">Einführung in die Messtechnik</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="V1.html"><em>Richtig</em> Messen</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="1_Einheiten.html">Einheiten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Kalibrieren.html">Kalibrieren und Eichen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Messunsicherheiten.html">Messunsicherheiten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_StatistischeMessunsicherheit.html">Statistische Messunsicherheit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_SystematischeMessabweichung.html">Systematische Messabweichung</a></li>
@@ -187,7 +188,6 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="V4.html">Stationäre Messysteme</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="2_Kalibrieren.html">Kalibrieren und Eichen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_Messsystem.html">Grundstruktur eines Messsystems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_idealeKennlinie.html">Kennlinie &amp; Empfindlichkeit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_realeKennlinie.html">Reale Kennlinie</a></li>
@@ -631,7 +631,7 @@ document.write(`
 <p>Unser Ziel ist es, die Abweichung der Messwerte von der Geraden (oder allgemein von der Funktion <span class="math notranslate nohighlight">\(f\)</span>) so gering wie möglich zu halten. Wie bereits beim Berechnen von Mittelwerten und Standardabweichungen verwenden wir die Quadrate der Abweichungen. Dadurch werden positive und negative Abweichungen nicht ausgeglichen, und größere Abweichungen werden stärker (quadratisch) gewichtet.</p>
 <p>Hierfür definieren wir die Funktion <span class="math notranslate nohighlight">\(Q\)</span>, die von den Geradenparametern <span class="math notranslate nohighlight">\(b\)</span> und <span class="math notranslate nohighlight">\(a\)</span> abhängt und als <strong>Gütefunktion</strong> definiert ist:</p>
 <div class="math notranslate nohighlight">
-\[Q(b,a) = \sum_{i = 1}^N [y_i - (b\cdot x + a)]^2 = \mathrm{min !}\]</div>
+\[Q(b,a) = \sum_{i = 1}^N [y_i - (b\cdot x_i + a)]^2 = \mathrm{min !}\]</div>
 <p>In dieser Funktion werden zunächst die Unterschiede zwischen den Messwerten und der theoretischen Geradenfunktion berechnet. Diese Differenzen werden dann quadriert und schließlich für alle Messwerte <span class="math notranslate nohighlight">\(y_i\)</span> aufsummiert. Unser Ziel ist es, diese Summe zu minimieren.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warnung</p>
@@ -657,9 +657,9 @@ document.write(`
 \[a = \frac{\sum_{i=1}^N y_i - b \sum_{i=1}^N x_i}{N} = \bar y - b \cdot \bar x\]</div>
 <p>Hierbei bedeuten <span class="math notranslate nohighlight">\(\bar x\)</span> und <span class="math notranslate nohighlight">\(\bar y\)</span> die Durchschnittswerte der jeweiligen Messwerte:</p>
 <div class="math notranslate nohighlight">
-\[\bar x = \sum_{i = 1}^N x_i\]</div>
+\[\bar x = \frac{1}{N}\sum_{i = 1}^N x_i\]</div>
 <div class="math notranslate nohighlight">
-\[\bar y = \sum_{i = 1}^N y_i\]</div>
+\[\bar y = \frac{1}{N}\sum_{i = 1}^N y_i\]</div>
 <p>und die Kovarianz <span class="math notranslate nohighlight">\(\mathrm{cov}_{xy}\)</span> und die Standardabweichung <span class="math notranslate nohighlight">\(S_{x}\)</span> der Messwerte sind:</p>
 <div class="math notranslate nohighlight">
 \[\mathrm{cov}_{xy} = \frac{1}{N-1}\sum_{i = 1}^N (x_i-\bar x)(y_i - \bar y)\]</div>
@@ -946,7 +946,7 @@ Die Unsicherheit von a ist 	 s_a = 3.9581
 <h2>Korrelationskoeffizient <a id="SubSec-Korrelationskoeffizient"></a><a class="headerlink" href="#korrelationskoeffizient-a-id-subsec-korrelationskoeffizient-a" title="Permalink to this heading">#</a></h2>
 <p>Für lineare Zusammenhänge ist es häufig sinnvoll den Korrelationskoeffizient zu berechnen:</p>
 <div class="math notranslate nohighlight">
-\[r = \frac{\overline{x\cdot t} - \overline x \cdot \overline t}{\sqrt{\overline{x^2} - (\overline x)^2} \cdot {\sqrt{\overline{t^2} - (\overline t)^2}}} \]</div>
+\[r = \frac{\overline{x\cdot y} - \overline x \cdot \overline y}{\sqrt{\overline{x^2} - (\overline x)^2} \cdot {\sqrt{\overline{y^2} - (\overline y)^2}}} \]</div>
 <div class="cell tag_hide-input tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Analytische Methode:</span>

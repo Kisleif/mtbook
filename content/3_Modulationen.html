@@ -69,8 +69,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/3_Modulationen';</script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="Dynamische Messsysteme" href="V6.html" />
-    <link rel="prev" title="Fourier-Analyse" href="3_FourierAnalyse.html" />
+    <link rel="next" title="Digitalisierung" href="3_Digital.html" />
+    <link rel="prev" title="Grundlagen" href="3_basics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
   </head>
@@ -171,7 +171,7 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro_book.html">Über dieses Lecture Book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro_book.html">Über dieses Book &amp; Python</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">✍️ Vorlesung</span></p>
 <ul class="current nav bd-sidenav">
@@ -195,10 +195,10 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="V5.html">Messsignale</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="3_basics.html">Grundlagen</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Modulation <a id="SubSec-Information"></a></a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_Digital.html">Digitalisierung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_Kenngroessen.html">Kenngrößen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_FourierAnalyse.html">Fourier-Analyse</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Modulation <a id="SubSec-Information"></a></a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="V6.html">Dynamische Messsysteme</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -866,17 +866,17 @@ y_\mathrm{FM}(t) &amp;= A_c \cdot \sin\left(2\pi f_c t + p_0 + M_f\int A_\mathrm
 </section>
 <section id="vergleich-zwischen-am-pm-und-fm">
 <h2>Vergleich zwischen AM, PM und FM<a class="headerlink" href="#vergleich-zwischen-am-pm-und-fm" title="Permalink to this heading">#</a></h2>
-<p>Um die Unterschiede zwischen Amplitudenmodulation (AM), Phasenmodulation (PM) und Frequenzmodulation (FM) zu verdeutlichen, betrachten wir ein sinusförmiges Nachrichtensignal, (m(t) = A_{m} \cdot \sin(2\pi f_\mathrm{m} t)), mit (A_m=1) und (A_c=1), und setzen es in die Formeln für PM und FM ein:</p>
+<p>Um die Unterschiede zwischen Amplitudenmodulation (AM), Phasenmodulation (PM) und Frequenzmodulation (FM) zu verdeutlichen, betrachten wir ein sinusförmiges Nachrichtensignal, <span class="math notranslate nohighlight">\(m(t) = A_{m} \cdot \sin(2\pi f_\mathrm{m} t)\)</span>, mit <span class="math notranslate nohighlight">\(A_m=1\)</span> und <span class="math notranslate nohighlight">\(A_c=1\)</span>, und setzen es in die Formeln für PM und FM ein:</p>
 <div class="math notranslate nohighlight">
 \[ y_\mathrm{PM}(t) = \sin\left(2\pi f_c t  + p_0 + M_p \sin[2\pi f_m t]\right)\]</div>
 <div class="math notranslate nohighlight">
 \[y_\mathrm{FM}(t) = \sin\left(2\pi f_c t + p_0 - \frac{M_f}{2\pi f_m}\cos[2\pi f_m t] \right)\]</div>
 <p>Hier sind einige wichtige Beobachtungen:</p>
 <ul class="simple">
-<li><p>Der Phasenhub (PM) bleibt unverändert bei (M_{p}).</p></li>
-<li><p>Der Phasenhub (FM) hängt von (\frac {M_{f}}{\omega_m}) ab.</p></li>
-<li><p>Die momentane Frequenz für PM wird durch (\omega_c+M_{p}\omega_m\cos(\omega_m t+p_{m})) bestimmt.</p></li>
-<li><p>Die momentane Frequenz für FM wird durch (\omega_c+M_{f} \sin \left(\omega <em>{m}t+p</em>{m}\right)) bestimmt.</p></li>
+<li><p>Der Phasenhub (PM) bleibt unverändert bei <span class="math notranslate nohighlight">\(M_{p}\)</span>.</p></li>
+<li><p>Der Phasenhub (FM) hängt von <span class="math notranslate nohighlight">\(\frac {M_{f}}{\omega_m}\)</span> ab.</p></li>
+<li><p>Die momentane Frequenz für PM wird durch <span class="math notranslate nohighlight">\(\omega_c+M_{p}\omega_m\cos(\omega_m t+p_{m})\)</span> bestimmt.</p></li>
+<li><p>Die momentane Frequenz für FM wird durch <span class="math notranslate nohighlight">\(\omega_c+M_{f} \sin \left(\omega _{m}t+p_{m}\right)\)</span> bestimmt.</p></li>
 </ul>
 <p>In beiden Fällen erfolgt eine Modulation der Phase. Der Unterschied besteht darin, wie der Modulator auf die Phase einwirkt. Bei der Frequenzmodulation ist es notwendig, das Integral des Modulators zu berechnen, was eine Tiefpasswirkung hat. Das führt dazu, dass der Phasenhub bei steigender Modulatorfrequenz abnimmt, während der Frequenzhub bei Phasenmodulation mit sinkender Modulatorfrequenz abnimmt.</p>
 <p>Wie bereits erwähnt, sind FM und PM unempfindlich gegenüber Änderungen in der Amplitude, was sie ideal für mobile Kommunikationsgeräte macht, bei denen sich die Umgebungsbedingungen schnell ändern können. In Anwendungen, in denen die Amplitude nicht zur Informationsübertragung verwendet wird, können nichtlineare Verstärker verwendet werden. Diese Verstärker sind energieeffizienter und verlängern die Batterielaufzeit, was für mobile Kommunikation von entscheidender Bedeutung ist.</p>
@@ -974,20 +974,20 @@ y_\mathrm{FM}(t) &amp;= A_c \cdot \sin\left(2\pi f_c t + p_0 + M_f\int A_\mathrm
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="3_FourierAnalyse.html"
+       href="3_basics.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">zurück</p>
-        <p class="prev-next-title">Fourier-Analyse</p>
+        <p class="prev-next-title">Grundlagen</p>
       </div>
     </a>
     <a class="right-next"
-       href="V6.html"
+       href="3_Digital.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title">Dynamische Messsysteme</p>
+        <p class="prev-next-title">Digitalisierung</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

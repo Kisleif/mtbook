@@ -523,11 +523,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Datenauswertung Versuch Kennlinien</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#daten-einlesen-zuschneiden-und-plotten">Daten einlesen, zuschneiden und plotten</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#messdaten-skalieren-und-ui-kennline-zeichnen">Messdaten skalieren und UI-Kennline zeichnen</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funktion-fur-die-ideale-kennlinie">Funktion für die Ideale Kennlinie</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funktion-an-messdaten-anpassen">Funktion an Messdaten anpassen</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bestimmung-von-h">Bestimmung von h</a></li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -825,6 +830,79 @@ Die zugeschnittenen und konvertierten Messdaten speichern wir im Dataframe <code
 </div>
 </section>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="bestimmung-von-h">
+<h1>Bestimmung von h<a class="headerlink" href="#bestimmung-von-h" title="Permalink to this heading">#</a></h1>
+<p>Bestimmung von <span class="math notranslate nohighlight">\(h\)</span> erfolgt in linearen Einheiten, da nur der “hintere” Teil der Messdaten (wenn die Diode durchlässig wird) gefittet werden soll. Als erstes werden die Messdaten entsprechend zugeschnitten, um eine lineare Regression nur in dem zu interessierenden Bereich ab einer bestimmten Spannung anzupassen. Als erstes guckt man sich die Original-Messdaten an und entschließt sich für eine unterege Grenze von Messdaten.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># Diagramm-Größe einstellen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data1_cut</span><span class="p">[</span><span class="s1">&#39;U_diode&#39;</span><span class="p">],</span> <span class="n">data1_cut</span><span class="p">[</span><span class="s1">&#39;I_diode&#39;</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;gemessen Kennlinie der Diode XY&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data1_cut</span><span class="p">[</span><span class="s1">&#39;U_diode&#39;</span><span class="p">],</span> <span class="n">I_U</span><span class="p">(</span><span class="n">data1_cut</span><span class="p">[</span><span class="s1">&#39;U_diode&#39;</span><span class="p">]),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Ideale Kennlinie, 300K&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;tab:orange&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Spannung U (V)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Stromstärke I (A)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/lab_Kennlinien_39_0.png" src="../_images/lab_Kennlinien_39_0.png" />
+</div>
+</div>
+<p>Nun interessiert man sich lediglich für die Messdaten ab einer Spannung von etwa 0,6V. Mittels <code class="docutils literal notranslate"><span class="pre">.dropna</span></code> werden alle NaN-Werte (also Werte unterhalb der Grenze von 0,6V) aus dem DataFrame entfernt:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data1_cut</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data1_cut</span><span class="p">)</span>
+<span class="n">data1_cut</span><span class="p">[</span><span class="s2">&quot;U_diode_fuer_h&quot;</span><span class="p">]</span><span class="o">=</span><span class="n">data1_cut</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data1_cut</span><span class="p">[</span><span class="s2">&quot;U_diode&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mf">0.6</span><span class="p">,</span><span class="s2">&quot;U_diode&quot;</span><span class="p">]</span>
+<span class="n">data1_cut</span><span class="p">[</span><span class="s2">&quot;I_diode_fuer_h&quot;</span><span class="p">]</span><span class="o">=</span><span class="n">data1_cut</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data1_cut</span><span class="p">[</span><span class="s2">&quot;U_diode&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mf">0.6</span><span class="p">,</span><span class="s2">&quot;I_diode&quot;</span><span class="p">]</span>
+<span class="n">data1_cut</span> <span class="o">=</span> <span class="n">data1_cut</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># Diagramm-Größe einstellen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data1_cut</span><span class="p">[</span><span class="s1">&#39;U_diode_fuer_h&#39;</span><span class="p">],</span> <span class="n">data1_cut</span><span class="p">[</span><span class="s1">&#39;I_diode_fuer_h&#39;</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;gemessene Kennlinie der Diode XY&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Spannung U (V)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Stromstärke I (A)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/lab_Kennlinien_42_0.png" src="../_images/lab_Kennlinien_42_0.png" />
+</div>
+</div>
+<p>In diesen hinteren Bereich der Kurve soll nun eine lineare Regression angepasst werden:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fit_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="n">popt</span><span class="p">,</span> <span class="n">pcov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">fit_func</span><span class="p">,</span> <span class="n">data1_cut</span><span class="p">[</span><span class="s2">&quot;U_diode_fuer_h&quot;</span><span class="p">]</span> <span class="p">,</span> <span class="n">data1_cut</span><span class="p">[</span><span class="s2">&quot;I_diode_fuer_h&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># Diagramm-Größe einstellen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data1_cut</span><span class="p">[</span><span class="s1">&#39;U_diode_fuer_h&#39;</span><span class="p">],</span> <span class="n">data1_cut</span><span class="p">[</span><span class="s1">&#39;I_diode_fuer_h&#39;</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;gemessene Kennlinie der Diode XY&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data1_cut</span><span class="p">[</span><span class="s2">&quot;U_diode_fuer_h&quot;</span><span class="p">],</span> <span class="n">fit_func</span><span class="p">(</span><span class="n">data1_cut</span><span class="p">[</span><span class="s2">&quot;U_diode_fuer_h&quot;</span><span class="p">],</span><span class="o">*</span><span class="n">popt</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;fit: </span><span class="si">%5.3f</span><span class="s1"> * x + </span><span class="si">%5.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">popt</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Spannung U (V)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Stromstärke I (A)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/lab_Kennlinien_45_0.png" src="../_images/lab_Kennlinien_45_0.png" />
+</div>
+</div>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -871,11 +949,16 @@ Die zugeschnittenen und konvertierten Messdaten speichern wir im Dataframe <code
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Datenauswertung Versuch Kennlinien</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#daten-einlesen-zuschneiden-und-plotten">Daten einlesen, zuschneiden und plotten</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#messdaten-skalieren-und-ui-kennline-zeichnen">Messdaten skalieren und UI-Kennline zeichnen</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funktion-fur-die-ideale-kennlinie">Funktion für die Ideale Kennlinie</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funktion-an-messdaten-anpassen">Funktion an Messdaten anpassen</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bestimmung-von-h">Bestimmung von h</a></li>
+</ul>
+
   </nav></div>
 
 </div></div>

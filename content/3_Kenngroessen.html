@@ -723,7 +723,7 @@ require(['plotly'], function(Plotly) {
 
 <span class="n">Gleichanteil</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y_ohne</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y_mit</span><span class="p">)]</span>
 <span class="n">Gleichrichtwert</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">y_ohne</span><span class="p">)),</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">y_mit</span><span class="p">))]</span>
-<span class="n">Effektivwert</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y_ohne</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y_mit</span><span class="o">**</span><span class="mi">2</span><span class="p">)]</span>
+<span class="n">Effektivwert</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y_ohne</span><span class="o">**</span><span class="mi">2</span><span class="p">)),</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y_mit</span><span class="o">**</span><span class="mi">2</span><span class="p">))]</span>
 <span class="n">Scheitelfaktor</span> <span class="o">=</span> <span class="p">[</span><span class="n">A</span><span class="o">/</span><span class="n">Effektivwert</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">A</span><span class="o">/</span><span class="n">Effektivwert</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
 <span class="n">Formfaktor</span> <span class="o">=</span> <span class="p">[</span><span class="n">Effektivwert</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">Gleichrichtwert</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">Effektivwert</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">Gleichrichtwert</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> 
 
@@ -799,9 +799,9 @@ require(['plotly'], function(Plotly) {
 -------------------------------------------------------------------
 Gleichanteil	 -6.286365977370858e-18 	 0.5
 Gleichrichtwert	 0.6302006849910228 		 0.7158385086473522
-Effektivwert	 0.495 				 0.745
-Scheitelfaktor	 2.0202020202020203 		 1.342281879194631
-Formfaktor	 0.7854640780135795 		 1.0407375280882154
+Effektivwert	 0.7035623639735145 				 0.8631338250816034
+Scheitelfaktor	 1.4213381090374029 		 1.1585688927269846
+Formfaktor	 1.1164100273606283 		 1.2057661255365826
 </pre></div>
 </div>
 </div>
@@ -1107,42 +1107,42 @@ input[type=range].anim-slider {
 </style>
 
 <div class="animation">
-  <img id="_anim_img1daf2fc44e494e7694dc0bfdcb89427f">
+  <img id="_anim_img5c4ebca7e8be43d4a88da0d46479af54">
   <div class="anim-controls">
-    <input id="_anim_slider1daf2fc44e494e7694dc0bfdcb89427f" type="range" class="anim-slider"
+    <input id="_anim_slider5c4ebca7e8be43d4a88da0d46479af54" type="range" class="anim-slider"
            name="points" min="0" max="1" step="1" value="0"
-           oninput="anim1daf2fc44e494e7694dc0bfdcb89427f.set_frame(parseInt(this.value));">
+           oninput="anim5c4ebca7e8be43d4a88da0d46479af54.set_frame(parseInt(this.value));">
     <div class="anim-buttons">
-      <button title="Decrease speed" aria-label="Decrease speed" onclick="anim1daf2fc44e494e7694dc0bfdcb89427f.slower()">
+      <button title="Decrease speed" aria-label="Decrease speed" onclick="anim5c4ebca7e8be43d4a88da0d46479af54.slower()">
           <i class="fa fa-minus"></i></button>
-      <button title="First frame" aria-label="First frame" onclick="anim1daf2fc44e494e7694dc0bfdcb89427f.first_frame()">
+      <button title="First frame" aria-label="First frame" onclick="anim5c4ebca7e8be43d4a88da0d46479af54.first_frame()">
         <i class="fa fa-fast-backward"></i></button>
-      <button title="Previous frame" aria-label="Previous frame" onclick="anim1daf2fc44e494e7694dc0bfdcb89427f.previous_frame()">
+      <button title="Previous frame" aria-label="Previous frame" onclick="anim5c4ebca7e8be43d4a88da0d46479af54.previous_frame()">
           <i class="fa fa-step-backward"></i></button>
-      <button title="Play backwards" aria-label="Play backwards" onclick="anim1daf2fc44e494e7694dc0bfdcb89427f.reverse_animation()">
+      <button title="Play backwards" aria-label="Play backwards" onclick="anim5c4ebca7e8be43d4a88da0d46479af54.reverse_animation()">
           <i class="fa fa-play fa-flip-horizontal"></i></button>
-      <button title="Pause" aria-label="Pause" onclick="anim1daf2fc44e494e7694dc0bfdcb89427f.pause_animation()">
+      <button title="Pause" aria-label="Pause" onclick="anim5c4ebca7e8be43d4a88da0d46479af54.pause_animation()">
           <i class="fa fa-pause"></i></button>
-      <button title="Play" aria-label="Play" onclick="anim1daf2fc44e494e7694dc0bfdcb89427f.play_animation()">
+      <button title="Play" aria-label="Play" onclick="anim5c4ebca7e8be43d4a88da0d46479af54.play_animation()">
           <i class="fa fa-play"></i></button>
-      <button title="Next frame" aria-label="Next frame" onclick="anim1daf2fc44e494e7694dc0bfdcb89427f.next_frame()">
+      <button title="Next frame" aria-label="Next frame" onclick="anim5c4ebca7e8be43d4a88da0d46479af54.next_frame()">
           <i class="fa fa-step-forward"></i></button>
-      <button title="Last frame" aria-label="Last frame" onclick="anim1daf2fc44e494e7694dc0bfdcb89427f.last_frame()">
+      <button title="Last frame" aria-label="Last frame" onclick="anim5c4ebca7e8be43d4a88da0d46479af54.last_frame()">
           <i class="fa fa-fast-forward"></i></button>
-      <button title="Increase speed" aria-label="Increase speed" onclick="anim1daf2fc44e494e7694dc0bfdcb89427f.faster()">
+      <button title="Increase speed" aria-label="Increase speed" onclick="anim5c4ebca7e8be43d4a88da0d46479af54.faster()">
           <i class="fa fa-plus"></i></button>
     </div>
-    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_select1daf2fc44e494e7694dc0bfdcb89427f"
+    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_select5c4ebca7e8be43d4a88da0d46479af54"
           class="anim-state">
-      <input type="radio" name="state" value="once" id="_anim_radio1_1daf2fc44e494e7694dc0bfdcb89427f"
+      <input type="radio" name="state" value="once" id="_anim_radio1_5c4ebca7e8be43d4a88da0d46479af54"
              checked>
-      <label for="_anim_radio1_1daf2fc44e494e7694dc0bfdcb89427f">Once</label>
-      <input type="radio" name="state" value="loop" id="_anim_radio2_1daf2fc44e494e7694dc0bfdcb89427f"
+      <label for="_anim_radio1_5c4ebca7e8be43d4a88da0d46479af54">Once</label>
+      <input type="radio" name="state" value="loop" id="_anim_radio2_5c4ebca7e8be43d4a88da0d46479af54"
              >
-      <label for="_anim_radio2_1daf2fc44e494e7694dc0bfdcb89427f">Loop</label>
-      <input type="radio" name="state" value="reflect" id="_anim_radio3_1daf2fc44e494e7694dc0bfdcb89427f"
+      <label for="_anim_radio2_5c4ebca7e8be43d4a88da0d46479af54">Loop</label>
+      <input type="radio" name="state" value="reflect" id="_anim_radio3_5c4ebca7e8be43d4a88da0d46479af54"
              >
-      <label for="_anim_radio3_1daf2fc44e494e7694dc0bfdcb89427f">Reflect</label>
+      <label for="_anim_radio3_5c4ebca7e8be43d4a88da0d46479af54">Reflect</label>
     </form>
   </div>
 </div>
@@ -1152,9 +1152,9 @@ input[type=range].anim-slider {
   /* Instantiate the Animation class. */
   /* The IDs given should match those used in the template above. */
   (function() {
-    var img_id = "_anim_img1daf2fc44e494e7694dc0bfdcb89427f";
-    var slider_id = "_anim_slider1daf2fc44e494e7694dc0bfdcb89427f";
-    var loop_select_id = "_anim_loop_select1daf2fc44e494e7694dc0bfdcb89427f";
+    var img_id = "_anim_img5c4ebca7e8be43d4a88da0d46479af54";
+    var slider_id = "_anim_slider5c4ebca7e8be43d4a88da0d46479af54";
+    var loop_select_id = "_anim_loop_select5c4ebca7e8be43d4a88da0d46479af54";
     var frames = new Array(17);
 
   frames[0] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA+gAAAGQCAYAAAA9TUphAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
@@ -10277,7 +10277,7 @@ AAAASUVORK5CYII=\
     /* set a timeout to make sure all the above elements are created before
        the object is initialized. */
     setTimeout(function() {
-        anim1daf2fc44e494e7694dc0bfdcb89427f = new Animation(frames, img_id, slider_id, 200.0,
+        anim5c4ebca7e8be43d4a88da0d46479af54 = new Animation(frames, img_id, slider_id, 200.0,
                                  loop_select_id);
     }, 0);
   })()

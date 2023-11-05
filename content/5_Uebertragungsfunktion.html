@@ -70,7 +70,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
     <link rel="next" title="Faltung" href="5_Faltung.html" />
-    <link rel="prev" title="Systeme im Zeitraum" href="5_DGL.html" />
+    <link rel="prev" title="Differentialgleichungen und Testfunktionen" href="5_DGL.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
   </head>
@@ -202,8 +202,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="V6.html">Dynamische Messsysteme</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="5_LTI.html">Linear zeitinvariante Systeme (LTI)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="5_DGL.html">Systeme im Zeitraum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_LTI.html">Linear zeitinvariante Systeme (LZI/LTI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_DGL.html">Differentialgleichungen und Testfunktionen</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Übertragungsfunktion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5_Faltung.html">Faltung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5_Rauschen.html">Rauschen und spektrale Dichte</a></li>
@@ -531,10 +531,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bode-diagramm">Bode Diagramm</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verhalten-von-systemen-2-ordnung">Verhalten von Systemen 2. Ordnung</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamische-fehler">Dynamische Fehler</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verhalten-von-systemen-2-ordnung">Verhalten von Systemen 2. Ordnung</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-bode-diagramme">Beispiel Bode-Diagramme</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verhalten-von-testfunktionen-am-tiefpass">Verhalten von Testfunktionen am Tiefpass</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referenztabelle-laplace-transformation">Referenztabelle Laplace-Transformation</a></li>
@@ -583,10 +580,10 @@ Die DGL im Frequenz- oder Laplaceraum kann direkt benutzt werden, um die sogenan
 <p>bzw. im Laplaceraum:</p>
 <div class="math notranslate nohighlight">
 \[G(s) = \frac{Y(s)}{X(s)}\]</div>
-<p>Im Folgenden werden wir zwischen Fourier- und Laplaceraum nicht unbedingt unterscheiden. Die Herleitung der Übertragungsfunktion,  un des Amplituden- und Phasengangs sind für beide Räume die gleiche, lediglich die Variable ändert sich von <span class="math notranslate nohighlight">\(j \omega\)</span> zu <span class="math notranslate nohighlight">\(s\)</span>.
+<p>Im Folgenden werden wir zwischen Fourier- und Laplaceraum nicht unbedingt unterscheiden. Die Herleitung der Übertragungsfunktion ist für beide Räume die gleich, lediglich die Variable ändert sich von <span class="math notranslate nohighlight">\(j \omega\)</span> zu <span class="math notranslate nohighlight">\(s\)</span>.
 Im Allgmeinen gilt:</p>
 <ul class="simple">
-<li><p>Die <strong>Fourier-Transformation (FT)</strong> wird bei <strong>kontinuierlichen Signalen</strong> verwendet.Für eine FT muss das Signal <strong>integrierbar</strong> sein, was für einen Sprung, Rampe z.B. nicht gilt, wo das Integral gegen unendlich läuft.</p></li>
+<li><p>Die <strong>Fourier-Transformation (FT)</strong> wird bei <strong>kontinuierlichen Signalen</strong> verwendet. Für eine FT muss das Signal <strong>integrierbar</strong> sein, was für einen Sprung, Rampe z.B. nicht gilt, da hier das Integral gegen unendlich läuft.</p></li>
 <li><p>Die <strong>Laplace-Transformation</strong> wird bei Reaktionen auf <strong>diskrete Funktionen</strong> verwendet, wie z.B. Stufenfunktion, Impulsfunktion, Delta-Dirac-Puls, die mittels FT nicht analysiert werden können.</p></li>
 </ul>
 <section id="herleitung-der-ubertragungsfunktion">
@@ -594,7 +591,7 @@ Im Allgmeinen gilt:</p>
 <p>Anhand unseres Beispiels, dem <strong>Tiefpass 1. Ordnung</strong>, wollen wir die Übertragungsfunktion einmal herleiten. Dazu gibt es verschiedene Ansätze.</p>
 <section id="mittels-differentialgleichung">
 <h3>Mittels Differentialgleichung<a class="headerlink" href="#mittels-differentialgleichung" title="Permalink to this heading">#</a></h3>
-<p>Eine Möglichkeit die Übertragungsfunktion zu bestimmen, ist es die DGL aus dem vorherigen Kapitel in den Frequenzraum zu transformieren, wie wir es bereits in <a class="reference internal" href="5_DGL.html"><span class="doc std std-doc">Differentialgleichung</span></a> gemacht machen. Aus</p>
+<p>Eine Möglichkeit die Übertragungsfunktion zu bestimmen, ist es die DGL aus dem <span class="xref myst">vorherigen Kapitel</span> in den Frequenzraum zu transformieren. Aus</p>
 <div class="math notranslate nohighlight">
 \[\tau \frac{du_\mathrm a (t)}{dt} + u_\mathrm a (t) = u_\mathrm e (t)\]</div>
 <p>und dem Einsetzen von <span class="math notranslate nohighlight">\(u_\mathrm e (t) \rightarrow U_e(j \omega)\)</span>, <span class="math notranslate nohighlight">\(u_\mathrm a (t) \rightarrow U_a(j \omega)\)</span> und <span class="math notranslate nohighlight">\(\dot u_\mathrm a (t) \rightarrow j \omega U_a(j \omega)\)</span> wird</p>
@@ -830,79 +827,6 @@ In der Messtechnik bei der Überwachung von schwingenden Maschinenteilen oder de
 <img alt="../_images/5_Uebertragungsfunktion_7_0.png" src="../_images/5_Uebertragungsfunktion_7_0.png" />
 </div>
 </div>
-<section id="dynamische-fehler">
-<h3>Dynamische Fehler<a class="headerlink" href="#dynamische-fehler" title="Permalink to this heading">#</a></h3>
-<p>In den folgenden Plots ist das zeitliche Verhalten der von möglichen <strong>Sprungantworten eines Systems 2. Ordnung</strong> dargestellt. Je nach Dämpfung erhält man ein Überschwingen, ein langsames Annähern (aperiodische Einstellung links)) oder sogar ein oszillierendes Verhalten (schwingende Einstellung rechts)) des Ausgangssignals um das Endsignal.
-Dies führt zu <strong>dynamischen Fehlern</strong>, hier in hellblau als Fläche unter den Kurven gekennzeichnet. Man sollte stets eine bestimmte Zeit warten, bis sich das System eingependelt hat. Typischerweise möchte man einen Endwert erreichen, der innerhalb eines <strong>1% Toleranzbandes</strong> liegt. Hieraus folgt z.B., dass man tatsächlich eine gewisse Dämpfung haben möchte, damit die Schwingungen frühzeitig abklingen. Sollte die Dämpfung jedoch zu hoch werden, können lange Wartezeiten entstehen, bis das Aussgangssignal näherungseise dem Eingangssignal entspricht, bzw. sich diesem angenähert hat.</p>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
-
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-<span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span> <span class="c1"># topleft</span>
-<span class="n">ax3</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">rowspan</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>            <span class="c1"># right</span>
-
-<span class="c1"># Transfer Funktion Tiefpass:</span>
-<span class="n">T1</span><span class="o">=</span><span class="mf">0.9</span>
-<span class="n">D</span><span class="o">=</span> <span class="mi">1</span><span class="c1"># aperiodischer grenzfall</span>
-<span class="n">T2</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">D</span><span class="o">*</span><span class="n">T1</span>
-<span class="n">num</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">K</span><span class="p">])</span>
-<span class="n">den</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">T1</span><span class="p">,</span> <span class="n">T2</span> <span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-<span class="n">H</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">TransferFunction</span><span class="p">(</span><span class="n">num</span> <span class="p">,</span> <span class="n">den</span><span class="p">)</span>
-
-<span class="c1"># Sprungantwort:</span>
-<span class="n">t</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
-
-<span class="c1"># Plotting</span>
-<span class="c1">#  ax3.axhline(y=K, ls=&#39;--&#39;, color=&#39;k&#39;)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">K</span><span class="o">*</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;99</span><span class="si">% d</span><span class="s1">es Messwerts&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;dynamischer Fehler&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="n">K</span><span class="p">],[</span><span class="s1">&#39;$K \cdot u_e$&#39;</span><span class="p">])</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Aperiodische Einstellung&quot;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Zeit t&quot;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
-<span class="c1">#ax3.set_ylabel(r&#39;$u_a(t)$&#39;)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<span class="c1"># Transfer Funktion Tiefpass:</span>
-<span class="n">T1</span><span class="o">=</span><span class="mf">0.9</span>
-<span class="n">D</span><span class="o">=</span> <span class="mf">0.25</span><span class="c1"># stabiler Schwingfall</span>
-<span class="n">T2</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">D</span><span class="o">*</span><span class="n">T1</span>
-<span class="n">num</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">K</span><span class="p">])</span>
-<span class="n">den</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">T1</span><span class="p">,</span> <span class="n">T2</span> <span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-<span class="n">H</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">TransferFunction</span><span class="p">(</span><span class="n">num</span> <span class="p">,</span> <span class="n">den</span><span class="p">)</span>
-
-<span class="c1"># Sprungantwort:</span>
-<span class="n">t</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
-
-<span class="c1"># Plotting</span>
-<span class="n">ax3</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">K</span><span class="o">*</span><span class="mf">1.05</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;1% Toleranzband&#39;</span><span class="p">)</span>
-<span class="n">ax3</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">K</span><span class="o">*</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
-<span class="n">ax3</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;dynamischer Fehler&#39;</span><span class="p">)</span>
-<span class="n">ax3</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="n">K</span><span class="p">],[</span><span class="s1">&#39;$K \cdot u_e$&#39;</span><span class="p">])</span>
-<span class="n">ax3</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
-<span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Schwingende Einstellung&quot;</span><span class="p">)</span>
-<span class="n">ax3</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Zeit t &quot;</span><span class="p">)</span>
-<span class="n">ax3</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">25</span><span class="p">)</span>
-<span class="c1">#ax3.set_ylabel(r&#39;$u_a(t)$&#39;)</span>
-<span class="n">ax3</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
-<span class="n">ax3</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
-<span class="n">ax3</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/5_Uebertragungsfunktion_9_0.png" src="../_images/5_Uebertragungsfunktion_9_0.png" />
-</div>
-</div>
-</section>
 </section>
 <section id="beispiel-bode-diagramme">
 <h2>Beispiel Bode-Diagramme<a class="headerlink" href="#beispiel-bode-diagramme" title="Permalink to this heading">#</a></h2>
@@ -1053,14 +977,14 @@ Dies führt zu <strong>dynamischen Fehlern</strong>, hier in hellblau als Fläch
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/5_Uebertragungsfunktion_11_0.png" src="../_images/5_Uebertragungsfunktion_11_0.png" />
-<img alt="../_images/5_Uebertragungsfunktion_11_1.png" src="../_images/5_Uebertragungsfunktion_11_1.png" />
-<img alt="../_images/5_Uebertragungsfunktion_11_2.png" src="../_images/5_Uebertragungsfunktion_11_2.png" />
-<img alt="../_images/5_Uebertragungsfunktion_11_3.png" src="../_images/5_Uebertragungsfunktion_11_3.png" />
-<img alt="../_images/5_Uebertragungsfunktion_11_4.png" src="../_images/5_Uebertragungsfunktion_11_4.png" />
-<img alt="../_images/5_Uebertragungsfunktion_11_5.png" src="../_images/5_Uebertragungsfunktion_11_5.png" />
-<img alt="../_images/5_Uebertragungsfunktion_11_6.png" src="../_images/5_Uebertragungsfunktion_11_6.png" />
-<img alt="../_images/5_Uebertragungsfunktion_11_7.png" src="../_images/5_Uebertragungsfunktion_11_7.png" />
+<img alt="../_images/5_Uebertragungsfunktion_9_0.png" src="../_images/5_Uebertragungsfunktion_9_0.png" />
+<img alt="../_images/5_Uebertragungsfunktion_9_1.png" src="../_images/5_Uebertragungsfunktion_9_1.png" />
+<img alt="../_images/5_Uebertragungsfunktion_9_2.png" src="../_images/5_Uebertragungsfunktion_9_2.png" />
+<img alt="../_images/5_Uebertragungsfunktion_9_3.png" src="../_images/5_Uebertragungsfunktion_9_3.png" />
+<img alt="../_images/5_Uebertragungsfunktion_9_4.png" src="../_images/5_Uebertragungsfunktion_9_4.png" />
+<img alt="../_images/5_Uebertragungsfunktion_9_5.png" src="../_images/5_Uebertragungsfunktion_9_5.png" />
+<img alt="../_images/5_Uebertragungsfunktion_9_6.png" src="../_images/5_Uebertragungsfunktion_9_6.png" />
+<img alt="../_images/5_Uebertragungsfunktion_9_7.png" src="../_images/5_Uebertragungsfunktion_9_7.png" />
 </div>
 </div>
 </section>
@@ -1189,7 +1113,7 @@ Dies führt zu <strong>dynamischen Fehlern</strong>, hier in hellblau als Fläch
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/5_Uebertragungsfunktion_13_0.png" src="../_images/5_Uebertragungsfunktion_13_0.png" />
+<img alt="../_images/5_Uebertragungsfunktion_11_0.png" src="../_images/5_Uebertragungsfunktion_11_0.png" />
 </div>
 </div>
 <p>Nicht nur im Zeitraum können Sprünge oder Impulse angelegt werden. Für diese Testfunktionen können auch die Laplace, bzw. Fourier-Transformierten berechnet werden. Auch dies ist im Frequenzraum häufig einfacher, da die Testfunktionen, wie es in der Tabelle im folgenden Bild zu erkennen ist, sehr einfach sind.</p>
@@ -1287,7 +1211,7 @@ Dies führt zu <strong>dynamischen Fehlern</strong>, hier in hellblau als Fläch
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">zurück</p>
-        <p class="prev-next-title">Systeme im Zeitraum</p>
+        <p class="prev-next-title">Differentialgleichungen und Testfunktionen</p>
       </div>
     </a>
     <a class="right-next"
@@ -1320,10 +1244,7 @@ Dies führt zu <strong>dynamischen Fehlern</strong>, hier in hellblau als Fläch
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bode-diagramm">Bode Diagramm</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verhalten-von-systemen-2-ordnung">Verhalten von Systemen 2. Ordnung</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamische-fehler">Dynamische Fehler</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verhalten-von-systemen-2-ordnung">Verhalten von Systemen 2. Ordnung</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-bode-diagramme">Beispiel Bode-Diagramme</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verhalten-von-testfunktionen-am-tiefpass">Verhalten von Testfunktionen am Tiefpass</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referenztabelle-laplace-transformation">Referenztabelle Laplace-Transformation</a></li>

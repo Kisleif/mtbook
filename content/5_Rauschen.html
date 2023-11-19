@@ -633,10 +633,10 @@ document.write(`
         });
         }
         </script>
-        </div><img alt="../_images/522ea2c3f92c894d37fcea72262f4314bba497b546a319638f8eefa7a209ef8d.png" src="../_images/522ea2c3f92c894d37fcea72262f4314bba497b546a319638f8eefa7a209ef8d.png" />
+        </div><img alt="../_images/6e71580552be0e61a0d42f349040da897c8c85ee19038d2624bcb02e116bac8b.png" src="../_images/6e71580552be0e61a0d42f349040da897c8c85ee19038d2624bcb02e116bac8b.png" />
 </div>
 </div>
-<p>In diesem Beispiel-Plot ist der Mittelwert Null. Wäre er von Null verschieden, so könnte man ihn von der Messung abziehen. Dies nennt man in der Messtechnik auch <em>offset</em> oder <em>bias</em>. Außerdem fällt auf, dass die einzelnen Messpunkte nicht <em>uniform zufällig</em> sind. Größere Amplituden findet man seltener als Messpunkte, deren Amplituden nah an der Null liegen. Daher wird diese Art von Rauschen auch <strong>Gauß’sches (oder weißes) Rauschen</strong> genannt. Diese Art von Rauschen findet man bei jeder Messung und ist dient als Modell um natürliche Rauschquellen zu beschreiben (thermische Vibrationen von Atomen in <em>Gauß-verteilt</em>).</p>
+<p>In diesem Beispiel-Plot ist der Mittelwert Null. Wäre er von Null verschieden, so könnte man ihn von der Messung abziehen. Dies nennt man in der Messtechnik auch <em>offset</em> oder <em>bias</em>. Außerdem fällt auf, dass die einzelnen Messpunkte nicht <em>uniform zufällig</em> sind. Größere Amplituden findet man seltener als Messpunkte, deren Amplituden nah an der Null liegen. Daher wird diese Art von Rauschen auch <strong>Gauß’sches (oder weißes) Rauschen</strong> genannt. Diese Art von Rauschen findet man bei jeder Messung und dient als Modell um natürliche Rauschquellen zu beschreiben (thermische Vibrationen von Atomen sind <em>Gauß-verteilt</em>).</p>
 <p>Der <strong>zentrale Grenzwertsatz</strong> im Kapitel <span class="xref myst">Statistische Größen</span> sagt uns, dass die Summe von vielen zufälligen Prozessen wieder eine Gauß-Verteilung ergibt. Selbst wenn die einzelnen Prozesse einer anderen Verteilung folgen. Das heißt selbst wenn eine Menge Mist während der Messung passiert, ist das zugrundeliegende Rauschen höchstwahrscheinlich Gauß’sches / weiß.</p>
 </section>
 <section id="rauschleistung">
@@ -687,7 +687,7 @@ Das Integral über die PSD über alle Frequenzen ergibt die Gesamtleistung des S
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/3752057fe0bd1ca86095c0408cbfbca58fa6dc374136f160657bfa8fa866a497.png" src="../_images/3752057fe0bd1ca86095c0408cbfbca58fa6dc374136f160657bfa8fa866a497.png" />
+<img alt="../_images/395b666892d013524695dcaf3f72947e8331d523c4c2a2c626cc3d99af3ede56.png" src="../_images/395b666892d013524695dcaf3f72947e8331d523c4c2a2c626cc3d99af3ede56.png" />
 </div>
 </div>
 </section>
@@ -704,12 +704,17 @@ Das Integral über die PSD über alle Frequenzen ergibt die Gesamtleistung des S
 <h3>Definition<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <p>Der SNR berechnet sich aus den Verhältnissen der mittleren Leistungen von Signal, <span class="math notranslate nohighlight">\(P\)</span> und Rauschen, <span class="math notranslate nohighlight">\(P_\mathrm{Rauschen}\)</span> (PSD):</p>
 <div class="math notranslate nohighlight">
-\[\mathrm{SNR} = \frac{P}{P_\mathrm{Rauschen}} = 10 \log \left(\frac{P}{P_\mathrm{Rauschen}} \right)\]</div>
+\[\mathrm{SNR} = \frac{P}{P_\mathrm{Rauschen}}\]</div>
+<div class="math notranslate nohighlight">
+\[\mathrm{SNR_{dB}} = 10 \log \left(\frac{P}{P_\mathrm{Rauschen}} \right)\]</div>
 <p>Im letzten Schritt wurde der logarithmische Maßstab benutzt um den SNR darzustellen. Dies ist wichtig da Signal- und Rauschleistung meistens (hoffentlich) mehrere Größenordnungen auseinander liegen.</p>
 <p>Da die Leistung auch durch die Varianz des Signals gegeben ist, kann man auch folgende Formel benutzen:</p>
 <div class="math notranslate nohighlight">
 \[\mathrm{SNR} = \frac{\sigma^2}{\sigma^2_\mathrm{Rauschen}} \]</div>
-<p>In der Spektroskopie oder Bildbearbeitung definiert man den sNR auch häufig über die Signal<em>amplitude</em> <span class="math notranslate nohighlight">\(A\)</span> und der Standardabweichung des Rauschens <span class="math notranslate nohighlight">\(\sigma_\mathrm{Rauschen}\)</span>:</p>
+<p>Mithilfe des <strong>Parseval’schen Theorems</strong> kann ebenfalls die mittlere Leistung mittels der Fourier-Koeffizienten berechnet werden, welches dann in die SNR-Gleichung eingesetzt werden können:</p>
+<div class="math notranslate nohighlight">
+\[P = |c_0^2| + 2 \cdot \sum_{k=1}^N |c_k|^2\]</div>
+<p>In der Spektroskopie oder Bildbearbeitung definiert man den SNR auch häufig über die Signal<em>amplitude</em> <span class="math notranslate nohighlight">\(A\)</span> und der Standardabweichung des Rauschens <span class="math notranslate nohighlight">\(\sigma_\mathrm{Rauschen}\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\mathrm{SNR} = \frac{A}{\sigma_\mathrm{Rauschen}}\]</div>
 <p>Für zwei Sinussignale, die mit Rauschen, <span class="math notranslate nohighlight">\(\tilde u(t)\)</span>, überlagert werden, definieren wir folgende Zeitserie und plotten das PSD:</p>
@@ -779,8 +784,8 @@ Das Integral über die PSD über alle Frequenzen ergibt die Gesamtleistung des S
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/38be3c4431062f733318ebd2217dd5b5a472e8fc36cc08178d7e6439306855ef.png" src="../_images/38be3c4431062f733318ebd2217dd5b5a472e8fc36cc08178d7e6439306855ef.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Das SNR beträgt circa:  85.24238997348505 dB
+<img alt="../_images/b2f1d95d7fc185634724ca2bd996df89f8eed6bb6c522c07f9e00219d036edb1.png" src="../_images/b2f1d95d7fc185634724ca2bd996df89f8eed6bb6c522c07f9e00219d036edb1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Das SNR beträgt circa:  85.28095693432014 dB
 </pre></div>
 </div>
 </div>
@@ -838,7 +843,7 @@ Hierfür wird der vorliegende Datensatz in <span class="math notranslate nohighl
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/5fb51458f7cb25f36bc00bcccb577d0c9f8b706cc8d212d11b160c7ddfe869cf.png" src="../_images/5fb51458f7cb25f36bc00bcccb577d0c9f8b706cc8d212d11b160c7ddfe869cf.png" />
+<img alt="../_images/8dc7fcb1e2fdbb3b4ccd0beb727bd658a5af32b8ec140be51b4be3ee346fc97c.png" src="../_images/8dc7fcb1e2fdbb3b4ccd0beb727bd658a5af32b8ec140be51b4be3ee346fc97c.png" />
 </div>
 </div>
 </section>

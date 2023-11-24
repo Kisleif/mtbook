@@ -1,7 +1,7 @@
 ---
 blogpost: true
 date: Nov 23, 2023
-category: Übung
+category: Übung, Heute
 tags: Faltung, Messsystem, Impuls
 ---
 
@@ -20,9 +20,21 @@ tags: Faltung, Messsystem, Impuls
 
 # Impulsantwort hintereinander geschalteter Systeme
 
-Hinter einem Übertragungskanal mit der Impulsantwort $h_K(t)$ befindet sich das Filter eines Empfängers mit der Impulsantwort $h_E(t)$. Das System ist in der Abbildung dargestellt. Es gilt:
-$$h_K(t) = H_K \cdot u(t) \mathrm e^{-t/T_K}, \qquad h_E(t) = H_K \cdot u(t) \mathrm e^{-t/T_E} \qquad (T_E > T_K)$$
+Hinter einem Übertragungskanal mit der Impulsantwort $h_K(t)$ befindet sich der Filter eines Empfängers mit der Impulsantwort $h_E(t)$. Das System ist in der folgenden Abbildung dargestellt. 
 
 ![png](pictures/hintereinanderschaltung.png)
 
-Wie lautet die Impulsantwort $h_\mathrm{ges}(t)$ des Gesamtsystems? Skizzieren Sie $h_\mathrm{ges}(t)$.
+Es gilt:
+
+$$h_K(t) = H_K \cdot u(t) \mathrm e^{-t/T_K}, \qquad h_E(t) = H_K \cdot u(t) \mathrm e^{-t/T_E} \qquad (T_E > T_K)$$
+
+* Wie lautet die Impulsantwort $h_\mathrm{ges}(t)$ des Gesamtsystems? 
+* Skizzieren Sie $h_\mathrm{ges}(t)$.
+
+````{admonition} Tips
+:class: dropdown
+Berechnen Sie das Faltungsintegral
+
+$$h_\mathrm{ges}(t) = h_K \ast h_E = \int_{-\infty}^{\infty} h_K(\tau) \cdot h_E(t-\tau) d\tau = ... = \frac{T_K T_E}{T_E-T_K} \cdot H_K \cdot \left( \mathrm e^{-t/T_E}  - \mathrm e^{-t/T_K} \right)$$
+
+````

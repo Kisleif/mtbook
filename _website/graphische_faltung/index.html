@@ -30,6 +30,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -42,8 +44,13 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/translations.js"></script>
     <script src="../_static/design-tabs.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-88310237-1"></script>
     <script>
@@ -341,13 +348,13 @@ document.write(`
     </span>
   
   
-  <a href="../uebungen/tag/faltung/">Faltung</a>
-  
-  
-  
-  
-  
   <a href="../uebungen/tag/rechteck/">Rechteck</a>
+  
+  
+  
+  
+  
+  <a href="../uebungen/tag/faltung/">Faltung</a>
   
   
   
@@ -719,23 +726,31 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
-<script type="text/javascript"
-        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
 <section class="tex2jax_ignore mathjax_ignore" id="grafische-faltung">
 <h1>Grafische Faltung<a class="headerlink" href="#grafische-faltung" title="Permalink to this heading">#</a></h1>
-<p>Ein System habe die Impulsantwort
-$<span class="math notranslate nohighlight">\(h(t) = 2,5 A \cdot \mathrm{rect}\left(\frac{t-1,5t_0}{t_0}\right) +  A \cdot \mathrm{rect}\left(\frac{t-3t_0}{2t_0}\right) +  2 A \cdot \mathrm{rect}\left(\frac{t-5,5t_0}{3t_0}\right).\)</span><span class="math notranslate nohighlight">\(
-Am Eingang des Systems liegt das Signal \)</span>x(t)<span class="math notranslate nohighlight">\( aus der folgenden Abbildung an. Skizzieren Sie die Impulsantwort \)</span>h(t)<span class="math notranslate nohighlight">\(. Stellen Sie die Formel für \)</span>x(t)<span class="math notranslate nohighlight">\( auf. Stellen Sie das Faltungsintegral \)</span>y(t) = h(t) * x(t)$ auf. Berechnen Sie es mithilfe der grafischen Faltung.</p>
+<p>Ein System habe die Impulsantwort</p>
+<div class="math notranslate nohighlight">
+\[h(t) = 2,5 A \cdot \mathrm{rect}\left(\frac{t-1,5t_0}{t_0}\right) +  A \cdot \mathrm{rect}\left(\frac{t-3t_0}{2t_0}\right) +  2 A \cdot \mathrm{rect}\left(\frac{t-5,5t_0}{3t_0}\right).\]</div>
+<p>Die Rechteckfunktion ist wiefolgt definiert:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\operatorname{rect}(t) = \Pi(t) = \begin{cases}
+0           &amp; \text{wenn } |t| &gt; \frac{1}{2} \\[3pt]
+\frac{1}{2} &amp; \text{wenn } |t| = \frac{1}{2} \\[3pt]
+1           &amp; \text{wenn } |t| &lt; \frac{1}{2}
+\end{cases}
+\end{split}\]</div>
+<p>Eine Rechteckfunktion, die bei <span class="math notranslate nohighlight">\(t_0\)</span> zentriert ist und eine Dauer von <span class="math notranslate nohighlight">\(T\)</span> hat, wird ausgedrückt durch</p>
+<div class="math notranslate nohighlight">
+\[\operatorname{rect}\left(\frac{t-t_0}{T} \right)\]</div>
+<p>ausgedrückt.</p>
+<p>Am Eingang des Systems liegt das Signal <span class="math notranslate nohighlight">\(x(t)\)</span> aus der folgenden Abbildung an.</p>
 <p><img alt="png" src="../_images/xt.png" /></p>
+<ul class="simple">
+<li><p>Skizzieren Sie die Impulsantwort <span class="math notranslate nohighlight">\(h(t)\)</span>. Stellen Sie die Formel für <span class="math notranslate nohighlight">\(x(t)\)</span> auf.</p></li>
+<li><p>Stellen Sie das Faltungsintegral <span class="math notranslate nohighlight">\(y(t) = h(t) * x(t)\)</span> auf.</p></li>
+<li><p>Berechnen Sie es mithilfe der grafischen Faltung.</p></li>
+</ul>
 <p><a class="sd-sphinx-override sd-btn sd-text-wrap sd-btn-primary reference external" href="https://kisleif.github.io/mtbook/_website/_images/grafischeFaltung.pdf"><span>Download der Anleitung zur Grafischen Faltung.</span></a></p>
 </section>
 

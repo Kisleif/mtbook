@@ -30,6 +30,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -42,8 +44,13 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/translations.js"></script>
     <script src="../_static/design-tabs.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-88310237-1"></script>
     <script>
@@ -324,6 +331,13 @@ document.write(`
     </span>
   
   
+  <a href="../uebungen/category/heute/">Heute</a>
+  
+  ,
+  
+  
+  
+  
   <a href="../uebungen/category/ubung/">Übung</a>
   
   
@@ -341,7 +355,7 @@ document.write(`
     </span>
   
   
-  <a href="../uebungen/tag/impuls/">Impuls</a>
+  <a href="../uebungen/tag/messsystem/">Messsystem</a>
   
   
   
@@ -353,7 +367,7 @@ document.write(`
   
   
   
-  <a href="../uebungen/tag/messsystem/">Messsystem</a>
+  <a href="../uebungen/tag/impuls/">Impuls</a>
   
   
   
@@ -370,6 +384,12 @@ document.write(`
   <a href="../uebungen/category/">Kategorien</a>
 </h3>
 <ul>
+  
+  
+  <li>
+    <a href="../uebungen/category/heute/">Heute (4)</a>
+  </li>
+  
   
   
   <li>
@@ -738,10 +758,21 @@ document.write(`
 </script>
 <section class="tex2jax_ignore mathjax_ignore" id="impulsantwort-hintereinander-geschalteter-systeme">
 <h1>Impulsantwort hintereinander geschalteter Systeme<a class="headerlink" href="#impulsantwort-hintereinander-geschalteter-systeme" title="Permalink to this heading">#</a></h1>
-<p>Hinter einem Übertragungskanal mit der Impulsantwort <span class="math notranslate nohighlight">\(h_K(t)\)</span> befindet sich das Filter eines Empfängers mit der Impulsantwort <span class="math notranslate nohighlight">\(h_E(t)\)</span>. Das System ist in der Abbildung dargestellt. Es gilt:
-$<span class="math notranslate nohighlight">\(h_K(t) = H_K \cdot u(t) \mathrm e^{-t/T_K}, \qquad h_E(t) = H_K \cdot u(t) \mathrm e^{-t/T_E} \qquad (T_E &gt; T_K)\)</span>$</p>
+<p>Hinter einem Übertragungskanal mit der Impulsantwort <span class="math notranslate nohighlight">\(h_K(t)\)</span> befindet sich der Filter eines Empfängers mit der Impulsantwort <span class="math notranslate nohighlight">\(h_E(t)\)</span>. Das System ist in der folgenden Abbildung dargestellt.</p>
 <p><img alt="png" src="../_images/hintereinanderschaltung.png" /></p>
-<p>Wie lautet die Impulsantwort <span class="math notranslate nohighlight">\(h_\mathrm{ges}(t)\)</span> des Gesamtsystems? Skizzieren Sie <span class="math notranslate nohighlight">\(h_\mathrm{ges}(t)\)</span>.</p>
+<p>Es gilt:</p>
+<div class="math notranslate nohighlight">
+\[h_K(t) = H_K \cdot u(t) \mathrm e^{-t/T_K}, \qquad h_E(t) = H_K \cdot u(t) \mathrm e^{-t/T_E} \qquad (T_E &gt; T_K)\]</div>
+<ul class="simple">
+<li><p>Wie lautet die Impulsantwort <span class="math notranslate nohighlight">\(h_\mathrm{ges}(t)\)</span> des Gesamtsystems?</p></li>
+<li><p>Skizzieren Sie <span class="math notranslate nohighlight">\(h_\mathrm{ges}(t)\)</span>.</p></li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">Tips</p>
+<p>Berechnen Sie das Faltungsintegral</p>
+<div class="math notranslate nohighlight">
+\[h_\mathrm{ges}(t) = h_K \ast h_E = \int_{-\infty}^{\infty} h_K(\tau) \cdot h_E(t-\tau) d\tau = ... = \frac{T_K T_E}{T_E-T_K} \cdot H_K \cdot \left( \mathrm e^{-t/T_E}  - \mathrm e^{-t/T_K} \right)\]</div>
+</div>
 </section>
 
 <div class="section ablog__blog_comments">

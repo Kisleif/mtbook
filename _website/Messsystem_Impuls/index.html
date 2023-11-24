@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Kapazitive Füllstandsmessung &#8212; Messtechnik Übungen</title>
+    <title>Sprung- und Impulsantwort, Übertragungsfunktion &#8212; Messtechnik Übungen</title>
   
   
   
@@ -30,6 +30,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -42,8 +44,13 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/translations.js"></script>
     <script src="../_static/design-tabs.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-88310237-1"></script>
     <script>
@@ -54,7 +61,7 @@
             </script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Kapazitive_Fuellstandsmessung';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Messsystem_Impuls';</script>
     <link rel="shortcut icon" href="https://kisleif.github.io/mtbook/_static/i_mt.png"/>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex/" />
     <link rel="search" title="Suche" href="../search/" />
@@ -324,14 +331,14 @@ document.write(`
     </span>
   
   
-  <a href="../uebungen/category/ubung/">Übung</a>
+  <a href="../uebungen/category/heute/">Heute</a>
   
   ,
   
   
   
   
-  <a href="../uebungen/category/klausur/">Klausur</a>
+  <a href="../uebungen/category/ubung/">Übung</a>
   
   
   
@@ -348,25 +355,31 @@ document.write(`
     </span>
   
   
-  <a href="../uebungen/tag/vertrauensbereich/">Vertrauensbereich</a>
+  <a href="../uebungen/tag/faltung/">Faltung</a>
   
   
   
   
   
-  <a href="../uebungen/tag/fehlerfortpflanzung/">Fehlerfortpflanzung</a>
+  <a href="../uebungen/tag/messsystem/">Messsystem</a>
   
   
   
   
   
-  <a href="../uebungen/tag/mittelwert/">Mittelwert</a>
+  <a href="../uebungen/tag/sprung/">Sprung</a>
   
   
   
   
   
-  <a href="../uebungen/tag/standardabweichung/">Standardabweichung</a>
+  <a href="../uebungen/tag/impuls/">Impuls</a>
+  
+  
+  
+  
+  
+  <a href="../uebungen/tag/ubertragungsfunktion/">Übertragungsfunktion</a>
   
   
   
@@ -383,6 +396,12 @@ document.write(`
   <a href="../uebungen/category/">Kategorien</a>
 </h3>
 <ul>
+  
+  
+  <li>
+    <a href="../uebungen/category/heute/">Heute (4)</a>
+  </li>
+  
   
   
   <li>
@@ -721,7 +740,7 @@ document.write(`
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page">Kapazitive...</li>
+    <li class="breadcrumb-item active" aria-current="page">Sprung- und...</li>
   </ul>
 </nav>
 </div>
@@ -749,38 +768,32 @@ document.write(`
 <script type="text/javascript"
         src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
-<section class="tex2jax_ignore mathjax_ignore" id="kapazitive-fullstandsmessung">
-<h1>Kapazitive Füllstandsmessung<a class="headerlink" href="#kapazitive-fullstandsmessung" title="Permalink to this heading">#</a></h1>
-<p>Bei der kapazitiven Füllstandsmessung nutzt man die Tatsache aus, dass Flüssigkeiten eine relative Dielektrizitätskonstante <span class="math notranslate nohighlight">\(\epsilon_r\)</span> größer als eins besitzen. Als Messgrößenumformer kommt daher ein Kondensator zum Einsatz, der durch die Behälterwand und eine Stabelektrode gebildet wird (siehe Abbildung).</p>
-<p>Wird der dargestellte Behälter mit Flüssigkeit befüllt, so nimmt gleichzeitig die Kapazität des Kondensators zu. Es existiert ein eindeutiger Zusammenhang zwischen der Gesamtkapazität <span class="math notranslate nohighlight">\(C_G\)</span> und der Füllhöhe <span class="math notranslate nohighlight">\(h\)</span>, welcher als Berechnungsgrundlage für die Auswertung herangezogen werden kann.
-Die zu bestimmende Füllhöhe <span class="math notranslate nohighlight">\(h\)</span> ergibt sich gemäß folgendem formelmäßigen Zusammenhang:</p>
+<section class="tex2jax_ignore mathjax_ignore" id="sprung-und-impulsantwort-ubertragungsfunktion">
+<h1>Sprung- und Impulsantwort, Übertragungsfunktion<a class="headerlink" href="#sprung-und-impulsantwort-ubertragungsfunktion" title="Permalink to this heading">#</a></h1>
+<p>Die Sprungantwort eines LTI-Systems lautet</p>
 <div class="math notranslate nohighlight">
-\[h = \frac{H}{\epsilon_r - 1} \cdot \left( \frac{C_G-C_K}{C_E} -1 \right)\]</div>
-<p>Hierin steht <span class="math notranslate nohighlight">\(H\)</span> für die maximale Füllhöhe des Behälters, <span class="math notranslate nohighlight">\(\epsilon_r\)</span> für die relative Dielektrizitätskonstante des Füllmediums, <span class="math notranslate nohighlight">\(C_G\)</span> für die variable Gesamtkapazität des Behälters bei jeweiliger Befüllung, <span class="math notranslate nohighlight">\(C_K\)</span> für den konstanten Anteil der Kapazität, welcher vorwiegend aus der Kapazität zwischen Sonde und Deckel sowie Sonde und Boden gebildet wird, und <span class="math notranslate nohighlight">\(C_E\)</span> für die über die Höhe <span class="math notranslate nohighlight">\(H\)</span> gemessene Kapazität des leeren Behälters.</p>
-<p><img alt="png" src="../_images/fuellstandsmessung.png" /></p>
-<p>Im Folgenden soll die Füllhöhe <span class="math notranslate nohighlight">\(h\)</span> des Behälters auf der Grundlage von Messergebnissen für die Größen <span class="math notranslate nohighlight">\(H\)</span>, <span class="math notranslate nohighlight">\(\epsilon_r\)</span>, <span class="math notranslate nohighlight">\(C_G\)</span>, <span class="math notranslate nohighlight">\(C_K\)</span> und <span class="math notranslate nohighlight">\(C_E\)</span> einschließlich der wahrscheinlichen Abweichungsgrenzen ermittelt werden. Die maximale Füllhöhe <span class="math notranslate nohighlight">\(H\)</span> wird vom Hersteller des Behälters mit einem Nennwert von <span class="math notranslate nohighlight">\(H = 5000\mathrm{mm}\)</span> angegeben. Das Konfidenzintervall der maximalen Füllhöhe <span class="math notranslate nohighlight">\(H\)</span> gibt der Hersteller mit <span class="math notranslate nohighlight">\(\pm 0,05 \%\)</span> vom Nennwert bei einer Aussagewahrscheinlichkeit von <span class="math notranslate nohighlight">\(P=95\%\)</span> und sehr großen Stichprobenumfang <span class="math notranslate nohighlight">\(n\)</span> an. Als Füllmedium des Behälters wird Wasser eingesetzt, welches unter den herrschenden Umgebungsbedingungen eine relative Dielektrizitätskonstante von <span class="math notranslate nohighlight">\(\epsilon_r = 80\)</span> aufweist. Dieser Wert kann als exakt angesehen werden. Die Kapazität <span class="math notranslate nohighlight">\(C_K\)</span> wird vom Hersteller des Behälters mit <span class="math notranslate nohighlight">\(C_K = 40\mathrm{pF}\)</span> angegeben. Dieser Wert kann als exakt angesehen werden. Die Kapazität <span class="math notranslate nohighlight">\(C_E\)</span> wurden im Vorfeld experimentell in <span class="math notranslate nohighlight">\(n = 25\)</span> Versuchen bestimmt. Das ermittelte Messergebnis beträgt <span class="math notranslate nohighlight">\(C_E = 240\mathrm{pF} \pm 1\mathrm{pF}\)</span> bei <span class="math notranslate nohighlight">\(P = 99\%\)</span>. Die Gesamtkapazität <span class="math notranslate nohighlight">\(C_G\)</span> wird im Zuge der Versuchsdurchführung mit insgesamt <span class="math notranslate nohighlight">\(n = 9\)</span> Einzelmessungen ermittelt. Die dabei erhaltenen Einzelmesswerte sind in folgender Tabelle zusammengefasst.</p>
-<table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(i\)</span></p></th>
-<th class="head"><p>1</p></th>
-<th class="head"><p>2</p></th>
-<th class="head"><p>3</p></th>
-<th class="head"><p>4</p></th>
-<th class="head"><p>5</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(C_G /\mathrm{pF}\)</span></p></td>
-<td><p>3335</p></td>
-<td><p>3405</p></td>
-<td><p>3349</p></td>
-<td><p>3381</p></td>
-<td><p>3417</p></td>
-</tr>
-</tbody>
-</table>
-<p>Berechnen Sie die gesuchte Füllhöhe <span class="math notranslate nohighlight">\(h\)</span> des Behälters und geben Sie das vollständige Messergebnis mit einer Aussagewahrscheinlichkeit von <span class="math notranslate nohighlight">\(P = 95\%\)</span> an!</p>
-<p>Hinweis: Für alle Messgrößen kann eine Normalverteilung vorausgesetzt werden.</p>
+\[\begin{split}
+g(t)=\left\{\begin{array}{cl}0&amp;\textrm{für}\,\,t&lt;0\\  2t&amp;\textrm{für}\,\, 0 \leq t \leq T \\ 2T&amp;\textrm{für}\,\, t &gt; T\end{array}\right.
+\end{split}\]</div>
+<ol class="arabic simple">
+<li><p>Bestimmen und skizzieren Sie die Impulsantwort <span class="math notranslate nohighlight">\(h(t)\)</span> des Systems.</p></li>
+<li><p>Wie lautet die Übertragungsfunktion <span class="math notranslate nohighlight">\(H(f)\)</span> des Systems? Geben Sie <span class="math notranslate nohighlight">\(H(f)\)</span> unter Verwendung der si-Funktion an.</p></li>
+<li><p>Bestimmen Sie den Betrag <span class="math notranslate nohighlight">\(|H(f)|\)</span> und die Phase <span class="math notranslate nohighlight">\(\varphi(f)\)</span> von <span class="math notranslate nohighlight">\(H(f)\)</span>.</p></li>
+</ol>
+<div class="dropdown admonition">
+<p class="admonition-title">Tips</p>
+<ol class="arabic simple">
+<li><p>Der Impuls ist die Ableitung eines Sprungs. In einem LTI-System gilt, dass die Impulsantwort, <span class="math notranslate nohighlight">\(h(t)\)</span>, die Ableitung der Sprungantwort, <span class="math notranslate nohighlight">\(g(t)\)</span>, ist.</p></li>
+<li><p>Die Übertragungsfunktion ist für eine Impulsanregung definiert. Transformiere folglich <span class="math notranslate nohighlight">\(h(t)\)</span> in den Frequenzbereich und löse das Integral der Fourier (oder Laplace) Transformation:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[H(f) = \int_{-\infty}^{\infty} h(t) \mathrm e^{-j2\pi ft}dt = ... = 2T \mathrm{si}(\pi f T) \mathrm e^{-j\pi fT}\]</div>
+<ol class="arabic simple" start="3">
+<li><p>Überlegen Sie, was der Betrag einer komplexen e-Funktion ist. Die Funktion <span class="math notranslate nohighlight">\(|\mathrm{si}(...)|\)</span> können Sie so stehen lassen. Für die Phase gilt die allgemeine Formel:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\varphi(f) = \arctan\left(\frac{Im(H)}{Re(H)}\right)\]</div>
+</div>
 </section>
 
 <div class="section ablog__blog_comments">
@@ -792,11 +805,11 @@ Die zu bestimmende Füllhöhe <span class="math notranslate nohighlight">\(h\)</
   <span class="ablog__prev">
     
     
-    <a href="../Impuls_hintereinanderschaltung/">
+    <a href="../SNR_tiefpass/">
       
       <i class="fa fa-arrow-circle-left"></i>
       
-      <span>Impulsantwort hintereinander geschalteter Systeme</span>
+      <span>Signal-Rausch-Verhältnis bei einer Tiefpass-Filterung</span>
     </a>
     
   </span>
@@ -804,8 +817,8 @@ Die zu bestimmende Füllhöhe <span class="math notranslate nohighlight">\(h\)</
   <span class="ablog__next">
     
     
-    <a href="../sensor_kapazitive_fuellstandsmessung/">
-      <span>Kapazitiver Sensor für Füllstandsmessung</span>
+    <a href="../Schwingkreis_Sprung/">
+      <span>Sprungantwort eines Schwingkreises</span>
       
       <i class="fa fa-arrow-circle-right" ></i>
       
@@ -838,7 +851,7 @@ Die zu bestimmende Füllhöhe <span class="math notranslate nohighlight">\(h\)</
 
   <div class="sidebar-secondary-item">
   <div class="tocsection sourcelink">
-    <a href="../_sources/Kapazitive_Fuellstandsmessung.md.txt">
+    <a href="../_sources/Messsystem_Impuls.md.txt">
       <i class="fa-solid fa-file-lines"></i> Quellcode anzeigen
     </a>
   </div>

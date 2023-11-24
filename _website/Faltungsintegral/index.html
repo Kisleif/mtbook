@@ -30,6 +30,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -42,8 +44,13 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/translations.js"></script>
     <script src="../_static/design-tabs.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-88310237-1"></script>
     <script>
@@ -324,6 +331,13 @@ document.write(`
     </span>
   
   
+  <a href="../uebungen/category/heute/">Heute</a>
+  
+  ,
+  
+  
+  
+  
   <a href="../uebungen/category/ubung/">Übung</a>
   
   
@@ -341,6 +355,12 @@ document.write(`
     </span>
   
   
+  <a href="../uebungen/tag/sprung/">Sprung</a>
+  
+  
+  
+  
+  
   <a href="../uebungen/tag/messsystem/">Messsystem</a>
   
   
@@ -348,12 +368,6 @@ document.write(`
   
   
   <a href="../uebungen/tag/faltung/">Faltung</a>
-  
-  
-  
-  
-  
-  <a href="../uebungen/tag/sprung/">Sprung</a>
   
   
   
@@ -370,6 +384,12 @@ document.write(`
   <a href="../uebungen/category/">Kategorien</a>
 </h3>
 <ul>
+  
+  
+  <li>
+    <a href="../uebungen/category/heute/">Heute (4)</a>
+  </li>
+  
   
   
   <li>
@@ -727,8 +747,7 @@ document.write(`
                   
 <section class="tex2jax_ignore mathjax_ignore" id="faltungsintegral">
 <h1>Faltungsintegral<a class="headerlink" href="#faltungsintegral" title="Permalink to this heading">#</a></h1>
-<p>Gegeben sei ein RC-Tiefpass 1. Ordnung. Die Impulsantwort <span class="math notranslate nohighlight">\(h(t)\)</span>
-ist für  <span class="math notranslate nohighlight">\(T = RC\)</span> wiefolgt gegeben:</p>
+<p>Gegeben sei ein RC-Tiefpass 1. Ordnung. Die Impulsantwort <span class="math notranslate nohighlight">\(h(t)\)</span> ist für  <span class="math notranslate nohighlight">\(T = RC\)</span> wiefolgt gegeben:</p>
 <div class="math notranslate nohighlight">
 \[h(t) = \frac{1}{T}\epsilon(t) \mathrm e^{-t/T}\]</div>
 <p>wobei</p>
@@ -736,19 +755,48 @@ ist für  <span class="math notranslate nohighlight">\(T = RC\)</span> wiefolgt 
 \[\epsilon(t) = \frac{1}{2} + \frac{1}{2}\mathrm{sgn}(t)\]</div>
 <p>gilt und <span class="math notranslate nohighlight">\(\mathrm{sgn}(t)\)</span>  die „Vorzeichenfunktion“ ist:</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\mathrm{sgn}(x):=
-\begin{cases}
-     +1, &amp; \; \text{falls} \quad x&gt;0, \\
-\;\;\,0, &amp; \; \text{falls} \quad x=0, \\
-     -1, &amp; \; \text{falls} \quad x&lt;0. \\
-\end{cases}\end{split}\]</div>
+\[\mathrm{sgn}(x) = 2 H(x) - 1\]</div>
+<p>mit der Heaviside-Funktion <span class="math notranslate nohighlight">\(H(x)\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-382afb0a-152f-4043-a628-a922f59ca017">
+<span class="eqno">()<a class="headerlink" href="#equation-382afb0a-152f-4043-a628-a922f59ca017" title="Permalink to this equation">#</a></span>\[\begin{align}
+H \colon \; &amp; \mathcal R \to \{0,1\} \\
+\ &amp; x \mapsto \begin{cases}
+0 : &amp; x &lt; 0\\
+1 : &amp; x \ge 0
+\end{cases}
+\end{align}\]</div>
+<ol class="arabic">
+<li><p>Berechnen Sie mit Hilfe des Faltungsintegrals die Sprungantwort <span class="math notranslate nohighlight">\(y(t)\)</span> des Systems.</p>
 <ul class="simple">
-<li><p>Berechnen Sie mit Hilfe des Faltungsintegrals die Sprungantwort <span class="math notranslate nohighlight">\(y(t)\)</span> des Systems. Zu welcher Zeit werden 63% und 95% des Endwertes erreicht?</p></li>
-<li><p>Skizzieren Sie Impulserregung und Impulsantwort, sowie Sprungerregung und Sprungantwort.</p></li>
-<li><p>Berechnen Sie die Systemantwort <span class="math notranslate nohighlight">\(y(t)\)</span> bei einer sprunghaften Anregung <span class="math notranslate nohighlight">\(u(t)\)</span> mit Hilfe des Faltungsintegrals (<span class="math notranslate nohighlight">\(T_0 &gt; T\)</span>). Skizzieren Sie alle Funktionen.</p></li>
+<li><p>Zu welcher Zeit werden 63% und 95% des Endwertes erreicht?</p></li>
+<li><p>Skizzieren Sie Impulsanregung und Impulsantwort, sowie Sprunganregung und Sprungantwort.</p></li>
 </ul>
+</li>
+<li><p>Berechnen Sie die Systemantwort <span class="math notranslate nohighlight">\(y(t)\)</span> bei einer sprunghaften Anregung <span class="math notranslate nohighlight">\(u(t)\)</span> mit Hilfe des Faltungsintegrals (<span class="math notranslate nohighlight">\(T_0 &gt; T\)</span>).</p>
 <div class="math notranslate nohighlight">
-\[u(t) = \mathrm{rect}\left(\frac{t-T_0/2}{T_0}\right)\]</div>
+\[\begin{split}u(t) = \mathrm{rect}\left(\frac{t-T_0/2}{T_0}\right) = \begin{cases}
+1           &amp; \text{wenn } t = [0,T_0] \\[3pt]
+0 &amp; \text{sonst}
+\end{cases}
+\end{split}\]</div>
+<ul class="simple">
+<li><p>Skizzieren Sie alle Funktionen.</p></li>
+</ul>
+</li>
+</ol>
+<div class="dropdown admonition">
+<p class="admonition-title">Tips</p>
+<ol class="arabic simple">
+<li><p>Die angelegte Sprungfunktion kann über die Heaviside Funktion ausgedrückt werden: <span class="math notranslate nohighlight">\(f(\tau) = x_0 \cdot H(\tau)\)</span>. Berechnen Sie dann das Faltungsintegral. Überlegen Sie sich, wie die Integrationsgrenzen für Heaviside-Funktionen aufgeteilt werden können.</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[y(t) = \int_{-\infty}^{\infty} f(\tau) \cdot h(t-\tau) d\tau = ... = x_0 \left( \mathrm e^{-t/\tau} \right)\]</div>
+<ol class="arabic simple" start="2">
+<li><p>Berechnen Sie das Faltungsintegral. Überlegen Sie sich, wie die Integrationsgrenzen für Heaviside-Funktionen und Rechteckpuls  aufgeteilt werden können.</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[y(t) = \int_{-\infty}^{\infty} u(\tau) \cdot h(t-\tau) d\tau = ... = 1- \mathrm e^{-t/\tau} \]</div>
+</div>
 </section>
 
 <div class="section ablog__blog_comments">

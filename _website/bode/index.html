@@ -59,6 +59,8 @@
                 gtag('js', new Date());
                 gtag('config', 'UA-88310237-1');
             </script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'bode';</script>
     <link rel="shortcut icon" href="https://kisleif.github.io/mtbook/_static/i_mt.png"/>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex/" />
@@ -110,8 +112,8 @@
          class="form-control"
          name="q"
          id="search-input"
-         placeholder="Search this site..."
-         aria-label="Search this site..."
+         placeholder="Durchsuche diese Seite..."
+         aria-label="Durchsuche diese Seite..."
          autocomplete="off"
          autocorrect="off"
          autocapitalize="off"
@@ -187,15 +189,28 @@
       
         <div class="navbar-item navbar-persistent--container">
           
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Suche</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
         </div>
       
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
       
         <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
     aria-label="Icon Links">
@@ -219,13 +234,15 @@ document.write(`
   
   
     <div class="navbar-persistent--mobile">
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Suche</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
     </div>
   
 
@@ -280,6 +297,17 @@ document.write(`
     
     
       <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
         
           <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
     aria-label="Icon Links">
@@ -359,12 +387,6 @@ document.write(`
   
   
   
-  <a href="../uebungen/tag/bode-diagramm/">Bode-Diagramm</a>
-  
-  
-  
-  
-  
   <a href="../uebungen/tag/log/">Log</a>
   
   
@@ -372,6 +394,12 @@ document.write(`
   
   
   <a href="../uebungen/tag/ubertragungsfunktion/">Übertragungsfunktion</a>
+  
+  
+  
+  
+  
+  <a href="../uebungen/tag/bode-diagramm/">Bode-Diagramm</a>
   
   
   
@@ -754,9 +782,22 @@ document.write(`
 <p>Zur Darstellung von Übertragungsverhalten werden Bode-Diagramme zur Darstellung des Frequenzgangs benutzt. Durch die logarithmische Darstellung der Amplitudenverhältnisse lassen sich aus mehreren Übertragungssystemen zusammengesetzte Systeme leichter analysieren.
 Die logarithmische Darstellung bildet nämlich die Multiplikation der einzelnen Funktionen auf eine einfache Addition ab.</p>
 <p>Es sei folgendes Übertragungssystem gegeben:</p>
-<p><img alt="png" src="../_images/bode.png" /></p>
-<p>welches aus einem P-Glied, einem D-Glied, einem PT1-Glied und einen PD-Glied besteht.
-Erstellen Sie das Bode-Diagramm, indem Sie die Amplitudengänge in dB eintragen und anschließend grafisch addieren. Analog erstellen Sie das Phasengang-Diagramm.</p>
+<figure class="align-default" id="id1">
+<img alt="../_images/bode.png" class="dark-light" src="../_images/bode.png" />
+<figcaption>
+<p><span class="caption-text">Übertragungssystem mit vier Gliedern.</span><a class="headerlink" href="#id1" title="Link zu diesem Bild">#</a></p>
+</figcaption>
+</figure>
+<p>welches aus einem P-Glied, einem D-Glied, einem PT1-Glied und einen PD-Glied besteht.</p>
+<div class="math notranslate nohighlight">
+\[H_1 = 10\]</div>
+<div class="math notranslate nohighlight">
+\[H_2 = s\]</div>
+<div class="math notranslate nohighlight">
+\[H_3 = \frac{1}{1+\frac{s}{4}}\]</div>
+<div class="math notranslate nohighlight">
+\[H_4 = 1+\frac{s}{60}\]</div>
+<p>Erstellen Sie das Bode-Diagramm, indem Sie die Amplitudengänge in dB eintragen und anschließend grafisch addieren. Analog erstellen Sie das Phasengang-Diagramm.</p>
 <div class="dropdown admonition">
 <p class="admonition-title">Tips</p>
 <p>Was gilt für die Hintereinanderschaltung von Messsystemen im Laplace, bzw. Frequenzbereich? Schreiben Sie die Gesamt-Übertragungsfunktion hin.</p>

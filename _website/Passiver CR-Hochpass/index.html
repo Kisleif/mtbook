@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Passiver RC-Tiefpass 1. Ordnung &#8212; Messtechnik Übungen</title>
+    <title>Passiver CR-Hochpass 1. Ordnung &#8212; Messtechnik Übungen</title>
   
   
   
@@ -61,7 +61,7 @@
             </script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Tiefpass_3sin_bode';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Passiver CR-Hochpass';</script>
     <link rel="shortcut icon" href="https://kisleif.github.io/mtbook/_static/i_mt.png"/>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex/" />
     <link rel="search" title="Suche" href="../search/" />
@@ -374,19 +374,25 @@ document.write(`
     </span>
   
   
-  <a href="../uebungen/tag/ubertragungsfunktion/">Übertragungsfunktion</a>
-  
-  
-  
-  
-  
-  <a href="../uebungen/tag/tiefpass/">Tiefpass</a>
+  <a href="../uebungen/tag/dgl/">DGL</a>
   
   
   
   
   
   <a href="../uebungen/tag/messsysteme/">Messsysteme</a>
+  
+  
+  
+  
+  
+  <a href="../uebungen/tag/hochpass/">Hochpass</a>
+  
+  
+  
+  
+  
+  <a href="../uebungen/tag/ubertragungsfunktion/">Übertragungsfunktion</a>
   
   
   
@@ -406,7 +412,7 @@ document.write(`
   
   
   <li>
-    <a href="../uebungen/category/heute/">Heute (4)</a>
+    <a href="../uebungen/category/heute/">Heute (3)</a>
   </li>
   
   
@@ -418,7 +424,7 @@ document.write(`
   
   
   <li>
-    <a href="../uebungen/category/ubung/">Übung (29)</a>
+    <a href="../uebungen/category/ubung/">Übung (28)</a>
   </li>
   
   
@@ -445,12 +451,6 @@ document.write(`
   
   <li class="ablog-cloud ablog-cloud-1">
     <a href="../uebungen/tag/digitalisierung/">Digitalisierung</a>
-  </li>
-  
-  
-  
-  <li class="ablog-cloud ablog-cloud-1">
-    <a href="../uebungen/tag/drehstrom/">Drehstrom</a>
   </li>
   
   
@@ -545,7 +545,7 @@ document.write(`
   
   
   
-  <li class="ablog-cloud ablog-cloud-4">
+  <li class="ablog-cloud ablog-cloud-3">
     <a href="../uebungen/tag/leistung/">Leistung</a>
   </li>
   
@@ -706,7 +706,7 @@ document.write(`
   
   
   <li>
-    <a href="../uebungen/2023/">2023 (29)</a>
+    <a href="../uebungen/2023/">2023 (28)</a>
   </li>
   
   
@@ -764,16 +764,37 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-<section class="tex2jax_ignore mathjax_ignore" id="passiver-rc-tiefpass-1-ordnung">
-<h1>Passiver RC-Tiefpass 1. Ordnung<a class="headerlink" href="#passiver-rc-tiefpass-1-ordnung" title="Permalink to this heading">#</a></h1>
-<p>Ein Messgerät mit einem Verzögerungsverhalten 1. Ordnung, also einem Tiefpassverhalten, und einer 3,dB-Grenzfrequenz von <span class="math notranslate nohighlight">\(f_0 = 1\,\mathrm{MHz}\)</span> wird mit einem periodischem Spannungssignal beaufschlagt.</p>
-<p>Die Spannung wird durch die Überlagerung von drei sinusförmigen Spannungen generiert:
-$<span class="math notranslate nohighlight">\(u_{11}(t) = 6\,\mathrm{V} \sin(2 \pi \cdot 5 \cdot 10^5\,\mathrm{s^{-1}} \cdot t) \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(u_{12}(t) = 5\,\mathrm{V} \sin(2 \pi \cdot 1 \cdot 10^6\,\mathrm{s^{-1}} \cdot t) \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(u_{13}(t) = 3\,\mathrm{V} \sin(2 \pi \cdot 1,5 \cdot 10^6\,\mathrm{s^{-1}} \cdot t) \)</span>$</p>
-<p>Berechnen Sie die Ausgangsspannungen (inkl. Phasen) und skizzieren Sie das Amplitudenspektrum für Eingangs- und Ausgangssignal in einem Diagramm.
-Wie hoch darf die Frequenz eines Messsignals höchstens sein, wenn der frequenzabhängige Amplitudenabfall kleiner als 1% sein soll?</p>
-<p><img alt="png" src="../_images/tiefpass_3sin.png" /></p>
+<section class="tex2jax_ignore mathjax_ignore" id="passiver-cr-hochpass-1-ordnung">
+<h1>Passiver CR-Hochpass 1. Ordnung<a class="headerlink" href="#passiver-cr-hochpass-1-ordnung" title="Permalink to this heading">#</a></h1>
+<p>In der Vorlesung wurde das Zeitverhalten der RC-Tiefpass-Schaltung erläutert. In dieser Aufgabe sollen die dort gebrachten Überlegungen auf ein CR-Hochpass-Messglied angewendet werden. Gegeben ist die Schaltung in der Abbildung.</p>
+<figure class="align-default" id="id1">
+<img alt="../_images/hochpass.png" class="dark-light" src="../_images/hochpass.png" />
+<figcaption>
+<p><span class="caption-text">Schaltbild eines CR-Hochpasses 1. Ordnung.</span><a class="headerlink" href="#id1" title="Link zu diesem Bild">#</a></p>
+</figcaption>
+</figure>
+<p>Geben Sie für die CR-Schaltung den komplexen Frequenzgang <span class="math notranslate nohighlight">\(\underline G(jf) = \frac{\underline U_a(f)}{U_e(f)}\)</span> an (über DGL oder komplexe Impedanzen). Spalten Sie den Frequenzgang in seinen Realteil und Imaginärteil. Geben Sie den Amplitudengang <span class="math notranslate nohighlight">\(G(f) = |G(jf)|\)</span> und Phasengang in Abhängigkeit von <span class="math notranslate nohighlight">\(f_g = 1/(2\pi R C)\)</span> an. Welchen Wert hat der Amplitudengang für den Grenzfall <span class="math notranslate nohighlight">\(f = 0\,\mathrm{Hz}\)</span> und <span class="math notranslate nohighlight">\(f = f_g\)</span>? Skizzieren Sie Amplituden- und Phasengang für folgende Fälle:</p>
+<div class="math notranslate nohighlight">
+\[U_0 = 1\,\mathrm V$, $R = 0,16\,\mathrm{M\Omega}$ und $C = 1\,\mathrm{\upmu F}\]</div>
+<div class="math notranslate nohighlight">
+\[U_0 = 1\,\mathrm V$, $R = 0,16\,\mathrm{M\Omega}$ und $C = 200\,\mathrm{nF}\]</div>
+<p>Geben Sie die DGL an. Bestimmen Sie die Sprungantwort des Hochpass-Messgliedes für den Fall, dass sich die Eingangsspannung zur Zeit <span class="math notranslate nohighlight">\(t=0\,\mathrm s\)</span> sprunghaft von <span class="math notranslate nohighlight">\(u_\mathrm e(t=0\,\mathrm s) = 0\,\mathrm V\)</span> auf <span class="math notranslate nohighlight">\(u_\mathrm e(t&gt;0\,\mathrm s) = U_0\)</span> ändert. Nutzen Sie hierfür den für eine Sprunganregung typischen exponentiellen Ansatz, wobei <span class="math notranslate nohighlight">\(K_0\)</span> und <span class="math notranslate nohighlight">\(\gamma\)</span>  Konstanten sind, die zu bestimmen sind:</p>
+<div class="math notranslate nohighlight">
+\[ u_\mathrm a(t) = K_0 \cdot \mathrm e^{-\gamma t}\]</div>
+<p>Skizzieren Sie die Sprungantworten für die angegebenen Fälle.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Tips</p>
+<p>Hinweis zum Lösen der DGL:</p>
+<ul class="simple">
+<li><p>Lösen Sie zuerst die homogene DGL (ohne Anregung, <span class="math notranslate nohighlight">\(u_\mathrm{e}(t)=0\)</span>).</p></li>
+<li><p>Finden Sie die partikuläre Lösung für <span class="math notranslate nohighlight">\(t \rightarrow \infty\)</span>, wenn sich der Kondensator voll aufgeladen hat (<span class="math notranslate nohighlight">\(u_\mathrm a(t)\)</span>=?).</p></li>
+<li><p>Geben Sie den allgemeinen Lösungsansatz an (Summe aus homogener und partikulärer Lösung).</p></li>
+<li><p>Bestimmen Sie die Konstanten mithilfe der gegebenen Anfangsbedingungen.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
 </section>
 
 <div class="section ablog__blog_comments">
@@ -785,11 +806,11 @@ Wie hoch darf die Frequenz eines Messsignals höchstens sein, wenn der frequenza
   <span class="ablog__prev">
     
     
-    <a href="../Hochpass_DGL_bode/">
+    <a href="../Messabweichung Leistungsmessung, Gleichspannung/">
       
       <i class="fa fa-arrow-circle-left"></i>
       
-      <span>Passiver CR-Hochpass 1. Ordnung</span>
+      <span>Messabweichung Leistungsmessung, Gleichspannung</span>
     </a>
     
   </span>
@@ -797,8 +818,8 @@ Wie hoch darf die Frequenz eines Messsignals höchstens sein, wenn der frequenza
   <span class="ablog__next">
     
     
-    <a href="../Phasenanschnittsteuerung/">
-      <span>Phasenanschnittsteuerung</span>
+    <a href="../Passiver RC-Tiefpass/">
+      <span>Passiver RC-Tiefpass 1. Ordnung</span>
       
       <i class="fa fa-arrow-circle-right" ></i>
       
@@ -831,7 +852,7 @@ Wie hoch darf die Frequenz eines Messsignals höchstens sein, wenn der frequenza
 
   <div class="sidebar-secondary-item">
   <div class="tocsection sourcelink">
-    <a href="../_sources/Tiefpass_3sin_bode.md.txt">
+    <a href="../_sources/Passiver CR-Hochpass.md.txt">
       <i class="fa-solid fa-file-lines"></i> Quellcode anzeigen
     </a>
   </div>

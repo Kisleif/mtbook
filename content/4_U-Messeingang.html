@@ -125,6 +125,12 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content">Aufgaben sind jetzt auch online im <a href='https://kisleif.github.io/mtbook/_website/uebungen/index.html'> Übungs-Pool </a> zu finden.</div>
+  </div>
+
   
     <nav class="bd-header navbar navbar-expand-lg bd-navbar">
     </nav>
@@ -535,12 +541,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gleichspannungsmessung">Gleichspannungsmessung</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wechselspannungsmessung">Wechselspannungsmessung</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#innerer-aufbau-und-zu-berucksichtigende-messabweichungen">Innerer Aufbau und zu berücksichtigende Messabweichungen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#messung-des-gleichrichtswerts">Messung des Gleichrichtswerts</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funktionsweise-einer-diode">Funktionsweise einer Diode</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#schwellspannung">Schwellspannung</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dioden-bruckenschaltung">Dioden-Brückenschaltung</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#messung-des-gleichrichtswerts">Messung des Gleichrichtswerts</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glattung">Glättung</a></li>
 </ul>
             </nav>
@@ -563,24 +564,54 @@ document.write(`
 </figcaption>
 </figure>
 <p>Um den Motor zu betreiben wird eine Spannung angelegt. <em>Parallel</em> zu dieser angelegten Spannung wird der Spannugnsmesseingang angelegt. Dies gilt immer, egal ob es sich um eine Wechsel- oder Gleichspannung handelt.</p>
-<p>Den Spannungsmesseingang wurde mittels eines <strong>Ersatzschaltbildes</strong> dargestellt und kann aus einer Parallelschaltung eines ohmschen Widerstands, <span class="math notranslate nohighlight">\(R_i\)</span>, und einer Kapazität, <span class="math notranslate nohighlight">\(C_i\)</span>, beschrieben werden.
-<span class="math notranslate nohighlight">\(R_i\)</span> wird auch als <strong>Innenwiderstand</strong> bezeichnet. <span class="math notranslate nohighlight">\(R_i\)</span> und <span class="math notranslate nohighlight">\(C_i\)</span> sind nicht wirklich in dieser Anordnung so aufgebaut, sie resultieren vielmehr aus den elektrischen Eigenschaften der verbauten Bauelemente und werden durch den Hersteller des zugehörigen Messsystems spezifiziert.</p>
+<p>Den Spannungsmesseingang wurde mittels eines <strong>Ersatzschaltbildes</strong> dargestellt und kann aus einer Parallelschaltung eines ohmschen Widerstands, <span class="math notranslate nohighlight">\(R_i\)</span> (der sogenannte Innenwiderstand), und einer Kapazität, <span class="math notranslate nohighlight">\(C_i\)</span>, beschrieben werden.
+<span class="math notranslate nohighlight">\(R_i\)</span> und <span class="math notranslate nohighlight">\(C_i\)</span> sind nicht wirklich in dieser Anordnung so aufgebaut, sie resultieren vielmehr aus den elektrischen Eigenschaften der verbauten Bauelemente und werden durch den Hersteller des zugehörigen Messsystems spezifiziert.</p>
 <p><strong>Ziel bei der Spannungsmessung</strong> ist es zu erreichen, dass möglichst <em>kein Strom</em> durch den Spannungsmesseingang ließt. Das bedeutet, dass der Hersteller des Spannungsmessgeräts einen möglichst <em>hohen Innenwiderstand</em> <span class="math notranslate nohighlight">\(R_i\)</span> wählen wird. Typischerweise liegt <span class="math notranslate nohighlight">\(R_i\)</span> zwischen <span class="math notranslate nohighlight">\(1-10\,\mathrm{M\Omega}\)</span>.</p>
 <section id="gleichspannungsmessung">
 <h2>Gleichspannungsmessung<a class="headerlink" href="#gleichspannungsmessung" title="Permalink to this heading">#</a></h2>
 <p>Bei Gleichspannungsmessungen spielt die <em>Innenkapazität</em> <span class="math notranslate nohighlight">\(C_i\)</span> keine Rolle.
-Die recht kleine Kapazität lädt sich sofort nach Anlegen der zu messenden Gleichspannung auf diese auf und hat ab dann keinerlei Einfluss mehr auf die Messung.</p>
-<p>Die Bedeutung der Innenwiderstände eines Messeingangs wollen wir anhand des Bildes und der Werte in <a class="reference internal" href="#spannungsmesseingang-gleich"><span class="std std-numref">Abb. 65</span></a> zeigen.</p>
+Die recht kleine Kapazität lädt sich sofort nach Anlegen der zu messenden Gleichspannung auf und hat ab dann keinerlei Einfluss mehr auf die Messung.</p>
+<p>Die Bedeutung der Innenwiderstände eines Messeingangs hängt von der Schaltung ab, die vermessen werden soll. Als Beispiel soll eine einfache Spannungsteilerschaltung aus der Reihenschaltung von zwei Widerständen <span class="math notranslate nohighlight">\(R_1\)</span> und <span class="math notranslate nohighlight">\(R_2\)</span>, wie in <a class="reference internal" href="#spannungsmesseingang-gleich"><span class="std std-numref">Abb. 65</span></a> dargestellt, dienen.</p>
 <figure class="align-default" id="spannungsmesseingang-gleich">
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/spannungsmesseingang_gleich.jpg"><img alt="Spannungsmesseingang" class="bg-primary mb-1" src="../_images/spannungsmesseingang_gleich.jpg" style="width: 400px;" /></a>
 <figcaption>
 <p><span class="caption-number">Abb. 65 </span><span class="caption-text">Spannungsmesseingang an einer Schaltung mit Gleichspannung.</span><a class="headerlink" href="#spannungsmesseingang-gleich" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
-<p>Für diese Analyse muss stets die Schaltung und deren Komponenten berücksichtigt werden, an den der Spannungsmesseingang angeschlossen ist. In diesem Fall haben wir in <a class="reference internal" href="#spannungsmesseingang-gleich"><span class="std std-numref">Abb. 65</span></a> eine Spannungsteiler-Schaltung vorgeschaltet, die aus den Widerständen <span class="math notranslate nohighlight">\(R_1\)</span> und <span class="math notranslate nohighlight">\(R_2\)</span> besteht. Die Spannung <span class="math notranslate nohighlight">\(u\)</span> soll mit einem Spannungsmesseingang bestimmt werden. Wie bereits erwähnt, spielt <span class="math notranslate nohighlight">\(C_i\)</span> bei Gleichspannungen keine Rolle. In der folgenden Aufgabe sollt ihr einmal die Messabweichung bestimmen, die nur aufgrund des unvermeidlichen Hinzunehmens eines Spannungsmesseingangs eine signifikante, aber <em>bekannte</em>, Unsicherheit produzieren wird.</p>
+<p>Man nehme an, beide Widerstände sind gleich, d.h. <span class="math notranslate nohighlight">\(R_1 = R_2 = R\)</span>. Dann berechnet sich das Spannungsteilerverhältnis wiefolgt:</p>
+<div class="math notranslate nohighlight">
+\[r = \frac{R_2}{R_\mathrm{ges}} = \frac{R_2}{R_1 + R_2} = \frac{R}{2R} = 0{,}5\]</div>
+<p>Die Spannung wird genau geteilgt.
+Wird nun ein Spannungsmesseingang angeschlossen, so wird ein weiterer Widerstand <span class="math notranslate nohighlight">\(R_i\)</span> parallel zu <span class="math notranslate nohighlight">\(R_2\)</span> geschaltet:</p>
+<div class="math notranslate nohighlight">
+\[R_\mathrm{2,ges} = \frac{R_2 \cdot R_i}{R_2 + R_i}\]</div>
+<p>Der Gesamtwiderstandswert ist nun die Reihenschaltung aus <span class="math notranslate nohighlight">\(R_1\)</span> und <span class="math notranslate nohighlight">\(R_\mathrm{2,ges}\)</span>.
+Daraus folgt für das Spannungsteilerverhältnis:</p>
+<div class="math notranslate nohighlight">
+\[r = \frac{R_\mathrm{2,neu}}{R_\mathrm{ges,neu}} = \frac{R_i}{R + 2R_i}\]</div>
+<p>Je kleiner <span class="math notranslate nohighlight">\(R_i\)</span>, desto größer ist die Messabweichung, wie folgendes Beispiel zeigt. Je kleiner <span class="math notranslate nohighlight">\(R\)</span> (Widerstände im Schaltkreis), desto kleiner die Messabweichung.</p>
+<p>Das Spannungsteilerverhältnis hat sich verändert, obwohl die eigentlich Schaltung, bestehend aus <span class="math notranslate nohighlight">\(R_1\)</span> und <span class="math notranslate nohighlight">\(R_2\)</span> nicht verändert wurde. Das Verhältnis zu klein gemessen. Da es sich hierbei um einen systematischen Fehler handelt, kann mittels Kenntnis des Innenwiderstandes das Spannungsteilerverhältnis korrigiert werden.</p>
 <div class="tip admonition">
-<p class="admonition-title">Aufgabe</p>
-<p>Bestimme die Messabweichung von <span class="math notranslate nohighlight">\(u\)</span>, die bei der Spannungsmessung an einem Spannungsteiler mit <span class="math notranslate nohighlight">\(R_1 = R_2 = 100\,\mathrm{k\Omega}\)</span> auftritt. Der Innenwiderstand beträgt <span class="math notranslate nohighlight">\(R_i = 1\,\mathrm{M\Omega}\)</span>. Die Ausgabe des folgenden Code-Blocks liefert bereits einige Hinweise dafür, was ihr hierfür berechnen solltet. Die Lösung findet ihr weiter unten.</p>
+<p class="admonition-title">Beispiel</p>
+<p>Bestimme die Messabweichung von <span class="math notranslate nohighlight">\(u\)</span>, die bei der Spannungsmessung an einem Spannungsteiler mit <span class="math notranslate nohighlight">\(R_1 = R_2 = 100\,\mathrm{k\Omega}\)</span> auftritt. Der Innenwiderstand beträgt <span class="math notranslate nohighlight">\(R_i = 1\,\mathrm{M\Omega}\)</span>, bzw. <span class="math notranslate nohighlight">\(R_i = 10\,\mathrm{M\Omega}\)</span>.</p>
+<p>Der Wert für <span class="math notranslate nohighlight">\(R_2\)</span>, nämlich <span class="math notranslate nohighlight">\(100\,\mathrm{k\Omega}\)</span> ist im Vergleich zum Innenwiderstand von <span class="math notranslate nohighlight">\(R_i = 1\,\mathrm{M\Omega}\)</span> sehr viel kleiner. D.h. wir bestimmen zunächst den Widerstandswert der Parallelschaltung bestehend aus <span class="math notranslate nohighlight">\(R_2\)</span> und <span class="math notranslate nohighlight">\(R_i\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[R_\mathrm{2||i} = \frac{R_2 \cdot R_i}{R_2 + R_i} \approx 90{,}9\,\mathrm{k\Omega}\]</div>
+<p>Dies ist schon mal etwas kleiner als der eigentlich Wert von <span class="math notranslate nohighlight">\(R_2\)</span>.
+Ohne Anlegen eines Messeingangs liegt das klassische Spannungsteilerverhältnis von</p>
+<div class="math notranslate nohighlight">
+\[r_0 = \frac{R_2}{R_1+R_2} = 0{,}5\]</div>
+<p>Mit Messeingang liegt es bei:</p>
+<div class="math notranslate nohighlight">
+\[r_1 = \frac{R_\mathrm{2||i}}{R_1+R_\mathrm{2||i}} = 0{,}48\]</div>
+<p>Eine zu messende Spannung von <span class="math notranslate nohighlight">\(u=10\,\mathrm V\)</span> würde entsprechend verringert ausfallen:</p>
+<div class="math notranslate nohighlight">
+\[\frac{r_1}{r_0}\cdot u = 9{,}523\,\mathrm{V}\]</div>
+<p>Die Messabweichung beträgt -4,76% bzw. -0,476 V.</p>
+<p>Für <span class="math notranslate nohighlight">\(R_i = 10\,\mathrm{M\Omega}\)</span> gehen wir analog vor und erhalten:</p>
+<div class="math notranslate nohighlight">
+\[r_1 = \frac{R_\mathrm{2||i}}{R_1+R_\mathrm{2||i}} = 0{,}497\]</div>
+<p>Die Messabweichung beträgt -0,497% bzw. -0,0497 V.</p>
 </div>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -589,9 +620,9 @@ Die recht kleine Kapazität lädt sich sofort nach Anlegen der zu messenden Glei
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R_1</span> <span class="o">=</span> <span class="mf">100e3</span>
-<span class="n">R_2</span> <span class="o">=</span> <span class="mf">100e3</span>
-<span class="n">R_i</span> <span class="o">=</span> <span class="mf">1e6</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R_1</span> <span class="o">=</span> <span class="mf">10e3</span>
+<span class="n">R_2</span> <span class="o">=</span> <span class="mf">10e3</span>
+<span class="n">R_i</span> <span class="o">=</span> <span class="mf">10e6</span>
 <span class="n">u</span> <span class="o">=</span> <span class="mi">10</span>
 
 <span class="n">r_0</span> <span class="o">=</span> <span class="n">R_2</span> <span class="o">/</span> <span class="p">(</span><span class="n">R_1</span> <span class="o">+</span> <span class="n">R_2</span><span class="p">)</span>
@@ -609,32 +640,15 @@ Die recht kleine Kapazität lädt sich sofort nach Anlegen der zu messenden Glei
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Innenwiderstand der Parallelschaltung aus R_2 und R_i:  90.9090909090909 kOhm
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Innenwiderstand der Parallelschaltung aus R_2 und R_i:  9.990009990009991 kOhm
 Klassisches Spannungsteilerverhältnis ohne Messeingang:  0.5
-Spannungsteilerverhältnis mit Messeingang:  0.4761904761904762
-Verhältnis der beiden Verhältnisse zueinander:  0.9523809523809524
-Spannungsmessung bei  10 V eigentlicher Spannung:  9.523809523809524 V
-Die Messabweichung beträgt:  4.761904761904756 % =  -0.4761904761904763 V
+Spannungsteilerverhältnis mit Messeingang:  0.4997501249375313
+Verhältnis der beiden Verhältnisse zueinander:  0.9995002498750626
+Spannungsmessung bei  10 V eigentlicher Spannung:  9.995002498750626 V
+Die Messabweichung beträgt:  0.04997501249374148 % =  -0.004997501249373926 V
 </pre></div>
 </div>
 </div>
-</div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Lösung</p>
-<p>Der Wert für <span class="math notranslate nohighlight">\(R_2\)</span>, nämlich <span class="math notranslate nohighlight">\(100\,\mathrm{k\Omega}\)</span> ist im Vergleich zum Innenwiderstand von <span class="math notranslate nohighlight">\(R_i = 1\,\mathrm{M\Omega}\)</span> sehr viel kleiner. D.h. wir bestimmen zunächst den Widerstandswert der Parallelschaltung bestehend aus <span class="math notranslate nohighlight">\(R_2\)</span> und <span class="math notranslate nohighlight">\(R_i\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[R_\mathrm{2||i} = \frac{R_2 \cdot R_i}{R_2 + R_i} \approx 90,9\,\mathrm{k\Omega}\]</div>
-<p>Dies ist schon mal etwas kleiner als der eigentlich Wert von <span class="math notranslate nohighlight">\(R_2\)</span>.
-Ohne Anlegen eines Messeingangs liegt das klassische Spannungsteilerverhältnis von</p>
-<div class="math notranslate nohighlight">
-\[r_0 = \frac{R_2}{R_1+R_2} = 0,5\]</div>
-<p>Mit Messeingang liegt es bei:</p>
-<div class="math notranslate nohighlight">
-\[r_1 = \frac{R_\mathrm{2||i}}{R_1+R_\mathrm{2||i}} = 0,48\]</div>
-<p>Eine zu messende Spannung von <span class="math notranslate nohighlight">\(u=10\,\mathrm V\)</span> würde entsprechend verringert ausfallen:</p>
-<div class="math notranslate nohighlight">
-\[\frac{r_1}{r_0}\cdot u = 9,523\,\mathrm{V}\]</div>
-<p>Die Messabweichung beträgt -4,76% bzw. -0,476 V.</p>
 </div>
 </section>
 <section id="wechselspannungsmessung">
@@ -834,9 +848,9 @@ Die Messabweichung beträgt:  69.8105615849317 % =  -6.98105615849317 V
 </section>
 <section id="messung-des-gleichrichtswerts">
 <h2>Messung des Gleichrichtswerts<a class="headerlink" href="#messung-des-gleichrichtswerts" title="Permalink to this heading">#</a></h2>
-<p>Zur Messung des Gleichrichtwerts einer Wechselspannung kann eine Diodenspannung wie in <a class="reference internal" href="#spannungsmesseingang-glatt"><span class="std std-numref">Abb. 68</span></a> benutzt werden.</p>
-<section id="funktionsweise-einer-diode">
-<h3>Funktionsweise einer Diode<a class="headerlink" href="#funktionsweise-einer-diode" title="Permalink to this heading">#</a></h3>
+<p>Zur Messung des Gleichrichtwerts einer Wechselspannung kann eine Diodenschaltung wie in <a class="reference internal" href="#spannungsmesseingang-glatt"><span class="std std-numref">Abb. 68</span></a> benutzt werden.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Funktionsweise einer Diode</p>
 <p>Die Diode ist ein Halbleiterbauelement, welches aus p- und n-dotierten Schichten besteht. Im Schaltbild sieht das Symbol aus wie ein Pfeil. Sie hat eine Durchlass- (in <em>Pfeilrichtung</em>) und eine Sperrichtung (<em>gegen Pfeil</em>).
 So ist eine Diode beispielsweise erst für 0,7V leitend, unterhalb die <strong>Schwellspannung</strong> ist sie gesperrt und leitet keinen Strom.
 Dies liegt an den n- und p-dotierten Schichten. Um eine Silizum-Diode herzustellen, wird Silizium zum Halbleiter verarbeitet:</p>
@@ -846,9 +860,6 @@ Dies liegt an den n- und p-dotierten Schichten. Um eine Silizum-Diode herzustell
 </ul>
 <p>Freie Elektronen können jetzt in Richtung der Löcher diffundieren, und die Löcher diffundieren in Richtung des Elektronenüberschuss. Elektronen und Löcher treffen sich also in der Mitte und rekombinieren, wodurch dieser Bereich neutral ist. Die Ränder werden jedoch positiv bzw. negativ geladen. Durch diese Ladung am Rand werden wiederum Elektronen bzw. Löcher angezogen.
 Außerdem entsteht in der zentralen Zone ein elektrisches Feld, wie zwischen zwei geladenen Kondensatorplatten. Die Größe der elektrischen Feldes hängt davon ab, wie viele Elektronen und Löcher rekombiniert sind. Außerdem verstärkt das äußere elektrische Feld das elektrische Feld. Ab 0,7V wird das elektrische Feld gebrochen und aufgehoben.</p>
-</section>
-<section id="schwellspannung">
-<h3>Schwellspannung<a class="headerlink" href="#schwellspannung" title="Permalink to this heading">#</a></h3>
 <p>Die Schwellspannung (Diffusionsspannung, Durchbruchspannung) ist die wichtigste Kenngröße einer Diode. Sie gibt an, ab welcher Spannung eine Halbleiterdiode in Durchlassrichtung leitend wird. Das bedeutet auch, dass eine Diode in Durchlassrichtung nicht immer leitend ist, sondern erst ab einer bestimmten Schwellspannung.
 Es spielt dabei keine Rolle, in welchem Spannungsbereich sich eine Diode befindet: Die Anode der Diode muss in Durchlassrichtung nur um die Schwellspannung positiver sein als die Kathode. Die Schwellspannung ist also als Potential zu sehen.
 Die Schwellspannung ist abhängig vom Halbleitermaterial und entspricht nur einem ungefähren Wert.
@@ -872,10 +883,8 @@ Ab einer bestimmten Sperrspannung <span class="math notranslate nohighlight">\(u
 Dann kommt es zum so genannten Zenerdurchbruch (Durchbruchspannung).
 Dabei steigt der Strom schlagartig an. Wird dieser Strom nicht begrenzt, dann zerstört sich die Diode.
 Bei Germanium-Dioden kommt der Zenerdurchbruch nicht zum Tragen. Dafür steigt der Sperrstrom <span class="math notranslate nohighlight">\(i_R\)</span> bei steigender Spannung langsam an. Ab einer bestimmten Spannung erhitzen sich die Halbleiterkristalle so stark, dass es zum Wärme-Durchbruch und zur Zerstörung kommt. Die Zerstörung der Halbleiterkristalle ist auch im Durchlassbereich möglich, wenn der maximale Strom überschritten wird.</p>
-</section>
-<section id="dioden-bruckenschaltung">
-<h3>Dioden-Brückenschaltung<a class="headerlink" href="#dioden-bruckenschaltung" title="Permalink to this heading">#</a></h3>
-<p>Nachfolgend in <a class="reference internal" href="#diode-gleichricht"><span class="std std-numref">Abb. 70</span></a> ist Strom für eine Wechselspannung durch eine Dioden-Brückenschaltung skizziert.</p>
+</div>
+<p>Hierbei handelt es sich um eine <strong>Dioden-Brückenschaltung</strong>, welche in <a class="reference internal" href="#diode-gleichricht"><span class="std std-numref">Abb. 70</span></a> skizziert ist, inklusive Spannungsverlauf.</p>
 <figure class="align-default" id="diode-gleichricht">
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/diode_gleichricht.jpg"><img alt="diode_gleichricht" class="bg-primary mb-1" src="../_images/diode_gleichricht.jpg" style="width: 600px;" /></a>
 <figcaption>
@@ -886,10 +895,9 @@ Bei Germanium-Dioden kommt der Zenerdurchbruch nicht zum Tragen. Dafür steigt d
 Aufgrund der Durchbruchspannung werden außerdem kleine Spannung <em>abgeschnitten</em>, wodruch bei einer eingehenden Wechselspannung nur noch die Spitze der <em>Berge</em>, bzw. umgekehrten <em>Täler</em>, ausgegeben werden.</p>
 <p>Für einen Präzisions-Gleichrichter würde man diese Grundschaltung optimieren und Operationsverstärker verwenden.</p>
 </section>
-</section>
 <section id="glattung">
 <h2>Glättung<a class="headerlink" href="#glattung" title="Permalink to this heading">#</a></h2>
-<p>Um ein Signale zu glätten, wie z.B. eine Wechselspannung, möchte man die <em>tiefpass</em> los werden. Die einfachste Möglichkeit um hohe Frequenzen, also schnelle Schwingungen, abzuschwächen oder komplett loszuwerden, ist die Benutzung eines Tiefpassfilters, wie in dargestellt. Dieser besteht aus einem Widerstand <span class="math notranslate nohighlight">\(R\)</span> und einem Kondensator mit der Kapazität <span class="math notranslate nohighlight">\(C\)</span>.</p>
+<p>Um den Gleichrichtwert zu erhalten, muss das Signal zusätzlich zu einer Brückenschaltung geglättet werden. Die einfachste Möglichkeit um hohe Frequenzen, also schnelle Schwingungen, abzuschwächen oder komplett loszuwerden, ist die Benutzung eines Tiefpassfilters, wie in dargestellt. Dieser besteht aus einem Widerstand <span class="math notranslate nohighlight">\(R\)</span> und einem Kondensator mit der Kapazität <span class="math notranslate nohighlight">\(C\)</span>.</p>
 <figure class="align-default" id="tiefpass">
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/tiefpass.jpg"><img alt="tiefpass" class="bg-primary mb-1" src="../_images/tiefpass.jpg" style="width: 300px;" /></a>
 <figcaption>
@@ -967,12 +975,7 @@ Aufgrund der Durchbruchspannung werden außerdem kleine Spannung <em>abgeschnitt
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gleichspannungsmessung">Gleichspannungsmessung</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wechselspannungsmessung">Wechselspannungsmessung</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#innerer-aufbau-und-zu-berucksichtigende-messabweichungen">Innerer Aufbau und zu berücksichtigende Messabweichungen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#messung-des-gleichrichtswerts">Messung des Gleichrichtswerts</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funktionsweise-einer-diode">Funktionsweise einer Diode</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#schwellspannung">Schwellspannung</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dioden-bruckenschaltung">Dioden-Brückenschaltung</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#messung-des-gleichrichtswerts">Messung des Gleichrichtswerts</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glattung">Glättung</a></li>
 </ul>
   </nav></div>

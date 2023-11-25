@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Aussschlag-Messbrücke &#8212; Messtechnik Übungen</title>
+    <title>Sprung- und Impulsantwort und Übertragungsfunktion &#8212; Messtechnik Übungen</title>
   
   
   
@@ -61,7 +61,7 @@
             </script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Messbruecke';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Sprung- und Impulsantwort und Übertragungsfunktion';</script>
     <link rel="shortcut icon" href="https://kisleif.github.io/mtbook/_static/i_mt.png"/>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex/" />
     <link rel="search" title="Suche" href="../search/" />
@@ -357,6 +357,13 @@ document.write(`
     </span>
   
   
+  <a href="../uebungen/category/heute/">Heute</a>
+  
+  ,
+  
+  
+  
+  
   <a href="../uebungen/category/ubung/">Übung</a>
   
   
@@ -374,13 +381,31 @@ document.write(`
     </span>
   
   
-  <a href="../uebungen/tag/widerstande/">Widerstände</a>
+  <a href="../uebungen/tag/ubertragungsfunktion/">Übertragungsfunktion</a>
   
   
   
   
   
-  <a href="../uebungen/tag/messbrucke/">Messbrücke</a>
+  <a href="../uebungen/tag/impuls/">Impuls</a>
+  
+  
+  
+  
+  
+  <a href="../uebungen/tag/faltung/">Faltung</a>
+  
+  
+  
+  
+  
+  <a href="../uebungen/tag/sprung/">Sprung</a>
+  
+  
+  
+  
+  
+  <a href="../uebungen/tag/messsystem/">Messsystem</a>
   
   
   
@@ -412,7 +437,13 @@ document.write(`
   
   
   <li>
-    <a href="../uebungen/category/ubung/">Übung (28)</a>
+    <a href="../uebungen/category/labor/">Labor (1)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="../uebungen/category/ubung/">Übung (29)</a>
   </li>
   
   
@@ -467,7 +498,7 @@ document.write(`
   
   
   
-  <li class="ablog-cloud ablog-cloud-1">
+  <li class="ablog-cloud ablog-cloud-2">
     <a href="../uebungen/tag/fehlerfortpflanzung/">Fehlerfortpflanzung</a>
   </li>
   
@@ -551,7 +582,7 @@ document.write(`
   
   
   
-  <li class="ablog-cloud ablog-cloud-3">
+  <li class="ablog-cloud ablog-cloud-4">
     <a href="../uebungen/tag/messabweichung/">Messabweichung</a>
   </li>
   
@@ -694,7 +725,7 @@ document.write(`
   
   
   <li>
-    <a href="../uebungen/2023/">2023 (28)</a>
+    <a href="../uebungen/2023/">2023 (29)</a>
   </li>
   
   
@@ -735,7 +766,7 @@ document.write(`
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page">Aussschlag-M...</li>
+    <li class="breadcrumb-item active" aria-current="page">Sprung- und...</li>
   </ul>
 </nav>
 </div>
@@ -752,29 +783,32 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-<section class="tex2jax_ignore mathjax_ignore" id="aussschlag-messbrucke">
-<h1>Aussschlag-Messbrücke<a class="headerlink" href="#aussschlag-messbrucke" title="Permalink to this heading">#</a></h1>
-<p>Gegeben ist eine Ausschlagmessbrücke bestehend aus den beiden Spannungsteilern <span class="math notranslate nohighlight">\(R_1\)</span> und <span class="math notranslate nohighlight">\(R_2\)</span>, bzw. <span class="math notranslate nohighlight">\(R_3\)</span> und <span class="math notranslate nohighlight">\(R_4\)</span>.</p>
-<p><img alt="png" src="../_images/MB_1.png" /></p>
-<ul class="simple">
-<li><p>Berechnen Sie die Diagonalspannung <span class="math notranslate nohighlight">\(U_d\)</span> einer Ausschlag-Messbrücke.</p></li>
-<li><p>Mit der Brücke soll die Widerstandsänderung <span class="math notranslate nohighlight">\(\Delta R\)</span> eines Sensors, gegeben durch <span class="math notranslate nohighlight">\(R_2 = R_x = R_0 + \Delta R + \Delta R_T\)</span> (Temperaturfehler <span class="math notranslate nohighlight">\(\Delta R_T\)</span>) erfasst werden. Die anderen Brückenwiderstände sind mit <span class="math notranslate nohighlight">\(R_0\)</span> anzunehmen. Skizzieren Sie die Schaltung und berechnen Sie <span class="math notranslate nohighlight">\(U_d = f(U_0, \Delta R, \Delta R_T, R_0)\)</span>.</p></li>
-<li><p>Die Temperaturabhängigkeit <span class="math notranslate nohighlight">\(\Delta R_T\)</span> soll verringert werden. Hierzu steht Ihnen ein Widerstand mit identischem Temperaturverhalten zur Verfügung: <span class="math notranslate nohighlight">\(R_K = R_0 + \Delta R_T\)</span>. Zeigen Sie, dass mit Hilfe von <span class="math notranslate nohighlight">\(R_K\)</span> der Einfluss von <span class="math notranslate nohighlight">\(\Delta R_T\)</span> stark reduziert werden kann. Gehen Sie folgendermaßen vor:</p>
-<ul>
-<li><p>Geben Sie eine geeignete Brückenschaltung an.</p></li>
-<li><p>Berechnen Sie <span class="math notranslate nohighlight">\(U_d = f(U_0, \Delta R, \Delta R_T, R_0)\)</span>.</p></li>
-<li><p>Berechnen Sie die Empfindlichkeit in Abhängigkeit von <span class="math notranslate nohighlight">\(\Delta R_T\)</span> für die beiden Fälle mit und ohne <span class="math notranslate nohighlight">\(R_K\)</span>.</p></li>
-<li><p>Bilden Sie den Quotienten aus beiden Resultaten.</p></li>
-</ul>
-</li>
-</ul>
-<p>Ausgehend von der Brücke in Teilaufgabe b) (Brücke ohne <span class="math notranslate nohighlight">\(R_K\)</span>) beantworten Sie die folgenden Fragen:</p>
-<ul class="simple">
-<li><p>Die Diagonalspannung <span class="math notranslate nohighlight">\(U_d\)</span> soll mit einem Drehspulmesswerk (Spannungsanzeige <span class="math notranslate nohighlight">\(U_M\)</span>, Innenwiderstand <span class="math notranslate nohighlight">\(R_M\)</span>) gemessen werden. Hierzu ersetzen Sie die Messbrücke durch eine Ersatzspannungsquelle. Zeichnen Sie die Ersatzspannungsquelle (<span class="math notranslate nohighlight">\(U_q, R_i\)</span>) mit Drehspulmesswerk (<span class="math notranslate nohighlight">\(U_M\)</span>, <span class="math notranslate nohighlight">\(R_M\)</span>).</p></li>
-<li><p>Berechnen Sie die Parameter <span class="math notranslate nohighlight">\(U_q = f(U_0, R_0, R_x)\)</span> und <span class="math notranslate nohighlight">\(R_i = f(R_0, R_x)\)</span> der Ersatzspannungsquelle.</p></li>
-<li><p>Berechnen Sie die Messspannung <span class="math notranslate nohighlight">\(U_M\)</span>. Geben Sie hier die Funktionen <span class="math notranslate nohighlight">\(U_M = f(U_q, R_i, R_M)\)</span> und <span class="math notranslate nohighlight">\(U_M = f(U_0, R_0, R_x, R_M)\)</span> an.</p></li>
-<li><p>Wie groß ist <span class="math notranslate nohighlight">\(R_M\)</span> zu wählen, damit <span class="math notranslate nohighlight">\(U_M\)</span> halb so groß wie <span class="math notranslate nohighlight">\(U_d\)</span> der unbelasteten Brücke wird. Setzen Sie hierfür <span class="math notranslate nohighlight">\(R_x = R_0\)</span>.</p></li>
-</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="sprung-und-impulsantwort-und-ubertragungsfunktion">
+<h1>Sprung- und Impulsantwort und Übertragungsfunktion<a class="headerlink" href="#sprung-und-impulsantwort-und-ubertragungsfunktion" title="Permalink to this heading">#</a></h1>
+<p>Die Sprungantwort eines LTI-Systems lautet</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+g(t)=\left\{\begin{array}{cl}0&amp;\textrm{für}\,\,t&lt;0\\  2t&amp;\textrm{für}\,\, 0 \leq t \leq T \\ 2T&amp;\textrm{für}\,\, t &gt; T\end{array}\right.
+\end{split}\]</div>
+<ol class="arabic simple">
+<li><p>Bestimmen und skizzieren Sie die Impulsantwort <span class="math notranslate nohighlight">\(h(t)\)</span> des Systems.</p></li>
+<li><p>Wie lautet die Übertragungsfunktion <span class="math notranslate nohighlight">\(H(f)\)</span> des Systems? Geben Sie <span class="math notranslate nohighlight">\(H(f)\)</span> unter Verwendung der si-Funktion an.</p></li>
+<li><p>Bestimmen Sie den Betrag <span class="math notranslate nohighlight">\(|H(f)|\)</span> und die Phase <span class="math notranslate nohighlight">\(\varphi(f)\)</span> von <span class="math notranslate nohighlight">\(H(f)\)</span>.</p></li>
+</ol>
+<div class="dropdown admonition">
+<p class="admonition-title">Tips</p>
+<ol class="arabic simple">
+<li><p>Der Impuls ist die Ableitung eines Sprungs. In einem LTI-System gilt, dass die Impulsantwort, <span class="math notranslate nohighlight">\(h(t)\)</span>, die Ableitung der Sprungantwort, <span class="math notranslate nohighlight">\(g(t)\)</span>, ist.</p></li>
+<li><p>Die Übertragungsfunktion ist für eine Impulsanregung definiert. Transformiere folglich <span class="math notranslate nohighlight">\(h(t)\)</span> in den Frequenzbereich und löse das Integral der Fourier (oder Laplace) Transformation:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[H(f) = \int_{-\infty}^{\infty} h(t) \mathrm e^{-j2\pi ft}dt = ... = 2T \mathrm{si}(\pi f T) \mathrm e^{-j\pi fT}\]</div>
+<ol class="arabic simple" start="3">
+<li><p>Überlegen Sie, was der Betrag einer komplexen e-Funktion ist. Die Funktion <span class="math notranslate nohighlight">\(|\mathrm{si}(...)|\)</span> können Sie so stehen lassen. Für die Phase gilt die allgemeine Formel:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\varphi(f) = \arctan\left(\frac{Im(H)}{Re(H)}\right)\]</div>
+</div>
 </section>
 
 <div class="section ablog__blog_comments">
@@ -785,13 +819,21 @@ document.write(`
 <div class="section ablog__prev-next">
   <span class="ablog__prev">
     
+    
+    <a href="../SNR_tiefpass/">
+      
+      <i class="fa fa-arrow-circle-left"></i>
+      
+      <span>Signal-Rausch-Verhältnis bei einer Tiefpass-Filterung</span>
+    </a>
+    
   </span>
   <span class="ablog__spacer">&nbsp;</span>
   <span class="ablog__next">
     
     
-    <a href="../dampdruck_kennlinie/">
-      <span>Dampfdruckthermometer</span>
+    <a href="../Sprungantwort eines Schwingkreises/">
+      <span>Sprungantwort eines Schwingkreises</span>
       
       <i class="fa fa-arrow-circle-right" ></i>
       
@@ -824,7 +866,7 @@ document.write(`
 
   <div class="sidebar-secondary-item">
   <div class="tocsection sourcelink">
-    <a href="../_sources/Messbruecke.md.txt">
+    <a href="../_sources/Sprung- und Impulsantwort und Übertragungsfunktion.md.txt">
       <i class="fa-solid fa-file-lines"></i> Quellcode anzeigen
     </a>
   </div>

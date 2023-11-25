@@ -2,14 +2,23 @@
 blogpost: true
 date: Oct 05, 2023
 category: Übung, Labor
+location: Zettel_1
 tags: Messabweichung, Fehlerfortpflanzung
 ---
 
-# Das Schwerependel - Basics zum Praktikum und Fehlerfortpflanzung
+# Das Schwerependel 
+
+**Grundlagen für das Praktikum und Fehlerfortpflanzung.**
+
+```{button-link} https://kisleif.github.io/mtbook/content/T_Schwerependel.html
+:color: primary
+Hier geht's zur Lösung (Jupyter-Notebook)
+```
+
 
 ```{figure} pictures/schwerependel.jpeg
 ---
-height: 150px
+height: 250px
 name: schwerependel
 ---
 
@@ -28,9 +37,9 @@ wobei $l$ die Pendellänge ist und $g$ die Erdbeschleunigung (auch Ortsfaktor ge
 ![png](pictures/schwerependel.png)
 
 
-## Grundlagen zur Messunsicherheit
+## Grundlagen
 
-### Statistische Größen
+### Statistik
 
 Im Vorlesungs-Kapitel [Messunsicherheiten](https://kisleif.github.io/mtbook/content/1_Messunsicherheiten.html) befinden sich alle wichtigen Formeln zur Berechnung der Messunsicherheiten und der Fehlerfortpflanzung. Wenn $x_{j}$ die Einzelmesswerte einer Messreihe sind und $m$ der Stichprobenumfang (= Anzahl der Messwerte in der Messreihe), dann gilt für den Mittelwert:
 
@@ -51,21 +60,21 @@ $$s(\overline x) = \frac{s}{\sqrt{m}} = \sqrt{\frac{1}{m(m-1)} \sum_{j=1}^m (x_j
 
 ### Vertrauensbereich
 
-Für die erweiterte Messunsicherheit mit Vertrauensbereich wird die Standardabweichung mit dem Erweiterungsfaktor $t$ multipliziert (hier angegeben für die Messunsicherheit des \emph{Mittelwertes}, daher der Faktor $1/\sqrt{m}$):
+Für die erweiterte Messunsicherheit mit Vertrauensbereich wird die Standardabweichung mit dem Erweiterungsfaktor $t$ multipliziert (hier angegeben für die Messunsicherheit des Mittelwertes, daher der Faktor $1/\sqrt{m}$):
 
 $$u_{\overline x} = \pm \frac{t}{\sqrt{m}}\cdot s(x) = \pm t \cdot s(\overline x)$$
 
 Dieser ist ein Maß für den Vertrauensbereich, indem sich eine bestimmte Anzahl von Messwerten befinden:
 
-\begin{itemize}
-\item 68,3\% aller Messwerte liegen im Bereich $\pm \sigma$
-\item 95,5\% aller Messwerte liegen im Bereich $\pm 2\sigma$
-\item 99,7\% aller Messwerte liegen im Bereich $\pm 3\sigma$
-\end{itemize}
+* 68,3\% aller Messwerte liegen im Bereich $\pm \sigma$
+* 95,5\% aller Messwerte liegen im Bereich $\pm 2\sigma$
+* 99,7\% aller Messwerte liegen im Bereich $\pm 3\sigma$
+
 
 Diese Werte gelten für die Normalverteilung. Bei kleinen Stichproben, $m < 25$, muss die Student-t-Verteilung angewendet werden, mittels welcher das Quantil $t$ bestimmt wird und  der Vertrauensbereich angepasst wird (siehe Tabelle im Anhang).  
 
-\subsection*{Fehlerfortpflanzung}
+### Fehlerfortpflanzung
+
 Angenommen es liegen mehrere Messreihen für verschiedene physikalische Größen vor, $x_{1}$ und $x_{2}$ ,..., aus denen die Größe $y$ mittels funktionalem Zusammenhang ermittelt werden soll, $y = f(x_{1}, x_{2}, ...)$, dann gilt für die Messabweichung von $y$ laut Gauß'schem Fehlerfortpflanzungsgesetz:
 
 $$u_y = \sqrt{\left (\frac{\partial y}{\partial x_1} \cdot u_1 \right)^2 +\left (\frac{\partial y}{\partial x_2} \cdot u_2 \right)^2 +\cdots}$$
@@ -86,7 +95,14 @@ Miss die Pendellänge und gib die Messunsicherheit dazu an. Begründe dein Ergeb
 
 ### Erdbeschleunigung - [Fehlerfortpflanzung](https://kisleif.github.io/mtbook/content/1_Fehlerfortpflanzung.html)
 
-Bestimme aus den oben berechneten besten Schätzwerten für die Periodendauer $\overline T$ und die Pendellänge $\overline l$ mittels Gleichung \ref{eq:pendel} die Erdbeschleunigung $g$.
+Bestimme aus den oben berechneten besten Schätzwerten für die Periodendauer $\overline T$ und die Pendellänge $\overline l$ mittels der Pendelgleichung
+
+$$
+	T^2 = \frac{(2\pi)^2}{g}\cdot l
+
+$$
+
+die Erdbeschleunigung $g$.
 Bestimme außerdem die Messunsicherheit mittels Fehlerfortpflanzung. 
 Gebe das Ergebnis für einen Vertrauensbereich von 99,7% an. 
 

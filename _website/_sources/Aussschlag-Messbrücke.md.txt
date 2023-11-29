@@ -1,8 +1,8 @@
 ---
 blogpost: true
-date: Nov 23, 2023
-category: Übung
-tags: Widerstände, Messbrücke
+date: Nov 29, 2023
+category: Übung, Zettel_p
+tags: Widerstände, Messbrücke, Elektronik, Sensor
 ---
 
 
@@ -18,9 +18,19 @@ height: 150px
 Messbrücke
 ```
 
+## Diagonalspannung 
+Berechnen Sie die Diagonalspannung $U_d$ einer Ausschlag-Messbrücke.
 
-* Berechnen Sie die Diagonalspannung $U_d$ einer Ausschlag-Messbrücke.
-* Mit der Brücke soll die Widerstandsänderung $\Delta R$ eines Sensors, gegeben durch $R_2 = R_x = R_0 + \Delta R + \Delta R_T$ (Temperaturfehler $\Delta R_T$) erfasst werden. Die anderen Brückenwiderstände sind mit $R_0$ anzunehmen. Skizzieren Sie die Schaltung und berechnen Sie $U_d = f(U_0, \Delta R, \Delta R_T, R_0)$.
+````{admonition} Tips
+:class: dropdown
+* Schreiben Sie die beiden Spannungsteiler-Gleichungen auf
+* Subtrahieren Sie die beiden Spannungswerte, z.B. $U_d = U_2-U_4$
+````
+
+## Sensor an Stelle von $R_2$
+Mit der Brücke soll die Widerstandsänderung $\Delta R$ eines Sensors, gegeben durch $R_2 = R_x = R_0 + \Delta R + \Delta R_T$ (Temperaturfehler $\Delta R_T$) erfasst werden. Die anderen Brückenwiderstände sind mit $R_0$ anzunehmen. 
+
+* Skizzieren Sie die Schaltung und berechnen Sie $U_d = f(U_0, \Delta R, \Delta R_T, R_0)$.
 * Die Temperaturabhängigkeit $\Delta R_T$ soll verringert werden. Hierzu steht Ihnen ein Widerstand mit identischem Temperaturverhalten zur Verfügung: $R_K = R_0 + \Delta R_T$. Zeigen Sie, dass mit Hilfe von $R_K$ der Einfluss von $\Delta R_T$ stark reduziert werden kann. Gehen Sie folgendermaßen vor: 
 
     * Geben Sie eine geeignete Brückenschaltung an.
@@ -28,10 +38,12 @@ Messbrücke
     * Berechnen Sie die Empfindlichkeit in Abhängigkeit von $\Delta R_T$ für die beiden Fälle mit und ohne $R_K$.
     * Bilden Sie den Quotienten aus beiden Resultaten.
 
-Ausgehend von der Brücke in Teilaufgabe b) (Brücke ohne $R_K$) beantworten Sie die folgenden Fragen: 
+Wie stark werden Temperatureinflüsse durch die Hinzunahme von $R_K$ unterdrückt?
 
-* Die Diagonalspannung $U_d$ soll mit einem Drehspulmesswerk (Spannungsanzeige $U_M$, Innenwiderstand $R_M$) gemessen werden. Hierzu ersetzen Sie die Messbrücke durch eine Ersatzspannungsquelle. Zeichnen Sie die Ersatzspannungsquelle ($U_q, R_i$) mit Drehspulmesswerk ($U_M$, $R_M$). 
-* Berechnen Sie die Parameter $U_q = f(U_0, R_0, R_x)$ und $R_i = f(R_0, R_x)$ der Ersatzspannungsquelle.
-* Berechnen Sie die Messspannung $U_M$. Geben Sie hier die Funktionen $U_M = f(U_q, R_i, R_M)$ und $U_M = f(U_0, R_0, R_x, R_M)$ an.
-* Wie groß ist $R_M$ zu wählen, damit $U_M$ halb so groß wie $U_d$ der unbelasteten Brücke wird. Setzen Sie hierfür $R_x = R_0$.
+````{admonition} Tips
+:class: dropdown
 
+* Ersetzen Sie $R_2$ in der Gleichung von Aufgabe 1, sowie alle anderen Widerstände durch $R_0$ und vereinfachen Sie die Gleichung für $U_d$.
+* Setzen Sie $R_K$ an die Stelle von $R_1$, also in den gleichen Spannungsteiler.
+* Die Empfindlichkeit berechnen Sie über die Ableitung, hier die Ableitung nach $d \Delta R_T$, wenn Sie die Empfindlichkeit für $\Delta R_T$ haben möchten. 
+````

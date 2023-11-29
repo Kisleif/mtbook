@@ -565,7 +565,7 @@ document.write(`
 Für die Messung eines ohmschen Widerstands nutzen wir folgende Formal</p>
 <div class="math notranslate nohighlight">
 \[R = \frac{U}{I}\]</div>
-<p>Das heißt genau wie bei der Leistungsmessung, müssen wir auch hier Strom und Spannung gleichzeitig messen. Wie auch bei der Leistungsmessung gibt es hier strom- bzw. spannungsrichtige Anschaltungen der beiden Messeingänge.</p>
+<p>Genau wie bei der Leistungsmessung, müssen wir Strom und Spannung gleichzeitig messen. Hierbei entstehen Messfehler, da Messgeräte für Spannung und Strom Innenwiderstände besitzen, die die Widerstands- bzw. Leistungsmessung beeinflussen.</p>
 <section id="stromrichtige-widerstandsmessung">
 <h2>Stromrichtige Widerstandsmessung<a class="headerlink" href="#stromrichtige-widerstandsmessung" title="Permalink to this heading">#</a></h2>
 <p>In <a class="reference internal" href="#r-messung-stromrichtig"><span class="std std-numref">Abb. 90</span></a> ist die stromrichtige Anschaltung zur Messung eines Widerstandswert gezeigt.</p>
@@ -601,27 +601,27 @@ Bei der stromrichtigen Anschaltung wird also der Innenwiderstand des Strommessei
 </section>
 <section id="widerstandsmessung-mittels-2-spannungsmessungen">
 <h2>Widerstandsmessung mittels 2 Spannungsmessungen<a class="headerlink" href="#widerstandsmessung-mittels-2-spannungsmessungen" title="Permalink to this heading">#</a></h2>
-<p>Für diese Methode benötigt man einen Referenzwiderstand <span class="math notranslate nohighlight">\(R\)</span>, der in Reihe zu dem gesuchten Widerstand geschaltet wird, wie in <a class="reference internal" href="#r-messung-2"><span class="std std-numref">Abb. 92</span></a> dargestellt, und zwei Spannungsmesseingänge.</p>
+<p>Für diese Methode benötigt man einen Referenzwiderstand <span class="math notranslate nohighlight">\(R\)</span>, der in Reihe zu dem gesuchten Widerstand <span class="math notranslate nohighlight">\(R_x\)</span> geschaltet wird, wie in <a class="reference internal" href="#r-messung-2"><span class="std std-numref">Abb. 92</span></a> dargestellt, und zwei Spannungsmesseingänge.</p>
 <figure class="align-default" id="r-messung-2">
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/R-messung_2.jpg"><img alt="R-messung_2" class="bg-primary mb-1" src="../_images/R-messung_2.jpg" style="width: 300px;" /></a>
 <figcaption>
 <p><span class="caption-number">Abb. 92 </span><span class="caption-text">Widerstandsmessung mittels 2 Spannungsmessungen (ohne Strommesseingang).</span><a class="headerlink" href="#r-messung-2" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
-<p>Dies hat den Vorteil, dass auf eine Strommessung verzichtet werden kann, die meistens ungenauer ist als eine Spannungsmessung, da der Strom durch Umformung erstmal in eine Spannung gewandelt werden muss. Zudem ist es schwierig kleine Innenwiderstände in Strommesseingängen zu realisieren.</p>
+<p>Dieses Messprinzip hat den Vorteil, dass auf eine Strommessung verzichtet werden kann, die meistens ungenauer ist als eine Spannungsmessung, da der Strom durch Umformung erstmal in eine Spannung gewandelt werden muss. Zudem ist es schwierig kleine Innenwiderstände in Strommesseingängen zu realisieren.</p>
 <p>Angenommen, beide Spannungsmesseingänge habe einen Innenwiderstand von <span class="math notranslate nohighlight">\(R_V\)</span>, so kann die Spannung in jedem System bestimmt werden:</p>
 <div class="math notranslate nohighlight">
-\[U_x = \frac{R_x \cdot R_V}{R_x + R_v}\]</div>
+\[U_x = \frac{R_x \cdot R_V}{R_x + R_v} I\]</div>
 <div class="math notranslate nohighlight">
-\[U_R = \frac{R \cdot R_V}{R + R_v}\]</div>
+\[U_R = \frac{R \cdot R_V}{R + R_v} I\]</div>
 <p>Für das Verhältnis der beiden Spannungen folgt:</p>
 <div class="math notranslate nohighlight">
 \[\frac{U_R}{U_x} = \frac{ \frac{R R_V}{R + R_V} }{\frac{R_x R_V}{R_x + R_V}} = \frac{R}{R_x} \cdot \frac{\frac{R_x}{R_V}+1}{\frac{R}{R_V}+1} \approx \frac{R}{R_x}\]</div>
 <p>wodurch man für den gesuchten Wert folgenden zusammenhang erhält:</p>
 <div class="math notranslate nohighlight">
 \[R_x \approx R \cdot \frac{U_x}{U_R}\]</div>
-<p>Die beiden Widerstände <span class="math notranslate nohighlight">\(R\)</span> und <span class="math notranslate nohighlight">\(R_x\)</span> sollten hierbei ähnliche Werte haben. Je größe der Innenwiderstand <span class="math notranslate nohighlight">\(R_V\)</span> ist, desto besser gilt diese Näherungsformel.
-Ist <span class="math notranslate nohighlight">\(R_V\)</span> unbekannt, so liefert diese Methode deutlich kleine Messabweichungen im Vergleich zu den Methoden mit Strommessungen. Ist <span class="math notranslate nohighlight">\(R_V\)</span> bekannt, so können auch hier systematische Abweichungen korrigiert werden.</p>
+<p>Die beiden Widerstände <span class="math notranslate nohighlight">\(R\)</span> und <span class="math notranslate nohighlight">\(R_x\)</span> sollten hierbei ähnliche Werte haben. Je größer der Innenwiderstand <span class="math notranslate nohighlight">\(R_V\)</span> ist, desto besser gilt diese Näherungsformel.
+Ist <span class="math notranslate nohighlight">\(R_V\)</span> unbekannt, so liefert diese Methode deutlich kleinere Messabweichungen im Vergleich zu den Methoden mit Strommessungen. Ist <span class="math notranslate nohighlight">\(R_V\)</span> bekannt, so können auch hier systematische Abweichungen korrigiert werden.</p>
 </section>
 <section id="messabweichungen-aufgrund-von-kabelwiderstanden">
 <h2>Messabweichungen aufgrund von Kabelwiderständen<a class="headerlink" href="#messabweichungen-aufgrund-von-kabelwiderstanden" title="Permalink to this heading">#</a></h2>

@@ -1,0 +1,49 @@
+---
+blogpost: true
+date: Nov 29, 2023
+category: Übung
+location:
+tags: Systematisch, Stromrichtig, Spannungsrichtig, Messabweichung, Elektronik
+---
+
+
+# Systematische Messabweichung II
+Zwei unbekannte Widerstände $R$ im $\mathrm{k\Omega}$-Bereich werden mit zwei Messschaltungen bestimmt:
+
+```{figure} pictures/strom_spannungsrichtig.png
+:class: .dark-light
+---
+height: 150px
+name: optional-label
+---
+Schaltungen zur Bestimmung von Widerständen nach $R = U/I$
+
+```
+
+* Welches Schaltbild stellt die stromrichtige und welche die spannungsrichtige Schaltung dar?
+* Berechnen Sie für beide Fälle den wahren ($R$) und den gemessenen ($R'$) Widerstandswert. 
+* Berechnen Sie für beide Fälle den systematischen absoluten und relativen Fehler in Abhängigkeit von $R$ und den Innenwiderständen R_{iA} und $R_{iV}$ der Messgeräte. 
+* Zeichnen Sie den Betrag der Fehler in ein Diagramm in Abhängigkeit von $R$ für beide Fälle. Für welche Grenzwerte von $R$ sollte man strom- bzw. spannungsrichtig messen? Setzen Sie $R_{iA} = 10\,\mathrm \Omega$ und $R_{iV} = 20\,\mathrm{k\Omega}$.
+
+
+````{admonition} Ergebnisse
+:class: dropdown
+
+| Messung | wahrer Wert $R$ | gemessener Wert $R'$ |
+| --------|-----------------|----------------------|
+| stromrichtig | $R = \frac{U_R}{I} = R'-R_{iA}$ | $R' = \frac{U}{I} = R+R_{iA}$ |
+spannungsrichtig | $R = \frac{U}{I_R} = \frac{R'R_{iV}}{R_{iV}-R'}$ | $R' = \frac{U}{I} = \frac{RR_{iV}}{R+R_{iV}}$
+
+| Messung | absoluter Fehler | relativer Fehler |
+| --------|-----------------|----------------------|
+| stromrichtig | $R'-R = R_{iA}$ | $\frac{R'-R}{R} = \frac{R_{iA}}{R} $
+| spannungsrichtig | $R'-R = -\frac{R^2}{R+R_{iV}}$ | $\frac{R'-R}{R} = -\frac{R}{R+R_{iV}} $
+
+* stromrichtig: $R' = R+R_{iA} \approx R$ wenn $R >> R_{iA}$
+* spannungsrichtig: $\frac{1}{R'} = \frac{1}{R} + \frac{1}{R_{iV}} \approx \frac{1}{R}$ für $|frac{1}{R} >> \frac{1}{R_{iV}}$ bzw. $R << R_{iV}$
+
+* für die Grenze gleichsetzen... 
+
+$$R = \frac{1}{2}R_{iA} + \sqrt{R_{iA} \cdot \left( R_{iV} + \frac{R_{iA}}{4}\right)} = ... = 452{,}24\,\Omega $$
+````
+

@@ -388,6 +388,12 @@ document.write(`
     </span>
   
   
+  <a href="../uebungen/tag/faltung/">Faltung</a>
+  
+  
+  
+  
+  
   <a href="../uebungen/tag/sprung/">Sprung</a>
   
   
@@ -395,12 +401,6 @@ document.write(`
   
   
   <a href="../uebungen/tag/messsystem/">Messsystem</a>
-  
-  
-  
-  
-  
-  <a href="../uebungen/tag/faltung/">Faltung</a>
   
   
   
@@ -481,12 +481,6 @@ document.write(`
   
   <li>
     <a href="../uebungen/location/zettel_9/">Zettel_9 (4)</a>
-  </li>
-  
-  
-  
-  <li>
-    <a href="../uebungen/location/null/">null (1)</a>
   </li>
   
   
@@ -731,14 +725,8 @@ document.write(`
   
   
   
-  <li class="ablog-cloud ablog-cloud-2">
+  <li class="ablog-cloud ablog-cloud-3">
     <a href="../uebungen/tag/messsystem/">Messsystem</a>
-  </li>
-  
-  
-  
-  <li class="ablog-cloud ablog-cloud-1">
-    <a href="../uebungen/tag/messsysteme/">Messsysteme</a>
   </li>
   
   
@@ -751,6 +739,12 @@ document.write(`
   
   <li class="ablog-cloud ablog-cloud-1">
     <a href="../uebungen/tag/normalverteilung/">Normalverteilung</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../uebungen/tag/operationsverstarker/">Operationsverstärker</a>
   </li>
   
   
@@ -882,12 +876,6 @@ document.write(`
   
   
   <li class="ablog-cloud ablog-cloud-1">
-    <a href="../uebungen/tag/widerstande/">Widerstände</a>
-  </li>
-  
-  
-  
-  <li class="ablog-cloud ablog-cloud-1">
     <a href="../uebungen/tag/diskret/">diskret</a>
   </li>
   
@@ -901,12 +889,6 @@ document.write(`
   
   <li class="ablog-cloud ablog-cloud-3">
     <a href="../uebungen/tag/ubertragungsfunktion/">Übertragungsfunktion</a>
-  </li>
-  
-  
-  
-  <li class="ablog-cloud ablog-cloud-1">
-    <a href="../uebungen/tag/ubertragungsverhalten/">Übertragungsverhalten</a>
   </li>
   
   
@@ -998,22 +980,31 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[\mathrm{sgn}(x) = 2 H(x) - 1\]</div>
 <p>mit der Heaviside-Funktion <span class="math notranslate nohighlight">\(H(x)\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-e0332a2a-4e97-4eaf-81be-a2bbc4355f32">
-<span class="eqno">()<a class="headerlink" href="#equation-e0332a2a-4e97-4eaf-81be-a2bbc4355f32" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c996ffd5-082b-4d7d-91b2-77a716a461f0">
+<span class="eqno">()<a class="headerlink" href="#equation-c996ffd5-082b-4d7d-91b2-77a716a461f0" title="Permalink to this equation">#</a></span>\[\begin{align}
 H \colon \; &amp; \mathcal R \to \{0,1\} \\
 \ &amp; x \mapsto \begin{cases}
 0 : &amp; x &lt; 0\\
 1 : &amp; x \ge 0
 \end{cases}
 \end{align}\]</div>
-<ol class="arabic">
-<li><p>Berechnen Sie mit Hilfe des Faltungsintegrals die Sprungantwort <span class="math notranslate nohighlight">\(y(t)\)</span> des Systems.</p>
+<section id="aufgabe-1-sprungantwort">
+<h2>Aufgabe 1: Sprungantwort<a class="headerlink" href="#aufgabe-1-sprungantwort" title="Permalink to this heading">#</a></h2>
+<p>Berechnen Sie mit Hilfe des Faltungsintegrals die Sprungantwort <span class="math notranslate nohighlight">\(y(t)\)</span> des Systems.</p>
 <ul class="simple">
 <li><p>Zu welcher Zeit werden 63% und 95% des Endwertes erreicht?</p></li>
 <li><p>Skizzieren Sie Impulsanregung und Impulsantwort, sowie Sprunganregung und Sprungantwort.</p></li>
 </ul>
-</li>
-<li><p>Berechnen Sie die Systemantwort <span class="math notranslate nohighlight">\(y(t)\)</span> bei einer sprunghaften Anregung <span class="math notranslate nohighlight">\(u(t)\)</span> mit Hilfe des Faltungsintegrals (<span class="math notranslate nohighlight">\(T_0 &gt; T\)</span>).</p>
+<div class="dropdown admonition tip">
+<p class="admonition-title">Tipp</p>
+<p>Die angelegte Sprungfunktion kann über die Heaviside Funktion ausgedrückt werden: <span class="math notranslate nohighlight">\(f(\tau) = x_0 \cdot H(\tau)\)</span>. Berechnen Sie dann das Faltungsintegral. Überlegen Sie sich, wie die Integrationsgrenzen für Heaviside-Funktionen aufgeteilt werden können.</p>
+<div class="math notranslate nohighlight">
+\[y(t) = \int_{-\infty}^{\infty} f(\tau) \cdot h(t-\tau) d\tau = ... = x_0 \left( \mathrm e^{-t/\tau} \right)\]</div>
+</div>
+</section>
+<section id="aufgabe-2-systemantwort">
+<h2>Aufgabe 2: Systemantwort<a class="headerlink" href="#aufgabe-2-systemantwort" title="Permalink to this heading">#</a></h2>
+<p>Berechnen Sie die Systemantwort <span class="math notranslate nohighlight">\(y(t)\)</span> bei einer sprunghaften Anregung <span class="math notranslate nohighlight">\(u(t)\)</span> mit Hilfe des Faltungsintegrals (<span class="math notranslate nohighlight">\(T_0 &gt; T\)</span>).</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}u(t) = \mathrm{rect}\left(\frac{t-T_0/2}{T_0}\right) = \begin{cases}
 1           &amp; \text{wenn } t = [0,T_0] \\[3pt]
@@ -1023,21 +1014,13 @@ H \colon \; &amp; \mathcal R \to \{0,1\} \\
 <ul class="simple">
 <li><p>Skizzieren Sie alle Funktionen.</p></li>
 </ul>
-</li>
-</ol>
-<div class="dropdown admonition">
-<p class="admonition-title">Tips</p>
-<ol class="arabic simple">
-<li><p>Die angelegte Sprungfunktion kann über die Heaviside Funktion ausgedrückt werden: <span class="math notranslate nohighlight">\(f(\tau) = x_0 \cdot H(\tau)\)</span>. Berechnen Sie dann das Faltungsintegral. Überlegen Sie sich, wie die Integrationsgrenzen für Heaviside-Funktionen aufgeteilt werden können.</p></li>
-</ol>
-<div class="math notranslate nohighlight">
-\[y(t) = \int_{-\infty}^{\infty} f(\tau) \cdot h(t-\tau) d\tau = ... = x_0 \left( \mathrm e^{-t/\tau} \right)\]</div>
-<ol class="arabic simple" start="2">
-<li><p>Berechnen Sie das Faltungsintegral. Überlegen Sie sich, wie die Integrationsgrenzen für Heaviside-Funktionen und Rechteckpuls  aufgeteilt werden können.</p></li>
-</ol>
+<div class="dropdown admonition tip">
+<p class="admonition-title">Tipp</p>
+<p>Berechnen Sie das Faltungsintegral. Überlegen Sie sich, wie die Integrationsgrenzen für Heaviside-Funktionen und Rechteckpuls  aufgeteilt werden können.</p>
 <div class="math notranslate nohighlight">
 \[y(t) = \int_{-\infty}^{\infty} u(\tau) \cdot h(t-\tau) d\tau = ... = 1- \mathrm e^{-t/\tau} \]</div>
 </div>
+</section>
 </section>
 
 <div class="section ablog__blog_comments">
@@ -1092,6 +1075,17 @@ H \colon \; &amp; \mathcal R \to \{0,1\} \\
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aufgabe-1-sprungantwort">Aufgabe 1: Sprungantwort</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aufgabe-2-systemantwort">Aufgabe 2: Systemantwort</a></li>
+</ul>
+  </nav></div>
 
   <div class="sidebar-secondary-item">
   <div class="tocsection sourcelink">

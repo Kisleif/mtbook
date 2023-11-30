@@ -374,19 +374,7 @@ document.write(`
     </span>
   
   
-  <a href="../uebungen/tag/messabweichung/">Messabweichung</a>
-  
-  
-  
-  
-  
   <a href="../uebungen/tag/spannungsrichtig/">Spannungsrichtig</a>
-  
-  
-  
-  
-  
-  <a href="../uebungen/tag/elektronik/">Elektronik</a>
   
   
   
@@ -399,6 +387,18 @@ document.write(`
   
   
   <a href="../uebungen/tag/systematisch/">Systematisch</a>
+  
+  
+  
+  
+  
+  <a href="../uebungen/tag/messabweichung/">Messabweichung</a>
+  
+  
+  
+  
+  
+  <a href="../uebungen/tag/elektronik/">Elektronik</a>
   
   
   
@@ -978,8 +978,8 @@ document.write(`
 <ul class="simple">
 <li><p>Welches Schaltbild stellt die stromrichtige und welche die spannungsrichtige Schaltung dar?</p></li>
 <li><p>Berechnen Sie für beide Fälle den wahren (<span class="math notranslate nohighlight">\(R\)</span>) und den gemessenen (<span class="math notranslate nohighlight">\(R'\)</span>) Widerstandswert.</p></li>
-<li><p>Berechnen Sie für beide Fälle den systematischen absoluten und relativen Fehler in Abhängigkeit von <span class="math notranslate nohighlight">\(R\)</span> und den Innenwiderständen R_{iA} und <span class="math notranslate nohighlight">\(R_{iV}\)</span> der Messgeräte.</p></li>
-<li><p>Zeichnen Sie den Betrag der Fehler in ein Diagramm in Abhängigkeit von <span class="math notranslate nohighlight">\(R\)</span> für beide Fälle. Für welche Grenzwerte von <span class="math notranslate nohighlight">\(R\)</span> sollte man strom- bzw. spannungsrichtig messen? Setzen Sie <span class="math notranslate nohighlight">\(R_{iA} = 10\,\mathrm \Omega\)</span> und <span class="math notranslate nohighlight">\(R_{iV} = 20\,\mathrm{k\Omega}\)</span>.</p></li>
+<li><p>Berechnen Sie für beide Fälle den systematischen absoluten und relativen Fehler in Abhängigkeit von <span class="math notranslate nohighlight">\(R\)</span> und den Innenwiderständen <span class="math notranslate nohighlight">\(R_{A}\)</span> und <span class="math notranslate nohighlight">\(R_{V}\)</span> der Messgeräte.</p></li>
+<li><p>Zeichnen Sie den Betrag der Fehler in ein Diagramm in Abhängigkeit von <span class="math notranslate nohighlight">\(R\)</span> für beide Fälle. Für welche Grenzwerte von <span class="math notranslate nohighlight">\(R\)</span> sollte man strom- bzw. spannungsrichtig messen? Setzen Sie <span class="math notranslate nohighlight">\(R_{A} = 10\,\mathrm \Omega\)</span> und <span class="math notranslate nohighlight">\(R_{V} = 20\,\mathrm{k\Omega}\)</span>.</p></li>
 </ul>
 <div class="dropdown admonition">
 <p class="admonition-title">Ergebnisse</p>
@@ -992,12 +992,12 @@ document.write(`
 </thead>
 <tbody>
 <tr class="row-even"><td><p>stromrichtig</p></td>
-<td><p><span class="math notranslate nohighlight">\(R = \frac{U_R}{I} = R'-R_{iA}\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(R' = \frac{U}{I} = R+R_{iA}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(R = \frac{U_R}{I} = R'-R_A\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(R' = \frac{U}{I} = R+R_A\)</span></p></td>
 </tr>
 <tr class="row-odd"><td><p>spannungsrichtig</p></td>
-<td><p><span class="math notranslate nohighlight">\(R = \frac{U}{I_R} = \frac{R'R_{iV}}{R_{iV}-R'}\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(R' = \frac{U}{I} = \frac{RR_{iV}}{R+R_{iV}}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(R = \frac{U}{I_R} = \frac{R'R_V}{R_V-R'}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(R' = \frac{U}{I} = \frac{RR_V}{R+R_V}\)</span></p></td>
 </tr>
 </tbody>
 </table>
@@ -1010,22 +1010,22 @@ document.write(`
 </thead>
 <tbody>
 <tr class="row-even"><td><p>stromrichtig</p></td>
-<td><p><span class="math notranslate nohighlight">\(R'-R = R_{iA}\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(\frac{R'-R}{R} = \frac{R_{iA}}{R} \)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(R'-R = R_A\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{R'-R}{R} = \frac{R_A}{R} \)</span></p></td>
 </tr>
 <tr class="row-odd"><td><p>spannungsrichtig</p></td>
-<td><p><span class="math notranslate nohighlight">\(R'-R = -\frac{R^2}{R+R_{iV}}\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(\frac{R'-R}{R} = -\frac{R}{R+R_{iV}} \)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(R'-R = -\frac{R^2}{R+R_V}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{R'-R}{R} = -\frac{R}{R+R_V} \)</span></p></td>
 </tr>
 </tbody>
 </table>
 <ul class="simple">
-<li><p>stromrichtig: <span class="math notranslate nohighlight">\(R' = R+R_{iA} \approx R\)</span> wenn <span class="math notranslate nohighlight">\(R &gt;&gt; R_{iA}\)</span></p></li>
-<li><p>spannungsrichtig: <span class="math notranslate nohighlight">\(\frac{1}{R'} = \frac{1}{R} + \frac{1}{R_{iV}} \approx \frac{1}{R}\)</span> für <span class="math notranslate nohighlight">\(|frac{1}{R} &gt;&gt; \frac{1}{R_{iV}}\)</span> bzw. <span class="math notranslate nohighlight">\(R &lt;&lt; R_{iV}\)</span></p></li>
+<li><p>stromrichtig: <span class="math notranslate nohighlight">\(R' = R+R_A \approx R\)</span> wenn <span class="math notranslate nohighlight">\(R &gt;&gt; R_A\)</span></p></li>
+<li><p>spannungsrichtig: <span class="math notranslate nohighlight">\(\frac{1}{R'} = \frac{1}{R} + \frac{1}{R_V} \approx \frac{1}{R}\)</span> für <span class="math notranslate nohighlight">\(\frac{1}{R} &gt;&gt; \frac{1}{R_V}\)</span> bzw. <span class="math notranslate nohighlight">\(R &lt;&lt; R_V\)</span></p></li>
 <li><p>für die Grenze gleichsetzen…</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[R = \frac{1}{2}R_{iA} + \sqrt{R_{iA} \cdot \left( R_{iV} + \frac{R_{iA}}{4}\right)} = ... = 452{,}24\,\Omega \]</div>
+\[R = \frac{R_{A}}{2} + \sqrt{\frac{R_{A}^2}{4} \cdot R_A R_V} = ... = 452{,}24\,\Omega \]</div>
 </div>
 </section>
 

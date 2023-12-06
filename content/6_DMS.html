@@ -71,8 +71,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/6_DMS';</script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="Piezoelektrische Sensoren" href="6_PZT.html" />
-    <link rel="prev" title="Einführung" href="6_Einf%C3%BChrung.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
   </head>
@@ -183,7 +181,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="intro_book.html">Über dieses Book &amp; Python</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">✍️ Vorlesung</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="1_Einf%C3%BChrung%20in%20die%20Messtechnik.html">Einführung in die Messtechnik</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="V1.html"><em>Richtig</em> Messen</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="1_Einheiten.html">Einheiten</a></li>
@@ -226,19 +224,20 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="4_P-Messung.html">Leistungsmessung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="4_R-Messung.html">Widerstandsmessung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="4_CL-Messung.html">Messung von Kapazitäten und Induktivitäten</a></li>
-<li class="toctree-l2"><a class="reference internal" href="4_F-Messung.html">Frequenz- und Zeitmessung</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="V8.html">Sensoren</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="V8.html">Sensoren</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="6_Einf%C3%BChrung.html">Einführung</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Dehnungsmessstreifen (DMS)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="6_PZT.html">Piezoelektrische Sensoren</a></li>
 <li class="toctree-l2"><a class="reference internal" href="6_GPS.html">Satellitennavigationssysteme</a></li>
 <li class="toctree-l2"><a class="reference internal" href="6_Kapazitiv.html">Kapazitive und Induktive Sensoren</a></li>
 <li class="toctree-l2"><a class="reference internal" href="6_Temp.html">Temperaturmessungen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="6_Beschleunigung.html">Beschleunigungssensoren</a></li>
 <li class="toctree-l2"><a class="reference internal" href="6_Radar.html">Radar</a></li>
 <li class="toctree-l2"><a class="reference internal" href="6_Ifo.html">Laserinterferometrie</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Forschung.html">Forschung</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="MT_ALPS.html">Messtechnik für die Dunkle Materie Suche</a></li>
 </ul>
 </li>
 </ul>
@@ -562,14 +561,14 @@ document.write(`
 <h1>Dehnungsmessstreifen (DMS)<a class="headerlink" href="#dehnungsmessstreifen-dms" title="Permalink to this heading">#</a></h1>
 <section id="grundlagen">
 <h2>Grundlagen<a class="headerlink" href="#grundlagen" title="Permalink to this heading">#</a></h2>
-<p>Ein Dehnungsmessstreifen (DMS) ist lediglich eine elektrische Leiterbahn, die auf einer kleinen Trägerfolie z.B. mäanderförmig aufgebracht ist, wie in <a class="reference internal" href="#dms"><span class="std std-numref">Abb. 106</span></a> dargestellt. Meistens besteht diese Folie aus einem chemisch sehr robusten Material, wie z.B. Kapton (Polyimid), welches auch bei hohen Temperaturen verwendet werden kann. Hierauf wird die Leiterbahn mit einem speziellen Kleber aufgebracht, sodass diese den Oberflächendehnungen eines Körpers folgen kann. Dadurch können Dehnungen, Stauchungen, Kräfte oder Drücke auf der Oberfläche gemessen werden. Die Dehnung wird dann in Richtung des Leiterbahnabschnittes gemessen, dessen ohm’scher Widerstand sich ändert:</p>
+<p>Ein Dehnungsmessstreifen (DMS) ist lediglich eine elektrische Leiterbahn, die auf einer kleinen Trägerfolie z.B. mäanderförmig aufgebracht ist, wie in <code class="xref std std-numref docutils literal notranslate"><span class="pre">dms</span></code> dargestellt. Meistens besteht diese Folie aus einem chemisch sehr robusten Material, wie z.B. Kapton (Polyimid), welches auch bei hohen Temperaturen verwendet werden kann. Hierauf wird die Leiterbahn mit einem speziellen Kleber aufgebracht, sodass diese den Oberflächendehnungen eines Körpers folgen kann. Dadurch können Dehnungen, Stauchungen, Kräfte oder Drücke auf der Oberfläche gemessen werden. Die Dehnung wird dann in Richtung des Leiterbahnabschnittes gemessen, dessen ohm’scher Widerstand sich ändert:</p>
 <div class="math notranslate nohighlight">
 \[R = \frac{\rho \cdot l}{r^2 \pi}\]</div>
 <p><span class="math notranslate nohighlight">\(\rho\)</span> ist der spezifische Widerstand, der vom Material der Leiterbahn abhängt und <span class="math notranslate nohighlight">\(l\)</span> und <span class="math notranslate nohighlight">\(r\)</span> sind Länge und Radius der Leiterbahn. In der Formel wird durch die Querschnittsfläche geteilt, die näherungsweise dem kreisförmigen Querschnitt <span class="math notranslate nohighlight">\(A = \pi r^2\)</span> entspricht.</p>
 <figure class="align-default" id="dms">
 <a class="reference internal image-reference" href="../_images/dms.jpg"><img alt="dms" src="../_images/dms.jpg" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 106 </span><span class="caption-text">Dehnungsmessstreifen (DMS).</span><a class="headerlink" href="#dms" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-text">Dehnungsmessstreifen (DMS).</span><a class="headerlink" href="#dms" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
 <p>Für</p>
@@ -628,11 +627,11 @@ Aus diesem Grund werden DMSs häufig Widerstands-Messbrücken verwendet. Mittels
 Eine eleganten Zusammensatzung wäre ein n- und p-dotierter Silizium-DMS mit jeweils dem gleichen, aber entgegengesetzten <span class="math notranslate nohighlight">\(k\)</span>-Faktor, welche in einer Messbrücke zusammengeschaltet werden <span id="id2">[<a class="reference internal" href="../intro.html#id5">Bot</a>]</span>.</p>
 <section id="biegungsbeanspruchung">
 <h3>Biegungsbeanspruchung<a class="headerlink" href="#biegungsbeanspruchung" title="Permalink to this heading">#</a></h3>
-<p>Es gibt verschiedene Möglicheiten DMS zur Kraftmessung zu nutzen. Die Sensoren können beispielsweise an einen Biegebalken angebracht werden, wie es in <a class="reference internal" href="#dms-bieg-mess"><span class="std std-numref">Abb. 107</span></a> dargestellt ist, wodurch man die <strong>Biegung</strong> des Körpers messen kann.</p>
+<p>Es gibt verschiedene Möglicheiten DMS zur Kraftmessung zu nutzen. Die Sensoren können beispielsweise an einen Biegebalken angebracht werden, wie es in <code class="xref std std-numref docutils literal notranslate"><span class="pre">dms_bieg_mess</span></code> dargestellt ist, wodurch man die <strong>Biegung</strong> des Körpers messen kann.</p>
 <figure class="align-default" id="dms-bieg-mess">
 <a class="reference internal image-reference" href="../_images/dms_bieg_mess.jpg"><img alt="dms_bieg_mess" src="../_images/dms_bieg_mess.jpg" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 107 </span><span class="caption-text">DMSs sind an einem Biegebalken angebracht und können so die Wölbung messen.</span><a class="headerlink" href="#dms-bieg-mess" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-text">DMSs sind an einem Biegebalken angebracht und können so die Wölbung messen.</span><a class="headerlink" href="#dms-bieg-mess" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
 <p>Erfährt der Balken eine Kraft von außen, aufgrund derer er sich zu verformen beginnt, kann die resultierende Wölbung an den Oberflächen mittels DMS gemessen werden. Hierbei sieht der DMS oben eine Stauchung und der DMS auf der Unterseite (gegenüber der Krafteinwirkung) eine Streckung.</p>
@@ -644,22 +643,22 @@ Die Vorzeichen von zwei DMSs sind jeweils entgegengesetzt, da sie entweder gesta
 </section>
 <section id="zug-und-druck">
 <h3>Zug und Druck<a class="headerlink" href="#zug-und-druck" title="Permalink to this heading">#</a></h3>
-<p><strong>Zug und Druck</strong> können mit der Anordnung von DMSs gemessen werden, wie es in <a class="reference internal" href="#dms-druck"><span class="std std-numref">Abb. 108</span></a> dargestellt ist.</p>
+<p><strong>Zug und Druck</strong> können mit der Anordnung von DMSs gemessen werden, wie es in <code class="xref std std-numref docutils literal notranslate"><span class="pre">dms_druck</span></code> dargestellt ist.</p>
 <figure class="align-default" id="dms-druck">
 <a class="reference internal image-reference" href="../_images/dms_druck.jpg"><img alt="dms_druck" src="../_images/dms_druck.jpg" style="width: 300px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 108 </span><span class="caption-text">DMSs sind innen in einem Hohlkörper angebracht an der Innenwand angebracht und können so die Zug- und Druckkräfte an der Zylinderwand zu messen.</span><a class="headerlink" href="#dms-druck" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-text">DMSs sind innen in einem Hohlkörper angebracht an der Innenwand angebracht und können so die Zug- und Druckkräfte an der Zylinderwand zu messen.</span><a class="headerlink" href="#dms-druck" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
 <p>Auch hierfür werden die DMS wieder innenliegend an den Hohlkörper angebracht. Werden die DMS entlang der Kraftrichtung angebracht, so werden sie längs ihrer Anbringungsrichtung gedehnt und gestaucht. Sie können jedoch auch quer zur Krafteinwirkungsrichtung installiert werden, wodurch sie dann genau entgegengesetzt gestaucht bzw. gedehnt werden. Es können Kräfte zwischen 20 kN  bis einige MN gemessen werden <span id="id4">[<a class="reference internal" href="../intro.html#id5">Bot</a>]</span>.</p>
 </section>
 <section id="scherkraftemessung">
 <h3>Scherkräftemessung<a class="headerlink" href="#scherkraftemessung" title="Permalink to this heading">#</a></h3>
-<p>Hat man in einem Festkörper beispielsweise zwei Hohlräume oder Bohrungen, können in diesen DMSs eingebracht werden um <strong>Scherkräfte</strong> innerhalb der Körper zu messen. Dies ist in <a class="reference internal" href="#dms-scher"><span class="std std-numref">Abb. 109</span></a> dargestellt.</p>
+<p>Hat man in einem Festkörper beispielsweise zwei Hohlräume oder Bohrungen, können in diesen DMSs eingebracht werden um <strong>Scherkräfte</strong> innerhalb der Körper zu messen. Dies ist in <code class="xref std std-numref docutils literal notranslate"><span class="pre">dms_scher</span></code> dargestellt.</p>
 <figure class="align-default" id="dms-scher">
 <a class="reference internal image-reference" href="../_images/dms_scher.jpg"><img alt="dms_scher" src="../_images/dms_scher.jpg" style="width: 300px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 109 </span><span class="caption-text">DMSs sind innen an der Innenwand von zwei Bohrungen angebracht um Scherkräfte zu messen.</span><a class="headerlink" href="#dms-scher" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-text">DMSs sind innen an der Innenwand von zwei Bohrungen angebracht um Scherkräfte zu messen.</span><a class="headerlink" href="#dms-scher" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
 <p>Die Scherkräfte werden gemessen indem die DMS in einem 45° Winkel an die Rand geklebt werden. Nutzt man weitere Sensoren mit einem -45° Winkel so können wieder 4 Sensoren mittels einer Vollbrücke ausgelesen werden. Hierbei können Kräfte im Bereich von 20kN bis einigen MN gemessen werden <span id="id5">[<a class="reference internal" href="../intro.html#id5">Bot</a>]</span>.</p>
@@ -717,24 +716,6 @@ Die Vorzeichen von zwei DMSs sind jeweils entgegengesetzt, da sie entweder gesta
                 <footer class="prev-next-footer">
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="6_Einf%C3%BChrung.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">zurück</p>
-        <p class="prev-next-title">Einführung</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="6_PZT.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title">Piezoelektrische Sensoren</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               

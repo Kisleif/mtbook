@@ -1,0 +1,77 @@
+Traceback (most recent call last):
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
+from IPython.display import HTML
+plt.rcParams['font.size'] = 13; # Schriftgröße
+
+
+fig, ax = plt.subplots(figsize=(5, 3))
+
+t = np.linspace(0, 1e-4, num=10000)
+
+k = 1e-5
+def animate(a_in):
+    ax.clear()
+    a = a_in * 1e-3
+    t_0 = 0.2e-4
+    tau_minus = 4.92e-6
+    tau_plus = 0.34e-6
+    pulse = k - ((2*a) / (np.exp((t-t_0)/tau_minus) + np.exp(-(t-t_0)/tau_plus)))
+    #t_0 = 0.4e-4
+    #pulse2 = k - ((4*a) / (np.exp((t-t_0)/tau_minus) + np.exp(-(t-t_0)/tau_plus)))
+
+    ax.plot(t*1000,pulse*1000, color = 'tab:red')
+    #plt.plot(t*1000,pulse2*1000, label ='Photon, 532nm', color  = 'tab:green')
+    # Füllen der Fläche unter den Kurven
+    ax.fill_between(t*1000, pulse*1000, color='tab:red', alpha=0.3)
+    #plt.fill_between(t*1000, pulse2*1000, color='tab:green', alpha=0.3)
+
+    ax.set_xlabel('Zeit (ms)')
+    ax.set_ylabel('Spannung (mV)')
+#    plt.legend()
+    ax.set_xlim([0,0.1])
+    ax.set_ylim([-15,0.1])
+
+
+# Create an animation by varying fs from 1 to 10 with a step of 1
+ani = FuncAnimation(fig, animate, frames=range(1, 10), repeat=False)
+
+# Display the animation
+plt.tight_layout()
+plt.adjust(wspace=0.3)
+#plt.subplots_adjust(top=0.85)
+plt.close()
+HTML(ani.to_jshtml())
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+Cell [0;32mIn[4], line 41[0m
+[1;32m     39[0m [38;5;66;03m# Display the animation[39;00m
+[1;32m     40[0m plt[38;5;241m.[39mtight_layout()
+[0;32m---> 41[0m [43mplt[49m[38;5;241;43m.[39;49m[43madjust[49m(wspace[38;5;241m=[39m[38;5;241m0.3[39m)
+[1;32m     42[0m [38;5;66;03m#plt.subplots_adjust(top=0.85)[39;00m
+[1;32m     43[0m plt[38;5;241m.[39mclose()
+
+[0;31mAttributeError[0m: module 'matplotlib.pyplot' has no attribute 'adjust'
+AttributeError: module 'matplotlib.pyplot' has no attribute 'adjust'
+

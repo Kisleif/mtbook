@@ -782,36 +782,68 @@ Die Pulse im Messsystem, verursacht durch einzelne Photonen sind in der folgende
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.animation</span> <span class="kn">import</span> <span class="n">FuncAnimation</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
+
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 
 <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1e-4</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
 
 <span class="n">k</span> <span class="o">=</span> <span class="mf">1e-5</span>
-<span class="n">a</span> <span class="o">=</span> <span class="mf">1e-2</span>
-<span class="n">t_0</span> <span class="o">=</span> <span class="mf">0.2e-4</span>
-<span class="n">tau_minus</span> <span class="o">=</span> <span class="mf">4.92e-6</span>
-<span class="n">tau_plus</span> <span class="o">=</span> <span class="mf">0.34e-6</span>
-<span class="n">pulse</span> <span class="o">=</span> <span class="n">k</span> <span class="o">-</span> <span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">((</span><span class="n">t</span><span class="o">-</span><span class="n">t_0</span><span class="p">)</span><span class="o">/</span><span class="n">tau_minus</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="n">t_0</span><span class="p">)</span><span class="o">/</span><span class="n">tau_plus</span><span class="p">)))</span>
-<span class="n">t_0</span> <span class="o">=</span> <span class="mf">0.4e-4</span>
-<span class="n">pulse2</span> <span class="o">=</span> <span class="n">k</span> <span class="o">-</span> <span class="p">((</span><span class="mi">4</span><span class="o">*</span><span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">((</span><span class="n">t</span><span class="o">-</span><span class="n">t_0</span><span class="p">)</span><span class="o">/</span><span class="n">tau_minus</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="n">t_0</span><span class="p">)</span><span class="o">/</span><span class="n">tau_plus</span><span class="p">)))</span>
+<span class="k">def</span> <span class="nf">animate</span><span class="p">(</span><span class="n">a_in</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">a_in</span> <span class="o">*</span> <span class="mf">1e-3</span>
+    <span class="n">t_0</span> <span class="o">=</span> <span class="mf">0.2e-4</span>
+    <span class="n">tau_minus</span> <span class="o">=</span> <span class="mf">4.92e-6</span>
+    <span class="n">tau_plus</span> <span class="o">=</span> <span class="mf">0.34e-6</span>
+    <span class="n">pulse</span> <span class="o">=</span> <span class="n">k</span> <span class="o">-</span> <span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">((</span><span class="n">t</span><span class="o">-</span><span class="n">t_0</span><span class="p">)</span><span class="o">/</span><span class="n">tau_minus</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="n">t_0</span><span class="p">)</span><span class="o">/</span><span class="n">tau_plus</span><span class="p">)))</span>
+    <span class="c1">#t_0 = 0.4e-4</span>
+    <span class="c1">#pulse2 = k - ((4*a) / (np.exp((t-t_0)/tau_minus) + np.exp(-(t-t_0)/tau_plus)))</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span><span class="n">pulse</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span><span class="s1">&#39;Photon, 1064nm&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;tab:red&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span><span class="n">pulse2</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span><span class="s1">&#39;Photon, 532nm&#39;</span><span class="p">,</span> <span class="n">color</span>  <span class="o">=</span> <span class="s1">&#39;tab:green&#39;</span><span class="p">)</span>
-<span class="c1"># Füllen der Fläche unter den Kurven</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span> <span class="n">pulse</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:red&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span> <span class="n">pulse2</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:green&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span><span class="n">pulse</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;tab:red&#39;</span><span class="p">)</span>
+    <span class="c1">#plt.plot(t*1000,pulse2*1000, label =&#39;Photon, 532nm&#39;, color  = &#39;tab:green&#39;)</span>
+    <span class="c1"># Füllen der Fläche unter den Kurven</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span> <span class="n">pulse</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:red&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    <span class="c1">#plt.fill_between(t*1000, pulse2*1000, color=&#39;tab:green&#39;, alpha=0.3)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit (ms)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Spannung (mV)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.1</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit (ms)&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Spannung (mV)&#39;</span><span class="p">)</span>
+<span class="c1">#    plt.legend()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.1</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span><span class="mf">0.1</span><span class="p">])</span>
+
+
+<span class="c1"># Create an animation by varying fs from 1 to 10 with a step of 1</span>
+<span class="n">ani</span> <span class="o">=</span> <span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">animate</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">repeat</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Display the animation</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">adjust</span><span class="p">(</span><span class="n">wspace</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="c1">#plt.subplots_adjust(top=0.85)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">HTML</span><span class="p">(</span><span class="n">ani</span><span class="o">.</span><span class="n">to_jshtml</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/b6a53772a15d01810ddb584e50477fa2aa5523229382e684bf7b45f22da5c453.png" src="../_images/b6a53772a15d01810ddb584e50477fa2aa5523229382e684bf7b45f22da5c453.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">41</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span> <span class="c1"># Display the animation</span>
+<span class="g g-Whitespace">     </span><span class="mi">40</span> <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="ne">---&gt; </span><span class="mi">41</span> <span class="n">plt</span><span class="o">.</span><span class="n">adjust</span><span class="p">(</span><span class="n">wspace</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">42</span> <span class="c1">#plt.subplots_adjust(top=0.85)</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span> <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="ne">AttributeError</span>: module &#39;matplotlib.pyplot&#39; has no attribute &#39;adjust&#39;
+</pre></div>
+</div>
+<img alt="../_images/f3433103a0e97b48757e74f15a8accd24c0f42867494fafbb90bbc49899987a0.png" src="../_images/f3433103a0e97b48757e74f15a8accd24c0f42867494fafbb90bbc49899987a0.png" />
 </div>
 </div>
 <p>Das Photon mit einer längeren Wellenlänge und daher kleineren Energie zeigt einen kleineren Ausschlag. Ein grünes Photon mit höherer Energie kommt kurze Zeit später in dem Detektor an und erzeugt einen deutlich stärken Puls. Die Fläche unter der Kurve entspricht der Energie, die vom Sensor absorbiert wurde. Man erkennt außerdem, dass das System sehr schnell die Energie absorbiert. Um bereit für den nächsten Puls zu sein, wird das System über eine Rückkopplung an ein thermisches Kältebad gekoppelt. Man sieht, dass diese Rückkopplung einige Zeit benötigt, da der Puls nur langsam abfällt. In diesen simulierten Pulsen habe wir eine Anstiegszeit von <span class="math notranslate nohighlight">\(0{,}34\,\mathrm{\mu s}\)</span> und eine Abfallszeit von <span class="math notranslate nohighlight">\(5\,\mathrm{\mu s}\)</span> angenommen.</p>

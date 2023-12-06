@@ -1,0 +1,5 @@
+# Forschung
+
+## Inhalte
+```{tableofcontents}
+```

@@ -1,0 +1,65 @@
+---
+blogpost: true
+date: Nov 29, 2022
+location: Zettel_8
+category: Übung
+tags: Faltung, Messsystem, Sprung
+---
+
+# Faltungsintegral
+
+
+Gegeben sei ein RC-Tiefpass 1. Ordnung. Die Impulsantwort $h(t)$ ist für  $T = RC$ wiefolgt gegeben:
+
+ $$h(t) = \frac{1}{T}\epsilon(t) \mathrm e^{-t/T}$$
+
+ wobei 
+
+ $$\epsilon(t) = \frac{1}{2} + \frac{1}{2}\mathrm{sgn}(t)$$ 
+
+ gilt und $\mathrm{sgn}(t)$  die "Vorzeichenfunktion" ist: 
+
+$$\mathrm{sgn}(x) = 2 H(x) - 1$$
+
+mit der Heaviside-Funktion $H(x)$
+
+\begin{align}
+H \colon \; & \mathcal R \to \{0,1\} \\
+\ & x \mapsto \begin{cases}
+0 : & x < 0\\
+1 : & x \ge 0
+\end{cases}
+\end{align}
+
+## Aufgabe 1: Sprungantwort 
+Berechnen Sie mit Hilfe des Faltungsintegrals die Sprungantwort $y(t)$ des Systems. 
+* Zu welcher Zeit werden 63\% und 95\% des Endwertes erreicht?
+* Skizzieren Sie Impulsanregung und Impulsantwort, sowie Sprunganregung und Sprungantwort. 
+
+````{tip}
+:class: dropdown
+Die angelegte Sprungfunktion kann über die Heaviside Funktion ausgedrückt werden: $f(\tau) = x_0 \cdot H(\tau)$. Berechnen Sie dann das Faltungsintegral. Überlegen Sie sich, wie die Integrationsgrenzen für Heaviside-Funktionen aufgeteilt werden können.
+
+$$y(t) = \int_{-\infty}^{\infty} f(\tau) \cdot h(t-\tau) d\tau = ... = x_0 \left( \mathrm e^{-t/\tau} \right)$$
+
+````
+
+## Aufgabe 2: Systemantwort
+
+Berechnen Sie die Systemantwort $y(t)$ bei einer sprunghaften Anregung $u(t)$ mit Hilfe des Faltungsintegrals ($T_0 > T$). 
+
+$$u(t) = \mathrm{rect}\left(\frac{t-T_0/2}{T_0}\right) = \begin{cases}
+1           & \text{wenn } t = [0,T_0] \\[3pt]
+0 & \text{sonst}
+\end{cases}
+$$
+    
+* Skizzieren Sie alle Funktionen. 
+
+````{tip}
+:class: dropdown
+Berechnen Sie das Faltungsintegral. Überlegen Sie sich, wie die Integrationsgrenzen für Heaviside-Funktionen und Rechteckpuls  aufgeteilt werden können. 
+
+$$y(t) = \int_{-\infty}^{\infty} u(\tau) \cdot h(t-\tau) d\tau = ... = 1- \mathrm e^{-t/\tau} $$
+
+````

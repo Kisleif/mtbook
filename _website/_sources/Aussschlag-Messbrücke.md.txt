@@ -47,9 +47,13 @@ Mit der Brücke soll die Widerstandsänderung $\Delta R$ eines Sensors, gegeben 
 Die Temperaturabhängigkeit $\Delta R_T$ soll verringert werden. Hierzu steht Ihnen ein Widerstand mit identischem Temperaturverhalten zur Verfügung: $R_K = R_0 + \Delta R_T$. Zeigen Sie, dass mit Hilfe von $R_K$ der Einfluss von $\Delta R_T$ stark reduziert werden kann. Gehen Sie folgendermaßen vor: 
 
 * Geben Sie eine geeignete Brückenschaltung an.
-* Berechnen Sie $U_d = f(U_0, \Delta R, \Delta R_T, R_0)$.
+* Berechnen Sie $U_d = f(U_0, \Delta R, \Delta R_T, R_0)$.(Zwischenergebnisse sind im nächsten Punkt angegeben.)
 * Berechnen Sie die Empfindlichkeit in Abhängigkeit von $\Delta R_T$ für die beiden Fälle mit und ohne $R_K$.
-* Bilden Sie den Quotienten aus beiden Resultaten.
+
+$$E_{1}  = \frac{dU_d}{d\Delta R_T} \quad \textrm{mit} \quad U_d = \frac{U_0}{2} \cdot \frac{\Delta R + \Delta R_T}{2R_0 + \Delta R + \Delta R_T} \quad \textrm{ohne} \quad R_{K}$$
+$$E_2 = \frac{dU_d}{d\Delta R_T} \quad \textrm{mit} \quad U_d = \frac{U_0}{2} \cdot \frac{\Delta R}{2R_0 + \Delta R + 2\Delta R_T} \quad \textrm{mit} \quad R_{K}$$
+
+* Bilden Sie den Quotienten aus beiden Resultaten, $\frac{E_{1}}{E_{2}}$ und nähern Sie für $\Delta R_{T} << R_{0}$.
 
 ```{tip}
 :class: dropdown
@@ -57,13 +61,13 @@ Die Temperaturabhängigkeit $\Delta R_T$ soll verringert werden. Hierzu steht Ih
 * Die Empfindlichkeit berechnen Sie über die Ableitung, hier die Ableitung nach $d \Delta R_T$, wenn Sie die Empfindlichkeit für $\Delta R_T$ haben möchten. 
 ```
 
-* Wie stark werden Temperatureinflüsse durch die Hinzunahme von $R_K$ unterdrückt? Setzen Sie beispielsweise folgende Werte ein und variieren Sie diese:
+* Setzen Sie Beispielwerte ein:
 
-$$R_0 = 10\,\mathrm{k\Omega}$$
+$$R_0 = 1\,\mathrm{k\Omega}$$
 
 $$\Delta R = 100\,\mathrm\Omega$$
 
-$$\Delta R_T = 100\,\mathrm\Omega$$
+$$\Delta R_T = 0-1000\,\mathrm\Omega$$
 
 $$U_0 = 10\,\mathrm V$$
 
@@ -74,17 +78,17 @@ $$U_0 = 10\,\mathrm V$$
 
 $$\frac{U_d}{U_0} = U_2 - U_4 = \frac{R_2}{R_1+R_2} - \frac{R_4}{R_3+R_4}$$
 
-* Diagonalspannung mit Sensor bei $R_2 = R_x = R_0 + \Delta R + \Delta R_T$ und Empfindlichkeit $\epsilon$:
+* Diagonalspannung mit Sensor bei $R_2 = R_x = R_0 + \Delta R + \Delta R_T$ und Empfindlichkeit E_1$:
 
 $$U_d = \frac{U_0}{2} \cdot \frac{\Delta R + \Delta R_T}{2R_0 + \Delta R + \Delta R_T}$$
 
-$$\epsilon = \frac{dU_d}{d\Delta R_T} = \frac{U_0}{2} \frac{2R_0}{(2R_0 + \Delta R + \Delta R_T)^2}$$
+$$E_1 = \frac{dU_d}{d\Delta R_T} = \frac{U_0}{2} \frac{2R_0}{(2R_0 + \Delta R + \Delta R_T)^2}$$
 
-* Diagonalspannung mit Sensor bei $R_2 = R_x = R_0 + \Delta R + \Delta R_T$ und Korrekturwiderstand gegen Temperaturänderungen, $R_1 = R_K$ und Empfindlichkeit $\epsilon$:
+* Diagonalspannung mit Sensor bei $R_2 = R_x = R_0 + \Delta R + \Delta R_T$ und Korrekturwiderstand gegen Temperaturänderungen, $R_1 = R_K$ und Empfindlichkeit $E_2$:
 
 $$U_d = \frac{U_0}{2} \cdot \frac{\Delta R}{2R_0 + \Delta R + 2\Delta R_T}$$
 
-$$\epsilon = \frac{dU_d}{d\Delta R_T} = \frac{U_0}{2} \frac{-2\Delta R}{(2R_0 + \Delta R + \Delta 2R_T)^2}$$
+$$  = \frac{U_0}{2} \frac{-2\Delta R}{(2R_0 + \Delta R + \Delta 2R_T)^2}$$
 
 * Verhältnis: Wir nehmen an, dass der Fehler aufgrund von Temperatur, $\Delta R_T$, klein im Vergleich zum Widerstandswert $R_0$ ist, sodass $2 \Delta R_T \approx \Delta R_T$. Dadurch kürzt sich der Nenner weg, wenn die beiden Empfindlichkeiten ins Verhältnis gesetzt werden und es folgt:
 

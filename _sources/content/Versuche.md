@@ -6,7 +6,7 @@ Auswerteskript zum Probeversuch [Messunsicherheiten](T_Schwerependel.ipynb).
 :class-container: text-center
 :gutter: 3
 
-:::{grid-item-card} [Versuchsanleitung](https://hsuhhde.sharepoint.com/:b:/s/MesstechnikHT23_mst/EYq2NLIzBS5BlWrjIOjYc5QBwdPb399020_rXax5gc46WA?e=LIrYRF)
+:::{grid-item-card} [Versuchsanleitung](https://hsuhhde.sharepoint.com/:b:/s/MesstechnikHT23_mst/EffH6ekRYaVHqz7rGdsG_W0Bgy6SfZkcSKzWkeQ9R8tZsw?email=isleifk%40hsu-hh.de&e=vWQ5Ha)
 :class-header: bg-light
 **Dioden-Kennlinie (DK)**
 ^^^

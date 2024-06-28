@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Regressionsrechnung &#8212; Metrology Lecture Book</title>
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -33,19 +33,21 @@
     <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
@@ -56,7 +58,7 @@
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/translations.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -123,6 +125,12 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content">Aufgaben sind jetzt auch online im <a href='https://kisleif.github.io/mtbook/_website/uebungen/index.html'> Übungs-Pool </a> zu finden.</div>
+  </div>
+
   
     <nav class="bd-header navbar navbar-expand-lg bd-navbar">
     </nav>
@@ -150,13 +158,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     
     
       
     
     
-    <img src="../_static/i_mt.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/i_mt.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/i_mt.png" class="logo__image only-light" alt="Metrology Lecture Book - Home"/>
+    <script>document.write(`<img src="../_static/i_mt.png" class="logo__image only-dark" alt="Metrology Lecture Book - Home"/>`);</script>
   
   
 </a></div>
@@ -171,13 +180,14 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro_book.html">Über dieses Lecture Book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro_book.html">Über dieses Book &amp; Python</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">✍️ Vorlesung</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="1_Einf%C3%BChrung%20in%20die%20Messtechnik.html">Einführung in die Messtechnik</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="V1.html"><em>Richtig</em> Messen</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="1_Einheiten.html">Einheiten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Kalibrieren.html">Kalibrieren und Eichen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Messunsicherheiten.html">Messunsicherheiten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_StatistischeMessunsicherheit.html">Statistische Messunsicherheit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_SystematischeMessabweichung.html">Systematische Messabweichung</a></li>
@@ -187,7 +197,6 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="V4.html">Stationäre Messysteme</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="2_Kalibrieren.html">Kalibrieren und Eichen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_Messsystem.html">Grundstruktur eines Messsystems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_idealeKennlinie.html">Kennlinie &amp; Empfindlichkeit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_realeKennlinie.html">Reale Kennlinie</a></li>
@@ -195,15 +204,15 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="V5.html">Messsignale</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="3_basics.html">Grundlagen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Modulationen.html">Modulation <a id="SubSec-Information"></a></a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_Digital.html">Digitalisierung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_Kenngroessen.html">Kenngrößen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_FourierAnalyse.html">Fourier-Analyse</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3_Modulationen.html">Modulation <a id="SubSec-Information"></a></a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="V6.html">Dynamische Messsysteme</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="5_LTI.html">Linear zeitinvariante Systeme (LTI)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="5_DGL.html">Systeme im Zeitraum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_LTI.html">Linear zeitinvariante Systeme (LZI/LTI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_DGL.html">Differentialgleichungen und Testfunktionen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5_Uebertragungsfunktion.html">Übertragungsfunktion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5_Faltung.html">Faltung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5_Rauschen.html">Rauschen und spektrale Dichte</a></li>
@@ -217,7 +226,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="4_P-Messung.html">Leistungsmessung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="4_R-Messung.html">Widerstandsmessung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="4_CL-Messung.html">Messung von Kapazitäten und Induktivitäten</a></li>
-<li class="toctree-l2"><a class="reference internal" href="4_F-Messung.html">Frequenz- und Zeitmessung</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="V8.html">Sensoren</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -230,6 +238,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="6_Beschleunigung.html">Beschleunigungssensoren</a></li>
 <li class="toctree-l2"><a class="reference internal" href="6_Radar.html">Radar</a></li>
 <li class="toctree-l2"><a class="reference internal" href="6_Ifo.html">Laserinterferometrie</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Forschung.html">Forschung</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="MT_ALPS.html">Messtechnik in Dunkle Materie Experimenten</a></li>
 </ul>
 </li>
 </ul>
@@ -248,6 +260,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="T_LinReg.html">Verschiedene Fit-Funktionen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_FitmitFehlerbalken.html">Lineare Regression mit Fehlerbalken</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Spektralanalyse_Audio.html">Fourier-Transformation und Filter</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Übungen</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://kisleif.github.io/mtbook/_website/uebungen/index.html">Pool</a></li>
 </ul>
 
     </div>
@@ -572,6 +588,11 @@ document.write(`
 <p>Grundsätzlich ist jeder funktionale Zusammenhang <span class="math notranslate nohighlight">\(f(x)\)</span> möglich. Es kann jedoch auch vorkommen, dass der Zusammenhang linear ist. In jedem Fall sollte der Typ der Fit-Funktion <span class="math notranslate nohighlight">\(y = f(x)\)</span> im Voraus festgelegt und begründet werden. Es ist keine wissenschaftliche oder messtechnische Vorgehensweise, alle möglichen Funktionen ohne klaren Grund auszuprobieren und sich dann für die besten zu entscheiden. Dies könnte zu unbrauchbaren Näherungen oder sogar zu falschen und nicht wissenschaftlichen Ergebnissen führen, was vermieden werden sollte.</p>
 <p>Wenn wir Messungen von y für verschiedene Werte von x durchführen, erhalten wir verschiedene Punkte im Messbereich. Die Werte werden wahrscheinlich um eine Gerade streuen, das heißt, sie liegen nicht perfekt auf einer Geraden. Dies liegt einfach daran, dass es zufällige Fehler gibt.</p>
 <div class="cell tag_hide-input tag_thebe-init docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -608,8 +629,55 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/1_Kurvenanpassung_1_0.png" src="../_images/1_Kurvenanpassung_1_0.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">interpolate</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1"># MatplotLib Settings:</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">optimize</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">401</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="sd"> =====================================================</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd"> Optimization and root finding (:mod:`scipy.optimize`)</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">397</span><span class="sd"> :mod:`Additional information on the nonlinear solvers &lt;scipy.optimize.nonlin&gt;`</span>
+<span class="g g-Whitespace">    </span><span class="mi">398</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">400</span> <span class="kn">from</span> <span class="nn">.optimize</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="ne">--&gt; </span><span class="mi">401</span> <span class="kn">from</span> <span class="nn">._minimize</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="g g-Whitespace">    </span><span class="mi">402</span> <span class="kn">from</span> <span class="nn">._root</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="g g-Whitespace">    </span><span class="mi">403</span> <span class="kn">from</span> <span class="nn">._root_scalar</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">optimize</span><span class="o">/</span><span class="n">_minimize</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">25</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="kn">from</span> <span class="nn">._trustregion_dogleg</span> <span class="kn">import</span> <span class="n">_minimize_dogleg</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="kn">from</span> <span class="nn">._trustregion_ncg</span> <span class="kn">import</span> <span class="n">_minimize_trust_ncg</span>
+<span class="ne">---&gt; </span><span class="mi">25</span> <span class="kn">from</span> <span class="nn">._trustregion_krylov</span> <span class="kn">import</span> <span class="n">_minimize_trust_krylov</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="kn">from</span> <span class="nn">._trustregion_exact</span> <span class="kn">import</span> <span class="n">_minimize_trustregion_exact</span>
+<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="kn">from</span> <span class="nn">._trustregion_constr</span> <span class="kn">import</span> <span class="n">_minimize_trustregion_constr</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">optimize</span><span class="o">/</span><span class="n">_trustregion_krylov</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">._trustregion</span> <span class="kn">import</span> <span class="p">(</span><span class="n">_minimize_trust_region</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">._trlib</span> <span class="kn">import</span> <span class="p">(</span><span class="n">get_trlib_quadratic_subproblem</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;_minimize_trust_krylov&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="k">def</span> <span class="nf">_minimize_trust_krylov</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(),</span> <span class="n">jac</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">hess</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">hessp</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>                            <span class="n">inexact</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">trust_region_options</span><span class="p">):</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">optimize</span><span class="o">/</span><span class="n">_trlib</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">._trlib</span> <span class="kn">import</span> <span class="n">TRLIBQuadraticSubproblem</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;TRLIBQuadraticSubproblem&#39;</span><span class="p">,</span> <span class="s1">&#39;get_trlib_quadratic_subproblem&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="k">def</span> <span class="nf">get_trlib_quadratic_subproblem</span><span class="p">(</span><span class="n">tol_rel_i</span><span class="o">=-</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">tol_rel_b</span><span class="o">=-</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">disp</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+
+<span class="nn">File _trlib.pyx:1,</span> in <span class="ni">init scipy.optimize._trlib._trlib</span><span class="nt">()</span>
+
+<span class="nn">File &lt;frozen importlib._bootstrap&gt;:398,</span> in <span class="ni">parent</span><span class="nt">(self)</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
 </div>
 </div>
 <p>Um die optimale Gerade zu bestimmen, führen wir eine <strong>lineare Regression</strong> durch, um die Daten anzunähern. Die optimale Gerade hat im Idealfall die Form:</p>
@@ -631,7 +699,7 @@ document.write(`
 <p>Unser Ziel ist es, die Abweichung der Messwerte von der Geraden (oder allgemein von der Funktion <span class="math notranslate nohighlight">\(f\)</span>) so gering wie möglich zu halten. Wie bereits beim Berechnen von Mittelwerten und Standardabweichungen verwenden wir die Quadrate der Abweichungen. Dadurch werden positive und negative Abweichungen nicht ausgeglichen, und größere Abweichungen werden stärker (quadratisch) gewichtet.</p>
 <p>Hierfür definieren wir die Funktion <span class="math notranslate nohighlight">\(Q\)</span>, die von den Geradenparametern <span class="math notranslate nohighlight">\(b\)</span> und <span class="math notranslate nohighlight">\(a\)</span> abhängt und als <strong>Gütefunktion</strong> definiert ist:</p>
 <div class="math notranslate nohighlight">
-\[Q(b,a) = \sum_{i = 1}^N [y_i - (b\cdot x + a)]^2 = \mathrm{min !}\]</div>
+\[Q(b,a) = \sum_{i = 1}^N [y_i - (b\cdot x_i + a)]^2 = \mathrm{min !}\]</div>
 <p>In dieser Funktion werden zunächst die Unterschiede zwischen den Messwerten und der theoretischen Geradenfunktion berechnet. Diese Differenzen werden dann quadriert und schließlich für alle Messwerte <span class="math notranslate nohighlight">\(y_i\)</span> aufsummiert. Unser Ziel ist es, diese Summe zu minimieren.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warnung</p>
@@ -657,9 +725,9 @@ document.write(`
 \[a = \frac{\sum_{i=1}^N y_i - b \sum_{i=1}^N x_i}{N} = \bar y - b \cdot \bar x\]</div>
 <p>Hierbei bedeuten <span class="math notranslate nohighlight">\(\bar x\)</span> und <span class="math notranslate nohighlight">\(\bar y\)</span> die Durchschnittswerte der jeweiligen Messwerte:</p>
 <div class="math notranslate nohighlight">
-\[\bar x = \sum_{i = 1}^N x_i\]</div>
+\[\bar x = \frac{1}{N}\sum_{i = 1}^N x_i\]</div>
 <div class="math notranslate nohighlight">
-\[\bar y = \sum_{i = 1}^N y_i\]</div>
+\[\bar y = \frac{1}{N}\sum_{i = 1}^N y_i\]</div>
 <p>und die Kovarianz <span class="math notranslate nohighlight">\(\mathrm{cov}_{xy}\)</span> und die Standardabweichung <span class="math notranslate nohighlight">\(S_{x}\)</span> der Messwerte sind:</p>
 <div class="math notranslate nohighlight">
 \[\mathrm{cov}_{xy} = \frac{1}{N-1}\sum_{i = 1}^N (x_i-\bar x)(y_i - \bar y)\]</div>
@@ -668,6 +736,11 @@ document.write(`
 <p>Es ist wichtig anzumerken, dass wir hier die Mittelwerte für <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span> verwenden, obwohl die <span class="math notranslate nohighlight">\(x\)</span>-Werte absichtlich während der Versuchsreihe variiert werden, wodurch sich die Größen <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span> kontinuierlich ändern. Dies ist eine besondere Eigenschaft der Methode der kleinsten Quadrate in der linearen Regression.</p>
 <p>Mittels diesen Gleichungen können wir für das oben gezeigte Beispiel der Messdaten die Parameter <span class="math notranslate nohighlight">\(a\)</span> und <span class="math notranslate nohighlight">\(b\)</span> manuell berechnen:</p>
 <div class="cell tag_hide-input tag_thebe-init docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Erstellen der DataFrames</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">y</span><span class="p">})</span>
@@ -692,6 +765,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Regressionskoeffizient b (Geraden-Steigung): 0.6066538042940539
 Regressionskoeffizient a (Ordinatenabschnitt): 4.714841199168873
@@ -700,6 +774,11 @@ Regressionskoeffizient a (Ordinatenabschnitt): 4.714841199168873
 </div>
 </div>
 <div class="cell tag_hide-cell tag_thebe-init docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Summe der quadrierten Abweichungen (Gütefunktion):&quot;</span><span class="p">,</span> <span class="n">sum_of_squared_residuals</span><span class="p">)</span>
@@ -819,8 +898,14 @@ Regressionskoeffizient a (Ordinatenabschnitt): 4.714841199168873
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell tag_hide-input tag_thebe-init docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># MatplotLib Settings:</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
@@ -839,12 +924,18 @@ Regressionskoeffizient a (Ordinatenabschnitt): 4.714841199168873
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/1_Kurvenanpassung_7_0.png" src="../_images/1_Kurvenanpassung_7_0.png" />
+<img alt="../_images/8184ecb7da2d31acf8dc8d7dab37995a16f5890fd73c0f596cdd565714dc84f2.png" src="../_images/8184ecb7da2d31acf8dc8d7dab37995a16f5890fd73c0f596cdd565714dc84f2.png" />
 </div>
 </div>
 <p>Die Regressionskoeffizienten ermöglichen uns, die Gerade zu bestimmen. In der Praxis verwendet man jedoch in der Regel nicht diese komplexen Berechnungen, sondern greift auf Funktionen zurück, die bereits in vielen Programmen vorimplementiert sind. Ein Beispiel hierfür ist die in Python vorhandene Funktion <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code>. Wie das folgende Beispiel zeigt, führen sowohl die manuelle Berechnung von <span class="math notranslate nohighlight">\(b\)</span> und <span class="math notranslate nohighlight">\(a\)</span> als auch die Verwendung der integrierten Python-Funktion zu derselben Regressionsgeraden:</p>
 <div class="cell tag_hide-input tag_thebe-init docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># MatplotLib Settings:</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
@@ -864,8 +955,9 @@ Regressionskoeffizient a (Ordinatenabschnitt): 4.714841199168873
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/1_Kurvenanpassung_9_0.png" src="../_images/1_Kurvenanpassung_9_0.png" />
+<img alt="../_images/387c842a90b93f866a1d90031d1b89dc312528eff616e480b637e49ba5670f70.png" src="../_images/387c842a90b93f866a1d90031d1b89dc312528eff616e480b637e49ba5670f70.png" />
 </div>
 </div>
 </section>
@@ -879,6 +971,11 @@ Regressionskoeffizient a (Ordinatenabschnitt): 4.714841199168873
 <div class="math notranslate nohighlight">
 \[s_y = E = \sqrt{\frac{1}{N-2}\sum(y_i - bx_i - a)^2 }\]</div>
 <div class="cell tag_hide-input tag_thebe-init docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 <span class="n">diff_y</span> <span class="o">=</span> <span class="mi">0</span>
@@ -891,6 +988,7 @@ Regressionskoeffizient a (Ordinatenabschnitt): 4.714841199168873
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Unsicherheit von y ist 	 s_y = 5.8831
 </pre></div>
@@ -924,6 +1022,11 @@ s_a &amp;= s_y \cdot \sqrt{\frac{\sum x_i^2}{N\cdot \sum x_i^2 - \left(\sum x_i\
 \end{align*}\end{split}\]</div>
 <p>Mithilfe dieser Standardabweichungen für <span class="math notranslate nohighlight">\(a\)</span> und <span class="math notranslate nohighlight">\(b\)</span> können mit der Student-t-Verteilung und Quantilen kombiniert werden, um den Vertrauensbereich anzugeben.</p>
 <div class="cell tag_thebe-init tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s_b</span> <span class="o">=</span> <span class="n">s_y</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">N</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Unsicherheit von b ist </span><span class="se">\t</span><span class="s1"> s_b = </span><span class="si">%5.4f</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">s_b</span><span class="p">))</span>
@@ -933,6 +1036,7 @@ s_a &amp;= s_y \cdot \sqrt{\frac{\sum x_i^2}{N\cdot \sum x_i^2 - \left(\sum x_i\
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Unsicherheit von b ist 	 s_b = 0.0534
 Die Unsicherheit von a ist 	 s_a = 3.9581
@@ -946,8 +1050,13 @@ Die Unsicherheit von a ist 	 s_a = 3.9581
 <h2>Korrelationskoeffizient <a id="SubSec-Korrelationskoeffizient"></a><a class="headerlink" href="#korrelationskoeffizient-a-id-subsec-korrelationskoeffizient-a" title="Permalink to this heading">#</a></h2>
 <p>Für lineare Zusammenhänge ist es häufig sinnvoll den Korrelationskoeffizient zu berechnen:</p>
 <div class="math notranslate nohighlight">
-\[r = \frac{\overline{x\cdot t} - \overline x \cdot \overline t}{\sqrt{\overline{x^2} - (\overline x)^2} \cdot {\sqrt{\overline{t^2} - (\overline t)^2}}} \]</div>
+\[r = \frac{\overline{x\cdot y} - \overline x \cdot \overline y}{\sqrt{\overline{x^2} - (\overline x)^2} \cdot {\sqrt{\overline{y^2} - (\overline y)^2}}} \]</div>
 <div class="cell tag_hide-input tag_thebe-init docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Analytische Methode:</span>
 <span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
@@ -960,6 +1069,7 @@ Die Unsicherheit von a ist 	 s_a = 3.9581
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der Korrelationskoeffizient zwischen x und t beträgt: 0.97035603
 
@@ -1032,7 +1142,7 @@ Die Korrelationsmatrix zwischen x und t mittels numpy-Paket lautet:
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./content"
         },
         predefinedOutput: true
@@ -1142,8 +1252,8 @@ Durch Katharina-S. Isleif
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
   </footer>

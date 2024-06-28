@@ -7,12 +7,14 @@ author = 'Katharina-S. Isleif'
 bibtex_bibfiles = ['references.bib']
 comments_config = {'hypothesis': True, 'utterances': False}
 copyright = '2022'
-exclude_patterns = ['**.ipynb_checkpoints', '.DS_Store', 'Thumbs.db', '_build']
+exclude_patterns = ['**.ipynb_checkpoints', '.DS_Store', 'Thumbs.db', '_build', 'archive/*', 'uebungen/*']
 execution_allow_errors = False
 execution_excludepatterns = []
 execution_in_temp = False
 execution_timeout = 30
-extensions = ['sphinx_togglebutton', 'sphinx_copybutton', 'myst_nb', 'jupyter_book', 'sphinx_thebe', 'sphinx_comments', 'sphinx_external_toc', 'sphinx.ext.intersphinx', 'sphinx_design', 'sphinx_book_theme', 'sphinxcontrib.bibtex', 'sphinx_jupyterbook_latex']
+extensions = ['sphinx_togglebutton', 'sphinx_copybutton', 'myst_nb', 'jupyter_book', 'sphinx_thebe', 'sphinx_comments', 'sphinx_external_toc', 'sphinx.ext.intersphinx', 'sphinx_design', 'sphinx_book_theme', 'sphinxcontrib.bibtex', 'sphinx_jupyterbook_latex', 'ablog', 'sphinxext.opengraph',
+    'sphinxext.rediraffe','sphinx.ext.postlist']
+
 external_toc_exclude_missing = False
 external_toc_path = '_toc.yml'
 html_baseurl = ''
@@ -21,7 +23,9 @@ html_js_files = ['https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/requir
 html_logo = 'i_mt.png'
 html_sourcelink_suffix = ''
 html_theme = 'sphinx_book_theme'
-html_theme_options = {'search_bar_text': 'Search this book...', 'launch_buttons': {'notebook_interface': 'classic', 'binderhub_url': 'https://mybinder.org', 'jupyterhub_url': '', 'thebe': True, 'colab_url': 'https://colab.research.google.com'}, 'path_to_docs': '', 'repository_url': 'https://github.com/Kisleif/mtbook/tree', 'repository_branch': 'main', 'google_analytics_id': '', 'extra_navbar': 'Powered by <a href="https://jupyterbook.org">Jupyter Book</a>', 'extra_footer': '', 'home_page_in_toc': True, 'announcement': '', 'use_repository_button': True, 'use_edit_page_button': True, 'use_issues_button': True}
+#html_theme = "pydata_sphinx_theme"
+
+html_theme_options = {'search_bar_text': 'Durchsuche das Lecture Book...', 'launch_buttons': {'notebook_interface': 'classic', 'binderhub_url': 'https://mybinder.org', 'jupyterhub_url': '', 'thebe': True, 'colab_url': 'https://colab.research.google.com'}, 'path_to_docs': '', 'repository_url': 'https://github.com/Kisleif/mtbook/tree', 'repository_branch': 'main', 'google_analytics_id': '', 'extra_navbar': 'Powered by <a href="https://jupyterbook.org">Jupyter Book</a>', 'extra_footer': '', 'home_page_in_toc': True, 'announcement': '', 'use_repository_button': True, 'use_edit_page_button': True, 'use_issues_button': True}
 html_title = 'Metrology Lecture Book'
 jupyter_cache = ''
 jupyter_execute_notebooks = 'force'
@@ -35,3 +39,40 @@ pygments_style = 'sphinx'
 suppress_warnings = ['myst.domains']
 use_jupyterbook_latex = True
 use_multitoc_numbering = True
+
+html_sidebars = {
+    "uebungen": ["ablog/categories.html", "ablog/tagcloud.html", "ablog/archives.html"],
+    "uebungen/**": ["ablog/postcard.html", "ablog/recentposts.html", "ablog/archives.html"],
+}
+
+#rediraffe_redirects = {
+#    "rust-governance.md": "blog/2018/rust_governance.md",
+#}
+# Update the posts/* section of the rediraffe redirects to find all files
+redirect_folders = {
+    "posts": "uebungen",
+}
+from pathlib import Path
+
+for old, new in redirect_folders.items():
+    for newpath in Path(new).rglob("**/*"):
+        if newpath.suffix in [".ipynb", ".md"] and "ipynb_checkpoints" not in str(
+            newpath
+        ):
+            oldpath = str(newpath).replace("blog/", "posts/", 1)
+            # Skip pandoc because for some reason it's broken
+            if "pandoc" not in str(newpath):
+                rediraffe_redirects[oldpath] = str(newpath)
+                
+# -- ABlog ---------------------------------------------------
+
+##blog_baseurl = "https://kisleif.github.io/mtbook/blog.html"
+blog_title = "Übungen"
+blog_path = "uebungen"
+blog_post_pattern = ["blog/*.rst", "blog/*.md"]
+blog_feed_fulltext = True
+##blog_feed_subtitle = "Open communities, open science, communication, and data."
+fontawesome_included = True
+post_redirect_refresh = 1
+post_auto_image = 1
+post_auto_excerpt = 2

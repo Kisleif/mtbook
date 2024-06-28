@@ -4,4 +4,3 @@
 ```{tableofcontents}
 ```
 
-## Zusammenfassung

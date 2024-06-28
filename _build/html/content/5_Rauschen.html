@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Rauschen und spektrale Dichte &#8212; Metrology Lecture Book</title>
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -33,19 +33,21 @@
     <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
@@ -56,7 +58,7 @@
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/translations.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -123,6 +125,12 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content">Aufgaben sind jetzt auch online im <a href='https://kisleif.github.io/mtbook/_website/uebungen/index.html'> Übungs-Pool </a> zu finden.</div>
+  </div>
+
   
     <nav class="bd-header navbar navbar-expand-lg bd-navbar">
     </nav>
@@ -150,13 +158,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     
     
       
     
     
-    <img src="../_static/i_mt.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/i_mt.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/i_mt.png" class="logo__image only-light" alt="Metrology Lecture Book - Home"/>
+    <script>document.write(`<img src="../_static/i_mt.png" class="logo__image only-dark" alt="Metrology Lecture Book - Home"/>`);</script>
   
   
 </a></div>
@@ -171,13 +180,14 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro_book.html">Über dieses Lecture Book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro_book.html">Über dieses Book &amp; Python</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">✍️ Vorlesung</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="1_Einf%C3%BChrung%20in%20die%20Messtechnik.html">Einführung in die Messtechnik</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="V1.html"><em>Richtig</em> Messen</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="1_Einheiten.html">Einheiten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Kalibrieren.html">Kalibrieren und Eichen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Messunsicherheiten.html">Messunsicherheiten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_StatistischeMessunsicherheit.html">Statistische Messunsicherheit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_SystematischeMessabweichung.html">Systematische Messabweichung</a></li>
@@ -187,7 +197,6 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="V4.html">Stationäre Messysteme</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="2_Kalibrieren.html">Kalibrieren und Eichen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_Messsystem.html">Grundstruktur eines Messsystems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_idealeKennlinie.html">Kennlinie &amp; Empfindlichkeit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_realeKennlinie.html">Reale Kennlinie</a></li>
@@ -195,15 +204,15 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="V5.html">Messsignale</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="3_basics.html">Grundlagen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Modulationen.html">Modulation <a id="SubSec-Information"></a></a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_Digital.html">Digitalisierung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_Kenngroessen.html">Kenngrößen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_FourierAnalyse.html">Fourier-Analyse</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3_Modulationen.html">Modulation <a id="SubSec-Information"></a></a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="V6.html">Dynamische Messsysteme</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="5_LTI.html">Linear zeitinvariante Systeme (LTI)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="5_DGL.html">Systeme im Zeitraum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_LTI.html">Linear zeitinvariante Systeme (LZI/LTI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_DGL.html">Differentialgleichungen und Testfunktionen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5_Uebertragungsfunktion.html">Übertragungsfunktion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5_Faltung.html">Faltung</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Rauschen und spektrale Dichte</a></li>
@@ -217,19 +226,20 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="4_P-Messung.html">Leistungsmessung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="4_R-Messung.html">Widerstandsmessung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="4_CL-Messung.html">Messung von Kapazitäten und Induktivitäten</a></li>
-<li class="toctree-l2"><a class="reference internal" href="4_F-Messung.html">Frequenz- und Zeitmessung</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="V8.html">Sensoren</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="6_Einf%C3%BChrung.html">Einführung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="6_DMS.html">Dehnungsmessstreifen (DMS)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="6_PZT.html">Piezoelektrische Sensoren</a></li>
 <li class="toctree-l2"><a class="reference internal" href="6_GPS.html">Satellitennavigationssysteme</a></li>
 <li class="toctree-l2"><a class="reference internal" href="6_Kapazitiv.html">Kapazitive und Induktive Sensoren</a></li>
 <li class="toctree-l2"><a class="reference internal" href="6_Temp.html">Temperaturmessungen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="6_Beschleunigung.html">Beschleunigungssensoren</a></li>
 <li class="toctree-l2"><a class="reference internal" href="6_Radar.html">Radar</a></li>
 <li class="toctree-l2"><a class="reference internal" href="6_Ifo.html">Laserinterferometrie</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Forschung.html">Forschung</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="MT_ALPS.html">Messtechnik für die Dunkle Materie Suche</a></li>
 </ul>
 </li>
 </ul>
@@ -248,6 +258,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="T_LinReg.html">Verschiedene Fit-Funktionen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_FitmitFehlerbalken.html">Lineare Regression mit Fehlerbalken</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Spektralanalyse_Audio.html">Fourier-Transformation und Filter</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Übungen</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://kisleif.github.io/mtbook/_website/uebungen/index.html">Pool</a></li>
 </ul>
 
     </div>
@@ -562,7 +576,7 @@ document.write(`
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <p class="sd-card-text">Lecture in english from Prof. Ali Hajimiri, Caltech</p>
-<iframe width="220" height="315" src="https://www.youtube.com/embed/RF3arUN1n1A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="220" height="113" src="https://www.youtube.com/embed/RF3arUN1n1A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 </div>
 </div>
@@ -575,6 +589,11 @@ document.write(`
 <h3>Zeitbereich<a class="headerlink" href="#zeitbereich" title="Permalink to this heading">#</a></h3>
 <p>Rauschen ist nichts anderes als ungewünschte Fluktuationen in unserem Signal und sieht z.B. folgendermaßen aus:</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Benötigte Libraries:</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -608,26 +627,27 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<div class="output text_html"><script type="text/javascript">
-window.PlotlyConfig = {MathJaxConfig: 'local'};
-if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
-if (typeof require !== 'undefined') {
-require.undef("plotly");
-requirejs.config({
-    paths: {
-        'plotly': ['https://cdn.plot.ly/plotly-2.12.1.min']
-    }
-});
-require(['plotly'], function(Plotly) {
-    window._Plotly = Plotly;
-});
-}
-</script>
-</div><img alt="../_images/5_Rauschen_1_1.png" src="../_images/5_Rauschen_1_1.png" />
+<div class="output text_html">        <script type="text/javascript">
+        window.PlotlyConfig = {MathJaxConfig: 'local'};
+        if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+        if (typeof require !== 'undefined') {
+        require.undef("plotly");
+        requirejs.config({
+            paths: {
+                'plotly': ['https://cdn.plot.ly/plotly-2.12.1.min']
+            }
+        });
+        require(['plotly'], function(Plotly) {
+            window._Plotly = Plotly;
+        });
+        }
+        </script>
+        </div><img alt="../_images/fc52f9f435975215bac4106b51b122ed0a206033de833782a81fb715988f8660.png" src="../_images/fc52f9f435975215bac4106b51b122ed0a206033de833782a81fb715988f8660.png" />
 </div>
 </div>
-<p>In diesem Beispiel-Plot ist der Mittelwert Null. Wäre er von Null verschieden, so könnte man ihn von der Messung abziehen. Dies nennt man in der Messtechnik auch <em>offset</em> oder <em>bias</em>. Außerdem fällt auf, dass die einzelnen Messpunkte nicht <em>uniform zufällig</em> sind. Größere Amplituden findet man seltener als Messpunkte, deren Amplituden nah an der Null liegen. Daher wird diese Art von Rauschen auch <strong>Gauß’sches (oder weißes) Rauschen</strong> genannt. Diese Art von Rauschen findet man bei jeder Messung und ist dient als Modell um natürliche Rauschquellen zu beschreiben (thermische Vibrationen von Atomen in <em>Gauß-verteilt</em>).</p>
+<p>In diesem Beispiel-Plot ist der Mittelwert Null. Wäre er von Null verschieden, so könnte man ihn von der Messung abziehen. Dies nennt man in der Messtechnik auch <em>offset</em> oder <em>bias</em>. Außerdem fällt auf, dass die einzelnen Messpunkte nicht <em>uniform zufällig</em> sind. Größere Amplituden findet man seltener als Messpunkte, deren Amplituden nah an der Null liegen. Daher wird diese Art von Rauschen auch <strong>Gauß’sches (oder weißes) Rauschen</strong> genannt. Diese Art von Rauschen findet man bei jeder Messung und dient als Modell um natürliche Rauschquellen zu beschreiben (thermische Vibrationen von Atomen sind <em>Gauß-verteilt</em>).</p>
 <p>Der <strong>zentrale Grenzwertsatz</strong> im Kapitel <span class="xref myst">Statistische Größen</span> sagt uns, dass die Summe von vielen zufälligen Prozessen wieder eine Gauß-Verteilung ergibt. Selbst wenn die einzelnen Prozesse einer anderen Verteilung folgen. Das heißt selbst wenn eine Menge Mist während der Messung passiert, ist das zugrundeliegende Rauschen höchstwahrscheinlich Gauß’sches / weiß.</p>
 </section>
 <section id="rauschleistung">
@@ -656,6 +676,11 @@ Das Integral über die PSD über alle Frequenzen ergibt die Gesamtleistung des S
 <p>Strom und Spannung werden weiterhin nur mit <span class="math notranslate nohighlight">\(H(\omega)\)</span> multipliziert.</p>
 <p>Für die obige Zeitreihe von Gauß’schem Rauschen erhalten wir folgende PSD:</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># MatplotLib Settings:</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
@@ -671,8 +696,9 @@ Das Integral über die PSD über alle Frequenzen ergibt die Gesamtleistung des S
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/5_Rauschen_4_0.png" src="../_images/5_Rauschen_4_0.png" />
+<img alt="../_images/a849bd07fd4e2a6897b6aaa4855f1031a6c7361548c1c07527eecbaa2f0f3912.png" src="../_images/a849bd07fd4e2a6897b6aaa4855f1031a6c7361548c1c07527eecbaa2f0f3912.png" />
 </div>
 </div>
 </section>
@@ -689,18 +715,28 @@ Das Integral über die PSD über alle Frequenzen ergibt die Gesamtleistung des S
 <h3>Definition<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <p>Der SNR berechnet sich aus den Verhältnissen der mittleren Leistungen von Signal, <span class="math notranslate nohighlight">\(P\)</span> und Rauschen, <span class="math notranslate nohighlight">\(P_\mathrm{Rauschen}\)</span> (PSD):</p>
 <div class="math notranslate nohighlight">
-\[\mathrm{SNR} = \frac{P}{P_\mathrm{Rauschen}} = 10 \log \left(\frac{P}{P_\mathrm{Rauschen}} \right)\]</div>
+\[\mathrm{SNR} = \frac{P}{P_\mathrm{Rauschen}}\]</div>
+<div class="math notranslate nohighlight">
+\[\mathrm{SNR_{dB}} = 10 \log \left(\frac{P}{P_\mathrm{Rauschen}} \right)\]</div>
 <p>Im letzten Schritt wurde der logarithmische Maßstab benutzt um den SNR darzustellen. Dies ist wichtig da Signal- und Rauschleistung meistens (hoffentlich) mehrere Größenordnungen auseinander liegen.</p>
 <p>Da die Leistung auch durch die Varianz des Signals gegeben ist, kann man auch folgende Formel benutzen:</p>
 <div class="math notranslate nohighlight">
 \[\mathrm{SNR} = \frac{\sigma^2}{\sigma^2_\mathrm{Rauschen}} \]</div>
-<p>In der Spektroskopie oder Bildbearbeitung definiert man den sNR auch häufig über die Signal<em>amplitude</em> <span class="math notranslate nohighlight">\(A\)</span> und der Standardabweichung des Rauschens <span class="math notranslate nohighlight">\(\sigma_\mathrm{Rauschen}\)</span>:</p>
+<p>Mithilfe des <strong>Parseval’schen Theorems</strong> kann ebenfalls die mittlere Leistung mittels der Fourier-Koeffizienten berechnet werden, welches dann in die SNR-Gleichung eingesetzt werden können:</p>
+<div class="math notranslate nohighlight">
+\[P = |c_0^2| + 2 \cdot \sum_{k=1}^N |c_k|^2\]</div>
+<p>In der Spektroskopie oder Bildbearbeitung definiert man den SNR auch häufig über die Signal<em>amplitude</em> <span class="math notranslate nohighlight">\(A\)</span> und der Standardabweichung des Rauschens <span class="math notranslate nohighlight">\(\sigma_\mathrm{Rauschen}\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\mathrm{SNR} = \frac{A}{\sigma_\mathrm{Rauschen}}\]</div>
 <p>Für zwei Sinussignale, die mit Rauschen, <span class="math notranslate nohighlight">\(\tilde u(t)\)</span>, überlagert werden, definieren wir folgende Zeitserie und plotten das PSD:</p>
 <div class="math notranslate nohighlight">
 \[u(t) = \sin(2\pi \cdot 10\,\mathrm{Hz} \cdot t) + \sin(2\pi \cdot 60\,\mathrm{Hz} \cdot t) + \tilde u(t)\]</div>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.signal</span>
 <span class="c1"># MatplotLib Settings:</span>
@@ -757,9 +793,10 @@ Das Integral über die PSD über alle Frequenzen ergibt die Gesamtleistung des S
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/5_Rauschen_6_0.png" src="../_images/5_Rauschen_6_0.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Das SNR beträgt circa:  85.2103445706379 dB
+<img alt="../_images/606c3e29d50902cb38bcc1be9b968e883ba547c6dd45f76287c6c7e45b083a9f.png" src="../_images/606c3e29d50902cb38bcc1be9b968e883ba547c6dd45f76287c6c7e45b083a9f.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Das SNR beträgt circa:  85.20358055963491 dB
 </pre></div>
 </div>
 </div>
@@ -776,6 +813,11 @@ Das Integral über die PSD über alle Frequenzen ergibt die Gesamtleistung des S
 Hierfür wird der vorliegende Datensatz in <span class="math notranslate nohighlight">\(N\)</span> Segmente einer festen Länge <span class="math notranslate nohighlight">\(M\)</span> aufgeteilt. Für jedes dieser Segmente wird anschließend die diskrete Fourier-Transformierte berechnet (die Version bei der <em>nicht</em> durch <span class="math notranslate nohighlight">\(M\)</span> geteilt wird). Die berechneten Amplituden werden quadriert und anschließend durch <span class="math notranslate nohighlight">\(M\)</span> geteilt. Die DFTs der <span class="math notranslate nohighlight">\(N\)</span> Segmente werden anschließend gemittelt. Durch die Mittelung wird die Varianz und somit das Rauschen reduziert. Ausgegeben werden Leistungsmessungen gegenüber Frequenz-Bins.</p>
 <p>Die Frequenzkomponenten werden auch hiermit noch genug angenähert. Durch die Vergrößerung der Segmentlänge, kann das Ergebnis verbessert werden:</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># MatplotLib Settings:</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
@@ -810,8 +852,9 @@ Hierfür wird der vorliegende Datensatz in <span class="math notranslate nohighl
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/5_Rauschen_9_0.png" src="../_images/5_Rauschen_9_0.png" />
+<img alt="../_images/e995fb1cfc504108987affdda881aef8014023679749e85b177de685c7b9c447.png" src="../_images/e995fb1cfc504108987affdda881aef8014023679749e85b177de685c7b9c447.png" />
 </div>
 </div>
 </section>
@@ -829,7 +872,7 @@ Hierfür wird der vorliegende Datensatz in <span class="math notranslate nohighl
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./content"
         },
         predefinedOutput: true
@@ -942,8 +985,8 @@ Durch Katharina-S. Isleif
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
   </footer>

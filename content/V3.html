@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Grundlagen &#8212; Metrology Lecture Book</title>
+    <title>Messunsicherheiten &#8212; Metrology Lecture Book</title>
   
   
   
@@ -66,11 +66,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'content/V1';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/V3';</script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="Einheiten" href="1_Einheiten.html" />
-    <link rel="prev" title="Intro" href="1_Einf%C3%BChrung%20in%20die%20Messtechnik.html" />
+    <link rel="next" title="Regressionsrechnung" href="1_Kurvenanpassung.html" />
+    <link rel="prev" title="Fehlerfortpflanzung" href="1_Fehlerfortpflanzung.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
   </head>
@@ -183,7 +183,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">✍️ Vorlesung</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="1_Einf%C3%BChrung%20in%20die%20Messtechnik.html">Intro</a></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Grundlagen</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="V1.html">Grundlagen</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="1_Einheiten.html">Einheiten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Kalibrieren.html">Kalibrieren und Eichen</a></li>
 </ul>
@@ -195,7 +195,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="1_Fehlerfortpflanzung.html">Fehlerfortpflanzung</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="V3.html">Messunsicherheiten</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Messunsicherheiten</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="1_Kurvenanpassung.html">Regressionsrechnung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Interpol_Approx.html">Interpolation vs. Regression</a></li>
 </ul>
@@ -339,7 +339,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Kisleif/mtbook/edit/main/content/V1.md" target="_blank"
+      <li><a href="https://github.com/Kisleif/mtbook/edit/main/content/V3.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -356,7 +356,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Kisleif/mtbook/issues/new?title=Issue%20on%20page%20%2Fcontent/V1.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Kisleif/mtbook/issues/new?title=Issue%20on%20page%20%2Fcontent/V3.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Öffnen Sie ein Problem"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -386,7 +386,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/content/V1.md" target="_blank"
+      <li><a href="../_sources/content/V3.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Quelldatei herunterladen"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -468,7 +468,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Grundlagen</h1>
+    <h1>Messunsicherheiten</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -491,15 +491,14 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="grundlagen">
-<h1>Grundlagen<a class="headerlink" href="#grundlagen" title="Permalink to this heading">#</a></h1>
-<p>Wie messen wir <em>richtig</em> im Praktikum? In der ersten Vorlesung klären wir die wichtigsten Begrifflichkeiten eines Messsystems und wie dieses kalibriert wird.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="messunsicherheiten">
+<h1>Messunsicherheiten<a class="headerlink" href="#messunsicherheiten" title="Permalink to this heading">#</a></h1>
 <section id="inhaltsverzeichnis">
 <h2>Inhaltsverzeichnis<a class="headerlink" href="#inhaltsverzeichnis" title="Permalink to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="1_Einheiten.html">Einheiten</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_Kalibrieren.html">Kalibrieren und Eichen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_Kurvenanpassung.html">Regressionsrechnung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_Interpol_Approx.html">Interpolation vs. Regression</a></li>
 </ul>
 </div>
 </section>
@@ -512,35 +511,26 @@ document.write(`
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-left"><p>Messen</p></td>
-<td class="text-left"><p>Ermittlung des Messwertes zu einer Messgröße. (Wie oft geht eine Einheit in eine Messgröße hinein?)</p></td>
+<tr class="row-even"><td class="text-left"><p>Interpolation</p></td>
+<td class="text-left"><p>Analytische Kennlinie läuft exakt durch alle Messpunkte und wird beispielsweise unter Verwendung von Polynomen bestimmt.</p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p>Maßeinheit</p></td>
-<td class="text-left"><p>Festgelegter Vergleichswert für eine physikalische Messgröße</p></td>
+<tr class="row-odd"><td class="text-left"><p>Regression</p></td>
+<td class="text-left"><p>statistisches Analyseverfahren zur Feststellung funktionaler Beziehungen zwischen einer abhängigen und einer oder mehreren unabhängigen Variablen (Untersuchung von Korrelationen)</p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p>Messwert</p></td>
-<td class="text-left"><p>Bei der Messung ermittelter Faktor. Zahlenmäßiges Verhältnis zwischen Einheit und Messgröße</p></td>
+<tr class="row-even"><td class="text-left"><p>Anpassung</p></td>
+<td class="text-left"><p>Wie Regression, aber unter Berücksichtigung von Messfehlern (Fehlerbalken)</p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p>Messgröße</p></td>
-<td class="text-left"><p>Physikalische Größe, die Gegenstand einer Messung ist</p></td>
+<tr class="row-odd"><td class="text-left"><p>Approximation</p></td>
+<td class="text-left"><p>Kennlinienannäherung mittels Linearkombination geeigneter analytischer Basisfunktionen (beispielsweise durch Fourier-Reihen, siehe kommende Kapitel (Regression und Anpassung sind Approximationen)</p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p>Richtiger Wert</p></td>
-<td class="text-left"><p>Mit denkbar größten technischem und theoretischem Aufwand ermittelter Messwert, der als Bezugswert zur Bewertung eines Messergebnisses benutzt wird.</p></td>
+<tr class="row-even"><td class="text-left"><p>Bestimmtheitsmaß</p></td>
+<td class="text-left"><p>Das Bestimmtheitsmaß, auch Determinationskoeffizient (von lateinisch determinatio „Abgrenzung, Bestimmung“ bzw. determinare „eingrenzen“, „festlegen“, „bestimmen“ und coefficere „mitwirken“), R2, ist in der Statistik eine Kennzahl zur Beurteilung der Anpassungsgüte einer Regression – beispielsweise, um zu bewerten, wie gut Messwerte zu einem Modell passen. Das Bestimmtheitsmaß beruht auf der Quadratsummenzerlegung, bei der die totale Quadratsumme in die (durch das Regressionsmodell) erklärte Quadratsumme und in die Residuenquadratsumme zerlegt wird.</p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p>Wahrer Wert</p></td>
-<td class="text-left"><p>Tatsächlich vorhandener Wert einer physikalischen Größe, er ist durch eine endliche Genauigkeit der verwendeten Messmittel nicht exakt bestimbar.</p></td>
+<tr class="row-odd"><td class="text-left"><p>Methode der kleinsten Quadrate</p></td>
+<td class="text-left"><p>ist das mathematische Standardverfahren zur Ausgleichungsrechnung.</p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p>SI-Einheitensystem</p></td>
-<td class="text-left"><p>Vereinbartes System von Maßeinheiten</p></td>
-</tr>
-<tr class="row-odd"><td class="text-left"><p>Dezibel</p></td>
-<td class="text-left"><p>Logarithmisches Übertragungsmaß, dessen Zahlenwert mit einer vereinbarten Berechnungsvorschrift ermittelt wird.</p></td>
-</tr>
-<tr class="row-even"><td class="text-left"><p>Messsignal</p></td>
-<td class="text-left"><p>Ein Signal mit dem Messinformationen transportiert werden</p></td>
-</tr>
-<tr class="row-odd"><td class="text-left"><p>Messergebnis / Messwert</p></td>
-<td class="text-left"><p>(Schätz-)Wert, den die Messgröße durch Auswertung einer Messung bekommt</p></td>
+<tr class="row-even"><td class="text-left"><p>Residuenquadratsumme</p></td>
+<td class="text-left"><p>Die Residuenquadratsumme, Quadratsumme der Residuen, oder auch Summe der Residuenquadrate, bezeichnet in der Statistik die Summe der quadrierten (Kleinste-Quadrate-)Residuen (Abweichungen zwischen Beobachtungswerten und den vorhergesagten Werten) aller Beobachtungen</p></td>
 </tr>
 </tbody>
 </table>
@@ -578,20 +568,20 @@ document.write(`
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="1_Einf%C3%BChrung%20in%20die%20Messtechnik.html"
+       href="1_Fehlerfortpflanzung.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">zurück</p>
-        <p class="prev-next-title">Intro</p>
+        <p class="prev-next-title">Fehlerfortpflanzung</p>
       </div>
     </a>
     <a class="right-next"
-       href="1_Einheiten.html"
+       href="1_Kurvenanpassung.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title">Einheiten</p>
+        <p class="prev-next-title">Regressionsrechnung</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

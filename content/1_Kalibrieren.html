@@ -70,7 +70,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
     <link rel="next" title="Messunsicherheiten" href="1_Messunsicherheiten.html" />
-    <link rel="prev" title="Einheiten" href="1_Einheiten.html" />
+    <link rel="prev" title="Einheiten und Kalibrieren" href="1_Einheiten.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
   </head>
@@ -182,9 +182,9 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">✍️ Vorlesung</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="1_Einf%C3%BChrung%20in%20die%20Messtechnik.html">Einführung in die Messtechnik</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_Einf%C3%BChrung%20in%20die%20Messtechnik.html">Intro</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="V1.html"><em>Richtig</em> Messen</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="1_Einheiten.html">Einheiten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Einheiten.html">Einheiten und Kalibrieren</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Kalibrieren und Eichen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Messunsicherheiten.html">Messunsicherheiten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_StatistischeMessunsicherheit.html">Statistische Messunsicherheit</a></li>
@@ -228,6 +228,8 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="V8.html">Sensoren</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="6_Einf%C3%BChrung.html">Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_DMS.html">Dehnungsmessstreifen (DMS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_PZT.html">Piezoelektrische Sensoren</a></li>
 <li class="toctree-l2"><a class="reference internal" href="6_GPS.html">Satellitennavigationssysteme</a></li>
 <li class="toctree-l2"><a class="reference internal" href="6_Kapazitiv.html">Kapazitive und Induktive Sensoren</a></li>
 <li class="toctree-l2"><a class="reference internal" href="6_Temp.html">Temperaturmessungen</a></li>
@@ -237,7 +239,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="Forschung.html">Forschung</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="MT_ALPS.html">Messtechnik für die Dunkle Materie Suche</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MT_ALPS.html">Messtechnik in Dunkle Materie Experimenten</a></li>
 </ul>
 </li>
 </ul>
@@ -551,9 +553,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="kalibrieren-und-eichen">
+  <section id="kalibrieren-und-eichen">
 <h1>Kalibrieren und Eichen<a class="headerlink" href="#kalibrieren-und-eichen" title="Permalink to this heading">#</a></h1>
-<p>Messgeräte sind unter Umständen unterschiedlichen Belastungen aus der Umgebung ausgesetzt, die sich im Laufe der Zeit unbemerkt auf die Messwerte auswirken können. Ist ein Gerät einmal ungenau geworden, kann dies zu Störungen in Prozessabläufen führen oder sogar gravierende Sicherheitsrisiken verursachen, was häufig mit hohen Kosten verbunden ist. Daher ist eine regelmäßige Überprüfung und Kalibrierung empfehlenswert und oft vorgeschrieben.</p>
+<p>Messgeräte sind oftmals verschiedenen Umwelteinflüssen ausgesetzt, die im Laufe der Zeit unbemerkt ihre Genauigkeit beeinträchtigen können. Wenn ein Gerät ungenau wird, kann dies zu Störungen in Prozessabläufen oder sogar zu gravierenden Sicherheitsrisiken führen, die häufig mit hohen Kosten verbunden sind. Daher ist eine regelmäßige Überprüfung und Kalibrierung nicht nur empfehlenswert, sondern oft auch gesetzlich vorgeschrieben.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
@@ -569,38 +571,35 @@ document.write(`
 </div>
 </div>
 </aside>
-<p>In der Messtechnik ist es wichtig, zwischen verschiedenen Begrifflichkeiten zu unterscheiden, da in der Umgangssprache häufig Unklarheiten auftreten. Ein grundlegender Unterschied besteht zwischen dem <strong>Messen</strong> und dem <strong>Prüfen</strong> von Größen.</p>
+<p>In der Messtechnik ist es wichtig, zwischen verschiedenen Begriffen zu unterscheiden, da im allgemeinen Sprachgebrauch oft Unklarheiten bestehen. Ein wesentlicher Unterschied besteht zwischen dem <strong>Messen</strong> und dem <strong>Prüfen</strong> von Größen:</p>
 <ul class="simple">
-<li><p><strong>Messen</strong>: Beim Messen erfasst man den Wert einer physikalischen Größe, ohne eine spezifische Prüfung oder Überprüfung durchzuführen.</p></li>
-<li><p><strong>Prüfen</strong>: Das Prüfen hingegen bezieht sich auf die Überprüfung, ob ein Prüfgegenstand bestimmte Vorgaben oder Spezifikationen erfüllt. Dabei werden Prüfbedingungen festgelegt, die in Normen oder Standards festgehalten sind. Zum Beispiel kann die elektromagnetische Verträglichkeit (EMV) geprüft werden, wobei konkrete Randbedingungen für Messaufbauten bei Messgeräten definiert sind. Prüfen geht somit über das bloße Messen einer Größe hinaus.</p></li>
+<li><p><strong>Messen</strong>: Hierbei wird der Wert einer physikalischen Größe erfasst, ohne dass eine spezifische Überprüfung stattfindet.</p></li>
+<li><p><strong>Prüfen</strong>: Beim Prüfen wird überprüft, ob ein Prüfgegenstand bestimmten Vorgaben oder Spezifikationen entspricht. Dies geht über das bloße Messen hinaus und erfolgt nach festgelegten Prüfbedingungen, die in Normen oder Standards definiert sind.</p></li>
 </ul>
 <section id="kalibrieren">
 <h2>Kalibrieren<a class="headerlink" href="#kalibrieren" title="Permalink to this heading">#</a></h2>
-<p>Messsysteme weisen in der Regel Messgenauigkeiten auf, die die Präzision der Messungen begrenzen. Diese Messgenauigkeit kann werksseitig während des Herstellungsprozesses oder später in der gewünschten Testumgebung verbessert werden. Hierzu benötigt man eine <strong>bekannte Referenz</strong>, die an das Messgerät angeschlossen werden kann. Das Messsystem kann dann so eingestellt werden, dass der angezeigte Messwert möglichst genau dem <strong>bekannten</strong> Referenzwert entspricht. Alternativ kann auch ein Präzisionsmessgerät als Referenz benutzt werden, mit dem das zu kalibrierende Gerät verglichen wird. Das Referenzgerät muss genauer als das Messgerät sein und rückführbar sein.</p>
-<p>Mittels der Referenz kann die Messabweichung bestimmt werden. Weicht der gemessene Wert stark von der Referenz ab, wird das Messgerät neu eingestellt, was als <strong>Justieren</strong> bezeichnet wird.</p>
+<p>Messsysteme weisen naturgemäß eine begrenzte Messgenauigkeit auf, die die Präzision der Messungen beeinflusst. Diese Messgenauigkeit kann entweder während des Herstellungsprozesses oder später in der gewünschten Testumgebung durch Kalibrierung verbessert werden. Dabei wird eine <strong>bekannte Referenz</strong> verwendet, die an das Messgerät angeschlossen wird. Das Messsystem kann so eingestellt werden, dass der angezeigte Messwert möglichst genau dem <strong>bekannten</strong> Referenzwert entspricht. Alternativ kann ein Präzisionsmessgerät als Referenz genutzt werden, mit dem das zu kalibrierende Gerät verglichen wird. Wichtig ist, dass das Referenzgerät genauer ist und rückführbar auf ein Primärnormal kalibriert wurde.</p>
+<p>Mithilfe der Referenz kann die Messabweichung des Geräts bestimmt werden. Ist diese Abweichung zu groß, wird das Messgerät neu eingestellt, ein Vorgang, der als <strong>Justieren</strong> bezeichnet wird.</p>
 <figure class="align-default" id="eichung">
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/eichung.jpg"><img alt="eichung" class="bg-primary mb-1" src="../_images/eichung.jpg" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 10 </span><span class="caption-text">Die Kalibrierung eines Messystems kann auf zwei Arten und Weisen entstehen: Entweder durch den Vergleich mit einem zusätzlichen Präzisionsmessgerät (links) oder durch Vermessung eines <em>Normals</em>, was den <em>wahren</em> Wert wiederspiegelt (rechts).</span><a class="headerlink" href="#eichung" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-number">Abb. 11 </span><span class="caption-text">Die Kalibrierung eines Messsystems kann entweder durch den Vergleich mit einem Präzisionsmessgerät (links) oder durch die Vermessung eines <em>Normals</em>, das den <em>wahren</em> Wert wiedergibt (rechts), erfolgen.</span><a class="headerlink" href="#eichung" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="eichen">
 <h2>Eichen<a class="headerlink" href="#eichen" title="Permalink to this heading">#</a></h2>
-<p>Unter dem Begriff <strong>Eichen</strong> versteht man einen speziellen Vorgang der Kalibrierung. Hier wird der Kalibriervorgang durch eine staatliche Stelle beglaubigt. Dies ist beispielsweise beim Verbraucherschutz vorgeschrieben.</p>
-<p>Die Eichung beinhaltet die Prüfung und Stempelung eines Messgeräts, die gemäß den gesetzlichen Eichvorschriften erfolgt. Diese Eichung ist erforderlich, wenn Messsysteme im gewerblichen Verkehr oder Handel eingesetzt werden, wie beispielsweise bei einer Obst- und Gemüsewaage an der Kasse eines Supermarktes. Die Eichung gewährleistet dem Verbraucher eine gewisse Sicherheit, dass das Messgerät innerhalb bestimmter Toleranzgrenzen genau arbeitet. In Deutschland regelt die <strong>Mess- und Eichverordnung</strong> dieses Verfahren. Das Eichen ist ein hoheitlicher Akt und darf nur in von staatlichen Behörden autorisierten Eichämtern durchgeführt werden. Zudem muss die Eichung in regelmäßigen Abständen wiederholt werden.</p>
-<p>Um eine möglichst gute Genauigkeit und Manipulationssicherheit zu gewährleisten, werden die meisten Messgeräte bereits während des Herstellungsprozesses kalibriert oder geeicht. In Deutschland ist die Physikalisch-Technische Bundesanstalt (PTB) in Braunschweig und Berlin für diese Aufgabe zuständig.</p>
+<p>Das <strong>Eichen</strong> ist eine spezielle Form der Kalibrierung, bei der der Kalibriervorgang durch eine staatliche Stelle offiziell beglaubigt wird. Diese Eichung ist besonders im Verbraucherschutz von großer Bedeutung, beispielsweise bei Waagen im Handel, die sicherstellen müssen, dass der Verbraucher eine genaue Menge erhält. Die Eichung wird nach den gesetzlichen Vorgaben der <strong>Mess- und Eichverordnung</strong> durchgeführt und stellt sicher, dass das Messgerät innerhalb festgelegter Toleranzgrenzen arbeitet. Das Eichen ist ein hoheitlicher Akt und darf nur von staatlich autorisierten Eichämtern durchgeführt werden. Zudem muss die Eichung in regelmäßigen Abständen wiederholt werden.</p>
+<p>In Deutschland übernimmt die Physikalisch-Technische Bundesanstalt (PTB) in Braunschweig und Berlin diese Aufgabe, um die Genauigkeit und Zuverlässigkeit von Messgeräten zu gewährleisten.</p>
 </section>
 <section id="normale">
 <h2>Normale<a class="headerlink" href="#normale" title="Permalink to this heading">#</a></h2>
-<p>Normale sind Maßverkörperungen, die einfach handhabbar sind und von Basisgrößen abgeleitet werden können. Die Basiseinheiten oder von ihnen abgeleitete Einheiten werden in der Praxis oft über atomare Naturkonstanten definiert, was jedoch in vielen Fällen unpraktisch oder unumsetzbar ist.</p>
-<p>Im <strong>BIPM</strong> (Internationales Büro für Maß und Gewicht) werden praktisch anwendbare <strong>Primärnormale</strong> direkt von Basisgrößen abgeleitet und hergestellt. Diese Primärnormale werden kontinuierlich überwacht, um ihre Genauigkeit sicherzustellen. Für nahezu jede Messgröße existieren solche Primärnormale, wie zum Beispiel für Ohm, Volt, Henry, Farad und viele mehr.</p>
-<p>Jedes Land, das den Vertrag bei der Generalkonferenz für Maß und Gewicht unterzeichnet hat, erhält ein solches Primärnormal. Von diesen Primärnormalen werden <strong>Sekundärnormale</strong> innerhalb der Länder abgeleitet. Diese Sekundärnormale dienen wiederum zur Eichung von betrieblichen Arbeitsnormalen in Eichlaboren, Behörden oder Ämtern.</p>
-<p><strong>Arbeitsnormale</strong> sind Abwandlungen der Sekundärnormale und werden in Unternehmen verwendet, um betriebliche Messmittel eigenständig zu kalibrieren. Damit wird sichergestellt, dass die in der Industrie verwendeten Messgeräte den erforderlichen Genauigkeitsstandards entsprechen.</p>
+<p><strong>Normale</strong> sind Maßverkörperungen, die von den Basiseinheiten abgeleitet werden und als Referenzgrößen dienen. Diese werden im <strong>BIPM</strong> (Internationales Büro für Maß und Gewicht) entwickelt und kontinuierlich überwacht, um ihre Genauigkeit sicherzustellen. Für fast jede Messgröße existieren solche Primärnormale, die direkt von den Basisgrößen abgeleitet sind, beispielsweise für Ohm, Volt, Henry, Farad und viele andere.</p>
+<p>Jedes Land, das den Vertrag bei der Generalkonferenz für Maß und Gewicht unterzeichnet hat, erhält ein solches Primärnormal. Diese Primärnormale dienen als Referenz für <strong>Sekundärnormale</strong>, die innerhalb der Länder genutzt werden. Sekundärnormale werden wiederum verwendet, um betriebliche <strong>Arbeitsnormale</strong> zu eichen, die in Unternehmen eingesetzt werden, um die eigenen Messgeräte zu kalibrieren. So wird sichergestellt, dass die in der Industrie verwendeten Messgeräte den erforderlichen Genauigkeitsstandards entsprechen.</p>
 <figure class="align-default" id="normal">
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/normal.jpg"><img alt="normal" class="bg-primary mb-1" src="../_images/normal.jpg" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 11 </span><span class="caption-text">Die verschiedenen Stadien eines <em>Normals</em> für verschiedene Anwendungen und Benutzer.</span><a class="headerlink" href="#normal" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-number">Abb. 12 </span><span class="caption-text">Die verschiedenen Stadien eines <em>Normals</em> für unterschiedliche Anwendungen und Benutzer.</span><a class="headerlink" href="#normal" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -642,7 +641,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">zurück</p>
-        <p class="prev-next-title">Einheiten</p>
+        <p class="prev-next-title">Einheiten und Kalibrieren</p>
       </div>
     </a>
     <a class="right-next"

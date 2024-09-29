@@ -60,7 +60,7 @@ In Vorbereitung
 :::
 
 
-:::{grid-item-card} [Versuchsanleitung](https://hsuhhde.sharepoint.com/:b:/s/MesstechnikHT23_mst/ERe3ddR5CMtCm4CyuqnSDngBv3m5RVHQN7ohuRSuBvX1YA?e=2lY1LT)
+:::{grid-item-card} [Versuchsanleitung](https://hsuhhde-my.sharepoint.com/:b:/g/personal/isleifk_hsu-hh_de/EfQohUUuLvREism4f28JLoYBP6i83SFNb1JSfr6nr2QNNA?e=lQVPga)
 :class-header: bg-light
 **Optische Messtechnik (OMT)**
 ^^^

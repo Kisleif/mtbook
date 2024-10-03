@@ -1,0 +1,1621 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="de" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Auswertungen zum Accelerator Pedal Position Sensor (APPS) &#8212; Metrology Lecture Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/APPS';</script>
+    <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
+    <link rel="search" title="Suche" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="de"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content">Aufgaben sind jetzt auch online im <a href='https://kisleif.github.io/mtbook/_website/uebungen/index.html'> Übungs-Pool </a> zu finden.</div>
+  </div>
+
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/i_mt.png" class="logo__image only-light" alt="Metrology Lecture Book - Home"/>
+    <script>document.write(`<img src="../_static/i_mt.png" class="logo__image only-dark" alt="Metrology Lecture Book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro_book.html">Über dieses Book &amp; Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">✍️ Vorlesung</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="1_Einf%C3%BChrung%20in%20die%20Messtechnik.html">Intro</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="V1.html">Grundlagen</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_Einheiten.html">Einheiten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Kalibrieren.html">Kalibrieren und Eichen</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="V2.html">Messunsicherheiten</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_Messunsicherheiten.html">Messunsicherheiten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_SystematischeMessabweichung.html">Systematische Messabweichung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_StatistischeMessunsicherheit.html">Statistische Messunsicherheit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Fehlerfortpflanzung.html">Fehlerfortpflanzung</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="V3.html">Messunsicherheiten</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_Kurvenanpassung.html">Regressionsrechnung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Interpol_Approx.html">Interpolation vs. Regression</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="V4.html">Stationäre Messysteme</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_Messsystem.html">Grundstruktur eines Messsystems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_idealeKennlinie.html">Kennlinie &amp; Empfindlichkeit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_realeKennlinie.html">Reale Kennlinie</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="V5.html">Messsignale</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_basics.html">Grundlagen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Modulationen.html">Modulation <a id="SubSec-Information"></a></a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Digital.html">Digitalisierung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Kenngroessen.html">Kenngrößen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_FourierAnalyse.html">Fourier-Analyse</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="V6.html">Dynamische Messsysteme</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="5_LTI.html">Linear zeitinvariante Systeme (LZI/LTI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_DGL.html">Differentialgleichungen und Testfunktionen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Uebertragungsfunktion.html">Übertragungsfunktion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Faltung.html">Faltung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Rauschen.html">Rauschen und spektrale Dichte</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="V7.html">Messen elektrischer Größen</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="4_E-basics.html">Grundlagen der Elektrotechnik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_U-Messeingang.html">Spannungsmesseingang</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_I-Messeingang.html">Strommesseingang</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_OP.html">Operationsverstärker (OP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_P-Messung.html">Leistungsmessung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_R-Messung.html">Widerstandsmessung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_CL-Messung.html">Messung von Kapazitäten und Induktivitäten</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="V8.html">Sensoren</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="6_Einf%C3%BChrung.html">Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_DMS.html">Dehnungsmessstreifen (DMS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_PZT.html">Piezoelektrische Sensoren</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_GPS.html">Satellitennavigationssysteme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Kapazitiv.html">Kapazitive und Induktive Sensoren</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Temp.html">Temperaturmessungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Beschleunigung.html">Beschleunigungssensoren</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Radar.html">Radar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Ifo.html">Laserinterferometrie</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Forschung.html">Forschung</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="MT_ALPS.html">Messtechnik in Dunkle Materie Experimenten</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">🧪 Praktikum</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="0_Praktikum.html">Infos zum Praktikum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0_Praktikum%20-%20Checkliste.html">Checkliste für Protokolle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Versuche.html">Versuche</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">🐍 Jupyter Notebooks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="T_Schwerependel.html">Messunsicherheiten beim Schwerependel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T_Fehlerfortpflanzung.html">Fehlerfortpflanzung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T_Log.html">Logarithmische Darstellung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T_Plotten.html">Daten plotten und fitten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T_LinReg.html">Verschiedene Fit-Funktionen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T_FitmitFehlerbalken.html">Lineare Regression mit Fehlerbalken</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T_Spektralanalyse_Audio.html">Fourier-Transformation und Filter</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Übungen</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://kisleif.github.io/mtbook/_website/uebungen/index.html">Pool</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/Kisleif/mtbook/main?urlpath=tree/content/APPS.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Kisleif/mtbook/blob/main/content/APPS.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Kisleif/mtbook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Quell-Repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Kisleif/mtbook/edit/main/content/APPS.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Kisleif/mtbook/issues/new?title=Issue%20on%20page%20%2Fcontent/APPS.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Öffnen Sie ein Problem"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Laden Sie diese Seite herunter">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/content/APPS.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Quelldatei herunterladen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="In PDF drucken"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Vollbildmodus"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Auswertungen zum Accelerator Pedal Position Sensor (APPS)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhalt </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#csv-datei-als-dataframe-einlesen">.csv-Datei als <em>DataFrame</em> einlesen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#daten-plotten-und-diagramm-sichern-mit-matplotlib">Daten plotten und Diagramm sichern mit ‘matplotlib’</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#daten-verarbeiten">Daten verarbeiten</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistische-groszen-mittelwert-standardabweichung-min-max">Statistische Größen: Mittelwert, Standardabweichung, Min, Max</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-und-zugehoriges-jahr-ausgeben">Maximum und zugehöriges Jahr ausgeben</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#daten-aufsteigend-absteigend-sortieren">Daten aufsteigend/absteigend sortieren</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#daten-glatten">Daten glätten</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#messunsicherheiten-als-fehlerbalken-hinzufugen">Messunsicherheiten als Fehlerbalken hinzufügen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ausgleichsgerade-berechnen-und-plotten">Ausgleichsgerade berechnen und plotten</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beliebige-funktion-fitten">Beliebige Funktion fitten</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="auswertungen-zum-accelerator-pedal-position-sensor-apps">
+<h1>Auswertungen zum Accelerator Pedal Position Sensor (APPS)<a class="headerlink" href="#auswertungen-zum-accelerator-pedal-position-sensor-apps" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">fsolve</span>
+
+<span class="k">def</span> <span class="nf">nlSystem</span><span class="p">(</span><span class="n">aw</span><span class="p">):</span>
+    <span class="n">V_in1</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">V_out1</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">V_in2</span> <span class="o">=</span> <span class="mi">7</span>
+    <span class="n">V_out2</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">Vref</span> <span class="o">=</span> <span class="mf">3.3</span>
+
+    <span class="n">R_1</span> <span class="o">=</span> <span class="n">aw</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">R_2</span> <span class="o">=</span> <span class="mi">400</span>
+    <span class="n">R_3</span> <span class="o">=</span> <span class="mi">1400</span>
+    <span class="n">R_4</span> <span class="o">=</span> <span class="n">aw</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">F</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">F</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">V_in1</span> <span class="o">*</span> <span class="p">(</span><span class="n">R_4</span> <span class="o">/</span> <span class="p">(</span><span class="n">R_2</span> <span class="o">+</span> <span class="n">R_4</span><span class="p">))</span> <span class="o">*</span> <span class="p">((</span><span class="n">R_3</span> <span class="o">+</span> <span class="n">R_1</span><span class="p">)</span> <span class="o">/</span> <span class="n">R_1</span><span class="p">)</span> <span class="o">-</span> <span class="n">Vref</span> <span class="o">*</span> <span class="p">(</span><span class="n">R_3</span> <span class="o">/</span> <span class="n">R_1</span><span class="p">)</span> <span class="o">-</span> <span class="n">V_out1</span>
+<span class="n">F</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">V_in2</span> <span class="o">*</span> <span class="p">(</span><span class="n">R_4</span> <span class="o">/</span> <span class="p">(</span><span class="n">R_2</span> <span class="o">+</span> <span class="n">R_4</span><span class="p">))</span> <span class="o">*</span> <span class="p">((</span><span class="n">R_3</span> <span class="o">+</span> <span class="n">R_1</span><span class="p">)</span> <span class="o">/</span> <span class="n">R_1</span><span class="p">)</span> <span class="o">-</span> <span class="n">Vref</span> <span class="o">*</span> <span class="p">(</span><span class="n">R_3</span> <span class="o">/</span> <span class="n">R_1</span><span class="p">)</span> <span class="o">-</span> <span class="n">V_out2</span>
+
+<span class="k">return</span> <span class="n">F</span>
+
+<span class="c1"># Anfangswerte für [R_1, R_4] (Abschätzen)</span>
+<span class="n">Anfangswerte</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Aufrufen der Funktion</span>
+<span class="n">loesung</span> <span class="o">=</span> <span class="n">fsolve</span><span class="p">(</span><span class="n">nlSystem</span><span class="p">,</span> <span class="n">Anfangswerte</span><span class="p">)</span>
+
+<span class="c1"># Ausgabe der Widerstände</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;R_1 = </span><span class="si">{</span><span class="n">loesung</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;R_4 = </span><span class="si">{</span><span class="n">loesung</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">17</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="n">R_4</span> <span class="o">=</span> <span class="n">aw</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="n">F</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">17</span> <span class="n">F</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">V_in1</span> <span class="o">*</span> <span class="p">(</span><span class="n">R_4</span> <span class="o">/</span> <span class="p">(</span><span class="n">R_2</span> <span class="o">+</span> <span class="n">R_4</span><span class="p">))</span> <span class="o">*</span> <span class="p">((</span><span class="n">R_3</span> <span class="o">+</span> <span class="n">R_1</span><span class="p">)</span> <span class="o">/</span> <span class="n">R_1</span><span class="p">)</span> <span class="o">-</span> <span class="n">Vref</span> <span class="o">*</span> <span class="p">(</span><span class="n">R_3</span> <span class="o">/</span> <span class="n">R_1</span><span class="p">)</span> <span class="o">-</span> <span class="n">V_out1</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="n">F</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">V_in2</span> <span class="o">*</span> <span class="p">(</span><span class="n">R_4</span> <span class="o">/</span> <span class="p">(</span><span class="n">R_2</span> <span class="o">+</span> <span class="n">R_4</span><span class="p">))</span> <span class="o">*</span> <span class="p">((</span><span class="n">R_3</span> <span class="o">+</span> <span class="n">R_1</span><span class="p">)</span> <span class="o">/</span> <span class="n">R_1</span><span class="p">)</span> <span class="o">-</span> <span class="n">Vref</span> <span class="o">*</span> <span class="p">(</span><span class="n">R_3</span> <span class="o">/</span> <span class="n">R_1</span><span class="p">)</span> <span class="o">-</span> <span class="n">V_out2</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="k">return</span> <span class="n">F</span>
+
+<span class="ne">NameError</span>: name &#39;V_in1&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<section id="csv-datei-als-dataframe-einlesen">
+<h2>.csv-Datei als <em>DataFrame</em> einlesen<a class="headerlink" href="#csv-datei-als-dataframe-einlesen" title="Permalink to this heading">#</a></h2>
+<p>Im Folgenden Nutzen wir globale Klimadaten, die auf der Webseite der NASA zu finden sind: <a class="reference external" href="https://data.giss.nasa.gov/gistemp/">https://data.giss.nasa.gov/gistemp/</a>. Hierbei handelt es sich um Temperaturdaten, die Anomalien gegenüber dem Mittelwert in den Jahren 1951-1980 aufweisen.
+Es werden Daten von Dateien (online oder offline) eingelesen mit der Python Bilbiothek <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. Die Daten werden in sogenannten <em>DataFrames</em> hier mit dem Namen <code class="docutils literal notranslate"><span class="pre">global_mean</span></code> abgespeichert.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#link = &quot;https://data.giss.nasa.gov/gistemp/graphs_v4/graph_data/Global_Mean_Estimates_based_on_Land_and_Ocean_Data/graph.csv&quot;</span>
+<span class="n">link</span> <span class="o">=</span> <span class="s1">&#39;data/graph.csv&#39;</span>
+<span class="n">global_mean</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">link</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="c1">#DataFrame erstellen</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wir geben das <em>DataFrame</em> aus um uns die Messdaten einmal anzusehen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">global_mean</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># Ausgabe der ersten 5 Spalten</span>
+<span class="c1">#global_mean.tail(5) # Ausgabe der letzten 5 Spalten</span>
+<span class="c1">#global_mean # Ausgabe des DataFrames </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>No_Smoothing</th>
+      <th>Lowess(5)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1880</td>
+      <td>-0.17</td>
+      <td>-0.09</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1881</td>
+      <td>-0.08</td>
+      <td>-0.13</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1882</td>
+      <td>-0.11</td>
+      <td>-0.17</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1883</td>
+      <td>-0.18</td>
+      <td>-0.20</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1884</td>
+      <td>-0.28</td>
+      <td>-0.24</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1885</td>
+      <td>-0.33</td>
+      <td>-0.26</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>1886</td>
+      <td>-0.32</td>
+      <td>-0.27</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1887</td>
+      <td>-0.36</td>
+      <td>-0.27</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>1888</td>
+      <td>-0.17</td>
+      <td>-0.27</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>1889</td>
+      <td>-0.11</td>
+      <td>-0.26</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>In der ersten Spalte befinden sich lediglich die Indizes der Messungen. Die zweite Spalte beinhaltet das Jahr und die dritte Spalte zeigt den gemessenen globalen Temperaturunterschied im Vergleich zur gemittelten Temeratur der Jahre 1951-1980. Die letzte Spalte zeigt die gleichen Messwerte, jedoch gefiltert.</p>
+<p>Einzelne Spalten kann man sich anzeigen lassen, indem den Spaltel-Namen des zugehörigen <em>DataFrames</em> nutzt:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">global_mean</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      1880
+1      1881
+2      1882
+3      1883
+4      1884
+       ... 
+137    2017
+138    2018
+139    2019
+140    2020
+141    2021
+Name: Year, Length: 142, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="daten-plotten-und-diagramm-sichern-mit-matplotlib">
+<h2>Daten plotten und Diagramm sichern mit ‘matplotlib’<a class="headerlink" href="#daten-plotten-und-diagramm-sichern-mit-matplotlib" title="Permalink to this heading">#</a></h2>
+<p>Als Beispiel für eine gelungene grafische Darstellung wollen wir die beiden Spalten, <em>No_Smoothing</em> and <em>Lowess(5)</em> gegenüber der Zeitachse <em>Year</em> plotten. Hierfür benützen wir die Python Library <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>. Einmal geplottet kann das zuletzt angezeigte Diagramm in verschiedenen Formaten mit <code class="docutils literal notranslate"><span class="pre">plt.savefig('klima_plot1.png')</span></code> abgespeichert werden. Wenn nicht anders angegeben, wird die Datei im gleichen Ordner angelegt.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1">#plt.style.use(&#39;default&#39;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">],</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:gray&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Werte&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Lowess(5)&quot;</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>  <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Glättung (NASA)&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Jahr&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Jahresmitteltemperaturabweichung [°C]&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;klima_plot1.png&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;klima_plot1.pdf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/6afb4b024b9c6d8ffb38dfe686701eb34f2015bc1770674cc38a416b0f853a91.png" src="../_images/6afb4b024b9c6d8ffb38dfe686701eb34f2015bc1770674cc38a416b0f853a91.png" />
+</div>
+</div>
+</section>
+<section id="daten-verarbeiten">
+<h2>Daten verarbeiten<a class="headerlink" href="#daten-verarbeiten" title="Permalink to this heading">#</a></h2>
+<p>Die Bibliothek <code class="docutils literal notranslate"><span class="pre">pandas</span></code> ist sehr umfangreich und wird viel zur Datenverarbeitung genutzt. Im folgenden dazu einige Beispiele:</p>
+<section id="statistische-groszen-mittelwert-standardabweichung-min-max">
+<h3>Statistische Größen: Mittelwert, Standardabweichung, Min, Max<a class="headerlink" href="#statistische-groszen-mittelwert-standardabweichung-min-max" title="Permalink to this heading">#</a></h3>
+<p>Für jede Spalte lassen sich statistische Größen wie z.B. die Anzahl der Einträge pro Spalte, deren Mittelwert, Standardabweichung, Minimal- und Maximalwert bestimmen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">global_mean</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span> <span class="c1">#Dataframe Statistik</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>No_Smoothing</th>
+      <th>Lowess(5)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>142.000000</td>
+      <td>142.000000</td>
+      <td>142.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>1950.500000</td>
+      <td>0.053169</td>
+      <td>0.053169</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>41.135953</td>
+      <td>0.364161</td>
+      <td>0.352324</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1880.000000</td>
+      <td>-0.490000</td>
+      <td>-0.420000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>1915.250000</td>
+      <td>-0.200000</td>
+      <td>-0.227500</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>1950.500000</td>
+      <td>-0.065000</td>
+      <td>-0.040000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>1985.750000</td>
+      <td>0.252500</td>
+      <td>0.235000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>2021.000000</td>
+      <td>1.010000</td>
+      <td>0.930000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="maximum-und-zugehoriges-jahr-ausgeben">
+<h3>Maximum und zugehöriges Jahr ausgeben<a class="headerlink" href="#maximum-und-zugehoriges-jahr-ausgeben" title="Permalink to this heading">#</a></h3>
+<p>Dies können wir benutzen, um beispielsweise die <em>maximale Temperaturdifferenz</em> zu ermitteln:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.053169014084507096
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wenn wir wissen wollen, <em>wann</em> diese <em>maximale Temperaturdifferenz</em> auftrat, muss der zugehörige Index dieses Events gespeichert werden:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">index_max</span> <span class="o">=</span> <span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">index_max</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>136
+</pre></div>
+</div>
+</div>
+</div>
+<p>Diesen Index können wir nun benutzen, um mittels <code class="docutils literal notranslate"><span class="pre">.loc</span></code> Befehl den Eintrag zu diesem Index auszugeben:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">global_mean</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">index_max</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Year            2016.00
+No_Smoothing       1.01
+Lowess(5)          0.87
+Name: 136, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="daten-aufsteigend-absteigend-sortieren">
+<h3>Daten aufsteigend/absteigend sortieren<a class="headerlink" href="#daten-aufsteigend-absteigend-sortieren" title="Permalink to this heading">#</a></h3>
+<p>Mit <code class="docutils literal notranslate"><span class="pre">.sort_values(&quot;Spaltenname&quot;)</span></code> können wir auch die Tabelle nach dem definierten Spaltennamen sortieren (standardmäßig in <strong>ansteigender</strong> Reihenfolge):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">global_mean</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>No_Smoothing</th>
+      <th>Lowess(5)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>140</th>
+      <td>2020</td>
+      <td>1.01</td>
+      <td>0.93</td>
+    </tr>
+    <tr>
+      <th>136</th>
+      <td>2016</td>
+      <td>1.01</td>
+      <td>0.87</td>
+    </tr>
+    <tr>
+      <th>139</th>
+      <td>2019</td>
+      <td>0.98</td>
+      <td>0.93</td>
+    </tr>
+    <tr>
+      <th>137</th>
+      <td>2017</td>
+      <td>0.92</td>
+      <td>0.91</td>
+    </tr>
+    <tr>
+      <th>135</th>
+      <td>2015</td>
+      <td>0.90</td>
+      <td>0.83</td>
+    </tr>
+    <tr>
+      <th>138</th>
+      <td>2018</td>
+      <td>0.85</td>
+      <td>0.92</td>
+    </tr>
+    <tr>
+      <th>141</th>
+      <td>2021</td>
+      <td>0.84</td>
+      <td>0.93</td>
+    </tr>
+    <tr>
+      <th>134</th>
+      <td>2014</td>
+      <td>0.75</td>
+      <td>0.79</td>
+    </tr>
+    <tr>
+      <th>130</th>
+      <td>2010</td>
+      <td>0.72</td>
+      <td>0.65</td>
+    </tr>
+    <tr>
+      <th>133</th>
+      <td>2013</td>
+      <td>0.68</td>
+      <td>0.74</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Mit <code class="docutils literal notranslate"><span class="pre">ascending=False</span></code> wird absteigend sortiert:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">global_mean</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">,</span> <span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>No_Smoothing</th>
+      <th>Lowess(5)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>140</th>
+      <td>2020</td>
+      <td>1.01</td>
+      <td>0.93</td>
+    </tr>
+    <tr>
+      <th>136</th>
+      <td>2016</td>
+      <td>1.01</td>
+      <td>0.87</td>
+    </tr>
+    <tr>
+      <th>139</th>
+      <td>2019</td>
+      <td>0.98</td>
+      <td>0.93</td>
+    </tr>
+    <tr>
+      <th>137</th>
+      <td>2017</td>
+      <td>0.92</td>
+      <td>0.91</td>
+    </tr>
+    <tr>
+      <th>135</th>
+      <td>2015</td>
+      <td>0.90</td>
+      <td>0.83</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>1910</td>
+      <td>-0.44</td>
+      <td>-0.42</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>1911</td>
+      <td>-0.45</td>
+      <td>-0.40</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>1904</td>
+      <td>-0.47</td>
+      <td>-0.31</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>1917</td>
+      <td>-0.47</td>
+      <td>-0.30</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>1909</td>
+      <td>-0.49</td>
+      <td>-0.41</td>
+    </tr>
+  </tbody>
+</table>
+<p>142 rows × 3 columns</p>
+</div></div></div>
+</div>
+<p><strong>WICHTIG</strong>: Der Dataframe <code class="docutils literal notranslate"><span class="pre">global_mean</span></code> wird dadurch nicht verändert, es handelt sich nur um eine Anzeige!</p>
+</section>
+</section>
+<section id="daten-glatten">
+<h2>Daten glätten<a class="headerlink" href="#daten-glatten" title="Permalink to this heading">#</a></h2>
+<p>Die von der NASA verwendete Glättung ist die <strong>LO</strong>cally <strong>WE</strong>ighted <strong>S</strong>catter-plot <strong>S</strong>moother (LOWESS). Dabei wird in einem lokal zu definierenden Bereich eine lineare Regression durchgeführt. Eine genauere Erklärung zur Methode findet ihr auf <a class="reference external" href="https://youtu.be/b7oryuMP3r8">Youtube</a>.</p>
+<p>Es gibt natürlich viele Methoden und Filter, um Daten zu glätten. Wir wollen nun versuchen, die Methode der NASA zu rekonstruieren. Hierfür benutzen wir die Python Library <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> und erstellen eine weitere Spalte <code class="docutils literal notranslate"><span class="pre">Lowess(own)</span></code> in unserem DataFrame <code class="docutils literal notranslate"><span class="pre">global_mean</span></code>. In diese Spalte schreiben wir die geglätteten Werte von den Rohdaten <code class="docutils literal notranslate"><span class="pre">global_mean[&quot;No_Smoothing&quot;]</span></code> indem wir die Funktion <code class="docutils literal notranslate"><span class="pre">lowess</span></code> aufrufen. Details zu Nutzung der Funktion findet ihr <a class="reference external" href="https://www.statsmodels.org/devel/generated/statsmodels.nonparametric.smoothers_lowess.lowess.html">https://www.statsmodels.org</a>:</p>
+<ul class="simple">
+<li><p>an erster Stelle in der Funktion werden die Y-Werte eingegeben, hier <code class="docutils literal notranslate"><span class="pre">global_mean[&quot;No_Smoothing&quot;]</span></code></p></li>
+<li><p>an zweiter Stelle in der Funktion werden die X-Werte eingegeben, hier <code class="docutils literal notranslate"><span class="pre">global_mean[&quot;Year&quot;]</span></code></p></li>
+<li><p>die Option <code class="docutils literal notranslate"><span class="pre">frac</span></code> ist eine Zahl zwischen 0 und 1. Dies ist der Anteil der Daten, der bei der Schätzung der einzelnen y-Werte verwendet wird.</p></li>
+<li><p>Ausgegeben wird zweidimensionalas Array. Die erste Spalte enthält die sortierten x-Werte und die zweite Spalte die zugehörigen geschätzten y-Werte. Um die zweite Spalte in den DataFrame zu speichern, wählen wir diese mit <code class="docutils literal notranslate"><span class="pre">[:,1]</span></code> aus.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.nonparametric.smoothers_lowess</span> <span class="kn">import</span> <span class="n">lowess</span>
+
+<span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Lowess(eigene)&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lowess</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span> <span class="n">frac</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">14</span><span class="p">)[:,</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">global_mean</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>No_Smoothing</th>
+      <th>Lowess(5)</th>
+      <th>Lowess(own)</th>
+      <th>Lowess(eigene)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1880</td>
+      <td>-0.17</td>
+      <td>-0.09</td>
+      <td>-0.092698</td>
+      <td>-0.092698</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1881</td>
+      <td>-0.08</td>
+      <td>-0.13</td>
+      <td>-0.129873</td>
+      <td>-0.129873</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1882</td>
+      <td>-0.11</td>
+      <td>-0.17</td>
+      <td>-0.167172</td>
+      <td>-0.167172</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1883</td>
+      <td>-0.18</td>
+      <td>-0.20</td>
+      <td>-0.203172</td>
+      <td>-0.203172</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1884</td>
+      <td>-0.28</td>
+      <td>-0.24</td>
+      <td>-0.239029</td>
+      <td>-0.239029</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>137</th>
+      <td>2017</td>
+      <td>0.92</td>
+      <td>0.91</td>
+      <td>0.911976</td>
+      <td>0.911976</td>
+    </tr>
+    <tr>
+      <th>138</th>
+      <td>2018</td>
+      <td>0.85</td>
+      <td>0.92</td>
+      <td>0.921410</td>
+      <td>0.921410</td>
+    </tr>
+    <tr>
+      <th>139</th>
+      <td>2019</td>
+      <td>0.98</td>
+      <td>0.93</td>
+      <td>0.926072</td>
+      <td>0.926072</td>
+    </tr>
+    <tr>
+      <th>140</th>
+      <td>2020</td>
+      <td>1.01</td>
+      <td>0.93</td>
+      <td>0.929365</td>
+      <td>0.929365</td>
+    </tr>
+    <tr>
+      <th>141</th>
+      <td>2021</td>
+      <td>0.84</td>
+      <td>0.93</td>
+      <td>0.931468</td>
+      <td>0.931468</td>
+    </tr>
+  </tbody>
+</table>
+<p>142 rows × 5 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">],</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:gray&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Werte&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Lowess(5)&quot;</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>  <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Glättung (NASA)&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Lowess(eigene)&quot;</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;-&#39;</span> <span class="p">,</span>  <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Glättung (eigene)&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Jahr&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Jahresmitteltemperaturabweichung [°C]&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/f15818f6066a57cfe22942bd2b8ce751964ab2f2c07a53b9c156a56174860d37.png" src="../_images/f15818f6066a57cfe22942bd2b8ce751964ab2f2c07a53b9c156a56174860d37.png" />
+</div>
+</div>
+</section>
+<section id="messunsicherheiten-als-fehlerbalken-hinzufugen">
+<h2>Messunsicherheiten als Fehlerbalken hinzufügen<a class="headerlink" href="#messunsicherheiten-als-fehlerbalken-hinzufugen" title="Permalink to this heading">#</a></h2>
+<p>Bei diesem Datenset stehen uns leider keine Messunsicherheiten zur Verfügung. Um Sie jedoch als Fehlerbalken miteinzubeziehen, wollen wir im Folgenden annehmen, dass der Temperaturunterschied auf 0.25K genau messen werden konnte und fügen die unserem Datensatz hinzu:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;uncertainty&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.25</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">global_mean</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     Year  No_Smoothing  Lowess(5)  Lowess(own)  Lowess(eigene)  uncertainty
+0    1880         -0.17      -0.09    -0.092698       -0.092698         0.25
+1    1881         -0.08      -0.13    -0.129873       -0.129873         0.25
+2    1882         -0.11      -0.17    -0.167172       -0.167172         0.25
+3    1883         -0.18      -0.20    -0.203172       -0.203172         0.25
+4    1884         -0.28      -0.24    -0.239029       -0.239029         0.25
+..    ...           ...        ...          ...             ...          ...
+137  2017          0.92       0.91     0.911976        0.911976         0.25
+138  2018          0.85       0.92     0.921410        0.921410         0.25
+139  2019          0.98       0.93     0.926072        0.926072         0.25
+140  2020          1.01       0.93     0.929365        0.929365         0.25
+141  2021          0.84       0.93     0.931468        0.931468         0.25
+
+[142 rows x 6 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Grafisch darstellen tun wir Messunsicherheiten mittels Fehlerbalken und der Matplotlib-Funktion <code class="docutils literal notranslate"><span class="pre">plt.errorbar</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">],</span> <span class="n">yerr</span><span class="o">=</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;uncertainty&quot;</span><span class="p">],</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:gray&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Werte&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Lowess(5)&quot;</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>  <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Glättung (NASA)&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Jahr&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Jahresmitteltemperaturabweichung [°C]&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3fa974c71aaf5b2595fc232bba03a51809ed6fe55134df6bd95e040713044876.png" src="../_images/3fa974c71aaf5b2595fc232bba03a51809ed6fe55134df6bd95e040713044876.png" />
+</div>
+</div>
+</section>
+<section id="ausgleichsgerade-berechnen-und-plotten">
+<h2>Ausgleichsgerade berechnen und plotten<a class="headerlink" href="#ausgleichsgerade-berechnen-und-plotten" title="Permalink to this heading">#</a></h2>
+<p>Mittels linearer Regression kann der Temperaturanstieg aus den Daten berechnet werden. Hierfür wird die Python Library <code class="docutils literal notranslate"><span class="pre">numpy</span></code> benutzt und die Funktion <code class="docutils literal notranslate"><span class="pre">polyfit</span></code> aufgerufen und in als <code class="docutils literal notranslate"><span class="pre">model</span></code> gespeichert. Diese Funktion benutzt die Least-Square Methode für polynomische Modelle. Weitere Informationen zu der Funktion findet ihr <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.polyfit.html">hier</a>. Mit der Option <code class="docutils literal notranslate"><span class="pre">cov=True</span></code> wird die Kovarianz-Matrix berechnet, welche die Unsicherheiten für die Fit-Parameter beinhaltet.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">x</span><span class="o">=</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span>
+<span class="n">y</span><span class="o">=</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">]</span>
+<span class="n">y_err</span> <span class="o">=</span> <span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;uncertainty&quot;</span><span class="p">]</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">deg</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">y_err</span><span class="p">,</span> <span class="n">cov</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># 1. Wert = Anstieg , 2. Wert = Schnittpunkt mit y-Achse</span>
+<span class="n">y_model</span> <span class="o">=</span> <span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># Modell einer linearen Regression</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Jahresmitteltemperaturabweichung [°C]&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Jahr&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">],</span> <span class="n">yerr</span><span class="o">=</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;uncertainty&quot;</span><span class="p">],</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:gray&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Werte&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y_model</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;lineare Regression y=(</span><span class="si">{</span><span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">+-</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">model</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">)1e-3*x+(</span><span class="si">{</span><span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">+-</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">model</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/53df56b61c34b7931ff4e77a66103fc5d5c72a5be581bce4dce3522b6662db85.png" src="../_images/53df56b61c34b7931ff4e77a66103fc5d5c72a5be581bce4dce3522b6662db85.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 7.72740894e-03, -1.50191421e+01]),
+ array([[ 1.33257719e-07, -2.59919181e-04],
+        [-2.59919181e-04,  5.07196269e-01]]))
+</pre></div>
+</div>
+</div>
+</div>
+<p>Das Model beinhaltet zwei Matrizen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 7.72740894e-03, -1.50191421e+01]),
+ array([[ 1.33257719e-07, -2.59919181e-04],
+        [-2.59919181e-04,  5.07196269e-01]]))
+</pre></div>
+</div>
+</div>
+</div>
+<p>Im ersten Array stehen die Fit-Parameter der linearen Ausgleichsgeraden entsprechend der obigen Deklaration: <code class="docutils literal notranslate"><span class="pre">y_model</span> <span class="pre">=</span> <span class="pre">model[0][0]*x+model[0][1]</span></code>.
+Im zweiten Array, hier eine 2x2 Matrix, sind die Unsicherheiten in Form von der <a class="reference internal" href="1_Fehlerfortpflanzung.html"><span class="doc std std-doc">Kovarianz-Matrix</span></a> dargestellt.
+Der Temperaturanstieg kann entsprechend ausgegeben werden:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Temperaturanstieg pro Jahr (von 1981 bis 2020): </span><span class="si">{</span><span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">°C/Jahr&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Temperaturanstieg seit Beginn der Messung: </span><span class="si">{</span><span class="p">(</span><span class="n">y_model</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">y_model</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">°C&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Temperaturanstieg pro Jahr (von 1981 bis 2020): 0.008°C/Jahr
+Temperaturanstieg seit Beginn der Messung: 1.090°C
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warnung</p>
+<p>Die lineare Regression bezieht hier den ganzen Zeitraum mit ein! Im folgenden betrachten wir für den Temperaturgradienten nur die Daten von 1980 bis 2020!</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">global_mean</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">1980</span><span class="p">,</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span>
+<span class="n">y</span><span class="o">=</span><span class="n">global_mean</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">1980</span><span class="p">,</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">]</span>
+<span class="n">y_err</span> <span class="o">=</span> <span class="n">global_mean</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">1980</span><span class="p">,</span><span class="s2">&quot;uncertainty&quot;</span><span class="p">]</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">deg</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">y_err</span><span class="p">,</span> <span class="n">cov</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># 1. Wert = Anstieg , 2. Wert = Schnittpunkt mit y-Achse</span>
+<span class="n">y_model</span> <span class="o">=</span> <span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># Modell einer linearen Regression</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Temperaturanstieg pro Jahr (von 1980 bis 2020): </span><span class="si">{</span><span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">°C/Jahr&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Temperaturanstieg pro Jahr (von 1980 bis 2020): 0.019°C/Jahr
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Jahresmitteltemperaturabweichung [°C]&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Jahr&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">],</span> <span class="n">yerr</span><span class="o">=</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;uncertainty&quot;</span><span class="p">],</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:gray&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Werte&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y_model</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;lineare Regression y=(</span><span class="si">{</span><span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">+-</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">model</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">)1e-3*x+(</span><span class="si">{</span><span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">+-</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">model</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/d9f70b3fa56eaf3262f0fd2ac9a1fd68570121fed49db16d6fe29b78b138cfec.png" src="../_images/d9f70b3fa56eaf3262f0fd2ac9a1fd68570121fed49db16d6fe29b78b138cfec.png" />
+</div>
+</div>
+<section id="beliebige-funktion-fitten">
+<h3>Beliebige Funktion fitten<a class="headerlink" href="#beliebige-funktion-fitten" title="Permalink to this heading">#</a></h3>
+<p>Mit der Polyfit Funktion können in erster Linie Polynome gefittet werden.
+Für beliebige Modellierung, wie z.B. Exponential-Funktionen, werden die Funktionen in aller Regel selber definiert. Hierfür eignet sich die scipy-Funktion <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Als erstes wird die Funktion deklariert, hier nutzen wird wieder eine lineare Regression:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">lin_reg</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="k">def</span> <span class="nf">quadratic_fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">c</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Die wir anschließend an die Daten anpassen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">popt</span><span class="p">,</span> <span class="n">pcov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">quadratic_fit</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Fit:&#39;</span><span class="p">,</span> <span class="n">popt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mit der Kovarianz-Matrix&#39;</span><span class="p">,</span> <span class="n">pcov</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fit: [ 2.41606861e-04 -9.47677075e-01  9.29408439e+02]
+Mit der Kovarianz-Matrix [[ 1.14888003e-08 -4.59666876e-05  4.59764893e-02]
+ [-4.59666876e-05  1.83914056e-01 -1.83954621e+02]
+ [ 4.59764893e-02 -1.83954621e+02  1.83996544e+05]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Jahresmitteltemperaturabweichung [°C]&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Jahr&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">],</span> <span class="n">yerr</span><span class="o">=</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;uncertainty&quot;</span><span class="p">],</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:gray&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Werte&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">quadratic_fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">*</span><span class="n">popt</span><span class="p">),</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Quadratischer Fit y=( </span><span class="si">%5.3f</span><span class="s2"> * x^2 + </span><span class="si">%5.3f</span><span class="s2"> * x + </span><span class="si">%5.3f</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">popt</span><span class="p">));</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ac921a82538bc793bd62e8d95a3c52aa597b4ffea4662a4104975f668f63dd36.png" src="../_images/ac921a82538bc793bd62e8d95a3c52aa597b4ffea4662a4104975f668f63dd36.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Kisleif/mtbook",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhalt
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#csv-datei-als-dataframe-einlesen">.csv-Datei als <em>DataFrame</em> einlesen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#daten-plotten-und-diagramm-sichern-mit-matplotlib">Daten plotten und Diagramm sichern mit ‘matplotlib’</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#daten-verarbeiten">Daten verarbeiten</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistische-groszen-mittelwert-standardabweichung-min-max">Statistische Größen: Mittelwert, Standardabweichung, Min, Max</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-und-zugehoriges-jahr-ausgeben">Maximum und zugehöriges Jahr ausgeben</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#daten-aufsteigend-absteigend-sortieren">Daten aufsteigend/absteigend sortieren</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#daten-glatten">Daten glätten</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#messunsicherheiten-als-fehlerbalken-hinzufugen">Messunsicherheiten als Fehlerbalken hinzufügen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ausgleichsgerade-berechnen-und-plotten">Ausgleichsgerade berechnen und plotten</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beliebige-funktion-fitten">Beliebige Funktion fitten</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Durch Katharina-S. Isleif
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

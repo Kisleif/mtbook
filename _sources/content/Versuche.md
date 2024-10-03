@@ -1,10 +1,31 @@
 # Versuche
 
-Auswerteskript zum Probeversuch [Messunsicherheiten](T_Schwerependel.ipynb).
 
-::::{grid} 1 1 3 2
+::::{grid} 1 1 4 2
 :class-container: text-center
-:gutter: 3
+:gutter: 4
+
+:::{grid-item-card} [Versuchsanleitung](https://hsuhhde-my.sharepoint.com/:b:/g/personal/isleifk_hsu-hh_de/EePv1fRca-1Grz8YJnHJbZcBzA5OOLc5NAVBbHSaQnhQng?e=R28kXR)
+:class-header: bg-light
+**Accelerator Pedal Position Sensor  (APPS)**
+^^^
+```{image} pictures/APPS_neu.JPG
+:height: 170
+```
++++
+In Vorbereitung
+:::
+
+:::{grid-item-card} Demnächst!
+:class-header: bg-light
+**Michelson Interferometer (MI)**
+^^^
+```{image} pictures/MI.png
+:height: 170
+```
++++
+In Vorbereitung
+:::
 
 :::{grid-item-card} [Versuchsanleitung](https://hsuhhde.sharepoint.com/:b:/s/MesstechnikHT23_mst/EffH6ekRYaVHqz7rGdsG_W0Bgy6SfZkcSKzWkeQ9R8tZsw?email=isleifk%40hsu-hh.de&e=vWQ5Ha)
 :class-header: bg-light
@@ -27,7 +48,7 @@ Auswerteskript zum Probeversuch [Messunsicherheiten](T_Schwerependel.ipynb).
 :height: 170
 ```
 +++
-In Vorbereitung
+
 :::
 
 

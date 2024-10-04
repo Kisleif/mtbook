@@ -16,7 +16,7 @@
 In Vorbereitung
 :::
 
-:::{grid-item-card} Demnächst!
+:::{grid-item-card} [Versuchsanleitung](https://hsuhhde-my.sharepoint.com/:b:/g/personal/isleifk_hsu-hh_de/EQvYG6Vn-zdOp3brKdzLnaEBYkH6rRUmjYNovMi0AkhC-g?e=weYCfi)
 :class-header: bg-light
 **Michelson Interferometer (MI)**
 ^^^

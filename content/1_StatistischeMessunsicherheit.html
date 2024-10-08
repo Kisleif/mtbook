@@ -549,21 +549,25 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histogramm">Histogramm</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#haufigkeitsdichte">Häufigkeitsdichte</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zentraler-grenzwertsatz">Zentraler Grenzwertsatz</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistische-groszen-normalverteilung">Statistische Größen: Normalverteilung</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetisches-mittel-und-varianz-unendliche-stichprobe">Arithmetisches Mittel und Varianz (unendliche Stichprobe)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#empirisches-mittel-und-varianz-endliche-stichprobe">Empirisches Mittel und Varianz (endliche Stichprobe)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalverteilung">Normalverteilung</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistische-groszen-normalverteilung">Statistische Größen: Normalverteilung</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetisches-mittel-und-varianz-unendliche-stichprobe">Arithmetisches Mittel und Varianz (unendliche Stichprobe)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#empirisches-mittel-und-varianz-endliche-stichprobe">Empirisches Mittel und Varianz (endliche Stichprobe)</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#messunsicherheit-des-mittelwertes">Messunsicherheit des Mittelwertes</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normierte-normalverteilung">Normierte Normalverteilung</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vertrauensintervalle">Vertrauensintervalle</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normierte-normalverteilung">Normierte Normalverteilung</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#guteklassen-von-messgeraten">Güteklassen von Messgeräten</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#angabe-des-messergebnisses-mit-unsicherheit">Angabe des Messergebnisses mit Unsicherheit</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#student-t-kleine-stichproben">Student-t (kleine Stichproben)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#umrechnung-von-vertrauensintervallen">Umrechnung von Vertrauensintervallen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#student-t-kleine-stichproben">Student-t (kleine Stichproben)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#umrechnung-von-vertrauensintervallen">Umrechnung von Vertrauensintervallen</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung">Zusammenfassung</a></li>
 </ul>
             </nav>
@@ -740,8 +744,8 @@ Die Häufigkeitsdichte gibt bei einem Histogramm die Höhe des Rechtecks an (Die
 </div>
 <p>Die Wahrscheinlichkeit, einen Messwert innerhalb eines kleinen Intervalls <span class="math notranslate nohighlight">\(\Delta x\)</span> um den Wert <span class="math notranslate nohighlight">\(\overline x\)</span> zu finden, ist <span class="math notranslate nohighlight">\(dP(X) = d(x)\cdot \Delta x\)</span>, wobei <span class="math notranslate nohighlight">\(d(x) = d_i\)</span>.</p>
 </section>
-<section id="zentraler-grenzwertsatz">
-<h2>Zentraler Grenzwertsatz<a class="headerlink" href="#zentraler-grenzwertsatz" title="Permalink to this heading">#</a></h2>
+<section id="normalverteilung">
+<h2>Normalverteilung<a class="headerlink" href="#normalverteilung" title="Permalink to this heading">#</a></h2>
 <p>Je größer die Stichprobe <span class="math notranslate nohighlight">\(m\)</span> (Anzahl der Messungen), desto eher erkennt man die zugrundeliegende Verteilung, der die Messreihe unterliegt. Häufig handelt es sich in der Praxis um eine <em>Normalverteilung</em> (oder auch Gaußverteilung genannt):</p>
 <div class="math notranslate nohighlight">
 \[P(x) = \frac{1}{\sigma \sqrt{2\pi}}\int_{x_1}^{x_2} \mathrm{exp}\left(-\frac{(x-\mu)^2}{2\sigma^2}\right) dx\]</div>
@@ -790,11 +794,10 @@ Die Häufigkeitsdichte gibt bei einem Histogramm die Höhe des Rechtecks an (Die
 <p class="admonition-title"><strong>Zentraler Grenzwertsatz der Wahrscheinlichkeitstheorie</strong></p>
 <p>Der Durchschnitt einer großen Anzahl von Zufallsvariablen aus derselben Verteilung sind annäherend normalverteilt, unabhängig von der Verteilungsfunktion aus der sie herausgenommen wurden.</p>
 </div>
-</section>
 <section id="statistische-groszen-normalverteilung">
-<h2>Statistische Größen: Normalverteilung<a class="headerlink" href="#statistische-groszen-normalverteilung" title="Permalink to this heading">#</a></h2>
+<h3>Statistische Größen: Normalverteilung<a class="headerlink" href="#statistische-groszen-normalverteilung" title="Permalink to this heading">#</a></h3>
 <section id="arithmetisches-mittel-und-varianz-unendliche-stichprobe">
-<h3>Arithmetisches Mittel und Varianz (unendliche Stichprobe)<a class="headerlink" href="#arithmetisches-mittel-und-varianz-unendliche-stichprobe" title="Permalink to this heading">#</a></h3>
+<h4>Arithmetisches Mittel und Varianz (unendliche Stichprobe)<a class="headerlink" href="#arithmetisches-mittel-und-varianz-unendliche-stichprobe" title="Permalink to this heading">#</a></h4>
 <p>Für normalverteilte Zufalslgrößen (wie in unsere obigen Messreihe) können wir mittels statistischen Methoden Messwerte und Messunsicherheit aus der Stichprobe bestimmen.</p>
 <p>Normalverteilte Zufallsgrößen werden immer von zwei Parametern <span class="math notranslate nohighlight">\(\overline x\)</span> und <span class="math notranslate nohighlight">\(\sigma\)</span> beschrieben.
 Der <strong>arithmetische Mittelwert <span class="math notranslate nohighlight">\(\overline x\)</span></strong>, der das <strong>arithmetische Mittel <span class="math notranslate nohighlight">\(\mu\)</span></strong> aus <span class="math notranslate nohighlight">\(m \rightarrow \infty\)</span> Beobachtungen ist, oder auch <strong>Erwartungswert <span class="math notranslate nohighlight">\(E(x)\)</span></strong> genannt, gilt:</p>
@@ -869,7 +872,7 @@ Der <strong>arithmetische Mittelwert <span class="math notranslate nohighlight">
 </div>
 </section>
 <section id="empirisches-mittel-und-varianz-endliche-stichprobe">
-<h3>Empirisches Mittel und Varianz (endliche Stichprobe)<a class="headerlink" href="#empirisches-mittel-und-varianz-endliche-stichprobe" title="Permalink to this heading">#</a></h3>
+<h4>Empirisches Mittel und Varianz (endliche Stichprobe)<a class="headerlink" href="#empirisches-mittel-und-varianz-endliche-stichprobe" title="Permalink to this heading">#</a></h4>
 <p>Du wirst bei deinen Messungen in der Regel weniger an der Streuung um den Mittelwert, sondern mehr an der (geschätzten) Streuung der Messwerte um den (unbekannten) <em>wahren</em> Wert interessiert sein. Diese Unsicherheit schätzt man durch die <strong>empirische Varianz <span class="math notranslate nohighlight">\(s^2(x)\)</span> der Messwerte der <span class="math notranslate nohighlight">\(x_j\)</span></strong> ab. Diese ist etwas größer als die Varianz <span class="math notranslate nohighlight">\(\sigma^2\)</span>, nämlich um den Faktor <span class="math notranslate nohighlight">\(m/(m − 1)\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[s^2 = \frac{1}{m-1} \sum_{j=1}^m (x_j - \overline x)^2\]</div>
@@ -955,6 +958,7 @@ Welche Größe, s oder <span class="math notranslate nohighlight">\(\sigma\)</sp
 </div>
 </div>
 </section>
+</section>
 <section id="messunsicherheit-des-mittelwertes">
 <h3>Messunsicherheit des Mittelwertes<a class="headerlink" href="#messunsicherheit-des-mittelwertes" title="Permalink to this heading">#</a></h3>
 <p>Der Grenzwertsatz sagt aus, wenn man eine ausreichend große Stichprobe aus einer <em>Grundgesamtheit</em> nimmt, so wird der <strong>Mittelwert der Stichprobe</strong> näherungsweise dem <strong>Mittelwert der Grundgesamtheit</strong> entsprechen und sich somit dem <em>wahren</em> Wert annähern.<br />
@@ -1036,7 +1040,7 @@ Das heißt aus den verschiedenen Mittelwerten von <span class="math notranslate 
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/59199aa305442e615f1131fc78ce8e7e68774cba4b85c2dcc59762b59d550f86.png" src="../_images/59199aa305442e615f1131fc78ce8e7e68774cba4b85c2dcc59762b59d550f86.png" />
+<img alt="../_images/17c318554fe463176b4c6f7fd5efa4e1662d58c8a241096b79d19e0cb6a9f916.png" src="../_images/17c318554fe463176b4c6f7fd5efa4e1662d58c8a241096b79d19e0cb6a9f916.png" />
 </div>
 </div>
 <div class="admonition warning">
@@ -1050,23 +1054,6 @@ Das heißt aus den verschiedenen Mittelwerten von <span class="math notranslate 
 <div class="math notranslate nohighlight">
 \[u_{\overline x} = \frac{s}{\sqrt{m}} = \frac{0,0433\,\mathrm s}{\sqrt{22}} = 0,009\,\mathrm s\]</div>
 </div>
-</section>
-<section id="normierte-normalverteilung">
-<h3>Normierte Normalverteilung<a class="headerlink" href="#normierte-normalverteilung" title="Permalink to this heading">#</a></h3>
-<p>Laut dem zentralen Grenzwertsatz folgen also viele Messungen einer Normalverteilung. Um verschiedene Messungen miteinander zu vergleichen, benutzt man häufig die normierte Normalverteilung. Dadurch können die Verteilungen verschiedener Messwerte miteinander verglichen werden, unabhängig von deren physikalischen Einheit.</p>
-<p>Jede Normalverteilung kann in eine normierte Gaußverteilung transformiert werden. Der Übergang erfolgt mit einer Transformation, die die Messwerte normiert. Die Differenz aus Messwert und Mittelwert, <span class="math notranslate nohighlight">\(x-\mu\)</span>, wird auf die Standardabweichung <span class="math notranslate nohighlight">\(\sigma\)</span> bzw. <span class="math notranslate nohighlight">\(s\)</span> normiert:</p>
-<div class="math notranslate nohighlight">
-\[z = \frac{x-\mu}{\sigma}\]</div>
-<p>Dadurch erhält man folgende Funktion für <span class="math notranslate nohighlight">\(\mu = 0\)</span> und <span class="math notranslate nohighlight">\(\sigma = 1\)</span> und <span class="math notranslate nohighlight">\(-1\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[p(z) = \frac{1}{\sqrt{2\pi}}\mathrm e^{-\frac{z^2}{\sigma^2}} \]</div>
-<figure class="align-default" id="normal-normiert-trafo">
-<a class="reference internal image-reference" href="../_images/normal_normiert_trafo.jpg"><img alt="normal_normiert_trafo" src="../_images/normal_normiert_trafo.jpg" style="width: 600px;" /></a>
-<figcaption>
-<p><span class="caption-number">Abb. 20 </span><span class="caption-text">Transformation der Normalverteilung in eine normierte Normalverteilung.</span><a class="headerlink" href="#normal-normiert-trafo" title="Link zu diesem Bild">#</a></p>
-</figcaption>
-</figure>
-<p>Der Flächeninhalt unterhalb dieser Verteilungsfunktion ist wieder auf 100% normiert, wenn von <span class="math notranslate nohighlight">\(\pm \infty\)</span> integriert wird. Die maximale Amplitude ist jetzt <span class="math notranslate nohighlight">\(1/\sqrt{2 \pi}\)</span>. Die <span class="math notranslate nohighlight">\(z\)</span>-Achse (vorher Messwerte <span class="math notranslate nohighlight">\(x\)</span>) ist jetzt dimensionslos (einheitenlos). Somit können mit normierten Gaußverteilungen verschiedene physikalische Größen auch von verschiedenen Messgeräten bezüglich ihrer Streuung verglichen werden.</p>
 </section>
 </section>
 <section id="vertrauensintervalle">
@@ -1160,9 +1147,26 @@ Wie groß ist die Wahrscheinlichkeit, dass die Saftflaschen mit einen Inhalt zwi
 <p><span class="math notranslate nohighlight">\(\phi(2) - \phi(-2) = 0,97725-0,02275 = 0,9545\)</span></p>
 <p>Mit einer Wahrscheinlichkeit von 95,45 % werden die Flaschen in der Abfüllanlage mit einem Inhalt von 0,69 l – 0,71 l befüllt. Dies entspricht auch genau der Wahrscheinlichkeit der <span class="math notranslate nohighlight">\(2\sigma\)</span>-Umgebung (siehe vorheriges Kapitel), was für <span class="math notranslate nohighlight">\(z = \pm 2\)</span> natürlich auch so sein sollte.</p>
 </div>
+<section id="normierte-normalverteilung">
+<h3>Normierte Normalverteilung<a class="headerlink" href="#normierte-normalverteilung" title="Permalink to this heading">#</a></h3>
+<p>Um verschiedene Messungen miteinander zu vergleichen, benutzt man häufig die normierte Normalverteilung. Dadurch können die Verteilungen verschiedener Messwerte miteinander verglichen werden, unabhängig von deren physikalischen Einheit.</p>
+<p>Jede Normalverteilung kann in eine normierte Gaußverteilung transformiert werden. Der Übergang erfolgt mit einer Transformation, die die Messwerte normiert. Die Differenz aus Messwert und Mittelwert, <span class="math notranslate nohighlight">\(x-\mu\)</span>, wird auf die Standardabweichung <span class="math notranslate nohighlight">\(\sigma\)</span> bzw. <span class="math notranslate nohighlight">\(s\)</span> normiert:</p>
+<div class="math notranslate nohighlight">
+\[z = \frac{x-\mu}{\sigma}\]</div>
+<p>Dadurch erhält man folgende Funktion für <span class="math notranslate nohighlight">\(\mu = 0\)</span> und <span class="math notranslate nohighlight">\(\sigma = 1\)</span> und <span class="math notranslate nohighlight">\(-1\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[p(z) = \frac{1}{\sqrt{2\pi}}\mathrm e^{-\frac{z^2}{\sigma^2}} \]</div>
+<figure class="align-default" id="normal-normiert-trafo">
+<a class="reference internal image-reference" href="../_images/normal_normiert_trafo.jpg"><img alt="normal_normiert_trafo" src="../_images/normal_normiert_trafo.jpg" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Abb. 20 </span><span class="caption-text">Transformation der Normalverteilung in eine normierte Normalverteilung.</span><a class="headerlink" href="#normal-normiert-trafo" title="Link zu diesem Bild">#</a></p>
+</figcaption>
+</figure>
+<p>Der Flächeninhalt unterhalb dieser Verteilungsfunktion ist wieder auf 100% normiert, wenn von <span class="math notranslate nohighlight">\(\pm \infty\)</span> integriert wird. Die maximale Amplitude ist jetzt <span class="math notranslate nohighlight">\(1/\sqrt{2 \pi}\)</span>. Die <span class="math notranslate nohighlight">\(z\)</span>-Achse (vorher Messwerte <span class="math notranslate nohighlight">\(x\)</span>) ist jetzt dimensionslos (einheitenlos). Somit können mit normierten Gaußverteilungen verschiedene physikalische Größen auch von verschiedenen Messgeräten bezüglich ihrer Streuung verglichen werden.</p>
+</section>
 <section id="guteklassen-von-messgeraten">
 <h3>Güteklassen von Messgeräten<a class="headerlink" href="#guteklassen-von-messgeraten" title="Permalink to this heading">#</a></h3>
-<p>Durch diese Intervallgrenzen werden Güteklassen von Messeinrichtungen definiert. Andersherum können auch Anforderungen an Messgeräte gestellt werden: Die Anforderungen werden umso höher, je höher die Wahrscheinlichkeit sein soll, dass sich die Messwerte dem <em>richtigen</em> Wert annähern.
+<p>Durch die Intervallgrenzen des Vertrauensbereichs werden Güteklassen von Messeinrichtungen definiert. Andersherum können auch Anforderungen an Messgeräte gestellt werden: Die Anforderungen werden umso höher, je höher die Wahrscheinlichkeit sein soll, dass sich die Messwerte dem <em>richtigen</em> Wert annähern.
 Der Messtechniker kann somit mit der gegebenen Wahrscheinlichkeit abschätzen, ob ermittelte Messwerte innerhalb einer durch Fertigungsunterlagen zugelassenen Toleranz für die Maße eines Werkstücks liegen. Übliche Werte für Invervallgrenzen (meist symmetrisch, also Abweichungen sowohl nach unten als auch nach oben im gleichen Maße).</p>
 <table class="table">
 <thead>
@@ -1344,16 +1348,15 @@ Die unten stehende Quantil-Tabelle zeigt die zugehörigen Werte von <span class=
 \[x = (1{,}402 \pm 2{,}080\cdot 0{,}009)\,\mathrm s = (1{,}402 \pm 0{,}0187)\,\mathrm s \quad (95\% \textrm{ t-Verteilung})\]</div>
 <p>Der Unterschied zum Vertrauensbereich, der aus der Normalverteilung hervorgeht, ist ein über 4% höherer Fehler.</p>
 </div>
-</section>
 <section id="umrechnung-von-vertrauensintervallen">
-<h2>Umrechnung von Vertrauensintervallen<a class="headerlink" href="#umrechnung-von-vertrauensintervallen" title="Permalink to this heading">#</a></h2>
+<h3>Umrechnung von Vertrauensintervallen<a class="headerlink" href="#umrechnung-von-vertrauensintervallen" title="Permalink to this heading">#</a></h3>
 <p>Desweiteren können Vertrauensbereiche unterschiedlicher Wahrscheinlichkeiten ineinander umgerechnet werden:</p>
 <div class="admonition-umrechnung-von-vertrauensbereichen admonition">
 <p class="admonition-title"><strong>Umrechnung von Vertrauensbereichen</strong></p>
 <div class="math notranslate nohighlight">
 \[\frac{u_{\alpha 1}}{t_{m-1; 1-\frac{\alpha_1}{2}}} =  \frac{u_{\alpha 2}}{t_{m-1; 1-\frac{\alpha_2}{2}}}\]</div>
 </div>
-<p>Hierbei ist <span class="math notranslate nohighlight">\(\alpha\)</span> das Signifikanzniveau, also die Irrtumswahrscheinlichkeit <span class="math notranslate nohighlight">\(\alpha = 1-P\)</span>, wobei <span class="math notranslate nohighlight">\(P\)</span> die Wahrscheinlichkeit bzw. die geforderte statistische Sicherheit ist.</p>
+<p>Hierbei ist <span class="math notranslate nohighlight">\(\alpha\)</span> das zweiseitige Signifikanzniveau, also die Irrtumswahrscheinlichkeit <span class="math notranslate nohighlight">\(\alpha = 1-P\)</span>, wobei <span class="math notranslate nohighlight">\(P\)</span> die Wahrscheinlichkeit bzw. die geforderte statistische Sicherheit ist. Der halbseitige (einseitige) Vertrauensbereich wird in manchen Tabellen gewählt und lautet <span class="math notranslate nohighlight">\(p = 1-\alpha/2\)</span>.</p>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Beispiel zur Umrechnung von Vertrauensbereichen</p>
 <p>Die Umrechnung des Vertrauensbereich 95% aus dem letzten Beispiel sollen in einen Vertrauensbereich mit einem anderen Vertrauensniveau, von 99% erfolgen. Die Ergebnisse für 95% sind bekannt. Nun muss das Quantil für 99% (also <span class="math notranslate nohighlight">\(\alpha = \)</span>1%) bestimmt werden. Analog werden die <span class="math notranslate nohighlight">\(s = m-1 = 21\)</span> und <span class="math notranslate nohighlight">\(p = 1-\alpha/2 = 1-0{,}005 = 0{,}995\)</span> Quantile bestimmt und der <span class="math notranslate nohighlight">\(t\)</span>-Wert aus der Tabelle abgelesen:</p>
@@ -1368,6 +1371,7 @@ Die unten stehende Quantil-Tabelle zeigt die zugehörigen Werte von <span class=
 <div class="math notranslate nohighlight">
 \[x = (1{,}402 \pm 0{,}025)\,\mathrm s \quad (99\%)\]</div>
 </div>
+</section>
 </section>
 <section id="zusammenfassung">
 <h2>Zusammenfassung<a class="headerlink" href="#zusammenfassung" title="Permalink to this heading">#</a></h2>
@@ -1440,21 +1444,25 @@ Die unten stehende Quantil-Tabelle zeigt die zugehörigen Werte von <span class=
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histogramm">Histogramm</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#haufigkeitsdichte">Häufigkeitsdichte</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zentraler-grenzwertsatz">Zentraler Grenzwertsatz</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistische-groszen-normalverteilung">Statistische Größen: Normalverteilung</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetisches-mittel-und-varianz-unendliche-stichprobe">Arithmetisches Mittel und Varianz (unendliche Stichprobe)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#empirisches-mittel-und-varianz-endliche-stichprobe">Empirisches Mittel und Varianz (endliche Stichprobe)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalverteilung">Normalverteilung</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistische-groszen-normalverteilung">Statistische Größen: Normalverteilung</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetisches-mittel-und-varianz-unendliche-stichprobe">Arithmetisches Mittel und Varianz (unendliche Stichprobe)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#empirisches-mittel-und-varianz-endliche-stichprobe">Empirisches Mittel und Varianz (endliche Stichprobe)</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#messunsicherheit-des-mittelwertes">Messunsicherheit des Mittelwertes</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normierte-normalverteilung">Normierte Normalverteilung</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vertrauensintervalle">Vertrauensintervalle</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normierte-normalverteilung">Normierte Normalverteilung</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#guteklassen-von-messgeraten">Güteklassen von Messgeräten</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#angabe-des-messergebnisses-mit-unsicherheit">Angabe des Messergebnisses mit Unsicherheit</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#student-t-kleine-stichproben">Student-t (kleine Stichproben)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#umrechnung-von-vertrauensintervallen">Umrechnung von Vertrauensintervallen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#student-t-kleine-stichproben">Student-t (kleine Stichproben)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#umrechnung-von-vertrauensintervallen">Umrechnung von Vertrauensintervallen</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung">Zusammenfassung</a></li>
 </ul>
   </nav></div>

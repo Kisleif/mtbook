@@ -190,8 +190,14 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="1_Kalibrieren.html">Kalibrieren und Eichen</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="V2.html">Messunsicherheiten</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="1_Messunsicherheiten.html">Messunsicherheiten</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="V2.html">Messabweichungen</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1_Messunsicherheiten.html">Toleranz</a></li>
+
+
+
+
+
+
 <li class="toctree-l2"><a class="reference internal" href="1_SystematischeMessabweichung.html">Systematische Messabweichung</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Statistische Messunsicherheit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Fehlerfortpflanzung.html">Fehlerfortpflanzung</a></li>
@@ -549,13 +555,22 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histogramm">Histogramm</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#haufigkeitsdichte">Häufigkeitsdichte</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalverteilung">Normalverteilung</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistische-groszen-normalverteilung">Statistische Größen: Normalverteilung</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetisches-mittel-und-varianz-unendliche-stichprobe">Arithmetisches Mittel und Varianz (unendliche Stichprobe)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#empirisches-mittel-und-varianz-endliche-stichprobe">Empirisches Mittel und Varianz (endliche Stichprobe)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalverteilung-unendliche-stichprobe">Normalverteilung (unendliche Stichprobe)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetisches-mittel-bzw-erwartungswert">Arithmetisches Mittel bzw. Erwartungswert</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#varianz">Varianz</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standardabweichung">Standardabweichung</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stichprobe-endliche-anzahl-von-messwerten">Stichprobe (endliche Anzahl von Messwerten)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#empirische-stichprobenmittelwert">Empirische Stichprobenmittelwert</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#empirische-varianz">Empirische Varianz</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#empirische-standardabweichung">Empirische Standardabweichung</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#messunsicherheit-des-mittelwertes">Messunsicherheit des Mittelwertes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#andere-verteilungen">Andere Verteilungen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gleichverteilung-rechteck">Gleichverteilung (Rechteck)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trapez-bzw-dreiecksverteilung">Trapez- bzw. Dreiecksverteilung</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vertrauensintervalle">Vertrauensintervalle</a><ul class="nav section-nav flex-column">
@@ -603,7 +618,7 @@ document.write(`
 </div>
 </div>
 </aside>
-<p>Die Histogramm-Darstellung wird insbesondere dann häufig benutzt, wenn Messreihen mit vielen Messwerten vorliegen. An einer solchen Darstellung erkennt man die Art der zugrundeliegenden Verteilung der Messwerte (symmetrisch, schief, …) und die ungefähre Lage und Streuung. Außerdem können <em>Ausreißer</em>, also Messwerte die viel zu weit von den anderen Messwerten entfernt liegen, identifiziert werden.</p>
+<p>Die Histogramm-Darstellung wird insbesondere dann benutzt, wenn Messreihen mit vielen Messwerten vorliegen. An einer solchen Darstellung erkennt man die Art der zugrundeliegenden Verteilung der Messwerte (symmetrisch, schief, …) und die ungefähre Lage und Streuung. Außerdem können <em>Ausreißer</em>, also Messwerte die viel zu weit von den anderen Messwerten entfernt liegen, identifiziert werden.</p>
 <p>In nachfolgendem Code-Block wird für die Messreihe</p>
 <div class="math notranslate nohighlight">
 \[1.41, 1.35, 1.45, 1.43, 1.44, 1.43,
@@ -648,7 +663,101 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/7ff7f87fd546d0f9bfa5799afd8bade3b4ccd0b2057818506f88f8b4d8b5b31d.png" src="../_images/7ff7f87fd546d0f9bfa5799afd8bade3b4ccd0b2057818506f88f8b4d8b5b31d.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">warnings</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1"># Matplotlib settings</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">seaborn</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">5</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="o">*</span>  <span class="c1"># noqa: F401,F403</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">.palettes</span> <span class="kn">import</span> <span class="o">*</span>  <span class="c1"># noqa: F401,F403</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">.relational</span> <span class="kn">import</span> <span class="o">*</span>  <span class="c1"># noqa: F401,F403</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">.regression</span> <span class="kn">import</span> <span class="o">*</span>  <span class="c1"># noqa: F401,F403</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">.categorical</span> <span class="kn">import</span> <span class="o">*</span>  <span class="c1"># noqa: F401,F403</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">seaborn</span><span class="o">/</span><span class="n">relational</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">17</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">._oldcore</span> <span class="kn">import</span> <span class="p">(</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="n">VectorPlotter</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span>     <span class="n">locator_to_legend_entries</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span>     <span class="n">adjust_legend_subtitles</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="n">_default_color</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span>     <span class="n">_deprecate_ci</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">17</span> <span class="kn">from</span> <span class="nn">._statistics</span> <span class="kn">import</span> <span class="n">EstimateAggregator</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="kn">from</span> <span class="nn">.axisgrid</span> <span class="kn">import</span> <span class="n">FacetGrid</span><span class="p">,</span> <span class="n">_facet_docs</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="kn">from</span> <span class="nn">._docstrings</span> <span class="kn">import</span> <span class="n">DocstringComponents</span><span class="p">,</span> <span class="n">_core_docs</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">seaborn</span><span class="o">/</span><span class="n">_statistics</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">31</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">     </span><span class="mi">30</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">31</span>     <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">gaussian_kde</span>
+<span class="g g-Whitespace">     </span><span class="mi">32</span>     <span class="n">_no_scipy</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="g g-Whitespace">     </span><span class="mi">33</span> <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">stats</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">441</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="sd"> .. _statsrefmanual:</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">438</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">439</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">441</span> <span class="kn">from</span> <span class="nn">.stats</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="g g-Whitespace">    </span><span class="mi">442</span> <span class="kn">from</span> <span class="nn">.distributions</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="g g-Whitespace">    </span><span class="mi">443</span> <span class="kn">from</span> <span class="nn">.morestats</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">stats</span><span class="o">/</span><span class="n">stats</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">37</span>
+<span class="g g-Whitespace">     </span><span class="mi">34</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">     </span><span class="mi">35</span> <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">array</span><span class="p">,</span> <span class="n">asarray</span><span class="p">,</span> <span class="n">ma</span>
+<span class="ne">---&gt; </span><span class="mi">37</span> <span class="kn">from</span> <span class="nn">scipy.spatial.distance</span> <span class="kn">import</span> <span class="n">cdist</span>
+<span class="g g-Whitespace">     </span><span class="mi">38</span> <span class="kn">from</span> <span class="nn">scipy.ndimage</span> <span class="kn">import</span> <span class="n">measurements</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span> <span class="kn">from</span> <span class="nn">scipy._lib._util</span> <span class="kn">import</span> <span class="p">(</span><span class="n">check_random_state</span><span class="p">,</span> <span class="n">MapWrapper</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">40</span>                               <span class="n">rng_integers</span><span class="p">,</span> <span class="n">float_factorial</span><span class="p">)</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">spatial</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">102</span>
+<span class="g g-Whitespace">    </span><span class="mi">100</span> <span class="kn">from</span> <span class="nn">._plotutils</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="g g-Whitespace">    </span><span class="mi">101</span> <span class="kn">from</span> <span class="nn">._procrustes</span> <span class="kn">import</span> <span class="n">procrustes</span>
+<span class="ne">--&gt; </span><span class="mi">102</span> <span class="kn">from</span> <span class="nn">._geometric_slerp</span> <span class="kn">import</span> <span class="n">geometric_slerp</span>
+<span class="g g-Whitespace">    </span><span class="mi">104</span> <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">()</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">s</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)]</span>
+<span class="g g-Whitespace">    </span><span class="mi">105</span> <span class="n">__all__</span> <span class="o">+=</span> <span class="p">[</span><span class="s1">&#39;distance&#39;</span><span class="p">,</span> <span class="s1">&#39;transform&#39;</span><span class="p">]</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">spatial</span><span class="o">/</span><span class="n">_geometric_slerp</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">8</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">warnings</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="ne">----&gt; </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">scipy.spatial.distance</span> <span class="kn">import</span> <span class="n">euclidean</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="k">def</span> <span class="nf">_geometric_slerp</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span>     <span class="c1"># create an orthogonal basis using QR decomposition</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span>     <span class="n">basis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">])</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">spatial</span><span class="o">/</span><span class="n">distance</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">124</span>
+<span class="g g-Whitespace">    </span><span class="mi">122</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">_hausdorff</span>
+<span class="g g-Whitespace">    </span><span class="mi">123</span> <span class="kn">from</span> <span class="nn">..linalg</span> <span class="kn">import</span> <span class="n">norm</span>
+<span class="ne">--&gt; </span><span class="mi">124</span> <span class="kn">from</span> <span class="nn">..special</span> <span class="kn">import</span> <span class="n">rel_entr</span>
+<span class="g g-Whitespace">    </span><span class="mi">126</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">_distance_pybind</span>
+<span class="g g-Whitespace">    </span><span class="mi">129</span> <span class="k">def</span> <span class="nf">_copy_array_if_base_present</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">special</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">643</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="sd"> ========================================</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd"> Special functions (:mod:`scipy.special`)</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">638</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">639</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">641</span> <span class="kn">from</span> <span class="nn">.sf_error</span> <span class="kn">import</span> <span class="n">SpecialFunctionWarning</span><span class="p">,</span> <span class="n">SpecialFunctionError</span>
+<span class="ne">--&gt; </span><span class="mi">643</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">_ufuncs</span>
+<span class="g g-Whitespace">    </span><span class="mi">644</span> <span class="kn">from</span> <span class="nn">._ufuncs</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="g g-Whitespace">    </span><span class="mi">646</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">_basic</span>
+
+<span class="nn">File &lt;frozen importlib._bootstrap&gt;:398,</span> in <span class="ni">parent</span><span class="nt">(self)</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
 </div>
 </div>
 <p>Im Diagramm ist die absolute Häufigkeit der Zeitmessung dargestellt. Die Klassen sind jeweils gleich groß mit einer Breite von 0,04s. In der ersten befinden sich die Messwerte von 1.3s-1.34s.</p>
@@ -720,7 +829,7 @@ Die Häufigkeitsdichte gibt bei einem Histogramm die Höhe des Rechtecks an (Die
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/a93fd2ea7ae3817e3eae2e5b3c4c52804415365079b1b90b46a5e62ec0b67843.png" src="../_images/a93fd2ea7ae3817e3eae2e5b3c4c52804415365079b1b90b46a5e62ec0b67843.png" />
+<img alt="../_images/4266b7f3712391be2561462ba5339d9e4b12955175601dce96b63189b9267d61.png" src="../_images/4266b7f3712391be2561462ba5339d9e4b12955175601dce96b63189b9267d61.png" />
 </div>
 </div>
 <p>Im Diagramm ist die relative Häufigkeitsdichte <span class="math notranslate nohighlight">\(d\)</span> der Zeitmessung dargestellt. Die Fläche der Balken gibt die relative Häufigkeit <span class="math notranslate nohighlight">\(h\)</span> an. In Summe muss diese 1 betragen (100% im Falle der absoluten Häufigkeitsdichte).</p>
@@ -744,8 +853,8 @@ Die Häufigkeitsdichte gibt bei einem Histogramm die Höhe des Rechtecks an (Die
 </div>
 <p>Die Wahrscheinlichkeit, einen Messwert innerhalb eines kleinen Intervalls <span class="math notranslate nohighlight">\(\Delta x\)</span> um den Wert <span class="math notranslate nohighlight">\(\overline x\)</span> zu finden, ist <span class="math notranslate nohighlight">\(dP(X) = d(x)\cdot \Delta x\)</span>, wobei <span class="math notranslate nohighlight">\(d(x) = d_i\)</span>.</p>
 </section>
-<section id="normalverteilung">
-<h2>Normalverteilung<a class="headerlink" href="#normalverteilung" title="Permalink to this heading">#</a></h2>
+<section id="normalverteilung-unendliche-stichprobe">
+<h2>Normalverteilung (unendliche Stichprobe)<a class="headerlink" href="#normalverteilung-unendliche-stichprobe" title="Permalink to this heading">#</a></h2>
 <p>Je größer die Stichprobe <span class="math notranslate nohighlight">\(m\)</span> (Anzahl der Messungen), desto eher erkennt man die zugrundeliegende Verteilung, der die Messreihe unterliegt. Häufig handelt es sich in der Praxis um eine <em>Normalverteilung</em> (oder auch Gaußverteilung genannt):</p>
 <div class="math notranslate nohighlight">
 \[P(x) = \frac{1}{\sigma \sqrt{2\pi}}\int_{x_1}^{x_2} \mathrm{exp}\left(-\frac{(x-\mu)^2}{2\sigma^2}\right) dx\]</div>
@@ -785,7 +894,7 @@ Die Häufigkeitsdichte gibt bei einem Histogramm die Höhe des Rechtecks an (Die
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/a0c93abfad78f7e07e2caa84d33de3e4e8f2e5646c6558d4487608bce321d68a.png" src="../_images/a0c93abfad78f7e07e2caa84d33de3e4e8f2e5646c6558d4487608bce321d68a.png" />
+<img alt="../_images/56936dc0b686059e03f789e69f27d5db93a8d80adb037f7eaf5da47c501075a0.png" src="../_images/56936dc0b686059e03f789e69f27d5db93a8d80adb037f7eaf5da47c501075a0.png" />
 </div>
 </div>
 <p>Im Diagramm sind die relative Häufigkeitsdichte <span class="math notranslate nohighlight">\(d\)</span> der Zeitmessung und ein Modell der Normalverteilung <span class="math notranslate nohighlight">\(P(x)\)</span> dargestellt.</p>
@@ -794,23 +903,27 @@ Die Häufigkeitsdichte gibt bei einem Histogramm die Höhe des Rechtecks an (Die
 <p class="admonition-title"><strong>Zentraler Grenzwertsatz der Wahrscheinlichkeitstheorie</strong></p>
 <p>Der Durchschnitt einer großen Anzahl von Zufallsvariablen aus derselben Verteilung sind annäherend normalverteilt, unabhängig von der Verteilungsfunktion aus der sie herausgenommen wurden.</p>
 </div>
-<section id="statistische-groszen-normalverteilung">
-<h3>Statistische Größen: Normalverteilung<a class="headerlink" href="#statistische-groszen-normalverteilung" title="Permalink to this heading">#</a></h3>
-<section id="arithmetisches-mittel-und-varianz-unendliche-stichprobe">
-<h4>Arithmetisches Mittel und Varianz (unendliche Stichprobe)<a class="headerlink" href="#arithmetisches-mittel-und-varianz-unendliche-stichprobe" title="Permalink to this heading">#</a></h4>
-<p>Für normalverteilte Zufalslgrößen (wie in unsere obigen Messreihe) können wir mittels statistischen Methoden Messwerte und Messunsicherheit aus der Stichprobe bestimmen.</p>
+<section id="arithmetisches-mittel-bzw-erwartungswert">
+<h3>Arithmetisches Mittel bzw. Erwartungswert<a class="headerlink" href="#arithmetisches-mittel-bzw-erwartungswert" title="Permalink to this heading">#</a></h3>
+<p>Für normalverteilte Zufallsgrößen können wir mittels statistischen Methoden Messwerte und Messunsicherheit aus der Stichprobe bestimmen.</p>
 <p>Normalverteilte Zufallsgrößen werden immer von zwei Parametern <span class="math notranslate nohighlight">\(\overline x\)</span> und <span class="math notranslate nohighlight">\(\sigma\)</span> beschrieben.
 Der <strong>arithmetische Mittelwert <span class="math notranslate nohighlight">\(\overline x\)</span></strong>, der das <strong>arithmetische Mittel <span class="math notranslate nohighlight">\(\mu\)</span></strong> aus <span class="math notranslate nohighlight">\(m \rightarrow \infty\)</span> Beobachtungen ist, oder auch <strong>Erwartungswert <span class="math notranslate nohighlight">\(E(x)\)</span></strong> genannt, gilt:</p>
 <div class="math notranslate nohighlight">
 \[\mu = \frac{1}{m}\sum_{j=1}^m x_j =: E(x) = \left&lt; x \right&gt;\]</div>
+</section>
+<section id="varianz">
+<h3>Varianz<a class="headerlink" href="#varianz" title="Permalink to this heading">#</a></h3>
 <p>Der <em>Erwartungswert der quadratischen Abweichung der Einzelmessungen vom Mittelwert</em>, die <strong>Varianz</strong> <span class="math notranslate nohighlight">\(\sigma^2\)</span>, ist:</p>
 <div class="math notranslate nohighlight">
 \[\sigma^2  =  \frac{1}{m} \sum_{j=1}^m \left( x_j - \mu \right)^2\]</div>
 <p>Der arithmetische Mittelwert zeichnet sich dadurch aus, dass für diesen Wert die Summe der Abweichungsquadrate minimal ist. Die Varianz hängt nicht von der Anzahl der Messungen ab. Die Streuung kann <em>ausschließlich</em> durch ein besseres Messverfahren verkleinert werden. Anschaulich ist das direkt nachvollziehbar: Die „Punktwolke“ der Messergebnisse um den Mittelwert schmiegt sich nicht enger an den Mittelwert, nur weil häufiger gemessen wurde. Ein stark streuendes Messverfahren streut durch seine Wiederholung nicht weniger.</p>
+</section>
+<section id="standardabweichung">
+<h3>Standardabweichung<a class="headerlink" href="#standardabweichung" title="Permalink to this heading">#</a></h3>
 <p>Unabhängig von der zugrundeliegenden Verteilung der Messwerte kann nun ein Maß für die Abweichung definiert werden, welche als <strong>Standardabweichung der Einzelmessungen</strong> bekannt ist und sich aus der Quadratwurzel der Varianz berechnen lässt:</p>
 <div class="math notranslate nohighlight">
 \[\sigma = \sqrt{\frac{1}{m} \sum_{j=1}^m (x_j - \mu)^2}\]</div>
-<p>Man nehme beispielhaft die Zeitmessung von oben. Es wurden 15 wiederholte Messungen der Zeit durchgeführt. Mittelwert, Standardabweichung der Einzelmessungen und Unsicherheit des Mittelwertes werden berechnet.</p>
+<p>Man nehme beispielhaft die Zeitmessung von oben. Es wurden 22 wiederholte Messungen der Zeit durchgeführt. Mittelwert, Standardabweichung der Einzelmessungen und Unsicherheit des Mittelwertes werden berechnet.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -871,12 +984,25 @@ Der <strong>arithmetische Mittelwert <span class="math notranslate nohighlight">
 </div>
 </div>
 </section>
-<section id="empirisches-mittel-und-varianz-endliche-stichprobe">
-<h4>Empirisches Mittel und Varianz (endliche Stichprobe)<a class="headerlink" href="#empirisches-mittel-und-varianz-endliche-stichprobe" title="Permalink to this heading">#</a></h4>
+</section>
+<section id="stichprobe-endliche-anzahl-von-messwerten">
+<h2>Stichprobe (endliche Anzahl von Messwerten)<a class="headerlink" href="#stichprobe-endliche-anzahl-von-messwerten" title="Permalink to this heading">#</a></h2>
+<p>Bei einer Stichprobe liegt nur eine limitierte Anzahl von Messwerten vor. Dies ist bei jeder Messreihe der Fall, da niemals die komplette Gesamtheit gemessen werden kann. Der Mittelwert der kompletten Gesamtheit entspräche dem arithmetischen Erwartungswert und in der Messtechnik somit der <em>wahren</em> Messgröße. Bei Messungen (Stichproben) liegt uns nur eine begrenzte Anzahl von empirisch (experimentell) ermittelten Messwerten vor.</p>
+<section id="empirische-stichprobenmittelwert">
+<h3>Empirische Stichprobenmittelwert<a class="headerlink" href="#empirische-stichprobenmittelwert" title="Permalink to this heading">#</a></h3>
+<p>Der Stichprobenmittelwert oder auch empirische Mittelwert berechnet sich genauso wie der Erwartungswert:</p>
+<div class="math notranslate nohighlight">
+\[\overline x = \frac{1}{m}\sum_{j=1}^m x_j\]</div>
+</section>
+<section id="empirische-varianz">
+<h3>Empirische Varianz<a class="headerlink" href="#empirische-varianz" title="Permalink to this heading">#</a></h3>
 <p>Du wirst bei deinen Messungen in der Regel weniger an der Streuung um den Mittelwert, sondern mehr an der (geschätzten) Streuung der Messwerte um den (unbekannten) <em>wahren</em> Wert interessiert sein. Diese Unsicherheit schätzt man durch die <strong>empirische Varianz <span class="math notranslate nohighlight">\(s^2(x)\)</span> der Messwerte der <span class="math notranslate nohighlight">\(x_j\)</span></strong> ab. Diese ist etwas größer als die Varianz <span class="math notranslate nohighlight">\(\sigma^2\)</span>, nämlich um den Faktor <span class="math notranslate nohighlight">\(m/(m − 1)\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[s^2 = \frac{1}{m-1} \sum_{j=1}^m (x_j - \overline x)^2\]</div>
-<p>Die <strong>empirische Standardabweichung <span class="math notranslate nohighlight">\(s(x)\)</span> der Messwerte</strong> ist die wieder Wurzel, diesmal aus der empirischen Varianz:</p>
+</section>
+<section id="empirische-standardabweichung">
+<h3>Empirische Standardabweichung<a class="headerlink" href="#empirische-standardabweichung" title="Permalink to this heading">#</a></h3>
+<p>Die <strong>empirische Standardabweichung <span class="math notranslate nohighlight">\(s(x)\)</span> der Messwerte</strong> ist wieder die Wurzel aus der Varianz:</p>
 <div class="math notranslate nohighlight">
 \[s = \sqrt{\frac{1}{m-1} \sum_{j=1}^m (x_j - \overline x)^2}\]</div>
 <div class="cell tag_hide-input docutils container">
@@ -958,13 +1084,13 @@ Welche Größe, s oder <span class="math notranslate nohighlight">\(\sigma\)</sp
 </div>
 </div>
 </section>
-</section>
 <section id="messunsicherheit-des-mittelwertes">
 <h3>Messunsicherheit des Mittelwertes<a class="headerlink" href="#messunsicherheit-des-mittelwertes" title="Permalink to this heading">#</a></h3>
-<p>Der Grenzwertsatz sagt aus, wenn man eine ausreichend große Stichprobe aus einer <em>Grundgesamtheit</em> nimmt, so wird der <strong>Mittelwert der Stichprobe</strong> näherungsweise dem <strong>Mittelwert der Grundgesamtheit</strong> entsprechen und sich somit dem <em>wahren</em> Wert annähern.<br />
-Das heißt, als Messwert von einer Stichprobe geben wir den Mittelwert an. Dieser muss noch mit einer Unsicherheit versehen werden, um das Messergebnis komplett zu machen. Wie wirkt sich die zu erwartende Messunsicherheit der einzelnen Messwerte <span class="math notranslate nohighlight">\(s(x)\)</span> auf die Unsicherheit des Mittelwerts <span class="math notranslate nohighlight">\(s(\overline x)\)</span> der Messreihe aus?</p>
-<p>Angenommen, wir nehmen jetzt viele (<span class="math notranslate nohighlight">\(k\)</span>) Stichproben auf und berechnen jedes mal den Mittelwert, so sind laut <em>Grenzwertsatz</em> die Mittelwerte normalverteilt!
-Das heißt aus den verschiedenen Mittelwerten von <span class="math notranslate nohighlight">\(k\)</span> Stichproben könnte theoretisch wieder ein Mitelwert berechnet werden und folglich auch eine <strong>Standardabweichung der Mittelwerte</strong>:</p>
+<p>Als Messergebnis benutzen wir den Mittelwert. Wie berechnet sich jedoch die Unsicherheit des Mittelwertes? Die oben berechneten Standardabweichungen geben nämlich lediglich die Unsicherheit eines Messwertes an, aber nicht die des Mittelwertes!</p>
+<p>Dank des sogenannten Grenzwertsatzes können wir dies einfach herleiten.
+Der Grenzwertsatz sagt aus, wenn man eine ausreichend große Stichprobe aus einer <em>Grundgesamtheit</em> nimmt, so wird der <strong>Mittelwert der Stichprobe</strong> näherungsweise dem <strong>Mittelwert der Grundgesamtheit</strong> entsprechen und sich somit dem <em>wahren</em> Wert annähern.</p>
+<p>Angenommen, wir nehmen viele (<span class="math notranslate nohighlight">\(k\)</span>) Stichproben (mit jeweils <span class="math notranslate nohighlight">\(j\)</span> Messwerten) auf und berechnen jedes mal den Mittelwert (dann haben wir <span class="math notranslate nohighlight">\(k\)</span> Mittelwerte). Dann sind laut <em>Grenzwertsatz</em> diese <span class="math notranslate nohighlight">\(k\)</span> Mittelwerte normalverteilt!
+Das heißt aus den <span class="math notranslate nohighlight">\(k\)</span> Mittelwerten könnte wir wieder einen Mittelwert berechnen und folglich auch die <strong>Standardabweichung der Mittelwerte</strong>:</p>
 <div class="math notranslate nohighlight">
 \[s(\overline x) = \frac{s}{\sqrt{m}} = \sqrt{\frac{1}{m(m-1)} \sum_{j=1}^m (x_j - \overline x)^2}\]</div>
 <div class="cell tag_hide-input docutils container">
@@ -1040,7 +1166,7 @@ Das heißt aus den verschiedenen Mittelwerten von <span class="math notranslate 
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/17c318554fe463176b4c6f7fd5efa4e1662d58c8a241096b79d19e0cb6a9f916.png" src="../_images/17c318554fe463176b4c6f7fd5efa4e1662d58c8a241096b79d19e0cb6a9f916.png" />
+<img alt="../_images/ed316c277e1b9606f09e56d30354dce26235fc8dcb030397d00334adb6ecc6ec.png" src="../_images/ed316c277e1b9606f09e56d30354dce26235fc8dcb030397d00334adb6ecc6ec.png" />
 </div>
 </div>
 <div class="admonition warning">
@@ -1054,6 +1180,52 @@ Das heißt aus den verschiedenen Mittelwerten von <span class="math notranslate 
 <div class="math notranslate nohighlight">
 \[u_{\overline x} = \frac{s}{\sqrt{m}} = \frac{0,0433\,\mathrm s}{\sqrt{22}} = 0,009\,\mathrm s\]</div>
 </div>
+</section>
+</section>
+<section id="andere-verteilungen">
+<h2>Andere Verteilungen<a class="headerlink" href="#andere-verteilungen" title="Permalink to this heading">#</a></h2>
+<section id="gleichverteilung-rechteck">
+<h3>Gleichverteilung (Rechteck)<a class="headerlink" href="#gleichverteilung-rechteck" title="Permalink to this heading">#</a></h3>
+<p>In den meisten Fällen können Sie eine Normalverteilung der Messwerte annehmen. Manchmal lässt sich nur eine Ober- und Untergrenze <span class="math notranslate nohighlight">\(a_+\)</span> und <span class="math notranslate nohighlight">\(a_-\)</span> angeben, innerhalb deren ein Messwert <span class="math notranslate nohighlight">\(x\)</span> liegt. Alle Werte innerhalb der Grenzen sind jetzt gleich wahrscheinlich, und folgen einer rechteckförmigen Wahrscheinlichkeitsdichte (Gleichverteilung).</p>
+<p>In <em>Datenblättern</em> von Messinstrumenten werden häufig nur Ober- und Untergrenzen definiert, innerhalb welcher sich ein zu messender Wert aufhalten wird. Sollte dies der Fall sein, werden die <em>Unsicherheiten</em> wiefolgt berechnet:</p>
+<p>Für den Mittelwert/Erwartungswert wird das Mittel berechnet:</p>
+<div class="math notranslate nohighlight">
+\[\mu = \frac{a_- + a_+}{2}\]</div>
+<p>Für die Varianz gilt:</p>
+<div class="math notranslate nohighlight">
+\[s^2 = \frac{(a_- + a_+)^2}{12} = \frac{a^2}{3}\]</div>
+<p>und für die Standardabweichung:</p>
+<div class="math notranslate nohighlight">
+\[s = \frac{a}{\sqrt{3}}\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(a\)</span> die Abweichung ist.</p>
+<figure class="align-default" id="rechteck-abw">
+<a class="reference internal image-reference" href="../_images/rechteck_abw.png"><img alt="rechteck_abw" src="../_images/rechteck_abw.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Abb. 20 </span><span class="caption-text">Gleichverteilung / Rechteckverteilung von Messwerten wird angenommen, wenn nur Ober- und Untergrenzen bekannt sind.</span><a class="headerlink" href="#rechteck-abw" title="Link zu diesem Bild">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="trapez-bzw-dreiecksverteilung">
+<h3>Trapez- bzw. Dreiecksverteilung<a class="headerlink" href="#trapez-bzw-dreiecksverteilung" title="Permalink to this heading">#</a></h3>
+<p>Step-Funktionen wir die gleichverteilung sind häufig unphysikalisch, da die Funktion außerhalb der Grenzen plötzlich auf Null abfällt. Realistischer hingegen ist die Annahme, dass die Messwerte in der Nähe der Grenze weniger wahrscheinlicher sind als Messwerte, die nah am Mittelwert liegen. Daher wird die Gleichverteilung an den Grenzen angeschrägt, wodurch ein Trapez, oder im extremsten Fall, ein Dreieck entsteht.</p>
+<p>Unter der Annahme einer symmetrischen Trapezverteilung mit den Ober- und Untergrenzen <span class="math notranslate nohighlight">\(\pm a\)</span>, hat die Grundseite des Trapezes die Länge <span class="math notranslate nohighlight">\(2a\)</span> und die Höhe <span class="math notranslate nohighlight">\(2 a \beta\)</span>. Für <span class="math notranslate nohighlight">\(\beta \rightarrow 0\)</span> wird das Trapez zu einem Dreieck, womit <span class="math notranslate nohighlight">\(\beta\)</span> die Stärke der Trapez Seitenlängen angibt und nur Werte zwischen 0 und 1 annehmen kann.</p>
+<p>Für den Mittelwert/Erwartungswert wird das Mittel berechnet:</p>
+<div class="math notranslate nohighlight">
+\[\mu = \frac{a_- + a_+}{2}\]</div>
+<p>Für die Varianz gilt:</p>
+<div class="math notranslate nohighlight">
+\[s^2 = a^2 \frac{(1+\beta)^2}{6} = \frac{a^2}{6}\]</div>
+<p>wobei für den letzten Schritt angenommen wurde, dass <span class="math notranslate nohighlight">\(\beta = 0\)</span> ist.</p>
+<p>Für die Standardabweichung gilt entsprechend:</p>
+<div class="math notranslate nohighlight">
+\[s = \frac{a}{\sqrt{6}}\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(a\)</span> die Abweichung ist, wenn eine symmetrische Verteilung angenommen wird.</p>
+<figure class="align-default" id="dreieck-abw">
+<a class="reference internal image-reference" href="../_images/dreieck_abw.png"><img alt="dreieck_abw" src="../_images/dreieck_abw.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Abb. 21 </span><span class="caption-text">Eine Dreiecksverteilung wird angenommen, um eine zu berücksichtigen, dass Messwerte nahe der Ober- und Untergrenze unwahrscheinlicher sind.</span><a class="headerlink" href="#dreieck-abw" title="Link zu diesem Bild">#</a></p>
+</figcaption>
+</figure>
 </section>
 </section>
 <section id="vertrauensintervalle">
@@ -1159,7 +1331,7 @@ Wie groß ist die Wahrscheinlichkeit, dass die Saftflaschen mit einen Inhalt zwi
 <figure class="align-default" id="normal-normiert-trafo">
 <a class="reference internal image-reference" href="../_images/normal_normiert_trafo.jpg"><img alt="normal_normiert_trafo" src="../_images/normal_normiert_trafo.jpg" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Abb. 20 </span><span class="caption-text">Transformation der Normalverteilung in eine normierte Normalverteilung.</span><a class="headerlink" href="#normal-normiert-trafo" title="Link zu diesem Bild">#</a></p>
+<p><span class="caption-number">Abb. 22 </span><span class="caption-text">Transformation der Normalverteilung in eine normierte Normalverteilung.</span><a class="headerlink" href="#normal-normiert-trafo" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
 <p>Der Flächeninhalt unterhalb dieser Verteilungsfunktion ist wieder auf 100% normiert, wenn von <span class="math notranslate nohighlight">\(\pm \infty\)</span> integriert wird. Die maximale Amplitude ist jetzt <span class="math notranslate nohighlight">\(1/\sqrt{2 \pi}\)</span>. Die <span class="math notranslate nohighlight">\(z\)</span>-Achse (vorher Messwerte <span class="math notranslate nohighlight">\(x\)</span>) ist jetzt dimensionslos (einheitenlos). Somit können mit normierten Gaußverteilungen verschiedene physikalische Größen auch von verschiedenen Messgeräten bezüglich ihrer Streuung verglichen werden.</p>
@@ -1444,13 +1616,22 @@ Die unten stehende Quantil-Tabelle zeigt die zugehörigen Werte von <span class=
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histogramm">Histogramm</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#haufigkeitsdichte">Häufigkeitsdichte</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalverteilung">Normalverteilung</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistische-groszen-normalverteilung">Statistische Größen: Normalverteilung</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetisches-mittel-und-varianz-unendliche-stichprobe">Arithmetisches Mittel und Varianz (unendliche Stichprobe)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#empirisches-mittel-und-varianz-endliche-stichprobe">Empirisches Mittel und Varianz (endliche Stichprobe)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalverteilung-unendliche-stichprobe">Normalverteilung (unendliche Stichprobe)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetisches-mittel-bzw-erwartungswert">Arithmetisches Mittel bzw. Erwartungswert</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#varianz">Varianz</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standardabweichung">Standardabweichung</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stichprobe-endliche-anzahl-von-messwerten">Stichprobe (endliche Anzahl von Messwerten)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#empirische-stichprobenmittelwert">Empirische Stichprobenmittelwert</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#empirische-varianz">Empirische Varianz</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#empirische-standardabweichung">Empirische Standardabweichung</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#messunsicherheit-des-mittelwertes">Messunsicherheit des Mittelwertes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#andere-verteilungen">Andere Verteilungen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gleichverteilung-rechteck">Gleichverteilung (Rechteck)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trapez-bzw-dreiecksverteilung">Trapez- bzw. Dreiecksverteilung</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vertrauensintervalle">Vertrauensintervalle</a><ul class="nav section-nav flex-column">

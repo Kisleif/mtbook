@@ -612,60 +612,32 @@ document.write(`
 <span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">interpolate</span>
 
-<span class="c1"># Erstellen der DataFrames</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">y</span><span class="p">})</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">108</span><span class="p">,</span> <span class="mi">120</span><span class="p">]</span> 
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mf">12.2</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mf">22.1</span><span class="p">,</span> <span class="mf">33.2</span><span class="p">,</span> <span class="mf">34.4</span><span class="p">,</span> <span class="mf">59.1</span><span class="p">,</span> <span class="mf">60.2</span><span class="p">,</span> <span class="mf">65.7</span><span class="p">,</span> <span class="mf">69.9</span><span class="p">,</span> <span class="mf">70.1</span><span class="p">]</span> 
 
-<span class="c1"># Berechnung der Regressionskoeffizienten</span>
-<span class="n">x_mean</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">y_mean</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">xy_mean</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">x_squared_mean</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="c1">#konvertiere die Messwerte in ein Numpy-Array</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1">#konvertiere die Messwerte in ein Numpy-Array</span>
 
-<span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="n">xy_mean</span> <span class="o">-</span> <span class="n">x_mean</span> <span class="o">*</span> <span class="n">y_mean</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">x_squared_mean</span> <span class="o">-</span> <span class="n">x_mean</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">y_mean</span> <span class="o">-</span> <span class="n">b</span> <span class="o">*</span> <span class="n">x_mean</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Regressionskoeffizient b (Geraden-Steigung):&quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Regressionskoeffizient a (Ordinatenabschnitt):&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
-
-<span class="c1"># Berechnung der Gütefunktion</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;b*x+a&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span> <span class="o">*</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;y-(b*x+a)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;b*x+a&#39;</span><span class="p">]</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;[y-(b*x+a)]^2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;y-(b*x+a)&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span>
-<span class="n">sum_of_squared_residuals</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;[y-(b*x+a)]^2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-
-
-
-<span class="c1"># MatplotLib Settings:</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:gray&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">b</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">a</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;:&#39;</span><span class="p">)</span>  <span class="c1"># plot Ausgleichsgerade mit m und b</span>
+
+<span class="c1"># Anpassung / Fit:</span>
+<span class="k">def</span> <span class="nf">anpassung</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="n">x</span>
+<span class="n">popt</span><span class="p">,</span> <span class="n">pcov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">anpassung</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">anpassung</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">*</span><span class="n">popt</span><span class="p">),</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">),([</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">y</span><span class="p">],</span> <span class="p">[</span><span class="n">j</span> <span class="k">for</span> <span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="ow">in</span> <span class="n">anpassung</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">*</span><span class="n">popt</span><span class="p">)]),</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;tab:red&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
 <span class="c1">#plt.xticks([])</span>
 <span class="c1">#plt.yticks([])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Messwerte&#39;</span><span class="p">,</span> <span class="s1">&#39;Modellfunktion, hier eine Gerade&#39;</span><span class="p">,</span> <span class="s1">&#39;Residuum (Fehler)&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Messwerte&#39;</span><span class="p">,</span> <span class="s1">&#39;Modellfunktion (hier eine Gerade)&#39;</span><span class="p">,</span> <span class="s1">&#39;Residuum (Fehler)&#39;</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">8</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">interpolate</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1"># Erstellen der DataFrames</span>
-<span class="ne">----&gt; </span><span class="mi">8</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">y</span><span class="p">})</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="c1"># Berechnung der Regressionskoeffizienten</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">x_mean</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-
-<span class="ne">NameError</span>: name &#39;x&#39; is not defined
-</pre></div>
-</div>
+<img alt="../_images/e7b03c66004d2b93c1cdb31f4890f00587b720f4596c47c203e16c3a9eeed7b0.png" src="../_images/e7b03c66004d2b93c1cdb31f4890f00587b720f4596c47c203e16c3a9eeed7b0.png" />
 </div>
 </div>
 <p>Um die optimale Gerade zu bestimmen, führen wir eine <strong>lineare Regression</strong> durch, um die Daten anzunähern. Die optimale Gerade hat im Idealfall die Form:</p>
@@ -755,8 +727,8 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Regressionskoeffizient b (Geraden-Steigung): 0.6066538042940539
-Regressionskoeffizient a (Ordinatenabschnitt): 4.714841199168873
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Regressionskoeffizient b (Geraden-Steigung): 1.5521057004878616
+Regressionskoeffizient a (Ordinatenabschnitt): -3.4979720446561657
 </pre></div>
 </div>
 </div>
@@ -802,87 +774,87 @@ Regressionskoeffizient a (Ordinatenabschnitt): 4.714841199168873
   <tbody>
     <tr>
       <th>0</th>
-      <td>12</td>
       <td>12.2</td>
-      <td>11.994687</td>
-      <td>0.205313</td>
-      <td>0.042153</td>
+      <td>12</td>
+      <td>15.437718</td>
+      <td>-3.437718</td>
+      <td>11.817902</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>24</td>
       <td>17.0</td>
-      <td>19.274533</td>
-      <td>-2.274533</td>
-      <td>5.173498</td>
+      <td>24</td>
+      <td>22.887825</td>
+      <td>1.112175</td>
+      <td>1.236934</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>36</td>
       <td>22.1</td>
-      <td>26.554378</td>
-      <td>-4.454378</td>
-      <td>19.841485</td>
+      <td>36</td>
+      <td>30.803564</td>
+      <td>5.196436</td>
+      <td>27.002948</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>42</td>
       <td>33.2</td>
-      <td>30.194301</td>
-      <td>3.005699</td>
-      <td>9.034227</td>
+      <td>42</td>
+      <td>48.031937</td>
+      <td>-6.031937</td>
+      <td>36.384267</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>60</td>
       <td>34.4</td>
-      <td>41.114069</td>
-      <td>-6.714069</td>
-      <td>45.078729</td>
+      <td>60</td>
+      <td>49.894464</td>
+      <td>10.105536</td>
+      <td>102.121857</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>72</td>
       <td>59.1</td>
-      <td>48.393915</td>
-      <td>10.706085</td>
-      <td>114.620254</td>
+      <td>72</td>
+      <td>88.231475</td>
+      <td>-16.231475</td>
+      <td>263.460776</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>84</td>
       <td>60.2</td>
-      <td>55.673761</td>
-      <td>4.526239</td>
-      <td>20.486842</td>
+      <td>84</td>
+      <td>89.938791</td>
+      <td>-5.938791</td>
+      <td>35.269240</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>96</td>
       <td>65.7</td>
-      <td>62.953606</td>
-      <td>2.746394</td>
-      <td>7.542678</td>
+      <td>96</td>
+      <td>98.475372</td>
+      <td>-2.475372</td>
+      <td>6.127469</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>108</td>
       <td>69.9</td>
-      <td>70.233452</td>
-      <td>-0.333452</td>
-      <td>0.111190</td>
+      <td>108</td>
+      <td>104.994216</td>
+      <td>3.005784</td>
+      <td>9.034735</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>120</td>
       <td>70.1</td>
-      <td>77.513298</td>
-      <td>-7.413298</td>
-      <td>54.956983</td>
+      <td>120</td>
+      <td>105.304638</td>
+      <td>14.695362</td>
+      <td>215.953677</td>
     </tr>
   </tbody>
 </table>
-</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Summe der quadrierten Abweichungen (Gütefunktion): 276.88803799347016
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Summe der quadrierten Abweichungen (Gütefunktion): 708.4098032924456
 </pre></div>
 </div>
 </div>
@@ -914,7 +886,7 @@ Regressionskoeffizient a (Ordinatenabschnitt): 4.714841199168873
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/8184ecb7da2d31acf8dc8d7dab37995a16f5890fd73c0f596cdd565714dc84f2.png" src="../_images/8184ecb7da2d31acf8dc8d7dab37995a16f5890fd73c0f596cdd565714dc84f2.png" />
+<img alt="../_images/2ca09689bf8e9ee8315a814f414b201770bb4ecdc0275d8b50c5cc86f592ec5c.png" src="../_images/2ca09689bf8e9ee8315a814f414b201770bb4ecdc0275d8b50c5cc86f592ec5c.png" />
 </div>
 </div>
 <p>Die Regressionskoeffizienten ermöglichen uns, die Gerade zu bestimmen. In der Praxis verwendet man jedoch in der Regel nicht diese komplexen Berechnungen, sondern greift auf Funktionen zurück, die bereits in vielen Programmen vorimplementiert sind. Ein Beispiel hierfür ist die in Python vorhandene Funktion <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code>. Wie das folgende Beispiel zeigt, führen sowohl die manuelle Berechnung von <span class="math notranslate nohighlight">\(b\)</span> und <span class="math notranslate nohighlight">\(a\)</span> als auch die Verwendung der integrierten Python-Funktion zu derselben Regressionsgeraden:</p>
@@ -945,7 +917,7 @@ Regressionskoeffizient a (Ordinatenabschnitt): 4.714841199168873
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/387c842a90b93f866a1d90031d1b89dc312528eff616e480b637e49ba5670f70.png" src="../_images/387c842a90b93f866a1d90031d1b89dc312528eff616e480b637e49ba5670f70.png" />
+<img alt="../_images/c905071997fd6bdb3e359812abe2314e313a9d1711795a6dc4e9c1d079925be0.png" src="../_images/c905071997fd6bdb3e359812abe2314e313a9d1711795a6dc4e9c1d079925be0.png" />
 </div>
 </div>
 </section>
@@ -978,7 +950,7 @@ Regressionskoeffizient a (Ordinatenabschnitt): 4.714841199168873
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Unsicherheit von y ist 	 s_y = 5.8831
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Unsicherheit von y ist 	 s_y = 9.4102
 </pre></div>
 </div>
 </div>
@@ -1026,8 +998,8 @@ s_a &amp;= s_y \cdot \sqrt{\frac{\sum x_i^2}{N\cdot \sum x_i^2 - \left(\sum x_i\
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Unsicherheit von b ist 	 s_b = 0.0534
-Die Unsicherheit von a ist 	 s_a = 3.9581
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Unsicherheit von b ist 	 s_b = 0.1367
+Die Unsicherheit von a ist 	 s_a = 6.7574
 </pre></div>
 </div>
 </div>

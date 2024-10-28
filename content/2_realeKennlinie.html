@@ -580,6 +580,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zwei-nicht-lineare-komponenten-hintereinander-schalten">Zwei nicht-lineare Komponenten hintereinander schalten</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#messbereich-klever-auswahlen">Messbereich klever auswählen</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#differentielle-methode">Differentielle Methode</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gegenkopplung">Gegenkopplung</a></li>
 </ul>
 </li>
 </ul>
@@ -1084,42 +1085,42 @@ input[type=range].anim-slider {
 </style>
 
 <div class="animation">
-  <img id="_anim_imgba8655eef7cb4ffe8ac0d5c615bd54c3">
+  <img id="_anim_imgb709836be21e4bc78e63f32fed0b1490">
   <div class="anim-controls">
-    <input id="_anim_sliderba8655eef7cb4ffe8ac0d5c615bd54c3" type="range" class="anim-slider"
+    <input id="_anim_sliderb709836be21e4bc78e63f32fed0b1490" type="range" class="anim-slider"
            name="points" min="0" max="1" step="1" value="0"
-           oninput="animba8655eef7cb4ffe8ac0d5c615bd54c3.set_frame(parseInt(this.value));">
+           oninput="animb709836be21e4bc78e63f32fed0b1490.set_frame(parseInt(this.value));">
     <div class="anim-buttons">
-      <button title="Decrease speed" aria-label="Decrease speed" onclick="animba8655eef7cb4ffe8ac0d5c615bd54c3.slower()">
+      <button title="Decrease speed" aria-label="Decrease speed" onclick="animb709836be21e4bc78e63f32fed0b1490.slower()">
           <i class="fa fa-minus"></i></button>
-      <button title="First frame" aria-label="First frame" onclick="animba8655eef7cb4ffe8ac0d5c615bd54c3.first_frame()">
+      <button title="First frame" aria-label="First frame" onclick="animb709836be21e4bc78e63f32fed0b1490.first_frame()">
         <i class="fa fa-fast-backward"></i></button>
-      <button title="Previous frame" aria-label="Previous frame" onclick="animba8655eef7cb4ffe8ac0d5c615bd54c3.previous_frame()">
+      <button title="Previous frame" aria-label="Previous frame" onclick="animb709836be21e4bc78e63f32fed0b1490.previous_frame()">
           <i class="fa fa-step-backward"></i></button>
-      <button title="Play backwards" aria-label="Play backwards" onclick="animba8655eef7cb4ffe8ac0d5c615bd54c3.reverse_animation()">
+      <button title="Play backwards" aria-label="Play backwards" onclick="animb709836be21e4bc78e63f32fed0b1490.reverse_animation()">
           <i class="fa fa-play fa-flip-horizontal"></i></button>
-      <button title="Pause" aria-label="Pause" onclick="animba8655eef7cb4ffe8ac0d5c615bd54c3.pause_animation()">
+      <button title="Pause" aria-label="Pause" onclick="animb709836be21e4bc78e63f32fed0b1490.pause_animation()">
           <i class="fa fa-pause"></i></button>
-      <button title="Play" aria-label="Play" onclick="animba8655eef7cb4ffe8ac0d5c615bd54c3.play_animation()">
+      <button title="Play" aria-label="Play" onclick="animb709836be21e4bc78e63f32fed0b1490.play_animation()">
           <i class="fa fa-play"></i></button>
-      <button title="Next frame" aria-label="Next frame" onclick="animba8655eef7cb4ffe8ac0d5c615bd54c3.next_frame()">
+      <button title="Next frame" aria-label="Next frame" onclick="animb709836be21e4bc78e63f32fed0b1490.next_frame()">
           <i class="fa fa-step-forward"></i></button>
-      <button title="Last frame" aria-label="Last frame" onclick="animba8655eef7cb4ffe8ac0d5c615bd54c3.last_frame()">
+      <button title="Last frame" aria-label="Last frame" onclick="animb709836be21e4bc78e63f32fed0b1490.last_frame()">
           <i class="fa fa-fast-forward"></i></button>
-      <button title="Increase speed" aria-label="Increase speed" onclick="animba8655eef7cb4ffe8ac0d5c615bd54c3.faster()">
+      <button title="Increase speed" aria-label="Increase speed" onclick="animb709836be21e4bc78e63f32fed0b1490.faster()">
           <i class="fa fa-plus"></i></button>
     </div>
-    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_selectba8655eef7cb4ffe8ac0d5c615bd54c3"
+    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_selectb709836be21e4bc78e63f32fed0b1490"
           class="anim-state">
-      <input type="radio" name="state" value="once" id="_anim_radio1_ba8655eef7cb4ffe8ac0d5c615bd54c3"
+      <input type="radio" name="state" value="once" id="_anim_radio1_b709836be21e4bc78e63f32fed0b1490"
              checked>
-      <label for="_anim_radio1_ba8655eef7cb4ffe8ac0d5c615bd54c3">Once</label>
-      <input type="radio" name="state" value="loop" id="_anim_radio2_ba8655eef7cb4ffe8ac0d5c615bd54c3"
+      <label for="_anim_radio1_b709836be21e4bc78e63f32fed0b1490">Once</label>
+      <input type="radio" name="state" value="loop" id="_anim_radio2_b709836be21e4bc78e63f32fed0b1490"
              >
-      <label for="_anim_radio2_ba8655eef7cb4ffe8ac0d5c615bd54c3">Loop</label>
-      <input type="radio" name="state" value="reflect" id="_anim_radio3_ba8655eef7cb4ffe8ac0d5c615bd54c3"
+      <label for="_anim_radio2_b709836be21e4bc78e63f32fed0b1490">Loop</label>
+      <input type="radio" name="state" value="reflect" id="_anim_radio3_b709836be21e4bc78e63f32fed0b1490"
              >
-      <label for="_anim_radio3_ba8655eef7cb4ffe8ac0d5c615bd54c3">Reflect</label>
+      <label for="_anim_radio3_b709836be21e4bc78e63f32fed0b1490">Reflect</label>
     </form>
   </div>
 </div>
@@ -1129,9 +1130,9 @@ input[type=range].anim-slider {
   /* Instantiate the Animation class. */
   /* The IDs given should match those used in the template above. */
   (function() {
-    var img_id = "_anim_imgba8655eef7cb4ffe8ac0d5c615bd54c3";
-    var slider_id = "_anim_sliderba8655eef7cb4ffe8ac0d5c615bd54c3";
-    var loop_select_id = "_anim_loop_selectba8655eef7cb4ffe8ac0d5c615bd54c3";
+    var img_id = "_anim_imgb709836be21e4bc78e63f32fed0b1490";
+    var slider_id = "_anim_sliderb709836be21e4bc78e63f32fed0b1490";
+    var loop_select_id = "_anim_loop_selectb709836be21e4bc78e63f32fed0b1490";
     var frames = new Array(16);
     
   frames[0] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
@@ -9235,7 +9236,7 @@ l4iIiIgcGhNeIiIiInJoTHiJiIiIyKEx4SUiIiIih/b/TyafifLhJ1sAAAAASUVORK5CYII=\
     /* set a timeout to make sure all the above elements are created before
        the object is initialized. */
     setTimeout(function() {
-        animba8655eef7cb4ffe8ac0d5c615bd54c3 = new Animation(frames, img_id, slider_id, 200.0,
+        animb709836be21e4bc78e63f32fed0b1490 = new Animation(frames, img_id, slider_id, 200.0,
                                  loop_select_id);
     }, 0);
   })()
@@ -9418,7 +9419,7 @@ Diese Kennlinien werden nun hintereinander geschaltet, sodass daraus eine Kennli
 Dehnungsmessstreifen (DMS; englisch strain gauge) sind Messeinrichtungen zur Erfassung von dehnenden und stauchenden Verformungen. Sie ändern schon bei geringen Verformungen ihren elektrischen Widerstand und werden als Dehnungssensoren eingesetzt. Hierbei wird ein Draht in einer Meanderstruktur hin- und zurück gelegt und gibt je nach seiner Länge einen anderen Widerstandswert aus.</p>
 <p>Ein DMS ist nur für kleine Dehnungen linear, das heißt er zeigt ein stark nicht-lineares Verhalten wenn sich seine relative Länge um mehr als 0,1% ändert. Die Idee ist nun, den DMS ausschließlich in diesem Bereich zu benutzen. Dafür wird eine weitere Komponente in der Messkette benötigt, die die an den DMS angelegte Eingsangsgröße auf einem bestimmten Bereich limitiert. Sollen auch größere Auslenkungen als 1 mm gemessen werden, so wird diese Komponente außerdem dafür sorgen, dass eine Verminderung der Auslenkung statt findet. Dies kann beispielsweise über eine Blattfeder realisiert werden. Diese nimmt große Auslenkungen auf und projiziert sie auf kleine Auslenkungen (in <a class="reference internal" href="#id4"><span class="std std-numref">Abb. 38</span></a> verkörpert durch eine Komponenten mit Empfindlichkeit <span class="math notranslate nohighlight">\(S_0\)</span> &lt;&lt; 1), die dann mittels DMS gemessen werden können. Damit die Messgröße unverändert bleibt, dürfen wir am Ende die Verstärkung (<span class="math notranslate nohighlight">\(S_1\)</span> &gt;&gt; 1) nicht vergessen, sodass <span class="math notranslate nohighlight">\(S_0 \cdot S_1 = 1\)</span>. Dies nennt man auch <em>Kompensations-Bedingung</em>.</p>
 <figure class="align-default" id="id4">
-<a class="bg-primary mb-1 reference internal image-reference" href="../_images/messbereich_herabsetzen.jpg"><img alt="messbereich_herabsetzen" class="bg-primary mb-1" src="../_images/messbereich_herabsetzen.jpg" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="../_images/messbereich_herabsetzen.jpg"><img alt="messbereich_herabsetzen" src="../_images/messbereich_herabsetzen.jpg" style="width: 600px;" /></a>
 <figcaption>
 <p><span class="caption-number">Abb. 38 </span><span class="caption-text">Beispiel für das Herabsetzen des Messbereichs. Die Messung mit einem Dehnungsmessstreifen (DMS) ist nur für kleine relative Längenänderungen <span class="math notranslate nohighlight">\(\Delta l / l\)</span> linear. Zusätzliche Komponenten, <span class="math notranslate nohighlight">\(S_1, S_2\)</span>, in der Messkette können so gewählt werden, dass auch größere Änderungen in <span class="math notranslate nohighlight">\(x\)</span> messbar werden, z.B. indem der DMS an eine Blattfeder angebracht wird, der die Messgröße <span class="math notranslate nohighlight">\(x\)</span> aufnimmt und in eine Änderung <span class="math notranslate nohighlight">\(\varepsilon\)</span> überführt. Eine Verstärker-Stufe sorgt für die Kompensation, sodass <span class="math notranslate nohighlight">\(S_0 \cdot S_1 = 1\)</span> gilt.</span><a class="headerlink" href="#id4" title="Link zu diesem Bild">#</a></p>
 </figcaption>
@@ -9429,7 +9430,7 @@ Dehnungsmessstreifen (DMS; englisch strain gauge) sind Messeinrichtungen zur Erf
 <h3>Zwei nicht-lineare Komponenten hintereinander schalten<a class="headerlink" href="#zwei-nicht-lineare-komponenten-hintereinander-schalten" title="Permalink to this heading">#</a></h3>
 <p>Angenommen, man habe zwei nicht-lineare Komponenten in einem Messsystem, die hintereinander geschaltet werden (in Reihe). Die Komponenten haben jeweils die Empfindlichkeiten <span class="math notranslate nohighlight">\(S_1(u_1)\)</span> und <span class="math notranslate nohighlight">\(S_2(u_2)\)</span>, wobei <span class="math notranslate nohighlight">\(u_1\)</span> und <span class="math notranslate nohighlight">\(u_2\)</span> die jeweiligen Eingangssignale der Komponente sind.</p>
 <figure class="align-default" id="nicht-linear">
-<a class="bg-primary mb-1 reference internal image-reference" href="../_images/Messsystem_Reihe_nichtlinear.png"><img alt="nichtlinear" class="bg-primary mb-1" src="../_images/Messsystem_Reihe_nichtlinear.png" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="../_images/Messsystem_Reihe_nichtlinear.png"><img alt="nichtlinear" src="../_images/Messsystem_Reihe_nichtlinear.png" style="width: 600px;" /></a>
 <figcaption>
 <p><span class="caption-number">Abb. 39 </span><span class="caption-text">Reihenschaltung zweier Komponenten mit nicht-linearem Übertragungsverhalten.</span><a class="headerlink" href="#nicht-linear" title="Link zu diesem Bild">#</a></p>
 </figcaption>
@@ -9455,6 +9456,22 @@ Für den allgemein Fall, kann man die Bedingung in Abhängigkeit von <span class
 <section id="differentielle-methode">
 <h3>Differentielle Methode<a class="headerlink" href="#differentielle-methode" title="Permalink to this heading">#</a></h3>
 <p>Bei zwei gleichartigen Teilsystemen, welche mittels einer Parallelschaltung zusammengeschlossen werden, kann über Gleichtaktunterdrückung auch die Kennlinie linearisiert und zugleich eine Steigerung der Empfindlichkeit erreicht werden (ähnlich wie die differentielle Signalübertragung, wo sich gemeinsame Fehlerquellen aufheben können). Die Teilsysteme, oder z.B.  gleichartige Sensoren, sind so angeordner, dass  Abweichungen gegensinnig wirken. Dies ist nur für systematische Abweichungen möglich, wo das Vorzeichen bekannt ist.</p>
+<figure class="align-default" id="differentiell">
+<a class="reference internal image-reference" href="../_images/parallel.png"><img alt="differentiell" src="../_images/parallel.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Abb. 40 </span><span class="caption-text">Struktur eines differentiellen Systems.</span><a class="headerlink" href="#differentiell" title="Link zu diesem Bild">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="gegenkopplung">
+<h3>Gegenkopplung<a class="headerlink" href="#gegenkopplung" title="Permalink to this heading">#</a></h3>
+<p>Um eine wirklich nahezu ideale Kennlinie zu erreichen muss das Prinzip der Gegenkopplung angewendet werden. Hierbei wird der Messkreis geschlossen, und wir haben keine einfache Mess<em>kette</em> mehr. Die Messgröße <span class="math notranslate nohighlight">\(u\)</span> am Anfang der Messkette wird mit dem Ausgangssignal <span class="math notranslate nohighlight">\(y\)</span> verglichen, bzw. <span class="math notranslate nohighlight">\(K(y)\)</span>, da möglicherweise eine Verstärkung vorliegt. Die Differenz <span class="math notranslate nohighlight">\(u-K(y)\)</span> sollte gleich Null sein, dann hat man ein System mit <em>Kompensationsverfahren</em>. Hierfür benötigt man jedoch ein Übertragungsglied ebenfalls im Rückkopplungspfad für <span class="math notranslate nohighlight">\(K(y)\)</span>, da man <span class="math notranslate nohighlight">\(y\)</span> in das gleiche physikalische Größe wie die Messgröße umwandeln muss.</p>
+<figure class="align-default" id="id5">
+<a class="reference internal image-reference" href="content/draw/Gegenkopplung.png"><img alt="gegenkopplung" src="content/draw/Gegenkopplung.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Abb. 41 </span><span class="caption-text">Struktur eines Gegenkopplungs- und Rückkopplungssystems.</span><a class="headerlink" href="#id5" title="Link zu diesem Bild">#</a></p>
+</figcaption>
+</figure>
 </section>
 </section>
 </section>
@@ -9549,6 +9566,7 @@ Für den allgemein Fall, kann man die Bedingung in Abhängigkeit von <span class
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zwei-nicht-lineare-komponenten-hintereinander-schalten">Zwei nicht-lineare Komponenten hintereinander schalten</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#messbereich-klever-auswahlen">Messbereich klever auswählen</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#differentielle-methode">Differentielle Methode</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gegenkopplung">Gegenkopplung</a></li>
 </ul>
 </li>
 </ul>

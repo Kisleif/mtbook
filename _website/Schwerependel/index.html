@@ -1,0 +1,1292 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="de" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Das Schwerependel &#8212; Messtechnik Übungen</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-88310237-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-88310237-1');
+            </script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Schwerependel';</script>
+    <link rel="shortcut icon" href="https://kisleif.github.io/mtbook/_static/i_mt.png"/>
+    <link rel="index" title="Stichwortverzeichnis" href="../genindex/" />
+    <link rel="search" title="Suche" href="../search/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="de"/>
+
+
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search/"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Durchsuche diese Seite..."
+         aria-label="Durchsuche diese Seite..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://kisleif.github.io/mtbook/_static/i_mt.png" class="logo__image only-light" alt="Messtechnik Übungen - Home"/>
+    <script>document.write(`<img src="https://kisleif.github.io/mtbook/_static/i_mt.png" class="logo__image only-dark" alt="Messtechnik Übungen - Home"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                <li class="nav-item">
+                  <a class="nav-link nav-external" href="https://kisleif.github.io/mtbook/intro.html">
+                    Lecture Book
+                  </a>
+                </li>
+                
+
+                <li class="nav-item">
+                  <a class="nav-link nav-external" href="https://kisleif.github.io/mtbook/_website/index.html">
+                    All Posts
+                  </a>
+                </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Suche</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/Kisleif/" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Suche</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                <li class="nav-item">
+                  <a class="nav-link nav-external" href="https://kisleif.github.io/mtbook/intro.html">
+                    Lecture Book
+                  </a>
+                </li>
+                
+
+                <li class="nav-item">
+                  <a class="nav-link nav-external" href="https://kisleif.github.io/mtbook/_website/index.html">
+                    All Posts
+                  </a>
+                </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/Kisleif/" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<div class="ablog-sidebar-item ablog__postcard">
+
+
+<h2>
+  
+  
+  <i class="fa fa-calendar"></i>
+  
+  Okt 05, 2023
+  
+</h2>
+<ul>
+  <div class="ablog-sidebar-item ablog__postcard2">
+
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    <i class="fa-fw fa fa-location-arrow"></i>
+    
+    </span>
+  
+  
+  <a href="../mtbook_uebungen/location/null/">null</a>
+  
+  
+  
+</li>
+
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    <i class="fa-fw fa fa-folder-open"></i>
+    
+    </span>
+  
+  
+  <a href="../mtbook_uebungen/category/ubung/">Übung</a>
+  
+  ,
+  
+  
+  
+  
+  <a href="../mtbook_uebungen/category/labor/">Labor</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    <i class="fa-fw fa fa-tags"></i>
+    
+    
+    </span>
+  
+  
+  <a href="../mtbook_uebungen/tag/fehlerfortpflanzung/">Fehlerfortpflanzung</a>
+  
+  
+  
+  
+  
+  <a href="../mtbook_uebungen/tag/statistisch/">Statistisch</a>
+  
+  
+  
+  
+  
+  <a href="../mtbook_uebungen/tag/systematisch/">Systematisch</a>
+  
+  
+  
+  
+  
+  <a href="../mtbook_uebungen/tag/messabweichung/">Messabweichung</a>
+  
+  
+  
+  
+  
+  <a href="../mtbook_uebungen/tag/mittelwert/">Mittelwert</a>
+  
+  
+  
+  
+  
+  <a href="../mtbook_uebungen/tag/standardabweichung/">Standardabweichung</a>
+  
+  
+  
+</li>
+
+
+</div>
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+<div class="ablog-sidebar-item ablog__locations">
+<h3>
+  <a href="../mtbook_uebungen/location/">Orte</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="../mtbook_uebungen/location/klausur/">Klausur (25)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="../mtbook_uebungen/location/zettel-1/">Zettel 1 (5)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="../mtbook_uebungen/location/zettel-2/">Zettel 2 (5)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="../mtbook_uebungen/location/zettel-3/">Zettel 3 (4)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="../mtbook_uebungen/location/zettel-4/">Zettel 4 (4)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="../mtbook_uebungen/location/zettel-5/">Zettel 5 (5)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="../mtbook_uebungen/location/zettel-6/">Zettel 6 (4)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="../mtbook_uebungen/location/zettel-7/">Zettel 7 (2)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="../mtbook_uebungen/location/null/">null (23)</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+<div class="ablog-sidebar-item ablog__category">
+<h3>
+  <a href="../mtbook_uebungen/category/">Kategorien</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="../mtbook_uebungen/category/kurzfrage/">Kurzfrage (10)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="../mtbook_uebungen/category/labor/">Labor (1)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="../mtbook_uebungen/category/multiple-choice/">Multiple-Choice (7)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="../mtbook_uebungen/category/single-choice/">Single-Choice (8)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="../mtbook_uebungen/category/ubung/">Übung (46)</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+<div class="ablog-sidebar-item ablog__tags">
+<h3><a href="../mtbook_uebungen/tag/">Schlagworte</a></h3>
+<ul class="ablog-cloud">
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="../mtbook_uebungen/tag/abtastung/">Abtastung</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="../mtbook_uebungen/tag/aliasing/">Aliasing</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/audio-technik/">Audio-Technik</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/bode-diagramm/">Bode-Diagramm</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/dgl/">DGL</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/dms/">DMS</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/datenblatt/">Datenblatt</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="../mtbook_uebungen/tag/digitalisierung/">Digitalisierung</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/dreieck/">Dreieck</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/em-welle/">EM Welle</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/effektivwert/">Effektivwert</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="../mtbook_uebungen/tag/einheiten/">Einheiten</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="../mtbook_uebungen/tag/elektronik/">Elektronik</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="../mtbook_uebungen/tag/empfindlichkeit/">Empfindlichkeit</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="../mtbook_uebungen/tag/faltung/">Faltung</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="../mtbook_uebungen/tag/fehlerfortpflanzung/">Fehlerfortpflanzung</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/fehlergrenzen/">Fehlergrenzen</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/fourier-reihe/">Fourier-Reihe</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/fourier-transformation/">Fourier-Transformation</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="../mtbook_uebungen/tag/fourierreihe/">Fourierreihe</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/genauigkeitsklassen/">Genauigkeitsklassen</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/gleichspannung/">Gleichspannung</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/histogramm/">Histogramm</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/hochpass/">Hochpass</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/impuls/">Impuls</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/interferometer/">Interferometer</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/justierung/">Justierung</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/kalibrierung/">Kalibrierung</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/kapazitat/">Kapazität</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/kenngroßen/">Kenngrößen</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="../mtbook_uebungen/tag/kennlinie/">Kennlinie</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/korrelation/">Korrelation</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/kovrianz/">Kovrianz</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/kraftmessung/">Kraftmessung</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/laplace/">Laplace</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/least-square/">Least-Square</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="../mtbook_uebungen/tag/leistung/">Leistung</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/lineare-regression/">Lineare Regression</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/log/">Log</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-5">
+    <a href="../mtbook_uebungen/tag/messabweichung/">Messabweichung</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/messbrucke/">Messbrücke</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/messsignale/">Messsignale</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="../mtbook_uebungen/tag/messsystem/">Messsystem</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/messunsicherheit/">Messunsicherheit</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-4">
+    <a href="../mtbook_uebungen/tag/mittelwert/">Mittelwert</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/normalverteilung/">Normalverteilung</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/operationsverstarker/">Operationsverstärker</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/piezo/">Piezo</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/quantisierungsabweichung/">Quantisierungsabweichung</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="../mtbook_uebungen/tag/rechteck/">Rechteck</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/snr/">SNR</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="../mtbook_uebungen/tag/sensor/">Sensor</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/signal/">Signal</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/signalubertragung/">Signalübertragung</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/spannungsrichtig/">Spannungsrichtig</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/sprung/">Sprung</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/sprungantwort/">Sprungantwort</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="../mtbook_uebungen/tag/standardabweichung/">Standardabweichung</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="../mtbook_uebungen/tag/statistisch/">Statistisch</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/stichprobe/">Stichprobe</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/stromrichtig/">Stromrichtig</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="../mtbook_uebungen/tag/systematisch/">Systematisch</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="../mtbook_uebungen/tag/sagezahn/">Sägezahn</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/tiefpass/">Tiefpass</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="../mtbook_uebungen/tag/toleranz/">Toleranz</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/vertrauensintervall/">Vertrauensintervall</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="../mtbook_uebungen/tag/wahrscheinlichkeit/">Wahrscheinlichkeit</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="../mtbook_uebungen/tag/wechselspannung/">Wechselspannung</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-2">
+    <a href="../mtbook_uebungen/tag/widerstand/">Widerstand</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/dezibel/">deziBel</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/diskret/">diskret</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../mtbook_uebungen/tag/kontinulierlich/">kontinulierlich</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="../mtbook_uebungen/tag/ubertragungsfunktion/">Übertragungsfunktion</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+<div class="ablog-sidebar-item ablog__archive">
+<h3>
+  <a href="../mtbook_uebungen/archive/">Archive</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="../mtbook_uebungen/2024/">2024 (24)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="../mtbook_uebungen/2023/">2023 (32)</a>
+  </li>
+  
+  
+  
+  <li>
+    <a href="../mtbook_uebungen/2022/">2022 (15)</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">Das Schwerependel</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+<section class="tex2jax_ignore mathjax_ignore" id="das-schwerependel">
+<h1>Das Schwerependel<a class="headerlink" href="#das-schwerependel" title="Permalink to this heading">#</a></h1>
+<p><strong>Grundlagen für das Praktikum und Fehlerfortpflanzung.</strong></p>
+<p><a class="sd-sphinx-override sd-btn sd-text-wrap sd-btn-primary reference external" href="https://kisleif.github.io/mtbook/content/T_Schwerependel.html"><span>Hier geht’s zur Lösung (Jupyter-Notebook)</span></a></p>
+<figure class="align-default" id="schwerependel">
+<a class="reference internal image-reference" href="../_images/schwerependel.jpeg"><img alt="../_images/schwerependel.jpeg" src="../_images/schwerependel.jpeg" style="height: 250px;" /></a>
+</figure>
+<p>In der Vorlesung haben wir das Schwerependel behandelt und die Periodendauer gemessen. Hieraus soll nun die Erdbeschleunigung <span class="math notranslate nohighlight">\(g\)</span> inklusive Messunsicherheit im Vorlesungssaal bestimmt werden.<br />
+Eine Masse <span class="math notranslate nohighlight">\(m\)</span> wird um den Winkel <span class="math notranslate nohighlight">\(\varphi_0\)</span> ausgelenkt. Losgelassen pendelt sie mit der Periodendauer <span class="math notranslate nohighlight">\(T\)</span>. Für kleine Auslenkungen <span class="math notranslate nohighlight">\(\varphi\)</span> gilt die Näherung in Abb. \ref{fig:pendel} und man erhält für <span class="math notranslate nohighlight">\(T\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+	T^2 = \frac{(2\pi)^2}{g}\cdot l\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(l\)</span> die Pendellänge ist und <span class="math notranslate nohighlight">\(g\)</span> die Erdbeschleunigung (auch Ortsfaktor genannt).</p>
+<p><img alt="png" src="../_images/schwerependel.png" /></p>
+<section id="grundlagen">
+<h2>Grundlagen<a class="headerlink" href="#grundlagen" title="Permalink to this heading">#</a></h2>
+<section id="statistik">
+<h3>Statistik<a class="headerlink" href="#statistik" title="Permalink to this heading">#</a></h3>
+<p>Im Vorlesungs-Kapitel <a class="reference external" href="https://kisleif.github.io/mtbook/content/1_Messunsicherheiten.html">Messunsicherheiten</a> befinden sich alle wichtigen Formeln zur Berechnung der Messunsicherheiten und der Fehlerfortpflanzung. Wenn <span class="math notranslate nohighlight">\(x_{j}\)</span> die Einzelmesswerte einer Messreihe sind und <span class="math notranslate nohighlight">\(m\)</span> der Stichprobenumfang (= Anzahl der Messwerte in der Messreihe), dann gilt für den Mittelwert:</p>
+<div class="math notranslate nohighlight">
+\[\overline x = \frac{1}{m}\sum_{j=1}^m x_j\]</div>
+<p>Für empirische Daten lautet die Varianz:</p>
+<div class="math notranslate nohighlight">
+\[s^2 = \frac{1}{m-1} \sum_{j=1}^m (x_j - \overline x)^2\]</div>
+<p>und die empirische Standardabweichung <span class="math notranslate nohighlight">\(s(x)\)</span> der Einzel-Messwerte:</p>
+<div class="math notranslate nohighlight">
+\[s = \sqrt{\frac{1}{m-1} \sum_{j=1}^m (x_j - \overline x)^2}\]</div>
+<p>Für die Standardabweichung des Mittelwertes gilt:</p>
+<div class="math notranslate nohighlight">
+\[s(\overline x) = \frac{s}{\sqrt{m}} = \sqrt{\frac{1}{m(m-1)} \sum_{j=1}^m (x_j - \overline x)^2}\]</div>
+</section>
+<section id="vertrauensbereich">
+<h3>Vertrauensbereich<a class="headerlink" href="#vertrauensbereich" title="Permalink to this heading">#</a></h3>
+<p>Für die erweiterte Messunsicherheit mit Vertrauensbereich wird die Standardabweichung mit dem Erweiterungsfaktor <span class="math notranslate nohighlight">\(t\)</span> multipliziert (hier angegeben für die Messunsicherheit des Mittelwertes, daher der Faktor <span class="math notranslate nohighlight">\(1/\sqrt{m}\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[u_{\overline x} = \pm \frac{t}{\sqrt{m}}\cdot s(x) = \pm t \cdot s(\overline x)\]</div>
+<p>Dieser ist ein Maß für den Vertrauensbereich, indem sich eine bestimmte Anzahl von Messwerten befinden:</p>
+<ul class="simple">
+<li><p>68,3% aller Messwerte liegen im Bereich <span class="math notranslate nohighlight">\(\pm \sigma\)</span></p></li>
+<li><p>95,5% aller Messwerte liegen im Bereich <span class="math notranslate nohighlight">\(\pm 2\sigma\)</span></p></li>
+<li><p>99,7% aller Messwerte liegen im Bereich <span class="math notranslate nohighlight">\(\pm 3\sigma\)</span></p></li>
+</ul>
+<p>Diese Werte gelten für die Normalverteilung. Bei kleinen Stichproben, <span class="math notranslate nohighlight">\(m &lt; 25\)</span>, muss die Student-t-Verteilung angewendet werden, mittels welcher das Quantil <span class="math notranslate nohighlight">\(t\)</span> bestimmt wird und  der Vertrauensbereich angepasst wird (siehe Tabelle im Anhang).</p>
+</section>
+<section id="fehlerfortpflanzung">
+<h3>Fehlerfortpflanzung<a class="headerlink" href="#fehlerfortpflanzung" title="Permalink to this heading">#</a></h3>
+<p>Angenommen es liegen mehrere Messreihen für verschiedene physikalische Größen vor, <span class="math notranslate nohighlight">\(x_{1}\)</span> und <span class="math notranslate nohighlight">\(x_{2}\)</span> ,…, aus denen die Größe <span class="math notranslate nohighlight">\(y\)</span> mittels funktionalem Zusammenhang ermittelt werden soll, <span class="math notranslate nohighlight">\(y = f(x_{1}, x_{2}, ...)\)</span>, dann gilt für die Messabweichung von <span class="math notranslate nohighlight">\(y\)</span> laut Gauß’schem Fehlerfortpflanzungsgesetz:</p>
+<div class="math notranslate nohighlight">
+\[u_y = \sqrt{\left (\frac{\partial y}{\partial x_1} \cdot u_1 \right)^2 +\left (\frac{\partial y}{\partial x_2} \cdot u_2 \right)^2 +\cdots}\]</div>
+<p>Dies gilt, wenn es sich bei mindestens einer Unsicherheit von <span class="math notranslate nohighlight">\(u_{1}\)</span> oder <span class="math notranslate nohighlight">\(u_{2}\)</span> um eine statistische Messunsicherheiten handelt. Andernfalls sollte der Maximalfehler berechnet werden.</p>
+</section>
+</section>
+<section id="aufgaben">
+<h2>Aufgaben<a class="headerlink" href="#aufgaben" title="Permalink to this heading">#</a></h2>
+<section id="schrecksekunde-statistische-messunsicherheit">
+<h3>Schrecksekunde - <a class="reference external" href="https://kisleif.github.io/mtbook/content/1_StatistischeMessunsicherheit.html">Statistische Messunsicherheit</a><a class="headerlink" href="#schrecksekunde-statistische-messunsicherheit" title="Permalink to this heading">#</a></h3>
+<p>Miss deine persönliche Schrecksekunde indem du 5 mal versuchst bei genau 5s deine Stoppuhr anzuhalten.
+Berechne hieraus die Standardabweichung, um die Messunsicherheit für deine persönliche Einzelmessung zu erhalten.
+Miss die Perdiodendauer des Pendels und das Ergebnis der Periodendauer inklusive Messunsicherheit an.</p>
+</section>
+<section id="pendellange-systematische-messunsicherheit">
+<h3>Pendellänge - <a class="reference external" href="https://kisleif.github.io/mtbook/content/1_SystematischeMessabweichung.html">Systematische Messunsicherheit</a><a class="headerlink" href="#pendellange-systematische-messunsicherheit" title="Permalink to this heading">#</a></h3>
+<p>Miss die Pendellänge und gib die Messunsicherheit dazu an. Begründe dein Ergebnis.</p>
+</section>
+<section id="erdbeschleunigung-fehlerfortpflanzung">
+<h3>Erdbeschleunigung - <a class="reference external" href="https://kisleif.github.io/mtbook/content/1_Fehlerfortpflanzung.html">Fehlerfortpflanzung</a><a class="headerlink" href="#erdbeschleunigung-fehlerfortpflanzung" title="Permalink to this heading">#</a></h3>
+<p>Bestimme aus den oben berechneten besten Schätzwerten für die Periodendauer <span class="math notranslate nohighlight">\(\overline T\)</span> und die Pendellänge <span class="math notranslate nohighlight">\(\overline l\)</span> mittels der Pendelgleichung</p>
+<div class="math notranslate nohighlight">
+\[
+	T^2 = \frac{(2\pi)^2}{g}\cdot l\]</div>
+<p>die Erdbeschleunigung <span class="math notranslate nohighlight">\(g\)</span>.
+Bestimme außerdem die Messunsicherheit mittels Fehlerfortpflanzung.
+Gebe das Ergebnis für einen Vertrauensbereich von 99,7% an.</p>
+</section>
+<section id="pendellange-diagramm-zeichnen">
+<h3>Pendellänge - Diagramm zeichnen<a class="headerlink" href="#pendellange-diagramm-zeichnen" title="Permalink to this heading">#</a></h3>
+<p>Miss für verschiedene Pendellängen <span class="math notranslate nohighlight">\(l\)</span> die Periodendauer <span class="math notranslate nohighlight">\(T\)</span>. Trage <span class="math notranslate nohighlight">\(T^{2}\)</span> gegenüber <span class="math notranslate nohighlight">\(l\)</span> in ein Diagramm ein. Trage auch die Fehlerbalken in das Diagramm ein. Bestimme die Erdbeschleunigung mittels einer linearen Regression.</p>
+<p><a class="sd-sphinx-override sd-btn sd-text-wrap sd-btn-primary reference external" href="https://kisleif.github.io/mtbook/content/T_Schwerependel.html"><span>Hier geht’s zur Lösung (Jupyter-Notebook)</span></a></p>
+<figure class="align-default" id="optional-label">
+<a class="reference internal image-reference" href="../_images/student-t.png"><img alt="../_images/student-t.png" src="../_images/student-t.png" style="height: 300px;" /></a>
+<figcaption>
+<p><span class="caption-text">Für die Freiheitsgrade <span class="math notranslate nohighlight">\(s\)</span> und <span class="math notranslate nohighlight">\(p\)</span> gilt:  <span class="math notranslate nohighlight">\(s = m-1\)</span>, wobei <span class="math notranslate nohighlight">\(m\)</span> die Größe der Stichprobe ist. <span class="math notranslate nohighlight">\(p = 1- \alpha/2\)</span>, wobei <span class="math notranslate nohighlight">\(\alpha\)</span> das Signifikanzniveau angibt.</span><a class="headerlink" href="#optional-label" title="Link zu diesem Bild">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    <a href="../Abtastung eines Rechtecksignals in der Radartechnik/">
+      
+      <i class="fa fa-arrow-circle-left"></i>
+      
+      <span>Abtastung eines Rechtecksignals in der Radartechnik</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    <a href="../Widerstandsmessung/">
+      <span>Widerstandsmessung</span>
+      
+      <i class="fa fa-arrow-circle-right" ></i>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grundlagen">Grundlagen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistik">Statistik</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vertrauensbereich">Vertrauensbereich</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fehlerfortpflanzung">Fehlerfortpflanzung</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aufgaben">Aufgaben</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#schrecksekunde-statistische-messunsicherheit">Schrecksekunde - Statistische Messunsicherheit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pendellange-systematische-messunsicherheit">Pendellänge - Systematische Messunsicherheit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#erdbeschleunigung-fehlerfortpflanzung">Erdbeschleunigung - Fehlerfortpflanzung</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pendellange-diagramm-zeichnen">Pendellänge - Diagramm zeichnen</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div class="tocsection sourcelink">
+    <a href="../_sources/Schwerependel.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Quellcode anzeigen
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2023, Katharina-Sophie Isleif.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.2.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.3.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

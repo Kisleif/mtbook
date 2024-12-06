@@ -220,6 +220,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="3_Digital.html">Digitalisierung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_Kenngroessen.html">Kenngrößen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_FourierAnalyse.html">Fourier-Analyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Rauschen.html">Rauschen und spektrale Dichte</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="V6.html">Dynamische Messsysteme</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -227,7 +228,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="5_DGL.html">Differentialgleichungen und Testfunktionen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5_Uebertragungsfunktion.html">Übertragungsfunktion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5_Faltung.html">Faltung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="5_Rauschen.html">Rauschen und spektrale Dichte</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="V7.html">Messen elektrischer Größen</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
@@ -632,7 +632,7 @@ Die Messabweichung beträgt:  -0.19999999999999996 A =  19.999999999999996 %
 </div>
 </div>
 </div>
-<p>Die Messabweichung steigt von 0,0005% (<span class="math notranslate nohighlight">\(R_1 = R_2 = 100\,\mathrm{k\Omega}\)</span>) auf fast 0,5% (<span class="math notranslate nohighlight">\(R_1 = R_2 = 100\,\mathrm{\Omega}\)</span>) an, bei einem Innenwiderstand von <span class="math notranslate nohighlight">\(R_i = 1\,\mathrm{\Omega}\)</span>. Hat das Messgerät einen schlechten Eingang, also einen höheren Innenwiderstand (<span class="math notranslate nohighlight">\(R_i = 15\,\mathrm{\Omega}\)</span>), wird die Messung noch schlechter und die Messabweichung beträgt nun bereits fast 20%.</p>
+<p>Die Messabweichung steigt von 0,0005% (<span class="math notranslate nohighlight">\(R_1 = R_2 = 100\,\mathrm{k\Omega}\)</span>) auf fast 0,5% (<span class="math notranslate nohighlight">\(R_1 = R_2 = 100\,\mathrm{\Omega}\)</span>) an, bei einem Innenwiderstand von <span class="math notranslate nohighlight">\(R_i = 1\,\mathrm{\Omega}\)</span>. Hat das Messgerät einen schlechten Eingang, also einen höheren Innenwiderstand (<span class="math notranslate nohighlight">\(R_i = 50\,\mathrm{\Omega}\)</span>), wird die Messung noch schlechter und die Messabweichung beträgt nun bereits fast 20%.</p>
 </section>
 <section id="innerer-aufbau">
 <h2>Innerer Aufbau<a class="headerlink" href="#innerer-aufbau" title="Permalink to this heading">#</a></h2>
@@ -680,7 +680,7 @@ Der Zeiger sollte möglichst starr, leicht und dünn sein, damit der Skalenberei
 <p><span class="caption-number">Abb. 82 </span><span class="caption-text">Aufbau eines Drehspulmesswerk.</span><a class="headerlink" href="#messwerk" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
-<p>Der zu messende Strom wird nun über die Anschlussklemme und die Federn in die Spule geleitet. Auf die Leiter in der Spule wirkt die Lorentzkraft, wodurch sich der Spulenkörper im Feld des Magneten anfängt zu drehen, wobei die Federkraft dem entgegenwirkt, bis das Drehtmoment, <span class="math notranslate nohighlight">\(M_L\)</span>, aus der Lorentzkraft, <span class="math notranslate nohighlight">\(F_L\)</span>, dem Drehmoment <span class="math notranslate nohighlight">\(M_F\)</span> der Rückstellkraft der Spiralfedern, gleicht:</p>
+<p>Der zu messende Strom wird nun über die Anschlussklemme und die Federn in die Spule geleitet. Auf die Leiter in der Spule wirkt die Lorentzkraft, wodurch sich der Spulenkörper im Feld des Magneten anfängt zu drehen, wobei die Federkraft dem entgegenwirkt, bis das Drehmoment, <span class="math notranslate nohighlight">\(M_L\)</span>, aus der Lorentzkraft, <span class="math notranslate nohighlight">\(F_L\)</span>, dem Drehmoment <span class="math notranslate nohighlight">\(M_F\)</span> der Rückstellkraft der Spiralfedern, gleicht:</p>
 <div class="math notranslate nohighlight">
 \[M_L = 2 F_L r = n \cdot I \cdot l \cdot B \cdot 2r\]</div>
 <div class="math notranslate nohighlight">
@@ -692,7 +692,7 @@ Der Zeiger sollte möglichst starr, leicht und dünn sein, damit der Skalenberei
 <p>Bei diesem Winkel bleibt die Spule stehen und die Zeigerposition kann auf einer Skala abgelesen werden, was den zugehörigen Stromstärkewert liefert. Wird der Strom wieder abgeschaltet, bringen die Federn den Zeiger zurück in seiner Ausgangslage. Da die Federkraft proportional zum Drehwinkel (hookesches Gesetz) und die Lorentzkraft proportional zur Stromstärke ist, ergibt sich eine linear geteilte Skale über einen Drehwinkel von etwa 90°.</p>
 <p>Beim umpolen des Stroms würde der Zeiger in die andere Richtung ausschlagen. Daher können <strong>nur Gleichströme</strong> gemessen werden. Für Wechselströme wird ein zusätzlicher Gleichrichter benötigt.
 Außerdem können Stromänderungen aufgrund der Trägheit des Zeigers nur bis zu einer gewissen Rate gemessen werden. Bei Wechselstrom aber einer bestimmten Frequenz (circa ab 10 Hz), wird nur noch der Gleichwert des Stroms angezeigt, also Null.</p>
-<p>Das Dreheisenmesswerk zeigt eine quadratische Abhängigkeit vom Strom und zeigt den Effektivwert an, was im nachfolgenden Abschnitt erläutert wird.</p>
+<p>Das Dreheisenmesswerk zeigt eine quadratische Abhängigkeit vom Strom und zeigt den Effektivwert an.</p>
 </section>
 <section id="dreheisenmesswerk">
 <h3>Dreheisenmesswerk<a class="headerlink" href="#dreheisenmesswerk" title="Permalink to this heading">#</a></h3>

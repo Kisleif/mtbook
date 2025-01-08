@@ -34,8 +34,40 @@ Dieses github-Repository beinhaltet eine Anzahl von [Jupyter](https://jupyter.or
 * Weiterführende Literatur: Puente León, F. (2019). Messtechnik: Grundlagen, Methoden und Anwendungen (11. Auflage). Springer Vieweg
 * Weiterführende Literatur: Brian Douglas, Fundamentals of Control Theory, https://engineeringmedia.com
 
+## Autorin und Mitwirkende
+
+**Autorin/Erstellerin:**  
+Katharina-Sophie Isleif  
+
+**Weitere Mitwirkende:**  
+- Joline Beckschulte  
+- Wanda Vossius  
+
+**Kontakt:**  
+[Messetechnik-Team der Helmut-Schmidt-Universität](https://www.hsu-hh.de/mt/mtteam/)
+
+
+## Lizenz
+
+Dieses Projekt steht unter der **CC-BY-SA-Lizenz (Creative Commons Attribution-ShareAlike)**.  
+Das bedeutet:  
+- Sie dürfen die Inhalte frei verwenden, teilen und anpassen.  
+- Änderungen oder Weiterentwicklungen müssen unter derselben Lizenz veröffentlicht werden.  
+- Eine angemessene Namensnennung der Autorin und Mitwirkenden ist erforderlich.  
+
+Weitere Informationen zur Lizenz finden Sie [hier](https://creativecommons.org/licenses/by-sa/4.0/).
+
+
+
+## Webseite der Vorlesung
+
+Besuchen Sie die Vorlesungswebseite für weitere Informationen und Materialien:  
+[Messetechnik Vorlesung – Webseite](https://kisleif.github.io/mtbook)
+
+
 ## Danksagung
 Ein großer Dank geht an die Youtuber'innen, die das Vorlesungsskript mit wertvollen Inhalten und visuellen Darstellungen unterstützen und an die Autoren der oben genannten Literatur. 
 Soldatin und Hiwi'ne Joline hat das Skript Korrektur gelesen und zahlreiche Youtube-Videos eingebettet, zugeschnitten auf den Background der Studierenden und Soldat'innen. 
 Soldat und Hiwi Julian hat Praktikumsvorlagen erstellt und hochgeladen. 
 Alle WiMas, insbesondere Lars, Carmen, Kevin und Wanda, die das Modul Messtechnik, in Vorlesung, Übung und Praktikum so tatkräftig unterstützen.
+

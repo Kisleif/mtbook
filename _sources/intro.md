@@ -1,3 +1,14 @@
+<!-- -------------------------------------------- -->
+<!-- Diese Datei ist Teil der Messetechnik-Vorlesung (https://kisleif.github.io/mtbook). -->
+<!-- Entwickelt von Katharina-Sopgie Isleif und dem Messtechnik-Team. -->
+
+<!-- Autor/Ersteller: Katharina-Sophie Isleif 
+<!-- Weitere Mitwirkende: Joline Beckschulte, Wanda Vossius 
+<!-- Kontakt: https://www.hsu-hh.de/mt/mtteam/ -->
+<!-- -------------------------------------------- -->
+<!-- Lizenz: Diese Datei unterliegt der CC-BY-SA-Lizenz (Creative Commons Attribution-ShareAlike). -->
+
+
 # Welcome
 
 Willkommen im *Metrology Lecture Book*, dem **Vorlesungsskript** zur Messtechnik an der Helmut-Schmidt-Universität. Dieses Vorlesungsskript wird deine Hauptinformationsquelle sein und die Grundlagen der Messtechnik vermitteln. Zusätzlich stehen dir begleitende YouTube-Videos und Literaturhinweise zur Verfügung, um Basiswissen zu lernen, zu wiederholen oder zu vertiefen. Außerdem kannst du fast jede Seite als interaktives Jupyter Notebook starten und den hinterlegten Python-Code ausführen und verändern. 

@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Daten plotten und fitten &#8212; Metrology Lecture Book</title>
+    <title>Klimadatan auswerten &#8212; Metrology Lecture Book</title>
   
   
   
@@ -66,6 +66,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/T_Plotten';</script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
@@ -188,8 +190,14 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="1_Kalibrieren.html">Kalibrieren und Eichen</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="V2.html">Messunsicherheiten</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="1_Messunsicherheiten.html">Messunsicherheiten</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="V2.html">Messabweichungen</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_Messunsicherheiten.html">Toleranz</a></li>
+
+
+
+
+
+
 <li class="toctree-l2"><a class="reference internal" href="1_SystematischeMessabweichung.html">Systematische Messabweichung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_StatistischeMessunsicherheit.html">Statistische Messunsicherheit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Fehlerfortpflanzung.html">Fehlerfortpflanzung</a></li>
@@ -212,6 +220,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="3_Digital.html">Digitalisierung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_Kenngroessen.html">Kenngrößen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_FourierAnalyse.html">Fourier-Analyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Rauschen.html">Rauschen und spektrale Dichte</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="V6.html">Dynamische Messsysteme</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -219,7 +228,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="5_DGL.html">Differentialgleichungen und Testfunktionen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5_Uebertragungsfunktion.html">Übertragungsfunktion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5_Faltung.html">Faltung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="5_Rauschen.html">Rauschen und spektrale Dichte</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="V7.html">Messen elektrischer Größen</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -260,7 +268,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="T_Schwerependel.html">Messunsicherheiten beim Schwerependel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Fehlerfortpflanzung.html">Fehlerfortpflanzung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Log.html">Logarithmische Darstellung</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Daten plotten und fitten</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Klimadatan auswerten</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_LinReg.html">Verschiedene Fit-Funktionen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_FitmitFehlerbalken.html">Lineare Regression mit Fehlerbalken</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Spektralanalyse_Audio.html">Fourier-Transformation und Filter</a></li>
@@ -535,7 +543,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Daten plotten und fitten</h1>
+    <h1>Klimadatan auswerten</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -546,19 +554,25 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#csv-datei-als-dataframe-einlesen">.csv-Datei als <em>DataFrame</em> einlesen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#daten-plotten-und-diagramm-sichern-mit-matplotlib">Daten plotten und Diagramm sichern mit ‘matplotlib’</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#daten-verarbeiten">Daten verarbeiten</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistische-groszen">Statistische Größen</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistische-groszen-mittelwert-standardabweichung-min-max">Statistische Größen: Mittelwert, Standardabweichung, Min, Max</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-und-zugehoriges-jahr-ausgeben">Maximum und zugehöriges Jahr ausgeben</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#daten-aufsteigend-absteigend-sortieren">Daten aufsteigend/absteigend sortieren</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kalteste-jahre">Kälteste Jahre</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmste-jahre">Wärmste Jahre</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warmstes-jahr">Wärmstes Jahr</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#daten-plotten-und-diagramm-sichern-mit-matplotlib">Daten plotten und Diagramm sichern mit ‘matplotlib’</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#daten-glatten">Daten glätten</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#messunsicherheiten-als-fehlerbalken-hinzufugen">Messunsicherheiten als Fehlerbalken hinzufügen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ausgleichsgerade-berechnen-und-plotten">Ausgleichsgerade berechnen und plotten</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modellfunktionen-an-daten-anpassen">Modellfunktionen an Daten anpassen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lineare-regression">Lineare Regression</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beliebige-funktion-fitten">Beliebige Funktion fitten</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vorhersage-fur-das-jahr-2050">Vorhersage für das Jahr 2050</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wie-gut-passen-die-modelle">Wie gut passen die Modelle?</a></li>
 </ul>
             </nav>
         </div>
@@ -570,25 +584,26 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="daten-plotten-und-fitten">
-<h1>Daten plotten und fitten<a class="headerlink" href="#daten-plotten-und-fitten" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="klimadatan-auswerten">
+<h1>Klimadatan auswerten<a class="headerlink" href="#klimadatan-auswerten" title="Permalink to this heading">#</a></h1>
+<p>In diesem Jupyter Notebook werden wir die Klimadaten der NASA aus und lernen die wichtigsten Python hierfür kennen, die Sie auch für das Messtechnik-Praktikum benötigen um Ihre Versuche auszuwerten.</p>
 <p>Zunächst werden die für dieses Jupyter Notebook benötigten Libraries geladen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Benötigte Libraries:</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 
-<span class="kn">import</span> <span class="nn">plotly.offline</span> <span class="k">as</span> <span class="nn">py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.offline</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">py</span>
 <span class="n">py</span><span class="o">.</span><span class="n">init_notebook_mode</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">plotly.graph_objs</span> <span class="k">as</span> <span class="nn">go</span>
-<span class="kn">import</span> <span class="nn">plotly.tools</span> <span class="k">as</span> <span class="nn">tls</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objs</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.tools</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tls</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 
 <span class="c1"># MatplotLib Settings:</span>
@@ -605,7 +620,7 @@ document.write(`
         require.undef("plotly");
         requirejs.config({
             paths: {
-                'plotly': ['https://cdn.plot.ly/plotly-2.12.1.min']
+                'plotly': ['https://cdn.plot.ly/plotly-2.35.2.min']
             }
         });
         require(['plotly'], function(Plotly) {
@@ -621,8 +636,8 @@ document.write(`
 Es werden Daten von Dateien (online oder offline) eingelesen mit der Python Bilbiothek <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. Die Daten werden in sogenannten <em>DataFrames</em> hier mit dem Namen <code class="docutils literal notranslate"><span class="pre">global_mean</span></code> abgespeichert.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#link = &quot;https://data.giss.nasa.gov/gistemp/graphs_v4/graph_data/Global_Mean_Estimates_based_on_Land_and_Ocean_Data/graph.csv&quot;</span>
-<span class="n">link</span> <span class="o">=</span> <span class="s1">&#39;data/graph.csv&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">link</span> <span class="o">=</span> <span class="s2">&quot;https://data.giss.nasa.gov/gistemp/graphs_v4/graph_data/Global_Mean_Estimates_based_on_Land_and_Ocean_Data/graph.csv&quot;</span>
+<span class="c1">#link = &#39;data/graph.csv&#39;</span>
 <span class="n">global_mean</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">link</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="c1">#DataFrame erstellen</span>
 </pre></div>
 </div>
@@ -666,12 +681,12 @@ Es werden Daten von Dateien (online oder offline) eingelesen mit der Python Bilb
       <th>0</th>
       <td>1880</td>
       <td>-0.17</td>
-      <td>-0.09</td>
+      <td>-0.10</td>
     </tr>
     <tr>
       <th>1</th>
       <td>1881</td>
-      <td>-0.08</td>
+      <td>-0.09</td>
       <td>-0.13</td>
     </tr>
     <tr>
@@ -683,7 +698,7 @@ Es werden Daten von Dateien (online oder offline) eingelesen mit der Python Bilb
     <tr>
       <th>3</th>
       <td>1883</td>
-      <td>-0.18</td>
+      <td>-0.17</td>
       <td>-0.20</td>
     </tr>
     <tr>
@@ -701,7 +716,7 @@ Es werden Daten von Dateien (online oder offline) eingelesen mit der Python Bilb
     <tr>
       <th>6</th>
       <td>1886</td>
-      <td>-0.32</td>
+      <td>-0.31</td>
       <td>-0.27</td>
     </tr>
     <tr>
@@ -713,7 +728,7 @@ Es werden Daten von Dateien (online oder offline) eingelesen mit der Python Bilb
     <tr>
       <th>8</th>
       <td>1888</td>
-      <td>-0.17</td>
+      <td>-0.18</td>
       <td>-0.27</td>
     </tr>
     <tr>
@@ -741,29 +756,252 @@ Es werden Daten von Dateien (online oder offline) eingelesen mit der Python Bilb
 3      1883
 4      1884
        ... 
-137    2017
-138    2018
-139    2019
 140    2020
 141    2021
-Name: Year, Length: 142, dtype: int64
+142    2022
+143    2023
+144    2024
+Name: Year, Length: 145, dtype: int64
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+<section id="statistische-groszen">
+<h2>Statistische Größen<a class="headerlink" href="#statistische-groszen" title="Permalink to this heading">#</a></h2>
+<p>Die Bibliothek <code class="docutils literal notranslate"><span class="pre">pandas</span></code> ist sehr umfangreich und wird viel zur Datenverarbeitung genutzt. Im folgenden dazu einige Beispiele:</p>
+<section id="statistische-groszen-mittelwert-standardabweichung-min-max">
+<h3>Statistische Größen: Mittelwert, Standardabweichung, Min, Max<a class="headerlink" href="#statistische-groszen-mittelwert-standardabweichung-min-max" title="Permalink to this heading">#</a></h3>
+<p>Für jede Spalte lassen sich statistische Größen wie z.B. die Anzahl der Einträge pro Spalte, deren Mittelwert, Standardabweichung, Minimal- und Maximalwert bestimmen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">global_mean</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+
+<span class="c1">#print(global_mean[&#39;No_Smoothing&#39;].describe())</span>
+<span class="c1">#print(global_mean[&#39;Lowess(5)&#39;].describe())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              Year  No_Smoothing   Lowess(5)
+count   145.000000    145.000000  145.000000
+mean   1952.000000      0.072966    0.073931
+std      42.001984      0.392561    0.384890
+min    1880.000000     -0.490000   -0.420000
+25%    1916.000000     -0.200000   -0.230000
+50%    1952.000000     -0.030000   -0.040000
+75%    1988.000000      0.310000    0.310000
+max    2024.000000      1.280000    1.190000
+</pre></div>
+</div>
+</div>
+</div>
+<p>Die mittlere Jahresmitteltemperaturabweichung im Vergleich zu 1951-1980 beträgt in diesem Fall 0,07 Grad Celsius. Der Trend ist also positiv und im Mittel müssen wir mit einer Erwärmung rechnen, auch wenn einige Jahre negative Jahresmitteltemperaturabweichungen aufzeigen.</p>
+</section>
+</section>
+<section id="kalteste-jahre">
+<h2>Kälteste Jahre<a class="headerlink" href="#kalteste-jahre" title="Permalink to this heading">#</a></h2>
+<p>Die folgenden Jahre weisen die niedrigsten Werte der Temperatur-Anomalie auf.<br />
+Sie repräsentieren die <strong>kältesten Phasen</strong> in der betrachteten Zeitreihe.
+Als erstes wenden wir einen Filter auf die Jahre mit negativer Temperatur-Anomalie an:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cold_years</span> <span class="o">=</span> <span class="n">global_mean</span><span class="p">[</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="c1"># Filter auf Jahre mit negativer Temperatur-Anomalie</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Mit <code class="docutils literal notranslate"><span class="pre">.sort_values(&quot;Spaltenname&quot;)</span></code> können wir die Tabelle nach dem definierten Spaltennamen sortieren (standardmäßig in <strong>ansteigender</strong> Reihenfolge):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sortieren nach kältesten Jahren (kleinste Werte zuerst)</span>
+<span class="n">cold_years_sorted</span> <span class="o">=</span> <span class="n">cold_years</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">)</span>
+
+<span class="c1"># Ausgabe der Top 10 kältesten Jahre</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cold_years_sorted</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Year  No_Smoothing  Lowess(5)
+29  1909         -0.49      -0.42
+24  1904         -0.48      -0.32
+37  1917         -0.47      -0.31
+31  1911         -0.45      -0.40
+30  1910         -0.44      -0.42
+28  1908         -0.44      -0.40
+27  1907         -0.40      -0.38
+32  1912         -0.38      -0.36
+23  1903         -0.38      -0.29
+49  1929         -0.37      -0.20
+</pre></div>
+</div>
+</div>
+</div>
+<p>Und wenn man nur die Jahreszahlen und Werte angezeigt bekommen möchte:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cold_years_sorted</span><span class="p">[[</span><span class="s2">&quot;Year&quot;</span><span class="p">,</span> <span class="s2">&quot;No_Smoothing&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>No_Smoothing</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>29</th>
+      <td>1909</td>
+      <td>-0.49</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>1904</td>
+      <td>-0.48</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>1917</td>
+      <td>-0.47</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>1911</td>
+      <td>-0.45</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>1910</td>
+      <td>-0.44</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>1908</td>
+      <td>-0.44</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>1907</td>
+      <td>-0.40</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>1912</td>
+      <td>-0.38</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>1903</td>
+      <td>-0.38</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>1929</td>
+      <td>-0.37</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="warmste-jahre">
+<h2>Wärmste Jahre<a class="headerlink" href="#warmste-jahre" title="Permalink to this heading">#</a></h2>
+<p>Die folgenden Jahre weisen die höchsten Werte der Temperatur-Anomalie auf.<br />
+Sie repräsentieren die <strong>wärmsten Phasen</strong> in der betrachteten Zeitreihe.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter auf Jahre mit positiver Temperatur-Anomalie</span>
+<span class="n">warm_years</span> <span class="o">=</span> <span class="n">global_mean</span><span class="p">[</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Sortieren nach wärmsten Jahren (größte Werte zuerst)</span>
+<span class="n">warm_years_sorted</span> <span class="o">=</span> <span class="n">warm_years</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Ausgabe der Top 10 wärmsten Jahre</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">warm_years_sorted</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     Year  No_Smoothing  Lowess(5)
+144  2024          1.28       1.19
+143  2023          1.17       1.13
+140  2020          1.01       0.97
+136  2016          1.01       0.87
+139  2019          0.98       0.94
+137  2017          0.92       0.91
+135  2015          0.90       0.83
+142  2022          0.89       1.08
+141  2021          0.85       1.02
+138  2018          0.85       0.93
+</pre></div>
+</div>
+</div>
+</div>
+<section id="warmstes-jahr">
+<h3>Wärmstes Jahr<a class="headerlink" href="#warmstes-jahr" title="Permalink to this heading">#</a></h3>
+<p>Wenn wir wissen wollen, <em>wann</em> diese <em>maximale Temperaturdifferenz</em> auftrat, kann auch der zugehörige Index dieses Events gespeichert werden:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">index_max</span> <span class="o">=</span> <span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">index_max</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>144
+</pre></div>
+</div>
+</div>
+</div>
+<p>Diesen Index können wir nun benutzen, um mittels <code class="docutils literal notranslate"><span class="pre">.loc</span></code> die entsprechenden Einträge zu diesem Index auszugeben:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">global_mean</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">index_max</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Year            2024.00
+No_Smoothing       1.28
+Lowess(5)          1.19
+Name: 144, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="daten-plotten-und-diagramm-sichern-mit-matplotlib">
 <h2>Daten plotten und Diagramm sichern mit ‘matplotlib’<a class="headerlink" href="#daten-plotten-und-diagramm-sichern-mit-matplotlib" title="Permalink to this heading">#</a></h2>
 <p>Als Beispiel für eine gelungene grafische Darstellung wollen wir die beiden Spalten, <em>No_Smoothing</em> and <em>Lowess(5)</em> gegenüber der Zeitachse <em>Year</em> plotten. Hierfür benützen wir die Python Library <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>. Einmal geplottet kann das zuletzt angezeigte Diagramm in verschiedenen Formaten mit <code class="docutils literal notranslate"><span class="pre">plt.savefig('klima_plot1.png')</span></code> abgespeichert werden. Wenn nicht anders angegeben, wird die Datei im gleichen Ordner angelegt.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="c1">#plt.style.use(&#39;default&#39;)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">],</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:gray&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Werte&quot;</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Lowess(5)&quot;</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>  <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Glättung (NASA)&quot;</span><span class="p">);</span>
+<span class="c1">#plt.plot(global_mean[&quot;Year&quot;],global_mean[&quot;Lowess(5)&quot;], lw=4,  color=&quot;tab:blue&quot;, label=&quot;Glättung (NASA)&quot;);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Jahr&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Jahresmitteltemperaturabweichung [°C]&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
@@ -774,349 +1012,9 @@ Name: Year, Length: 142, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6afb4b024b9c6d8ffb38dfe686701eb34f2015bc1770674cc38a416b0f853a91.png" src="../_images/6afb4b024b9c6d8ffb38dfe686701eb34f2015bc1770674cc38a416b0f853a91.png" />
+<img alt="../_images/d2ab5539abb46d3d4088aa43cac382b2dc23f257c303c60a8761fc799ec4c29f.png" src="../_images/d2ab5539abb46d3d4088aa43cac382b2dc23f257c303c60a8761fc799ec4c29f.png" />
 </div>
 </div>
-</section>
-<section id="daten-verarbeiten">
-<h2>Daten verarbeiten<a class="headerlink" href="#daten-verarbeiten" title="Permalink to this heading">#</a></h2>
-<p>Die Bibliothek <code class="docutils literal notranslate"><span class="pre">pandas</span></code> ist sehr umfangreich und wird viel zur Datenverarbeitung genutzt. Im folgenden dazu einige Beispiele:</p>
-<section id="statistische-groszen-mittelwert-standardabweichung-min-max">
-<h3>Statistische Größen: Mittelwert, Standardabweichung, Min, Max<a class="headerlink" href="#statistische-groszen-mittelwert-standardabweichung-min-max" title="Permalink to this heading">#</a></h3>
-<p>Für jede Spalte lassen sich statistische Größen wie z.B. die Anzahl der Einträge pro Spalte, deren Mittelwert, Standardabweichung, Minimal- und Maximalwert bestimmen:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">global_mean</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span> <span class="c1">#Dataframe Statistik</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Year</th>
-      <th>No_Smoothing</th>
-      <th>Lowess(5)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>142.000000</td>
-      <td>142.000000</td>
-      <td>142.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>1950.500000</td>
-      <td>0.053169</td>
-      <td>0.053169</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>41.135953</td>
-      <td>0.364161</td>
-      <td>0.352324</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>1880.000000</td>
-      <td>-0.490000</td>
-      <td>-0.420000</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>1915.250000</td>
-      <td>-0.200000</td>
-      <td>-0.227500</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>1950.500000</td>
-      <td>-0.065000</td>
-      <td>-0.040000</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>1985.750000</td>
-      <td>0.252500</td>
-      <td>0.235000</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>2021.000000</td>
-      <td>1.010000</td>
-      <td>0.930000</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-</section>
-<section id="maximum-und-zugehoriges-jahr-ausgeben">
-<h3>Maximum und zugehöriges Jahr ausgeben<a class="headerlink" href="#maximum-und-zugehoriges-jahr-ausgeben" title="Permalink to this heading">#</a></h3>
-<p>Dies können wir benutzen, um beispielsweise die <em>maximale Temperaturdifferenz</em> zu ermitteln:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.36416107752007404
-</pre></div>
-</div>
-</div>
-</div>
-<p>Wenn wir wissen wollen, <em>wann</em> diese <em>maximale Temperaturdifferenz</em> auftrat, muss der zugehörige Index dieses Events gespeichert werden:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">index_max</span> <span class="o">=</span> <span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">index_max</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>136
-</pre></div>
-</div>
-</div>
-</div>
-<p>Diesen Index können wir nun benutzen, um mittels <code class="docutils literal notranslate"><span class="pre">.loc</span></code> Befehl den Eintrag zu diesem Index auszugeben:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">global_mean</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">index_max</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Year            2016.00
-No_Smoothing       1.01
-Lowess(5)          0.87
-Name: 136, dtype: float64
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="daten-aufsteigend-absteigend-sortieren">
-<h3>Daten aufsteigend/absteigend sortieren<a class="headerlink" href="#daten-aufsteigend-absteigend-sortieren" title="Permalink to this heading">#</a></h3>
-<p>Mit <code class="docutils literal notranslate"><span class="pre">.sort_values(&quot;Spaltenname&quot;)</span></code> können wir auch die Tabelle nach dem definierten Spaltennamen sortieren (standardmäßig in <strong>ansteigender</strong> Reihenfolge):</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">global_mean</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Year</th>
-      <th>No_Smoothing</th>
-      <th>Lowess(5)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>140</th>
-      <td>2020</td>
-      <td>1.01</td>
-      <td>0.93</td>
-    </tr>
-    <tr>
-      <th>136</th>
-      <td>2016</td>
-      <td>1.01</td>
-      <td>0.87</td>
-    </tr>
-    <tr>
-      <th>139</th>
-      <td>2019</td>
-      <td>0.98</td>
-      <td>0.93</td>
-    </tr>
-    <tr>
-      <th>137</th>
-      <td>2017</td>
-      <td>0.92</td>
-      <td>0.91</td>
-    </tr>
-    <tr>
-      <th>135</th>
-      <td>2015</td>
-      <td>0.90</td>
-      <td>0.83</td>
-    </tr>
-    <tr>
-      <th>138</th>
-      <td>2018</td>
-      <td>0.85</td>
-      <td>0.92</td>
-    </tr>
-    <tr>
-      <th>141</th>
-      <td>2021</td>
-      <td>0.84</td>
-      <td>0.93</td>
-    </tr>
-    <tr>
-      <th>134</th>
-      <td>2014</td>
-      <td>0.75</td>
-      <td>0.79</td>
-    </tr>
-    <tr>
-      <th>130</th>
-      <td>2010</td>
-      <td>0.72</td>
-      <td>0.65</td>
-    </tr>
-    <tr>
-      <th>133</th>
-      <td>2013</td>
-      <td>0.68</td>
-      <td>0.74</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<p>Mit <code class="docutils literal notranslate"><span class="pre">ascending=False</span></code> wird absteigend sortiert:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">global_mean</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">,</span> <span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Year</th>
-      <th>No_Smoothing</th>
-      <th>Lowess(5)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>140</th>
-      <td>2020</td>
-      <td>1.01</td>
-      <td>0.93</td>
-    </tr>
-    <tr>
-      <th>136</th>
-      <td>2016</td>
-      <td>1.01</td>
-      <td>0.87</td>
-    </tr>
-    <tr>
-      <th>139</th>
-      <td>2019</td>
-      <td>0.98</td>
-      <td>0.93</td>
-    </tr>
-    <tr>
-      <th>137</th>
-      <td>2017</td>
-      <td>0.92</td>
-      <td>0.91</td>
-    </tr>
-    <tr>
-      <th>135</th>
-      <td>2015</td>
-      <td>0.90</td>
-      <td>0.83</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>30</th>
-      <td>1910</td>
-      <td>-0.44</td>
-      <td>-0.42</td>
-    </tr>
-    <tr>
-      <th>31</th>
-      <td>1911</td>
-      <td>-0.45</td>
-      <td>-0.40</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>1904</td>
-      <td>-0.47</td>
-      <td>-0.31</td>
-    </tr>
-    <tr>
-      <th>37</th>
-      <td>1917</td>
-      <td>-0.47</td>
-      <td>-0.30</td>
-    </tr>
-    <tr>
-      <th>29</th>
-      <td>1909</td>
-      <td>-0.49</td>
-      <td>-0.41</td>
-    </tr>
-  </tbody>
-</table>
-<p>142 rows × 3 columns</p>
-</div></div></div>
-</div>
-<p><strong>WICHTIG</strong>: Der Dataframe <code class="docutils literal notranslate"><span class="pre">global_mean</span></code> wird dadurch nicht verändert, es handelt sich nur um eine Anzeige!</p>
-</section>
 </section>
 <section id="daten-glatten">
 <h2>Daten glätten<a class="headerlink" href="#daten-glatten" title="Permalink to this heading">#</a></h2>
@@ -1130,7 +1028,7 @@ Name: 136, dtype: float64
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.nonparametric.smoothers_lowess</span> <span class="kn">import</span> <span class="n">lowess</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.nonparametric.smoothers_lowess</span><span class="w"> </span><span class="kn">import</span> <span class="n">lowess</span>
 
 <span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Lowess(eigene)&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lowess</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span> <span class="n">frac</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">14</span><span class="p">)[:,</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
@@ -1173,36 +1071,36 @@ Name: 136, dtype: float64
       <th>0</th>
       <td>1880</td>
       <td>-0.17</td>
-      <td>-0.09</td>
-      <td>-0.092698</td>
+      <td>-0.10</td>
+      <td>-0.096166</td>
     </tr>
     <tr>
       <th>1</th>
       <td>1881</td>
-      <td>-0.08</td>
+      <td>-0.09</td>
       <td>-0.13</td>
-      <td>-0.129873</td>
+      <td>-0.131758</td>
     </tr>
     <tr>
       <th>2</th>
       <td>1882</td>
       <td>-0.11</td>
       <td>-0.17</td>
-      <td>-0.167172</td>
+      <td>-0.167628</td>
     </tr>
     <tr>
       <th>3</th>
       <td>1883</td>
-      <td>-0.18</td>
+      <td>-0.17</td>
       <td>-0.20</td>
-      <td>-0.203172</td>
+      <td>-0.202299</td>
     </tr>
     <tr>
       <th>4</th>
       <td>1884</td>
       <td>-0.28</td>
       <td>-0.24</td>
-      <td>-0.239029</td>
+      <td>-0.236649</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1212,50 +1110,48 @@ Name: 136, dtype: float64
       <td>...</td>
     </tr>
     <tr>
-      <th>137</th>
-      <td>2017</td>
-      <td>0.92</td>
-      <td>0.91</td>
-      <td>0.911976</td>
-    </tr>
-    <tr>
-      <th>138</th>
-      <td>2018</td>
-      <td>0.85</td>
-      <td>0.92</td>
-      <td>0.921410</td>
-    </tr>
-    <tr>
-      <th>139</th>
-      <td>2019</td>
-      <td>0.98</td>
-      <td>0.93</td>
-      <td>0.926072</td>
-    </tr>
-    <tr>
       <th>140</th>
       <td>2020</td>
       <td>1.01</td>
-      <td>0.93</td>
-      <td>0.929365</td>
+      <td>0.97</td>
+      <td>0.965670</td>
     </tr>
     <tr>
       <th>141</th>
       <td>2021</td>
-      <td>0.84</td>
-      <td>0.93</td>
-      <td>0.931468</td>
+      <td>0.85</td>
+      <td>1.02</td>
+      <td>1.023666</td>
+    </tr>
+    <tr>
+      <th>142</th>
+      <td>2022</td>
+      <td>0.89</td>
+      <td>1.08</td>
+      <td>1.078238</td>
+    </tr>
+    <tr>
+      <th>143</th>
+      <td>2023</td>
+      <td>1.17</td>
+      <td>1.13</td>
+      <td>1.133268</td>
+    </tr>
+    <tr>
+      <th>144</th>
+      <td>2024</td>
+      <td>1.28</td>
+      <td>1.19</td>
+      <td>1.191802</td>
     </tr>
   </tbody>
 </table>
-<p>142 rows × 4 columns</p>
+<p>145 rows × 4 columns</p>
 </div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">],</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:gray&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Werte&quot;</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Lowess(5)&quot;</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>  <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Glättung (NASA)&quot;</span><span class="p">);</span>
@@ -1264,11 +1160,13 @@ Name: 136, dtype: float64
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Jahresmitteltemperaturabweichung [°C]&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;klima_plot2.png&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;klima_plot2.pdf&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f15818f6066a57cfe22942bd2b8ce751964ab2f2c07a53b9c156a56174860d37.png" src="../_images/f15818f6066a57cfe22942bd2b8ce751964ab2f2c07a53b9c156a56174860d37.png" />
+<img alt="../_images/051b7bcf0cfad9c2bb80696578e26c6f3c4118b78570787c394e391504ceb574.png" src="../_images/051b7bcf0cfad9c2bb80696578e26c6f3c4118b78570787c394e391504ceb574.png" />
 </div>
 </div>
 </section>
@@ -1284,19 +1182,19 @@ Name: 136, dtype: float64
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     Year  No_Smoothing  Lowess(5)  Lowess(eigene)  uncertainty
-0    1880         -0.17      -0.09       -0.092698         0.25
-1    1881         -0.08      -0.13       -0.129873         0.25
-2    1882         -0.11      -0.17       -0.167172         0.25
-3    1883         -0.18      -0.20       -0.203172         0.25
-4    1884         -0.28      -0.24       -0.239029         0.25
+0    1880         -0.17      -0.10       -0.096166         0.25
+1    1881         -0.09      -0.13       -0.131758         0.25
+2    1882         -0.11      -0.17       -0.167628         0.25
+3    1883         -0.17      -0.20       -0.202299         0.25
+4    1884         -0.28      -0.24       -0.236649         0.25
 ..    ...           ...        ...             ...          ...
-137  2017          0.92       0.91        0.911976         0.25
-138  2018          0.85       0.92        0.921410         0.25
-139  2019          0.98       0.93        0.926072         0.25
-140  2020          1.01       0.93        0.929365         0.25
-141  2021          0.84       0.93        0.931468         0.25
+140  2020          1.01       0.97        0.965670         0.25
+141  2021          0.85       1.02        1.023666         0.25
+142  2022          0.89       1.08        1.078238         0.25
+143  2023          1.17       1.13        1.133268         0.25
+144  2024          1.28       1.19        1.191802         0.25
 
-[142 rows x 5 columns]
+[145 rows x 5 columns]
 </pre></div>
 </div>
 </div>
@@ -1304,89 +1202,91 @@ Name: 136, dtype: float64
 <p>Grafisch darstellen tun wir Messunsicherheiten mittels Fehlerbalken und der Matplotlib-Funktion <code class="docutils literal notranslate"><span class="pre">plt.errorbar</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">],</span> <span class="n">yerr</span><span class="o">=</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;uncertainty&quot;</span><span class="p">],</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:gray&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Werte&quot;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">],</span> <span class="n">yerr</span><span class="o">=</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;uncertainty&quot;</span><span class="p">],</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:gray&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Werte&quot;</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Lowess(5)&quot;</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>  <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Glättung (NASA)&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Lowess(eigene)&quot;</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;-&#39;</span> <span class="p">,</span>  <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Glättung (eigene)&quot;</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Jahr&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Jahresmitteltemperaturabweichung [°C]&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;klima_plot3.png&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;klima_plot3.pdf&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3fa974c71aaf5b2595fc232bba03a51809ed6fe55134df6bd95e040713044876.png" src="../_images/3fa974c71aaf5b2595fc232bba03a51809ed6fe55134df6bd95e040713044876.png" />
+<img alt="../_images/6749f28ba1a468269271890d12e7a6461b8fb82ca341f1f0de75b4a9677a36cc.png" src="../_images/6749f28ba1a468269271890d12e7a6461b8fb82ca341f1f0de75b4a9677a36cc.png" />
 </div>
 </div>
 </section>
-<section id="ausgleichsgerade-berechnen-und-plotten">
-<h2>Ausgleichsgerade berechnen und plotten<a class="headerlink" href="#ausgleichsgerade-berechnen-und-plotten" title="Permalink to this heading">#</a></h2>
+<section id="modellfunktionen-an-daten-anpassen">
+<h2>Modellfunktionen an Daten anpassen<a class="headerlink" href="#modellfunktionen-an-daten-anpassen" title="Permalink to this heading">#</a></h2>
+<section id="lineare-regression">
+<h3>Lineare Regression<a class="headerlink" href="#lineare-regression" title="Permalink to this heading">#</a></h3>
 <p>Mittels linearer Regression kann der Temperaturanstieg aus den Daten berechnet werden. Hierfür wird die Python Library <code class="docutils literal notranslate"><span class="pre">numpy</span></code> benutzt und die Funktion <code class="docutils literal notranslate"><span class="pre">polyfit</span></code> aufgerufen und in als <code class="docutils literal notranslate"><span class="pre">model</span></code> gespeichert. Diese Funktion benutzt die Least-Square Methode für polynomische Modelle. Weitere Informationen zu der Funktion findet ihr <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.polyfit.html">hier</a>. Mit der Option <code class="docutils literal notranslate"><span class="pre">cov=True</span></code> wird die Kovarianz-Matrix berechnet, welche die Unsicherheiten für die Fit-Parameter beinhaltet.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="n">x</span><span class="o">=</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span>
 <span class="n">y</span><span class="o">=</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">]</span>
 <span class="n">y_err</span> <span class="o">=</span> <span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;uncertainty&quot;</span><span class="p">]</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">deg</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">y_err</span><span class="p">,</span> <span class="n">cov</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># 1. Wert = Anstieg , 2. Wert = Schnittpunkt mit y-Achse</span>
-<span class="n">y_model</span> <span class="o">=</span> <span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># Modell einer linearen Regression</span>
+<span class="n">model_lin1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">deg</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">y_err</span><span class="p">,</span> <span class="n">cov</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># 1. Wert = Anstieg , 2. Wert = Schnittpunkt mit y-Achse</span>
+<span class="n">y_model_1</span> <span class="o">=</span> <span class="n">model_lin1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">model_lin1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># Modell einer linearen Regression</span>
 
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Jahresmitteltemperaturabweichung [°C]&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Jahr&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">],</span> <span class="n">yerr</span><span class="o">=</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;uncertainty&quot;</span><span class="p">],</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:gray&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Werte&quot;</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y_model</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;lineare Regression y=(</span><span class="si">{</span><span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">+-</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">model</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">)1e-3*x+(</span><span class="si">{</span><span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">+-</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">model</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y_model_1</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Modell: y=(</span><span class="si">{</span><span class="n">model_lin1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">+-</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">model_lin1</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">)1e-3*x+(</span><span class="si">{</span><span class="n">model_lin1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">+-</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">model_lin1</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;klima_plot4.png&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;klima_plot4.pdf&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/53df56b61c34b7931ff4e77a66103fc5d5c72a5be581bce4dce3522b6662db85.png" src="../_images/53df56b61c34b7931ff4e77a66103fc5d5c72a5be581bce4dce3522b6662db85.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 7.72740894e-03, -1.50191421e+01]),
- array([[ 1.33257719e-07, -2.59919181e-04],
-        [-2.59919181e-04,  5.07196269e-01]]))
-</pre></div>
-</div>
+<img alt="../_images/2d79bc1a2704acbb16554176939fa048522660692b7233aeb9786a0df7d4464c.png" src="../_images/2d79bc1a2704acbb16554176939fa048522660692b7233aeb9786a0df7d4464c.png" />
 </div>
 </div>
 <p>Das Model beinhaltet zwei Matrizen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_lin1</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 7.72740894e-03, -1.50191421e+01]),
- array([[ 1.33257719e-07, -2.59919181e-04],
-        [-2.59919181e-04,  5.07196269e-01]]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 8.16509211e-03, -1.58652943e+01]),
+ array([[ 1.44641636e-07, -2.82340474e-04],
+        [-2.82340474e-04,  5.51382018e-01]]))
 </pre></div>
 </div>
 </div>
 </div>
-<p>Im ersten Array stehen die Fit-Parameter der linearen Ausgleichsgeraden entsprechend der obigen Deklaration: <code class="docutils literal notranslate"><span class="pre">y_model</span> <span class="pre">=</span> <span class="pre">model[0][0]*x+model[0][1]</span></code>.
+<p>Im ersten Array stehen die Fit-Parameter der linearen Ausgleichsgeraden entsprechend der obigen Deklaration: <code class="docutils literal notranslate"><span class="pre">y_model</span> <span class="pre">=</span> <span class="pre">model_lin1[0][0]*x+model_lin1[0][1]</span></code>.
 Im zweiten Array, hier eine 2x2 Matrix, sind die Unsicherheiten in Form von der <a class="reference internal" href="1_Fehlerfortpflanzung.html"><span class="doc std std-doc">Kovarianz-Matrix</span></a> dargestellt.
 Der Temperaturanstieg kann entsprechend ausgegeben werden:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Temperaturanstieg pro Jahr (von 1981 bis 2020): </span><span class="si">{</span><span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">°C/Jahr&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Temperaturanstieg pro Jahr (von 1981 bis 2020): </span><span class="si">{</span><span class="n">model_lin1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">°C/Jahr&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Temperaturanstieg seit Beginn der Messung: </span><span class="si">{</span><span class="p">(</span><span class="n">y_model</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">y_model</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">°C&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Temperaturanstieg pro Jahr (von 1981 bis 2020): 0.008°C/Jahr
-Temperaturanstieg seit Beginn der Messung: 1.090°C
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">20</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Temperaturanstieg pro Jahr (von 1981 bis 2020): </span><span class="si">{</span><span class="n">model_lin1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">°C/Jahr&quot;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Temperaturanstieg seit Beginn der Messung: </span><span class="si">{</span><span class="p">(</span><span class="n">y_model</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">y_model</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">°C&quot;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;y_model&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1397,95 +1297,228 @@ Temperaturanstieg seit Beginn der Messung: 1.090°C
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">global_mean</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">1980</span><span class="p">,</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span>
-<span class="n">y</span><span class="o">=</span><span class="n">global_mean</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">1980</span><span class="p">,</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_1980</span><span class="o">=</span><span class="n">global_mean</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">1980</span><span class="p">,</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span>
+<span class="n">y_1980</span><span class="o">=</span><span class="n">global_mean</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">1980</span><span class="p">,</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">]</span>
 <span class="n">y_err</span> <span class="o">=</span> <span class="n">global_mean</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">1980</span><span class="p">,</span><span class="s2">&quot;uncertainty&quot;</span><span class="p">]</span>
 
-<span class="n">model</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">deg</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">y_err</span><span class="p">,</span> <span class="n">cov</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># 1. Wert = Anstieg , 2. Wert = Schnittpunkt mit y-Achse</span>
-<span class="n">y_model</span> <span class="o">=</span> <span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># Modell einer linearen Regression</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Temperaturanstieg pro Jahr (von 1980 bis 2020): </span><span class="si">{</span><span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">°C/Jahr&quot;</span><span class="p">)</span>
+<span class="n">model_lin2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x_1980</span><span class="p">,</span> <span class="n">y_1980</span><span class="p">,</span> <span class="n">deg</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">y_err</span><span class="p">,</span> <span class="n">cov</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># 1. Wert = Anstieg , 2. Wert = Schnittpunkt mit y-Achse</span>
+<span class="n">y_model_2</span> <span class="o">=</span> <span class="n">model_lin2</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">model_lin2</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># Modell einer linearen Regression</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Jahresmitteltemperaturabweichung [°C]&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Jahr&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">],</span> <span class="n">yerr</span><span class="o">=</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;uncertainty&quot;</span><span class="p">],</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:gray&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Messwerte&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y_model_2</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Modell: y=(</span><span class="si">{</span><span class="n">model_lin2</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">+-</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">model_lin2</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">)1e-3*x+(</span><span class="si">{</span><span class="n">model_lin2</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">+-</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">model_lin2</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;klima_plot5.png&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;klima_plot5.pdf&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Temperaturanstieg pro Jahr (von 1980 bis 2020): 0.019°C/Jahr
-</pre></div>
-</div>
+<img alt="../_images/d547568e02caa6aa4ce78a35f117c319515855bfc10c9514609fc3b915646146.png" src="../_images/d547568e02caa6aa4ce78a35f117c319515855bfc10c9514609fc3b915646146.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Jahresmitteltemperaturabweichung [°C]&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Jahr&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">],</span> <span class="n">yerr</span><span class="o">=</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;uncertainty&quot;</span><span class="p">],</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:gray&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Werte&quot;</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y_model</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;lineare Regression y=(</span><span class="si">{</span><span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">+-</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">model</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">)1e-3*x+(</span><span class="si">{</span><span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">+-</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">model</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Temperaturanstieg pro Jahr:</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Temperaturanstieg pro Jahr (von 1980 bis 2020): </span><span class="si">{</span><span class="n">model_lin2</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">°C/Jahr&quot;</span><span class="p">)</span>
+
+<span class="c1"># Vorhersage für Jahr 2050</span>
+<span class="n">x_val</span> <span class="o">=</span> <span class="mi">2050</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">model_lin2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x_val</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Vorhersage für 2050:&quot;</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d9f70b3fa56eaf3262f0fd2ac9a1fd68570121fed49db16d6fe29b78b138cfec.png" src="../_images/d9f70b3fa56eaf3262f0fd2ac9a1fd68570121fed49db16d6fe29b78b138cfec.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Temperaturanstieg pro Jahr (von 1980 bis 2020): 0.020°C/Jahr
+Vorhersage für 2050: 1.5430715854193977
+</pre></div>
 </div>
 </div>
+</div>
+</section>
 <section id="beliebige-funktion-fitten">
 <h3>Beliebige Funktion fitten<a class="headerlink" href="#beliebige-funktion-fitten" title="Permalink to this heading">#</a></h3>
 <p>Mit der Polyfit Funktion können in erster Linie Polynome gefittet werden.
 Für beliebige Modellierung, wie z.B. Exponential-Funktionen, werden die Funktionen in aller Regel selber definiert. Hierfür eignet sich die scipy-Funktion <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">curve_fit</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Als erstes wird die Funktion deklariert, hier nutzen wird wieder eine lineare Regression:</p>
+<p>Als erstes wird die Funktion deklariert:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">lin_reg</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
-
-<span class="k">def</span> <span class="nf">quadratic_fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">quadratic_fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">c</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Die wir anschließend an die Daten anpassen:</p>
+<p>Die Funktion wird anschließend an die Daten angepasst:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nutze alle Daten über die gesamte Zeit, nicht gefiltert:</span>
+<span class="n">x</span><span class="o">=</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span>
+<span class="n">y</span><span class="o">=</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">]</span>
+<span class="n">y_err</span> <span class="o">=</span> <span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;uncertainty&quot;</span><span class="p">]</span>
+
+<span class="n">model_quadr</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">quadratic_fit</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">model_quadr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 9.43408527e-05, -3.60141597e-01,  3.43436749e+02]), array([[ 4.12615232e-11, -1.61084987e-07,  1.57146658e-04],
+       [-1.61084987e-07,  6.28933616e-04, -6.13613427e-01],
+       [ 1.57146658e-04, -6.13613427e-01,  5.98721651e+02]]))
+</pre></div>
+</div>
+</div>
+</div>
+<p>Man sieht, je komplexer die Modellfunktion ist, desto schwieriger ist es die Matrizen zu lesen. Daher können die Modelparameter und die Kovarianzmatrix auch separat voneinander gespeichert werden:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">popt</span><span class="p">,</span> <span class="n">pcov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">quadratic_fit</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Fit:&#39;</span><span class="p">,</span> <span class="n">popt</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mit der Kovarianz-Matrix&#39;</span><span class="p">,</span> <span class="n">pcov</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Modellparameter:&#39;</span><span class="p">,</span> <span class="n">popt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mit der Kovarianz-Matrix und entsprechende Unsicherheiten:&#39;</span><span class="p">,</span> <span class="n">pcov</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">model_quadr</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fit: [ 2.41606861e-04 -9.47677075e-01  9.29408439e+02]
-Mit der Kovarianz-Matrix [[ 1.14888003e-08 -4.59666876e-05  4.59764893e-02]
- [-4.59666876e-05  1.83914056e-01 -1.83954621e+02]
- [ 4.59764893e-02 -1.83954621e+02  1.83996544e+05]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Modellparameter: [ 9.43408527e-05 -3.60141597e-01  3.43436749e+02]
+Mit der Kovarianz-Matrix und entsprechende Unsicherheiten: [[ 4.12615232e-11 -1.61084987e-07  1.57146658e-04]
+ [-1.61084987e-07  6.28933616e-04 -6.13613427e-01]
+ [ 1.57146658e-04 -6.13613427e-01  5.98721651e+02]]
+-0.3601415966534972
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Jahresmitteltemperaturabweichung [°C]&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Jahresmitteltemperaturabweichung [°C]&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Jahr&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">],</span> <span class="n">yerr</span><span class="o">=</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;uncertainty&quot;</span><span class="p">],</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:gray&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Werte&quot;</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">quadratic_fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">*</span><span class="n">popt</span><span class="p">),</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Quadratischer Fit y=( </span><span class="si">%5.3f</span><span class="s2"> * x^2 + </span><span class="si">%5.3f</span><span class="s2"> * x + </span><span class="si">%5.3f</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">popt</span><span class="p">));</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">],</span> <span class="n">yerr</span><span class="o">=</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;uncertainty&quot;</span><span class="p">],</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:gray&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Messwerte&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">quadratic_fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">*</span><span class="n">popt</span><span class="p">),</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Modell: y=(</span><span class="si">{</span><span class="n">model_quadr</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">+-</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">model_quadr</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">)1e-3*x^2+(</span><span class="si">{</span><span class="n">model_quadr</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">+-</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">model_quadr</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">)*x + (</span><span class="si">{</span><span class="n">model_quadr</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">+-</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">model_quadr</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;klima_plot6.png&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;klima_plot6.pdf&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ac921a82538bc793bd62e8d95a3c52aa597b4ffea4662a4104975f668f63dd36.png" src="../_images/ac921a82538bc793bd62e8d95a3c52aa597b4ffea4662a4104975f668f63dd36.png" />
+<img alt="../_images/b0d635c9477943c25a5223f8f89338508f0152b2a8c7bdf2da3f19417c1e3c2c.png" src="../_images/b0d635c9477943c25a5223f8f89338508f0152b2a8c7bdf2da3f19417c1e3c2c.png" />
 </div>
 </div>
 </section>
+</section>
+<section id="vorhersage-fur-das-jahr-2050">
+<h2>Vorhersage für das Jahr 2050<a class="headerlink" href="#vorhersage-fur-das-jahr-2050" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Vorhersage für Jahr 2050</span>
+<span class="n">x_val</span> <span class="o">=</span> <span class="mi">2050</span>
+<span class="n">y_pred_lin1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">model_lin1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x_val</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Lineares Modell 1 (1880-2025):</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">y_pred_lin1</span><span class="p">)</span>
+
+<span class="n">y_pred_lin2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">model_lin2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x_val</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Lineares Modell 2 (1981-2025):</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">y_pred_lin2</span><span class="p">)</span>
+
+<span class="n">y_pred_quadr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">model_quadr</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x_val</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Quadratisches Modell:</span><span class="se">\t\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">y_pred_quadr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lineares Modell 1 (1880-2025):	 0.8731445441662782
+Lineares Modell 2 (1981-2025):	 1.5430715854193977
+Quadratisches Modell:		 1.6139089222256189
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="wie-gut-passen-die-modelle">
+<h2>Wie gut passen die Modelle?<a class="headerlink" href="#wie-gut-passen-die-modelle" title="Permalink to this heading">#</a></h2>
+<p>Ein Maß dafür, wie gut ein einzelnes Modell die Daten beschreibt, liefert der sogenannte <span class="math notranslate nohighlight">\(\chi^2\)</span> Wert.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Residuen berechnen:</span>
+<span class="n">residuals_lin1</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="p">(</span><span class="n">model_lin1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">model_lin1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">residuals_lin2</span> <span class="o">=</span> <span class="n">y_1980</span> <span class="o">-</span> <span class="p">(</span><span class="n">model_lin2</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x_1980</span> <span class="o">+</span> <span class="n">model_lin2</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">residuals_quadr</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">quadratic_fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">*</span><span class="n">popt</span><span class="p">)</span>
+
+
+<span class="c1"># Für Chi^2 quadratisch aufsummieren:</span>
+<span class="n">chi2_lin1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">residuals_lin1</span> <span class="o">/</span> <span class="n">y_err</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>  
+<span class="n">chi2_lin2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">residuals_lin2</span> <span class="o">/</span> <span class="n">y_err</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>  
+<span class="n">chi2_quadr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">residuals_quadr</span> <span class="o">/</span> <span class="n">y_err</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>  
+
+<span class="c1"># Freiheitsgrade (Anzahl der Datenpunkte - Anzahl der Modellparameter)</span>
+<span class="n">dof_lin1</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">model_lin1</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">dof_lin2</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_1980</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">model_lin2</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">dof_quadr</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">model_quadr</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># Reduziertes Chi^2</span>
+<span class="n">chi2_red_lin1</span> <span class="o">=</span> <span class="n">chi2_lin1</span> <span class="o">/</span> <span class="n">dof_lin1</span>
+<span class="n">chi2_red_lin2</span> <span class="o">=</span> <span class="n">chi2_lin2</span> <span class="o">/</span> <span class="n">dof_lin2</span>
+<span class="n">chi2_red_quadr</span> <span class="o">=</span> <span class="n">chi2_quadr</span> <span class="o">/</span> <span class="n">dof_quadr</span>
+
+<span class="c1"># Ergebnisse in Tabelle</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;Modell&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Linear (ges. Reihe)&quot;</span><span class="p">,</span> <span class="s2">&quot;Linear (ab 1981)&quot;</span><span class="p">,</span> <span class="s2">&quot;Quadratisch&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;Chi²&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">chi2_lin1</span><span class="p">,</span> <span class="n">chi2_lin2</span><span class="p">,</span> <span class="n">chi2_quadr</span><span class="p">],</span>
+    <span class="s2">&quot;Freiheitsgrade&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">dof_lin1</span><span class="p">,</span> <span class="n">dof_lin2</span><span class="p">,</span> <span class="n">dof_quadr</span><span class="p">],</span>
+    <span class="s2">&quot;Chi²_red&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">chi2_red_lin1</span><span class="p">,</span> <span class="n">chi2_red_lin2</span><span class="p">,</span> <span class="n">chi2_red_quadr</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">float_format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%.3f</span><span class="s2">&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>             Modell   Chi²  Freiheitsgrade  Chi²_red
+Linear (ges. Reihe) 84.072             143     0.588
+   Linear (ab 1981)  7.899              43     0.184
+        Quadratisch 33.375             142     0.235
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Residuen&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Jahr&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">residuals_lin1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Lineares Modell (ges. Reihe)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_1980</span><span class="p">,</span><span class="n">residuals_lin2</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Lineares Modell (ab 1981)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">residuals_quadr</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Quadratisches Modell&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;klima_plot7.png&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;klima_plot7.pdf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/2b44bd7cdd790534910c93851038f63075a6bdcecabdcb705cd2dd4ae0ee6448.png" src="../_images/2b44bd7cdd790534910c93851038f63075a6bdcecabdcb705cd2dd4ae0ee6448.png" />
+</div>
+</div>
+<p>Alle reduzierten <span class="math notranslate nohighlight">\(\chi^2\)</span>-Werte liegen unter 1. Das deutet darauf hin, dass die angenommenen Fehlerbalken zu groß gewählt worden sind und das Modell <em>zu gut</em> passt. Das 2. lineare Modell liefert den geringsten Wert und ist somit mathematisch gesehen das beste Modell. Jedoch bezieht dies nicht die komplette Zeitserie mit ein. Das quadratische Modell passt besser über die gesamte Zeitserie betrachtet. Alle Modelle sind akzeptabel, aber unsere geschätzten Unsicherheiten von 0,25 Kelvin dominieren.</p>
 </section>
 </section>
 
@@ -1553,19 +1586,25 @@ Mit der Kovarianz-Matrix [[ 1.14888003e-08 -4.59666876e-05  4.59764893e-02]
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#csv-datei-als-dataframe-einlesen">.csv-Datei als <em>DataFrame</em> einlesen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#daten-plotten-und-diagramm-sichern-mit-matplotlib">Daten plotten und Diagramm sichern mit ‘matplotlib’</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#daten-verarbeiten">Daten verarbeiten</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistische-groszen">Statistische Größen</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistische-groszen-mittelwert-standardabweichung-min-max">Statistische Größen: Mittelwert, Standardabweichung, Min, Max</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-und-zugehoriges-jahr-ausgeben">Maximum und zugehöriges Jahr ausgeben</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#daten-aufsteigend-absteigend-sortieren">Daten aufsteigend/absteigend sortieren</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kalteste-jahre">Kälteste Jahre</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmste-jahre">Wärmste Jahre</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warmstes-jahr">Wärmstes Jahr</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#daten-plotten-und-diagramm-sichern-mit-matplotlib">Daten plotten und Diagramm sichern mit ‘matplotlib’</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#daten-glatten">Daten glätten</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#messunsicherheiten-als-fehlerbalken-hinzufugen">Messunsicherheiten als Fehlerbalken hinzufügen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ausgleichsgerade-berechnen-und-plotten">Ausgleichsgerade berechnen und plotten</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modellfunktionen-an-daten-anpassen">Modellfunktionen an Daten anpassen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lineare-regression">Lineare Regression</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beliebige-funktion-fitten">Beliebige Funktion fitten</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vorhersage-fur-das-jahr-2050">Vorhersage für das Jahr 2050</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wie-gut-passen-die-modelle">Wie gut passen die Modelle?</a></li>
 </ul>
   </nav></div>
 

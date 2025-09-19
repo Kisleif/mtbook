@@ -66,10 +66,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/V1';</script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="Intro" href="1_Einf%C3%BChrung%20in%20die%20Messtechnik.html" />
+    <link rel="next" title="Messkette" href="1_Einf%C3%BChrung%20in%20die%20Messtechnik.html" />
     <link rel="prev" title="Über dieses Book &amp; Python" href="intro_book.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
@@ -183,7 +185,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">✍️ Vorlesung</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Grundlagen</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="1_Einf%C3%BChrung%20in%20die%20Messtechnik.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Einf%C3%BChrung%20in%20die%20Messtechnik.html">Messkette</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Einheiten.html">Einheiten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Kalibrieren.html">Kalibrieren und Eichen</a></li>
 </ul>
@@ -504,7 +506,7 @@ document.write(`
 <h2>Inhaltsverzeichnis<a class="headerlink" href="#inhaltsverzeichnis" title="Permalink to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="1_Einf%C3%BChrung%20in%20die%20Messtechnik.html">Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_Einf%C3%BChrung%20in%20die%20Messtechnik.html">Messkette</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1_Einheiten.html">Einheiten</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1_Kalibrieren.html">Kalibrieren und Eichen</a></li>
 </ul>
@@ -519,35 +521,56 @@ document.write(`
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-left"><p>Messen</p></td>
-<td class="text-left"><p>Ermittlung des Messwertes zu einer Messgröße. (Wie oft geht eine Einheit in eine Messgröße hinein?)</p></td>
+<tr class="row-even"><td class="text-left"><p>Abgeleitete/ergänzende SI-Einheiten</p></td>
+<td class="text-left"><p>Aus den sieben Basisgrößen des SI abgeleitete Einheiten (z. B. Newton, Volt, Joule) und ergänzende Einheiten wie Radiant oder Steradiant</p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p>Maßeinheit</p></td>
+<tr class="row-odd"><td class="text-left"><p>Dezibel</p></td>
+<td class="text-left"><p>Logarithmisches Übertragungsmaß, dessen Zahlenwert mit einer vereinbarten Berechnungsvorschrift ermittelt wird</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Eichen</p></td>
+<td class="text-left"><p>Gesetzlich geregelte Überprüfung eines Messgeräts auf Einhaltung vorgeschriebener Fehlergrenzen</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Kalibrieren</p></td>
+<td class="text-left"><p>Vergleich eines Messgeräts mit einem bekannten Referenzwert, ggf. Justage ohne Änderung der Skala</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Maßeinheit</p></td>
 <td class="text-left"><p>Festgelegter Vergleichswert für eine physikalische Messgröße</p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p>Messwert</p></td>
-<td class="text-left"><p>Bei der Messung ermittelter Faktor. Zahlenmäßiges Verhältnis zwischen Einheit und Messgröße</p></td>
+<tr class="row-odd"><td class="text-left"><p>Messen</p></td>
+<td class="text-left"><p>Ermittlung des Messwertes zu einer Messgröße. (Wie oft geht eine Einheit in eine Messgröße hinein?)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Messergebnis / Messwert</p></td>
+<td class="text-left"><p>(Schätz-)Wert, den die Messgröße durch Auswertung einer Messung bekommt</p></td>
 </tr>
 <tr class="row-odd"><td class="text-left"><p>Messgröße</p></td>
 <td class="text-left"><p>Physikalische Größe, die Gegenstand einer Messung ist</p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p>Richtiger Wert</p></td>
-<td class="text-left"><p>Mit denkbar größten technischem und theoretischem Aufwand ermittelter Messwert, der als Bezugswert zur Bewertung eines Messergebnisses benutzt wird.</p></td>
+<tr class="row-even"><td class="text-left"><p>Messsignal</p></td>
+<td class="text-left"><p>Ein Signal, mit dem Messinformationen transportiert werden</p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p>Wahrer Wert</p></td>
-<td class="text-left"><p>Tatsächlich vorhandener Wert einer physikalischen Größe, er ist durch eine endliche Genauigkeit der verwendeten Messmittel nicht exakt bestimbar.</p></td>
+<tr class="row-odd"><td class="text-left"><p>Messwert</p></td>
+<td class="text-left"><p>Bei der Messung ermittelter Faktor. Zahlenmäßiges Verhältnis zwischen Einheit und Messgröße</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Naturkonstante</p></td>
+<td class="text-left"><p>Fundamentale physikalische Konstante (z. B. Lichtgeschwindigkeit <span class="math notranslate nohighlight">\(c\)</span>, Planck-Konstante <span class="math notranslate nohighlight">\(h\)</span>), dient als Basis für Definitionen von Einheiten</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Nicht-SI-Einheiten (akzeptiert)</p></td>
+<td class="text-left"><p>In bestimmten Bereichen zugelassene Einheiten außerhalb des SI, z. B. Minute, Stunde, Grad Celsius, Liter</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Normale</p></td>
+<td class="text-left"><p>Referenzgrößen oder -geräte, auf die Messungen durch Kalibrierung rückführbar sind</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Richtiger Wert</p></td>
+<td class="text-left"><p>Mit denkbar größtem technischem und theoretischem Aufwand ermittelter Messwert, der als Bezugswert zur Bewertung eines Messergebnisses benutzt wird</p></td>
 </tr>
 <tr class="row-even"><td class="text-left"><p>SI-Einheitensystem</p></td>
 <td class="text-left"><p>Vereinbartes System von Maßeinheiten</p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p>Dezibel</p></td>
-<td class="text-left"><p>Logarithmisches Übertragungsmaß, dessen Zahlenwert mit einer vereinbarten Berechnungsvorschrift ermittelt wird.</p></td>
+<tr class="row-odd"><td class="text-left"><p>Vorsätze / Präfix</p></td>
+<td class="text-left"><p>Faktoren zur Darstellung sehr großer oder kleiner Zahlenwerte (z. B. milli = <span class="math notranslate nohighlight">\(10^{-3}\)</span>, kilo = <span class="math notranslate nohighlight">\(10^3\)</span>)</p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p>Messsignal</p></td>
-<td class="text-left"><p>Ein Signal mit dem Messinformationen transportiert werden</p></td>
-</tr>
-<tr class="row-odd"><td class="text-left"><p>Messergebnis / Messwert</p></td>
-<td class="text-left"><p>(Schätz-)Wert, den die Messgröße durch Auswertung einer Messung bekommt</p></td>
+<tr class="row-even"><td class="text-left"><p>Wahrer Wert</p></td>
+<td class="text-left"><p>Tatsächlich vorhandener Wert einer physikalischen Größe, er ist durch eine endliche Genauigkeit der verwendeten Messmittel nicht exakt bestimmbar</p></td>
 </tr>
 </tbody>
 </table>
@@ -598,7 +621,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title">Intro</p>
+        <p class="prev-next-title">Messkette</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

@@ -184,8 +184,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">✍️ Vorlesung</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="1_Einf%C3%BChrung%20in%20die%20Messtechnik.html">Intro</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="V1.html">Grundlagen</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="V1.html">Einführung in die Messtechnik und Einheiten</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_Einf%C3%BChrung%20in%20die%20Messtechnik.html">Messkette</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Einheiten.html">Einheiten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Kalibrieren.html">Kalibrieren und Eichen</a></li>
 </ul>
@@ -220,6 +220,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="3_Digital.html">Digitalisierung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_Kenngroessen.html">Kenngrößen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_FourierAnalyse.html">Fourier-Analyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Rauschen.html">Rauschen und spektrale Dichte</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="V6.html">Dynamische Messsysteme</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -227,7 +228,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="5_DGL.html">Differentialgleichungen und Testfunktionen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5_Uebertragungsfunktion.html">Übertragungsfunktion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5_Faltung.html">Faltung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="5_Rauschen.html">Rauschen und spektrale Dichte</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="V7.html">Messen elektrischer Größen</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -268,7 +268,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="T_Schwerependel.html">Messunsicherheiten beim Schwerependel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Fehlerfortpflanzung.html">Fehlerfortpflanzung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Log.html">Logarithmische Darstellung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="T_Plotten.html">Daten plotten und fitten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T_Plotten.html">Klimadaten auswerten</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_LinReg.html">Verschiedene Fit-Funktionen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_FitmitFehlerbalken.html">Lineare Regression mit Fehlerbalken</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Spektralanalyse_Audio.html">Fourier-Transformation und Filter</a></li>
@@ -562,7 +562,11 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gauszsche-fehlerfortpflanzung-a-id-subsec-fehlerfortpflanzung-bei-unabhangigen-unsicherheiten-a">Gauß’sche Fehlerfortpflanzung <a id="SubSec-Fehlerfortpflanzung_bei_unabhängigen_Unsicherheiten"></a></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zufallige-unabhangige-unsicherheiten">Zufällige unabhängige Unsicherheiten</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zufallige-abhangige-variablen-a-id-subsec-fehlerfortpflanzung-bei-korrelierten-unsicherheiten-a">Zufällige abhängige Variablen <a id="SubSec-Fehlerfortpflanzung_bei_korrelierten_Unsicherheiten"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zufallige-abhangige-variablen-a-id-subsec-fehlerfortpflanzung-bei-korrelierten-unsicherheiten-a">Zufällige abhängige Variablen <a id="SubSec-Fehlerfortpflanzung_bei_korrelierten_Unsicherheiten"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#korrelation">Korrelation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#kovarianz">Kovarianz</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -648,16 +652,16 @@ document.write(`
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Benötigte Libraries:</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">plotly.offline</span> <span class="k">as</span> <span class="nn">py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.offline</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">py</span>
 <span class="n">py</span><span class="o">.</span><span class="n">init_notebook_mode</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">plotly.graph_objs</span> <span class="k">as</span> <span class="nn">go</span>
-<span class="kn">import</span> <span class="nn">plotly.tools</span> <span class="k">as</span> <span class="nn">tls</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objs</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.tools</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tls</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 
 <span class="c1"># MatplotLib Settings:</span>
@@ -716,7 +720,7 @@ document.write(`
         require.undef("plotly");
         requirejs.config({
             paths: {
-                'plotly': ['https://cdn.plot.ly/plotly-2.12.1.min']
+                'plotly': ['https://cdn.plot.ly/plotly-2.35.2.min']
             }
         });
         require(['plotly'], function(Plotly) {
@@ -724,7 +728,93 @@ document.write(`
         });
         }
         </script>
-        </div><img alt="../_images/5c7e7dc5bd35291d782e72de2fe8390d005da00149834339108a346d7a34f686.png" src="../_images/5c7e7dc5bd35291d782e72de2fe8390d005da00149834339108a346d7a34f686.png" />
+        </div><div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">9</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objs</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">import</span><span class="w"> </span><span class="nn">plotly.tools</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tls</span>
+<span class="ne">----&gt; </span><span class="mi">9</span> <span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">seaborn</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">5</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.utils</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>  <span class="c1"># noqa: F401,F403</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.palettes</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>  <span class="c1"># noqa: F401,F403</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.relational</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>  <span class="c1"># noqa: F401,F403</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.regression</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>  <span class="c1"># noqa: F401,F403</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.categorical</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>  <span class="c1"># noqa: F401,F403</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">seaborn</span><span class="o">/</span><span class="n">relational</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">21</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.utils</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="n">adjust_legend_subtitles</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span>     <span class="n">_default_color</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span>     <span class="n">_scatter_legend_artist</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._compat</span><span class="w"> </span><span class="kn">import</span> <span class="n">groupby_apply_include_groups</span>
+<span class="ne">---&gt; </span><span class="mi">21</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._statistics</span><span class="w"> </span><span class="kn">import</span> <span class="n">EstimateAggregator</span><span class="p">,</span> <span class="n">WeightedAggregator</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.axisgrid</span><span class="w"> </span><span class="kn">import</span> <span class="n">FacetGrid</span><span class="p">,</span> <span class="n">_facet_docs</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._docstrings</span><span class="w"> </span><span class="kn">import</span> <span class="n">DocstringComponents</span><span class="p">,</span> <span class="n">_core_docs</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">seaborn</span><span class="o">/</span><span class="n">_statistics</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">32</span>
+<span class="g g-Whitespace">     </span><span class="mi">30</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="g g-Whitespace">     </span><span class="mi">31</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">32</span>     <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">gaussian_kde</span>
+<span class="g g-Whitespace">     </span><span class="mi">33</span>     <span class="n">_no_scipy</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="g g-Whitespace">     </span><span class="mi">34</span> <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">stats</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">606</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="sd"> .. _statsrefmanual:</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">601</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">602</span><span class="sd"> &quot;&quot;&quot;</span>  <span class="c1"># noqa: E501</span>
+<span class="g g-Whitespace">    </span><span class="mi">604</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._warnings_errors</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">ConstantInputWarning</span><span class="p">,</span> <span class="n">NearConstantInputWarning</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">605</span>                                <span class="n">DegenerateDataWarning</span><span class="p">,</span> <span class="n">FitError</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">606</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._stats_py</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="g g-Whitespace">    </span><span class="mi">607</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._variation</span><span class="w"> </span><span class="kn">import</span> <span class="n">variation</span>
+<span class="g g-Whitespace">    </span><span class="mi">608</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.distributions</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">stats</span><span class="o">/</span><span class="n">_stats_py</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">37</span>
+<span class="g g-Whitespace">     </span><span class="mi">34</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="g g-Whitespace">     </span><span class="mi">35</span> <span class="kn">from</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">array</span><span class="p">,</span> <span class="n">asarray</span><span class="p">,</span> <span class="n">ma</span>
+<span class="ne">---&gt; </span><span class="mi">37</span> <span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">sparse</span>
+<span class="g g-Whitespace">     </span><span class="mi">38</span> <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.spatial.distance</span><span class="w"> </span><span class="kn">import</span> <span class="n">cdist</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span> <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.spatial</span><span class="w"> </span><span class="kn">import</span> <span class="n">distance_matrix</span>
+
+<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1055,</span> in <span class="ni">_handle_fromlist</span><span class="nt">(module, fromlist, import_, recursive)</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.9/site-packages/scipy/__init__.py:134,</span> in <span class="ni">__getattr__</span><span class="nt">(name)</span>
+<span class="g g-Whitespace">    </span><span class="mi">132</span> <span class="k">def</span><span class="w"> </span><span class="fm">__getattr__</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">133</span>     <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">submodules</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">134</span>         <span class="k">return</span> <span class="n">_importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;scipy.</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">135</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">136</span>         <span class="k">try</span><span class="p">:</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.9/importlib/__init__.py:127,</span> in <span class="ni">import_module</span><span class="nt">(name, package)</span>
+<span class="g g-Whitespace">    </span><span class="mi">125</span>             <span class="k">break</span>
+<span class="g g-Whitespace">    </span><span class="mi">126</span>         <span class="n">level</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="ne">--&gt; </span><span class="mi">127</span> <span class="k">return</span> <span class="n">_bootstrap</span><span class="o">.</span><span class="n">_gcd_import</span><span class="p">(</span><span class="n">name</span><span class="p">[</span><span class="n">level</span><span class="p">:],</span> <span class="n">package</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">sparse</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">295</span>
+<span class="g g-Whitespace">    </span><span class="mi">292</span> <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">_warnings</span>
+<span class="g g-Whitespace">    </span><span class="mi">294</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._base</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="ne">--&gt; </span><span class="mi">295</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._csr</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="g g-Whitespace">    </span><span class="mi">296</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._csc</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="g g-Whitespace">    </span><span class="mi">297</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._lil</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">sparse</span><span class="o">/</span><span class="n">_csr</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">11</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._matrix</span><span class="w"> </span><span class="kn">import</span> <span class="n">spmatrix</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._base</span><span class="w"> </span><span class="kn">import</span> <span class="n">_spbase</span><span class="p">,</span> <span class="n">sparray</span>
+<span class="ne">---&gt; </span><span class="mi">11</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._sparsetools</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">csr_tocsc</span><span class="p">,</span> <span class="n">csr_tobsr</span><span class="p">,</span> <span class="n">csr_count_blocks</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span>                            <span class="n">get_csr_submatrix</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._sputils</span><span class="w"> </span><span class="kn">import</span> <span class="n">upcast</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._compressed</span><span class="w"> </span><span class="kn">import</span> <span class="n">_cs_matrix</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
 </div>
 </div>
 <p>Das Intervall <span class="math notranslate nohighlight">\(\pm \Delta x = 20\)</span> im Diagramm um 1980 herum wird durch <em>irgendeinen</em> funktionellen Zusammenhang <span class="math notranslate nohighlight">\(f(x)\)</span> auf das Intervall <span class="math notranslate nohighlight">\(\Delta y\)</span> abgebildet. Durch den Messwert <span class="math notranslate nohighlight">\(x_0 = 1980\)</span> kann eine lineare Ausgleichsgerade gezogen werden, deren Steigung der Ableitung der Funktion in diesem Punkt entspricht, <span class="math notranslate nohighlight">\(df(x_0)/dx\)</span>. Anhand der Steigung der linearen Ausgleichsgeraden kann man den Fehler für <span class="math notranslate nohighlight">\(y\)</span> direkt ablesen: <span class="math notranslate nohighlight">\(\Delta y \approx 0,375\)</span>. Man sieht jedoch in der Abbildung auch, dass diese Abschätzung umso schlechter wird, je größer <span class="math notranslate nohighlight">\(\Delta x\)</span> ist. Je nach Funktionstyp müssen also auch höhere Ableitungen berücksichtigt werden (<em>Taylorentwicklung</em> von <span class="math notranslate nohighlight">\(f(x)\)</span>).</p>
@@ -907,7 +997,7 @@ Beide Größen wurden mehrmals gemessen, wobei unterschiedliche Messwerte heraus
 <span class="expanded">Hide code cell content</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">drho</span> <span class="o">=</span> <span class="mf">3e-8</span>
 <span class="n">rho</span><span class="o">=</span><span class="mf">1.7e-6</span>
@@ -966,6 +1056,8 @@ dR =  5.418216235738347
 </div>
 </aside>
 <p>Häufig liegt in der Messtechnik der Fall vor, dass wir voneinander unabhängige Messungen betrachten und diese zu unserer gesuchten Messgröße kombinieren. Teilweise können aber auch Messungen beobachtet werden, welche eine Abhängigkeit voneinander aufweisen. In diesem Fall spricht man von <strong>Korrelationen</strong> zwischen Messgrößen und ein <strong>Kovarianz-Term</strong> muss berücksichtigt werden!</p>
+<section id="korrelation">
+<h4>Korrelation<a class="headerlink" href="#korrelation" title="Permalink to this heading">#</a></h4>
 <p>Der Korrelationskoeffizient <span class="math notranslate nohighlight">\(r\)</span> kann nur Werte zwischen +1 und -1 annehmen, wobei +1 einen perfekten positiven Zusammenhang und -1 einen perfekten negativen Zusammenhang beschreiben. Ist <span class="math notranslate nohighlight">\(r = 0\)</span>, so gibt es keinen Zusammenhang zwischen den betrachteten Variablen, sie sind also unabhängig voneinander.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warnung</p>
@@ -978,7 +1070,7 @@ dR =  5.418216235738347
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span> 
     <span class="n">rho</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">m_1</span><span class="p">,</span><span class="n">m_2</span><span class="p">)[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Korrelation r = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span><span class="mi">3</span><span class="p">)))</span>
@@ -1061,7 +1153,7 @@ dR =  5.418216235738347
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/1c7c20fad7ddd5cb1d107041b7e8f728729a72fefb17a079e7bac99e5c301895.png" src="../_images/1c7c20fad7ddd5cb1d107041b7e8f728729a72fefb17a079e7bac99e5c301895.png" />
+<img alt="../_images/780e2962ef8a74673601d1e35118e5171b27fd007468dd43b8ad189a86d61af0.png" src="../_images/780e2962ef8a74673601d1e35118e5171b27fd007468dd43b8ad189a86d61af0.png" />
 </div>
 </div>
 <p>Die Berechnung des Korrelationskoeffizienten zwischen zwei Variablen, <span class="math notranslate nohighlight">\(x_1\)</span> und <span class="math notranslate nohighlight">\(x_2\)</span>, kann auf zwei verschiedene Arten erfolgen:</p>
@@ -1069,6 +1161,9 @@ dR =  5.418216235738347
 \[r = \frac{\sum_{i=1}^N (x_{1,i}-\overline x_1)\cdot (x_{2,i}-\overline x_2)}{\sqrt{\sum_{i=1}^N (x_{1,i}-\overline x_1)^2} \cdot \sqrt{ \sum_{i=1}^N (x_{2,i}-\overline x_2)^2}}\]</div>
 <div class="math notranslate nohighlight">
 \[r = \frac{\sum_{i=1}^N x_{1,i}x_{2,i} - N\cdot \bar x_1 \bar x_2}{\sqrt{\sum_{i=1}^N x_{1,i}-N \bar x_1^2} \cdot \sqrt{ \sum_{i=1}^N x_{2,i}-N \bar x_2^2}} \]</div>
+</section>
+<section id="kovarianz">
+<h4>Kovarianz<a class="headerlink" href="#kovarianz" title="Permalink to this heading">#</a></h4>
 <p>Eine alternative Berechnung des Koeffizienten ergibt sich aus der sogenannten Kovarianz-Matrix, die durch die jeweiligen Standardabweichungen der beiden Variablen normiert wird:</p>
 <div class="math notranslate nohighlight">
 \[r = \frac{\mathrm{cov}_{x_1x_2}}{s_{x_1} \cdot s_{x_2}}\]</div>
@@ -1128,6 +1223,7 @@ dR =  5.418216235738347
 </ul>
 <p>Dieses Beispiel findet häufig Anwendung im Bereich der Signalübertragung und ist unter der Bezeichnung <strong>differentielle Signalübertragung</strong> bekannt. Neben dem eigentlichen Signal, <span class="math notranslate nohighlight">\(x_1\)</span> wird hierbei ein zweites, invertiertes Signal mitübertragen, <span class="math notranslate nohighlight">\(x_2 = -x_1\)</span>. Da alle Störungen innerhalb der gleichen Übertragungsstrecke fast vollständig korreliert sind, heben sich diese am Ende auf. Das Nutzsignal erhält man zurück, indem man folgende Signalkombination berechnet: <span class="math notranslate nohighlight">\(y = 0{,}5\cdot (x_1 - x_2)\)</span>. Aufgrund des hohen Korrelationsgrades der einzelnen Signalkomponenten ist die Unsicherheit des extrahierten Signal sehr klein: <span class="math notranslate nohighlight">\(u_y \simeq 0\)</span>.</p>
 </div>
+</section>
 </section>
 </section>
 </section>
@@ -1204,7 +1300,11 @@ dR =  5.418216235738347
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gauszsche-fehlerfortpflanzung-a-id-subsec-fehlerfortpflanzung-bei-unabhangigen-unsicherheiten-a">Gauß’sche Fehlerfortpflanzung <a id="SubSec-Fehlerfortpflanzung_bei_unabhängigen_Unsicherheiten"></a></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zufallige-unabhangige-unsicherheiten">Zufällige unabhängige Unsicherheiten</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zufallige-abhangige-variablen-a-id-subsec-fehlerfortpflanzung-bei-korrelierten-unsicherheiten-a">Zufällige abhängige Variablen <a id="SubSec-Fehlerfortpflanzung_bei_korrelierten_Unsicherheiten"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zufallige-abhangige-variablen-a-id-subsec-fehlerfortpflanzung-bei-korrelierten-unsicherheiten-a">Zufällige abhängige Variablen <a id="SubSec-Fehlerfortpflanzung_bei_korrelierten_Unsicherheiten"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#korrelation">Korrelation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#kovarianz">Kovarianz</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

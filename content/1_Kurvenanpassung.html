@@ -184,8 +184,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">✍️ Vorlesung</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="1_Einf%C3%BChrung%20in%20die%20Messtechnik.html">Intro</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="V1.html">Grundlagen</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="V1.html">Einführung in die Messtechnik und Einheiten</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_Einf%C3%BChrung%20in%20die%20Messtechnik.html">Messkette</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Einheiten.html">Einheiten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Kalibrieren.html">Kalibrieren und Eichen</a></li>
 </ul>
@@ -220,6 +220,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="3_Digital.html">Digitalisierung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_Kenngroessen.html">Kenngrößen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_FourierAnalyse.html">Fourier-Analyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Rauschen.html">Rauschen und spektrale Dichte</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="V6.html">Dynamische Messsysteme</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -227,7 +228,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="5_DGL.html">Differentialgleichungen und Testfunktionen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5_Uebertragungsfunktion.html">Übertragungsfunktion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5_Faltung.html">Faltung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="5_Rauschen.html">Rauschen und spektrale Dichte</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="V7.html">Messen elektrischer Größen</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -265,12 +265,12 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">🐍 Jupyter Notebooks</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="T_Plotten.html">Klimadaten auswerten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T_LinReg.html">Verschiedene Fit-Funktionen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T_FitmitFehlerbalken.html">Lineare Regression mit Fehlerbalken</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Schwerependel.html">Messunsicherheiten beim Schwerependel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Fehlerfortpflanzung.html">Fehlerfortpflanzung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Log.html">Logarithmische Darstellung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="T_Plotten.html">Daten plotten und fitten</a></li>
-<li class="toctree-l1"><a class="reference internal" href="T_LinReg.html">Verschiedene Fit-Funktionen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="T_FitmitFehlerbalken.html">Lineare Regression mit Fehlerbalken</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Spektralanalyse_Audio.html">Fourier-Transformation und Filter</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Übungen</span></p>
@@ -555,13 +555,12 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#least-squares-methode-der-kleinsten-quadrate">Least-Squares: Methode der kleinsten Quadrate</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regressionskoeffizienten">Regressionskoeffizienten</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fehler-der-regressionsgeraden">Fehler der Regressionsgeraden</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#berucksichtigung-von-unsicherheiten">Berücksichtigung von Unsicherheiten</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fehler-und-residuenanalyse">Fehler- und Residuenanalyse</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standardfehler-der-residuen">Standardfehler der Residuen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bestimmtheitsmasz-und-korrelation">Bestimmtheitsmaß und Korrelation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chi2-quadrat-anpassungstest">Chi²-Quadrat-Anpassungstest</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unsicherheiten-der-regressionskoeffizienten">Unsicherheiten der Regressionskoeffizienten</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#korrelationskoeffizient-a-id-subsec-korrelationskoeffizient-a">Korrelationskoeffizient <a id="SubSec-Korrelationskoeffizient"></a></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bestimmtheitsmasz-a-id-subsec-bestimmtheitsmasz-a">Bestimmtheitsmaß <a id="SubSec-Bestimmtheitsmaß"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kovarianz">Kovarianz</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#erweiterung-auf-allgemeine-funktionen">Erweiterung auf allgemeine Funktionen</a></li>
@@ -606,11 +605,11 @@ document.write(`
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">interpolate</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">curve_fit</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">interpolate</span>
 
 <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">108</span><span class="p">,</span> <span class="mi">120</span><span class="p">]</span> 
 <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mf">12.2</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mf">22.1</span><span class="p">,</span> <span class="mf">33.2</span><span class="p">,</span> <span class="mf">34.4</span><span class="p">,</span> <span class="mf">59.1</span><span class="p">,</span> <span class="mf">60.2</span><span class="p">,</span> <span class="mf">65.7</span><span class="p">,</span> <span class="mf">69.9</span><span class="p">,</span> <span class="mf">70.1</span><span class="p">]</span> 
@@ -621,7 +620,7 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:gray&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 
 <span class="c1"># Anpassung / Fit:</span>
-<span class="k">def</span> <span class="nf">anpassung</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">anpassung</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="n">x</span>
 <span class="n">popt</span><span class="p">,</span> <span class="n">pcov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">anpassung</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">anpassung</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">*</span><span class="n">popt</span><span class="p">),</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
@@ -637,7 +636,7 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/e7b03c66004d2b93c1cdb31f4890f00587b720f4596c47c203e16c3a9eeed7b0.png" src="../_images/e7b03c66004d2b93c1cdb31f4890f00587b720f4596c47c203e16c3a9eeed7b0.png" />
+<img alt="../_images/bbccaa8f1f833ca3b2f3a392c0aede0535e92a616895ec7e8cdff7b53f3f6db6.png" src="../_images/bbccaa8f1f833ca3b2f3a392c0aede0535e92a616895ec7e8cdff7b53f3f6db6.png" />
 </div>
 </div>
 <p>Um die optimale Gerade zu bestimmen, führen wir eine <strong>lineare Regression</strong> durch, um die Daten anzunähern. Die optimale Gerade hat im Idealfall die Form:</p>
@@ -660,10 +659,15 @@ document.write(`
 <p>Hierfür definieren wir die Funktion <span class="math notranslate nohighlight">\(Q\)</span>, die von den Geradenparametern <span class="math notranslate nohighlight">\(b\)</span> und <span class="math notranslate nohighlight">\(a\)</span> abhängt und als <strong>Gütefunktion</strong> definiert ist:</p>
 <div class="math notranslate nohighlight">
 \[Q(b,a) = \sum_{i = 1}^N [y_i - (b\cdot x_i + a)]^2 = \mathrm{min !}\]</div>
-<p>In dieser Funktion werden zunächst die Unterschiede zwischen den Messwerten und der theoretischen Geradenfunktion berechnet. Diese Differenzen werden dann quadriert und schließlich für alle Messwerte <span class="math notranslate nohighlight">\(y_i\)</span> aufsummiert. Unser Ziel ist es, diese Summe zu minimieren.</p>
+<p>In dieser Funktion werden zunächst die Unterschiede zwischen den Messwerten und der theoretischen Geradenfunktion berechnet. Diese Differenzen werden dann quadriert und schließlich für alle Messwerte <span class="math notranslate nohighlight">\(y_i\)</span> aufsummiert. Unser Ziel ist es, diese Summe zu minimieren.
+Es handelt sich um ein <em>Minimierungsproblem</em>, das je nach Art der Modellfunktion unterschiedlich gelöst wird. Im Folgenden werden wir es für eine lineare Funktion lösen.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warnung</p>
-<p>Es handelt sich um ein <em>Minimierungsproblem</em>, das je nach Art der Modellfunktion unterschiedlich gelöst wird. Im Folgenden werden wir es für eine lineare Funktion lösen.</p>
+<p>Besitzen die <span class="math notranslate nohighlight">\(N\)</span> Messwerte <span class="math notranslate nohighlight">\(y_i\)</span> jeweils unterschiedliche Unsicherheiten <span class="math notranslate nohighlight">\(s_i\)</span>, so werden diese in die Gütefunktion miteinbezogen und verursachen eine Art Gewichtung. Damit geht <span class="math notranslate nohighlight">\(Q\)</span> über in <span class="math notranslate nohighlight">\(\chi^2\)</span>:
+$<span class="math notranslate nohighlight">\(
+\chi^2 = \sum_{i=1}^n \frac{(y_i - f(x_i))^2}{\sigma_i^2}
+\)</span><span class="math notranslate nohighlight">\(
+Wenn alle Werte von \)</span>y_i<span class="math notranslate nohighlight">\( die gleiche absolute (oder keine) Unsicherheit haben, ist \)</span>s_i = s = \mathrm{const}<span class="math notranslate nohighlight">\( und beim &quot;Nullsetzen&quot; werden diese einfach eliminiert und man kann, wie im Folgenden gezeigt \)</span>Q$ benutzen.</p>
 </div>
 <p>Um die Parameter <span class="math notranslate nohighlight">\(a\)</span> und <span class="math notranslate nohighlight">\(b\)</span> zu minimieren, leiten wir die Funktion <span class="math notranslate nohighlight">\(Q\)</span> nach diesen Parametern ab und setzen die Ableitungen gleich Null, um die Extremstellen (in diesem Fall das Minimum) zu finden. Wir leiten <span class="math notranslate nohighlight">\(Q\)</span> also nach <span class="math notranslate nohighlight">\(b\)</span> und <span class="math notranslate nohighlight">\(a\)</span> ab:</p>
 <div class="math notranslate nohighlight">
@@ -886,7 +890,7 @@ Regressionskoeffizient a (Ordinatenabschnitt): -3.4979720446561657
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/2ca09689bf8e9ee8315a814f414b201770bb4ecdc0275d8b50c5cc86f592ec5c.png" src="../_images/2ca09689bf8e9ee8315a814f414b201770bb4ecdc0275d8b50c5cc86f592ec5c.png" />
+<img alt="../_images/72b6da28bcd722d9567c59be808b65af0e466888f8961e9316e0ceee38109261.png" src="../_images/72b6da28bcd722d9567c59be808b65af0e466888f8961e9316e0ceee38109261.png" />
 </div>
 </div>
 <p>Die Regressionskoeffizienten ermöglichen uns, die Gerade zu bestimmen. In der Praxis verwendet man jedoch in der Regel nicht diese komplexen Berechnungen, sondern greift auf Funktionen zurück, die bereits in vielen Programmen vorimplementiert sind. Ein Beispiel hierfür ist die in Python vorhandene Funktion <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code>. Wie das folgende Beispiel zeigt, führen sowohl die manuelle Berechnung von <span class="math notranslate nohighlight">\(b\)</span> und <span class="math notranslate nohighlight">\(a\)</span> als auch die Verwendung der integrierten Python-Funktion zu derselben Regressionsgeraden:</p>
@@ -897,10 +901,8 @@ Regressionskoeffizient a (Ordinatenabschnitt): -3.4979720446561657
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># MatplotLib Settings:</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
-
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:gray&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Messwerte&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">anpassung</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">*</span><span class="n">popt</span><span class="p">),</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Modellfunktion mit Curve_Fit&#39;</span><span class="p">)</span>
@@ -917,51 +919,293 @@ Regressionskoeffizient a (Ordinatenabschnitt): -3.4979720446561657
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/c905071997fd6bdb3e359812abe2314e313a9d1711795a6dc4e9c1d079925be0.png" src="../_images/c905071997fd6bdb3e359812abe2314e313a9d1711795a6dc4e9c1d079925be0.png" />
+<img alt="../_images/eb867b49b93ce32496bc9c5139e33f363e22ca20c98099988e05dd6eb5720735.png" src="../_images/eb867b49b93ce32496bc9c5139e33f363e22ca20c98099988e05dd6eb5720735.png" />
 </div>
 </div>
 </section>
-<section id="fehler-der-regressionsgeraden">
-<h2>Fehler der Regressionsgeraden<a class="headerlink" href="#fehler-der-regressionsgeraden" title="Permalink to this heading">#</a></h2>
-<p>Der Fehler oder die Abweichung der Regression wird durch die Standardabweichung der Funktion <span class="math notranslate nohighlight">\(Q(b,A)\)</span> angegeben. Dieser Fehler wird wie folgt berechnet:</p>
+<section id="fehler-und-residuenanalyse">
+<h2>Fehler- und Residuenanalyse<a class="headerlink" href="#fehler-und-residuenanalyse" title="Permalink to this heading">#</a></h2>
+<p>Ein wichtiges Maß zur Bewertung der Anpassungsgüte eines Modells sind die <strong>Residuen</strong>.<br />
+Residuen sind definiert als die Differenz zwischen den gemessenen Werten und den durch das Modell vorhergesagten Werten:</p>
 <div class="math notranslate nohighlight">
-\[E^2 = s^2(Q(b,a)) = \frac{Q(b,a)}{N-2}\]</div>
-<p>Hierbei wird durch die Anzahl der Freiheitsgrade, <span class="math notranslate nohighlight">\(N-2\)</span>, geteilt, da die Messreihe endlich ist. Für endliche Messergebnisse muss <span class="math notranslate nohighlight">\(N-2\)</span> berücksichtigt werden. In einer unendlichen Messreihe wäre dieser Faktor unendlich groß und der Fehler würde gegen Null gehen.</p>
-<p>Der Fehler unseres <span class="math notranslate nohighlight">\(y\)</span>-Schätzwertes kann folgendermaßen ausgedrückt werden:</p>
-<div class="math notranslate nohighlight">
-\[s_y = E = \sqrt{\frac{1}{N-2}\sum(y_i - bx_i - a)^2 }\]</div>
-<div class="cell tag_hide-input tag_thebe-init docutils container">
+\[
+\varepsilon_i = y_i - f(x_i)
+\]</div>
+<ul class="simple">
+<li><p>Wenn das Modell korrekt ist und die Unsicherheiten realistisch abgeschätzt wurden, sollten die Residuen zufällig um 0 verteilt sein.</p></li>
+<li><p><strong>Systematische Strukturen</strong> in den Residuen (z. B. Trends oder gekrümmte Muster) deuten darauf hin, dass das Modell die Daten nicht angemessen beschreibt.</p></li>
+<li><p>Residuenplots sind daher ein wichtiges Diagnosewerkzeug bei der Datenanalyse.</p></li>
+</ul>
+<div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
 <span class="collapsed">Show code cell source</span>
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-<span class="n">diff_y</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-    <span class="n">diff_y</span> <span class="o">+=</span> <span class="p">(</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">b</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">a</span> <span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># MatplotLib Settings:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
 
-<span class="n">streuung_y</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">diff_y</span>
-<span class="n">s_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">streuung_y</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Unsicherheit von y ist </span><span class="se">\t</span><span class="s1"> s_y = </span><span class="si">%5.4f</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">s_y</span><span class="p">))</span>
+<span class="c1"># Residuen berechnen</span>
+<span class="n">residuals</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">anpassung</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">popt</span><span class="p">)</span>
+
+<span class="c1"># Residuenplot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">residuals</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;tab:gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Residuen&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Residuen&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Unsicherheit von y ist 	 s_y = 9.4102
+<img alt="../_images/83fa45417f5113c5cab973f11bc267de5a5ef68e24afd5433d1d157f44ff0051.png" src="../_images/83fa45417f5113c5cab973f11bc267de5a5ef68e24afd5433d1d157f44ff0051.png" />
+</div>
+</div>
+<section id="standardfehler-der-residuen">
+<h3>Standardfehler der Residuen<a class="headerlink" href="#standardfehler-der-residuen" title="Permalink to this heading">#</a></h3>
+<p>Als ein Maß für die <strong>Qualität der Regression</strong> kann der geschätzte Standardfehler der Residuen (engl. <em>residual standard error</em>) genommen werden.
+Er beschreibt, wie stark die Messwerte im Durchschnitt von der Regressionsgeraden abweichen:</p>
+<div class="math notranslate nohighlight">
+\[
+s_y = \sqrt{\frac{1}{N-2}\sum_{i=1}^n {\varepsilon}_i^2} = \sqrt{\frac{SQR}{N-2}}
+\]</div>
+<p>mit</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\({\varepsilon}_i\)</span>: Residuen</p></li>
+<li><p><span class="math notranslate nohighlight">\(N-2\)</span>: Freiheitsgrade (wegen Schätzung von zwei Parametern <span class="math notranslate nohighlight">\(a, b\)</span>)</p></li>
+<li><p>SQR: Quadratsumme der Residuen</p></li>
+</ul>
+<p>Der Standardfehler der Residuen ist ein <strong>eigenständiges Gütemaß</strong>. Er gibt an, wie groß im Durchschnitt die Abweichung der Messwerte von der Regressionsgerade ausfällt. Je größer der Standardfehler der Regression, desto schlechter beschreibt die Regressionsgerade die Verteilung der Messwerte.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># MatplotLib Settings:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
+
+<span class="c1"># Residuen berechnen</span>
+<span class="n">residuals</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">anpassung</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">popt</span><span class="p">)</span>
+<span class="n">summed_res_quadrat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">residuals</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">sy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">summed_res_quadrat</span><span class="o">/</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="p">))</span> <span class="c1"># Standardfehler der Schätzung</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Der Standardfehler beträgt: &#39;</span><span class="p">,</span> <span class="n">sy</span><span class="p">)</span>
+
+<span class="c1"># Residuenplot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">residuals</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;tab:gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">sy</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;+1 Standardfehler&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="o">-</span><span class="n">sy</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;-1 Standardfehler&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Residuen&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Standardfehler&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der Standardfehler beträgt:  9.410166067161393
+</pre></div>
+</div>
+<img alt="../_images/a7df9cf943c58dfd3608ac65f9cdbf6034987587005ac8924d1a3c959f17c597.png" src="../_images/a7df9cf943c58dfd3608ac65f9cdbf6034987587005ac8924d1a3c959f17c597.png" />
+</div>
+</div>
+</section>
+<section id="bestimmtheitsmasz-und-korrelation">
+<h3>Bestimmtheitsmaß und Korrelation<a class="headerlink" href="#bestimmtheitsmasz-und-korrelation" title="Permalink to this heading">#</a></h3>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Bestimmtheitsmaß Regression berechnen &amp; interpretieren 📚 einfach erklärt [Theorie/Formel] (Alles Andy)</p>
+<iframe width="200" height="113" src="https://www.youtube.com/embed/3JR95ubOuL4?si=SpqKGVuZUWvKJBvS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<p>Das Bestimmtheitsmaß <span class="math notranslate nohighlight">\(R^2\)</span> ist ein Maß für die <strong>Anpassungsgüte</strong> eines Regressionsmodells.</p>
+<div class="math notranslate nohighlight">
+\[
+R^2 = 1 - \frac{SQR}{SQT} = 1-\frac{\displaystyle\sum_i \left(y_i - f({x}_i)\right)^2}{\displaystyle\sum_i \left(y_i - \overline{y}\right)^2}
+\]</div>
+<ul class="simple">
+<li><p>SQR: Quadratsumme der Residuen</p></li>
+<li><p>SQT: gesamte Quadratsumme (Variation der Daten um den Mittelwert)</p></li>
+</ul>
+<p>Das Bestimmtheitsmaß ist gleich dem Korrelationskoeffizienten:</p>
+<div class="math notranslate nohighlight">
+\[\mathit{R}^2 = r^2 (= \textrm{Korrelation}^2)\]</div>
+<p>mit</p>
+<div class="math notranslate nohighlight">
+\[r = \frac{\overline{x\cdot y} - \overline x \cdot \overline y}{\sqrt{\overline{x^2} - (\overline x)^2} \cdot {\sqrt{\overline{y^2} - (\overline y)^2}}} \]</div>
+<p>Da der Korrelationskoeffizient lediglich angibt, wie stark die Messwerte um einen linearen Zusammenhang streuen, ist auch das Bestimmtheitsmaß nur für lineare Regressionen definiert. Das Bestimmtheitsmaß kann mit 100 multipliziert werden, um es in Prozent auszudrücken. Dies entspricht dem prozentualen Anteil der Streuung in <span class="math notranslate nohighlight">\(y\)</span>, der durch das lineare Modell beschrieben wird, und liegt zwischen 0% und 100%:</p>
+<ul class="simple">
+<li><p>0%: Es existiert kein linearer Zusammenhang.</p></li>
+<li><p>100%: Perfekter linearer Zusammenhang.</p></li>
+</ul>
+<p>Allgemein gilt für das <strong>Bestimmtheitsmaß</strong>:</p>
+<ul class="simple">
+<li><p>Je näher <span class="math notranslate nohighlight">\(\mathit{R}^2\)</span> an 1 liegt, desto besser passt die Kurvenanpassung.</p></li>
+<li><p>Für <span class="math notranslate nohighlight">\(\mathit{R}^2 = 0\)</span> ist das Modell völlig ungeeignet, um einen Zusammenhang zwischen <span class="math notranslate nohighlight">\(x_i\)</span> und <span class="math notranslate nohighlight">\(y_i\)</span> vorherzusagen.</p></li>
+<li><p>Für <span class="math notranslate nohighlight">\(\mathit{R}^2 = 1\)</span> kann <span class="math notranslate nohighlight">\(y\)</span> vollständig durch das lineare Modell beschrieben werden, und alle Messpunkte liegen auf einer nicht-horizontalen Geraden. In diesem Fall besteht ein deterministischer Zusammenhang, kein stochastischer.</p></li>
+</ul>
+<p><strong>Nachteile des Bestimmtheitsmaßes:</strong></p>
+<p>Bei einer steigenden Anzahl von Messwerten erhöht sich <span class="math notranslate nohighlight">\(\mathit{R}^2\)</span>, ohne dass die Korrelation oder die Regression tatsächlich besser wird. Dieses Problem könnte durch ein korrigiertes <span class="math notranslate nohighlight">\(\mathit{R}^2\)</span> behoben werden:</p>
+<div class="math notranslate nohighlight">
+\[\mathit{\overline R}^2 = 1 - (1 - \mathit{R}^2) \cdot \frac{n-1}{n-p-1}\]</div>
+<p>Dabei stehen:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(n\)</span> für die Anzahl der Messwerte und</p></li>
+<li><p><span class="math notranslate nohighlight">\(p\)</span> für die Anzahl der Variablen im Regressionsmodell.</p></li>
+</ul>
+<p>Ein weiterer Nachteil ist, dass das Bestimmtheitsmaß keine Aussage darüber trifft, ob das verwendete Regressionsmodell tatsächlich korrekt ist.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Analytische Methode:</span>
+<span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Der Korrelationskoeffizient zwischen x und t beträgt: </span><span class="si">%5.8f</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
+
+<span class="c1"># Python:</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Korrelationsmatrix zwischen x und t mittels numpy-Paket lautet:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der Korrelationskoeffizient zwischen x und t beträgt: 0.97035603
+
+Die Korrelationsmatrix zwischen x und t mittels numpy-Paket lautet:
+[[1.         0.97035603]
+ [0.97035603 1.        ]]
 </pre></div>
 </div>
 </div>
 </div>
-<section id="berucksichtigung-von-unsicherheiten">
-<h3>Berücksichtigung von Unsicherheiten<a class="headerlink" href="#berucksichtigung-von-unsicherheiten" title="Permalink to this heading">#</a></h3>
-<p>Im allgemeinen Fall, d.h. wenn die Messwerte <span class="math notranslate nohighlight">\(y_i\)</span> mit Unsicherheiten <span class="math notranslate nohighlight">\(s_i\)</span> behaftet sind, lässt sich die <strong>Residuensumme</strong> wiefolgt definieren:</p>
+</section>
+<section id="chi2-quadrat-anpassungstest">
+<h3>Chi²-Quadrat-Anpassungstest<a class="headerlink" href="#chi2-quadrat-anpassungstest" title="Permalink to this heading">#</a></h3>
+<p>Die Anpassungsgüte eines Modells wird quantitativ mit der <strong>Chi-Quadrat-Test</strong> bewertet.<br />
+Dabei wird die folgende Testgröße berechnet, bei der die Residuen durch die Unsicherheiten der Messwerte <span class="math notranslate nohighlight">\(s_i\)</span> geteilt werden (um eine Normierung zu erhalten) und schließend quadratriert aufsummiert werden.</p>
 <div class="math notranslate nohighlight">
 \[\chi^2 = \sum_{i=1}^N \left(\frac{f(x_i)-y_i}{s_i}\right)^2\]</div>
-<p>Für die obigen Berechnungen, und auch im Falle von konstanten Unsicherheiten, d.h. wenn für alle Werte von <span class="math notranslate nohighlight">\(y_i\)</span> die gleiche absolute Unsicherheit existiert, ändert sich nichts. Denn es gilt <span class="math notranslate nohighlight">\(s_i = s = \mathrm{const}\)</span> und beim “Nullsetzen” werden diese einfach eliminiert.
-Gelten für die <span class="math notranslate nohighlight">\(N\)</span> Messwerte allerdings unterschiedliche Unsicherheiten, so müssen diese miteinbezogen werden.</p>
+<p><span class="math notranslate nohighlight">\(y_i\)</span> sind die gemessenen Werte sind, <span class="math notranslate nohighlight">\(f(x_i)\)</span> die Modellwerte und <span class="math notranslate nohighlight">\(s_i\)</span> die geschätzte Unsicherheit der Messwerte. Diese Größe <span class="math notranslate nohighlight">\(\chi^2\)</span>, oder <span class="math notranslate nohighlight">\(Q\)</span>, haben wir bereits als Gütefunktion für die Least-Square-Methode oben kennengelernt.</p>
+<p>Zur Beurteilung eines Modells wird das <strong>reduzierte Chi²</strong> verwendet:</p>
+<div class="math notranslate nohighlight">
+\[
+\chi^2_\nu = \frac{\chi^2}{N-k}
+\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(k\)</span> die Anzahl der Modellparameter ist und <span class="math notranslate nohighlight">\(N\)</span> die Anzahl der Messwerte. Für die lineare Regression, mit zwei Modellparametern <span class="math notranslate nohighlight">\(b\)</span> and <span class="math notranslate nohighlight">\(a\)</span>, ist <span class="math notranslate nohighlight">\(k = 2\)</span>.</p>
+<p>Die Chi-Quadrat-Test ermöglicht es, die Anpassungsgüte eines vermuteten funktionalen Zusammenhangs (z. B. Abhängigkeit einer Messgröße von Zeit, Temperatur oder Druck) an empirische Messpunkte zu bewerten.</p>
+<p>Praktisch bedeutet das:</p>
+<ul class="simple">
+<li><p>Man prüft, ob ein gewähltes Modell (etwa eine Gerade) die Daten hinreichend beschreibt oder ob ein komplexeres Modell (z. B. Parabel, logarithmischer Zusammenhang) notwendig ist.</p></li>
+<li><p>Dazu vergleicht man die berechneten <span class="math notranslate nohighlight">\(\chi^2\)</span>-Werte verschiedener Modelle. Das Modell mit dem kleinsten normierten <span class="math notranslate nohighlight">\(\chi^2\)</span> (reduzierten <span class="math notranslate nohighlight">\(\chi^2\)</span>) liefert die beste Erklärung der Daten.</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(\chi^2_\nu \approx 1\)</span>: Modell passt zu den Daten, Unsicherheiten sind realistisch.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\chi^2_\nu \gg 1\)</span>: Modell passt schlecht oder Unsicherheiten unterschätzt.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\chi^2_\nu \ll 1\)</span>: Unsicherheiten überschätzt oder Daten überangepasst.</p></li>
+</ul>
+</li>
+</ul>
+<p>Die Chi-Quadrat-Test quantifiziert somit die zufälligen Abweichungen zwischen Modell und Daten und stellt eine objektive Grundlage zur Auswahl zwischen konkurrierenden Erklärungsmodellen bereit.</p>
+<p>Darüber hinaus erlaubt sie, auf Basis der empirisch bestimmten Varianz, Vertrauensintervalle für die (unbekannte) Varianz der Grundgesamtheit abzuschätzen. Damit lässt sich mit einer vorgegebenen Wahrscheinlichkeit der Bereich angeben, in dem der wahre Wert der Varianz liegt.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">curve_fit</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">r2_score</span>
+
+<span class="c1"># MatplotLib Settings:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="c1"># --- Lineares Modell ---</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">linear</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="c1"># --- Daten erzeugen ---</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+<span class="n">dof</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">2</span>  <span class="c1"># Freiheitsgrade bei linearer Regression</span>
+
+<span class="c1"># Datensatz 1: geringes Rauschen (blau, oben)</span>
+<span class="n">noise1</span> <span class="o">=</span> <span class="mf">2.0</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">x1</span> <span class="o">+</span> <span class="mf">1.0</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">noise1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+<span class="n">params1</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">linear</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">)</span>
+<span class="n">a1</span><span class="p">,</span> <span class="n">b1</span> <span class="o">=</span> <span class="n">params1</span>
+<span class="n">y1_fit</span> <span class="o">=</span> <span class="n">linear</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">a1</span><span class="p">,</span> <span class="n">b1</span><span class="p">)</span>
+<span class="n">R2_1</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y1</span><span class="p">,</span> <span class="n">y1_fit</span><span class="p">)</span>
+
+<span class="c1"># Standardfehler der Residuen</span>
+<span class="n">resid1</span> <span class="o">=</span> <span class="n">y1</span> <span class="o">-</span> <span class="n">y1_fit</span>
+<span class="n">sigma1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">resid1</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">dof</span><span class="p">)</span>
+
+<span class="c1"># Chi² und reduziertes Chi²</span>
+<span class="n">chi2_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">resid1</span> <span class="o">/</span> <span class="n">noise1</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">chi2_red_1</span> <span class="o">=</span> <span class="n">chi2_1</span> <span class="o">/</span> <span class="n">dof</span>
+
+<span class="c1"># Datensatz 2: starkes Rauschen (rot, unten, Offset)</span>
+<span class="n">noise2</span> <span class="o">=</span> <span class="mf">10.0</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">x1</span> <span class="o">+</span> <span class="mf">1.0</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">noise2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span> <span class="o">-</span> <span class="mi">40</span>
+<span class="n">params2</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">linear</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
+<span class="n">a2</span><span class="p">,</span> <span class="n">b2</span> <span class="o">=</span> <span class="n">params2</span>
+<span class="n">y2_fit</span> <span class="o">=</span> <span class="n">linear</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">b2</span><span class="p">)</span>
+<span class="n">R2_2</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y2</span><span class="p">,</span> <span class="n">y2_fit</span><span class="p">)</span>
+
+<span class="c1"># Standardfehler der Residuen</span>
+<span class="n">resid2</span> <span class="o">=</span> <span class="n">y2</span> <span class="o">-</span> <span class="n">y2_fit</span>
+<span class="n">sigma2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">resid2</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">dof</span><span class="p">)</span>
+
+<span class="c1"># Chi² und reduziertes Chi²</span>
+<span class="n">chi2_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">resid2</span> <span class="o">/</span> <span class="n">noise2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">chi2_red_2</span> <span class="o">=</span> <span class="n">chi2_2</span> <span class="o">/</span> <span class="n">dof</span>
+
+<span class="c1"># --- Plot ---</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1_fit</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:red&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y2_fit</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:red&#39;</span><span class="p">)</span>
+
+<span class="c1"># Texte mit R², Standardfehler und Chi²</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">2.5</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> 
+         <span class="sa">f</span><span class="s2">&quot;R² = </span><span class="si">{</span><span class="n">R2_1</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="se">\n</span><span class="s2">s = </span><span class="si">{</span><span class="n">sigma1</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="se">\n</span><span class="s2">χ² = </span><span class="si">{</span><span class="n">chi2_red_1</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> 
+         <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="o">-</span><span class="mi">45</span><span class="p">,</span> 
+         <span class="sa">f</span><span class="s2">&quot;R² = </span><span class="si">{</span><span class="n">R2_2</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="se">\n</span><span class="s2">s = </span><span class="si">{</span><span class="n">sigma2</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="se">\n</span><span class="s2">χ² = </span><span class="si">{</span><span class="n">chi2_red_2</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> 
+         <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:red&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/b9d89ad16c902cf60763975e64e0bd361def86a04da290290bda3177d9262f71.png" src="../_images/b9d89ad16c902cf60763975e64e0bd361def86a04da290290bda3177d9262f71.png" />
+</div>
+</div>
 </section>
 <section id="unsicherheiten-der-regressionskoeffizienten">
 <h3>Unsicherheiten der Regressionskoeffizienten<a class="headerlink" href="#unsicherheiten-der-regressionskoeffizienten" title="Permalink to this heading">#</a></h3>
@@ -988,7 +1232,16 @@ s_a &amp;= s_y \cdot \sqrt{\frac{\sum x_i^2}{N\cdot \sum x_i^2 - \left(\sum x_i\
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s_b</span> <span class="o">=</span> <span class="n">s_y</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">N</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">diff_y</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">diff_y</span> <span class="o">+=</span> <span class="p">(</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">b</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">a</span> <span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">streuung_y</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">diff_y</span>
+<span class="n">s_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">streuung_y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Unsicherheit von y ist </span><span class="se">\t</span><span class="s1"> s_y = </span><span class="si">%5.4f</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">s_y</span><span class="p">))</span>
+
+<span class="n">s_b</span> <span class="o">=</span> <span class="n">s_y</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">N</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Unsicherheit von b ist </span><span class="se">\t</span><span class="s1"> s_b = </span><span class="si">%5.4f</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">s_b</span><span class="p">))</span>
 
 <span class="n">s_a</span> <span class="o">=</span> <span class="n">s_b</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
@@ -998,90 +1251,64 @@ s_a &amp;= s_y \cdot \sqrt{\frac{\sum x_i^2}{N\cdot \sum x_i^2 - \left(\sum x_i\
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Unsicherheit von b ist 	 s_b = 0.1367
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Unsicherheit von y ist 	 s_y = 9.4102
+Die Unsicherheit von b ist 	 s_b = 0.1367
 Die Unsicherheit von a ist 	 s_a = 6.7574
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-</section>
-<section id="korrelationskoeffizient-a-id-subsec-korrelationskoeffizient-a">
-<h2>Korrelationskoeffizient <a id="SubSec-Korrelationskoeffizient"></a><a class="headerlink" href="#korrelationskoeffizient-a-id-subsec-korrelationskoeffizient-a" title="Permalink to this heading">#</a></h2>
-<p>Für lineare Zusammenhänge ist es häufig sinnvoll den Korrelationskoeffizient zu berechnen:</p>
+<section id="kovarianz">
+<h3>Kovarianz<a class="headerlink" href="#kovarianz" title="Permalink to this heading">#</a></h3>
+<p>Bei einer Anpassung in Python oder Matlab wird neben den Fitparametern auch die <strong>Kovarianzmatrix</strong> zurückgegeben.<br />
+Die Kovarianzmatrix enthält auf der <strong>Diagonalen</strong> direkt die geschätzten Varianzen der einzelnen Parameter, deren Quadratwurzeln die <strong>Standardunsicherheiten</strong> (Fehlerbalken der Parameter) ergeben und somit nicht manuell, wie eben, berechnet werden müssen.</p>
+<p>Die <strong>Kovarianz</strong></p>
 <div class="math notranslate nohighlight">
-\[r = \frac{\overline{x\cdot y} - \overline x \cdot \overline y}{\sqrt{\overline{x^2} - (\overline x)^2} \cdot {\sqrt{\overline{y^2} - (\overline y)^2}}} \]</div>
-<div class="cell tag_hide-input tag_thebe-init docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
+\[
+\mathrm{cov}(X, Y) = \mathbb{E}[(X - \mu_X)(Y - \mu_Y)]
+\]</div>
+<p>beschreibt, ganz allgemein, wie zwei Größen gemeinsam variieren.</p>
+<ul class="simple">
+<li><p>Ist die Kovarianz <strong>positiv</strong>, steigen beide Größen meist gemeinsam an.</p></li>
+<li><p>Ist sie <strong>negativ</strong>, steigt die eine, wenn die andere fällt.</p></li>
+<li><p>Kovarianz = 0 bedeutet, dass keine lineare Abhängigkeit erkennbar ist.</p></li>
+</ul>
+<p>Aus der Kovarianz lässt sich die bereits bekannte Korrelation <span class="math notranslate nohighlight">\(r\)</span> berechnen, die eine normierte Form der Kovarianz ist:</p>
+<div class="math notranslate nohighlight">
+\[
+r_{XY} = \frac{\mathrm{cov}(X, Y)}{s_X \, s_Y}
+\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(r_{XY} = 1\)</span>: perfekter positiver linearer Zusammenhang</p></li>
+<li><p><span class="math notranslate nohighlight">\(r_{XY} = -1\)</span>: perfekter negativer linearer Zusammenhang</p></li>
+<li><p><span class="math notranslate nohighlight">\(r_{XY} = 0\)</span>: kein linearer Zusammenhang</p></li>
+</ul>
+<p>In Matrixschreibweise erhält man aus der Kovarianzmatrix <span class="math notranslate nohighlight">\(\Sigma\)</span> die <strong>Korrelationsmatrix</strong> <span class="math notranslate nohighlight">\(R\)</span>, indem jede Kovarianz durch das Produkt der Standardabweichungen normiert wird:</p>
+<div class="math notranslate nohighlight">
+\[
+R_{ij} = \frac{\Sigma_{ij}}{\sqrt{\Sigma_{ii}\,\Sigma_{jj}}}
+\]</div>
+<p>Die <strong>Kovarianzmatrix</strong> fasst die Varianzen und Kovarianzen mehrerer Parameter zusammen.</p>
+<ul class="simple">
+<li><p>Die <strong>Diagonalelemente</strong> sind die Varianzen <span class="math notranslate nohighlight">\(\sigma_i^2\)</span>, bzw. <span class="math notranslate nohighlight">\(s_i^2\)</span> der einzelnen Parameter.</p></li>
+<li><p>Die <strong>Nebendiagonalen</strong> enthalten die Kovarianzen <span class="math notranslate nohighlight">\(\mathrm{cov}(p_i, p_j)\)</span>. Diese beschreiben die Kovarianzen <em>zwischen</em> Parametern (wie stark ihre Unsicherheiten miteinander korrelieren).<br />
+Eine hohe Kovarianz deutet darauf hin, dass die Parameter nicht unabhängig voneinander bestimmt sind.</p></li>
+</ul>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Analytische Methode:</span>
-<span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Der Korrelationskoeffizient zwischen x und t beträgt: </span><span class="si">%5.8f</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
-
-<span class="c1"># Python:</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Korrelationsmatrix zwischen x und t mittels numpy-Paket lautet:&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Wurzel aus Kovarianzmatrix-Eintrag von a: s_a = &#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">pcov</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Wurzel aus Kovarianzmatrix-Eintrag von b: s_b = &#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">pcov</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
-</details>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der Korrelationskoeffizient zwischen x und t beträgt: 0.97035603
-
-Die Korrelationsmatrix zwischen x und t mittels numpy-Paket lautet:
-[[1.         0.97035603]
- [0.97035603 1.        ]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Wurzel aus Kovarianzmatrix-Eintrag von a: s_a =  6.757445712176623
+Wurzel aus Kovarianzmatrix-Eintrag von b: s_b =  0.13667391664245576
 </pre></div>
 </div>
 </div>
 </div>
-<p>Der Korrelationskoeffizient von <span class="math notranslate nohighlight">\(+ 0{,}97035\)</span> zeigt mit positivem Vorzeichen eine direkte Proportionalität zwischen <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span>. Die geringfügige Abweichung zu +1 zeigt, dass die Messwerte dennoch leicht von dem erwarteten linearen Zusammenhang abweichen.</p>
-<section id="bestimmtheitsmasz-a-id-subsec-bestimmtheitsmasz-a">
-<h3>Bestimmtheitsmaß <a id="SubSec-Bestimmtheitsmaß"></a><a class="headerlink" href="#bestimmtheitsmasz-a-id-subsec-bestimmtheitsmasz-a" title="Permalink to this heading">#</a></h3>
-<aside class="margin sidebar">
-<p class="sidebar-title"></p>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row docutils">
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<p class="sd-card-text">Bestimmtheitsmaß Regression berechnen &amp; interpretieren 📚 einfach erklärt [Theorie/Formel] (Alles Andy)</p>
-<iframe width="200" height="113" src="https://www.youtube.com/embed/3JR95ubOuL4?si=SpqKGVuZUWvKJBvS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</div>
-</div>
-</div>
-</div>
-</div>
-</aside>
-<p>Das <strong>Bestimmtheitsmaß</strong> gibt an, wie gut die Regressionsgerade zur tatsächlichen Realität passt. Es basiert auf dem Korrelationskoeffizienten, den wir bereits aus der Fehlerfortpflanzung kennen, und quadriert diesen:</p>
-<div class="math notranslate nohighlight">
-\[\mathit{R}^2 = r^2 (= \textrm{Korrelation}^2)\]</div>
-<p>Da der Korrelationskoeffizient lediglich angibt, wie stark die Messwerte um einen linearen Zusammenhang streuen, ist auch das Bestimmtheitsmaß nur für lineare Regressionen definiert. Das Bestimmtheitsmaß kann mit 100 multipliziert werden, um es in Prozent auszudrücken. Dies entspricht dem prozentualen Anteil der Streuung in <span class="math notranslate nohighlight">\(y\)</span>, der durch das lineare Modell beschrieben wird, und liegt zwischen 0% und 100%:</p>
-<ul class="simple">
-<li><p>0%: Es existiert kein linearer Zusammenhang.</p></li>
-<li><p>100%: Perfekter linearer Zusammenhang.</p></li>
-</ul>
-<p>Allgemein gilt für das <strong>Bestimmtheitsmaß</strong>:</p>
-<ul class="simple">
-<li><p>Je näher <span class="math notranslate nohighlight">\(\mathit{R}^2\)</span> an 1 liegt, desto besser passt die Kurvenanpassung.</p></li>
-<li><p>Für <span class="math notranslate nohighlight">\(\mathit{R}^2 = 0\)</span> ist das Modell völlig ungeeignet, um einen Zusammenhang zwischen <span class="math notranslate nohighlight">\(x_i\)</span> und <span class="math notranslate nohighlight">\(y_i\)</span> vorherzusagen.</p></li>
-<li><p>Für <span class="math notranslate nohighlight">\(\mathit{R}^2 = 1\)</span> kann <span class="math notranslate nohighlight">\(y\)</span> vollständig durch das lineare Modell beschrieben werden, und alle Messpunkte liegen auf einer nicht-horizontalen Geraden. In diesem Fall besteht ein deterministischer Zusammenhang, kein stochastischer.</p></li>
-</ul>
-<p><strong>Nachteile des Bestimmtheitsmaßes:</strong></p>
-<p>Bei einer steigenden Anzahl von Messwerten erhöht sich <span class="math notranslate nohighlight">\(\mathit{R}^2\)</span>, ohne dass die Korrelation oder die Regression tatsächlich besser wird. Dieses Problem könnte durch ein korrigiertes <span class="math notranslate nohighlight">\(\mathit{R}^2\)</span> behoben werden:</p>
-<div class="math notranslate nohighlight">
-\[\mathit{\overline R}^2 = 1 - (1 - \mathit{R}^2) \cdot \frac{n-1}{n-p-1}\]</div>
-<p>Dabei stehen:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(n\)</span> für die Anzahl der Messwerte und</p></li>
-<li><p><span class="math notranslate nohighlight">\(p\)</span> für die Anzahl der Variablen im Regressionsmodell.</p></li>
-</ul>
-<p>Ein weiterer Nachteil ist, dass das Bestimmtheitsmaß keine Aussage darüber trifft, ob das verwendete Regressionsmodell tatsächlich korrekt ist.</p>
 </section>
 </section>
 <section id="erweiterung-auf-allgemeine-funktionen">
@@ -1155,13 +1382,12 @@ Die Korrelationsmatrix zwischen x und t mittels numpy-Paket lautet:
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#least-squares-methode-der-kleinsten-quadrate">Least-Squares: Methode der kleinsten Quadrate</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regressionskoeffizienten">Regressionskoeffizienten</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fehler-der-regressionsgeraden">Fehler der Regressionsgeraden</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#berucksichtigung-von-unsicherheiten">Berücksichtigung von Unsicherheiten</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fehler-und-residuenanalyse">Fehler- und Residuenanalyse</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standardfehler-der-residuen">Standardfehler der Residuen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bestimmtheitsmasz-und-korrelation">Bestimmtheitsmaß und Korrelation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chi2-quadrat-anpassungstest">Chi²-Quadrat-Anpassungstest</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unsicherheiten-der-regressionskoeffizienten">Unsicherheiten der Regressionskoeffizienten</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#korrelationskoeffizient-a-id-subsec-korrelationskoeffizient-a">Korrelationskoeffizient <a id="SubSec-Korrelationskoeffizient"></a></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bestimmtheitsmasz-a-id-subsec-bestimmtheitsmasz-a">Bestimmtheitsmaß <a id="SubSec-Bestimmtheitsmaß"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kovarianz">Kovarianz</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#erweiterung-auf-allgemeine-funktionen">Erweiterung auf allgemeine Funktionen</a></li>

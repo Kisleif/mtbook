@@ -1075,7 +1075,12 @@ R^2 = 1 - \frac{SQR}{SQT} = 1-\frac{\displaystyle\sum_i \left(y_i - f({x}_i)\rig
 <li><p><span class="math notranslate nohighlight">\(p\)</span> für die Anzahl der Variablen im Regressionsmodell.</p></li>
 </ul>
 <p>Ein weiterer Nachteil ist, dass das Bestimmtheitsmaß keine Aussage darüber trifft, ob das verwendete Regressionsmodell tatsächlich korrekt ist.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Analytische Methode:</span>
 <span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
@@ -1088,6 +1093,7 @@ R^2 = 1 - \frac{SQR}{SQT} = 1-\frac{\displaystyle\sum_i \left(y_i - f({x}_i)\rig
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der Korrelationskoeffizient zwischen x und t beträgt: 0.97035603
 
@@ -1126,7 +1132,12 @@ Dabei wird die folgende Testgröße berechnet, bei der die Residuen durch die Un
 </ul>
 <p>Die Chi-Quadrat-Test quantifiziert somit die zufälligen Abweichungen zwischen Modell und Daten und stellt eine objektive Grundlage zur Auswahl zwischen konkurrierenden Erklärungsmodellen bereit.</p>
 <p>Darüber hinaus erlaubt sie, auf Basis der empirisch bestimmten Varianz, Vertrauensintervalle für die (unbekannte) Varianz der Grundgesamtheit abzuschätzen. Damit lässt sich mit einer vorgegebenen Wahrscheinlichkeit der Bereich angeben, in dem der wahre Wert der Varianz liegt.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input tag_thebe-init docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
@@ -1202,6 +1213,7 @@ Dabei wird die folgende Testgröße berechnet, bei der die Residuen durch die Un
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="../_images/b9d89ad16c902cf60763975e64e0bd361def86a04da290290bda3177d9262f71.png" src="../_images/b9d89ad16c902cf60763975e64e0bd361def86a04da290290bda3177d9262f71.png" />
 </div>
@@ -1295,7 +1307,7 @@ R_{ij} = \frac{\Sigma_{ij}}{\sqrt{\Sigma_{ii}\,\Sigma_{jj}}}
 <li><p>Die <strong>Nebendiagonalen</strong> enthalten die Kovarianzen <span class="math notranslate nohighlight">\(\mathrm{cov}(p_i, p_j)\)</span>. Diese beschreiben die Kovarianzen <em>zwischen</em> Parametern (wie stark ihre Unsicherheiten miteinander korrelieren).<br />
 Eine hohe Kovarianz deutet darauf hin, dass die Parameter nicht unabhängig voneinander bestimmt sind.</p></li>
 </ul>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Wurzel aus Kovarianzmatrix-Eintrag von a: s_a = &#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">pcov</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Wurzel aus Kovarianzmatrix-Eintrag von b: s_b = &#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">pcov</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]))</span>

@@ -17,16 +17,117 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-print(f"Temperaturanstieg pro Jahr (von 1981 bis 2020): {model_lin1[0][0]:.3f}°C/Jahr")
-print(f"Temperaturanstieg seit Beginn der Messung: {(y_model.iloc[-1]-y_model.iloc[0]):.3f}°C")
+from sklearn.metrics import r2_score
+
+# --- Residuen (Lineare und Quadratische Modelle) ---
+residuals_lin1 = y - (model_lin1[0][0]*x + model_lin1[0][1])
+residuals_lin2 = y_1980 - (model_lin2[0][0]*x_1980 + model_lin2[0][1])
+residuals_quadr = y - quadratic_fit(x,*popt)
+residuals_exp = ydata - exp_model(xdata, *popt_exp)
+
+# --- Freiheitsgrade ---
+dof_lin1 = len(x) - len(model_lin1[0])
+dof_lin2 = len(x_1980) - len(model_lin2[0])
+dof_quadr = len(x) - len(model_quadr[0])
+dof_exp = len(xdata) - len(popt_exp)
+
+# --- SSR ---
+ssr_lin1 = np.sum(residuals_lin1**2)
+ssr_lin2 = np.sum(residuals_lin2**2)
+ssr_quadr = np.sum(residuals_quadr**2)
+ssr_exp = np.sum(residuals_exp**2)
+
+# --- RMSE ---
+rmse_lin1 = np.sqrt(ssr_lin1 / dof_lin1)
+rmse_lin2 = np.sqrt(ssr_lin2 / dof_lin2)
+rmse_quadr = np.sqrt(ssr_quadr / dof_quadr)
+rmse_exp = np.sqrt(ssr_exp / dof_exp)
+
+# --- Chi² ---
+chi2_lin1 = np.sum((residuals_lin1 / y_err) ** 2)  
+chi2_lin2 = np.sum((residuals_lin2 / y_err) ** 2)  
+chi2_quadr = np.sum((residuals_quadr / y_err) ** 2)  
+chi2_exp = np.sum((residuals_exp / global_mean["uncertainty"].values) ** 2)
+
+chi2_red_lin1 = chi2_lin1 / dof_lin1
+chi2_red_lin2 = chi2_lin2 / dof_lin2
+chi2_red_quadr = chi2_quadr / dof_quadr
+chi2_red_exp = chi2_exp / dof_exp
+
+
+# --- R² und Adjusted R² ---
+def r2_adj(y_true, y_pred, p):
+    r2 = r2_score(y_true, y_pred)
+    n = len(y_true)
+    return r2, 1 - (1-r2)*(n-1)/(n-p-1)
+
+
+r2_lin1, r2adj_lin1 = r2_adj(y, model_lin1[0][0]*x + model_lin1[0][1], 2)
+r2_lin2, r2adj_lin2 = r2_adj(y_1980, model_lin2[0][0]*x_1980 + model_lin2[0][1], 2)
+r2_quadr, r2adj_quadr = r2_adj(y, quadratic_fit(x,*popt), 3)
+r2_exp, r2adj_exp = r2_adj(ydata, y_exp, len(popt_exp))
+
+# --- Ergebnisse in Tabelle ---
+results = pd.DataFrame({
+    "Modell": ["Linear (ges. Reihe)", "Linear (ab 1981)", "Quadratisch", "Exponentiell"],
+    "Freiheitsgrade": [dof_lin1, dof_lin2, dof_quadr, dof_exp],
+    "SSR": [ssr_lin1, ssr_lin2, ssr_quadr, ssr_exp],
+    "RMSE": [rmse_lin1, rmse_lin2, rmse_quadr, rmse_exp],
+    "Chi²": [chi2_lin1, chi2_lin2, chi2_quadr, chi2_exp],
+    "Chi²_red": [chi2_red_lin1, chi2_red_lin2, chi2_red_quadr, chi2_red_exp],
+    "R²": [r2_lin1, r2_lin2, r2_quadr, r2_exp],
+    "R²_korr": [r2adj_lin1, r2adj_lin2, r2adj_quadr, r2adj_exp]
+})
+
+print(results.to_string(index=False, float_format="%.3f"))
+
+plt.figure(figsize=(10,5))
+plt.rcParams['font.size'] = 10
+plt.ylabel("Residuen")
+plt.xlabel("Jahr")
+
+# Residuenplots
+plt.plot(x, residuals_lin1, label='Linear (ges. Reihe)', color="C0")
+plt.plot(x_1980, residuals_lin2, label='Linear (ab 1981)', color="C1")
+plt.plot(x, residuals_quadr, label='Quadratisch', color="C2")
+plt.plot(global_mean["Year"], residuals_exp, label='Exponentiell', color="C3")
+
+# Standardfehler (RMSE) als horizontale Linien
+plt.axhline(rmse_lin1, color='C0', linestyle='--', alpha=0.7, label='RMSE Linear (ges.)')
+plt.axhline(-rmse_lin1, color='C0', linestyle='--', alpha=0.7)
+
+plt.axhline(rmse_lin2, color='C1', linestyle='--', alpha=0.7, label='RMSE Linear (ab 1981)')
+plt.axhline(-rmse_lin2, color='C1', linestyle='--', alpha=0.7)
+
+plt.axhline(rmse_quadr, color='C2', linestyle='--', alpha=0.7, label='RMSE Quadratisch')
+plt.axhline(-rmse_quadr, color='C2', linestyle='--', alpha=0.7)
+
+plt.axhline(rmse_exp, color='C3', linestyle='--', alpha=0.7, label='RMSE Exponentiell')
+plt.axhline(-rmse_exp, color='C3', linestyle='--', alpha=0.7)
+
+# Legende, Gitter, Speichern
+plt.legend()
+plt.grid(alpha=0.3)
+plt.title("Residuenvergleich der Modelle")
+plt.savefig('klima_residuen.png')
+plt.savefig('klima_residuen.pdf')
+plt.show()
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-Cell [0;32mIn[20], line 2[0m
-[1;32m      1[0m [38;5;28mprint[39m([38;5;124mf[39m[38;5;124m"[39m[38;5;124mTemperaturanstieg pro Jahr (von 1981 bis 2020): [39m[38;5;132;01m{[39;00mmodel_lin1[[38;5;241m0[39m][[38;5;241m0[39m][38;5;132;01m:[39;00m[38;5;124m.3f[39m[38;5;132;01m}[39;00m[38;5;124m°C/Jahr[39m[38;5;124m"[39m)
-[0;32m----> 2[0m [38;5;28mprint[39m([38;5;124mf[39m[38;5;124m"[39m[38;5;124mTemperaturanstieg seit Beginn der Messung: [39m[38;5;132;01m{[39;00m(y_model[38;5;241m.[39miloc[[38;5;241m-[39m[38;5;241m1[39m][38;5;241m-[39my_model[38;5;241m.[39miloc[[38;5;241m0[39m])[38;5;132;01m:[39;00m[38;5;124m.3f[39m[38;5;132;01m}[39;00m[38;5;124m°C[39m[38;5;124m"[39m)
+Cell [0;32mIn[30], line 49[0m
+[1;32m     47[0m r2_lin2, r2adj_lin2 [38;5;241m=[39m r2_adj(y_1980, model_lin2[[38;5;241m0[39m][[38;5;241m0[39m][38;5;241m*[39mx_1980 [38;5;241m+[39m model_lin2[[38;5;241m0[39m][[38;5;241m1[39m], [38;5;241m2[39m)
+[1;32m     48[0m r2_quadr, r2adj_quadr [38;5;241m=[39m r2_adj(y, quadratic_fit(x,[38;5;241m*[39mpopt), [38;5;241m3[39m)
+[0;32m---> 49[0m r2_exp, r2adj_exp [38;5;241m=[39m r2_adj(ydata, [43my_exp[49m, [38;5;28mlen[39m(popt_exp))
+[1;32m     51[0m [38;5;66;03m# --- Ergebnisse in Tabelle ---[39;00m
+[1;32m     52[0m results [38;5;241m=[39m pd[38;5;241m.[39mDataFrame({
+[1;32m     53[0m     [38;5;124m"[39m[38;5;124mModell[39m[38;5;124m"[39m: [[38;5;124m"[39m[38;5;124mLinear (ges. Reihe)[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mLinear (ab 1981)[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mQuadratisch[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mExponentiell[39m[38;5;124m"[39m],
+[1;32m     54[0m     [38;5;124m"[39m[38;5;124mFreiheitsgrade[39m[38;5;124m"[39m: [dof_lin1, dof_lin2, dof_quadr, dof_exp],
+[0;32m   (...)[0m
+[1;32m     60[0m     [38;5;124m"[39m[38;5;124mR²_korr[39m[38;5;124m"[39m: [r2adj_lin1, r2adj_lin2, r2adj_quadr, r2adj_exp]
+[1;32m     61[0m })
 
-[0;31mNameError[0m: name 'y_model' is not defined
-NameError: name 'y_model' is not defined
+[0;31mNameError[0m: name 'y_exp' is not defined
+NameError: name 'y_exp' is not defined
 

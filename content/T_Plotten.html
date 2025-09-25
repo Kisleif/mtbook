@@ -1232,6 +1232,7 @@ Name: 144, dtype: float64
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span>
 <span class="n">y</span><span class="o">=</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">]</span>
 <span class="n">y_err</span> <span class="o">=</span> <span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;uncertainty&quot;</span><span class="p">]</span>
+
 <span class="n">model_lin1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">deg</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">y_err</span><span class="p">,</span> <span class="n">cov</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># 1. Wert = Anstieg , 2. Wert = Schnittpunkt mit y-Achse</span>
 <span class="n">y_model_1</span> <span class="o">=</span> <span class="n">model_lin1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">model_lin1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># Modell einer linearen Regression</span>
 
@@ -1337,7 +1338,7 @@ Vorhersage für 2050: 1.5430715854193977
 <section id="beliebige-funktion-fitten">
 <h3>Beliebige Funktion fitten<a class="headerlink" href="#beliebige-funktion-fitten" title="Permalink to this heading">#</a></h3>
 <p>Mit der Polyfit Funktion können in erster Linie Polynome gefittet werden.
-Für beliebige Modellierung, wie z.B. Exponential-Funktionen, werden die Funktionen in aller Regel selber definiert. Hierfür eignet sich die scipy-Funktion <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code>.</p>
+Für beliebige Modellierung, wie z.B. quadratische oder Exponential-Funktionen, werden die Funktionen in aller Regel selber definiert. Hierfür eignet sich die scipy-Funktion <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">curve_fit</span>
@@ -1417,6 +1418,7 @@ Mit der Kovarianz-Matrix und entsprechende Unsicherheiten: [[ 4.12615232e-11 -1.
 <img alt="../_images/b0d635c9477943c25a5223f8f89338508f0152b2a8c7bdf2da3f19417c1e3c2c.png" src="../_images/b0d635c9477943c25a5223f8f89338508f0152b2a8c7bdf2da3f19417c1e3c2c.png" />
 </div>
 </div>
+<p>Für ein exponentielles Modell passen wir die x-Achse ein wenig an und gehen dann wie schon oben vor:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
@@ -1566,37 +1568,42 @@ R^2_\text{korr} = 1 - (1 - R^2) \cdot \frac{N - 1}{N - k - 1}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">r2_score</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="c1"># --- Residuen (Lineare und Quadratische Modelle) ---</span>
 <span class="n">residuals_lin1</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="p">(</span><span class="n">model_lin1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">model_lin1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">residuals_lin2</span> <span class="o">=</span> <span class="n">y_1980</span> <span class="o">-</span> <span class="p">(</span><span class="n">model_lin2</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x_1980</span> <span class="o">+</span> <span class="n">model_lin2</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">residuals_quadr</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">quadratic_fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">*</span><span class="n">popt</span><span class="p">)</span>
+<span class="n">residuals_exp</span> <span class="o">=</span> <span class="n">ydata</span> <span class="o">-</span> <span class="n">exp_model</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="o">*</span><span class="n">popt_exp</span><span class="p">)</span>
 
 <span class="c1"># --- Freiheitsgrade ---</span>
 <span class="n">dof_lin1</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">model_lin1</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">dof_lin2</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_1980</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">model_lin2</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">dof_quadr</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">model_quadr</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">dof_exp</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">xdata</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">popt_exp</span><span class="p">)</span>
 
 <span class="c1"># --- SSR ---</span>
 <span class="n">ssr_lin1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">residuals_lin1</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">ssr_lin2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">residuals_lin2</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">ssr_quadr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">residuals_quadr</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ssr_exp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">residuals_exp</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="c1"># --- RMSE ---</span>
 <span class="n">rmse_lin1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">ssr_lin1</span> <span class="o">/</span> <span class="n">dof_lin1</span><span class="p">)</span>
 <span class="n">rmse_lin2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">ssr_lin2</span> <span class="o">/</span> <span class="n">dof_lin2</span><span class="p">)</span>
 <span class="n">rmse_quadr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">ssr_quadr</span> <span class="o">/</span> <span class="n">dof_quadr</span><span class="p">)</span>
+<span class="n">rmse_exp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">ssr_exp</span> <span class="o">/</span> <span class="n">dof_exp</span><span class="p">)</span>
 
 <span class="c1"># --- Chi² ---</span>
 <span class="n">chi2_lin1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">residuals_lin1</span> <span class="o">/</span> <span class="n">y_err</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>  
 <span class="n">chi2_lin2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">residuals_lin2</span> <span class="o">/</span> <span class="n">y_err</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>  
 <span class="n">chi2_quadr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">residuals_quadr</span> <span class="o">/</span> <span class="n">y_err</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>  
+<span class="n">chi2_exp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">residuals_exp</span> <span class="o">/</span> <span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;uncertainty&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
 
 <span class="n">chi2_red_lin1</span> <span class="o">=</span> <span class="n">chi2_lin1</span> <span class="o">/</span> <span class="n">dof_lin1</span>
 <span class="n">chi2_red_lin2</span> <span class="o">=</span> <span class="n">chi2_lin2</span> <span class="o">/</span> <span class="n">dof_lin2</span>
 <span class="n">chi2_red_quadr</span> <span class="o">=</span> <span class="n">chi2_quadr</span> <span class="o">/</span> <span class="n">dof_quadr</span>
+<span class="n">chi2_red_exp</span> <span class="o">=</span> <span class="n">chi2_exp</span> <span class="o">/</span> <span class="n">dof_exp</span>
+
 
 <span class="c1"># --- R² und Adjusted R² ---</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">r2_adj</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
@@ -1604,19 +1611,10 @@ R^2_\text{korr} = 1 - (1 - R^2) \cdot \frac{N - 1}{N - k - 1}
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_true</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">r2</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">r2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">p</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
+
 <span class="n">r2_lin1</span><span class="p">,</span> <span class="n">r2adj_lin1</span> <span class="o">=</span> <span class="n">r2_adj</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">model_lin1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">model_lin1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">r2_lin2</span><span class="p">,</span> <span class="n">r2adj_lin2</span> <span class="o">=</span> <span class="n">r2_adj</span><span class="p">(</span><span class="n">y_1980</span><span class="p">,</span> <span class="n">model_lin2</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x_1980</span> <span class="o">+</span> <span class="n">model_lin2</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">r2_quadr</span><span class="p">,</span> <span class="n">r2adj_quadr</span> <span class="o">=</span> <span class="n">r2_adj</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">quadratic_fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">*</span><span class="n">popt</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
-
-<span class="c1"># --- Exponentielles Modell ---</span>
-<span class="n">y_exp</span> <span class="o">=</span> <span class="n">exp_model</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="o">*</span><span class="n">popt_exp</span><span class="p">)</span>
-<span class="n">residuals_exp</span> <span class="o">=</span> <span class="n">ydata</span> <span class="o">-</span> <span class="n">y_exp</span>
-<span class="n">dof_exp</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">xdata</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">popt_exp</span><span class="p">)</span>
-
-<span class="n">ssr_exp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">residuals_exp</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">rmse_exp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">ssr_exp</span> <span class="o">/</span> <span class="n">dof_exp</span><span class="p">)</span>
-<span class="n">chi2_exp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">residuals_exp</span> <span class="o">/</span> <span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;uncertainty&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">chi2_red_exp</span> <span class="o">=</span> <span class="n">chi2_exp</span> <span class="o">/</span> <span class="n">dof_exp</span>
 <span class="n">r2_exp</span><span class="p">,</span> <span class="n">r2adj_exp</span> <span class="o">=</span> <span class="n">r2_adj</span><span class="p">(</span><span class="n">ydata</span><span class="p">,</span> <span class="n">y_exp</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">popt_exp</span><span class="p">))</span>
 
 <span class="c1"># --- Ergebnisse in Tabelle ---</span>
@@ -1632,7 +1630,6 @@ R^2_\text{korr} = 1 - (1 - R^2) \cdot \frac{N - 1}{N - k - 1}
 <span class="p">})</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">float_format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%.3f</span><span class="s2">&quot;</span><span class="p">))</span>
-
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
@@ -1669,14 +1666,23 @@ R^2_\text{korr} = 1 - (1 - R^2) \cdot \frac{N - 1}{N - k - 1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>             Modell  Freiheitsgrade   SSR  RMSE   Chi²  Chi²_red    R²  R²_korr
-Linear (ges. Reihe)             143 5.255 0.192 84.072     0.588 0.763    0.760
-   Linear (ab 1981)              43 0.494 0.107  7.899     0.184 0.865    0.858
-        Quadratisch             142 2.086 0.121 33.375     0.235 0.906    0.904
-       Exponentiell             142 1.926 0.116 30.813     0.217 0.913    0.911
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">30</span><span class="p">],</span> <span class="n">line</span> <span class="mi">49</span>
+<span class="g g-Whitespace">     </span><span class="mi">47</span> <span class="n">r2_lin2</span><span class="p">,</span> <span class="n">r2adj_lin2</span> <span class="o">=</span> <span class="n">r2_adj</span><span class="p">(</span><span class="n">y_1980</span><span class="p">,</span> <span class="n">model_lin2</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x_1980</span> <span class="o">+</span> <span class="n">model_lin2</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">48</span> <span class="n">r2_quadr</span><span class="p">,</span> <span class="n">r2adj_quadr</span> <span class="o">=</span> <span class="n">r2_adj</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">quadratic_fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">*</span><span class="n">popt</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">49</span> <span class="n">r2_exp</span><span class="p">,</span> <span class="n">r2adj_exp</span> <span class="o">=</span> <span class="n">r2_adj</span><span class="p">(</span><span class="n">ydata</span><span class="p">,</span> <span class="n">y_exp</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">popt_exp</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">51</span> <span class="c1"># --- Ergebnisse in Tabelle ---</span>
+<span class="g g-Whitespace">     </span><span class="mi">52</span> <span class="n">results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<span class="g g-Whitespace">     </span><span class="mi">53</span>     <span class="s2">&quot;Modell&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Linear (ges. Reihe)&quot;</span><span class="p">,</span> <span class="s2">&quot;Linear (ab 1981)&quot;</span><span class="p">,</span> <span class="s2">&quot;Quadratisch&quot;</span><span class="p">,</span> <span class="s2">&quot;Exponentiell&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">54</span>     <span class="s2">&quot;Freiheitsgrade&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">dof_lin1</span><span class="p">,</span> <span class="n">dof_lin2</span><span class="p">,</span> <span class="n">dof_quadr</span><span class="p">,</span> <span class="n">dof_exp</span><span class="p">],</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">60</span>     <span class="s2">&quot;R²_korr&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">r2adj_lin1</span><span class="p">,</span> <span class="n">r2adj_lin2</span><span class="p">,</span> <span class="n">r2adj_quadr</span><span class="p">,</span> <span class="n">r2adj_exp</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">61</span> <span class="p">})</span>
+
+<span class="ne">NameError</span>: name &#39;y_exp&#39; is not defined
 </pre></div>
 </div>
-<img alt="../_images/e9943da690ce7c062f77e1501724c19159b2b5f329837fdffdfa6ede27f58853.png" src="../_images/e9943da690ce7c062f77e1501724c19159b2b5f329837fdffdfa6ede27f58853.png" />
 </div>
 </div>
 <p>Vergleicht man die jeweiligen Werte miteinander, so zeigt sich:</p>
@@ -1689,6 +1695,8 @@ Linear (ges. Reihe)             143 5.255 0.192 84.072     0.588 0.763    0.760
 </section>
 <section id="fehler-der-vorhersagen">
 <h2>Fehler der Vorhersagen<a class="headerlink" href="#fehler-der-vorhersagen" title="Permalink to this heading">#</a></h2>
+<p>Im Folgenden berechnen wir den Fehler für die Vorhersage für das Jahre 2050.
+Da Korrelationen zwischen den Modellparametern auftreten werden diese miteinbezogen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -1754,6 +1762,8 @@ Vorhersage 2050 Exponentiell:        2.396 ± 0.168
 </div>
 </div>
 </div>
+<p>Die Fehler steigen mit: weniger Daten, mehr Parameter, stärkeren Korrelationen, oder hohe Sensitivität des Modells (exponentiell).
+Das erklärt die Unterschiede: ±0.04 (linear, viele Daten) bis ±0.17 (exp, sensitiv und korreliert).</p>
 </section>
 </section>
 

@@ -566,7 +566,7 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unsicherheiten-der-modellparameter">Unsicherheiten der Modellparameter</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manuelle-berechnung-lineare-regression">Manuelle Berechnung (lineare Regression)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kovarinzmatrix">Kovarinzmatrix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kovarianzmatrix">Kovarianzmatrix</a></li>
 </ul>
 </li>
 </ul>
@@ -1421,8 +1421,8 @@ Die Unsicherheit von a ist 	 s_a = 6.7574
 </div>
 </div>
 </section>
-<section id="kovarinzmatrix">
-<h3>Kovarinzmatrix<a class="headerlink" href="#kovarinzmatrix" title="Permalink to this heading">#</a></h3>
+<section id="kovarianzmatrix">
+<h3>Kovarianzmatrix<a class="headerlink" href="#kovarianzmatrix" title="Permalink to this heading">#</a></h3>
 <p>Für beliebige nichtlineare Modelle wird die Berechnung der Unsicherheiten schnell komplex.<br />
 Im Allgemeinen gilt:</p>
 <ul class="simple">
@@ -1525,10 +1525,7 @@ Korrelation zwischen a und b: 	 r_ab = -0.8978
 <p>In der Praxis gilt:</p>
 <ul class="simple">
 <li><p>Für die Angabe von <span class="math notranslate nohighlight">\(a \pm s_a\)</span> und <span class="math notranslate nohighlight">\(b \pm s_b\)</span> reicht meist die Diagonale.</p></li>
-<li><p>Für die Unsicherheit einer Vorhersage <span class="math notranslate nohighlight">\(y(x) = ax+b\)</span> muss die Kovarianz berücksichtigt werden:<br />
-$<span class="math notranslate nohighlight">\(
-s_y^2(x) = s_a^2 + x^2 s_b^2 + 2x \, \mathrm{cov}(a,b)
-\)</span>$</p></li>
+<li><p>Für die Unsicherheit einer Vorhersage <span class="math notranslate nohighlight">\(y(x) = ax+b\)</span> muss die Kovarianz berücksichtigt werden, wie bei der <a class="reference external" href="https://kisleif.github.io/mtbook/content/1_Fehlerfortpflanzung.html">Fehlerfortpflanzung</a> für abhängige Variablen.</p></li>
 </ul>
 <p>Eine starke Korrelation (z. B. <span class="math notranslate nohighlight">\(r_{ab} \approx -0.9\)</span>) bedeutet, dass die Parameter nicht unabhängig bestimmt werden können und die Unsicherheit des Modells nur korrekt beschrieben werden kann, wenn die Kovarianz einbezogen wird.</p>
 <p>Im obigen Beispiel haben wir eine eine Kovarianz <span class="math notranslate nohighlight">\(cov_{ab} = -0,8292\)</span> und einen Korrelationskoeffizienten <span class="math notranslate nohighlight">\(r_{ab} = -0,898\)</span>. Die Parameter Steigung <span class="math notranslate nohighlight">\(b\)</span> und Achsenabschnitt <span class="math notranslate nohighlight">\(a\)</span> sind stark negativ korreliert: Wenn die Schätzung für <span class="math notranslate nohighlight">\(b\)</span> größer wird, wird <span class="math notranslate nohighlight">\(a\)</span> tendenziell kleiner – und umgekehrt.
@@ -1617,7 +1614,7 @@ D.h. die Unsicherheiten der beiden Parameter sind nicht unabhängig. Ignoriert m
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unsicherheiten-der-modellparameter">Unsicherheiten der Modellparameter</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manuelle-berechnung-lineare-regression">Manuelle Berechnung (lineare Regression)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kovarinzmatrix">Kovarinzmatrix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kovarianzmatrix">Kovarianzmatrix</a></li>
 </ul>
 </li>
 </ul>

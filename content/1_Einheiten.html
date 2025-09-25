@@ -204,7 +204,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="V3.html">Kurvenanpassung</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="1_Kurvenanpassung.html">Regressionsrechnung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Kurvenanpassung.html">Modellanpassung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Interpol_Approx.html">Interpolation vs. Regression</a></li>
 </ul>
 </li>
@@ -265,12 +265,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">🐍 Jupyter Notebooks</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="T_Schwerependel.html">Messunsicherheiten beim Schwerependel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T_Plotten.html">Klimadaten auswerten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T_FitmitFehlerbalken.html">Lineare Regression mit Fehlerbalken</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Fehlerfortpflanzung.html">Fehlerfortpflanzung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Log.html">Logarithmische Darstellung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="T_Plotten.html">Klimadaten auswerten</a></li>
-<li class="toctree-l1"><a class="reference internal" href="T_LinReg.html">Verschiedene Fit-Funktionen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="T_FitmitFehlerbalken.html">Lineare Regression mit Fehlerbalken</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Spektralanalyse_Audio.html">Fourier-Transformation und Filter</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Übungen</span></p>
@@ -554,7 +552,10 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entwicklung-des-einheitensystems">Entwicklung des Einheitensystems</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#si-einheiten-the-big-7">SI-Einheiten - “The big 7”</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#si-einheiten-the-big-7">SI-Einheiten - “The big 7”</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-definition-des-kilogramms">Beispiel: Definition des Kilogramms</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abgeleitete-erganzende-si-einheiten">Abgeleitete / Ergänzende SI-Einheiten</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nicht-si-einheiten-akzeptierte-einheiten">Nicht-SI-Einheiten (Akzeptierte Einheiten)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vorsatze-und-prafix-im-si">Vorsätze und Präfix im SI</a></li>
@@ -778,8 +779,10 @@ Seit 2019 werden <strong>alle</strong> SI-Einheiten von <strong>Naturkonstanten<
 </div>
 </div>
 </aside>
+<section id="beispiel-definition-des-kilogramms">
+<h3>Beispiel: Definition des Kilogramms<a class="headerlink" href="#beispiel-definition-des-kilogramms" title="Permalink to this heading">#</a></h3>
 <div class="dropdown admonition">
-<p class="admonition-title">Definition des Kilogramms</p>
+<p class="admonition-title">Watt-Waage</p>
 <p>Die Definitionen der Basiseinheiten basierten lange Zeit teilweise auf physischen Prototypen, wobei das Kilogramm eine besondere Rolle spielte. Von 1889 bis 2018 war das Kilogramm durch einen Metallzylinder aus 90 % Platin und 10 % Iridium, bekannt als das “Ur-Kilogramm”, definiert. Dieser Zylinder, <span class="math notranslate nohighlight">\(\mathrm{3{,}9\,cm}\)</span> hoch und <span class="math notranslate nohighlight">\(\mathrm{3{,}9\,cm}\)</span> im Durchmesser, wurde unter drei Glasglocken in einem Tresor des „Internationalen Büros für Maß und Gewicht“ (BIPM) in Paris aufbewahrt. Im Laufe der Zeit stellte sich jedoch heraus, dass das Ur-Kilo allmählich an Masse verlor – etwa <span class="math notranslate nohighlight">\(\mathrm{50\,\mu g}\)</span> in <span class="math notranslate nohighlight">\(\mathrm{129}\)</span> Jahren – was in unserer modernen, hochpräzisen Welt zunehmend problematisch wurde.</p>
 <figure class="align-default" id="ur-kilo">
 <a class="reference internal image-reference" href="../_images/ur-kilo.jpg"><img alt="ur_kilo" src="../_images/ur-kilo.jpg" style="width: 600px;" /></a>
@@ -816,6 +819,7 @@ m = \frac{U_\mathrm{ind} I}{gv}
 \]</div>
 <p>Der Name <strong>Watt-Waage</strong> leitet sich aus dem Prinzip ab, dass hier zwei Leistungen (Watt) miteinander verglichen werden: die mechanische Leistung <span class="math notranslate nohighlight">\(mgv\)</span> und die elektrische Leistung <span class="math notranslate nohighlight">\(U_\mathrm{ind} I\)</span>. Mit dieser Methode wurde das Kilogramm von einem physischen Objekt auf eine fundamentale Naturkonstante umgestellt, was eine präzise und weltweit reproduzierbare Masseinheit garantiert.</p>
 </div>
+</section>
 </section>
 <section id="abgeleitete-erganzende-si-einheiten">
 <h2>Abgeleitete / Ergänzende SI-Einheiten<a class="headerlink" href="#abgeleitete-erganzende-si-einheiten" title="Permalink to this heading">#</a></h2>
@@ -1380,7 +1384,10 @@ Pegel in dB:  -30.0 (0.001)
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entwicklung-des-einheitensystems">Entwicklung des Einheitensystems</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#si-einheiten-the-big-7">SI-Einheiten - “The big 7”</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#si-einheiten-the-big-7">SI-Einheiten - “The big 7”</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-definition-des-kilogramms">Beispiel: Definition des Kilogramms</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abgeleitete-erganzende-si-einheiten">Abgeleitete / Ergänzende SI-Einheiten</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nicht-si-einheiten-akzeptierte-einheiten">Nicht-SI-Einheiten (Akzeptierte Einheiten)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vorsatze-und-prafix-im-si">Vorsätze und Präfix im SI</a></li>

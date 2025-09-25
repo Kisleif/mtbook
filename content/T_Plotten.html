@@ -72,7 +72,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
     <link rel="next" title="Verschiedene Fit-Funktionen" href="T_LinReg.html" />
-    <link rel="prev" title="Logarithmische Darstellung" href="T_Log.html" />
+    <link rel="prev" title="Versuche" href="Versuche.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
   </head>
@@ -204,7 +204,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="V3.html">Kurvenanpassung</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="1_Kurvenanpassung.html">Regressionsrechnung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Kurvenanpassung.html">Modellanpassung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Interpol_Approx.html">Interpolation vs. Regression</a></li>
 </ul>
 </li>
@@ -265,12 +265,12 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">🐍 Jupyter Notebooks</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="T_Schwerependel.html">Messunsicherheiten beim Schwerependel</a></li>
-<li class="toctree-l1"><a class="reference internal" href="T_Fehlerfortpflanzung.html">Fehlerfortpflanzung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="T_Log.html">Logarithmische Darstellung</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Klimadaten auswerten</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_LinReg.html">Verschiedene Fit-Funktionen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_FitmitFehlerbalken.html">Lineare Regression mit Fehlerbalken</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T_Schwerependel.html">Messunsicherheiten beim Schwerependel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T_Fehlerfortpflanzung.html">Fehlerfortpflanzung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T_Log.html">Logarithmische Darstellung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Spektralanalyse_Audio.html">Fourier-Transformation und Filter</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Übungen</span></p>
@@ -573,6 +573,7 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vorhersage-fur-das-jahr-2050">Vorhersage für das Jahr 2050</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wie-gut-passen-die-modelle">Wie gut passen die Modelle?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fehler-der-vorhersagen">Fehler der Vorhersagen</a></li>
 </ul>
             </nav>
         </div>
@@ -1266,27 +1267,19 @@ Name: 144, dtype: float64
 </div>
 </div>
 </div>
-<p>Im ersten Array stehen die Fit-Parameter der linearen Ausgleichsgeraden entsprechend der obigen Deklaration: <code class="docutils literal notranslate"><span class="pre">y_model</span> <span class="pre">=</span> <span class="pre">model_lin1[0][0]*x+model_lin1[0][1]</span></code>.
+<p>Im ersten Array stehen die Fit-Parameter der linearen Ausgleichsgeraden entsprechend der obigen Deklaration: <code class="docutils literal notranslate"><span class="pre">y_model_1</span> <span class="pre">=</span> <span class="pre">model_lin1[0][0]*x+model_lin1[0][1]</span></code>.
 Im zweiten Array, hier eine 2x2 Matrix, sind die Unsicherheiten in Form von der <a class="reference internal" href="1_Fehlerfortpflanzung.html"><span class="doc std std-doc">Kovarianz-Matrix</span></a> dargestellt.
 Der Temperaturanstieg kann entsprechend ausgegeben werden:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Temperaturanstieg pro Jahr (von 1981 bis 2020): </span><span class="si">{</span><span class="n">model_lin1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">°C/Jahr&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Temperaturanstieg seit Beginn der Messung: </span><span class="si">{</span><span class="p">(</span><span class="n">y_model</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">y_model</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">°C&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Temperaturanstieg seit Beginn der Messung: </span><span class="si">{</span><span class="p">(</span><span class="n">y_model_1</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">y_model_1</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">°C&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Temperaturanstieg pro Jahr (von 1981 bis 2020): 0.008°C/Jahr
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">20</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Temperaturanstieg pro Jahr (von 1981 bis 2020): </span><span class="si">{</span><span class="n">model_lin1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">°C/Jahr&quot;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Temperaturanstieg seit Beginn der Messung: </span><span class="si">{</span><span class="p">(</span><span class="n">y_model</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">y_model</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">°C&quot;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;y_model&#39; is not defined
+Temperaturanstieg seit Beginn der Messung: 1.176°C
 </pre></div>
 </div>
 </div>
@@ -1370,6 +1363,7 @@ Für beliebige Modellierung, wie z.B. Exponential-Funktionen, werden die Funktio
 <span class="n">y_err</span> <span class="o">=</span> <span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;uncertainty&quot;</span><span class="p">]</span>
 
 <span class="n">model_quadr</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">quadratic_fit</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">y_model_quadr</span> <span class="o">=</span> <span class="n">model_quadr</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">model_quadr</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">model_quadr</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">model_quadr</span><span class="p">)</span>
 </pre></div>
@@ -1423,6 +1417,56 @@ Mit der Kovarianz-Matrix und entsprechende Unsicherheiten: [[ 4.12615232e-11 -1.
 <img alt="../_images/b0d635c9477943c25a5223f8f89338508f0152b2a8c7bdf2da3f19417c1e3c2c.png" src="../_images/b0d635c9477943c25a5223f8f89338508f0152b2a8c7bdf2da3f19417c1e3c2c.png" />
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+<span class="c1"># Daten normieren</span>
+<span class="n">xdata</span> <span class="o">=</span> <span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="o">-</span> <span class="mi">1880</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span>  <span class="c1"># auf Jahrhunderte</span>
+<span class="n">ydata</span> <span class="o">=</span> <span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># Modell</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">exp_model</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">c</span>
+
+<span class="c1"># Startwerte + Bounds</span>
+<span class="n">p0</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">bounds</span> <span class="o">=</span> <span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+
+<span class="c1"># Fit</span>
+<span class="n">popt_exp</span><span class="p">,</span> <span class="n">pcov_exp</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">exp_model</span><span class="p">,</span> <span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="n">p0</span><span class="o">=</span><span class="n">p0</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="n">bounds</span><span class="p">)</span>
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">popt_exp</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;a = </span><span class="si">{</span><span class="n">a</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, b = </span><span class="si">{</span><span class="n">b</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">, c = </span><span class="si">{</span><span class="n">c</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Vorhersage</span>
+<span class="n">xline</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">xdata</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">xdata</span><span class="p">),</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">yfit</span> <span class="o">=</span> <span class="n">exp_model</span><span class="p">(</span><span class="n">xline</span><span class="p">,</span> <span class="o">*</span><span class="n">popt_exp</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">],</span> <span class="n">yerr</span><span class="o">=</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;uncertainty&quot;</span><span class="p">],</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:gray&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Messwerte&quot;</span><span class="p">);</span>
+<span class="c1">#plt.scatter(xdata*100+1880, ydata, s=10, color=&quot;tab:gray&quot;, label=&quot;Klimadaten&quot;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xline</span><span class="o">*</span><span class="mi">100</span><span class="o">+</span><span class="mi">1880</span><span class="p">,</span> <span class="n">yfit</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:red&quot;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Exponential-Fit f(x) =  &quot;</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> * exp (</span><span class="si">{</span><span class="n">b</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">*x) + </span><span class="si">{</span><span class="n">c</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Jahr&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Jahresmitteltemperaturabweichung [°C]&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;klima_plot8.png&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;klima_plot8.pdf&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Vorhersage für das Jahr x = 2050:&quot;</span><span class="p">,</span> <span class="n">exp_model</span><span class="p">((</span><span class="mi">2050</span><span class="o">-</span><span class="mi">1880</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span><span class="p">,</span> <span class="o">*</span><span class="n">popt_exp</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a = 0.0422, b = 2.450713, c = -0.3252
+Vorhersage für das Jahr x = 2050: 2.3961870762580215
+</pre></div>
+</div>
+<img alt="../_images/7c52d2894c2fa7825ee07fb6001cf7e6a43f8acc738f7caa35bfdea46e8957b0.png" src="../_images/7c52d2894c2fa7825ee07fb6001cf7e6a43f8acc738f7caa35bfdea46e8957b0.png" />
+</div>
+</div>
 </section>
 </section>
 <section id="vorhersage-fur-das-jahr-2050">
@@ -1431,6 +1475,7 @@ Mit der Kovarianz-Matrix und entsprechende Unsicherheiten: [[ 4.12615232e-11 -1.
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Vorhersage für Jahr 2050</span>
 <span class="n">x_val</span> <span class="o">=</span> <span class="mi">2050</span>
+
 <span class="n">y_pred_lin1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">model_lin1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x_val</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Lineares Modell 1 (1880-2025):</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">y_pred_lin1</span><span class="p">)</span>
 
@@ -1439,6 +1484,11 @@ Mit der Kovarianz-Matrix und entsprechende Unsicherheiten: [[ 4.12615232e-11 -1.
 
 <span class="n">y_pred_quadr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">model_quadr</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x_val</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Quadratisches Modell:</span><span class="se">\t\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">y_pred_quadr</span><span class="p">)</span>
+
+<span class="c1"># Exponentielles Modell (x normieren!)</span>
+<span class="n">x_val_exp</span> <span class="o">=</span> <span class="p">(</span><span class="n">x_val</span> <span class="o">-</span> <span class="mi">1880</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span>
+<span class="n">y_pred_exp</span> <span class="o">=</span> <span class="n">exp_model</span><span class="p">(</span><span class="n">x_val_exp</span><span class="p">,</span> <span class="o">*</span><span class="n">popt_exp</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exponentielles Modell:</span><span class="se">\t\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">y_pred_exp</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1446,6 +1496,7 @@ Mit der Kovarianz-Matrix und entsprechende Unsicherheiten: [[ 4.12615232e-11 -1.
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lineares Modell 1 (1880-2025):	 0.8731445441662782
 Lineares Modell 2 (1981-2025):	 1.5430715854193977
 Quadratisches Modell:		 1.6139089222256189
+Exponentielles Modell:		 2.3961870762580215
 </pre></div>
 </div>
 </div>
@@ -1453,72 +1504,256 @@ Quadratisches Modell:		 1.6139089222256189
 </section>
 <section id="wie-gut-passen-die-modelle">
 <h2>Wie gut passen die Modelle?<a class="headerlink" href="#wie-gut-passen-die-modelle" title="Permalink to this heading">#</a></h2>
-<p>Ein Maß dafür, wie gut ein einzelnes Modell die Daten beschreibt, liefert der sogenannte <span class="math notranslate nohighlight">\(\chi^2\)</span> Wert.</p>
+<p>Die Güte eines Modells oder einer Fit-Funktion lässt sich auf verschiedene Weise beurteilen. Typische Kennwerte sind die <strong>Residuen</strong>, die <strong>Residuensumme</strong> bzw. deren <strong>Standardfehler</strong> sowie der sogenannte <strong><span class="math notranslate nohighlight">\(\chi^2\)</span>-Wert</strong>.<br />
+Für die Berechnung des <span class="math notranslate nohighlight">\(\chi^2\)</span>-Werts werden jedoch die geschätzten Unsicherheiten der Messwerte benötigt – diese sind in der Praxis nicht immer bekannt.</p>
+<p>In der Anwendung testet man daher oft mehrere Modelle, passt sie an die Messdaten an und vergleicht anschließend die ausgegebenen Parameter und Gütemaße miteinander. Auf diese Weise lässt sich erkennen, welches Modell die vorhandenen Daten <strong>am besten beschreibt</strong>.</p>
+<p>Wichtig ist jedoch:</p>
+<ul class="simple">
+<li><p>Auch wenn ein Modell besser passt als andere, bedeutet das nicht automatisch, dass es das <strong>optimale</strong> Modell ist.</p></li>
+<li><p>Ebenso wenig ist damit geklärt, ob das Modell tatsächlich das <strong>richtige</strong> ist, d. h. die zugrunde liegenden physikalischen Zusammenhänge korrekt abbildet.</p></li>
+</ul>
+<p>Im folgenden Code werden verschiedene Kenngrößen berechnet, um die Anpassung (Fit-Güte) mehrerer Modelle an Messdaten zu beurteilen.</p>
+<ul class="simple">
+<li><p>Die <strong>Residuen</strong> sind die Abweichungen zwischen den gemessenen Werten  <span class="math notranslate nohighlight">\(y_i\)</span> und den durch das Modell vorhergesagten Werten <span class="math notranslate nohighlight">\(f(x_i)\)</span>:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\varepsilon_i = y_i - f(x_i)
+\]</div>
+<ul class="simple">
+<li><p>Die <strong>Residuensumme</strong> (Sum of Squared Residuals, SSR) misst die Gesamtabweichung des Modells von den Daten:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+SSR = \sum_{i=1}^N \varepsilon_i^2
+\]</div>
+<ul class="simple">
+<li><p>Der <strong>Standardfehler der Residuen</strong> oder Root Mean Square Error (RMSE) normiert die Abweichung auf die Freiheitsgrade:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+RMSE = \sqrt{\frac{SSR}{\nu}}
+\]</div>
+<p>mit den Freiheitsgraden <span class="math notranslate nohighlight">\(\nu = N - k\)</span>, wobei <span class="math notranslate nohighlight">\(k\)</span> die Anzahl der Modellparameter ist. Die Freiheitsgrade geben an, wie viel unabhängige Information nach der Modellanpassung übrigbleibt.</p>
+<ul class="simple">
+<li><p>Der <strong>Chi-Quadrat-Wert</strong> berücksichtigt zusätzlich die Messunsicherheiten <span class="math notranslate nohighlight">\(s_i\)</span> der Daten:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\chi^2 = \sum_{i=1}^N \left( \frac{r_i}{s_i} \right)^2
+\]</div>
+<ul class="simple">
+<li><p>Durch Normierung auf die Freiheitsgrade erhält man den <strong>reduzierten Chi-Quadrat-Wert</strong>:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\chi^2_\text{red} = \frac{\chi^2}{\nu}
+\]</div>
+<ul class="simple">
+<li><p>Das <strong>Bestimmtheitsmaß <span class="math notranslate nohighlight">\(R^2\)</span></strong> gibt an, wie viel der Gesamtvarianz der Daten durch das Modell erklärt wird:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+R^2 = 1 - \frac{SSR}{SST}, \qquad SST = \sum_{i=1}^N (y_i - \bar y)^2
+\]</div>
+<ul class="simple">
+<li><p>Das <strong>korrigierte Bestimmtheitsmaß <span class="math notranslate nohighlight">\(R^2_\text{korr}\)</span></strong> berücksichtigt zusätzlich die Anzahl der Parameter <span class="math notranslate nohighlight">\(k\)</span> und bestraft übermäßig komplexe Modelle:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+R^2_\text{korr} = 1 - (1 - R^2) \cdot \frac{N - 1}{N - k - 1}
+\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Residuen berechnen:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">r2_score</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># --- Residuen (Lineare und Quadratische Modelle) ---</span>
 <span class="n">residuals_lin1</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="p">(</span><span class="n">model_lin1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">model_lin1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">residuals_lin2</span> <span class="o">=</span> <span class="n">y_1980</span> <span class="o">-</span> <span class="p">(</span><span class="n">model_lin2</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x_1980</span> <span class="o">+</span> <span class="n">model_lin2</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">residuals_quadr</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">quadratic_fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">*</span><span class="n">popt</span><span class="p">)</span>
 
-
-<span class="c1"># Für Chi^2 quadratisch aufsummieren:</span>
-<span class="n">chi2_lin1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">residuals_lin1</span> <span class="o">/</span> <span class="n">y_err</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>  
-<span class="n">chi2_lin2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">residuals_lin2</span> <span class="o">/</span> <span class="n">y_err</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>  
-<span class="n">chi2_quadr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">residuals_quadr</span> <span class="o">/</span> <span class="n">y_err</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>  
-
-<span class="c1"># Freiheitsgrade (Anzahl der Datenpunkte - Anzahl der Modellparameter)</span>
+<span class="c1"># --- Freiheitsgrade ---</span>
 <span class="n">dof_lin1</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">model_lin1</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">dof_lin2</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_1980</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">model_lin2</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">dof_quadr</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">model_quadr</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
-<span class="c1"># Reduziertes Chi^2</span>
+<span class="c1"># --- SSR ---</span>
+<span class="n">ssr_lin1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">residuals_lin1</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ssr_lin2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">residuals_lin2</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ssr_quadr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">residuals_quadr</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># --- RMSE ---</span>
+<span class="n">rmse_lin1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">ssr_lin1</span> <span class="o">/</span> <span class="n">dof_lin1</span><span class="p">)</span>
+<span class="n">rmse_lin2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">ssr_lin2</span> <span class="o">/</span> <span class="n">dof_lin2</span><span class="p">)</span>
+<span class="n">rmse_quadr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">ssr_quadr</span> <span class="o">/</span> <span class="n">dof_quadr</span><span class="p">)</span>
+
+<span class="c1"># --- Chi² ---</span>
+<span class="n">chi2_lin1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">residuals_lin1</span> <span class="o">/</span> <span class="n">y_err</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>  
+<span class="n">chi2_lin2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">residuals_lin2</span> <span class="o">/</span> <span class="n">y_err</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>  
+<span class="n">chi2_quadr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">residuals_quadr</span> <span class="o">/</span> <span class="n">y_err</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>  
+
 <span class="n">chi2_red_lin1</span> <span class="o">=</span> <span class="n">chi2_lin1</span> <span class="o">/</span> <span class="n">dof_lin1</span>
 <span class="n">chi2_red_lin2</span> <span class="o">=</span> <span class="n">chi2_lin2</span> <span class="o">/</span> <span class="n">dof_lin2</span>
 <span class="n">chi2_red_quadr</span> <span class="o">=</span> <span class="n">chi2_quadr</span> <span class="o">/</span> <span class="n">dof_quadr</span>
 
-<span class="c1"># Ergebnisse in Tabelle</span>
+<span class="c1"># --- R² und Adjusted R² ---</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">r2_adj</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+    <span class="n">r2</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_true</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">r2</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">r2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">p</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">r2_lin1</span><span class="p">,</span> <span class="n">r2adj_lin1</span> <span class="o">=</span> <span class="n">r2_adj</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">model_lin1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">model_lin1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">r2_lin2</span><span class="p">,</span> <span class="n">r2adj_lin2</span> <span class="o">=</span> <span class="n">r2_adj</span><span class="p">(</span><span class="n">y_1980</span><span class="p">,</span> <span class="n">model_lin2</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x_1980</span> <span class="o">+</span> <span class="n">model_lin2</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">r2_quadr</span><span class="p">,</span> <span class="n">r2adj_quadr</span> <span class="o">=</span> <span class="n">r2_adj</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">quadratic_fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">*</span><span class="n">popt</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># --- Exponentielles Modell ---</span>
+<span class="n">y_exp</span> <span class="o">=</span> <span class="n">exp_model</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="o">*</span><span class="n">popt_exp</span><span class="p">)</span>
+<span class="n">residuals_exp</span> <span class="o">=</span> <span class="n">ydata</span> <span class="o">-</span> <span class="n">y_exp</span>
+<span class="n">dof_exp</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">xdata</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">popt_exp</span><span class="p">)</span>
+
+<span class="n">ssr_exp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">residuals_exp</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">rmse_exp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">ssr_exp</span> <span class="o">/</span> <span class="n">dof_exp</span><span class="p">)</span>
+<span class="n">chi2_exp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">residuals_exp</span> <span class="o">/</span> <span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;uncertainty&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">chi2_red_exp</span> <span class="o">=</span> <span class="n">chi2_exp</span> <span class="o">/</span> <span class="n">dof_exp</span>
+<span class="n">r2_exp</span><span class="p">,</span> <span class="n">r2adj_exp</span> <span class="o">=</span> <span class="n">r2_adj</span><span class="p">(</span><span class="n">ydata</span><span class="p">,</span> <span class="n">y_exp</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">popt_exp</span><span class="p">))</span>
+
+<span class="c1"># --- Ergebnisse in Tabelle ---</span>
 <span class="n">results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s2">&quot;Modell&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Linear (ges. Reihe)&quot;</span><span class="p">,</span> <span class="s2">&quot;Linear (ab 1981)&quot;</span><span class="p">,</span> <span class="s2">&quot;Quadratisch&quot;</span><span class="p">],</span>
-    <span class="s2">&quot;Chi²&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">chi2_lin1</span><span class="p">,</span> <span class="n">chi2_lin2</span><span class="p">,</span> <span class="n">chi2_quadr</span><span class="p">],</span>
-    <span class="s2">&quot;Freiheitsgrade&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">dof_lin1</span><span class="p">,</span> <span class="n">dof_lin2</span><span class="p">,</span> <span class="n">dof_quadr</span><span class="p">],</span>
-    <span class="s2">&quot;Chi²_red&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">chi2_red_lin1</span><span class="p">,</span> <span class="n">chi2_red_lin2</span><span class="p">,</span> <span class="n">chi2_red_quadr</span><span class="p">]</span>
+    <span class="s2">&quot;Modell&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Linear (ges. Reihe)&quot;</span><span class="p">,</span> <span class="s2">&quot;Linear (ab 1981)&quot;</span><span class="p">,</span> <span class="s2">&quot;Quadratisch&quot;</span><span class="p">,</span> <span class="s2">&quot;Exponentiell&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;Freiheitsgrade&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">dof_lin1</span><span class="p">,</span> <span class="n">dof_lin2</span><span class="p">,</span> <span class="n">dof_quadr</span><span class="p">,</span> <span class="n">dof_exp</span><span class="p">],</span>
+    <span class="s2">&quot;SSR&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">ssr_lin1</span><span class="p">,</span> <span class="n">ssr_lin2</span><span class="p">,</span> <span class="n">ssr_quadr</span><span class="p">,</span> <span class="n">ssr_exp</span><span class="p">],</span>
+    <span class="s2">&quot;RMSE&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">rmse_lin1</span><span class="p">,</span> <span class="n">rmse_lin2</span><span class="p">,</span> <span class="n">rmse_quadr</span><span class="p">,</span> <span class="n">rmse_exp</span><span class="p">],</span>
+    <span class="s2">&quot;Chi²&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">chi2_lin1</span><span class="p">,</span> <span class="n">chi2_lin2</span><span class="p">,</span> <span class="n">chi2_quadr</span><span class="p">,</span> <span class="n">chi2_exp</span><span class="p">],</span>
+    <span class="s2">&quot;Chi²_red&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">chi2_red_lin1</span><span class="p">,</span> <span class="n">chi2_red_lin2</span><span class="p">,</span> <span class="n">chi2_red_quadr</span><span class="p">,</span> <span class="n">chi2_red_exp</span><span class="p">],</span>
+    <span class="s2">&quot;R²&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">r2_lin1</span><span class="p">,</span> <span class="n">r2_lin2</span><span class="p">,</span> <span class="n">r2_quadr</span><span class="p">,</span> <span class="n">r2_exp</span><span class="p">],</span>
+    <span class="s2">&quot;R²_korr&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">r2adj_lin1</span><span class="p">,</span> <span class="n">r2adj_lin2</span><span class="p">,</span> <span class="n">r2adj_quadr</span><span class="p">,</span> <span class="n">r2adj_exp</span><span class="p">]</span>
 <span class="p">})</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">float_format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%.3f</span><span class="s2">&quot;</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>             Modell   Chi²  Freiheitsgrade  Chi²_red
-Linear (ges. Reihe) 84.072             143     0.588
-   Linear (ab 1981)  7.899              43     0.184
-        Quadratisch 33.375             142     0.235
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Residuen&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Jahr&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">residuals_lin1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Lineares Modell (ges. Reihe)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_1980</span><span class="p">,</span><span class="n">residuals_lin2</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Lineares Modell (ab 1981)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">residuals_quadr</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Quadratisches Modell&#39;</span><span class="p">)</span>
+
+<span class="c1"># Residuenplots</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">residuals_lin1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Linear (ges. Reihe)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C0&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_1980</span><span class="p">,</span> <span class="n">residuals_lin2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Linear (ab 1981)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C1&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">residuals_quadr</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Quadratisch&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C2&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span> <span class="n">residuals_exp</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Exponentiell&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C3&quot;</span><span class="p">)</span>
+
+<span class="c1"># Standardfehler (RMSE) als horizontale Linien</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">rmse_lin1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;RMSE Linear (ges.)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="o">-</span><span class="n">rmse_lin1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">rmse_lin2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;RMSE Linear (ab 1981)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="o">-</span><span class="n">rmse_lin2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">rmse_quadr</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C2&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;RMSE Quadratisch&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="o">-</span><span class="n">rmse_quadr</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C2&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">rmse_exp</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C3&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;RMSE Exponentiell&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="o">-</span><span class="n">rmse_exp</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C3&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+<span class="c1"># Legende, Gitter, Speichern</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;klima_plot7.png&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;klima_plot7.pdf&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Residuenvergleich der Modelle&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;klima_residuen.png&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;klima_residuen.pdf&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2b44bd7cdd790534910c93851038f63075a6bdcecabdcb705cd2dd4ae0ee6448.png" src="../_images/2b44bd7cdd790534910c93851038f63075a6bdcecabdcb705cd2dd4ae0ee6448.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>             Modell  Freiheitsgrade   SSR  RMSE   Chi²  Chi²_red    R²  R²_korr
+Linear (ges. Reihe)             143 5.255 0.192 84.072     0.588 0.763    0.760
+   Linear (ab 1981)              43 0.494 0.107  7.899     0.184 0.865    0.858
+        Quadratisch             142 2.086 0.121 33.375     0.235 0.906    0.904
+       Exponentiell             142 1.926 0.116 30.813     0.217 0.913    0.911
+</pre></div>
+</div>
+<img alt="../_images/e9943da690ce7c062f77e1501724c19159b2b5f329837fdffdfa6ede27f58853.png" src="../_images/e9943da690ce7c062f77e1501724c19159b2b5f329837fdffdfa6ede27f58853.png" />
 </div>
 </div>
-<p>Alle reduzierten <span class="math notranslate nohighlight">\(\chi^2\)</span>-Werte liegen unter 1. Das deutet darauf hin, dass die angenommenen Fehlerbalken zu groß gewählt worden sind und das Modell <em>zu gut</em> passt. Das 2. lineare Modell liefert den geringsten Wert und ist somit mathematisch gesehen das beste Modell. Jedoch bezieht dies nicht die komplette Zeitserie mit ein. Das quadratische Modell passt besser über die gesamte Zeitserie betrachtet. Alle Modelle sind akzeptabel, aber unsere geschätzten Unsicherheiten von 0,25 Kelvin dominieren.</p>
+<p>Vergleicht man die jeweiligen Werte miteinander, so zeigt sich:</p>
+<ul class="simple">
+<li><p>In allen Fällen sind die Residuen gleichmäßig um Null verteilt – alle Modelle liefern also eine gute Approximation.</p></li>
+<li><p>Das zweite lineare Modell (angepasst ab dem Jahresbereich 1981) erzielt gute Ergebnisse, der Standardfehler ist der kleinste im Vergleich zu anderen Modellen. Jedoch muss man hier berücksichtigen, dass weniger Daten benutzt werden als in den anderen Zeitserien und damit Werte verfälscht werden im direkten Vergleich.</p></li>
+<li><p>Betrachtet man den gesamten Jahresbereich, liefern das quadratische und expxonentielle Modell die besten Ergebnisse.</p></li>
+</ul>
+<p>Alle reduzierten <span class="math notranslate nohighlight">\(\chi^2\)</span>-Werte liegen unter 1. Das deutet darauf hin, dass die angenommenen Fehlerbalken zu groß gewählt worden sind und das Modell <em>zu gut</em> passt. Alle Modelle sind akzeptabel, aber unsere geschätzten Unsicherheiten von 0,25 Kelvin dominieren.</p>
+</section>
+<section id="fehler-der-vorhersagen">
+<h2>Fehler der Vorhersagen<a class="headerlink" href="#fehler-der-vorhersagen" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Jahr für Vorhersage</span>
+<span class="n">x_val</span> <span class="o">=</span> <span class="mi">2050</span>
+<span class="n">x_exp</span> <span class="o">=</span> <span class="p">(</span><span class="n">x_val</span> <span class="o">-</span> <span class="mi">1880</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span>  <span class="c1"># normiert für exp</span>
+
+<span class="c1"># --- LINEAR (ges. Reihe) ---</span>
+<span class="n">p_lin1</span><span class="p">,</span> <span class="n">cov_lin1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">cov</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">y_pred_lin1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">p_lin1</span><span class="p">,</span> <span class="n">x_val</span><span class="p">)</span>
+
+<span class="c1"># Unsicherheit: Var(f) = J C J^T</span>
+<span class="n">J_lin1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x_val</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>  <span class="c1"># [∂f/∂m, ∂f/∂b] = [x, 1]</span>
+<span class="n">var_lin1</span> <span class="o">=</span> <span class="n">J_lin1</span> <span class="o">@</span> <span class="n">cov_lin1</span> <span class="o">@</span> <span class="n">J_lin1</span><span class="o">.</span><span class="n">T</span>
+<span class="n">sigma_lin1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">var_lin1</span><span class="p">)</span>
+
+<span class="c1"># --- LINEAR (ab 1981) ---</span>
+<span class="n">p_lin2</span><span class="p">,</span> <span class="n">cov_lin2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x_1980</span><span class="p">,</span> <span class="n">y_1980</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">cov</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">y_pred_lin2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">p_lin2</span><span class="p">,</span> <span class="n">x_val</span><span class="p">)</span>
+
+<span class="n">J_lin2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x_val</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+<span class="n">var_lin2</span> <span class="o">=</span> <span class="n">J_lin2</span> <span class="o">@</span> <span class="n">cov_lin2</span> <span class="o">@</span> <span class="n">J_lin2</span><span class="o">.</span><span class="n">T</span>
+<span class="n">sigma_lin2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">var_lin2</span><span class="p">)</span>
+
+<span class="c1"># --- QUADRATISCH ---</span>
+<span class="n">p_quadr</span><span class="p">,</span> <span class="n">cov_quadr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">cov</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">y_pred_quadr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">p_quadr</span><span class="p">,</span> <span class="n">x_val</span><span class="p">)</span>
+
+<span class="c1"># Ableitungen: f(x) = ax^2 + bx + c</span>
+<span class="n">J_quadr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x_val</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">x_val</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+<span class="n">var_quadr</span> <span class="o">=</span> <span class="n">J_quadr</span> <span class="o">@</span> <span class="n">cov_quadr</span> <span class="o">@</span> <span class="n">J_quadr</span><span class="o">.</span><span class="n">T</span>
+<span class="n">sigma_quadr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">var_quadr</span><span class="p">)</span>
+
+<span class="c1"># --- EXPONENTIELL ---</span>
+<span class="c1"># exp_model(x) = a * exp(bx) + c</span>
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">popt_exp</span>
+<span class="n">cov_exp</span> <span class="o">=</span> <span class="n">pcov_exp</span>
+<span class="n">y_pred_exp</span> <span class="o">=</span> <span class="n">exp_model</span><span class="p">(</span><span class="n">x_exp</span><span class="p">,</span> <span class="o">*</span><span class="n">popt_exp</span><span class="p">)</span>
+
+<span class="n">J_exp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="n">x_exp</span><span class="p">),</span>           <span class="c1"># ∂f/∂a</span>
+    <span class="n">a</span> <span class="o">*</span> <span class="n">x_exp</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="n">x_exp</span><span class="p">),</span> <span class="c1"># ∂f/∂b</span>
+    <span class="mf">1.0</span>                          <span class="c1"># ∂f/∂c</span>
+<span class="p">])</span>
+<span class="n">var_exp</span> <span class="o">=</span> <span class="n">J_exp</span> <span class="o">@</span> <span class="n">cov_exp</span> <span class="o">@</span> <span class="n">J_exp</span><span class="o">.</span><span class="n">T</span>
+<span class="n">sigma_exp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">var_exp</span><span class="p">)</span>
+
+<span class="c1"># --- Ergebnisse ---</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Vorhersage 2050 Linear (ges. Reihe): </span><span class="si">{</span><span class="n">y_pred_lin1</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> ± </span><span class="si">{</span><span class="n">sigma_lin1</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Vorhersage 2050 Linear (ab 1981):    </span><span class="si">{</span><span class="n">y_pred_lin2</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> ± </span><span class="si">{</span><span class="n">sigma_lin2</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Vorhersage 2050 Quadratisch:         </span><span class="si">{</span><span class="n">y_pred_quadr</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> ± </span><span class="si">{</span><span class="n">sigma_quadr</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Vorhersage 2050 Exponentiell:        </span><span class="si">{</span><span class="n">y_pred_exp</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> ± </span><span class="si">{</span><span class="n">sigma_exp</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vorhersage 2050 Linear (ges. Reihe): 0.873 ± 0.041
+Vorhersage 2050 Linear (ab 1981):    1.543 ± 0.061
+Vorhersage 2050 Quadratisch:         1.614 ± 0.057
+Vorhersage 2050 Exponentiell:        2.396 ± 0.168
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -1553,12 +1788,12 @@ Linear (ges. Reihe) 84.072             143     0.588
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="T_Log.html"
+       href="Versuche.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">zurück</p>
-        <p class="prev-next-title">Logarithmische Darstellung</p>
+        <p class="prev-next-title">Versuche</p>
       </div>
     </a>
     <a class="right-next"
@@ -1605,6 +1840,7 @@ Linear (ges. Reihe) 84.072             143     0.588
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vorhersage-fur-das-jahr-2050">Vorhersage für das Jahr 2050</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wie-gut-passen-die-modelle">Wie gut passen die Modelle?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fehler-der-vorhersagen">Fehler der Vorhersagen</a></li>
 </ul>
   </nav></div>
 

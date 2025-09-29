@@ -71,7 +71,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/T_Plotten';</script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="Verschiedene Fit-Funktionen" href="T_LinReg.html" />
+    <link rel="next" title="Lineare Regression mit Fehlerbalken" href="T_FitmitFehlerbalken.html" />
     <link rel="prev" title="Versuche" href="Versuche.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
@@ -266,9 +266,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">🐍 Jupyter Notebooks</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Klimadaten auswerten</a></li>
-<li class="toctree-l1"><a class="reference internal" href="T_LinReg.html">Verschiedene Fit-Funktionen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_FitmitFehlerbalken.html">Lineare Regression mit Fehlerbalken</a></li>
-<li class="toctree-l1"><a class="reference internal" href="T_Schwerependel.html">Messunsicherheiten beim Schwerependel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Fehlerfortpflanzung.html">Fehlerfortpflanzung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Log.html">Logarithmische Darstellung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Spektralanalyse_Audio.html">Fourier-Transformation und Filter</a></li>
@@ -594,7 +592,7 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Benötigte Libraries:</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span> <span class="c1"># Dataframes</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 
@@ -640,9 +638,105 @@ Es werden Daten von Dateien (online oder offline) eingelesen mit der Python Bilb
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">link</span> <span class="o">=</span> <span class="s2">&quot;https://data.giss.nasa.gov/gistemp/graphs_v4/graph_data/Global_Mean_Estimates_based_on_Land_and_Ocean_Data/graph.csv&quot;</span>
 <span class="c1">#link = &#39;data/graph.csv&#39;</span>
 <span class="n">global_mean</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">link</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="c1">#DataFrame erstellen</span>
+<span class="n">global_mean</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>No_Smoothing</th>
+      <th>Lowess(5)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1880</td>
+      <td>-0.17</td>
+      <td>-0.10</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1881</td>
+      <td>-0.09</td>
+      <td>-0.13</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1882</td>
+      <td>-0.11</td>
+      <td>-0.17</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1883</td>
+      <td>-0.17</td>
+      <td>-0.20</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1884</td>
+      <td>-0.28</td>
+      <td>-0.24</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>140</th>
+      <td>2020</td>
+      <td>1.01</td>
+      <td>0.97</td>
+    </tr>
+    <tr>
+      <th>141</th>
+      <td>2021</td>
+      <td>0.85</td>
+      <td>1.02</td>
+    </tr>
+    <tr>
+      <th>142</th>
+      <td>2022</td>
+      <td>0.89</td>
+      <td>1.08</td>
+    </tr>
+    <tr>
+      <th>143</th>
+      <td>2023</td>
+      <td>1.17</td>
+      <td>1.13</td>
+    </tr>
+    <tr>
+      <th>144</th>
+      <td>2024</td>
+      <td>1.28</td>
+      <td>1.19</td>
+    </tr>
+  </tbody>
+</table>
+<p>145 rows × 3 columns</p>
+</div></div></div>
 </div>
 <p>Wir geben das <em>DataFrame</em> aus um uns die Messdaten einmal anzusehen:</p>
 <div class="cell docutils container">
@@ -780,6 +874,8 @@ Name: Year, Length: 145, dtype: int64
 
 <span class="c1">#print(global_mean[&#39;No_Smoothing&#39;].describe())</span>
 <span class="c1">#print(global_mean[&#39;Lowess(5)&#39;].describe())</span>
+<span class="n">std_year</span> <span class="o">=</span> <span class="n">global_mean</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mean_year</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -793,6 +889,17 @@ min    1880.000000     -0.490000   -0.420000
 50%    1952.000000     -0.030000   -0.040000
 75%    1988.000000      0.310000    0.310000
 max    2024.000000      1.280000    1.190000
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#print(global_mean[&#39;No_Smoothing&#39;].describe())</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1">#print(global_mean[&#39;Lowess(5)&#39;].describe())</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">std_year</span> <span class="o">=</span> <span class="n">global_mean</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="nb">print</span><span class="p">(</span><span class="n">mean_year</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;mean_year&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1001,19 +1108,19 @@ Name: 144, dtype: float64
 <span class="c1">#plt.style.use(&#39;default&#39;)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">],</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:gray&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Werte&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span><span class="n">global_mean</span><span class="p">[</span><span class="s2">&quot;No_Smoothing&quot;</span><span class="p">],</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:red&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Werte&quot;</span><span class="p">);</span>
 <span class="c1">#plt.plot(global_mean[&quot;Year&quot;],global_mean[&quot;Lowess(5)&quot;], lw=4,  color=&quot;tab:blue&quot;, label=&quot;Glättung (NASA)&quot;);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Jahr&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Jahresmitteltemperaturabweichung [°C]&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Temperatur Anomalie [°C]&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;klima_plot1.png&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;klima_plot1.pdf&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d2ab5539abb46d3d4088aa43cac382b2dc23f257c303c60a8761fc799ec4c29f.png" src="../_images/d2ab5539abb46d3d4088aa43cac382b2dc23f257c303c60a8761fc799ec4c29f.png" />
+<img alt="../_images/3adf589ca4901f5544a353ac4cfce826c53972ba219cb3c8a9ce8f8e4abe9199.png" src="../_images/3adf589ca4901f5544a353ac4cfce826c53972ba219cb3c8a9ce8f8e4abe9199.png" />
 </div>
 </div>
 </section>
@@ -1256,14 +1363,13 @@ Name: 144, dtype: float64
 <p>Das Model beinhaltet zwei Matrizen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_lin1</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_lin1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 8.16509211e-03, -1.58652943e+01]),
- array([[ 1.44641636e-07, -2.82340474e-04],
-        [-2.82340474e-04,  5.51382018e-01]]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.44641636e-07, -2.82340474e-04],
+       [-2.82340474e-04,  5.51382018e-01]])
 </pre></div>
 </div>
 </div>
@@ -1433,7 +1539,7 @@ Mit der Kovarianz-Matrix und entsprechende Unsicherheiten: [[ 4.12615232e-11 -1.
     <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">c</span>
 
 <span class="c1"># Startwerte + Bounds</span>
-<span class="n">p0</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">p0</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0001</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="n">bounds</span> <span class="o">=</span> <span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 
 <span class="c1"># Fit</span>
@@ -1463,7 +1569,7 @@ Mit der Kovarianz-Matrix und entsprechende Unsicherheiten: [[ 4.12615232e-11 -1.
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a = 0.0422, b = 2.450713, c = -0.3252
-Vorhersage für das Jahr x = 2050: 2.3961870762580215
+Vorhersage für das Jahr x = 2050: 2.3961871141807887
 </pre></div>
 </div>
 <img alt="../_images/7c52d2894c2fa7825ee07fb6001cf7e6a43f8acc738f7caa35bfdea46e8957b0.png" src="../_images/7c52d2894c2fa7825ee07fb6001cf7e6a43f8acc738f7caa35bfdea46e8957b0.png" />
@@ -1498,7 +1604,7 @@ Vorhersage für das Jahr x = 2050: 2.3961870762580215
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lineares Modell 1 (1880-2025):	 0.8731445441662782
 Lineares Modell 2 (1981-2025):	 1.5430715854193977
 Quadratisches Modell:		 1.6139089222256189
-Exponentielles Modell:		 2.3961870762580215
+Exponentielles Modell:		 2.3961871141807887
 </pre></div>
 </div>
 </div>
@@ -1615,7 +1721,7 @@ R^2_\text{korr} = 1 - (1 - R^2) \cdot \frac{N - 1}{N - k - 1}
 <span class="n">r2_lin1</span><span class="p">,</span> <span class="n">r2adj_lin1</span> <span class="o">=</span> <span class="n">r2_adj</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">model_lin1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">model_lin1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">r2_lin2</span><span class="p">,</span> <span class="n">r2adj_lin2</span> <span class="o">=</span> <span class="n">r2_adj</span><span class="p">(</span><span class="n">y_1980</span><span class="p">,</span> <span class="n">model_lin2</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x_1980</span> <span class="o">+</span> <span class="n">model_lin2</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">r2_quadr</span><span class="p">,</span> <span class="n">r2adj_quadr</span> <span class="o">=</span> <span class="n">r2_adj</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">quadratic_fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">*</span><span class="n">popt</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">r2_exp</span><span class="p">,</span> <span class="n">r2adj_exp</span> <span class="o">=</span> <span class="n">r2_adj</span><span class="p">(</span><span class="n">ydata</span><span class="p">,</span> <span class="n">y_exp</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">popt_exp</span><span class="p">))</span>
+<span class="n">r2_exp</span><span class="p">,</span> <span class="n">r2adj_exp</span> <span class="o">=</span> <span class="n">r2_adj</span><span class="p">(</span><span class="n">ydata</span><span class="p">,</span> <span class="n">exp_model</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="o">*</span><span class="n">popt_exp</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">popt_exp</span><span class="p">))</span>
 
 <span class="c1"># --- Ergebnisse in Tabelle ---</span>
 <span class="n">results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
@@ -1666,23 +1772,14 @@ R^2_\text{korr} = 1 - (1 - R^2) \cdot \frac{N - 1}{N - k - 1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">30</span><span class="p">],</span> <span class="n">line</span> <span class="mi">49</span>
-<span class="g g-Whitespace">     </span><span class="mi">47</span> <span class="n">r2_lin2</span><span class="p">,</span> <span class="n">r2adj_lin2</span> <span class="o">=</span> <span class="n">r2_adj</span><span class="p">(</span><span class="n">y_1980</span><span class="p">,</span> <span class="n">model_lin2</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x_1980</span> <span class="o">+</span> <span class="n">model_lin2</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">48</span> <span class="n">r2_quadr</span><span class="p">,</span> <span class="n">r2adj_quadr</span> <span class="o">=</span> <span class="n">r2_adj</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">quadratic_fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">*</span><span class="n">popt</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">49</span> <span class="n">r2_exp</span><span class="p">,</span> <span class="n">r2adj_exp</span> <span class="o">=</span> <span class="n">r2_adj</span><span class="p">(</span><span class="n">ydata</span><span class="p">,</span> <span class="n">y_exp</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">popt_exp</span><span class="p">))</span>
-<span class="g g-Whitespace">     </span><span class="mi">51</span> <span class="c1"># --- Ergebnisse in Tabelle ---</span>
-<span class="g g-Whitespace">     </span><span class="mi">52</span> <span class="n">results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-<span class="g g-Whitespace">     </span><span class="mi">53</span>     <span class="s2">&quot;Modell&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Linear (ges. Reihe)&quot;</span><span class="p">,</span> <span class="s2">&quot;Linear (ab 1981)&quot;</span><span class="p">,</span> <span class="s2">&quot;Quadratisch&quot;</span><span class="p">,</span> <span class="s2">&quot;Exponentiell&quot;</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">54</span>     <span class="s2">&quot;Freiheitsgrade&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">dof_lin1</span><span class="p">,</span> <span class="n">dof_lin2</span><span class="p">,</span> <span class="n">dof_quadr</span><span class="p">,</span> <span class="n">dof_exp</span><span class="p">],</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">60</span>     <span class="s2">&quot;R²_korr&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">r2adj_lin1</span><span class="p">,</span> <span class="n">r2adj_lin2</span><span class="p">,</span> <span class="n">r2adj_quadr</span><span class="p">,</span> <span class="n">r2adj_exp</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">61</span> <span class="p">})</span>
-
-<span class="ne">NameError</span>: name &#39;y_exp&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>             Modell  Freiheitsgrade   SSR  RMSE   Chi²  Chi²_red    R²  R²_korr
+Linear (ges. Reihe)             143 5.255 0.192 84.072     0.588 0.763    0.760
+   Linear (ab 1981)              43 0.494 0.107  7.899     0.184 0.865    0.858
+        Quadratisch             142 2.086 0.121 33.375     0.235 0.906    0.904
+       Exponentiell             142 1.926 0.116 30.813     0.217 0.913    0.911
 </pre></div>
 </div>
+<img alt="../_images/e9943da690ce7c062f77e1501724c19159b2b5f329837fdffdfa6ede27f58853.png" src="../_images/e9943da690ce7c062f77e1501724c19159b2b5f329837fdffdfa6ede27f58853.png" />
 </div>
 </div>
 <p>Vergleicht man die jeweiligen Werte miteinander, so zeigt sich:</p>
@@ -1807,11 +1904,11 @@ Das erklärt die Unterschiede: ±0.04 (linear, viele Daten) bis ±0.17 (exp, sen
       </div>
     </a>
     <a class="right-next"
-       href="T_LinReg.html"
+       href="T_FitmitFehlerbalken.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title">Verschiedene Fit-Funktionen</p>
+        <p class="prev-next-title">Lineare Regression mit Fehlerbalken</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

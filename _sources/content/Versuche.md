@@ -5,7 +5,7 @@
 :class-container: text-center
 :gutter: 4
 
-:::{grid-item-card} [Versuchsanleitung](https://hsuhhde-my.sharepoint.com/:b:/g/personal/isleifk_hsu-hh_de/EePv1fRca-1Grz8YJnHJbZcBzA5OOLc5NAVBbHSaQnhQng?e=R28kXR)
+:::{grid-item-card}
 :class-header: bg-light
 **Accelerator Pedal Position Sensor  (APPS)**
 ^^^
@@ -16,7 +16,7 @@
 In Vorbereitung
 :::
 
-:::{grid-item-card} [Versuchsanleitung](https://hsuhhde-my.sharepoint.com/:b:/g/personal/isleifk_hsu-hh_de/EQvYG6Vn-zdOp3brKdzLnaEBYkH6rRUmjYNovMi0AkhC-g?e=weYCfi)
+:::{grid-item-card} [Versuchsanleitung](https://intranet.hsu-hh.de/ilias.php?baseClass=ilrepositorygui&cmdNode=107:og&cmdClass=ilObjFileGUI&cmd=sendfile&ref_id=276134)
 :class-header: bg-light
 **Michelson Interferometer (MI)**
 ^^^
@@ -27,7 +27,7 @@ In Vorbereitung
 In Vorbereitung
 :::
 
-:::{grid-item-card} [Versuchsanleitung](https://hsuhhde.sharepoint.com/:b:/s/MesstechnikHT23_mst/EffH6ekRYaVHqz7rGdsG_W0Bgy6SfZkcSKzWkeQ9R8tZsw?email=isleifk%40hsu-hh.de&e=vWQ5Ha)
+:::{grid-item-card} [Versuchsanleitung](https://intranet.hsu-hh.de/ilias.php?baseClass=ilrepositorygui&cmdNode=107:og&cmdClass=ilObjFileGUI&cmd=sendfile&ref_id=276129)
 :class-header: bg-light
 **Dioden-Kennlinie (DK)**
 ^^^
@@ -39,7 +39,7 @@ In Vorbereitung
 :::
 
 
-:::{grid-item-card} [Versuchsanleitung](https://hsuhhde.sharepoint.com/:b:/s/MesstechnikHT23_mst/EXlkrk55l7VFpQpRIpMxRLIB0MtCtFsyNoQ_im1ZOd8zjQ?e=8AGljc)
+:::{grid-item-card} [Versuchsanleitung](https://intranet.hsu-hh.de/ilias.php?baseClass=ilrepositorygui&cmdNode=107:og&cmdClass=ilObjFileGUI&cmd=sendfile&ref_id=276131)
 :link-type: doc
 :class-header: bg-light
 **Ballistisches Pendel (BP)**
@@ -52,7 +52,7 @@ In Vorbereitung
 :::
 
 
-:::{grid-item-card} [Versuchsanleitung](https://hsuhhde.sharepoint.com/:b:/s/MesstechnikHT23_mst/EXdQY_MtTFhGjhVFgB6FFR8BUnC3seHI0jO9eud8xZMZvw?e=Bd5Lqf)
+:::{grid-item-card} [Versuchsanleitung](https://intranet.hsu-hh.de/ilias.php?baseClass=ilrepositorygui&cmdNode=107:og&cmdClass=ilObjFileGUI&cmd=sendfile&ref_id=276132)
 :class-header: bg-light
 **Digitale Signalverarbeitung (DSV)**
 ^^^
@@ -61,7 +61,7 @@ In Vorbereitung
 ```
 :::
 
-:::{grid-item-card} [Versuchsanleitung](https://hsuhhde.sharepoint.com/:b:/s/MesstechnikHT23_mst/Ebi5apWgdFBHlAeml2f2e7kBRVF9dMD_pfloocUZPQmp7w?e=js9U3T)
+:::{grid-item-card} [Versuchsanleitung](https://intranet.hsu-hh.de/ilias.php?baseClass=ilrepositorygui&cmdNode=107:og&cmdClass=ilObjFileGUI&cmd=sendfile&ref_id=276133)
 :class-header: bg-light
 **Fertigungsmesstechnik (FMT)**
 ^^^
@@ -71,7 +71,7 @@ In Vorbereitung
 :::
 
 
-:::{grid-item-card} [Versuchsanleitung](https://hsuhhde.sharepoint.com/:b:/s/MesstechnikHT23_mst/EWaOUiVawtRDsu0oYj-mvXsBBxlxM9YB5_hImD-rayh20w?e=ET8d9T)
+:::{grid-item-card}
 :class-header: bg-light
 **Strahlungsmesstechnik (SMT)**
 ^^^
@@ -81,7 +81,7 @@ In Vorbereitung
 :::
 
 
-:::{grid-item-card} [Versuchsanleitung](https://hsuhhde-my.sharepoint.com/:b:/g/personal/isleifk_hsu-hh_de/EfQohUUuLvREism4f28JLoYBP6i83SFNb1JSfr6nr2QNNA?e=lQVPga)
+:::{grid-item-card}
 :class-header: bg-light
 **Optische Messtechnik (OMT)**
 ^^^

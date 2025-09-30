@@ -184,8 +184,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">✍️ Vorlesung</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="1_Einf%C3%BChrung%20in%20die%20Messtechnik.html">Intro</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="V1.html">Grundlagen</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="V1.html">Einführung in die Messtechnik und Einheiten</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_Einf%C3%BChrung%20in%20die%20Messtechnik.html">Messkette</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Einheiten.html">Einheiten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Kalibrieren.html">Kalibrieren und Eichen</a></li>
 </ul>
@@ -204,7 +204,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="V3.html">Kurvenanpassung</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="1_Kurvenanpassung.html">Regressionsrechnung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Kurvenanpassung.html">Modellanpassung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Interpol_Approx.html">Interpolation vs. Regression</a></li>
 </ul>
 </li>
@@ -220,6 +220,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="3_Digital.html">Digitalisierung</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Kenngrößen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_FourierAnalyse.html">Fourier-Analyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Rauschen.html">Rauschen und spektrale Dichte</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="V6.html">Dynamische Messsysteme</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -227,7 +228,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="5_DGL.html">Differentialgleichungen und Testfunktionen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5_Uebertragungsfunktion.html">Übertragungsfunktion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5_Faltung.html">Faltung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="5_Rauschen.html">Rauschen und spektrale Dichte</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="V7.html">Messen elektrischer Größen</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -265,12 +265,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">🐍 Jupyter Notebooks</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="T_Schwerependel.html">Messunsicherheiten beim Schwerependel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T_Plotten.html">Klimadaten auswerten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T_FitmitFehlerbalken.html">Lineare Regression mit Fehlerbalken</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Fehlerfortpflanzung.html">Fehlerfortpflanzung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Log.html">Logarithmische Darstellung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="T_Plotten.html">Daten plotten und fitten</a></li>
-<li class="toctree-l1"><a class="reference internal" href="T_LinReg.html">Verschiedene Fit-Funktionen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="T_FitmitFehlerbalken.html">Lineare Regression mit Fehlerbalken</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Spektralanalyse_Audio.html">Fourier-Transformation und Filter</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Übungen</span></p>
@@ -592,16 +590,16 @@ document.write(`
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Benötigte Libraries:</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">plotly.offline</span> <span class="k">as</span> <span class="nn">py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.offline</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">py</span>
 <span class="n">py</span><span class="o">.</span><span class="n">init_notebook_mode</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">plotly.graph_objs</span> <span class="k">as</span> <span class="nn">go</span>
-<span class="kn">import</span> <span class="nn">plotly.tools</span> <span class="k">as</span> <span class="nn">tls</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objs</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.tools</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tls</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 
 <span class="c1"># MatplotLib Settings:</span>
@@ -642,7 +640,7 @@ document.write(`
         require.undef("plotly");
         requirejs.config({
             paths: {
-                'plotly': ['https://cdn.plot.ly/plotly-2.12.1.min']
+                'plotly': ['https://cdn.plot.ly/plotly-2.35.2.min']
             }
         });
         require(['plotly'], function(Plotly) {
@@ -650,7 +648,7 @@ document.write(`
         });
         }
         </script>
-        </div><img alt="../_images/4d64e03a8f4019eebb64e61a4d44022ccdce5ceda12657bb51e921a2cd041ea9.png" src="../_images/4d64e03a8f4019eebb64e61a4d44022ccdce5ceda12657bb51e921a2cd041ea9.png" />
+        </div><img alt="../_images/f5af8cc2c526bb150d0804867cacdb11c24350a13c398f2af306e019501fe275.png" src="../_images/f5af8cc2c526bb150d0804867cacdb11c24350a13c398f2af306e019501fe275.png" />
 </div>
 </div>
 <p>Bei einem Wechselsignal interessiert man sich häufig nicht für den Zeitverlauf, oder den einzelnen Wert zu einem bestimmten Zeitpunkt, den sogenannten Momentanwert. Dieser hat nämlich keine große Aussagekraft, da er sich gemäß der zugrundeliegenden Signalform ständig ändert. Für viele Fragestellungen sind Kenngrößen relevant, die sich aus der Periode des Wechselsignals ermitteln lassen.</p>
@@ -732,16 +730,16 @@ document.write(`
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Benötigte Libraries:</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">plotly.offline</span> <span class="k">as</span> <span class="nn">py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.offline</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">py</span>
 <span class="n">py</span><span class="o">.</span><span class="n">init_notebook_mode</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">plotly.graph_objs</span> <span class="k">as</span> <span class="nn">go</span>
-<span class="kn">import</span> <span class="nn">plotly.tools</span> <span class="k">as</span> <span class="nn">tls</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objs</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.tools</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tls</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 
 <span class="c1"># MatplotLib Settings:</span>
@@ -826,7 +824,7 @@ document.write(`
         require.undef("plotly");
         requirejs.config({
             paths: {
-                'plotly': ['https://cdn.plot.ly/plotly-2.12.1.min']
+                'plotly': ['https://cdn.plot.ly/plotly-2.35.2.min']
             }
         });
         require(['plotly'], function(Plotly) {
@@ -834,7 +832,7 @@ document.write(`
         });
         }
         </script>
-        </div><img alt="../_images/787fc5ec7b60bb7d5025a4818f42d03007ed8e68d1a353a82c0b3c752d9a37ae.png" src="../_images/787fc5ec7b60bb7d5025a4818f42d03007ed8e68d1a353a82c0b3c752d9a37ae.png" />
+        </div><img alt="../_images/673f1f2f515cbc64fde52956732383202d339928c31c27c1ef1e304fb676acaa.png" src="../_images/673f1f2f515cbc64fde52956732383202d339928c31c27c1ef1e304fb676acaa.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>		 ohne Gleichanteil 		 mit Gleichanteil
 -------------------------------------------------------------------
 Gleichanteil	 -6.286365977370858e-18 	 0.5
@@ -927,11 +925,11 @@ Bei einem Testgrad von 50% liegt immer die Hälfte der Eingangsspannung an.</p>
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">matplotlib.animation</span> <span class="kn">import</span> <span class="n">FuncAnimation</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>  <span class="c1"># Import the signal module from scipy</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.animation</span><span class="w"> </span><span class="kn">import</span> <span class="n">FuncAnimation</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTML</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">signal</span>  <span class="c1"># Import the signal module from scipy</span>
 
 
 <span class="c1"># Abtastparameter</span>
@@ -944,7 +942,7 @@ Bei einem Testgrad von 50% liegt immer die Hälfte der Eingangsspannung an.</p>
 <span class="n">pwm_signal</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f</span> <span class="o">*</span> <span class="n">t</span><span class="p">,</span> <span class="n">duty</span><span class="o">=</span><span class="n">duty_cycle</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># Funktion zur Aktualisierung der Animation mit dem geänderten Tastgrad</span>
-<span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">duty_cycle</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">duty_cycle</span><span class="p">):</span>
     <span class="n">pwm_signal</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mi">1</span> <span class="o">*</span> <span class="n">t</span><span class="p">,</span> <span class="n">duty</span><span class="o">=</span><span class="n">duty_cycle</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">pwm_signal</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;PWM Signal&#39;</span><span class="p">)</span>
@@ -1153,42 +1151,42 @@ input[type=range].anim-slider {
 </style>
 
 <div class="animation">
-  <img id="_anim_img71259a551b274039adbdb63ec91b91e5">
+  <img id="_anim_img26e7100baeaf4dffbd16f7ff1df25fe1">
   <div class="anim-controls">
-    <input id="_anim_slider71259a551b274039adbdb63ec91b91e5" type="range" class="anim-slider"
+    <input id="_anim_slider26e7100baeaf4dffbd16f7ff1df25fe1" type="range" class="anim-slider"
            name="points" min="0" max="1" step="1" value="0"
-           oninput="anim71259a551b274039adbdb63ec91b91e5.set_frame(parseInt(this.value));">
+           oninput="anim26e7100baeaf4dffbd16f7ff1df25fe1.set_frame(parseInt(this.value));">
     <div class="anim-buttons">
-      <button title="Decrease speed" aria-label="Decrease speed" onclick="anim71259a551b274039adbdb63ec91b91e5.slower()">
+      <button title="Decrease speed" aria-label="Decrease speed" onclick="anim26e7100baeaf4dffbd16f7ff1df25fe1.slower()">
           <i class="fa fa-minus"></i></button>
-      <button title="First frame" aria-label="First frame" onclick="anim71259a551b274039adbdb63ec91b91e5.first_frame()">
+      <button title="First frame" aria-label="First frame" onclick="anim26e7100baeaf4dffbd16f7ff1df25fe1.first_frame()">
         <i class="fa fa-fast-backward"></i></button>
-      <button title="Previous frame" aria-label="Previous frame" onclick="anim71259a551b274039adbdb63ec91b91e5.previous_frame()">
+      <button title="Previous frame" aria-label="Previous frame" onclick="anim26e7100baeaf4dffbd16f7ff1df25fe1.previous_frame()">
           <i class="fa fa-step-backward"></i></button>
-      <button title="Play backwards" aria-label="Play backwards" onclick="anim71259a551b274039adbdb63ec91b91e5.reverse_animation()">
+      <button title="Play backwards" aria-label="Play backwards" onclick="anim26e7100baeaf4dffbd16f7ff1df25fe1.reverse_animation()">
           <i class="fa fa-play fa-flip-horizontal"></i></button>
-      <button title="Pause" aria-label="Pause" onclick="anim71259a551b274039adbdb63ec91b91e5.pause_animation()">
+      <button title="Pause" aria-label="Pause" onclick="anim26e7100baeaf4dffbd16f7ff1df25fe1.pause_animation()">
           <i class="fa fa-pause"></i></button>
-      <button title="Play" aria-label="Play" onclick="anim71259a551b274039adbdb63ec91b91e5.play_animation()">
+      <button title="Play" aria-label="Play" onclick="anim26e7100baeaf4dffbd16f7ff1df25fe1.play_animation()">
           <i class="fa fa-play"></i></button>
-      <button title="Next frame" aria-label="Next frame" onclick="anim71259a551b274039adbdb63ec91b91e5.next_frame()">
+      <button title="Next frame" aria-label="Next frame" onclick="anim26e7100baeaf4dffbd16f7ff1df25fe1.next_frame()">
           <i class="fa fa-step-forward"></i></button>
-      <button title="Last frame" aria-label="Last frame" onclick="anim71259a551b274039adbdb63ec91b91e5.last_frame()">
+      <button title="Last frame" aria-label="Last frame" onclick="anim26e7100baeaf4dffbd16f7ff1df25fe1.last_frame()">
           <i class="fa fa-fast-forward"></i></button>
-      <button title="Increase speed" aria-label="Increase speed" onclick="anim71259a551b274039adbdb63ec91b91e5.faster()">
+      <button title="Increase speed" aria-label="Increase speed" onclick="anim26e7100baeaf4dffbd16f7ff1df25fe1.faster()">
           <i class="fa fa-plus"></i></button>
     </div>
-    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_select71259a551b274039adbdb63ec91b91e5"
+    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_select26e7100baeaf4dffbd16f7ff1df25fe1"
           class="anim-state">
-      <input type="radio" name="state" value="once" id="_anim_radio1_71259a551b274039adbdb63ec91b91e5"
+      <input type="radio" name="state" value="once" id="_anim_radio1_26e7100baeaf4dffbd16f7ff1df25fe1"
              checked>
-      <label for="_anim_radio1_71259a551b274039adbdb63ec91b91e5">Once</label>
-      <input type="radio" name="state" value="loop" id="_anim_radio2_71259a551b274039adbdb63ec91b91e5"
+      <label for="_anim_radio1_26e7100baeaf4dffbd16f7ff1df25fe1">Once</label>
+      <input type="radio" name="state" value="loop" id="_anim_radio2_26e7100baeaf4dffbd16f7ff1df25fe1"
              >
-      <label for="_anim_radio2_71259a551b274039adbdb63ec91b91e5">Loop</label>
-      <input type="radio" name="state" value="reflect" id="_anim_radio3_71259a551b274039adbdb63ec91b91e5"
+      <label for="_anim_radio2_26e7100baeaf4dffbd16f7ff1df25fe1">Loop</label>
+      <input type="radio" name="state" value="reflect" id="_anim_radio3_26e7100baeaf4dffbd16f7ff1df25fe1"
              >
-      <label for="_anim_radio3_71259a551b274039adbdb63ec91b91e5">Reflect</label>
+      <label for="_anim_radio3_26e7100baeaf4dffbd16f7ff1df25fe1">Reflect</label>
     </form>
   </div>
 </div>
@@ -1198,13 +1196,13 @@ input[type=range].anim-slider {
   /* Instantiate the Animation class. */
   /* The IDs given should match those used in the template above. */
   (function() {
-    var img_id = "_anim_img71259a551b274039adbdb63ec91b91e5";
-    var slider_id = "_anim_slider71259a551b274039adbdb63ec91b91e5";
-    var loop_select_id = "_anim_loop_select71259a551b274039adbdb63ec91b91e5";
+    var img_id = "_anim_img26e7100baeaf4dffbd16f7ff1df25fe1";
+    var slider_id = "_anim_slider26e7100baeaf4dffbd16f7ff1df25fe1";
+    var loop_select_id = "_anim_loop_select26e7100baeaf4dffbd16f7ff1df25fe1";
     var frames = new Array(17);
     
   frames[0] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA+gAAAGQCAYAAAA9TUphAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAABxmElEQVR4nO3dd3wUdf7H8femJ0BAeuigVPlZABEUCEWCoBQ9yylK9+BQFKIo\
 dkA87KIooCflVFROAWtEckcCKHBSRUGBkyokIjWhJNkk8/uD2yVLNrBJZnY3k9fz8cgDMjvlu5n9\
 JPP5fj/zHYdhGIYAAAAAAEBAhQS6AQAAAAAAgAQdAAAAAICgQIIOAAAAAEAQIEEHAAAAACAIkKAD\
@@ -1718,7 +1716,7 @@ AIDg9PDDD+v48eN66623LrjuH3/8oRYtWmjdunVq3LixH1oHAIC9MIIOAACK9Pjjj6thw4Y+3bO+\
 a9cuzZgxg+QcAIASYgQdAAAAAIAg8P+kPn47LdejYAAAAABJRU5ErkJggg==\
 "
   frames[1] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA+gAAAGQCAYAAAA9TUphAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAABx10lEQVR4nO3dd3xUVfrH8e+kJ0BAIITQQanyswCiqBCKBEEp61pWUboLi6KA\
 DayAuNhFUcBCWdfGKtgjkl0SQAGlWsDCSocg0kxoYZLc3x/sTGYyEzITQu6Z8fN+vfKCuXPv3Gdy\
 88zc55xzz3VYlmUJAAAAAADYKsLuAAAAAAAAAAU6AAAAAABGoEAHAAAAAMAAFOgAAAAAABiAAh0A\
@@ -2233,7 +2231,7 @@ sizL7iAAAICZ7r33Xv3+++96+eWXS133t99+U4sWLbR69Wo1bty4AqIDACC80IMOAABK9MADD6hh\
 w4YBXbO+ZcsWTZ8+neIcAIAyogcdAAAAAAAD/D9IjqYOnTEHAwAAAABJRU5ErkJggg==\
 "
   frames[2] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA+gAAAGQCAYAAAA9TUphAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAABztElEQVR4nO3deVxUVf8H8M8wDJuAirK54ZK45K9MzMRUXBKDcmmzRy130yxN\
 KUuzRU0fbTPLculxIcutcs3I5HkEdxMV0zSXx32BDDdwAQbm/v7gmXGuM8gMDNw5937erxcv5c6d\
 me/lnDNzvvece65OkiQJRERERERERKQoD6UDICIiIiIiIiIm6ERERERERERugQk6ERERERERkRtg\
@@ -2757,7 +2755,7 @@ EB0REZG6cASdiIiIijVhwgREREQ4dM36qVOnMHv2bCbnREREpcQRdCIiIiIiIiI38P/mP6vJ0/1j\
 8wAAAABJRU5ErkJggg==\
 "
   frames[3] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA+gAAAGQCAYAAAA9TUphAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAABzWklEQVR4nO3deXxMV/8H8M9kMtlIaMhmXyqWekpRFUUsFU1a9Omij6qdUkpJ\
 q6W6oDx0U63W0sdWreJprdVQeR6JXQVRRS1PLbEk1dgSZJlk7u8PvxlzZRITMnPnnvN5v155kTt3\
 Zr4n55yZ+73n3HMNiqIoICIiIiIiIiJNeWkdABERERERERExQSciIiIiIiLyCEzQiYiIiIiIiDwA\
@@ -3279,7 +3277,7 @@ FXPnzr3jvn/99RcaNGiAPXv2oHbt2m6IjoiISCwcQSciIqJijR8/HjVr1nTqmvWTJ09i1qxZTM6J\
 iIjuEkfQiYiIiIiIiDzA/wHQj6HPAUTksAAAAABJRU5ErkJggg==\
 "
   frames[4] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA+gAAAGQCAYAAAA9TUphAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAAByyklEQVR4nO3dd3xUVf7/8fekJ0DohNBBqfKzACIoEIoEQSm6lkWU7sKiKERx\
 UWwgLnZRFNCVsq4oqICiRiS7EECBlWoBBVZAEBKRZkILk+T+/uCbYS6ZJBNIuGeG1/PxyANy587M\
 Z849Z3I/95TrsizLEgAAAAAAcFSI0wEAAAAAAAASdAAAAAAAjECCDgAAAACAAUjQAQAAAAAwAAk6\
@@ -3799,7 +3797,7 @@ ACC40IMOAAAKNG7cONWtW9evOes7d+7U1KlTSc4BADhH9KADAAAAAGCA/w/krK8z4IIXbgAAAABJ\
 RU5ErkJggg==\
 "
   frames[5] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA+gAAAGQCAYAAAA9TUphAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAAByBklEQVR4nO3dd3hUVf7H8c+kEyAgLfSmhCJrAURQICASBEXUtSyidIVFUcCG\
 IiqKixVRFLBQ1hUVFVDUiGSXBJCyUi2gwEoVEpGa0MIkub8/+M2QIQkkmVtmhvfrefJA7tyZ+c65\
 52TO955zz3UZhmEIAAAAAAA4KszpAAAAAAAAAAk6AAAAAAABgQQdAAAAAIAAQIIOAAAAAEAAIEEH\
@@ -4315,7 +4313,7 @@ FB4erv3796tPnz5KSEjQ7bffrm7dumns2LHe53z00Ufq3bu3YmNjTSwNAADODy7DMAyngwAAAIHp\
 J08mOQcAoJQYQQcAAAAAIAD8H/9osqrwYlphAAAAAElFTkSuQmCC\
 "
   frames[6] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA+gAAAGQCAYAAAA9TUphAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAABy6ElEQVR4nO3dd3xUVf7/8fekJ0BAWuhNqfJVBERQIRQJEqWsa1lF6S4sikIs\
 i10QF7soSnGlrCsKq4A1KtklARRYqaKgyEoVEpGaUJJMkvv7g98MGZKQO8nk3snM6/l48NDcuTP3\
 5JTJ+Zxz7rkOwzAMAQAAAAAAW4XYnQAAAAAAAECADgAAAACAXyBABwAAAADADxCgAwAAAADgBwjQ\
@@ -4835,7 +4833,7 @@ wzpx4oTmzJlT6rm///672rRpow0bNqh58+YWpA4AgMDCDDoAACjRY489pqZNm5q6Z3337t2aOXMm\
 wTkAAGXEDDoAAAAAAH7g/wGO7P7kA7d9UQAAAABJRU5ErkJggg==\
 "
   frames[7] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA+gAAAGQCAYAAAA9TUphAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAAByl0lEQVR4nO3dd3hUVf7H8c9k0iEBQwmhFwlFVhEQQYVQJJgoxb6K0l1YFARs\
 iA0QFyuiKMWVsq4FVFBRI5JdEkAB6aJgYaUpJCI1oSWT5P7+4DfDTDLJTDDJ3Mm8X8+TR3Pn3pkz\
 fO+5Od9zzj3XYhiGIQAAAAAA4FNBvi4AAAAAAAAgQQcAAAAAwBRI0AEAAAAAMAESdAAAAAAATIAE\
@@ -5354,7 +5352,7 @@ kyYVUDoAACoXRtABAECxHnvsMTVq1Mire9b37NmjWbNmkZwDAHCBGEEHAAAAAMAE/g+t1yeEMgVD\
 OwAAAABJRU5ErkJggg==\
 "
   frames[8] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA+gAAAGQCAYAAAA9TUphAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAABwOklEQVR4nO3dd3xUVfrH8e+kJ0DohNBBCUV+ioAICoQiQVCKrsoqSndhURCi\
 KHZAXLAhilJcKeuKigooakSyS0IRWKmioMBKFRKRmlCSTJL7+4OdMUMSSGCSmTnzeb9eeUHu3Dvz\
 TJ6cyXnuOfdcm2VZlgAAAAAAgEcFeDoAAAAAAABAgQ4AAAAAgFegQAcAAAAAwAtQoAMAAAAA4AUo\
@@ -5862,7 +5860,7 @@ duyY+vfvr5iYGN1zzz3q3r27JkyY4Dzmww8/VL9+/RQREeHGnwYAAP7BZlmW5ekgAACAd3r88cd1\
 AQC4TIygAwAAAADgBf4fb2yNsvydBA8AAAAASUVORK5CYII=\
 "
   frames[9] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA+gAAAGQCAYAAAA9TUphAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAAByk0lEQVR4nO3dd3xUVfrH8e+kJ0BAWgi9SJWfIiCCAqFIkCjFXcsqSndhURSw\
 YQfFBTuKAhbKqqiooKJGJLskgBSlWsDCShWCSE0oSSbJ/f3BzjCTAjMhyb135vN+vfLS3Lkz8wzP\
 PZPznHvuuQ7DMAwBAAAAAABThZgdAAAAAAAAoEAHAAAAAMASKNABAAAAALAACnQAAAAAACyAAh0A\
@@ -6381,7 +6379,7 @@ FvTFF19o165dSk5OVnx8fKGfyy67TJJUu3ZtrVq1Snl5eerdu7dat26tu+++W5UrV1ZISNF/5p94\
 AElFTkSuQmCC\
 "
   frames[10] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA+gAAAGQCAYAAAA9TUphAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAABzlUlEQVR4nO3dd3hUVf7H8c+kJ0DohNB7k7UAIiAQigSJUuyrKN0FURRiWeyA\
 uGBHUYorZV1RUQFFjUp2SeisVFFQRKlCIlITgSST5P7+4DdDhrSZZDL3Tni/nodHc+fOnTP3nHPn\
 fM8591ybYRiGAAAAAACAqQLMTgAAAAAAACBABwAAAADAEgjQAQAAAACwAAJ0AAAAAAAsgAAdAAAA\
@@ -6904,7 +6902,7 @@ scce0+nTpzV37txi9/3jjz/UqlUrbd68WY0bN/ZB6gAAKF8YQQcAAIV68skn1bBhQ7fuWd+3b59m\
 zZpFcA4AQAkxgg4AAAAAgAX8H9wqpn9MF2MeAAAAAElFTkSuQmCC\
 "
   frames[11] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA+gAAAGQCAYAAAA9TUphAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAABzfUlEQVR4nO3dd3wUdf7H8femEyB0QihSpMtZABEUCEUCRBH0LKcoTfyBKAjY\
 wAqIB3YUpXhSjhOVU0BRA5I7EjonVRQUOalCIlITSpJNMr8/uF2yJIFkM7OzWV/PxyMP2NmZ3c9+\
 5/vdnc98v/Mdh2EYhgAAAAAAgK2C7A4AAAAAAACQoAMAAAAA4BdI0AEAAAAA8AMk6AAAAAAA+AES\
@@ -7427,7 +7425,7 @@ Tapfv74PogMAILDQgw4AAAr17LPPqm7dukW6Zn3v3r2aNm0ayTkAAF6iBx0AAAAAAD/w/x+qJQ0o\
 //ZjAAAAAElFTkSuQmCC\
 "
   frames[12] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA+gAAAGQCAYAAAA9TUphAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAAByD0lEQVR4nO3dd3hUVf7H8c+kJ4TQO0iRLj9FQAQUQpEgKGVdyypKd0EUhVgW\
 OyAudlEU0JViQWUVVNSIZBdCZ6VaQJCVKiQiNaEkmWTu7w92JrmZCZkJCfdOeL+eJ4/mzr0z35x7\
 znC/55x7rsMwDEMAAAAAAMBSIVYHAAAAAAAASNABAAAAALAFEnQAAAAAAGyABB0AAAAAABsgQQcA\
@@ -7943,7 +7941,7 @@ DMPqIAAAgD098sgjOnHihN56660i9/3jjz/UvHlzbdiwQQ0bNrwA0QEAULYwgg4AAAr1+OOPq379\
 +n7ds757925Nnz6d5BwAgGJiBB0AAAAAABv4fxp5ma6n4WeLAAAAAElFTkSuQmCC\
 "
   frames[13] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA+gAAAGQCAYAAAA9TUphAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAABz/0lEQVR4nO3deVxU5f4H8M8wDJuCigKCouKCS940NRNTcUkUyqVb2WLuejVL\
 U8xyaVHTq5WZZbndUK9laqWWGRr8ruCGFipmuV83XEDDDVSWgTm/P7gzcmCAGbYz5zyf9+vFSzlz\
 Zub7cJ5n5nyf5znP0UmSJIGIiIiIiIiIFOWkdABERERERERExASdiIiIiIiIyCEwQSciIiIiIiJy\
@@ -8468,7 +8466,7 @@ wcEYNGgQwsPDMXv2bMtz1q9fj8GDB8PDw6MC/xpERERi0EmSJCkdBBERETmmN998E3fu3MGKFStK\
 TkREREREROQA/h+CUzBQsy//pQAAAABJRU5ErkJggg==\
 "
   frames[14] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA+gAAAGQCAYAAAA9TUphAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAAB2k0lEQVR4nO3deXgT1foH8G+aphttgUJbyl6Qsl5BqEgRKIsUi7K4wQVlhwuC\
 IBRREBc2BXcUZVMWubKpgAsWpP5ooVC4sgqyiexLyw4tdEub+f2BCZkmbZOSZHIm38/z9IFMZpJ3\
 Muck551z5oxGkiQJRERERERERKQoL6UDICIiIiIiIiIm6ERERERERERugQk6ERERERERkRtggk5E\
@@ -9005,7 +9003,7 @@ PehERERUrMmTJ6NWrVo2XbN+6tQpzJ07l8k5ERFRGbEHnYiIiIiIiMgN/D8wyh7oNOYreQAAAABJ\
 RU5ErkJggg==\
 "
   frames[15] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA+gAAAGQCAYAAAA9TUphAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAAB0bklEQVR4nO3dd3wUdf7H8fdm04GAtBB6kSpnAURQIBQJggLqKZ6idA8OBQEb\
 dlE87KIoxZNynqiogDUiuSOh85NqAQFPOiTSTSgJm2R+f3BZMqRtGvPd8Ho+HnlAZmd2PruTz+73\
 M9/vfMdlWZYlAAAAAADgqACnAwAAAAAAABToAAAAAAAYgQIdAAAAAAADUKADAAAAAGAACnQAAAAA\
@@ -9532,7 +9530,7 @@ Clz30KFDatasmdatW6cGDRpcgOgAAChb6EEHAAB5euKJJ1SvXj2frlnfuXOnpk6dSnEOAEAR0YMO\
 AAAAAIAB/h8YLK9sZtcAZwAAAABJRU5ErkJggg==\
 "
   frames[16] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA+gAAAGQCAYAAAA9TUphAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAABzxklEQVR4nO3dd3hUZdrH8d9k0oHQS+ggXV4LoIICoUgQlGJfRekuiKKAZcEO\
 4qKuBcUFdKWsKyoqqKgRybsQOitVFKSsdEhAakJJMknO+wdvhgxJIMmcc6bk+7muXJAzpzwzJ3dy\
 7vPc53kchmEYAgAAAAAAPhXi6wYAAAAAAAASdAAAAAAA/AIJOgAAAAAAfoAEHQAAAAAAP0CCDgAA\
@@ -10060,7 +10058,7 @@ v7+aNGmie+65Rz169ND48ePd23z66afq16+foqOjTfw0AAAoHRyGYRi+bgQAAPBPTz/9tE6dOqX3\
     /* set a timeout to make sure all the above elements are created before
        the object is initialized. */
     setTimeout(function() {
-        anim71259a551b274039adbdb63ec91b91e5 = new Animation(frames, img_id, slider_id, 200.0,
+        anim26e7100baeaf4dffbd16f7ff1df25fe1 = new Animation(frames, img_id, slider_id, 200.0,
                                  loop_select_id);
     }, 0);
   })()

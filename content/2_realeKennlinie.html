@@ -184,8 +184,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">✍️ Vorlesung</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="1_Einf%C3%BChrung%20in%20die%20Messtechnik.html">Intro</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="V1.html">Grundlagen</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="V1.html">Einführung in die Messtechnik und Einheiten</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_Einf%C3%BChrung%20in%20die%20Messtechnik.html">Messkette</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Einheiten.html">Einheiten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Kalibrieren.html">Kalibrieren und Eichen</a></li>
 </ul>
@@ -204,7 +204,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="V3.html">Kurvenanpassung</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="1_Kurvenanpassung.html">Regressionsrechnung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Kurvenanpassung.html">Modellanpassung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Interpol_Approx.html">Interpolation vs. Regression</a></li>
 </ul>
 </li>
@@ -265,12 +265,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">🐍 Jupyter Notebooks</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="T_Schwerependel.html">Messunsicherheiten beim Schwerependel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T_Plotten.html">Klimadaten auswerten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T_FitmitFehlerbalken.html">Lineare Regression mit Fehlerbalken</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Fehlerfortpflanzung.html">Fehlerfortpflanzung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Log.html">Logarithmische Darstellung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="T_Plotten.html">Daten plotten und fitten</a></li>
-<li class="toctree-l1"><a class="reference internal" href="T_LinReg.html">Verschiedene Fit-Funktionen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="T_FitmitFehlerbalken.html">Lineare Regression mit Fehlerbalken</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Spektralanalyse_Audio.html">Fourier-Transformation und Filter</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Übungen</span></p>
@@ -846,11 +844,11 @@ Für alle Messwerte dazwischen, ändert sich die Messabweichung linear. Wir bere
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">matplotlib.animation</span> <span class="kn">import</span> <span class="n">FuncAnimation</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
-<span class="kn">from</span> <span class="nn">matplotlib.widgets</span> <span class="kn">import</span> <span class="n">Slider</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.animation</span><span class="w"> </span><span class="kn">import</span> <span class="n">FuncAnimation</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTML</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.widgets</span><span class="w"> </span><span class="kn">import</span> <span class="n">Slider</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
 
 
@@ -858,7 +856,7 @@ Für alle Messwerte dazwischen, ändert sich die Messabweichung linear. Wir bere
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="n">f</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="c1"># Create a function to update the plot for each frame of the animation</span>
-<span class="k">def</span> <span class="nf">animate</span><span class="p">(</span><span class="n">bit</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">animate</span><span class="p">(</span><span class="n">bit</span><span class="p">):</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>  <span class="c1"># Clear the previous frame</span>
     
     <span class="c1"># Set the signal frequency and time axis</span>
@@ -1085,42 +1083,42 @@ input[type=range].anim-slider {
 </style>
 
 <div class="animation">
-  <img id="_anim_img544c6f9d49e34e99963431204322514a">
+  <img id="_anim_imgce78a5a3f3fd47319567d29ea817405a">
   <div class="anim-controls">
-    <input id="_anim_slider544c6f9d49e34e99963431204322514a" type="range" class="anim-slider"
+    <input id="_anim_sliderce78a5a3f3fd47319567d29ea817405a" type="range" class="anim-slider"
            name="points" min="0" max="1" step="1" value="0"
-           oninput="anim544c6f9d49e34e99963431204322514a.set_frame(parseInt(this.value));">
+           oninput="animce78a5a3f3fd47319567d29ea817405a.set_frame(parseInt(this.value));">
     <div class="anim-buttons">
-      <button title="Decrease speed" aria-label="Decrease speed" onclick="anim544c6f9d49e34e99963431204322514a.slower()">
+      <button title="Decrease speed" aria-label="Decrease speed" onclick="animce78a5a3f3fd47319567d29ea817405a.slower()">
           <i class="fa fa-minus"></i></button>
-      <button title="First frame" aria-label="First frame" onclick="anim544c6f9d49e34e99963431204322514a.first_frame()">
+      <button title="First frame" aria-label="First frame" onclick="animce78a5a3f3fd47319567d29ea817405a.first_frame()">
         <i class="fa fa-fast-backward"></i></button>
-      <button title="Previous frame" aria-label="Previous frame" onclick="anim544c6f9d49e34e99963431204322514a.previous_frame()">
+      <button title="Previous frame" aria-label="Previous frame" onclick="animce78a5a3f3fd47319567d29ea817405a.previous_frame()">
           <i class="fa fa-step-backward"></i></button>
-      <button title="Play backwards" aria-label="Play backwards" onclick="anim544c6f9d49e34e99963431204322514a.reverse_animation()">
+      <button title="Play backwards" aria-label="Play backwards" onclick="animce78a5a3f3fd47319567d29ea817405a.reverse_animation()">
           <i class="fa fa-play fa-flip-horizontal"></i></button>
-      <button title="Pause" aria-label="Pause" onclick="anim544c6f9d49e34e99963431204322514a.pause_animation()">
+      <button title="Pause" aria-label="Pause" onclick="animce78a5a3f3fd47319567d29ea817405a.pause_animation()">
           <i class="fa fa-pause"></i></button>
-      <button title="Play" aria-label="Play" onclick="anim544c6f9d49e34e99963431204322514a.play_animation()">
+      <button title="Play" aria-label="Play" onclick="animce78a5a3f3fd47319567d29ea817405a.play_animation()">
           <i class="fa fa-play"></i></button>
-      <button title="Next frame" aria-label="Next frame" onclick="anim544c6f9d49e34e99963431204322514a.next_frame()">
+      <button title="Next frame" aria-label="Next frame" onclick="animce78a5a3f3fd47319567d29ea817405a.next_frame()">
           <i class="fa fa-step-forward"></i></button>
-      <button title="Last frame" aria-label="Last frame" onclick="anim544c6f9d49e34e99963431204322514a.last_frame()">
+      <button title="Last frame" aria-label="Last frame" onclick="animce78a5a3f3fd47319567d29ea817405a.last_frame()">
           <i class="fa fa-fast-forward"></i></button>
-      <button title="Increase speed" aria-label="Increase speed" onclick="anim544c6f9d49e34e99963431204322514a.faster()">
+      <button title="Increase speed" aria-label="Increase speed" onclick="animce78a5a3f3fd47319567d29ea817405a.faster()">
           <i class="fa fa-plus"></i></button>
     </div>
-    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_select544c6f9d49e34e99963431204322514a"
+    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_selectce78a5a3f3fd47319567d29ea817405a"
           class="anim-state">
-      <input type="radio" name="state" value="once" id="_anim_radio1_544c6f9d49e34e99963431204322514a"
+      <input type="radio" name="state" value="once" id="_anim_radio1_ce78a5a3f3fd47319567d29ea817405a"
              checked>
-      <label for="_anim_radio1_544c6f9d49e34e99963431204322514a">Once</label>
-      <input type="radio" name="state" value="loop" id="_anim_radio2_544c6f9d49e34e99963431204322514a"
+      <label for="_anim_radio1_ce78a5a3f3fd47319567d29ea817405a">Once</label>
+      <input type="radio" name="state" value="loop" id="_anim_radio2_ce78a5a3f3fd47319567d29ea817405a"
              >
-      <label for="_anim_radio2_544c6f9d49e34e99963431204322514a">Loop</label>
-      <input type="radio" name="state" value="reflect" id="_anim_radio3_544c6f9d49e34e99963431204322514a"
+      <label for="_anim_radio2_ce78a5a3f3fd47319567d29ea817405a">Loop</label>
+      <input type="radio" name="state" value="reflect" id="_anim_radio3_ce78a5a3f3fd47319567d29ea817405a"
              >
-      <label for="_anim_radio3_544c6f9d49e34e99963431204322514a">Reflect</label>
+      <label for="_anim_radio3_ce78a5a3f3fd47319567d29ea817405a">Reflect</label>
     </form>
   </div>
 </div>
@@ -1130,13 +1128,13 @@ input[type=range].anim-slider {
   /* Instantiate the Animation class. */
   /* The IDs given should match those used in the template above. */
   (function() {
-    var img_id = "_anim_img544c6f9d49e34e99963431204322514a";
-    var slider_id = "_anim_slider544c6f9d49e34e99963431204322514a";
-    var loop_select_id = "_anim_loop_select544c6f9d49e34e99963431204322514a";
+    var img_id = "_anim_imgce78a5a3f3fd47319567d29ea817405a";
+    var slider_id = "_anim_sliderce78a5a3f3fd47319567d29ea817405a";
+    var loop_select_id = "_anim_loop_selectce78a5a3f3fd47319567d29ea817405a";
     var frames = new Array(16);
     
   frames[0] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAAB0jklEQVR4nO3dd3xT9foH8E9Wk6ZN0j1oS2nLXnJRQFYpKOJAEISrXhGr4kbU\
 60R/KqDCHTJUHKAIiF64ooheBWVTARUEBATKKmWUAp1JdzPO74/a0NM0ndn5vF8vXnrWN09zmuTp\
 yXOer0QQBAFERERERD5K6u4AiIiIiIiciQkvEREREfk0JrxERERE5NOY8BIRERGRT2PCS0REREQ+\
@@ -1664,7 +1662,7 @@ iIiIyKcx4SUiIiIin8aEl4iIiIh8GhNeIiIiIvJpTHiJiIiIyKf9Pz2wg/Vtl9cwAAAAAElFTkSu\
 QmCC\
 "
   frames[1] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAAB32klEQVR4nO3dd3wUZf4H8M+27KZsNp2ENELvcihFSigKiCIowqknQlRUbIB3\
 eoqeCqhw91OKigWUJnpygogNlFAjoIJ06S1AQoDU3fRsmd8fMUsmW9K27+f9euX1yjwz8+x3M7O7\
 38w+830kgiAIICIiIiLyUVJ3B0BERERE5ExMeImIiIjIpzHhJSIiIiKfxoSXiIiIiHwaE14iIiIi\
@@ -2206,7 +2204,7 @@ pzHhJSIiIiKfxoSXiIiIiHwaE14iIiIi8mlMeImIiIjIpzHhJSIiIiKfxoSXiIiIiHwaE14iIiIi\
 8mlMeImIiIjIpzHhJSIiIiKfxoSXiIiIiHza/wM0iMRANbGyXwAAAABJRU5ErkJggg==\
 "
   frames[2] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAAB71UlEQVR4nO3dd3hUVfoH8O+dkklPSCMhCaF3kEXpEAKKCCJogFVWhNjLIuBa\
 EP2pgArrrggqFlAERBdWEMFVUEINRQVBEektkIRAem9T7u+PIUPutLTp8/08T54n595zz30zZ8qb\
 O+eeI4iiKIKIiIiIyEPJnB0AEREREZE9MeElIiIiIo/GhJeIiIiIPBoTXiIiIiLyaEx4iYiIiMij\
@@ -2766,7 +2764,7 @@ iDwaE14iIiIi8mhMeImIiIjIozHhJSIiIiKPxoSXiIiIiDwaE14iIiIi8mhMeImIiIjIozHhJSIi\
 IiKPxoSXiIiIiDwaE14iIiIi8mj/D85p6bjZBxaBAAAAAElFTkSuQmCC\
 "
   frames[3] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAAB+DUlEQVR4nO3deVxU5f4H8M+ZAYYdZBMEBJfcNa/mhoJoqWmmiXrLmymVlZWp\
 3VuZ9bPUSm/3ZlLZomVqWVoaabe0xERRySXNNPcNBURZZAeZYeb8/hgZZmPYZpjt8369eMnznHOe\
 +TJnma9nnvM8giiKIoiIiIiIHJTE2gEQEREREVkSE14iIiIicmhMeImIiIjIoTHhJSIiIiKHxoSX\
@@ -3336,7 +3334,7 @@ xoSXiIiIiBwaE14iIiIicmhMeImIiIjIoTHhJSIiIiKHxoSXiIiIiBwaE14iIiIicmhMeImIiIjI\
 oTHhJSIiIiKHxoSXiIiIiBza/wPI5YueqQAKfQAAAABJRU5ErkJggg==\
 "
   frames[4] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAAB2MUlEQVR4nO3deVhUZfsH8O8ZdpRFBAQBcTc1rZ9lKioCiqaZvm6lZYplWWZq\
 5ZqvhVra4lbaomVq+qalmVZiiQrikmna6r7hgojiwiIIw/D8/hhnmI1hgBlm+36ui0vOOc8588w8\
 c4bbM8+5b0kIIUBERERE5KBk1u4AEREREZElMeAlIiIiIofGgJeIiIiIHBoDXiIiIiJyaAx4iYiI\
@@ -3871,7 +3869,7 @@ GPASERERkUNjwEtEREREDo0BLxERERE5NAa8REREROTQGPASERERkUNjwEtEREREDo0BLxERERE5\
 tP8HQ6gccgrbxRgAAAAASUVORK5CYII=\
 "
   frames[5] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAABwYklEQVR4nO3deVhUZfsH8O9hG0BZZDFUcC3XtH6auyDilmaSqJWFSmWm5vq+\
 5pJpaKYtGuZSaZprr5aGS4UlKohLpWmLueSKipEKKqAoy3B+fwwzzgacgTmzfj/XxSXnnOecuWcO\
 A7fP3M/zCKIoiiAiIiIiclAu1g6AiIiIiEhOTHiJiIiIyKEx4SUiIiIih8aEl4iIiIgcGhNeIiIi\
@@ -4380,7 +4378,7 @@ ERE5NCa8REREROTQmPASERERkUNjwktEREREDo0JLxERERE5NCa8REREROTQmPASERERkUP7f3Ye\
 pVJEz1zIAAAAAElFTkSuQmCC\
 "
   frames[6] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAABrlklEQVR4nO3deXhMZ/sH8O/JnpBFFrWEWFqK8vZH7RIRWylSW8vbIC1F1dq3\
 tioNVbrQKLrYitKXt9TSKq1YIkWV0pbat9iaIkGCkGXy/P6YzMhkJsmZ5cz6/VxXLuac55y5JyfL\
 nWeec9+SEEKAiIiIiMhJudk6ACIiIiIiJTHhJSIiIiKnxoSXiIiIiJwaE14iIiIicmpMeImIiIjI\
@@ -4867,7 +4865,7 @@ RERETo0JLxERERE5NSa8REREROTUmPASERERkVNjwktERERETo0JLxERERE5NSa8REREROTUmPAS\
 ERERkVNjwktERERETo0JLxERERE5tf8HXPo4SSszyIYAAAAASUVORK5CYII=\
 "
   frames[7] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAABr70lEQVR4nO3deXiMZ9sG8HOyJ7KQxRpiq532o3YiYitVqa2lDdJaqorSV4sq\
 DVXavoiii62i9KWlQau0YokUbSld1L4FSVMkSELIMrm/PyYznSXLM5l5Zj1/x5GDeba5Jk+WK/dc\
 93UrhBACREREREQOysXaARARERERyYkJLxERERE5NCa8REREROTQmPASERERkUNjwktEREREDo0J\
@@ -5356,7 +5354,7 @@ IiIih8aEl4iIiIgcGhNeIiIiInJoTHiJiIiIyKEx4SUiIiIih8aEl4iIiIgcGhNeIiIiInJo/w9s\
 ARqGgXLiBQAAAABJRU5ErkJggg==\
 "
   frames[8] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAABrGUlEQVR4nO3dd3hU1dYG8HfSE1IghZoQilKF6wfSIQmhCQKRJqARohQRqV6k\
 iCAggnqFIGABRILghStIUQQlQEIoIggWpEgNJUYgAVMEUib7+2OYYUoyOZOZM/X9PU8enXP2ObMm\
 h0lWzqy9tkIIIUBERERE5KTcbB0AEREREZGcmPASERERkVNjwktERERETo0JLxERERE5NSa8RERE\
@@ -5841,7 +5839,7 @@ OTUmvERERETk1JjwEhEREZFTY8JLRERERE6NCS8REREROTUmvERERETk1JjwEhEREZFTY8JLRERE\
 RE6NCS8RERERObX/B897mp0uT7WUAAAAAElFTkSuQmCC\
 "
   frames[9] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAABrI0lEQVR4nO3deViUVfsH8O+wOIAsiuAGomi56+tPw11Ec8tMkjQ1USmXylx7\
 XTPXNFs0TG1xS0xLS3PLrEQFcck0rezVzBUXIhVUcGUZzu+PYSaGgZlnmHlm/X6ui6tm5jzP3MPD\
 4M2Z+9xHIYQQICIiIiJyUm62DoCIiIiISE5MeImIiIjIqTHhJSIiIiKnxoSXiIiIiJwaE14iIiIi\
@@ -6326,7 +6324,7 @@ iIicGhNeIiIiInJqTHiJiIiIyKkx4SUiIiIip8aEl4iIiIicGhNeIiIiInJqTHiJiIiIyKkx4SUi\
 IiIip8aEl4iIiIicGhNeIiIiInJq/w/SnSJRHCl4zwAAAABJRU5ErkJggg==\
 "
   frames[10] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAABp/UlEQVR4nO3deXhMZ/sH8O9kkT3RSGxZCK2d14/aiVBbVaVSigrSWlpq7UtR\
 tVar7VuNooutorS01Fa0FSSitKW01VpqjSVNkSALkfX5/TFmZDLJzJnlzPr9XFcu5pznnLknx8Sd\
 M/dzPwohhAARERERkYNysXYARERERERyYsJLRERERA6NCS8REREROTQmvERERETk0JjwEhEREZFD\
@@ -6806,7 +6804,7 @@ iMihMeElIiIiIofGhJeIiIiIHBoTXiIiIiJyaEx4iYiIiMihMeElIiIiIofGhJeIiIiIHBoTXiIi\
 IiJyaEx4iYiIiMih/T/ALFYu55zdhgAAAABJRU5ErkJggg==\
 "
   frames[11] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAABrRUlEQVR4nO3deVhUZfsH8O+wgyyG4AaoaGqurz/NXRF3M5MkTU1UyqU0115z\
 yVyzbDNMbXFLTHu1LLfMUkQQ00rTysrcRZNIBZUlkWV4fn+MMzHMMHOGmTPr93NdXDXnPOfMPRwG\
 b87cz/0ohBACREREREROys3WARARERERyYkJLxERERE5NSa8REREROTUmPASERERkVNjwktERERE\
@@ -7292,7 +7290,7 @@ ERERETk1JrxERERE5NSY8BIRERGRU2PCS0REREROjQkvERERETk1JrxERERE5NSY8BIRERGRU/t/\
 D+jhPyONHk0AAAAASUVORK5CYII=\
 "
   frames[12] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAABrRElEQVR4nO3deVhUZfsH8O+wyCKLIbgBKpqa6+tPc1fE3cwkSVOTlHIpzbVX\
 UzPXLKs3w1wqt8S0tCxcMktRQVwqTSsrcxdNIhVUFkWW4fn9Mc7EMMPMGWbOrN/PdXHVnPOcM/dw\
 GLw5cz/3oxBCCBAREREROSk3WwdARERERCQnJrxERERE5NSY8BIRERGRU2PCS0REREROjQkvERER\
@@ -7778,7 +7776,7 @@ IiIip8aEl4iIiIicGhNeIiIiInJqTHiJiIiIyKkx4SUiIiIip8aEl4iIiIicGhNeIiIiInJq/w+/\
 e/L36/giqwAAAABJRU5ErkJggg==\
 "
   frames[13] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAABqVklEQVR4nO3deXiMV/sH8O9kkUUWjcSWBKGo9fWjdiJ2VZVKKSpIa2mptS9F\
 laJU27catbTWitLSamMp2goSUdpS2mqLWmNJUyTIUmQ9vz/GjJnMZOaZzDyzfj/XlYuZOc8z9+Qx\
 cefMfe6jEEIIEBERERE5KTdbB0BEREREJCcmvERERETk1JjwEhEREZFTY8JLRERERE6NCS8RERER\
@@ -8260,7 +8258,7 @@ RE6NCS8REREROTUmvERERETk1JjwEhEREZFTY8JLRERERE6NCS8RERERObX/ByLQ1Hg62Lj6AAAA\
 AElFTkSuQmCC\
 "
   frames[14] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAABrE0lEQVR4nO3deVhUZfsH8O+wgyyK4AaoaGqurz/NXRF3M5MkTU1SyqU0115N\
 zdwtqzfD1Ba3xLS0LFxSSxFBTCtNKys1VzSJVFBZElmf3x/jTAwzzJxh5sz6/VwXV805zzlzD4fB\
 mzP3cz8KIYQAEREREZGDcrF2AEREREREcmLCS0REREQOjQkvERERETk0JrxERERE5NCY8BIRERGR\
@@ -8745,7 +8743,7 @@ IiJyaEx4iYiIiMihMeElIiIiIofGhJeIiIiIHBoTXiIiIiJyaEx4iYiIiMihMeElIiIiIofGhJeI\
 iIiIHNr/AwFuxXA1fNS1AAAAAElFTkSuQmCC\
 "
   frames[15] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAABrn0lEQVR4nO3deVhUZfsH8O+wgyyK4MaiaOXu609zV8R9ySRJU5OUcinNtVdT\
 M01Ns3ozzKVyS0xLy8I0sxQRxLTStLIyc0WTSAWVRZH1+f0xzsQww8wZZs6s3891cdWc85wz93AY\
 vDlzP/ejEEIIEBERERE5KBdrB0BEREREJCcmvERERETk0JjwEhEREZFDY8JLRERERA6NCS8RERER\
@@ -9236,7 +9234,7 @@ l4iIiIgcGhNeIiIiInJoTHiJiIiIyKEx4SUiIiIih/b/TyafifLhJ1sAAAAASUVORK5CYII=\
     /* set a timeout to make sure all the above elements are created before
        the object is initialized. */
     setTimeout(function() {
-        anim544c6f9d49e34e99963431204322514a = new Animation(frames, img_id, slider_id, 200.0,
+        animce78a5a3f3fd47319567d29ea817405a = new Animation(frames, img_id, slider_id, 200.0,
                                  loop_select_id);
     }, 0);
   })()
@@ -9306,16 +9304,16 @@ Diese Kennlinien werden nun hintereinander geschaltet, sodass daraus eine Kennli
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Benötigte Libraries:</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">plotly.offline</span> <span class="k">as</span> <span class="nn">py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.offline</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">py</span>
 <span class="n">py</span><span class="o">.</span><span class="n">init_notebook_mode</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">plotly.graph_objs</span> <span class="k">as</span> <span class="nn">go</span>
-<span class="kn">import</span> <span class="nn">plotly.tools</span> <span class="k">as</span> <span class="nn">tls</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objs</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.tools</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tls</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 
 <span class="c1"># MatplotLib Settings:</span>
@@ -9323,18 +9321,18 @@ Diese Kennlinien werden nun hintereinander geschaltet, sodass daraus eine Kennli
 <span class="c1">#plt.xkcd()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
 
-<span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">f1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="n">a_1</span> <span class="o">=</span> <span class="mf">.0</span>
     <span class="n">b_1</span> <span class="o">=</span> <span class="mf">1.0</span>
     <span class="k">return</span> <span class="n">b_1</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">a_1</span>
 
-<span class="k">def</span> <span class="nf">f2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">f2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="n">a_2</span> <span class="o">=</span> <span class="mf">0.0</span>
     <span class="n">b_2</span> <span class="o">=</span> <span class="mf">1.0</span>
     <span class="n">c_2</span> <span class="o">=</span> <span class="mf">1.0</span>
     <span class="k">return</span> <span class="n">c_2</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b_2</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">a_2</span>
 
-<span class="k">def</span> <span class="nf">f3</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">f3</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="n">a_3</span> <span class="o">=</span> <span class="mf">1.0</span>
     <span class="n">b_3</span> <span class="o">=</span> <span class="mf">1.0</span>
     <span class="k">return</span> <span class="n">b_3</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">a_3</span>
@@ -9385,7 +9383,7 @@ Diese Kennlinien werden nun hintereinander geschaltet, sodass daraus eine Kennli
         require.undef("plotly");
         requirejs.config({
             paths: {
-                'plotly': ['https://cdn.plot.ly/plotly-2.12.1.min']
+                'plotly': ['https://cdn.plot.ly/plotly-2.35.2.min']
             }
         });
         require(['plotly'], function(Plotly) {
@@ -9393,8 +9391,8 @@ Diese Kennlinien werden nun hintereinander geschaltet, sodass daraus eine Kennli
         });
         }
         </script>
-        </div><img alt="../_images/4cc03c8b6f7495a7df95416cd722de78bbed41a2cfae47760798e0f1a0befff1.png" src="../_images/4cc03c8b6f7495a7df95416cd722de78bbed41a2cfae47760798e0f1a0befff1.png" />
-<img alt="../_images/5bbe84258d97110b0d6f9e6fa4ec2a9cff83cc1b2be436c50f126ce2c68e2fef.png" src="../_images/5bbe84258d97110b0d6f9e6fa4ec2a9cff83cc1b2be436c50f126ce2c68e2fef.png" />
+        </div><img alt="../_images/40d02f2052611ca656527b48b73bb00ffba157a4c6fbef842a274c2b6034de78.png" src="../_images/40d02f2052611ca656527b48b73bb00ffba157a4c6fbef842a274c2b6034de78.png" />
+<img alt="../_images/4e3f642c349f3605136fccec8f50f0b36f2bc58eda7511ac6491c8797e111952.png" src="../_images/4e3f642c349f3605136fccec8f50f0b36f2bc58eda7511ac6491c8797e111952.png" />
 </div>
 </div>
 <section id="messketten-empfindlichkeit-und-auflosung">

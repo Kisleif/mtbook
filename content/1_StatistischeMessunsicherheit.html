@@ -184,8 +184,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">✍️ Vorlesung</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="1_Einf%C3%BChrung%20in%20die%20Messtechnik.html">Intro</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="V1.html">Grundlagen</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="V1.html">Einführung in die Messtechnik und Einheiten</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_Einf%C3%BChrung%20in%20die%20Messtechnik.html">Messkette</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Einheiten.html">Einheiten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Kalibrieren.html">Kalibrieren und Eichen</a></li>
 </ul>
@@ -204,7 +204,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="V3.html">Kurvenanpassung</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="1_Kurvenanpassung.html">Regressionsrechnung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Kurvenanpassung.html">Modellanpassung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Interpol_Approx.html">Interpolation vs. Regression</a></li>
 </ul>
 </li>
@@ -220,6 +220,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="3_Digital.html">Digitalisierung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_Kenngroessen.html">Kenngrößen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_FourierAnalyse.html">Fourier-Analyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Rauschen.html">Rauschen und spektrale Dichte</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="V6.html">Dynamische Messsysteme</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -227,7 +228,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="5_DGL.html">Differentialgleichungen und Testfunktionen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5_Uebertragungsfunktion.html">Übertragungsfunktion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5_Faltung.html">Faltung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="5_Rauschen.html">Rauschen und spektrale Dichte</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="V7.html">Messen elektrischer Größen</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -265,12 +265,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">🐍 Jupyter Notebooks</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="T_Schwerependel.html">Messunsicherheiten beim Schwerependel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T_Plotten.html">Klimadaten auswerten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T_FitmitFehlerbalken.html">Lineare Regression mit Fehlerbalken</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Fehlerfortpflanzung.html">Fehlerfortpflanzung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Log.html">Logarithmische Darstellung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="T_Plotten.html">Daten plotten und fitten</a></li>
-<li class="toctree-l1"><a class="reference internal" href="T_LinReg.html">Verschiedene Fit-Funktionen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="T_FitmitFehlerbalken.html">Lineare Regression mit Fehlerbalken</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Spektralanalyse_Audio.html">Fourier-Transformation und Filter</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Übungen</span></p>
@@ -634,10 +632,10 @@ document.write(`
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import necessary libraries</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
 
 <span class="c1"># Matplotlib settings</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span>
@@ -662,7 +660,7 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/7ff7f87fd546d0f9bfa5799afd8bade3b4ccd0b2057818506f88f8b4d8b5b31d.png" src="../_images/7ff7f87fd546d0f9bfa5799afd8bade3b4ccd0b2057818506f88f8b4d8b5b31d.png" />
+<img alt="../_images/74ba740217ea48119a322644a63e814a53661cc952f322659e306ed107772539.png" src="../_images/74ba740217ea48119a322644a63e814a53661cc952f322659e306ed107772539.png" />
 </div>
 </div>
 <p>Im Diagramm ist die absolute Häufigkeit der Zeitmessung dargestellt. Die Klassen sind jeweils gleich groß mit einer Breite von 0,04s. In der ersten befinden sich die Messwerte von 1.3s-1.34s.</p>
@@ -674,7 +672,7 @@ document.write(`
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print histogram data as a table</span>
-<span class="kn">from</span> <span class="nn">tabulate</span> <span class="kn">import</span> <span class="n">tabulate</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tabulate</span><span class="w"> </span><span class="kn">import</span> <span class="n">tabulate</span>
 
 <span class="c1"># Create a DataFrame from the histogram data</span>
 <span class="n">hist_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Klasse (s)&#39;</span><span class="p">:</span> <span class="n">bedges</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;Häufigkeit f&#39;</span><span class="p">:</span> <span class="n">bconts</span><span class="p">})</span>
@@ -734,7 +732,7 @@ Die Häufigkeitsdichte gibt bei einem Histogramm die Höhe des Rechtecks an (Die
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/a93fd2ea7ae3817e3eae2e5b3c4c52804415365079b1b90b46a5e62ec0b67843.png" src="../_images/a93fd2ea7ae3817e3eae2e5b3c4c52804415365079b1b90b46a5e62ec0b67843.png" />
+<img alt="../_images/844419fee741e1623ab527ddf64fdbd7eaddb5622e98502ddc7f3db7a52c26e2.png" src="../_images/844419fee741e1623ab527ddf64fdbd7eaddb5622e98502ddc7f3db7a52c26e2.png" />
 </div>
 </div>
 <p>Im Diagramm ist die relative Häufigkeitsdichte <span class="math notranslate nohighlight">\(d\)</span> der Zeitmessung dargestellt. Die Fläche der Balken gibt die relative Häufigkeit <span class="math notranslate nohighlight">\(h\)</span> an. In Summe muss diese 1 betragen (100% im Falle der absoluten Häufigkeitsdichte).</p>
@@ -770,7 +768,7 @@ Die Häufigkeitsdichte gibt bei einem Histogramm die Höhe des Rechtecks an (Die
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">norm</span>
 <span class="c1"># MatplotLib Settings:</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># Plot-Größe</span>
@@ -799,7 +797,7 @@ Die Häufigkeitsdichte gibt bei einem Histogramm die Höhe des Rechtecks an (Die
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/a0c93abfad78f7e07e2caa84d33de3e4e8f2e5646c6558d4487608bce321d68a.png" src="../_images/a0c93abfad78f7e07e2caa84d33de3e4e8f2e5646c6558d4487608bce321d68a.png" />
+<img alt="../_images/a6d9234c16b50693c1eac6bf7e1f6c50dede6c9aba1ecdd866606dc75eee5b54.png" src="../_images/a6d9234c16b50693c1eac6bf7e1f6c50dede6c9aba1ecdd866606dc75eee5b54.png" />
 </div>
 </div>
 <p>Im Diagramm sind die relative Häufigkeitsdichte <span class="math notranslate nohighlight">\(d\)</span> der Zeitmessung und ein Modell der Normalverteilung <span class="math notranslate nohighlight">\(P(x)\)</span> dargestellt.</p>
@@ -836,20 +834,20 @@ Der <strong>arithmetische Mittelwert <span class="math notranslate nohighlight">
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 
-<span class="k">def</span> <span class="nf">arithmetischer_mittelwert</span><span class="p">(</span><span class="n">array</span><span class="p">):</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">arithmetischer_mittelwert</span><span class="p">(</span><span class="n">array</span><span class="p">):</span> 
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
     <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span>
 
 
-<span class="k">def</span> <span class="nf">arithmetischer_varianz</span><span class="p">(</span><span class="n">array</span><span class="p">):</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">arithmetischer_varianz</span><span class="p">(</span><span class="n">array</span><span class="p">):</span> 
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
     <span class="n">mn</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span>
     <span class="n">var</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="o">*</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">xi</span><span class="p">:</span> <span class="p">(</span><span class="n">xi</span><span class="o">-</span><span class="n">mn</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="p">,</span> <span class="n">array</span><span class="p">))</span> 
     <span class="k">return</span> <span class="n">var</span>
 
-<span class="k">def</span> <span class="nf">arithmetischer_standard_abweichung</span><span class="p">(</span><span class="n">array</span><span class="p">):</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">arithmetischer_standard_abweichung</span><span class="p">(</span><span class="n">array</span><span class="p">):</span> 
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
     <span class="n">mn</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span>
     <span class="n">var</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="o">*</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">xi</span><span class="p">:</span> <span class="p">(</span><span class="n">xi</span><span class="o">-</span><span class="n">mn</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="p">,</span> <span class="n">array</span><span class="p">))</span> 
@@ -1071,7 +1069,7 @@ Das heißt aus den <span class="math notranslate nohighlight">\(k\)</span> Mitte
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/4e801bc33f01fedbc5071f4d10a56b47933adb8676aa8109c7a94eedcdbbddd1.png" src="../_images/4e801bc33f01fedbc5071f4d10a56b47933adb8676aa8109c7a94eedcdbbddd1.png" />
+<img alt="../_images/71267022eceb93f139009a6112ee0193e12517083d06579b18b3a9fc554f9b2d.png" src="../_images/71267022eceb93f139009a6112ee0193e12517083d06579b18b3a9fc554f9b2d.png" />
 </div>
 </div>
 <div class="admonition warning">

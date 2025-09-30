@@ -71,7 +71,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/T_Spektralanalyse_Audio';</script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="prev" title="Lineare Regression mit Fehlerbalken" href="T_FitmitFehlerbalken.html" />
+    <link rel="prev" title="Logarithmische Darstellung" href="T_Log.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
   </head>
@@ -183,21 +183,27 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">✍️ Vorlesung</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="1_Einf%C3%BChrung%20in%20die%20Messtechnik.html">Intro</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="V1.html">Grundlagen</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="V1.html">Einführung in die Messtechnik und Einheiten</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_Einf%C3%BChrung%20in%20die%20Messtechnik.html">Messkette</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Einheiten.html">Einheiten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Kalibrieren.html">Kalibrieren und Eichen</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="V2.html">Messunsicherheiten</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="1_Messunsicherheiten.html">Messunsicherheiten</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="V2.html">Messabweichungen</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_Messunsicherheiten.html">Toleranz</a></li>
+
+
+
+
+
+
 <li class="toctree-l2"><a class="reference internal" href="1_SystematischeMessabweichung.html">Systematische Messabweichung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_StatistischeMessunsicherheit.html">Statistische Messunsicherheit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Fehlerfortpflanzung.html">Fehlerfortpflanzung</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="V3.html">Kurvenanpassung</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="1_Kurvenanpassung.html">Regressionsrechnung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Kurvenanpassung.html">Modellanpassung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Interpol_Approx.html">Interpolation vs. Regression</a></li>
 </ul>
 </li>
@@ -213,6 +219,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="3_Digital.html">Digitalisierung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_Kenngroessen.html">Kenngrößen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_FourierAnalyse.html">Fourier-Analyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Rauschen.html">Rauschen und spektrale Dichte</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="V6.html">Dynamische Messsysteme</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -220,7 +227,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="5_DGL.html">Differentialgleichungen und Testfunktionen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5_Uebertragungsfunktion.html">Übertragungsfunktion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5_Faltung.html">Faltung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="5_Rauschen.html">Rauschen und spektrale Dichte</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="V7.html">Messen elektrischer Größen</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -258,12 +264,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">🐍 Jupyter Notebooks</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="T_Schwerependel.html">Messunsicherheiten beim Schwerependel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T_Plotten.html">Klimadaten auswerten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T_FitmitFehlerbalken.html">Lineare Regression mit Fehlerbalken</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Fehlerfortpflanzung.html">Fehlerfortpflanzung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Log.html">Logarithmische Darstellung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="T_Plotten.html">Daten plotten und fitten</a></li>
-<li class="toctree-l1"><a class="reference internal" href="T_LinReg.html">Verschiedene Fit-Funktionen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="T_FitmitFehlerbalken.html">Lineare Regression mit Fehlerbalken</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Fourier-Transformation und Filter</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Übungen</span></p>
@@ -575,16 +579,16 @@ Ein weiterer Vorteil von Sinuswellen ist, dass sie mit ‘NumPy’ einfach zu er
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Noise Tone</span>
 <span class="c1">#Benötigte Libraries:</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">plotly.offline</span> <span class="k">as</span> <span class="nn">py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.offline</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">py</span>
 <span class="n">py</span><span class="o">.</span><span class="n">init_notebook_mode</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">plotly.graph_objs</span> <span class="k">as</span> <span class="nn">go</span>
-<span class="kn">import</span> <span class="nn">plotly.tools</span> <span class="k">as</span> <span class="nn">tls</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objs</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.tools</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tls</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 
 <span class="c1"># MatplotLib Settings:</span>
@@ -601,7 +605,7 @@ Ein weiterer Vorteil von Sinuswellen ist, dass sie mit ‘NumPy’ einfach zu er
         require.undef("plotly");
         requirejs.config({
             paths: {
-                'plotly': ['https://cdn.plot.ly/plotly-2.12.1.min']
+                'plotly': ['https://cdn.plot.ly/plotly-2.35.2.min']
             }
         });
         require(['plotly'], function(Plotly) {
@@ -614,7 +618,7 @@ Ein weiterer Vorteil von Sinuswellen ist, dass sie mit ‘NumPy’ einfach zu er
 <p>Als Nächstes definieren wir eine Funktion zur Erzeugung einer Sinuswelle, da Sie diese später mehrfach verwenden werden. Die Funktion nimmt eine Frequenz, freq, und gibt dann die x- und y-Werte zurück, die wir für die Darstellung der Welle verwenden werden.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generate_sine_wave</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">sample_rate</span><span class="p">,</span> <span class="n">duration</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_sine_wave</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">sample_rate</span><span class="p">,</span> <span class="n">duration</span><span class="p">):</span>
     <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">sample_rate</span> <span class="o">*</span> <span class="n">duration</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">frequencies</span> <span class="o">=</span> <span class="n">t</span> <span class="o">*</span> <span class="n">freq</span>
     <span class="c1"># 2pi because np.sin takes radians</span>
@@ -648,7 +652,7 @@ Ein weiterer Vorteil von Sinuswellen ist, dass sie mit ‘NumPy’ einfach zu er
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8af295d92f867eb39e712662e654f3d378de230686d34336843cc9ae7426566e.png" src="../_images/8af295d92f867eb39e712662e654f3d378de230686d34336843cc9ae7426566e.png" />
+<img alt="../_images/ceda293a510b0e7196d2b4ca8c7d7dbb05068b7d17e368b174c60c1ba485338a.png" src="../_images/ceda293a510b0e7196d2b4ca8c7d7dbb05068b7d17e368b174c60c1ba485338a.png" />
 </div>
 </div>
 <p>Die x-Achse stellt die Zeit in Sekunden dar, und da es zwei Spitzen für jede Sekunde gibt, kann man sehen, dass die Sinuswelle zweimal pro Sekunde schwingt. Diese Sinuswelle hat eine zu niedrige Frequenz, um hörbar zu sein. Im nächsten Abschnitt werden wir daher einige Sinuswellen mit höherer Frequenz erzeugen und sehen, wie Sie diese mischen können.</p>
@@ -693,15 +697,15 @@ Ein weiterer Vorteil von Sinuswellen ist, dass sie mit ‘NumPy’ einfach zu er
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/57bed83f161af1b42ebde65369d3c6b477710f861ed8488868e46c2c65ad6a79.png" src="../_images/57bed83f161af1b42ebde65369d3c6b477710f861ed8488868e46c2c65ad6a79.png" />
+<img alt="../_images/2a3988ba115059adf3c37874f4aa3e36b78524ed8c68288babfb0eede4dcb87a.png" src="../_images/2a3988ba115059adf3c37874f4aa3e36b78524ed8c68288babfb0eede4dcb87a.png" />
 </div>
 </div>
 <p>Das Signal sieht aus wie eine verzerrte Sinuswelle. Die Sinuswelle ist der 400-Hz-Ton, den wir erzeugt haben, und die Verzerrung ist der 4000-Hz-Ton. Wenn man genau hinsieht, kann man erkennen, dass die Verzerrung die Form einer Sinuswelle hat.</p>
 <p>Um den Ton anzuhören, können wir ihn in einem Format speichern, das ein Audioplayer lesen kann. Am einfachsten ist es, die Methode <code class="docutils literal notranslate"><span class="pre">wavfile.write</span></code> von <code class="docutils literal notranslate"><span class="pre">SciPy</span></code> zu verwenden, um sie in einer WAV-Datei zu speichern. 16-Bit-Ganzzahlen sind ein Standard-Datentyp für WAV-Dateien, also normalisieren Sie Ihr Signal auf 16-Bit-Ganzzahlen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.io.wavfile</span> <span class="kn">import</span> <span class="n">write</span>
-<span class="kn">import</span> <span class="nn">IPython.display</span> <span class="k">as</span> <span class="nn">ipd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.io.wavfile</span><span class="w"> </span><span class="kn">import</span> <span class="n">write</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ipd</span>
 <span class="c1"># Remember SAMPLE_RATE = 44100 Hz is our playback rate</span>
 <span class="n">write</span><span class="p">(</span><span class="s2">&quot;meinsinus.wav&quot;</span><span class="p">,</span> <span class="n">SAMPLE_RATE</span><span class="p">,</span> <span class="n">normalized_tone</span><span class="p">)</span>
 <span class="n">ipd</span><span class="o">.</span><span class="n">Audio</span><span class="p">(</span><span class="s1">&#39;meinsinus.wav&#39;</span><span class="p">)</span> <span class="c1"># load a local WAV file</span>
@@ -724,7 +728,7 @@ Ein weiterer Vorteil von Sinuswellen ist, dass sie mit ‘NumPy’ einfach zu er
 <p>Die FFT ist ein Algorithmus, der die Fourier-Transformation implementiert und ein Frequenzspektrum für ein Signal im Zeitbereich, z. B. dein Audiosignal, berechnen kann:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.fft</span> <span class="kn">import</span> <span class="n">fft</span><span class="p">,</span> <span class="n">fftfreq</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.fft</span><span class="w"> </span><span class="kn">import</span> <span class="n">fft</span><span class="p">,</span> <span class="n">fftfreq</span>
 
 <span class="c1"># Number of samples in normalized_tone</span>
 <span class="n">N</span> <span class="o">=</span> <span class="n">SAMPLE_RATE</span> <span class="o">*</span> <span class="n">DURATION</span>
@@ -740,7 +744,7 @@ Ein weiterer Vorteil von Sinuswellen ist, dass sie mit ‘NumPy’ einfach zu er
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/542735d2ee4e645fa3e684281eee78bdbd55a8d87d5eadf25bd25d79a20fb321.png" src="../_images/542735d2ee4e645fa3e684281eee78bdbd55a8d87d5eadf25bd25d79a20fb321.png" />
+<img alt="../_images/f867ede0c33a144361b0bbb19c66cead7b297b3e06aade2ecd19c486531b853c.png" src="../_images/f867ede0c33a144361b0bbb19c66cead7b297b3e06aade2ecd19c486531b853c.png" />
 </div>
 </div>
 <p>Man kann zwei Spitzen bei den positiven Frequenzen und Spiegelungen dieser Spitzen bei den negativen Frequenzen erkennen. Die Spitzen der positiven Frequenzen liegen bei 400 Hz und 4000 Hz, was den Frequenzen entspricht, die du in das Audiosignal eingegeben hast.</p>
@@ -766,7 +770,7 @@ Dies ist ein grundlegendes Konzept in der Signalverarbeitung und bedeutet, dass 
 <p>Das Tolle an <code class="docutils literal notranslate"><span class="pre">rfft()</span></code> ist, dass es ein sofortiger Ersatz für <code class="docutils literal notranslate"><span class="pre">fft()</span></code> ist. Durch das Einfügen von <code class="docutils literal notranslate"><span class="pre">rfft()</span></code> bleibt der Code größtenteils derselbe, nur mit ein paar wichtigen Änderungen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.fft</span> <span class="kn">import</span> <span class="n">rfft</span><span class="p">,</span> <span class="n">rfftfreq</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.fft</span><span class="w"> </span><span class="kn">import</span> <span class="n">rfft</span><span class="p">,</span> <span class="n">rfftfreq</span>
 
 <span class="c1"># Note the extra &#39;r&#39; at the front</span>
 <span class="n">yf</span> <span class="o">=</span> <span class="n">rfft</span><span class="p">(</span><span class="n">normalized_tone</span><span class="p">)</span>
@@ -780,7 +784,7 @@ Dies ist ein grundlegendes Konzept in der Signalverarbeitung und bedeutet, dass 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/260bb61d51f54ace2acd004ee86e479b22066d6f62cc83d71eda6ae3a0b14b7a.png" src="../_images/260bb61d51f54ace2acd004ee86e479b22066d6f62cc83d71eda6ae3a0b14b7a.png" />
+<img alt="../_images/5919a832bb316f9f3ecda566aaeb3dbc5dac2af3dd97bdb372f659340e212603.png" src="../_images/5919a832bb316f9f3ecda566aaeb3dbc5dac2af3dd97bdb372f659340e212603.png" />
 </div>
 </div>
 <p>Da <code class="docutils literal notranslate"><span class="pre">rfft()</span></code> nur die Hälfte der Ausgabe von <code class="docutils literal notranslate"><span class="pre">fft()</span></code> liefert, wird eine andere Funktion für die Frequenzzuordnung verwendet, nämlich <code class="docutils literal notranslate"><span class="pre">rfftfreq()</span></code> anstelle von <code class="docutils literal notranslate"><span class="pre">fftfreq()</span></code>.</p>
@@ -821,7 +825,7 @@ Sie kann bis zu doppelt so schnell sein, aber einige Eingabelängen sind schnell
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b4be5179d9ab3228ddbd058102441ae701b2169b0d6f51cddf17566faeb55092.png" src="../_images/b4be5179d9ab3228ddbd058102441ae701b2169b0d6f51cddf17566faeb55092.png" />
+<img alt="../_images/14fa479ec5eedd061133a5ef241b632057251cbabf2b73c4c665812e0007db96.png" src="../_images/14fa479ec5eedd061133a5ef241b632057251cbabf2b73c4c665812e0007db96.png" />
 </div>
 </div>
 <p>Da es nur eine Spitze gibt, sieht es so aus, als hätte es funktioniert!</p>
@@ -831,7 +835,7 @@ Sie kann bis zu doppelt so schnell sein, aber einige Eingabelängen sind schnell
 <p>Als nächstes wenden wir die inverse Fourier-Transformation an, um in den Zeitbereich zurückzukehren. Da du <code class="docutils literal notranslate"><span class="pre">rfft()</span></code> verwendest, musst du <code class="docutils literal notranslate"><span class="pre">irfft()</span></code> verwenden, um die Umkehrung anzuwenden. Hätten wir <code class="docutils literal notranslate"><span class="pre">fft()</span></code> verwendet, dann wäre die inverse Funktion <code class="docutils literal notranslate"><span class="pre">ifft()</span></code> gewesen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.fft</span> <span class="kn">import</span> <span class="n">irfft</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.fft</span><span class="w"> </span><span class="kn">import</span> <span class="n">irfft</span>
 
 <span class="n">new_sig</span> <span class="o">=</span> <span class="n">irfft</span><span class="p">(</span><span class="n">yf</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">new_sig</span><span class="p">[:</span><span class="mi">1000</span><span class="p">],</span> <span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
@@ -842,14 +846,14 @@ Sie kann bis zu doppelt so schnell sein, aber einige Eingabelängen sind schnell
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/32efa2900be9ab81958521beea3ea8440aa7985363b967b1210dab93962fa881.png" src="../_images/32efa2900be9ab81958521beea3ea8440aa7985363b967b1210dab93962fa881.png" />
+<img alt="../_images/cf82a1b6db38ab1c5be8fdd1b005b7f7fd55139149501710031e74df32fb6950.png" src="../_images/cf82a1b6db38ab1c5be8fdd1b005b7f7fd55139149501710031e74df32fb6950.png" />
 </div>
 </div>
 <p>Wie du siehst, hast du jetzt eine einzelne Sinuswelle, die mit 400 Hz schwingt, und du hast das 4000-Hz-Rauschen erfolgreich entfernt.</p>
 <p>Noch einmal musst du das Signal normalisieren, bevor du es in eine Datei schreibst:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">IPython.display</span> <span class="k">as</span> <span class="nn">ipd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ipd</span>
 <span class="n">norm_new_sig</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">(</span><span class="n">new_sig</span> <span class="o">*</span> <span class="p">(</span><span class="mi">32767</span> <span class="o">/</span> <span class="n">new_sig</span><span class="o">.</span><span class="n">max</span><span class="p">()))</span>
 <span class="n">write</span><span class="p">(</span><span class="s2">&quot;clean.wav&quot;</span><span class="p">,</span> <span class="n">SAMPLE_RATE</span><span class="p">,</span> <span class="n">norm_new_sig</span><span class="p">)</span>
 <span class="n">ipd</span><span class="o">.</span><span class="n">Audio</span><span class="p">(</span><span class="s1">&#39;clean.wav&#39;</span><span class="p">)</span> <span class="c1"># load a local WAV file</span>
@@ -898,12 +902,12 @@ Sie kann bis zu doppelt so schnell sein, aber einige Eingabelängen sind schnell
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="T_FitmitFehlerbalken.html"
+       href="T_Log.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">zurück</p>
-        <p class="prev-next-title">Lineare Regression mit Fehlerbalken</p>
+        <p class="prev-next-title">Logarithmische Darstellung</p>
       </div>
     </a>
 </div>

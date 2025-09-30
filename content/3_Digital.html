@@ -184,8 +184,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">✍️ Vorlesung</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="1_Einf%C3%BChrung%20in%20die%20Messtechnik.html">Intro</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="V1.html">Grundlagen</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="V1.html">Einführung in die Messtechnik und Einheiten</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_Einf%C3%BChrung%20in%20die%20Messtechnik.html">Messkette</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Einheiten.html">Einheiten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Kalibrieren.html">Kalibrieren und Eichen</a></li>
 </ul>
@@ -204,7 +204,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="V3.html">Kurvenanpassung</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="1_Kurvenanpassung.html">Regressionsrechnung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Kurvenanpassung.html">Modellanpassung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Interpol_Approx.html">Interpolation vs. Regression</a></li>
 </ul>
 </li>
@@ -265,12 +265,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">🐍 Jupyter Notebooks</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="T_Schwerependel.html">Messunsicherheiten beim Schwerependel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T_Plotten.html">Klimadaten auswerten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T_FitmitFehlerbalken.html">Lineare Regression mit Fehlerbalken</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Fehlerfortpflanzung.html">Fehlerfortpflanzung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Log.html">Logarithmische Darstellung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="T_Plotten.html">Daten plotten und fitten</a></li>
-<li class="toctree-l1"><a class="reference internal" href="T_LinReg.html">Verschiedene Fit-Funktionen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="T_FitmitFehlerbalken.html">Lineare Regression mit Fehlerbalken</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Spektralanalyse_Audio.html">Fourier-Transformation und Filter</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Übungen</span></p>
@@ -608,11 +606,11 @@ document.write(`
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">matplotlib.animation</span> <span class="kn">import</span> <span class="n">FuncAnimation</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
-<span class="kn">from</span> <span class="nn">matplotlib.widgets</span> <span class="kn">import</span> <span class="n">Slider</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.animation</span><span class="w"> </span><span class="kn">import</span> <span class="n">FuncAnimation</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTML</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.widgets</span><span class="w"> </span><span class="kn">import</span> <span class="n">Slider</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
 
 
@@ -620,7 +618,7 @@ document.write(`
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="n">f</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="c1"># Create a function to update the plot for each frame of the animation</span>
-<span class="k">def</span> <span class="nf">animate</span><span class="p">(</span><span class="n">bit</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">animate</span><span class="p">(</span><span class="n">bit</span><span class="p">):</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>  <span class="c1"># Clear the previous frame</span>
     
     <span class="c1"># Set the signal frequency and time axis</span>
@@ -848,42 +846,42 @@ input[type=range].anim-slider {
 </style>
 
 <div class="animation">
-  <img id="_anim_img576a22d90ffd46a7b9bc3ec7e3322f65">
+  <img id="_anim_imgfec90f1515844f55aadb7f56b20de0f5">
   <div class="anim-controls">
-    <input id="_anim_slider576a22d90ffd46a7b9bc3ec7e3322f65" type="range" class="anim-slider"
+    <input id="_anim_sliderfec90f1515844f55aadb7f56b20de0f5" type="range" class="anim-slider"
            name="points" min="0" max="1" step="1" value="0"
-           oninput="anim576a22d90ffd46a7b9bc3ec7e3322f65.set_frame(parseInt(this.value));">
+           oninput="animfec90f1515844f55aadb7f56b20de0f5.set_frame(parseInt(this.value));">
     <div class="anim-buttons">
-      <button title="Decrease speed" aria-label="Decrease speed" onclick="anim576a22d90ffd46a7b9bc3ec7e3322f65.slower()">
+      <button title="Decrease speed" aria-label="Decrease speed" onclick="animfec90f1515844f55aadb7f56b20de0f5.slower()">
           <i class="fa fa-minus"></i></button>
-      <button title="First frame" aria-label="First frame" onclick="anim576a22d90ffd46a7b9bc3ec7e3322f65.first_frame()">
+      <button title="First frame" aria-label="First frame" onclick="animfec90f1515844f55aadb7f56b20de0f5.first_frame()">
         <i class="fa fa-fast-backward"></i></button>
-      <button title="Previous frame" aria-label="Previous frame" onclick="anim576a22d90ffd46a7b9bc3ec7e3322f65.previous_frame()">
+      <button title="Previous frame" aria-label="Previous frame" onclick="animfec90f1515844f55aadb7f56b20de0f5.previous_frame()">
           <i class="fa fa-step-backward"></i></button>
-      <button title="Play backwards" aria-label="Play backwards" onclick="anim576a22d90ffd46a7b9bc3ec7e3322f65.reverse_animation()">
+      <button title="Play backwards" aria-label="Play backwards" onclick="animfec90f1515844f55aadb7f56b20de0f5.reverse_animation()">
           <i class="fa fa-play fa-flip-horizontal"></i></button>
-      <button title="Pause" aria-label="Pause" onclick="anim576a22d90ffd46a7b9bc3ec7e3322f65.pause_animation()">
+      <button title="Pause" aria-label="Pause" onclick="animfec90f1515844f55aadb7f56b20de0f5.pause_animation()">
           <i class="fa fa-pause"></i></button>
-      <button title="Play" aria-label="Play" onclick="anim576a22d90ffd46a7b9bc3ec7e3322f65.play_animation()">
+      <button title="Play" aria-label="Play" onclick="animfec90f1515844f55aadb7f56b20de0f5.play_animation()">
           <i class="fa fa-play"></i></button>
-      <button title="Next frame" aria-label="Next frame" onclick="anim576a22d90ffd46a7b9bc3ec7e3322f65.next_frame()">
+      <button title="Next frame" aria-label="Next frame" onclick="animfec90f1515844f55aadb7f56b20de0f5.next_frame()">
           <i class="fa fa-step-forward"></i></button>
-      <button title="Last frame" aria-label="Last frame" onclick="anim576a22d90ffd46a7b9bc3ec7e3322f65.last_frame()">
+      <button title="Last frame" aria-label="Last frame" onclick="animfec90f1515844f55aadb7f56b20de0f5.last_frame()">
           <i class="fa fa-fast-forward"></i></button>
-      <button title="Increase speed" aria-label="Increase speed" onclick="anim576a22d90ffd46a7b9bc3ec7e3322f65.faster()">
+      <button title="Increase speed" aria-label="Increase speed" onclick="animfec90f1515844f55aadb7f56b20de0f5.faster()">
           <i class="fa fa-plus"></i></button>
     </div>
-    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_select576a22d90ffd46a7b9bc3ec7e3322f65"
+    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_selectfec90f1515844f55aadb7f56b20de0f5"
           class="anim-state">
-      <input type="radio" name="state" value="once" id="_anim_radio1_576a22d90ffd46a7b9bc3ec7e3322f65"
+      <input type="radio" name="state" value="once" id="_anim_radio1_fec90f1515844f55aadb7f56b20de0f5"
              checked>
-      <label for="_anim_radio1_576a22d90ffd46a7b9bc3ec7e3322f65">Once</label>
-      <input type="radio" name="state" value="loop" id="_anim_radio2_576a22d90ffd46a7b9bc3ec7e3322f65"
+      <label for="_anim_radio1_fec90f1515844f55aadb7f56b20de0f5">Once</label>
+      <input type="radio" name="state" value="loop" id="_anim_radio2_fec90f1515844f55aadb7f56b20de0f5"
              >
-      <label for="_anim_radio2_576a22d90ffd46a7b9bc3ec7e3322f65">Loop</label>
-      <input type="radio" name="state" value="reflect" id="_anim_radio3_576a22d90ffd46a7b9bc3ec7e3322f65"
+      <label for="_anim_radio2_fec90f1515844f55aadb7f56b20de0f5">Loop</label>
+      <input type="radio" name="state" value="reflect" id="_anim_radio3_fec90f1515844f55aadb7f56b20de0f5"
              >
-      <label for="_anim_radio3_576a22d90ffd46a7b9bc3ec7e3322f65">Reflect</label>
+      <label for="_anim_radio3_fec90f1515844f55aadb7f56b20de0f5">Reflect</label>
     </form>
   </div>
 </div>
@@ -893,13 +891,13 @@ input[type=range].anim-slider {
   /* Instantiate the Animation class. */
   /* The IDs given should match those used in the template above. */
   (function() {
-    var img_id = "_anim_img576a22d90ffd46a7b9bc3ec7e3322f65";
-    var slider_id = "_anim_slider576a22d90ffd46a7b9bc3ec7e3322f65";
-    var loop_select_id = "_anim_loop_select576a22d90ffd46a7b9bc3ec7e3322f65";
+    var img_id = "_anim_imgfec90f1515844f55aadb7f56b20de0f5";
+    var slider_id = "_anim_sliderfec90f1515844f55aadb7f56b20de0f5";
+    var loop_select_id = "_anim_loop_selectfec90f1515844f55aadb7f56b20de0f5";
     var frames = new Array(16);
     
   frames[0] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAACKQ0lEQVR4nO3deXhTVfoH8G+2Jt330pWWfUdEUSlSCgq4IAyLGwKi4g64jA6D\
 o2w6MjO/QRBwhwEGtxFFXFCh0mKVRRZR2RGhQBfonnRN0+T8/qgJvU3SJt2y9Pt5njxwzz333nNz\
 muTNzbnvkQkhBIiIiIiIvJTc1Q0gIiIiImpLDHiJiIiIyKsx4CUiIiIir8aAl4iIiIi8GgNeIiIi\
@@ -1524,7 +1522,7 @@ r9dj06ZNyM/Px7PPPivZx86dO1FRUSHZnojIkzEtGRFRE3bu3ImRI0c6VHfhwoVYtGiRZXnXrl34\
 pVI5dN5ERO7s/wFlarAtP8uAXwAAAABJRU5ErkJggg==\
 "
   frames[1] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAACMRElEQVR4nO3dd3xTVf8H8E9Wk+4NLW1pAdlDRFApUopaUER4GC5kqbgZzgdx\
 MFWe8UMQcIOAuB5BxAEKVYpVENlDWSKrLYUO2nSnGef3R03ozWjTNm3S9PN+vfqCe+65956bk/HN\
 zbnfIxNCCBAREREReSm5uxtARERERNSYGPASERERkVdjwEtEREREXo0BLxERERF5NQa8REREROTV\
@@ -2158,7 +2156,7 @@ uu7du6N9+/b45ptvLGUbNmzA6tWrsX//fuTm5iIoKAhdunTB448/jnvvvVey/eTJk7FlyxacP38e\
 KpXKqfMmIvJk/w/z/YukynLpqwAAAABJRU5ErkJggg==\
 "
   frames[2] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAACPl0lEQVR4nO3dd3gU1d4H8O+2bHpPSEhCQicgiAioAUJAA6IIl4BXBRRU7BQ7\
 YqNYuPe+F0HADhcUrCBiAYQogSiINBGUJtKSEEjvyWaze94/wi6ZLclu2pZ8P8+zD5wzZ2bO7NmZ\
 /WX2zDkyIYQAEREREZGbkju6AkRERERELYkBLxERERG5NQa8REREROTWGPASERERkVtjwEtERERE\
@@ -2807,7 +2805,7 @@ Fzp16oRvv/3WmLdhwwasXr0aBw8eRG5uLvz9/dGjRw88+uijuOuuuyTrT506FVu3bsX58+ehUqls\
 Om4iImf2/7XzLaSejsLoAAAAAElFTkSuQmCC\
 "
   frames[3] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAACSkklEQVR4nOzdd3hUxd4H8O+2bHoPJGQDAVSacJFOQkKCBhSRSMBGURT7pem1\
 4bUAeuWWF6kWFC54QbFgBBUQogSCBKSJoDSVloRACul1szvvH8tusiXJJtlkS76f59kHZs6cc+bs\
 7Dn7y9k5MxIhhAARERERkYuS2rsCREREREStiQEvEREREbk0BrxERERE5NIY8BIRERGRS2PAS0RE\
@@ -3469,7 +3467,7 @@ BC4VHu6VJTudTgiHw8jn81gsFjifz2g2m3cvuPidWq2GTCZDpVK5tBWLReRyOfT7fSyXS3x8fECp\
 VMLv98Ptdl+NZ1kWtVoN0+kUXC73pe8mhJB39gMYCD0foRGuwwAAAABJRU5ErkJggg==\
 "
   frames[4] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAACJy0lEQVR4nO3deVxUVf8H8M8MDMMmqICCgKKWa/oz00xQBBNNU8mtcitL0zLX\
 sswWRe3R6skwl8zSR03LUjPL1BQDxaBSK9Nyy1xBFHBhZxiG8/sDZpgVZthm4fN+veal595z7z13\
 zixf7px7vhIhhAARERERkYOSWrsBRERERES1iQEvERERETk0BrxERERE5NAY8BIRERGRQ2PAS0RE\
@@ -4092,7 +4090,7 @@ Vq2we/duzbKdO3di48aN+P3335GRkQEvLy+0a9cOU6dOxejRo3W2nzBhAvbv34+rV69CJpOZdd5E\
 RLbs/wFLtXfI7F8CdgAAAABJRU5ErkJggg==\
 "
   frames[5] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAACD9ElEQVR4nO3deVxUVf8H8M8FxmETVHBBQFHLNf2VpSYoooaWqSRqmUtamqW5\
 Zy7lguajPT4h5pJp+ohpaWqolZSSYJhYanu5PaWoIKagscg2DOf3B8zEMDNwBxhm4fN+veal995z\
 7z137ixfzpxzvpIQQoCIiIiIyE45WLoCRERERETmxICXiIiIiOwaA14iIiIismsMeImIiIjIrjHg\
@@ -4689,7 +4687,7 @@ DB48GK+88op2hgdD05Kp1WrMnTsXe/bswa1bt1BcXIyEhASDCS7K6tSpE1q3bo3PPvtMuy4mJgbR\
 AAAAAElFTkSuQmCC\
 "
   frames[6] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAACAUUlEQVR4nO3deVxUVf8H8M8AI6uggKUCglq5pb+y1ARFXNAylMQ1RbM0TXPP\
 NMsUzbR6Qswl0/RRHy1NzaXUUhQME0tttVxaXEFMQWQRhGE4vz+GmWaYgbkDM8zC5/16zUvvvefe\
 ey6H5TtnzvkemRBCgIiIiIjIQTlZuwJERERERJbEgJeIiIiIHBoDXiIiIiJyaAx4iYiIiMihMeAl\
@@ -5269,7 +5267,7 @@ TGzbtg03b95EaWkpkpOTDS5woa1NmzZo1qwZvvzyS82+Xbt2YePGjfjxxx9x69YteHt7o2XLlpg4\
 cSKeffZZnfNHjx6NgwcP4urVq5DL5ZKem4jIlv0/qetjx3krAG8AAAAASUVORK5CYII=\
 "
   frames[7] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAAB+hklEQVR4nO3deVhU1f8H8PcAwy4o4IKAopZr+jVNTVBEEy1Dya3ctTQrc89c\
 WhSXtPqFmFrmlpqWpkZaaikKRoGltpjl0uIKYgoai2zDcH5/wEzMAtwZBmZ7v56Hp+695957Lkfg\
 M+ee8zkyIYQAEREREZGNcjB3BYiIiIiIahIDXiIiIiKyaQx4iYiIiMimMeAlIiIiIpvGgJeIiIiI\
@@ -5841,7 +5839,7 @@ du3CrVu3UFJSgsTERL0LXJTXrl07NG/eHF9++aV6X1xcHLZu3YqffvoJt2/fhpeXF1q3bo0pU6Zg\
 5MiRGudPmDABhw8fxrVr1yCXyyU9NxGRJft/NfJ8Ko42f1YAAAAASUVORK5CYII=\
 "
   frames[8] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAAB9kElEQVR4nO3deVxUVf8H8M8Awy4o4IKAopZr+jNNTVBEEy1DyX1D0zQrc89c\
 WhTNtHpSzCVze9RHS3O31FIUjBLLpc1yKXMFMQWNRbZhOL8/hplmA+7AwCx83q/XvOree+6953Jk\
 +M6Zc75HJoQQICIiIiKyUw6WrgARERERUWViwEtEREREdo0BLxERERHZNQa8RERERGTXGPASERER\
@@ -6409,7 +6407,7 @@ WrVC48aN8eWXX2r27d27F5s3b8aPP/6Ie/fuwcvLC82bN8fEiRMxfPhwnfPHjBmDI0eO4ObNm5DL\
 5ZKem4jImv0/2/3ou1KjsHUAAAAASUVORK5CYII=\
 "
   frames[9] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAAB9o0lEQVR4nO3deVxU1f8/8NcAIzso4IKAomYqLj/T1ARFNNEyldzKBZfcKnPP\
 XFoUl7L6pphL5vZR08rcLSUVBcPAcunT8snUzBXEFDRQ2Ybh/P4YZmIW4A7MMAuv5+Mxj7r3nnvv\
 uRxneHPmnPeRCSEEiIiIiIjslIOlK0BEREREZE4MeImIiIjIrjHgJSIiIiK7xoCXiIiIiOwaA14i\
@@ -6977,7 +6975,7 @@ x44duHPnDoqKipCYmGhwgYuSWrZsicaNG+Obb77R7Nu7dy+2bNmCn376CXfv3oWXlxeaN2+OSZMm\
 YdiwYVrnjxkzBkeOHMGNGzcgl8slPTcRkTX7/0d9i0HIA1AnAAAAAElFTkSuQmCC\
 "
   frames[10] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAAB8VklEQVR4nO3deVxU1f8/8NcAIzso4IKgombu/kxTExTRRMtUcik3NHOrzD3X\
 FsWlrL4h5pJp+lHTytwtJRUFw8Ry6dPyydTMFaQUNBDZhuH8/hhmYhbgDsww2+v5eMyj7r3n3nsu\
 xxnenDnnfWRCCAEiIiIiIjvlZOkKEBERERGZEwNeIiIiIrJrDHiJiIiIyK4x4CUiIiIiu8aAl4iI\
@@ -7539,7 +7537,7 @@ kimVSsyePRs7duzAnTt3UFxcjKSkJIMLXJTWunVrNGnSBF9//bVm3969e7Flyxb8+OOPuHv3Lnx8\
 fNCiRQtMnjwZI0aM0Dp/7NixOHLkCG7evAm5XC7puYmIrNn/B3BhPHeOWwIPAAAAAElFTkSuQmCC\
 "
   frames[11] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAAB9I0lEQVR4nO3deVxUVf8H8M8AIzso4IKgombu/kxTExTRRMtUcskVzdwqc8PM\
 pUVxKasnxFwyTR81rczdUlJRMEosl9YnUzNFBSkFDUS2YTi/P4aZmAW4AwOzfd6v17zq3nvuvedy\
 nOHLmXO+RyaEECAiIiIislEO5q4AEREREVF1YsBLRERERDaNAS8RERER2TQGvERERERk0xjwEhER\
@@ -8105,7 +8103,7 @@ XOCitLZt26JZs2b48ssvNfv27duHrVu34ocffsCdO3fg5eWFVq1aYdq0aRg9erTW+RMmTMDRo0dx\
 48YNyOVySc9NRGTJ/h8Zu3dnZ5fQoQAAAABJRU5ErkJggg==\
 "
   frames[12] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAAB9ZElEQVR4nO3deVxU1f8/8NcAIzso4IKAomYqLj/T1ARFNNEylVzKVFxyq8w9\
 c2lRXMrqG2IumdtHTStzt5RUFAwTy6VPyydTM1eQUtBAZBuG8/tjmIlZgDswMNvr+XjMo+695957\
 LscZ3pw5531kQggBIiIiIiIb5WDuChARERERVScGvERERERk0xjwEhEREZFNY8BLRERERDaNAS8R\
@@ -8672,7 +8670,7 @@ oLi4GElJSQYXuCitdevWaNq0Kb7++mvNvr1792LLli348ccfcffuXXh5eaFly5aYPHkyhg8frnX+\
 2LFjceTIEdy8eRNyuVzScxMRWbL/D01XcYnq4LZZAAAAAElFTkSuQmCC\
 "
   frames[13] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAAB8+klEQVR4nO3deVxU1f8/8NcAw74o4oKgomZu6c+PZiYooommqeSSK5rlUpkb\
 Zi6ViktafUPMJdP0o6aVqbmUkoqCYWC5tH4yNXMFMQUNRLZhOL8/hpmYBbgDA7O9no/HPOree+69\
 53Kc4c2Zc95HJoQQICIiIiKyUQ7mrgARERERUXViwEtERERENo0BLxERERHZNAa8RERERGTTGPAS\
@@ -9237,7 +9235,7 @@ bOzcuRN37txBcXExEhMTDS5wUVrbtm3RrFkzfP3115p9e/fuxdatW/Hjjz/i7t278Pb2RqtWrTBl\
 yhSMGjVK6/zx48fjyJEjuHHjBuRyuaTnJiKyZP8fnGEN/oIVfWAAAAAASUVORK5CYII=\
 "
   frames[14] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAAB9NklEQVR4nO3deVxUVf8H8M8AIzsq4IKgomYqLo9paoIimmiZSi7lhktulbnn\
 2qK4lNUvxFwyt0dNK3PXlFQUDBPLpfXJ1MwVpBQ0ENmG4fz+GGZiFuAODMz2eb9e86p777n3nstx\
 hi9nzvkemRBCgIiIiIjIRjmYuwJERERERJWJAS8RERER2TQGvERERERk0xjwEhEREZFNY8BLRERE\
@@ -9803,7 +9801,7 @@ MWvWLOzYsQN3795FYWEhEhISDC5wUVzLli3RuHFjfPXVV5p9e/fuxZYtW/DDDz/g3r178PLyQvPm\
 zTFp0iQMGzZM6/wxY8bg6NGjuHXrFuRyuaTnJiKyZP8PslhUvij0FusAAAAASUVORK5CYII=\
 "
   frames[15] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAAB9rUlEQVR4nO3deVxU1f8/8NcAw74o4IKAombu/kxTExTRRNNUcilTccmtMvfM\
 pVJxKatvirlkbh81rczdUlJRMEwslz4tn0zNXEFKQQORbRjO749hJmYB7sDAbK/n4zGPuveee++5\
 HGd4c+ac95EJIQSIiIiIiGyUg7krQERERERUlRjwEhEREZFNY8BLRERERDaNAS8RERER2TQGvERE\
@@ -10376,7 +10374,7 @@ gg==\
     /* set a timeout to make sure all the above elements are created before
        the object is initialized. */
     setTimeout(function() {
-        anim576a22d90ffd46a7b9bc3ec7e3322f65 = new Animation(frames, img_id, slider_id, 200.0,
+        animfec90f1515844f55aadb7f56b20de0f5 = new Animation(frames, img_id, slider_id, 200.0,
                                  loop_select_id);
     }, 0);
   })()
@@ -10461,10 +10459,10 @@ Für <span class="math notranslate nohighlight">\(f_\mathrm{max} = 5\,\mathrm{Hz
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">matplotlib.animation</span> <span class="kn">import</span> <span class="n">FuncAnimation</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.animation</span><span class="w"> </span><span class="kn">import</span> <span class="n">FuncAnimation</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTML</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
 
 
@@ -10472,7 +10470,7 @@ Für <span class="math notranslate nohighlight">\(f_\mathrm{max} = 5\,\mathrm{Hz
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="n">f</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="c1"># Create a function to update the plot for each frame of the animation</span>
-<span class="k">def</span> <span class="nf">animate</span><span class="p">(</span><span class="n">fs</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">animate</span><span class="p">(</span><span class="n">fs</span><span class="p">):</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>  <span class="c1"># Clear the previous frame</span>
     
     <span class="c1"># Set the signal frequency and time axis</span>
@@ -10700,42 +10698,42 @@ input[type=range].anim-slider {
 </style>
 
 <div class="animation">
-  <img id="_anim_imgbe67ad850e82429dbc89ed2161f17d3b">
+  <img id="_anim_img257b5902a31c46f58327c7be4c330afc">
   <div class="anim-controls">
-    <input id="_anim_sliderbe67ad850e82429dbc89ed2161f17d3b" type="range" class="anim-slider"
+    <input id="_anim_slider257b5902a31c46f58327c7be4c330afc" type="range" class="anim-slider"
            name="points" min="0" max="1" step="1" value="0"
-           oninput="animbe67ad850e82429dbc89ed2161f17d3b.set_frame(parseInt(this.value));">
+           oninput="anim257b5902a31c46f58327c7be4c330afc.set_frame(parseInt(this.value));">
     <div class="anim-buttons">
-      <button title="Decrease speed" aria-label="Decrease speed" onclick="animbe67ad850e82429dbc89ed2161f17d3b.slower()">
+      <button title="Decrease speed" aria-label="Decrease speed" onclick="anim257b5902a31c46f58327c7be4c330afc.slower()">
           <i class="fa fa-minus"></i></button>
-      <button title="First frame" aria-label="First frame" onclick="animbe67ad850e82429dbc89ed2161f17d3b.first_frame()">
+      <button title="First frame" aria-label="First frame" onclick="anim257b5902a31c46f58327c7be4c330afc.first_frame()">
         <i class="fa fa-fast-backward"></i></button>
-      <button title="Previous frame" aria-label="Previous frame" onclick="animbe67ad850e82429dbc89ed2161f17d3b.previous_frame()">
+      <button title="Previous frame" aria-label="Previous frame" onclick="anim257b5902a31c46f58327c7be4c330afc.previous_frame()">
           <i class="fa fa-step-backward"></i></button>
-      <button title="Play backwards" aria-label="Play backwards" onclick="animbe67ad850e82429dbc89ed2161f17d3b.reverse_animation()">
+      <button title="Play backwards" aria-label="Play backwards" onclick="anim257b5902a31c46f58327c7be4c330afc.reverse_animation()">
           <i class="fa fa-play fa-flip-horizontal"></i></button>
-      <button title="Pause" aria-label="Pause" onclick="animbe67ad850e82429dbc89ed2161f17d3b.pause_animation()">
+      <button title="Pause" aria-label="Pause" onclick="anim257b5902a31c46f58327c7be4c330afc.pause_animation()">
           <i class="fa fa-pause"></i></button>
-      <button title="Play" aria-label="Play" onclick="animbe67ad850e82429dbc89ed2161f17d3b.play_animation()">
+      <button title="Play" aria-label="Play" onclick="anim257b5902a31c46f58327c7be4c330afc.play_animation()">
           <i class="fa fa-play"></i></button>
-      <button title="Next frame" aria-label="Next frame" onclick="animbe67ad850e82429dbc89ed2161f17d3b.next_frame()">
+      <button title="Next frame" aria-label="Next frame" onclick="anim257b5902a31c46f58327c7be4c330afc.next_frame()">
           <i class="fa fa-step-forward"></i></button>
-      <button title="Last frame" aria-label="Last frame" onclick="animbe67ad850e82429dbc89ed2161f17d3b.last_frame()">
+      <button title="Last frame" aria-label="Last frame" onclick="anim257b5902a31c46f58327c7be4c330afc.last_frame()">
           <i class="fa fa-fast-forward"></i></button>
-      <button title="Increase speed" aria-label="Increase speed" onclick="animbe67ad850e82429dbc89ed2161f17d3b.faster()">
+      <button title="Increase speed" aria-label="Increase speed" onclick="anim257b5902a31c46f58327c7be4c330afc.faster()">
           <i class="fa fa-plus"></i></button>
     </div>
-    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_selectbe67ad850e82429dbc89ed2161f17d3b"
+    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_select257b5902a31c46f58327c7be4c330afc"
           class="anim-state">
-      <input type="radio" name="state" value="once" id="_anim_radio1_be67ad850e82429dbc89ed2161f17d3b"
+      <input type="radio" name="state" value="once" id="_anim_radio1_257b5902a31c46f58327c7be4c330afc"
              checked>
-      <label for="_anim_radio1_be67ad850e82429dbc89ed2161f17d3b">Once</label>
-      <input type="radio" name="state" value="loop" id="_anim_radio2_be67ad850e82429dbc89ed2161f17d3b"
+      <label for="_anim_radio1_257b5902a31c46f58327c7be4c330afc">Once</label>
+      <input type="radio" name="state" value="loop" id="_anim_radio2_257b5902a31c46f58327c7be4c330afc"
              >
-      <label for="_anim_radio2_be67ad850e82429dbc89ed2161f17d3b">Loop</label>
-      <input type="radio" name="state" value="reflect" id="_anim_radio3_be67ad850e82429dbc89ed2161f17d3b"
+      <label for="_anim_radio2_257b5902a31c46f58327c7be4c330afc">Loop</label>
+      <input type="radio" name="state" value="reflect" id="_anim_radio3_257b5902a31c46f58327c7be4c330afc"
              >
-      <label for="_anim_radio3_be67ad850e82429dbc89ed2161f17d3b">Reflect</label>
+      <label for="_anim_radio3_257b5902a31c46f58327c7be4c330afc">Reflect</label>
     </form>
   </div>
 </div>
@@ -10745,13 +10743,13 @@ input[type=range].anim-slider {
   /* Instantiate the Animation class. */
   /* The IDs given should match those used in the template above. */
   (function() {
-    var img_id = "_anim_imgbe67ad850e82429dbc89ed2161f17d3b";
-    var slider_id = "_anim_sliderbe67ad850e82429dbc89ed2161f17d3b";
-    var loop_select_id = "_anim_loop_selectbe67ad850e82429dbc89ed2161f17d3b";
+    var img_id = "_anim_img257b5902a31c46f58327c7be4c330afc";
+    var slider_id = "_anim_slider257b5902a31c46f58327c7be4c330afc";
+    var loop_select_id = "_anim_loop_select257b5902a31c46f58327c7be4c330afc";
     var frames = new Array(96);
     
   frames[0] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADAJElEQVR4nOydeZgU1dX/v1W992wswz7sKopKVAQjCIIRUaMgSIyKKBrcDSLR\
 KMYFiD94fd8gBI1GhYgLccctoIARJILGPYlREGURhnWGmemZ6a2W+/uj7Z6ue6tnunt6qeV+noeH\
 6erauk7de8899ywCIYSAw+FwOBwOh8OxKGKxb4DD4XA4HA6Hw8knXOHlcDgcDofD4VgarvByOBwO\
@@ -11618,7 +11616,7 @@ FBcXh4EDB2L//v2mtr179+Ltt9/G8ePHcfXqVSiVSgwdOhS/+tWvMG/ePLPt09LScPDgQVRUVMDL\
 y6tTr5uIqDv7P7LVvLycAHKXAAAAAElFTkSuQmCC\
 "
   frames[1] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAAC98klEQVR4nOydeZwUxfn/P91zz17ALrCwCywgoqBERTxALhWNfhXkiIkCigY1\
 HkEkGoPxAOJP4vcbxCjRqBBRIN54BVQwgkTwvhKjIMohN+yyu7O7c/V01++PcWanq3p2Z2bn6KPe\
 rxcv3Z6e7pp+uqqeeuo5BEIIAYfD4XA4HA6HY1LEQjeAw+FwOBwOh8PJJVzh5XA4HA6Hw+GYGq7w\
@@ -12475,7 +12473,7 @@ qK6udviAi9ulpqZi7NixeO+996xte/fuxZtvvoljx47h6tWrUCqVmDhxIn70ox9hyZIlNtvn5eVh\
 //79aGhoQFBQUL+Om4jIl/0PYM5TXLW2WREAAAAASUVORK5CYII=\
 "
   frames[2] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADCFklEQVR4nOydeZgU1dX/v1W992wMDPsAA4goCEERVJBNRdQgCKJRAUWDGhUR\
 icZgXID4k9f3DWIQNShEUIk7bhEFjINEcF9jFERZZIcZZqZnprda7u+Ppnu6blXPdPf0Usv9PA8P\
 09W1dZ2695577lk4QggBg8FgMBgMBoNhUvh83wCDwWAwGAwGg5FNmMLLYDAYDAaDwTA1TOFlMBgM\
@@ -13351,7 +13349,7 @@ HcLu3bvx2Wef4ebNm1CpVBg6dCh+/etfY968eRb7Z2Rk4NixYygtLYWPj49N75uIyJ39HzoPGgIf\
 8UBuAAAAAElFTkSuQmCC\
 "
   frames[3] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADCqElEQVR4nOydeZgU1bn/v1XV+2wMDPuwCyoIQRFUEAQVUS+CIDEqomhQ4wZo\
 NAZvVCBeuf5uCIioUSHiQtxxi6hgHETBfY1REGWRHWaYmZ6Z3mo5vz+a7uk6VT3T3dNLLefzPDxM\
 V9fW9dY55z3veReOEELAYDAYDAaDwWBYFL7QN8BgMBgMBoPBYOQSpvAyGAwGg8FgMCwNU3gZDAaD\
@@ -14229,7 +14227,7 @@ Ur548WKUlZVh0qRJiImJgV6vx/79+1FZWYkXX3zRah8nTpxAY2Oj1fZERD0ZlyUjIurAiRMncP/9\
 5s2z2j49PR1Hjx5FaWkpfHx8bHrfRETu7P8AnhkXWEAJv5gAAAAASUVORK5CYII=\
 "
   frames[4] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADDC0lEQVR4nOydd5gUVdb/v1WdexIDQx5gSKKgiCKoIElF1BdBkHWVoOhidgFd\
 XRfXAOgP1vddBBF1VVgxsGZMKwq4gKxgVswgShCGOMPkThXu74+me7puVc9093SocD/Pw8N0daWu\
 U/fec889gSOEEDAYDAaDwWAwGCaFz/UNMBgMBoPBYDAYmYQpvAwGg8FgMBgMU8MUXgaDwWAwGAyG\
@@ -15109,7 +15107,7 @@ D7i4V0pKChISEnD48GFL2YEDB7Bz506cO3cOt2/fhlwuR1JSEn73u99h7ty5VutnZmbi6NGjKC8v\
 h0gkcuhzE0KIL/s/rElqyZtWj/oAAAAASUVORK5CYII=\
 "
   frames[5] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADE4UlEQVR4nOydd5gUVdb/v1WdexIDQx5gAAEFQRRBBUkqoq6CIOuqgKKLWQFZ\
 XRfXAKyvvP7eRRDTqrBiwCxmFHAZRMGIomsAUYJkmGFypwr390fTPV23qme6ezpUuJ/n4WG6ulLX\
 qXvvueeewBFCCBgMBoPBYDAYDJPC5/oGGAwGg8FgMBiMTMIUXgaDwWAwGAyGqWEKL4PBYDAYDAbD\
@@ -15997,7 +15995,7 @@ HiorK2Gz2VBcXOzyARdtDRw4EH369MHRo0ftyw4dOoRdu3bhyy+/RFVVFVQqFQYMGIDf/va3mDNn\
 jsP28+fPx4kTJ1BWVgaxWOzW5yaEkFD2/wHqALRcB56RVwAAAABJRU5ErkJggg==\
 "
   frames[6] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAAC9+UlEQVR4nOydeZwUxfn/P909914cy73AciogBA80glwaJOanIEcOQXQ1KJ6I\
 RKP49QA08jXfIESIRoWAovGKxiOiggEkghHvaARBOeRmd9l7rp7u+v0xzux0Vc/uzOwc3T31fr14\
 6fb0TFf301X11FPPIRBCCDgcDofD4XA4HIsi5roBHA6Hw+FwOBxOJuEKL4fD4XA4HA7H0nCFl8Ph\
@@ -16854,7 +16852,7 @@ b6KlpQUmkwnV1dV2H3Bxu9TUVCQlJeGdd96xtO3fvx+vv/46Tpw4gatXr0KpVGLy5Mn40Y9+hGXL\
 llltn5eXh4MHD6KxsREBAQGDOm4iIm/2P+pjoCqNUs4JAAAAAElFTkSuQmCC\
 "
   frames[7] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADFAElEQVR4nOydd5wURfr/P909eRMLS15gyQLCYcAAklREPQVBzjsJih6npyIg\
 6iF+DYCe/C4gCOiJwoEB9dTDdKKAB4iCWTGcIihBdom7sHFST3f9/hhmdrq6Z3dmd0KHer9evNjp\
 6Zmu6aer6qmnnsARQggYDAaDwWAwGAyTwme7AQwGg8FgMBgMRjphCi+DwWAwGAwGw9QwhZfBYDAY\
@@ -17743,7 +17741,7 @@ HrUtO3ToEHbt2oWvvvoKVVVVUCqVGDhwIH71q19h/vz5du/PzMzEiRMnUFpaCrFY7NL3JoSQQPZ/\
 85tILCM03ZsAAAAASUVORK5CYII=\
 "
   frames[8] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADFUUlEQVR4nOydd5xU1dnHf/fe6dtYWPoCS1VqsGABaSqiBkWQmEhRNMSKgESj\
 +FoAjbx5EwSBaFQIWFCjhlhRwAASwViDJYqgFGGpu2yfdufe8/4xzOzcc+/szsxOueV8Px8+7Ny5\
 be5zzznPec5TOEIIAYPBYDAYDAaDYVL4XN8Ag8FgMBgMBoORSZjCy2AwGAwGg8EwNUzhZTAYDAaD\
@@ -18633,7 +18631,7 @@ qK6uhtlsRmlpqcMHXHSUkZGB1NRUHD9+3LrsyJEj2Lt3L7744gvU1NRAoVBgyJAh+NWvfoUFCxbY\
 vD8nJwcnTpxAeXk5xGKxU9+bEEIC2f8BUpE2U28DSvcAAAAASUVORK5CYII=\
 "
   frames[9] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADH8UlEQVR4nOydd5wURfr/P909eRMLS96FJQsIhwEDSFIR9VQEOb8niKJyRgRE\
 PcSfAdCT8+4QBE5PhQMD6hk4w4kCHiAKZsVwiqAEYYm7bJ7U012/P4aZna7u2Z3ZndCh3q8XL3Z6\
 qrtrurqqnnrqCRwhhIDBYDAYDAaDwTApfLYrwGAwGAwGg8FgpBMm8DIYDAaDwWAwTA0TeBkMBoPB\
@@ -19535,7 +19533,7 @@ L7zwAr744gs0NDQgOTkZQ4cOxfTp07F48WLPDA++piVzuVx44okn8Pbbb6O6uhputxulpaU+H3DR\
 Qy6X+/VzE0JILPv/WztOTq6nhiAAAAAASUVORK5CYII=\
 "
   frames[10] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADGH0lEQVR4nOydd5gUVfb3v1WdexIDQx5giJIXRQwgSUXURZGwrhIUlTUgAmLE\
 1wDoyu7+FkHADAuoqKsuphUFXEAUXAOKYRVBMkOcYXKn6qr7/tF0T9et6pnumQ4V7ud5eJiurnC7\
 bjr33BM4QggBg8FgMBgMBoNhUPhMF4DBYDAYDAaDwUglTOBlMBgMBoPBYBgaJvAyGAwGg8FgMAwN\
@@ -20429,7 +20427,7 @@ Bx+4lu3evRtvvfUWvvrqK1RWVkKn06F///749a9/jVmzZvG2nzt3Lg4cOICSkhLI5XKPPjchhISz\
 /wdQ9YYoUK1tIQAAAABJRU5ErkJggg==\
 "
   frames[11] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADCJElEQVR4nOydeZwU1bXHf1XV+2wMDPsAwy4gBBdcQDYViQZBkJgIomiIKwIS\
 ieJzATTykhcEgWhUEBRRoxEVIwoYQBSM+xpFkE12mIFZe6uuuu+Ppnu6blXPdPf0Usv9fj58mK6u\
 revUvffcc8/CEUIIGAwGg8FgMBgMk8Ln+gYYDAaDwWAwGIxMwhReBoPBYDAYDIapYQovg8FgMBgM\
@@ -21305,7 +21303,7 @@ KSkYNGgQjh49al526NAh7N69G5999hlu3rwJlUqFYcOG4Ze//CXmz59vsX5mZiaOHTuGsrIy+Pn5\
 2fW5iYg82f8B0R2KQNIBNjIAAAAASUVORK5CYII=\
 "
   frames[12] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADHiUlEQVR4nOydeZgUxfnHv909914sLPcCyy0gBBU8QC4VUYMiSEwEUTTEEwFR\
 oxgPQCNJfkEQUKNCwINo1BCPiAIGEAVvxSOKoBzCcu0ue8/V012/P4aZna7u2Z3ZnaOP+jwPDzs9\
 PdM1/XZVvfXWe3CEEAIGg8FgMBgMBsOk8NluAIPBYDAYDAaDkU6YwstgMBgMBoPBMDVM4WUwGAwG\
@@ -22205,7 +22203,7 @@ eDwelJWV+Z3gor38/Hz0798f7733nnfZjh078MYbb+Crr75CTU0NjEYjBg0ahN///ve48847fd4/\
 Z84c7N69GxUVFVAqlQF9b0IIiWb/H/GS4Yt+NyOMAAAAAElFTkSuQmCC\
 "
   frames[13] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADJf0lEQVR4nOydeZwUxfn/P909914cy70Ly6mAEDzwALlURA2KIDERUNEQbwGN\
 RvHnAWgkyTcIAtGoEPBAjRq8IgoYQBSMB4pHFEHuXc6Fvefq6a7fH8PMTlf37M7MztFHvV8vXuz0\
 VHfX9NNV9dRTTz0PRwghYDAYDAaDwWAwTAqf6wowGAwGg8FgMBiZhCm8DAaDwWAwGAxTwxReBoPB\
@@ -23114,7 +23112,7 @@ fn4++vfvj3fffde9bc+ePXj99dfx2Wefobq6Gnq9HoMHD8Yf//hH3HHHHbz3z507FwcOHEBZWRmU\
 SqVX35sQQiLZ/wPh8y5g/MEZOgAAAABJRU5ErkJggg==\
 "
   frames[14] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADJAElEQVR4nOydd5wUVbbHf1XVeRJhyAMMWUBYDBhAkoqsLoog664ERRczArKy\
 imsAdOX53iII6K4KCwbUVRfTigIuIApGFMMqghKEYQgDw6RO1VX3/dF0T9et6pnung4V7vfz4cN0\
 dYXbdW4499xzz+EIIQQMBoPBYDAYDIZJ4XNdAAaDwWAwGAwGI5MwhZfBYDAYDAaDYWqYwstgMBgM\
@@ -24021,7 +24019,7 @@ KywsxBtvvIEvvvgCVVVV0Ol0GDRoEH73u99h/vz5vPcvWrQIhw8fRmlpKZRKpUc/NyGEhLP/D0H0\
 YvLdl5PbAAAAAElFTkSuQmCC\
 "
   frames[15] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADLO0lEQVR4nOydeZwUxfn/P909914sLPcuLKdyBg88QC4ViQZFkJgIHmiIt4BE\
 ovjzADSS5CuCQExUEFBRowZvFDCAIHiieEQRlEN2WYRd9p6rp7t+fwwzO13dszszO0f3dL1fL17s\
 9FR31/TTVfXUU089D0cIIWAwGAwGg8FgMLIUPtMVYDAYDAaDwWAwUglTeBkMBoPBYDAYWQ1TeBkM\
@@ -24938,7 +24936,7 @@ tu3cuRNvvPEGvvrqK1RVVUGv16Nfv37405/+hDvuuIP3/rlz52L//v0oKyuDUqn06nsTQkgk+//I\
 FbPzuBkcxwAAAABJRU5ErkJggg==\
 "
   frames[16] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADCE0lEQVR4nOydd5wUVbbHf1WdexJhyEOSpCAsBgwgSUVWF0XCuivJUVkjArK6\
 ik8U0JXn20VQUFcFwcCKcY0o4AKygmvOiqAEYYgzTO5UXXXfH033dN2qnqnu6VDhfj8fPkxXV3WF\
 U/fec889gSOEEDAYDAaDwWAwGCaFz/UFMBgMBoPBYDAYmYQpvAwGg8FgMBgMU8MUXgaDwWAwGAyG\
@@ -25814,7 +25812,7 @@ wcSJE7FgwQL9Cg9tLUvW3NyMl19+Ge+99x4qKyuh1WpRWFjY5gMuWoqPj0d0dDT27dun37Z7925s\
 AAAAAElFTkSuQmCC\
 "
   frames[17] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADMRElEQVR4nOydd5gURfrHv909eRMLS96FJSooHAYMIAgqoh6CIOedBEWPM6AC\
 enKKPwNg4BKCiHoqCAbUUw8VTxTwBFEwK2YEJcgui7CweVJPd/3+GGZ2urpnd2Z3Qof6PA8POz3V\
 3TX9dlW99dZb78sRQggYDAaDwWAwGAyTwme7AgwGg8FgMBgMRjphCi+DwWAwGAwGw9QwhZfBYDAY\
@@ -26735,7 +26733,7 @@ txuPP/443n77bVRUVMDj8WD//v0+F7hobcCAAejduzc++OAD77bt27fjzTffxFdffYXKykqYTCb0\
 798fv//97zFr1ize5+fMmYM9e/agtLQUSqXSr5+bEEJi2f8HQzThOWu42KsAAAAASUVORK5CYII=\
 "
   frames[18] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADJ8ElEQVR4nOydd5gURfrHv909eRMLS9xdWKICwqGCASSpiHoIgpynBOU8Ts8E\
 iHqKZwD05HcBQUA9FBQD6qmH6UQBDxAFI4rhlKDkJS4smyb1dNfvj9mZna7u2Z3ZndnpUJ/n4WGn\
 p7q7pqur6q233sARQggYDAaDwWAwGAyTwme6AgwGg8FgMBgMRjphAi+DwWAwGAwGw9QwgZfBYDAY\
@@ -27646,7 +27644,7 @@ Q4ZgwIABePvtt33bdu3ahVdffRWff/45qqurYTQaMXjwYPzpT3/C3Llzee+fP38+9u3bh/LycqjV\
 6oB+b0IIiWb/H2OPUTZi0CTyAAAAAElFTkSuQmCC\
 "
   frames[19] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADN/0lEQVR4nOydd5wURfr/Pz09eRNhybuwSBIUDgOKIEnFdCgSzjsBFT3OLCCn\
 h/gzLOjJ17tDEFBPBcGAegZUVBTwBEFQURTDKYKSlyXssnlST3f9/pid2enqnt2Z3Qkd6v168WKn\
 p7q7pqur6qmnnsARQggYDAaDwWAwGAyDYsl0BRgMBoPBYDAYjFTCBF4Gg8FgMBgMhqFhAi+DwWAw\
@@ -28575,7 +28573,7 @@ uhoOhwNlZWUuJ7joKi8vD3379sWHH37oXLZjxw689dZb+Oabb1BTUwOdTodBgwbh/vvvx9y5c3nv\
 X7BgAfbu3Yvy8nIolUq3fm9CCAll/x8pp13wrixlJAAAAABJRU5ErkJggg==\
 "
   frames[20] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADKo0lEQVR4nOydd5gURfrHv92TZxMLS15gyZlDAQNI0kPUQ5EFPSWJHmdEQAyI\
 P0XAEy4hCJwRBEQUw6HigQIKiIIRxUxQguwSFzZP6unu3x/DzE5X9+zOzE7oUJ/n4WGnp6erut+u\
 qrfeeut9GVEURVAoFAqFQqFQKDqFTXcFKBQKhUKhUCiUZEIVXgqFQqFQKBSKrqEKL4VCoVAoFApF\
@@ -29489,7 +29487,7 @@ l5c7fcBFVzk5ORg0aBDeffddx7LS0lK89tpr+OKLL1BXVwedTodhw4bhD3/4A2677Tbe+xcsWID9\
 +/ejsrISSqXSpe9NCCGh7P8A1zshvkKQTfUAAAAASUVORK5CYII=\
 "
   frames[21] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADDZUlEQVR4nOydd5gUVfb3v1WdexJhiDPAkAUEMWAASSqiLoqEdVeCorJGBGRl\
 lf0ZAAPvBoQFzCAYWF0Dq7iigAuIghHzKoIShCHOMLlTddV9/+jpnq5b1TPdPR0q3M/z8DBdXanr\
 1L333HNP4AghBAwGg8FgMBgMhkHhs30DDAaDwWAwGAxGOmEKL4PBYDAYDAbD0DCFl8FgMBgMBoNh\
@@ -30371,7 +30369,7 @@ sz4RUSDjtGRERK04cuQI7rnnHqfqLl26FMuWLbO+/vjjj/HGG2/g448/RmVlJeLi4tC7d2+MHTsW\
 SUVORK5CYII=\
 "
   frames[22] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADNRklEQVR4nOydeXgURfrHv91zTy4CCWcC4RYQFgUUQS5dRF0Uiay/lUt0WW8B\
 UVdxRQMe7IUg4A2CB8p64LWigCuIgieKN4JyCOFMyJ05errr98dkJtPVPclMMpnpoz7Pw0Omp7q7\
 pt+uqrfeeut9OUIIAYPBYDAYDAaDYVD4VFeAwWAwGAwGg8FoSZjCy2AwGAwGg8EwNEzhZTAYDAaD\
@@ -31297,7 +31295,7 @@ wejXrx8+/vhj57KioiK88847+Oabb1BVVQWj0YhBgwbhj3/8I+644w7e++fOnYvdu3ejtLQUSqXS\
 re9NCCGh7P8D6P+ULjSJDNYAAAAASUVORK5CYII=\
 "
   frames[23] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADOj0lEQVR4nOydeXgURfrHvz09dy4C4U4gyCUoLB54gFwqXosigXVXDkWX9RYQ\
 dZVdD8CD3x4IIquiIHigrmJUXFHAFQRBRVA8VhGUwySEIxByzdXTXb8/JjOZru5JZpKZTB/1eR4e\
 Mj3V3TVdXVVvvfUeHCGEgMFgMBgMBoPBMCiWdFeAwWAwGAwGg8FIJUzgZTAYDAaDwWAYGibwMhgM\
@@ -32229,7 +32227,7 @@ dy/eeustfPnllygvL4dOp0Pfvn3x6KOP4u677+a9Pzs7G4cPH0ZRURGUSqVTfzchhASy/w/HLf1e\
 TWh9egAAAABJRU5ErkJggg==\
 "
   frames[24] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADNcklEQVR4nOydd5gURfrHv909eRMLS15gyQLCoYIBJKmIeiiCnKcERcWsgAEV\
 fwbAwCUEAfVUEAyopx6mEwU8QBQwoRhOEZQgLEvYZfOknu76/TE7s9PVvbszuzM7HerzPDzs9HRX\
 13R1Vb311hs4QggBg8FgMBgMBoNhUvh0V4DBYDAYDAaDwUglTOBlMBgMBoPBYJgaJvAyGAwGg8Fg\
@@ -33156,7 +33154,7 @@ brz55pv48ssvUVlZCZ1OhwEDBuB3v/sd7rrrLt77582bh0OHDqGkpARKpdKlv5sQQoLZ/wchYTCr\
 9AxAlQAAAABJRU5ErkJggg==\
 "
   frames[25] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADO+ElEQVR4nOydeXgURfrHvz09R2ZyEQhHIIFwCwKLBx7cqHiiSGBd5VB0WW+5\
 VhfZ9QB05beuCALqqiCgoq5HVFQUcAVB8ALFG0E5DCEcCSHXXD3d9ftjMpPp6p5kJplk+qjP8/CQ\
 6anurum3q+qtt956X44QQsBgMBgMBoPBYBgUS7IrwGAwGAwGg8FgNCdM4WUwGAwGg8FgGBqm8DIY\
@@ -34090,7 +34088,7 @@ DSorK6HT6TBw4EA89thjuPfee3nvnz17Nvbu3YuSkhIolUqPfm9CCAln/x+HUyiRIs1XwgAAAABJ\
 RU5ErkJggg==\
 "
   frames[26] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADD8klEQVR4nOydd5wUVbbHf1WdexIDQx5gyALCYsAAklRkdREEWXcF0VFZIwKy\
 JnwGwF1Z31uEFdRVYQEVxcQaUcAFRMEVQTEjKDkzw+RO1VX3/dF0T9et6pnung4V7vfz4cN0hVvh\
 1L333HPPPYcjhBAwGAwGg8FgMBgGhc/2DTAYDAaDwWAwGOmEKbwMBoPBYDAYDEPDFF4Gg8FgMBgM\
@@ -34974,7 +34972,7 @@ eCQnJ8NisWD//v3Q6XR49dVXOds4deoUTCYTZ31CCOnOaFoyQgjpwKlTp/DII4+4VXf16tVYs2aN\
 lJeXQyKRuPW5CSEkmP0fz0ojNEBn7Z0AAAAASUVORK5CYII=\
 "
   frames[27] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADQaElEQVR4nOydeXwURfr/P909R2ZyEQhnEgi3oLAo4kEEQUXUVZDIugoe6LKe\
 CHiwiD8PwF357oEgoC4KC6ioqxgVFQVcQRBUFMWbQy5JCFfIPXd3/f6YzGS6uieZSSaZPur9evEi\
 01PdXdPVVfXUU8/BEUIIGAwGg8FgMBgMg8InuwIMBoPBYDAYDEZLwgReBoPBYDAYDIahYQIvg8Fg\
@@ -35914,7 +35912,7 @@ Fx3l5uZiwIAB+Oc//+letnfvXrz22mv44osvUFVVBYPBgKFDh+KBBx7AokWLeK9fsmQJDh06hNLS\
 UiiVSq9+b0IIiWT/Hz0No+d86cGkAAAAAElFTkSuQmCC\
 "
   frames[28] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADPf0lEQVR4nOydeXgURfrHv909dy4C4U4g3ILC4oEHyKWiq4sgkXVXDkWX9Rbw\
 WsX1ANyV3x4IAquLguCBJxsVFQVcQRQ8UTxWEeQSQjgCuefq6a7fH5OZTFf3JDPJJNNHfZ6Hh0xP\
 dXdNv11Vb7311vtyhBACBoPBYDAYDAbDpPDprgCDwWAwGAwGg9GSMIWXwWAwGAwGg2FqmMLLYDAY\
@@ -36850,7 +36848,7 @@ Qd++ffHhhx86lxUUFOCtt97Cl19+icrKShiNRgwYMAD3338/brnlFsH7FyxYgL1796KkpARqtdqj\
 v5sQQsLZ/wcdpvhY9EGMsQAAAABJRU5ErkJggg==\
 "
   frames[29] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADRwUlEQVR4nOydeXgURfrHvz09R2ZyEQh3AuEWEBYPPIjhEBF1ESSy7gqoqKy3\
 gKiL7M8DcFf2QhDwQEFARVnFeK0o4AqC4InisYoilySEO+Saq6e7fn9MZjJd3ZPMTCaZPurzPDxk\
 eqq7a7q6qt566z04QggBg8FgMBgMBoNhUCyprgCDwWAwGAwGg9GcMIGXwWAwGAwGg2FomMDLYDAY\
@@ -37796,7 +37794,7 @@ lxNcdDV06FAMHDgQ77//vmPZjh078Prrr+Orr75CdXU19Ho9hgwZgoceeghz5sxxev+8efOwd+9e\
 nD17Fkql0qO/mxBCQtn/B6kVwLidwCHPAAAAAElFTkSuQmCC\
 "
   frames[30] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADODElEQVR4nOydeXgURfrHv909dy4C4Q4QbkFhUUQR5FIRdVEksu4KqOiyngiI\
 uorrAbgr6/4WQWA9YcEDZT3wRgFXEAW8UDxWEZTDJIQjEHLN3V2/PyYzma7uSWYmk5k+6vM8PGR6\
 arqr++2qeuutt96XI4QQMBgMBoPBYDAYBoXPdAUYDAaDwWAwGIyWhCm8DAaDwWAwGAxDwxReBoPB\
@@ -38725,7 +38723,7 @@ s9lseOyxx/D++++jsrISdrsdRUVFTie46CgjIwMDBgzAJ5984lhWUFCAd955B19//TWqqqqg1+sx\
 ZMgQ3H///bj11lt5758/fz727NmDkpISKJVKl743IYQEs/8PcQd4BdYd4VUAAAAASUVORK5CYII=\
 "
   frames[31] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADE60lEQVR4nOydd5gURfrHvz15ZhMLS15gkSQgiAEDSFIR9RBk4QwEReUMiICc\
 nOIpLngn5/0OQcAMggHFcKioKOABouAZMJ8iSGZZwi5snNTTXb8/Zid0dc/uzOzsTof6PA8POz2d\
 pt+uqrfeegNHCCFgMBgMBoPBYDB0iindN8BgMBgMBoPBYDQmTOFlMBgMBoPBYOgapvAyGAwGg8Fg\
@@ -39613,7 +39611,7 @@ eDx46KGH8PLLL6O6uhperxc7d+70+4CL9oYOHYoBAwbgzTff9C3bvHkzXnzxRXzyySc4fvw47HY7\
 hgwZgl/96le48cYbZe+fM2cOtm/fjsrKShiNxoC+NxFRLPv/ZaqlwxHtpxcAAAAASUVORK5CYII=\
 "
   frames[32] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADPoUlEQVR4nOydeXwUxbbHfz09ezYCYQ8QdgFBFHEhsqmIC4pErlcBEZWLGwLi\
 itcFcOHd9y6CgLsIqChXMW5XVPAKouCK4nIVQVkkISwJIdtsPd31/pjMZLq6J5nJMtNLfT8fPmR6\
 qrtr+nRVnTp16hyOEELAYDAYDAaDwWAYFEuqK8BgMBgMBoPBYLQkTOFlMBgMBoPBYBgapvAyGAwG\
@@ -40550,7 +40548,7 @@ rhEe3A1L5nA48MQTT+Cdd95BdXU1nE4nysrK3E5w0VVubi4GDRqE999/37WspKQEb731Fr788kvU\
 RK5CYII=\
 "
   frames[33] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADSpUlEQVR4nOydeXwURfr/Pz09dy4C4UwC4RYUFg88iFwiXosgEXcFPNBlPVAB\
 r0VcD0BXvru/RRBYFQUBFWUV440iKoiCJ4rHKoJchhCOhNxz9XTX74/JTKareyYzySTTPV3v14sX\
 mZ7q7pqurqqnnnoOjhBCwGAwGAwGg8FgpCimZFeAwWAwGAwGg8FoTZjAy2AwGAwGg8FIaZjAy2Aw\
@@ -41500,7 +41498,7 @@ iRMn8OKLL+LEiROora1FcnIy+vbti+nTp+ORRx6xZ3hwlZbMarXiySefxL/+9S9UVFTAZrOhqKjI\
 Ll68CKVS6dHfTQgh4ez/Axz0vP8prNCjAAAAAElFTkSuQmCC\
 "
   frames[34] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADRFElEQVR4nOydeXwURfr/Pz09dw4IBEgggXAqKCyIKILhEPFEkMjuKoiiongC\
 oi7iegDuytf9LYLAqigIqCgqGxUVBVQQBLxQPFYRlEMSghDIPVdPd/3+mMxkuronmckx0z1d79eL\
 F5mequ6afrqqn3rqqefhCCEEDAaDwWAwGAxGkmJKdAMYDAaDwWAwGIyWhCm8DAaDwWAwGIykhim8\
@@ -42443,7 +42441,7 @@ cNHZ8OHDMWjQIOzdu9exbNeuXXjrrbfw9ddfo6amBlqtFkOHDsXvfvc73HXXXbz9Fy1ahIMHD+Ly\
 5ctQKpUu/d2EEBLM/j9Vfkv1p+DD+gAAAABJRU5ErkJggg==\
 "
   frames[35] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADTWUlEQVR4nOydeXwURfr/Pz09dy4C4U4g3HKKIojciHgtikTWAwTRZb0FRFlk\
 fx6Au/J1dxEEvEVARVnFeKOAK4iCJ94KgnII4UwIuebq6a7fH5OZTFf3JDPJJNNHvV8vXmR6urpr\
 +umqeuqpp56HI4QQMBgMBoPBYDAYBsWS6gowGAwGg8FgMBiNCVN4GQwGg8FgMBiGhim8DAaDwWAw\
@@ -43396,7 +43394,7 @@ eXk5nE4nCgsL3U5w0d6wYcPQv39/vP/++65lu3fvxuuvv44vv/wSFRUVMBqNGDx4MB544AHcfvvt\
 vPcvWrQIBw4cwIULF6BWqz36uQkhJJT9fzixjotGkB/aAAAAAElFTkSuQmCC\
 "
   frames[36] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADD3klEQVR4nOydd5wURdrHfz15ZhMLS15gyQLCYcDASlKRUxEkXBAEV0UxICCn\
 p/gaAO/k9d5DUFAPhQNUFBOnKCiggJxgxKwgKEFY4sLmST3d9f4xO7PT1T27PbOzOx3q+/nwYaen\
 a7q6n66qp5566nk4QggBg8FgMBgMBoNhUCzprgCDwWAwGAwGg9GYMIWXwWAwGAwGg2FomMLLYDAY\
@@ -44280,7 +44278,7 @@ YuPGjfjss89w8eJFGAwG9OvXD7/+9a9x3333OW0/a9Ys7Nu3D6dPn0ZERIRb35uIKJj9f9s+nSMY\
 aeJLAAAAAElFTkSuQmCC\
 "
   frames[37] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADTFklEQVR4nOydeXwURfr/P909dy4C4UyAcCooLIp4ELlUvAWJrLuCB7qst4B4\
 ILsegLvydX+LIOINCx4oqxi8QAEVBEFFUdRVEZRDCDfknqunu35/TGYyXd2TzCSTTB/1fr14kenp\
 6q7pp6vqqaeeeh6OEELAYDAYDAaDwWCYFD7dFWAwGAwGg8FgMJoTpvAyGAwGg8FgMEwNU3gZDAaD\
@@ -45232,7 +45230,7 @@ J7hwNXDgQPTp0wcfffSRc1lRURHeeecdfP3116isrITBYED//v3xpz/9CXfeeSdv/zlz5mD37t04\
 f/48lEqlRz83IYSEs/8PCKMHuQoPnrkAAAAASUVORK5CYII=\
 "
   frames[38] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADR4UlEQVR4nOydeXgURfrHv909dy4C4QgkEE7lFEU8uAQVr0WQyLrKoaist4B4\
 susB6MrP3UUQWF0UBFTUVTd4gQIqCIIn3qsIyiEJ4QiEXHN31++PyUymq3uSmWSS6aM+z8NDpruq\
 u7qrq+qtt956X44QQsBgMBgMBoPBYBgUPtUFYDAYDAaDwWAwmhMm8DIYDAaDwWAwDA0TeBkMBoPB\
@@ -46179,7 +46177,7 @@ wyOPPOKd4cHXtGRutxtPPvkk3nrrLVRVVcHj8aCsrMznAhdtDR48GH379sX777/v3bZ9+3a88cYb\
 AAAASUVORK5CYII=\
 "
   frames[39] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADUBElEQVR4nOydd3gU1frHv7OzPY0SahIIXVC4WLAQaSpiQZHAtQAqKnYFxILc\
 awH0ys97L4KIBQXBgnItQVFRRAVRsGIvCNKEUBPSt83OnN8fm93snJlNdpNNdsr5PA8P2dk5M2fn\
 nXPOe97znvflCCEEDAaDwWAwGAyGQbGkugIMBoPBYDAYDEZzwhReBoPBYDAYDIahYQovg8FgMBgM\
@@ -47135,7 +47133,7 @@ VVVwOp0oLS31OsGFpyFDhmDAgAH48MMP3cu2bduGt956C1999RWqq6thNBpxzTXX4A9/+APuuOMO\
 3v4LFizA7t27ce7cOajVap++NyGERLL/DyYQCmuShfJmAAAAAElFTkSuQmCC\
 "
   frames[40] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADR7UlEQVR4nOydeXgURfrHvz09R2ZyEQhnEginAsKigAcQBBVPBA2sq1yish6I\
 gHiy6wHoym8P5PRAQfBmFYPHiiKuIAieeK8iKIcQAiQQcs3V012/PyYzma7uSWaSSaaP+jwPD5me\
 6unqfruq3nrrrfflCCEEDAaDwWAwGAyGQbEkuwIMBoPBYDAYDEZzwhReBoPBYDAYDIahYQovg8Fg\
@@ -48082,7 +48080,7 @@ d991LSstLcUbb7yBzz//HLW1tdDr9Rg8eDD++7//G7fffrvb/osWLcKBAwdw7tw5KJVKn35uQgiJ\
 ZP8fMPFfF5+jb30AAAAASUVORK5CYII=\
 "
   frames[41] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADGfklEQVR4nOydeXwURfr/Pz33TC4CAQIECPcliAIeIJeKrIoCkXVXDkUXRVEB\
 WVnF9QDcla/7WwQBDxQEVNT1iIqKAi4gCl7gvYoglySEIyH3XD3d9ftjMpPp6p5kZjKZ6emu9+vF\
 i0xPVXdPP11VTz311PNwhBACBoPBYDAYDAZDoxiSfQMMBoPBYDAYDEZzwhReBoPBYDAYDIamYQov\
@@ -48978,7 +48976,7 @@ Ca1Wi0GDBuHPf/4zHnjgAbv3Z2VlobCwEKWlpVAqlU59bkII8Wf/H9wJBGcY9CfKAAAAAElFTkSu\
 QmCC\
 "
   frames[42] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADTuUlEQVR4nOydeXgURfrHvz09R2ZyEQiQkATCLSAsiiiHXCqyKIoEVldARBdv\
 BURZxFUEdGXdnwgCHigIqKirGBQFBVQQBPEA8UaQmxCukHuunu76/TGZyfQxyUwyyfRRn+fhIdNT\
 PV3db1fVW2+99b4MIYSAQqFQKBQKhULRKaZ4V4BCoVAoFAqFQmlIqMJLoVAoFAqFQtE1VOGlUCgU\
@@ -49933,7 +49931,7 @@ DRqE999/37OsrKwMr7/+Or744gvU1tbCZDJh6NCh+P3vf49bbrmFt/+iRYuwa9cunDlzBmq12qe/\
 mxBCItn/B+ZnUa+W8+OPAAAAAElFTkSuQmCC\
 "
   frames[43] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADTDUlEQVR4nOydd5wURfr/Pz09eRMLS9wFlqigIAoYQJKKEUFW7k4Jih5mBcSA\
 3NcAeCc/7w5BwAyCAeUMixEFPEEQTGA+RZAkLHFh86Se7vr9MTuz09U9uzO7szMd6v168WKnp2q6\
 Zqqr6qmnnsARQggYDAaDwWAwGAyDYkl3AxgMBoPBYDAYjOaECbwMBoPBYDAYDEPDBF4Gg8FgMBgM\
@@ -50885,7 +50883,7 @@ f3989NFHjm3FxcV4++238dVXX6GmpgY6nQ6DBg3Cww8/jDvuuIP3/vnz52Pv3r2oqKiAUqn06Ocm\
 hJBw9v8B77YaVIMLKpwAAAAASUVORK5CYII=\
 "
   frames[44] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADTyUlEQVR4nOydd3gU1frHv7OzPY1A6AmEXhREEQtIUxELikT0Kk30olgBUVTu\
 TxHQK7ch1YKCgIpyFWMFBVQQBQuiWK4iSJOEUBLSt83OnN8fm93slN3sJpvslPN5Hh6yM+fMnJl3\
 zjnvec973sMQQggoFAqFQqFQKBSdYkp2ASgUCoVCoVAolMaEKrwUCoVCoVAoFF1DFV4KhUKhUCgU\
@@ -51840,7 +51838,7 @@ gs1mQ3FxscsJLroaNWoUhg4dinfeece5rLCwEK+++iq+/PJLVFdXw2AwYMSIEfjTn/6Em2++mff+\
 pUuX4sCBAygtLYVarXbr7yaEkGD2/wGFvaN+kJ/VFAAAAABJRU5ErkJggg==\
 "
   frames[45] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADUfElEQVR4nOydd3wUZf7HP7OzJbtpBEJNAqFLPRRBJdJUxI4EzlOwoGJDBeRs\
 3M8CWDjvDkFAPRQEVNSzBMuJAioIgg0UyymCNCH0kL5tdub5/bHZzc4zs8lusslOed6vFy+ys8/s\
 zO53nuf5Pt/nWzhCCAGDwWAwGAwGg2FQLMm+AQaDwWAwGAwGoylhCi+DwWAwGAwGw9AwhZfBYDAY\
@@ -52798,7 +52796,7 @@ BO+88w7KysrgcrlQXFzsdYKL1gYNGoQ+ffrggw8+8Czbvn073nzzTXz55ZcoLy+HyWTCgAED8Oc/\
 /xm33347b//58+dj7969OHfuHNRqtU+/NyGERLL/D+Qot+a6WvokAAAAAElFTkSuQmCC\
 "
   frames[46] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADDCUlEQVR4nOydd5gUxfb3vz15ZhMLS9xdWLKAcFHEAJJURL0IgtwgiK6KGQG5\
 Ju5VBAy83t9FUDCDgIhiADMKKCAKKoJZwURe4sLmST3d9f4xO7PT1T27M7sTOtTneXjY6ameru7T\
 VXXq1KlzOEIIAYPBYDAYDAaDoVNM6a4Ag8FgMBgMBoORTJjCy2AwGAwGg8HQNUzhZTAYDAaDwWDo\
@@ -53678,7 +53676,7 @@ lZWFfv364d1337UO2759O9avX4/PP/8cVVVV0Gq1GDRoEH7961/j7rvvtpl+9uzZ2LVrF8rLy6FS\
 qVz63kREgez/A0UNsbu8JoqvAAAAAElFTkSuQmCC\
 "
   frames[47] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADUW0lEQVR4nOydeXwURfr/Pz09dy4CgQBJIJxyCIsiHkQuFVEXQQK6cqiorAci\
 IMoiux4BXfm6v0UQ8EBhwQNlFeMJCiggCF6grieicodwJOSeq6e7f39MZjJd3ZPMJJNMH/V+vXiR\
 6anurumnq+qpp556HkYURREUCoVCoVAoFIpOMSW6AhQKhUKhUCgUSnNCFV4KhUKhUCgUiq6hCi+F\
@@ -54636,7 +54634,7 @@ wkK8/fbb+Prrr1FRUYGYmBgMHDgQf/rTn3D33Xfz3j9//nzs3bsXFy5cgFqtduv3JoSQYPb/AbXs\
 RcTscJViAAAAAElFTkSuQmCC\
 "
   frames[48] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADVoklEQVR4nOydeXgURfrHvz09dy4C4QhJINxyigKKIJeKJ4JE1lUu0WXFExB1\
 kV1FQH+y7oogoCsKggeKysYTFHABQfBE8UZQDkMIR0LuuXq66/fHZCbTx0xmck0f9XkeHjI91d01\
 /XZVvfXWW+/LEEIIKBQKhUKhUCgUnWJKdAUoFAqFQqFQKJSmhCq8FAqFQqFQKBRdQxVeCoVCoVAo\
@@ -55600,7 +55598,7 @@ NjYWw4YNw7333oubb76Z9/5FixZhz549OHv2LNRqtVd/NyGEhLL/D4hlmfEVWXIsAAAAAElFTkSu\
 QmCC\
 "
   frames[49] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADU/klEQVR4nOydeXgURfrHvz09dy4CAQIkEE4FhEURRW5UPBEksK6corIeqIB4\
 sqsI6MrqbxEEPFAQUFFWMZ6ggAqioKIoHqsIyiGEcCTknqunu35/TGYyfcxkJplk+qjP8/CQ6anu\
 runqqnrrrfdgCCEEFAqFQqFQKBSKTjEluwIUCoVCoVAoFEpjQgVeCoVCoVAoFIquoQIvhUKhUCgU\
@@ -56561,7 +56559,7 @@ N998g/LychiNRvTu3Rt//vOfcdttt/HeP2/ePOzevRtnz56FWq326ucmhJBw9n97ej2biblMMAAA\
 AABJRU5ErkJggg==\
 "
   frames[50] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADTxElEQVR4nOydeXwUxbbHfz09ezYCYQlJIOyyigKKIBBU3C6KhOhVQEXluguI\
 K9ctoBee910EARcUBFSUpxjcQAEVBEFEUVyuIspmEsIWQrbZu+v9MZnJ9DKTmWSS6aW+nw8fMj01\
 3dV9uqpOnTp1DkMIIaBQKBQKhUKhUDSKIdEVoFAoFAqFQqFQmhOq8FIoFAqFQqFQNA1VeCkUCoVC\
@@ -57516,7 +57514,7 @@ qKjI7QIXroYMGYL+/fvj/fffd24rKCjAW2+9hS+//BKVlZUwGo0YNGgQ/vSnP2HhwoW81y9evBgH\
 Dx7EhQsXoNVqPfq9CSFEyf4falHF+VMgkTgAAAAASUVORK5CYII=\
 "
   frames[51] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADFaElEQVR4nOydeXgURfrHvz09dy6OcOWAcAsI4oEHkVMRQeQIrLtyiS7qqgiI\
 soqrGNCVn7siCOiKguCBsupG8UABFxAF79tVRLkTwpFAzrl6uuv3x2Qm08ckM2Em00d9noeHTE/1\
 dM98u6reeuuttxhCCAGFQqFQKBQKhaJTTMm+AQqFQqFQKBQKJZFQg5dCoVAoFAqFomuowUuhUCgU\
@@ -58407,7 +58405,7 @@ x8KFC60zPNiblsxkMuHJJ5/EBx98gMrKSpjNZpSUlNhd4KK1Xr16oVu3btizZ491W1FREd599118\
 AABJRU5ErkJggg==\
 "
   frames[52] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADVaElEQVR4nOydd3gU1frHv7OzPY1AKCEJhC4gXBSwgDQVsSBIxHsFBFERO2BB\
 xasIqPDzXhEE7CCgolzFWLiiiAqiYEWxXEVUakIoCenbZmfO74/NbnbKbnbDJjvlfJ6Hh+zMmZkz\
 88458573vOd9GUIIAYVCoVAoFAqFolNMya4AhUKhUCgUCoXSlFCFl0KhUCgUCoWia6jCS6FQKBQK\
@@ -59370,7 +59368,7 @@ GDBixAg88MADuOWWWzyOX7x4Mfbu3YuzZ89CrVb79LsJgiDkzP8H8f5NWhmfxgoAAAAASUVORK5C\
 YII=\
 "
   frames[53] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADW1klEQVR4nOydeXgURfrHvz09dy4CAQJJIJwKCKKIIhEIKqIugoSsK5eish6o\
 gK6I7CoCurLuTwQBXVEQFFFW2aAoKEQFQVA5vA8EuYQQjoTcc/V01++PyUymu2eSmTDJ9FGf5+Eh\
 01N9TFd31VtvvfV9GUIIAYVCoVAoFAqFolEM8b4ACoVCoVAoFAqlKaEGL4VCoVAoFApF01CDl0Kh\
@@ -60339,7 +60337,7 @@ IN555x3XsZKSErz22mv47LPPUF1dDZPJhCFDhuCXv/wl7rjjDt71ixYtwr59+3Du3DlotVqfPjdB\
 EEQ48/8BYxGxr2M7qtQAAAAASUVORK5CYII=\
 "
   frames[54] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADUkUlEQVR4nOydd3hUVfrHv3fulMykQEiAhCQQaUoVRSxAKCpWBAmshaLosnYp\
 Kou4FkBXdvcngoCuKAgWlFUMNlCICwiCCGJfRZQaQoAkpE+7c+/5/TGZydwyyUza3HI+z8ND5t5z\
 63vPOe95z3velyGEEFAoFAqFQqFQKDrFFOsboFAoFAqFQqFQWhKq8FIoFAqFQqFQdA1VeCkUCoVC\
@@ -61298,7 +61296,7 @@ b7zxBr788kvU1NQgMTERQ4YMwX333Ydbb73V4/Xz5s3Djh07cOrUKWg0Gr/+bkIIiWT/HxZMcLpr\
 4mbxAAAAAElFTkSuQmCC\
 "
   frames[55] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADXbElEQVR4nOydeXgURfrHvz09R2ZyEQhnEginci6KKBLCoeKJIJF15VJU1gMV\
 0BWVXcWArqy7IgisioKAivJTjIKCQhQQBEUF8VhFkEsI4UjIPXd3/f6YzGT6mMlMMsn0UZ/n4SHT\
 Xd1d3dVV/dZb78EQQggoFAqFQqFQKBSNYoh3BSgUCoVCoVAolKaECrwUCoVCoVAoFE1DBV4KhUKh\
@@ -62270,7 +62268,7 @@ LRlBEEQXHDp0CJMnTw6q7TPPPIPVq1d7Xh89ehS///3vcfToUVy7dg1ZWVkYMmQIZs2ahQcffNCT\
 RK5CYII=\
 "
   frames[56] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADD4klEQVR4nOydeXgURfrHvz33TA4IBAgk3KegLIp4ELlURBRBAnvIoRFZvBDQ\
 lUV3RQO68nNXBAUPFJYgi6ICqyigxCWAggegeCMegBCuBHLP1dNdvz8mM5k+JplJ5uijPs/DQ6an\
 pru636633nrrrbcYQggBhUKhUCgUCoWiUQzJrgCFQqFQKBQKhRJPqMFLoVAoFAqFQtE01OClUCgU\
@@ -63154,7 +63152,7 @@ yw4cOICdO3fiq6++QkNDA+RyOdLS0vC73/0ODz/8MO/1ixYtwtGjR1FdXQ0/Pz+L/m5CCHFn/x8W\
 LIwGn6LW1wAAAABJRU5ErkJggg==\
 "
   frames[57] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADW+0lEQVR4nOydd3wU1fr/P7OzPY1AqAkQuoAgiqASqhorggT0Kgiici2IgF4R\
 uT8LYOHe+70IAhYUBFSUqxgrKKCAKKgoihUEqSGEkpC+bXbm/P7Y7GanbLKbtlPO+/XiRXb2zM7Z\
 fWbOec5znsIQQggoFAqFQqFQKBSdYop3BygUCoVCoVAolMaEKrwUCoVCoVAoFF1DFV4KhUKhUCgU\
@@ -64124,7 +64122,7 @@ srISRqMR/fv3xwMPPIDbbrvN4/1z587F7t27cebMGajVap9+bkIIkbP/B/gjSqSDs4MQAAAAAElF\
 TkSuQmCC\
 "
   frames[58] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADXi0lEQVR4nOydeXgURfrHvz09dy4C4cgF4ZZzUQSBcKp4IkiMroIoKuuBCoiy\
 yq4H4Crr7iKH6IqCgIryU4yKigKuIAgqCuKNIJckhCvknqunu35/TGYyfUwyE5JMH/V5Hh7SPdXd\
 1f12Vb/11lvvyxBCCCgUCoVCoVAoFJ1iincFKBQKhUKhUCiUpoQqvBQKhUKhUCgUXUMVXgqFQqFQ\
@@ -65096,7 +65094,7 @@ BgyA1WrFxo0bUV5ejkceecTtNXbv3o2Ghga35xNCiJpRWjJCCOnG7t27MWHCBJ+Offrpp7F8+XLX\
 OHXqFHQ6nU9/NyGEKNn/B9kmd35Uwp3tAAAAAElFTkSuQmCC\
 "
   frames[59] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADYrElEQVR4nOydeXgURfrHvz09dy4CgRASINyCgCiCCHKpeKJIQFdOUVkPRECU\
 RXY9AF1Z9yeCgAcKAirKKgZFQSEqGATxQPBGUM6EcCTknru7fn9MZjJ9zGRyTh/1eR4eMj3V3TVT\
 U9VvvfXW92UIIQQUCoVCoVAoFIpGMcS6AhQKhUKhUCgUSmNCDV4KhUKhUCgUiqahBi+FQqFQKBQK\
@@ -66073,7 +66071,7 @@ lJaWui1w0ZFhw4Zh4MCBeP/9913HiouL8frrr+PLL79EZWUlYmNjMWTIEPzhD3/Arbfeyrt+/vz5\
 2L17N06fPg2tVuvV5yYIglAy/x9SLAJU8fkzNQAAAABJRU5ErkJggg==\
 "
   frames[60] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADYyElEQVR4nOydd3wVVfr/P3Pn9hQIhJIGoQsCoogiGIoaC4sCAd2lispaWARs\
 q+zPAujKrt9lQcSCgoKKuoqxrSjgCoJgARQbUqSZhFAS0m+bO3N+f9zcMuUmN/VOOe/Xixe5M2dm\
 zswz58xznvOc52EIIQQUCoVCoVAoFIpOMcW7AhQKhUKhUCgUSktCFV4KhUKhUCgUiq6hCi+FQqFQ\
@@ -67051,7 +67049,7 @@ vvzyS1RWVsJoNKJ///747W9/i3vuuYd3/dy5c7F7926cO3cOarXao99NEAQhZ/4/NQXta4kzuNgA\
 AAAASUVORK5CYII=\
 "
   frames[61] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADJwElEQVR4nOydd3gU1frHv7N9N41AIAQSCF3qpStEmhoRpUhErwIKKnaaXlHx\
 pwh4lVtEELCgIFhQrmJUVBRQQBSs2AuiUgwhlIT0bJmdOb8/NrvZKZvsJrubKefzPHlgZ8/OzO53\
 zjnvec973sMQQggoFAqFQqFQKBSNYmjuG6BQKBQKhUKhUGIJNXgpFAqFQqFQKJqGGrwUCoVCoVAo\
@@ -67961,7 +67959,7 @@ m5Gbm+twgYv24uPjMXjwYHz55ZfWbdnZ2fjoo4/w/fffo6ysDDqdDsOHD8dTTz2FBQsW8N6/cOFC\
 7Nu3D4WFhZDL5U793oQQ4sv+PzaBLCiSjnQPAAAAAElFTkSuQmCC\
 "
   frames[62] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADV+0lEQVR4nOydeXgURfrHvz09dy4SwhGSQLgFhEU5RCAcIiKKgAEvDkVlPRAB\
 8cQVBXRld3+LIOKBggKKsorxWlFABYPggSgeq4jKlYQEQgi55u6u3x+TmUwfk0ySSaaP+jwPD5me\
 mu7qfruq3nrrrfdlCCEEFAqFQqFQKBSKRjHEugIUCoVCoVAoFEpzQhVeCoVCoVAoFIqmoQovhUKh\
@@ -68926,7 +68924,7 @@ gQtXhg4div79++ODDz5wbissLMSrr76Kf/7zn6ioqIDJZMLgwYPxpz/9CXPnznU7fv78+di9ezdO\
 nToFrVbr0/cmCIKQM/8PxVq8oJXHzfIAAAAASUVORK5CYII=\
 "
   frames[63] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADXWklEQVR4nOydd3wU1fr/P7OzJbtpBEJNAqFLFaVIL0osXBQJXK+AICrXggjI\
 FRV/FsDC9xYEAQsKUhT1KgYbKEQBUbAglmtDkE5IIAnp22fO74/Nlimb7KbtlPN+vXiRnT0ze2bO\
 nHOe85ynMIQQAgqFQqFQKBQKRaMYYl0BCoVCoVAoFAqlMaECL4VCoVAoFApF01CBl0KhUCgUCoWi\
@@ -69897,7 +69895,7 @@ ymC321FcXOyxwIUrWVlZ6NmzJz788EPnscLCQrz11lv48ssvUV5eDqPRiL59++K3v/0t7rrrLrfr\
 58yZg507d+Ls2bNQq9VefW6CIAg58/8BwI3SzsdGSyMAAAAASUVORK5CYII=\
 "
   frames[64] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADXLklEQVR4nOydd3gU1frHv7OzPQUCgZAGoQsKF6UIxFBUrAgSsQCiqNgQAQsi\
 91oAvXK9v4sgoFdUBFSUqxhsoIAKghQVFDuC9IQAIaRvnzm/Pza72Smb7KbtlPN5Hh6yM2dmzsyZ\
 c+Y973kLQwghoFAoFAqFQqFQNIoh1hWgUCgUCoVCoVCaEirwUigUCoVCoVA0DRV4KRQKhUKhUCia\
@@ -70867,7 +70865,7 @@ wL59+zBhwgSv2j711FNYvny58/WhQ4fw97//HYcOHcLly5eRlJSEAQMGYPr06bj33nudGR7cpSWz\
 HDgQf/jDH3Drrbe6vH/hwoXYtWsXzpw5A41G49X3JgiCUDL/H0iSNtq546+sAAAAAElFTkSuQmCC\
 "
   frames[65] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADYjUlEQVR4nOydd3wU1fr/P7OzPY1AIIQkEKqCwEURpEixYEWQgA1EUbkWVECu\
 iNyfBfBeud6vCAIWFARUlKsYFQUFVBAFlGZXBOmEUBLSt83OnN8fm93slE1203bKeb9evMjMnJk5\
 s2fOmec85ykMIYSAQqFQKBQKhULRKaZ4V4BCoVAoFAqFQmlMqMBLoVAoFAqFQtE1VOClUCgUCoVC\
@@ -71844,7 +71842,7 @@ yy9RWVkJi8WCYcOG4e6778bNN9/Mu37evHnYuXMnTpw4Ab1e79XnJgiCUDL/H4HI+WiuT82FAAAA\
 AElFTkSuQmCC\
 "
   frames[66] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADEaElEQVR4nOydeXgUxdaHfz37TBZICGsSCLLILoqgEtlURLkIEnABRFERN0Tk\
 iopXMeC9cq+fCAouKAiIKC7gCgpRQBQQEMUNEGVfwpKQfbae7vr+mMxkeplkJplkeqn3eXjIdFd3\
 V9fpqjp16tQphhBCQKFQKBQKhUKhaBRDvDNAoVAoFAqFQqHUJ1ThpVAoFAqFQqFoGqrwUigUCoVC\
@@ -72730,7 +72728,7 @@ RWFhocMHXDSXmpqKXr164Z133rFN2717NzZt2oRPP/0UZWVlMBqN6NevH373u9/hvvvus3t/VlYW\
 9u/fj3PnziEkJMSpz01E5M/+P1rYjZg+TMY/AAAAAElFTkSuQmCC\
 "
   frames[67] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADU2ElEQVR4nOydd3wU1drHf7OzPY1AqAkQuoBwUUCRUFXEBkhErxQRlWtBBUQR\
 ua8F8F55va8IIhYUBFSUqxhsoBAVBEEFUeyI0oQQSkJI2zY7c94/NrvZKZvsJpvslPP9fPiQnTkz\
 c2bOzDnPec5TGEIIAYVCoVAoFAqFolNMia4AhUKhUCgUCoXSkFCBl0KhUCgUCoWia6jAS6FQKBQK\
@@ -73690,7 +73688,7 @@ D3Ts2BFffPGF87WsrCx8+OGH+O6771BQUIDIyEh07doVjz/+OO655x7e+2fMmIGdO3fi3Llz0Ov1\
 bv3chBCiZP8fTBAToVj+paYAAAAASUVORK5CYII=\
 "
   frames[68] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADW20lEQVR4nOydd3gU1frHv7OzPY1AKCEJhK60i1KkE9RYEAUCNpqoXFRUQBSR\
 ey2A98r1dy+CgAUFARHlIjcqCgpRwSiIAoqVolIMIZSE9G2zM/P7Y7ObnbLJbtpOOZ/n4SE7c2bm\
 zLxzzrznPe95X4rneR4EAoFAIBAIBIJGMUS7AgQCgUAgEAgEQmNCFF4CgUAgEAgEgqYhCi+BQCAQ\
@@ -74659,7 +74657,7 @@ ZWZmok+fPvjkk08cy4qKivDWW2/h66+/RmVlJfR6Pfr374/7778ft9xyi8v7582bh927d+Ps2bNQ\
 q9Ue/d2EECJn/x+zSGdhHpxwiQAAAABJRU5ErkJggg==\
 "
   frames[69] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADYiUlEQVR4nOydeXgURfrHvz09R2ZyQEggQBIIcgkKiyKIhFPFE0UCuwrIobKe\
 CIiyiqsIeLAXgoA3LHig/BTjCStEBUEQQRRvRLmEECAJuefq6a7fH5OZTB+TzCSTTB/1eZ48MN3V\
 3TVTXVVvvfUeDCGEgEKhUCgUCoVC0SmmeFeAQqFQKBQKhUJpTqjAS6FQKBQKhULRNVTgpVAoFAqF\
@@ -75636,7 +75634,7 @@ lcFgMKBPnz64//77cdtttzldP3/+fOzduxfnzp2DWq126+8mCIKQMv8fktAxXv0sbz4AAAAASUVO\
 RK5CYII=\
 "
   frames[70] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADWY0lEQVR4nOydeXgURfrHvz09dy4C4UwC4VQQEOUQCaeKJ2eIroAHrqwoIiDK\
 IrsegK78dlfk9EBBQEVZxOAFCihgkEMRxRtQLkNIIAm55+6u3x+TmUx3zyQzuaaP+jwPD5mumunq\
 frur3nrrrfdlCCEEFAqFQqFQKBSKStFFuwEUCoVCoVAoFEpjQhVeCoVCoVAoFIqqoQovhUKhUCgU\
@@ -76603,7 +76601,7 @@ yspKJCcno0+fPpg+fTqWLFnizPDgKS2ZzWbDE088gb///e8oKSmB3W5HYWGhxwIXrgwYMAA9e/bE\
 EErm/wPHDS3bsewFgwAAAABJRU5ErkJggg==\
 "
   frames[71] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADHNElEQVR4nOydeXgURfrHvz1nZnJxhCMXhFM5RREPMBwqoiyKhKjLKSpeiICu\
 rOIqArqy+9tFEPBAQUBEWcSoKCiggCAoAoo3olySEI6EkGuunu76/TGZyfQxyWSYyfRRn+fhIdNd\
 M90z366qt9566y2GEEJAoVAoFAqFQqFoFEO8b4BCoVAoFAqFQokl1OClUCgUCoVCoWgaavBSKBQK\
@@ -77502,7 +77500,7 @@ J598gh9//BGVlZVQqVTo168fnnrqKTzwwAMm7589ezb27t2L4uJiSKVSm35vQgjxZP8PYUuV2zoJ\
 6m4AAAAASUVORK5CYII=\
 "
   frames[72] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADWJElEQVR4nOydd3wU1fr/P7N9NwUCgXQIXUC4KKAUaWosiCIR7xUQROWKIgIW\
 ruK1ABa+3t9FELCgIKCiXMVgA4UoIAgWitgQUWoIAdLbttmZ8/tjs5udmd1kN22nnPfrxYvMnDM7\
 Z+aZOfOc5zzneRhCCAGFQqFQKBQKhaJSdNFuAIVCoVAoFAqF0pxQhZdCoVAoFAqFomqowkuhUCgU\
@@ -78468,7 +78466,7 @@ XGFhId5880189dVXqKiogMlkwoABA/CHP/wBd911l8frZ8+ejT179uDs2bPQarU+/d2EEKJk/x9e\
 hkRyB69TRQAAAABJRU5ErkJggg==\
 "
   frames[73] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADWJklEQVR4nOydd5gURfrHvz09eRMLS9oAS1TioYCBJaqoKEEW9CSjYkbAgMid\
 AfBOfncngoABBQEV5ZRbFAUFVBAFA6AoBkRJssuSls2Terrr98eEnenu2Z3ZNB3q8zw87HR1qO7q\
 qnr7rTcwhBACCoVCoVAoFApFoxjiXQEKhUKhUCgUCqUhoQIvhUKhUCgUCkXTUIGXQqFQKBQKhaJp\
@@ -79434,7 +79432,7 @@ hIQEDBw4EDNmzMB9993nyPDgKi2Z1WrFQw89hLfffhuXL1+GzWZDcXGxywUunA0ZMgT9+/fHBx98\
 f6/UAhdfxPhcAAAAAElFTkSuQmCC\
 "
   frames[74] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADYBElEQVR4nOydd3gU1frHv7OzPY1AIJACoUsVRRAJVY0FQSSgV0AQFcWCgCgX\
 uT9LQK9c75UiYAfBgiJisIFCVBCkKKBYQZROCJCE9G2zM/P7Y0t2yia7aTszez7Pw0N2zpmZM/PO\
 OfPOe97zvhTP8zwIBAKBQCAQCASNoot0AwgEAoFAIBAIhMaEKLwEAoFAIBAIBE1DFF4CgUAgEAgE\
@@ -80408,7 +80406,7 @@ wmq1orS01O0EF84GDBiAXr164eOPP3YsKy4uxjvvvIOvv/4aVVVViI+PR9++ffHII4/g7rvvdnn9\
 nDlzsHv3bpw/fx5qtdqr/5sQQuTs/wOGejWqSgU5ugAAAABJRU5ErkJggg==\
 "
   frames[75] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADXDklEQVR4nOydd3gU1frHv7OzJbspEAg1AUJV6kUpIqEEFBWkSECvgCAq14II\
 WBC5P8WAV7l6RRCwg2BBETFWUEAFQVBpYqdIJ4QW0rfNzpzfH5stM7Ob7KbtlPN5Hh6yc87MnN0z\
 c8573vMWhhBCQKFQKBQKhUKhaBRDrBtAoVAoFAqFQqHUJlTgpVAoFAqFQqFoGirwUigUCoVCoVA0\
@@ -81378,7 +81376,7 @@ xuXLl5GUlIR+/fph0qRJeOCBBxwVHtyVJbPZbHj00Ufx1ltvoaysDHa7HYWFhW4XuHCWkZGBPn36\
 hKjZ/wfk+U8tAr1wRQAAAABJRU5ErkJggg==\
 "
   frames[76] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADI/ElEQVR4nOydd3gU1frHv7N9N41AIBUIHWkixUIIRUUUESSi9wqiqNgRkCtX\
 8VoAr/LzXhEE7CJYUBTItYECChgFVEDBgojShBBKQkjbPnN+f2x2s1N2s5tsslPO53nywM6Zcma+\
 c8685z3vOYchhBBQKBQKhUKhUCgqRRfvDFAoFAqFQqFQKE0JNXgpFAqFQqFQKKqGGrwUCoVCoVAo\
@@ -82285,7 +82283,7 @@ H3/8Mb7//ntUVFRArVajV69eePbZZ/Hoo49abJ+Tk4OCggJcunQJUqnUqd+bEEL82f8Hfamsf5AR\
 G4QAAAAASUVORK5CYII=\
 "
   frames[77] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADY0klEQVR4nOydd3gU1frHv7OzPQUCoYQkELrSRBFFQlWDiigS0Ksgisq1IAJy\
 5Sr+LIBeuXpFENArCoIF5SoGFUUBBURBpSh2RGlCCC2kb5udOb8/ts7M7mY3JNkp5/M8PGTnnNk5\
 M+/OzHve8xaGEEJAoVAoFAqFQqFoFEOyB0ChUCgUCoVCoTQkVOGlUCgUCoVCoWgaqvBSKBQKhUKh\
@@ -83263,7 +83261,7 @@ s+7Lz8/HBx98gG+++Qbl5eWIjIxE79698cc//hEPPvig3fkzZ87E7t27cfHiRajVapc+N0EQhJz5\
 P2pioIOp09RpAAAAAElFTkSuQmCC\
 "
   frames[78] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADYsUlEQVR4nOydd3hUxfrHv2fP9hQIBEiFUJV6UUSBUNWIIoJEbDRRudgBUUS8\
 loD3yk+vCAJ2ECwoVzHYQAEFBAEVQewUaUIIJSF9+9n5/bHZzZ6yyW6yyZ4yn+fhIXtmzjlzzpyZ\
 eeedd96XIYQQUCgUCoVCoVAoKkUX6wJQKBQKhUKhUCiNCRV4KRQKhUKhUCiqhgq8FAqFQqFQKBRV\
@@ -84240,7 +84238,7 @@ KyuDxWJBYWGhywkuHA0YMAA9e/bExx9/bF+Wn5+Pd999F19++SXKy8sRExODvn374vHHH8e9997r\
 9P4FCxbgwIEDuHz5MtRqtUd/NyGEyNn/A4Wtsns9ZiYWAAAAAElFTkSuQmCC\
 "
   frames[79] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADY50lEQVR4nOydd3gU1frHv7OzPY1AqEkgVKWKIoiEEkQsCAIBvQqCqFxRREAU\
 FX8WwHvl6hVBwA6CBeUqBhsooIBRsFBEsQBKUQihhfRtszPn98eW7M7sbnbDJjvlfJ6Hh+ycKWfm\
 zDnznve8hSGEEFAoFAqFQqFQKCpFl+gKUCgUCoVCoVAo9QkVeCkUCoVCoVAoqoYKvBQKhUKhUCgU\
@@ -85218,7 +85216,7 @@ arWirKzM4wIXzrKzs9GnTx98+OGHjm0lJSV466238O9//xtVVVWIi4vDNddcg/vvvx933HGHy+Pn\
 zp2L3bt34/Tp01Cr1T7934QQImf/H7b4fJSFbDAaAAAAAElFTkSuQmCC\
 "
   frames[80] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADUXElEQVR4nOydd3gUVffHv7M1u2kEQk0CoXdEKSKhqrGiSMBGUVReVETAgoiv\
 JaAvvPoTQcCCgmBBeS2xIChEAUFQERQ7otJDKAkhbdvszP39sdnNTtnNbtpOuZ/n4SE7d8qdOXPv\
 nHvuuecwhBACCoVCoVAoFApFoxhiXQEKhUKhUCgUCqUhoQovhUKhUCgUCkXTUIWXQqFQKBQKhaJp\
@@ -86176,7 +86174,7 @@ j+Xn5+Ptt9/G119/jbKyMuj1egwcOBB/+MMfMH/+fKfnL1y4EHv37sX58+ehVCo9+r0JIUTK/h+i\
 sLX/l33xFgAAAABJRU5ErkJggg==\
 "
   frames[81] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADKD0lEQVR4nOydd3wURf/HP3v9Lo1AKCEBQpUuCggSSlAjikgJiI80UbEhAhZU\
 fCwBFB6fnwgCdhBQUR7FqCgooIAgWAB7wUJNQgIkpF/fnd8fl7vc7t4ld8klt2Xerxea2529m7vP\
 zux3vvOd7zCEEAIKhUKhUCgUCkWhaKJdAQqFQqFQKBQKpTGhBi+FQqFQKBQKRdFQg5dCoVAoFAqF\
@@ -87088,7 +87086,7 @@ KyGXyzFo0CA88cQTmDt3rtHj58+fj4MHD6KkpARisdiq35sQQjzZ/wd69WkrtJsLgwAAAABJRU5E\
 rkJggg==\
 "
   frames[82] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADYFklEQVR4nOydd3gU1frHv7N9N42QQCAFQpcqiigQqooKgkjgWkAQFRvSRFHx\
 iga8yk/vpVzAgoKAinIVg4qgEAUMAiqi2JAinRBKQvr2mfP7Y7Ob3ZnZZDdtp5zP8/CQnXNm5sy8\
 c2be8573vC9DCCGgUCgUCoVCoVAUiibSDaBQKBQKhUKhUBoSqvBSKBQKhUKhUBQNVXgpFAqFQqFQ\
@@ -88063,7 +88061,7 @@ R7JkRqMRTz75JD766COUl5fDZDKhuLjYYYGLtgwYMAB9+vTBZ599Zt1WWFiI999/H99++y0qKiqg\
 rkJggg==\
 "
   frames[83] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADYFUlEQVR4nOydd3gU1frHv7OzPY1AKCEBIlWqKIJIqGosSA1YAEH0ci2ogFy5\
 iNcCWLj6kyJgQUGwoFxLUBEUooAgWADFhohKD6EkpG+bnTm/P7Zkd2Z2sxuS7Mzs+TwPD9mZMztn\
 5uw55z3veQtDCCGgUCgUCoVCoVA0ii7WFaBQKBQKhUKhUOoTKvBSKBQKhUKhUDQNFXgpFAqFQqFQ\
@@ -89038,7 +89036,7 @@ BoMB/fr1w0MPPYS77rrL7fULFizAnj17cO7cOajVap9+b0IIkbP/D+PYSxAWjiZqAAAAAElFTkSu\
 QmCC\
 "
   frames[84] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADX5ElEQVR4nOydeXgURfrHvz09dy4C4UwC4ZZTlEMknAooyBnQVZBDFy9ERJRF\
 XEXAXVn9LYKANwgqKKsYRASFKCAKKIqiKCLKIRDCkZB77u76/TGZyXT3zKQTJpnunvo8Dw+Zruru\
 6q6uqrfeeut9GUIIAYVCoVAoFAqFolF00S4AhUKhUCgUCoVSm1CBl0KhUCgUCoWiaajAS6FQKBQK\
@@ -90012,7 +90010,7 @@ x9KlS+0ZHpylJbNYLHjkkUfw7rvvoqysDFarFUVFRU4XuGhr0KBB6NOnD95//337toKCArz99tv4\
 AAAASUVORK5CYII=\
 "
   frames[85] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADW1UlEQVR4nOydd3gU1frHv7OzJbtpBEJNAqEqVRRBIJSgxkqRgF6pomJDBCyI\
 eC0UL/z0iiBgAUFARbmKQVBQjAKioCAIigqC0kMoCSFt+8z8/tg+M7uZDUl2yvk8Dw/ZmTM7Z+ed\
 OfOe97yF4jiOA4FAIBAIBAKBoFJ0se4AgUAgEAgEAoFQmxCFl0AgEAgEAoGgaojCSyAQCAQCgUBQ\
@@ -90981,7 +90979,7 @@ E9u3b7c9l5eXh/fffx///ve/UVZWBr1ejz59+uCPf/wj7r77bofXz507F7t378b58+ehVqvd+rkJ\
 IUTO/g8lQT4SmhvQdAAAAABJRU5ErkJggg==\
 "
   frames[86] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADJMElEQVR4nOydd3wURf/HP3s1dykQCKTSexVBEAhVjQgiJWKjKCp2BORR0eex\
 BCz8/P1EELCDgIryKEZRQSUKCAakih1R6ZAAgfTre/P743KX2927ZC+5smXerxcvcltn97Mz853v\
 fGeGIYQQUCgUCoVCoVAoCkUT6wRQKBQKhUKhUCiRhBq8FAqFQqFQKBRFQw1eCoVCoVAoFIqioQYv\
@@ -91889,7 +91887,7 @@ LF682LTCg71lyQwGA5566im89957qK6uhtFoRFlZmd0bXJjLzMxE//798dFHH5m27dmzB++88w6+\
 AElFTkSuQmCC\
 "
   frames[87] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADbS0lEQVR4nOydd3wUZf7HP7N9N41AKCEJhC71UASBUAIKKlIDKtJE5SyIgCiH\
 3CkCFs77HYKAHRQLyikGEUEBDxClKKKcBUGkExIgIX37zPz+2JKd2dnNbNjNTnnerxcvslOfme/M\
 M9/n+3wLxbIsCwKBQCAQCAQCQaFo4t0AAoFAIBAIBAIhlhCFl0AgEAgEAoGgaIjCSyAQCAQCgUBQ\
@@ -92878,7 +92876,7 @@ VODPf/6zyzUOHjwIvV7vcj5BEEQkQ7JkBEEQ7XDw4EGMHz9e0LHPP/88VqxY4Xh99OhRvPzyyzh6\
 EwRBSJn/D+ku5+Xb6ZO0AAAAAElFTkSuQmCC\
 "
   frames[88] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADbF0lEQVR4nOydd3gU1frHv7N9NwUCgZAGoStNEEEgAgEMKiJI5KpU0YsNaaKI\
 eC2AhR/3XoqAHQQUlGsJooICCggGVARRURGlE0JJCGnbZ8/vjy3ZnZlNJiHZnXI+z8ND9kw7M2fO\
 mfe85y0MIYSAQqFQKBQKhUJRKJpoV4BCoVAoFAqFQqlPqMBLoVAoFAqFQlE0VOClUCgUCoVCoSga\
@@ -93866,7 +93864,7 @@ mpqKfv364f3333dsKywsxBtvvIEvvvgCly9fRlRUFAYOHIg//vGPuOOOO5yOnz9/Pvbs2YOzZ89C\
 o9GI+t4EQRBK5v8D8jtrQhKenxAAAAAASUVORK5CYII=\
 "
   frames[89] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADZSElEQVR4nOydd3gU1frHv7N9N42QUBMgdKkiiCKhK6KIlIAoVVSuBWmiXORe\
 RcDC1Z8IUqwgoKJcxSAqKEQBQVDpV1Ep0gktCenbZ+b3x5bszsxuZsMmO+V8noeH7NQzc+ac8573\
 vIViWZYFgUAgEAgEAoGgUDSxLgCBQCAQCAQCgVCdEIGXQCAQCAQCgaBoiMBLIBAIBAKBQFA0ROAl\
@@ -94846,7 +94844,7 @@ gOrqaiQkJKB///6YNGkS5s+fb6/w4KosmdlsxuOPP473338f5eXlsFgsKCoqcnmDi/YGDBiAvn37\
 QqTs/wMK8Uw5HFBZIgAAAABJRU5ErkJggg==\
 "
   frames[90] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADWhElEQVR4nOydd3gU1frHv7N9N41AIEASCFW6KKJAKAGNClIDFqqoXFSkKyL3\
 Wihe+ekVQcAOggXlKgYRQSEqCIIFUK4NBOmEBEgIadtn5/fHluyUTWaTTXbK+TwPD9mpZ+adM/Oe\
 97yFYhiGAYFAIBAIBAKBoFA00W4AgUAgEAgEAoFQlxCFl0AgEAgEAoGgaIjCSyAQCAQCgUBQNETh\
@@ -95814,7 +95812,7 @@ YPDgwfjVr36Fu+++2+358+fPx+7du3Hu3Dmo1WpBvzchhESy/w8GDyLvU3KzAwAAAABJRU5ErkJg\
 gg==\
 "
   frames[91] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADLyElEQVR4nOydd3hUxfrHv2drdlMgEAghCYSq0kQQRGIggFFBpAQsVFGxK2Dh\
 IvdaAt4rP+8VQcAOAiKKilFQUEAFgyAW7AULTRISIJC+/ez8/tjsZk/ZZHez2T1lPs/DQ/bU2fPd\
 mfPOO++8wxBCCCgUCoVCoVAoFIWiiXUBKBQKhUKhUCiUloQavBQKhUKhUCgURUMNXgqFQqFQKBSK\
@@ -96733,7 +96731,7 @@ D3Dt2jXo9XoUFRVZXeDCWFJSEnr37o2PP/7YsC0/Px/vvfcevv32W5SXl0OlUqF///54/PHHMWvW\
 LJPzMzMzceDAAVy4cAFSqZTX5yaEEG/2/wFMuheH/e4lkwAAAABJRU5ErkJggg==\
 "
   frames[92] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADafElEQVR4nOydd3gUVffHv7M1uykQCIQ0CL0IiFJEIgHUiCA1YgNBVERFmlgQ\
 a8DCz/cVQcAOAirKqxhEBYUowSigAooNEaUTQklI3z57f39sye7M7mY2bafcz/PwkL3T7syZe+fc\
 c889hyGEEFAoFAqFQqFQKDJFFekKUCgUCoVCoVAojQlVeCkUCoVCoVAosoYqvBQKhUKhUCgUWUMV\
@@ -97718,7 +97716,7 @@ vIHy8nKYTCYUFBQ4nOCiPUOGDEG/fv3w/vvvW5fl5eXhtddew2effYaKigpERERg4MCB+O1vf4t7\
 7rnHZv+FCxfi4MGDuHTpEtRqtaDvTRAEIWf+P+BOPk979sdWAAAAAElFTkSuQmCC\
 "
   frames[93] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADcNUlEQVR4nOydd3wU1fr/P7M1u2kEAoEUOihVpCgQqQoqUiRioQio2BAQUUTu\
 tQAWft7vFRCwg2BBuYpBUFBAAcGgUgQ7ojQhJEBC+rbZmfP7Y0t2Z0tmk012ynm/XrzInmln5sw5\
 85znPIUhhBBQKBQKhUKhUCgKRRPrClAoFAqFQqFQKPUJFXgpFAqFQqFQKIqGCrwUCoVCoVAoFEVD\
@@ -98711,7 +98709,7 @@ ZwYMGIDevXvjs88+c7QVFBTgnXfewT//+U+Ul5cjNjYW/fr1w8MPP4w777zT5f0LFizArl27cP78\
 eWi1WkGfmyAIQs78fzM6X4tt9u73AAAAAElFTkSuQmCC\
 "
   frames[94] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADX5ElEQVR4nOydd3gUVdvG79m+m0YgEEiB0DuigAIhFDUICCIRG13FhghYUHlf\
 S8DCq58IAnYQUFFsQURQQAEDARUR7AjSCaEkpG+fPd8fW7I7O7vZTdmdcn7XxUX2zMzOmT1zzjzz\
 nOfcD0MIIaBQKBQKhUKhUCSKItoVoFAoFAqFQqFQGhNq8FIoFAqFQqFQJA01eCkUCoVCoVAokoYa\
@@ -99685,7 +99683,7 @@ v/71L1RWViI6OhqDBw/G73//e8ydO9fp9QsWLMDOnTtx5swZqNVqr/5uQggJZf8fR8E6PAPkgq4A\
 AAAASUVORK5CYII=\
 "
   frames[95] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADYq0lEQVR4nOydd3gU1frHv7N9N41AaCn0IlUEUSDSVFCQGrBQRS/XgjQRRO9V\
 BPTK1Z8UATsoqChXMYgIClFAICBS7YjShJAACenbZ8/vjy3ZnZ3dzKbtlPN5Hh6yZ2Z2zuw7c+Y9\
 73kLQwghoFAoFAqFQqFQZIoq2h2gUCgUCoVCoVBqE6rwUigUCoVCoVBkDVV4KRQKhUKhUCiyhiq8\
@@ -100666,7 +100664,7 @@ oMDlAhfN6du3L3r27ImPP/7Y3paXl4d3330X33zzDUpLSxEREYFbbrkFf/7zn3HPPfc4HD979mzs\
     /* set a timeout to make sure all the above elements are created before
        the object is initialized. */
     setTimeout(function() {
-        animbe67ad850e82429dbc89ed2161f17d3b = new Animation(frames, img_id, slider_id, 200.0,
+        anim257b5902a31c46f58327c7be4c330afc = new Animation(frames, img_id, slider_id, 200.0,
                                  loop_select_id);
     }, 0);
   })()
@@ -100702,10 +100700,10 @@ oMDlAhfN6du3L3r27ImPP/7Y3paXl4d3330X33zzDUpLSxEREYFbbrkFf/7zn3HPPfc4HD979mzs\
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">matplotlib.animation</span> <span class="kn">import</span> <span class="n">FuncAnimation</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.animation</span><span class="w"> </span><span class="kn">import</span> <span class="n">FuncAnimation</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTML</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
 
 
@@ -100713,7 +100711,7 @@ oMDlAhfN6du3L3r27ImPP/7Y3paXl4d3330X33zzDUpLSxEREYFbbrkFf/7zn3HPPfc4HD979mzs\
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="n">f</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="c1"># Create a function to update the plot for each frame of the animation</span>
-<span class="k">def</span> <span class="nf">animate</span><span class="p">(</span><span class="n">fs</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">animate</span><span class="p">(</span><span class="n">fs</span><span class="p">):</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>  <span class="c1"># Clear the previous frame</span>
     
     <span class="c1"># Set the signal frequency and time axis</span>
@@ -100943,42 +100941,42 @@ input[type=range].anim-slider {
 </style>
 
 <div class="animation">
-  <img id="_anim_img89f201eff4064c6b9e04a8ac380e62be">
+  <img id="_anim_img935a15f11e954dc3bd651c81f821c928">
   <div class="anim-controls">
-    <input id="_anim_slider89f201eff4064c6b9e04a8ac380e62be" type="range" class="anim-slider"
+    <input id="_anim_slider935a15f11e954dc3bd651c81f821c928" type="range" class="anim-slider"
            name="points" min="0" max="1" step="1" value="0"
-           oninput="anim89f201eff4064c6b9e04a8ac380e62be.set_frame(parseInt(this.value));">
+           oninput="anim935a15f11e954dc3bd651c81f821c928.set_frame(parseInt(this.value));">
     <div class="anim-buttons">
-      <button title="Decrease speed" aria-label="Decrease speed" onclick="anim89f201eff4064c6b9e04a8ac380e62be.slower()">
+      <button title="Decrease speed" aria-label="Decrease speed" onclick="anim935a15f11e954dc3bd651c81f821c928.slower()">
           <i class="fa fa-minus"></i></button>
-      <button title="First frame" aria-label="First frame" onclick="anim89f201eff4064c6b9e04a8ac380e62be.first_frame()">
+      <button title="First frame" aria-label="First frame" onclick="anim935a15f11e954dc3bd651c81f821c928.first_frame()">
         <i class="fa fa-fast-backward"></i></button>
-      <button title="Previous frame" aria-label="Previous frame" onclick="anim89f201eff4064c6b9e04a8ac380e62be.previous_frame()">
+      <button title="Previous frame" aria-label="Previous frame" onclick="anim935a15f11e954dc3bd651c81f821c928.previous_frame()">
           <i class="fa fa-step-backward"></i></button>
-      <button title="Play backwards" aria-label="Play backwards" onclick="anim89f201eff4064c6b9e04a8ac380e62be.reverse_animation()">
+      <button title="Play backwards" aria-label="Play backwards" onclick="anim935a15f11e954dc3bd651c81f821c928.reverse_animation()">
           <i class="fa fa-play fa-flip-horizontal"></i></button>
-      <button title="Pause" aria-label="Pause" onclick="anim89f201eff4064c6b9e04a8ac380e62be.pause_animation()">
+      <button title="Pause" aria-label="Pause" onclick="anim935a15f11e954dc3bd651c81f821c928.pause_animation()">
           <i class="fa fa-pause"></i></button>
-      <button title="Play" aria-label="Play" onclick="anim89f201eff4064c6b9e04a8ac380e62be.play_animation()">
+      <button title="Play" aria-label="Play" onclick="anim935a15f11e954dc3bd651c81f821c928.play_animation()">
           <i class="fa fa-play"></i></button>
-      <button title="Next frame" aria-label="Next frame" onclick="anim89f201eff4064c6b9e04a8ac380e62be.next_frame()">
+      <button title="Next frame" aria-label="Next frame" onclick="anim935a15f11e954dc3bd651c81f821c928.next_frame()">
           <i class="fa fa-step-forward"></i></button>
-      <button title="Last frame" aria-label="Last frame" onclick="anim89f201eff4064c6b9e04a8ac380e62be.last_frame()">
+      <button title="Last frame" aria-label="Last frame" onclick="anim935a15f11e954dc3bd651c81f821c928.last_frame()">
           <i class="fa fa-fast-forward"></i></button>
-      <button title="Increase speed" aria-label="Increase speed" onclick="anim89f201eff4064c6b9e04a8ac380e62be.faster()">
+      <button title="Increase speed" aria-label="Increase speed" onclick="anim935a15f11e954dc3bd651c81f821c928.faster()">
           <i class="fa fa-plus"></i></button>
     </div>
-    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_select89f201eff4064c6b9e04a8ac380e62be"
+    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_select935a15f11e954dc3bd651c81f821c928"
           class="anim-state">
-      <input type="radio" name="state" value="once" id="_anim_radio1_89f201eff4064c6b9e04a8ac380e62be"
+      <input type="radio" name="state" value="once" id="_anim_radio1_935a15f11e954dc3bd651c81f821c928"
              checked>
-      <label for="_anim_radio1_89f201eff4064c6b9e04a8ac380e62be">Once</label>
-      <input type="radio" name="state" value="loop" id="_anim_radio2_89f201eff4064c6b9e04a8ac380e62be"
+      <label for="_anim_radio1_935a15f11e954dc3bd651c81f821c928">Once</label>
+      <input type="radio" name="state" value="loop" id="_anim_radio2_935a15f11e954dc3bd651c81f821c928"
              >
-      <label for="_anim_radio2_89f201eff4064c6b9e04a8ac380e62be">Loop</label>
-      <input type="radio" name="state" value="reflect" id="_anim_radio3_89f201eff4064c6b9e04a8ac380e62be"
+      <label for="_anim_radio2_935a15f11e954dc3bd651c81f821c928">Loop</label>
+      <input type="radio" name="state" value="reflect" id="_anim_radio3_935a15f11e954dc3bd651c81f821c928"
              >
-      <label for="_anim_radio3_89f201eff4064c6b9e04a8ac380e62be">Reflect</label>
+      <label for="_anim_radio3_935a15f11e954dc3bd651c81f821c928">Reflect</label>
     </form>
   </div>
 </div>
@@ -100988,13 +100986,13 @@ input[type=range].anim-slider {
   /* Instantiate the Animation class. */
   /* The IDs given should match those used in the template above. */
   (function() {
-    var img_id = "_anim_img89f201eff4064c6b9e04a8ac380e62be";
-    var slider_id = "_anim_slider89f201eff4064c6b9e04a8ac380e62be";
-    var loop_select_id = "_anim_loop_select89f201eff4064c6b9e04a8ac380e62be";
+    var img_id = "_anim_img935a15f11e954dc3bd651c81f821c928";
+    var slider_id = "_anim_slider935a15f11e954dc3bd651c81f821c928";
+    var loop_select_id = "_anim_loop_select935a15f11e954dc3bd651c81f821c928";
     var frames = new Array(20);
     
   frames[0] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADytElEQVR4nOxdd3wU1fb/zmxPpSTUAAldQESQ3gKKFUHKU6kiIigqAuoDVKQ8\
 BX0/EQQbKAKCig0EFBSQJuB7CIr4VIr0Dgnp2T7z+2PZzU7ZZDc7d+ZuMt/Ph/fM7JR75t6599xz\
 vucchud5Hjp06NChQ4cOHTp0VFCwWjdAhw4dOnTo0KFDhw6S0BVeHTp06NChQ4cOHRUausKrQ4cO\
@@ -102088,7 +102086,7 @@ yrhx4zBy5Ej87ne/S3726quv4rnnnsNf/vIXNDc3o7i4GGPHjsU//dM/4eabb1Z8f8mSJXj33Xdx\
 7NgxuN1uTXILBAKBlfn/QLnFkI25t5wAAAAASUVORK5CYII=\
 "
   frames[1] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADzRUlEQVR4nOydd5gUVfb3P9XdkwNpkJxBFBFZA0oUVEyrosCaCGLCjOLqKkbw\
 p7DuuyyKrhnBHFfFgAEFRMFdBWV1VYISJEucwMx0qnr/aLqnK/RM93SF2zP1fR52neoK99S9de+5\
 53zPOZKiKAouXLhw4cKFCxcuXDRQeJxugAsXLly4cOHChQsXVsJVeF24cOHChQsXLlw0aLgKrwsX\
@@ -103185,7 +103183,7 @@ ZzQ3N6O4uBhjx47FP/3TP+GWW25RfH/JkiV49913cfz4cbjdbk1yCwQCgZX5/2Qo7HQvuXqYAAAA\
 AElFTkSuQmCC\
 "
   frames[2] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAAEAAElEQVR4nOydd5wTxfvH35vkKnfUo/eqIiKCgggiIKhYEIGf9CqgoiioCIhI\
 UUH9iiCiAtKLgg0BBZGOgIog2GnSe7/j4O5Sdn9/hOSy5e6SyybZwH5er1N2Mzs7z87uzGeeeYog\
 SZKECRMmTJgwYcKECRPXKCyRboAJEyZMmDBhwoQJE6GESXhNmDBhwoQJEyZMXNMwCa8JEyZMmDBh\
@@ -104523,7 +104521,7 @@ CARYuXKlYoKLSDp37kz79u35z3/+E/7u3Xff5ZVXXuG7777jwIED5OXlcdJJJ3HzzTfz17/+Ner+\
 kSNH8umnn7J9+3bcbndM9baxsbExM/8PfDoeOwr6VYQAAAAASUVORK5CYII=\
 "
   frames[3] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAAEAAElEQVR4nOxdd3gU1dd+Z0s2m0pIQgKEEDoCItJrCEiQ3gXpiICIgmCjiYAF\
 xE/EH6AiSpPeOwhBCFWlg4r0FjoJ6dk+8/2x7GSnbJ/dnSTzPg+anXLn3rl37j33nPecQ1AURUGC\
 BAkSJEiQIEGChGIKmb8rIEGCBAkSJEiQIEGCNyEJvBIkSJAgQYIECRKKNSSBV4IECRIkSJAgQUKx\
@@ -105912,7 +105910,7 @@ KvN63759+PDDD7Fv3z7k5OQgKSkJDRo0QK9evTBmzBgmwgNfWDKXy4WXX34ZK1aswLVr1+B2u7F7\
 f/89Lly4ALPZLKjeOjo6OiTz/8XdJeK19BcAAAAAAElFTkSuQmCC\
 "
   frames[4] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAADzrklEQVR4nOxdd3wU1fb/zmzLplISaoDQERCR3g0oVqQ/lSoighUB9QkqUp6C\
 vp8Igg0UAUHFBgIKCkiJgIqgiE+lSO+QkJ5sm5nfH8tudsomu9m5M3eT+X4+vGdmp9wz9869557z\
 PecwgiAIMGDAgAEDBgwYMGCggoLVuwEGDBgwYMCAAQMGDJCEofAaMGDAgAEDBgwYqNAwFF4DBgwY\
@@ -107010,7 +107008,7 @@ PPAAfv3rX+PMmTOQZRk7duxQPeAilfHjx2PUqFH47W9/m/zs1VdfxfPPP48///nPaG5uRnFxMcaN\
 G4d/+qd/wi233KL4/pIlS/Duu+/ixIkTcLvdmuQWCAQCK/P/AQ0ZNVnJH9rtAAAAAElFTkSuQmCC\
 "
   frames[5] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAAEAAElEQVR4nOydd5gTVdvGf5Nke2PZXXrvIiKiiAgiINgFxIoUsWEvWF5FXwV8\
 VdRPRbGjSFEUGwgIiqgUBRvNTu+dXbaXtJnvj5DZTMluspnJJkvu60I3ycyZc+bMnHOf59zP8wiS\
 JEnEEEMMMcQQQwwxxBBDHYWltisQQwwxxBBDDDHEEEMMZiJGeGOIIYYYYoghhhhiqNOIEd4YYogh\
@@ -108412,7 +108410,7 @@ vXo1ffv2jencBx98kKlTp4qf161bxz//+U/WrVvH8ePHadCgAaeccgqDBw/mpptuEjM8KKUlCwQC\
 p3LjjTcyfvz4qOsnTZrEsmXL2LlzJx6PJ6Z629jY2JiZ/wcYZCadGo9sHAAAAABJRU5ErkJggg==\
 "
   frames[6] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAAEAAElEQVR4nOydZ5gUxdaA356wOcKSc0ZABJQkQUAxYEABAyCICXPAjF4VvAp6\
 v6soeg0oCCiKoiCiICKSUREQUJGcM5vj5P5+DNM7HWZ2Qs/uLMz7POjOTHV1VVd316lTJwiiKIrE\
 iBEjRowYMWLEiHGWYqjqBsSIESNGjBgxYsSIEUliAm+MGDFixIgRI0aMs5qYwBsjRowYMWLEiBHj\
@@ -109880,7 +109878,7 @@ AKtWreJNcMGkR48e6NixI3744Qf6vUWLFuHDDz/Ejh07cP78eSQnJ6Nbt2544IEHcNttt4V8f9q0\
 aVi2bBlOnDgBu90uqN4mJiYmRub/A7s4BUElLFbnAAAAAElFTkSuQmCC\
 "
   frames[7] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAAEAAElEQVR4nOxdd3gU1ds9syWbHgIJCRBC6IiISK8hIEF6V6QjAiIqgj+VJgIW\
 UD8RBVREaVKld4QghKrSRUV6CxBKQnq2z3x/THayU7bP7k6SOc+DZndn7tw7d+bec9973vclKIqi\
 IEOGDBkyZMiQIUNGKYXC3xWQIUOGDBkyZMiQIcObkAmvDBkyZMiQIUOGjFINmfDKkCFDhgwZMmTI\
@@ -111283,7 +111281,7 @@ mzZ88MEH8nvz589nxowZfPvtt+zfv5+cnBxOPvlkbrzxRq644oqY748ePZoVK1awfft2fD6frno7\
 ODg4iMz/A1iZaiZ+DZANAAAAAElFTkSuQmCC\
 "
   frames[8] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAAEAAElEQVR4nOydd3wUxfvH33t3qSTU0HtVERFBOtIEK6KCP+lVQMUGKgIiUlQQ\
 vyKIDZCODUURUBDpCKgIgtho0juhJIQk13Z/fxx3uS1J7nJtD/bzekW53dnZeXZ2Zz7zzFMESZIk\
 DBgwYMCAAQMGDBi4RmGKdAMMGDBgwIABAwYMGAglDMJrwIABAwYMGDBg4JqGQXgNGDBgwIABAwYM\
@@ -112636,7 +112634,7 @@ mv/+97/h7xYsWMCrr77Kzz//zP79+8nLy+Pkk0/m1ltv5eqrr446f9iwYXz++eds27YNt9sdU71t\
 bGxszMz/Aznlczch9MN6AAAAAElFTkSuQmCC\
 "
   frames[9] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAAD0sElEQVR4nOxdd3wU1fb/zmzLplISCBBK6AIi0jsBwYr0p1JFRLAioD5ARcpT\
 0PcTQbCBIiAWFAUBBQWkCagURXwqRXqHhPRsn/n9sexmp2yym507czeZ7+fDe2Z2yj1z79x77jnf\
 cw7D8zwPHTp06NChQ4cOHTrKKVitG6BDhw4dOnTo0KFDB0noCq8OHTp06NChQ4eOcg1d4dWhQ4cO\
@@ -113739,7 +113737,7 @@ UaPwu9/9LvHaq6++ihdeeAF//vOf0djYiMLCQowdOxb//M//jFtvvVXz/sWLF+Pdd9/F8ePH4Xa7\
 DcktkUgkPPP/A+fan/9orRjaAAAAAElFTkSuQmCC\
 "
   frames[10] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAAEAAElEQVR4nOydd3wU1drHv7Ml2XQCCQQIvVsQsVJEQLH3Lk1EQGwoer2CipSr\
 or4iih2lKWIXEcUCSlH0qqCIV6V3CCUhvWybef9YdrNTNtlNdnZnw/4+nyg75cx55pw553ee8xRB\
 kiSJOOKII4444ogjjjjiaKAwRbsCccQRRxxxxBFHHHHEoSfihDeOOOKII4444ogjjgaNOOGNI444\
@@ -115071,7 +115069,7 @@ ET788EMGDBgQ07X33nsvU6dODX9eu3Yt//znP1m7di0HDx6kqKiIo48+miFDhnDDDTeEIzyohSXz\
 gg==\
 "
   frames[11] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAAEAAElEQVR4nOydd5gUxdbGfz1hc2DZJeesiIgYEEEEBLOAYEKCmDAHDFfRq4Sr\
 on4qiuEqigRFMYGAoIgKomAiGS85Z3bZHCZ1f3/MTu90mN2Zne7ZGZj3edCdDtV1uqqr3jp1giBJ\
 kkQcccQRRxxxxBFHHHEcp7DUdQXiiCOOOOKII4444ojDTMQJbxxxxBFHHHHEEUccxzXihDeOOOKI\
@@ -116479,7 +116477,7 @@ figeW7RoEa+99hrffPMNR48eJScnh9NOO41bbrmFCRMmRN0/efJkVq5cyZ49e/B4PDHRbcOGDRtm\
 xv8HR8Of/AZhsTEAAAAASUVORK5CYII=\
 "
   frames[12] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAAEAAElEQVR4nOydd3wU1fr/37MlPSFAQu+9i/TeFAt2sIIoNuwFr15BVMCv5Xp/\
 V/GqVwVFsGNDEQUBFUTBQhFRkd6lBtKTrTO/PzY7mbbJ9t2E/bxeaHbKmTlzzsz5nOd8nucRJEmS\
 SCCBBBJIIIEEEkgggVoKU6xvIIEEEkgggQQSSCCBBCKJBOFNIIEEEkgggQQSSKBWI0F4E0gggQQS\
@@ -117943,7 +117941,7 @@ r75i7Nixuq599NFHmTp1qvT3okWL+POf/8yiRYs4ceIErVq1onfv3lx++eXcddddUoQHrbBkoVCI\
 jTvvvJMbb7wx5vuTJk3is88+Y9euXfh8Pl31dnFxcXEy/x8+taLycEIgAwAAAABJRU5ErkJggg==\
 "
   frames[13] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAAEAAElEQVR4nOxdd3wU1dp+Zns2jZCEhE4IvRfpSBMsWFCsSBFRsCt4behFwE9B\
 7xVRrKAICCiKUkRBBKSKXqmC9BZqKAnp2Toz3x+TmUzb3dndmd1NmOf3C+zOTjtzzpzznPc87/sS\
 NE3T0KFDhw4dOnTo0KGjmsIQ7RvQoUOHDh06dOjQoUNL6IRXhw4dOnTo0KFDR7WGTnh16NChQ4cO\
@@ -119427,7 +119425,7 @@ H34YixYtov/evHkznn76aWzevBnNzc3IycnBsGHDMGvWLNx55500wwMfLVkgEMBvf/tbvPHGGzh1\
 9+fPn481a9bg6NGjsNvtgvptwoQJE0bG/we/BVbVaFQ7TQAAAABJRU5ErkJggg==\
 "
   frames[14] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAAEAAElEQVR4nOxdd3wU1dp+ZrZks2mEJBACgYQuTQRBaigKClIUvCpNERUrKF4V\
 UJHyKVgu4kWvioqACqIoVQEFaYIVkKLSCRAgCSSkZ/vM98dmJtN2d3Z3ZgvM8/uh2Slnzpl3zjnP\
 ec9bCJqmaWjQoEGDBg0aNGjQcJWCDHcFNGjQoEGDBg0aNGhQExrh1aBBgwYNGjRo0HBVQyO8GjRo\
@@ -120923,7 +120921,7 @@ a/Gf//xH+O6FF17AX/7yF3zyySdob29HdnY2JkyYgB/84Ae45pprJNcvX74cb7zxBpqammC322Pq\
 twkTJkwYGf8fQSCnPGLq1HIAAAAASUVORK5CYII=\
 "
   frames[15] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAAEAAElEQVR4nOxdd3gU1d5+Z/umQxJIIAkJvYkIItVQFAsWEPlEqmBB5FrAcgWR\
 eq+i14ICKhYEVBBRQUBBQCnBLiBioYcWCCUhPdk2M98fm5lM292Z3ZndDc77POhm6ilzznnPrxI0\
 TdPQoUOHDh06dOjQoeMyhSHSBdChQ4cOHTp06NChQ0vohFeHDh06dOjQoUPHZQ2d8OrQoUOHDh06\
@@ -122467,7 +122465,7 @@ aGlpQW5uLsaNG4cf//jH+Na3viX6/vXXX4933nkHhw8fht/vVzVvFy5cuHAy/j9HoAwhb0TZ/QAA\
 AABJRU5ErkJggg==\
 "
   frames[16] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAAEAAElEQVR4nOxdd5gT1d5+Jz3ZzlZgFxZYRBCR3kFAsaIiclWkiAqoqAiWK4gI\
 eK3fvYoi14IiCIjYKKIggtLEBgjilSp1Kbts72kz8/0xO5NpSWaSSTaL8z4Pmk2mnTLnvOc9v0LQ\
 NE1Dhw4dOnTo0KFDh46LFIaGfgAdOnTo0KFDhw4dOiIJnfDq0KFDhw4dOnTouKihE14dOnTo0KFD\
@@ -124083,7 +124081,7 @@ Ez/60Y8kv/H6669jeHhY8n0XLly4yGa4smQuXLhwoYHXX38dS5cupTr29ttvx6pVq8S/t2zZgl//\
 DsDv91PdtwsXLlw4Gf8/5kVmSANfETQAAAAASUVORK5CYII=\
 "
   frames[17] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAAEAAElEQVR4nOxdd5zURP9+kq2313vhjt6lCdKLgJ4FGwIqShEVsRd8LRRB8Kei\
 viII2FCKKIigVKUrXX0FBFGR3rmD631rkt8fe8ml7W52N3u3h3k+H/R2N5nMfGcy88x3voVgGIaB\
 Bg0aNGjQoEGDBg1XKci6roAGDRo0aNCgQYMGDaGERng1aNCgQYMGDRo0XNXQCK8GDRo0aNCgQYOG\
@@ -125702,7 +125700,7 @@ LqZPn45//OMf4ntPPvkk/vjHP+K9995DZ2cnysvLMWvWLFx77bW47LLLJN+/8sor8cILL2DPnj0I\
 h8OGntuHDx8+vIz/H8Ce4x6rlfojAAAAAElFTkSuQmCC\
 "
   frames[18] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAAEAAElEQVR4nOxdd3wU1dp+Zmt6DwkQOogCIgIiTQQEFURAwIIUsYF6FcVyBRUp\
 V0HvJ6JgRWmKig0FFFBQquhFUESUXgMhkJ5skm0z8/0xmdkzbXd2dzbZ4Dy/H7rZnXLOmTPnPOc9\
 z/u+FMuyLAwYMGDAgAEDBgwYuEhhqusCGDBgwIABAwYMGDAQSRiE14ABAwYMGDBgwMBFDYPwGjBg\
@@ -127361,7 +127359,7 @@ I7C+f/9+3r9/T15eHunp6Xi9Xux2Ox6PhxMnTgTt0d3dzY8fP4KeLyLyN9O1ZCIiU+ju7mb9+vUR\
 3r17R1xcXETvW0RkNvsJ0X6y2fH4gZQAAAAASUVORK5CYII=\
 "
   frames[19] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAGQCAYAAABMPLOTAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
-bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9h\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
 AAAPYQGoP6dpAAEAAElEQVR4nOydd3wUdf7G39vTNr0BCYSOgsipqBQRULCcXe8sgGLDcjb0PEV/\
 KNi9O8WuYAF7OysnFlSKoqeAIjaK9JIEUnazSbbOzO+Pyc7O7G6STbIhs7DP6+VLdjMzO9+d2Zln\
 nu/zeT4GSZIkkkgiiSSSSCKJJJJIYj+Fsat3IIkkkkgiiSSSSCKJJDoTScKbRBJJJJFEEkkkkcR+\
@@ -128904,7 +128902,7 @@ zar7JiJyZv8C/G+ZGqZc5K8AAAAASUVORK5CYII=\
     /* set a timeout to make sure all the above elements are created before
        the object is initialized. */
     setTimeout(function() {
-        anim89f201eff4064c6b9e04a8ac380e62be = new Animation(frames, img_id, slider_id, 200.0,
+        anim935a15f11e954dc3bd651c81f821c928 = new Animation(frames, img_id, slider_id, 200.0,
                                  loop_select_id);
     }, 0);
   })()
@@ -128925,9 +128923,9 @@ zar7JiJyZv8C/G+ZGqZc5K8AAAAASUVORK5CYII=\
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>  <span class="c1"># Importiere das Modul signal aus scipy</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">signal</span>  <span class="c1"># Importiere das Modul signal aus scipy</span>
 
 <span class="c1"># Abtastparameter</span>
 <span class="n">fs</span> <span class="o">=</span> <span class="mi">1000</span>  <span class="c1"># Abtastfrequenz in Hz</span>
@@ -128954,7 +128952,7 @@ zar7JiJyZv8C/G+ZGqZc5K8AAAAASUVORK5CYII=\
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/ffde7a72e1467c90dea1fcd59aab1966ab6c95eecbeac3e762df9d01cb93b31b.png" src="../_images/ffde7a72e1467c90dea1fcd59aab1966ab6c95eecbeac3e762df9d01cb93b31b.png" />
+<img alt="../_images/bbf24e5dbb79a0f986e6b40ce56c8d3785f822f8c1bd903b99543feb12ca3bf5.png" src="../_images/bbf24e5dbb79a0f986e6b40ce56c8d3785f822f8c1bd903b99543feb12ca3bf5.png" />
 </div>
 </div>
 <p>Das heißt zu hohe Frequenzen im Messsignal, die das Nyquist-Shannon-Theorem verletzen, generieren neue Signalfrequenzen bei kleineren Werten, die eigentlich gar nicht dar sein sollten. Dies kann man am besten im Frequenzraum mittels Fourier-Transformation beobachten.</p>
@@ -128975,10 +128973,10 @@ zar7JiJyZv8C/G+ZGqZc5K8AAAAASUVORK5CYII=\
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.fft</span> <span class="kn">import</span> <span class="n">rfft</span><span class="p">,</span> <span class="n">rfftfreq</span>
-<span class="kn">from</span> <span class="nn">scipy.io.wavfile</span> <span class="kn">import</span> <span class="n">read</span> <span class="c1">#import the required function from the module</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.fft</span><span class="w"> </span><span class="kn">import</span> <span class="n">rfft</span><span class="p">,</span> <span class="n">rfftfreq</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.io.wavfile</span><span class="w"> </span><span class="kn">import</span> <span class="n">read</span> <span class="c1">#import the required function from the module</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="c1"># MatplotLib Settings:</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
 <span class="c1">#plt.xkcd()</span>
@@ -129047,8 +129045,8 @@ zar7JiJyZv8C/G+ZGqZc5K8AAAAASUVORK5CYII=\
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/6fcf36747e5c49612f19545125ce4af7e00a17bd4e16eed05ea92138d64e5f1c.png" src="../_images/6fcf36747e5c49612f19545125ce4af7e00a17bd4e16eed05ea92138d64e5f1c.png" />
-<img alt="../_images/0e260fef583c84cd11ef1070a33017304b217884a94cb42825c6aa27d0feca8e.png" src="../_images/0e260fef583c84cd11ef1070a33017304b217884a94cb42825c6aa27d0feca8e.png" />
+<img alt="../_images/94671ca23b2446a36701a40804894ac82eef3ed6618547c405717ec701543688.png" src="../_images/94671ca23b2446a36701a40804894ac82eef3ed6618547c405717ec701543688.png" />
+<img alt="../_images/5d558f8abd9492088193168e19703e97eb9d221bca9457134ee5227557f3d075.png" src="../_images/5d558f8abd9492088193168e19703e97eb9d221bca9457134ee5227557f3d075.png" />
 </div>
 </div>
 <p>In den Diagrammen sieht man, dass bei der Wahl einer zu kleinen Abtastfrequenz ein Signal bei 25Hz auftritt, was im Originalsignal eigentlich gar nicht enthalten ist. Dies liegt daran, dass die gewählte Abtastfrequenz von 75Hz das Shannon-Nyquist-Theorem für das Signal bei ursprünglich 50Hz (100Hz Sampling benötigt) nicht erfüllt.

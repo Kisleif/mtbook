@@ -1,0 +1,157 @@
+Traceback (most recent call last):
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+from matplotlib.patches import ConnectionPatch
+
+fig, (axl, axr) = plt.subplots(
+    ncols=2,
+    sharey=True,
+    figsize=(6, 2),
+    gridspec_kw=dict(width_ratios=[1, 3], wspace=0),
+)
+axl.set_aspect(1)
+axr.set_box_aspect(1 / 3)
+axr.yaxis.set_visible(False)
+axr.xaxis.set_ticks([0, np.pi, 2 * np.pi], ["0", r"$\pi$", r"$2\pi$"])
+axl.set_xlabel('I-Quadratur')
+axl.set_ylabel('Q-Quadratur')
+axl.xaxis.set_ticks([])
+axl.yaxis.set_ticks([])
+# draw circle with initial point in left Axes
+x = np.linspace(0, 2 * np.pi, 50)
+axl.plot(np.cos(x), np.sin(x), "k", lw=0.3)
+point, = axl.plot(0, 0, "o")
+
+# draw full curve to set view limits in right Axes
+sine, = axr.plot(x, np.sin(x))
+
+# draw connecting line between both graphs
+con = ConnectionPatch(
+    (1, 0),
+    (0, 0),
+    "data",
+    "data",
+    axesA=axl,
+    axesB=axr,
+    color="C0",
+    ls="dotted",
+)
+fig.add_artist(con)
+
+
+def animate(i):
+    pos = np.cos(i), np.sin(i)
+    point.set_data(*pos)
+    x = np.linspace(0, i, int(i * 25 / np.pi))
+    sine.set_data(x, np.sin(x))
+    con.xy1 = pos
+    con.xy2 = i, pos[1]
+    return point, sine, con
+
+
+ani = animation.FuncAnimation(
+    fig,
+    animate,
+    interval=50,
+    blit=False,  # blitting can't be used with Figure artists
+    frames=x,
+    repeat_delay=100,
+)
+plt.tight_layout()
+plt.close()
+HTML(ani.to_jshtml())
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mRuntimeError[0m                              Traceback (most recent call last)
+Cell [0;32mIn[3], line 62[0m
+[1;32m     60[0m plt[38;5;241m.[39mtight_layout()
+[1;32m     61[0m plt[38;5;241m.[39mclose()
+[0;32m---> 62[0m HTML([43mani[49m[38;5;241;43m.[39;49m[43mto_jshtml[49m[43m([49m[43m)[49m)
+
+File [0;32m~/opt/anaconda3/lib/python3.9/site-packages/matplotlib/animation.py:1333[0m, in [0;36mAnimation.to_jshtml[0;34m(self, fps, embed_frames, default_mode)[0m
+[1;32m   1329[0m         path [38;5;241m=[39m Path(tmpdir, [38;5;124m"[39m[38;5;124mtemp.html[39m[38;5;124m"[39m)
+[1;32m   1330[0m         writer [38;5;241m=[39m HTMLWriter(fps[38;5;241m=[39mfps,
+[1;32m   1331[0m                             embed_frames[38;5;241m=[39membed_frames,
+[1;32m   1332[0m                             default_mode[38;5;241m=[39mdefault_mode)
+[0;32m-> 1333[0m         [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43msave[49m[43m([49m[38;5;28;43mstr[39;49m[43m([49m[43mpath[49m[43m)[49m[43m,[49m[43m [49m[43mwriter[49m[38;5;241;43m=[39;49m[43mwriter[49m[43m)[49m
+[1;32m   1334[0m         [38;5;28mself[39m[38;5;241m.[39m_html_representation [38;5;241m=[39m path[38;5;241m.[39mread_text()
+[1;32m   1336[0m [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39m_html_representation
+
+File [0;32m~/opt/anaconda3/lib/python3.9/site-packages/matplotlib/animation.py:1072[0m, in [0;36mAnimation.save[0;34m(self, filename, writer, fps, dpi, codec, bitrate, extra_args, metadata, extra_anim, savefig_kwargs, progress_callback)[0m
+[1;32m   1069[0m [38;5;28;01mwith[39;00m writer[38;5;241m.[39msaving([38;5;28mself[39m[38;5;241m.[39m_fig, filename, dpi), \
+[1;32m   1070[0m      cbook[38;5;241m.[39m_setattr_cm([38;5;28mself[39m[38;5;241m.[39m_fig[38;5;241m.[39mcanvas, _is_saving[38;5;241m=[39m[38;5;28;01mTrue[39;00m, manager[38;5;241m=[39m[38;5;28;01mNone[39;00m):
+[1;32m   1071[0m     [38;5;28;01mfor[39;00m anim [38;5;129;01min[39;00m all_anim:
+[0;32m-> 1072[0m         [43manim[49m[38;5;241;43m.[39;49m[43m_init_draw[49m[43m([49m[43m)[49m  [38;5;66;03m# Clear the initial frame[39;00m
+[1;32m   1073[0m     frame_number [38;5;241m=[39m [38;5;241m0[39m
+[1;32m   1074[0m     [38;5;66;03m# TODO: Currently only FuncAnimation has a save_count[39;00m
+[1;32m   1075[0m     [38;5;66;03m#       attribute. Can we generalize this to all Animations?[39;00m
+
+File [0;32m~/opt/anaconda3/lib/python3.9/site-packages/matplotlib/animation.py:1727[0m, in [0;36mFuncAnimation._init_draw[0;34m(self)[0m
+[1;32m   1719[0m         warnings[38;5;241m.[39mwarn(
+[1;32m   1720[0m             [38;5;124m"[39m[38;5;124mCan not start iterating the frames for the initial draw. [39m[38;5;124m"[39m
+[1;32m   1721[0m             [38;5;124m"[39m[38;5;124mThis can be caused by passing in a 0 length sequence [39m[38;5;124m"[39m
+[0;32m   (...)[0m
+[1;32m   1724[0m             [38;5;124m"[39m[38;5;124mit may be exhausted due to a previous display or save.[39m[38;5;124m"[39m
+[1;32m   1725[0m         )
+[1;32m   1726[0m         [38;5;28;01mreturn[39;00m
+[0;32m-> 1727[0m     [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_draw_frame[49m[43m([49m[43mframe_data[49m[43m)[49m
+[1;32m   1728[0m [38;5;28;01melse[39;00m:
+[1;32m   1729[0m     [38;5;28mself[39m[38;5;241m.[39m_drawn_artists [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_init_func()
+
+File [0;32m~/opt/anaconda3/lib/python3.9/site-packages/matplotlib/animation.py:1746[0m, in [0;36mFuncAnimation._draw_frame[0;34m(self, framedata)[0m
+[1;32m   1742[0m     [38;5;28mself[39m[38;5;241m.[39m_save_seq [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_save_seq[[38;5;241m-[39m[38;5;28mself[39m[38;5;241m.[39m_save_count:]
+[1;32m   1744[0m [38;5;66;03m# Call the func with framedata and args. If blitting is desired,[39;00m
+[1;32m   1745[0m [38;5;66;03m# func needs to return a sequence of any artists that were modified.[39;00m
+[0;32m-> 1746[0m [38;5;28mself[39m[38;5;241m.[39m_drawn_artists [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_func[49m[43m([49m[43mframedata[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_args[49m[43m)[49m
+[1;32m   1748[0m [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39m_blit:
+[1;32m   1750[0m     err [38;5;241m=[39m [38;5;167;01mRuntimeError[39;00m([38;5;124m'[39m[38;5;124mThe animation function must return a sequence [39m[38;5;124m'[39m
+[1;32m   1751[0m                        [38;5;124m'[39m[38;5;124mof Artist objects.[39m[38;5;124m'[39m)
+
+Cell [0;32mIn[3], line 44[0m, in [0;36manimate[0;34m(i)[0m
+[1;32m     42[0m [38;5;28;01mdef[39;00m[38;5;250m [39m[38;5;21manimate[39m(i):
+[1;32m     43[0m     pos [38;5;241m=[39m np[38;5;241m.[39mcos(i), np[38;5;241m.[39msin(i)
+[0;32m---> 44[0m     [43mpoint[49m[38;5;241;43m.[39;49m[43mset_data[49m[43m([49m[38;5;241;43m*[39;49m[43mpos[49m[43m)[49m
+[1;32m     45[0m     x [38;5;241m=[39m np[38;5;241m.[39mlinspace([38;5;241m0[39m, i, [38;5;28mint[39m(i [38;5;241m*[39m [38;5;241m25[39m [38;5;241m/[39m np[38;5;241m.[39mpi))
+[1;32m     46[0m     sine[38;5;241m.[39mset_data(x, np[38;5;241m.[39msin(x))
+
+File [0;32m~/opt/anaconda3/lib/python3.9/site-packages/matplotlib/lines.py:665[0m, in [0;36mLine2D.set_data[0;34m(self, *args)[0m
+[1;32m    662[0m [38;5;28;01melse[39;00m:
+[1;32m    663[0m     x, y [38;5;241m=[39m args
+[0;32m--> 665[0m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mset_xdata[49m[43m([49m[43mx[49m[43m)[49m
+[1;32m    666[0m [38;5;28mself[39m[38;5;241m.[39mset_ydata(y)
+
+File [0;32m~/opt/anaconda3/lib/python3.9/site-packages/matplotlib/lines.py:1289[0m, in [0;36mLine2D.set_xdata[0;34m(self, x)[0m
+[1;32m   1276[0m [38;5;250m[39m[38;5;124;03m"""[39;00m
+[1;32m   1277[0m [38;5;124;03mSet the data array for x.[39;00m
+[1;32m   1278[0m 
+[0;32m   (...)[0m
+[1;32m   1286[0m [38;5;124;03mset_ydata[39;00m
+[1;32m   1287[0m [38;5;124;03m"""[39;00m
+[1;32m   1288[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m np[38;5;241m.[39miterable(x):
+[0;32m-> 1289[0m     [38;5;28;01mraise[39;00m [38;5;167;01mRuntimeError[39;00m([38;5;124m'[39m[38;5;124mx must be a sequence[39m[38;5;124m'[39m)
+[1;32m   1290[0m [38;5;28mself[39m[38;5;241m.[39m_xorig [38;5;241m=[39m copy[38;5;241m.[39mcopy(x)
+[1;32m   1291[0m [38;5;28mself[39m[38;5;241m.[39m_invalidx [38;5;241m=[39m [38;5;28;01mTrue[39;00m
+
+[0;31mRuntimeError[0m: x must be a sequence
+RuntimeError: x must be a sequence
+

@@ -184,8 +184,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">✍️ Vorlesung</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="1_Einf%C3%BChrung%20in%20die%20Messtechnik.html">Intro</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="V1.html">Grundlagen</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="V1.html">Einführung in die Messtechnik und Einheiten</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_Einf%C3%BChrung%20in%20die%20Messtechnik.html">Messkette</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Einheiten.html">Einheiten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Kalibrieren.html">Kalibrieren und Eichen</a></li>
 </ul>
@@ -204,7 +204,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="V3.html">Kurvenanpassung</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="1_Kurvenanpassung.html">Regressionsrechnung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Kurvenanpassung.html">Modellanpassung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Interpol_Approx.html">Interpolation vs. Regression</a></li>
 </ul>
 </li>
@@ -220,6 +220,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="3_Digital.html">Digitalisierung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_Kenngroessen.html">Kenngrößen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_FourierAnalyse.html">Fourier-Analyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Rauschen.html">Rauschen und spektrale Dichte</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="V6.html">Dynamische Messsysteme</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -227,7 +228,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="5_DGL.html">Differentialgleichungen und Testfunktionen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5_Uebertragungsfunktion.html">Übertragungsfunktion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5_Faltung.html">Faltung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="5_Rauschen.html">Rauschen und spektrale Dichte</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="V7.html">Messen elektrischer Größen</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -265,12 +265,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">🐍 Jupyter Notebooks</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="T_Schwerependel.html">Messunsicherheiten beim Schwerependel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T_Plotten.html">Klimadaten auswerten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T_FitmitFehlerbalken.html">Lineare Regression mit Fehlerbalken</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Fehlerfortpflanzung.html">Fehlerfortpflanzung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Log.html">Logarithmische Darstellung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="T_Plotten.html">Daten plotten und fitten</a></li>
-<li class="toctree-l1"><a class="reference internal" href="T_LinReg.html">Verschiedene Fit-Funktionen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="T_FitmitFehlerbalken.html">Lineare Regression mit Fehlerbalken</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Spektralanalyse_Audio.html">Fourier-Transformation und Filter</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Übungen</span></p>
@@ -639,7 +637,7 @@ document.write(`
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="c1"># Konstanten</span>
 <span class="n">λ</span> <span class="o">=</span> <span class="mf">1064e-9</span>    <span class="c1"># Wellenlänge des Lichts in m</span>
@@ -699,9 +697,9 @@ document.write(`
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">patches</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.patches</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">patches</span>
 
 <span class="c1"># MatplotLib Settings:</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span>  <span class="c1"># Matplotlib Style wählen</span>
@@ -710,7 +708,7 @@ document.write(`
 
 <span class="c1">#--------- Transition Edge Sensor -------------</span>
 <span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">94</span><span class="p">,</span> <span class="mi">106</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">R</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">R</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
     <span class="n">k</span> <span class="o">=</span> <span class="mf">1.86</span>  <span class="c1"># in 1/mK</span>
     <span class="n">a</span> <span class="o">=</span> <span class="mf">0.01</span>  <span class="c1"># in Ohm</span>
     <span class="n">Tk</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># in mK</span>
@@ -754,7 +752,7 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/b052f033e6fa48aafb0fccf809983b5d1af91844ce3359fb92477eb916469d63.png" src="../_images/b052f033e6fa48aafb0fccf809983b5d1af91844ce3359fb92477eb916469d63.png" />
+<img alt="../_images/ab4c14b7a1881d2c43feed5047704b3532bab3e9020eca3ca6de05f234770c1e.png" src="../_images/ab4c14b7a1881d2c43feed5047704b3532bab3e9020eca3ca6de05f234770c1e.png" />
 </div>
 </div>
 <p>Wenn nun kleinste Energiemengen <span class="math notranslate nohighlight">\(E\)</span>, beispielsweise in Form eines einzelnen Photons, absorbiert werden und dadurch eine geringfügige Temperaturerhöhung (<span class="math notranslate nohighlight">\(\Delta T\)</span>) verursacht wird, ändert sich der Widerstandswert (<span class="math notranslate nohighlight">\(\Delta R\)</span>) abrupt. Dies ermöglicht die Messung von Temperaturen im Mikrokelvin-Bereich.
@@ -778,10 +776,10 @@ Im nachfolgenden Diagramm kann die Pulshöhe verändert werden. Dadurch ändert 
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">matplotlib.animation</span> <span class="kn">import</span> <span class="n">FuncAnimation</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.animation</span><span class="w"> </span><span class="kn">import</span> <span class="n">FuncAnimation</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTML</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -790,7 +788,7 @@ Im nachfolgenden Diagramm kann die Pulshöhe verändert werden. Dadurch ändert 
 <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1e-4</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
 
 <span class="n">k</span> <span class="o">=</span> <span class="mf">1e-5</span>
-<span class="k">def</span> <span class="nf">animate</span><span class="p">(</span><span class="n">a_in</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">animate</span><span class="p">(</span><span class="n">a_in</span><span class="p">):</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
     <span class="n">a</span> <span class="o">=</span> <span class="n">a_in</span> <span class="o">*</span> <span class="mf">1e-3</span>
     <span class="n">t_0</span> <span class="o">=</span> <span class="mf">0.2e-4</span>
@@ -825,7 +823,7 @@ Im nachfolgenden Diagramm kann die Pulshöhe verändert werden. Dadurch ändert 
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/matplotlib/animation.py:1741: UserWarning: Can not start iterating the frames for the initial draw. This can be caused by passing in a 0 length sequence for *frames*.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/KSIsleif/opt/anaconda3/lib/python3.9/site-packages/matplotlib/animation.py:1719: UserWarning: Can not start iterating the frames for the initial draw. This can be caused by passing in a 0 length sequence for *frames*.
 
 If you passed *frames* as a generator it may be exhausted due to a previous display or save.
   warnings.warn(
@@ -1016,42 +1014,42 @@ input[type=range].anim-slider {
 </style>
 
 <div class="animation">
-  <img id="_anim_img710c48d161754a4892493b8f32f158d3">
+  <img id="_anim_img594e3407467844ecab50839e52ece26d">
   <div class="anim-controls">
-    <input id="_anim_slider710c48d161754a4892493b8f32f158d3" type="range" class="anim-slider"
+    <input id="_anim_slider594e3407467844ecab50839e52ece26d" type="range" class="anim-slider"
            name="points" min="0" max="1" step="1" value="0"
-           oninput="anim710c48d161754a4892493b8f32f158d3.set_frame(parseInt(this.value));">
+           oninput="anim594e3407467844ecab50839e52ece26d.set_frame(parseInt(this.value));">
     <div class="anim-buttons">
-      <button title="Decrease speed" aria-label="Decrease speed" onclick="anim710c48d161754a4892493b8f32f158d3.slower()">
+      <button title="Decrease speed" aria-label="Decrease speed" onclick="anim594e3407467844ecab50839e52ece26d.slower()">
           <i class="fa fa-minus"></i></button>
-      <button title="First frame" aria-label="First frame" onclick="anim710c48d161754a4892493b8f32f158d3.first_frame()">
+      <button title="First frame" aria-label="First frame" onclick="anim594e3407467844ecab50839e52ece26d.first_frame()">
         <i class="fa fa-fast-backward"></i></button>
-      <button title="Previous frame" aria-label="Previous frame" onclick="anim710c48d161754a4892493b8f32f158d3.previous_frame()">
+      <button title="Previous frame" aria-label="Previous frame" onclick="anim594e3407467844ecab50839e52ece26d.previous_frame()">
           <i class="fa fa-step-backward"></i></button>
-      <button title="Play backwards" aria-label="Play backwards" onclick="anim710c48d161754a4892493b8f32f158d3.reverse_animation()">
+      <button title="Play backwards" aria-label="Play backwards" onclick="anim594e3407467844ecab50839e52ece26d.reverse_animation()">
           <i class="fa fa-play fa-flip-horizontal"></i></button>
-      <button title="Pause" aria-label="Pause" onclick="anim710c48d161754a4892493b8f32f158d3.pause_animation()">
+      <button title="Pause" aria-label="Pause" onclick="anim594e3407467844ecab50839e52ece26d.pause_animation()">
           <i class="fa fa-pause"></i></button>
-      <button title="Play" aria-label="Play" onclick="anim710c48d161754a4892493b8f32f158d3.play_animation()">
+      <button title="Play" aria-label="Play" onclick="anim594e3407467844ecab50839e52ece26d.play_animation()">
           <i class="fa fa-play"></i></button>
-      <button title="Next frame" aria-label="Next frame" onclick="anim710c48d161754a4892493b8f32f158d3.next_frame()">
+      <button title="Next frame" aria-label="Next frame" onclick="anim594e3407467844ecab50839e52ece26d.next_frame()">
           <i class="fa fa-step-forward"></i></button>
-      <button title="Last frame" aria-label="Last frame" onclick="anim710c48d161754a4892493b8f32f158d3.last_frame()">
+      <button title="Last frame" aria-label="Last frame" onclick="anim594e3407467844ecab50839e52ece26d.last_frame()">
           <i class="fa fa-fast-forward"></i></button>
-      <button title="Increase speed" aria-label="Increase speed" onclick="anim710c48d161754a4892493b8f32f158d3.faster()">
+      <button title="Increase speed" aria-label="Increase speed" onclick="anim594e3407467844ecab50839e52ece26d.faster()">
           <i class="fa fa-plus"></i></button>
     </div>
-    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_select710c48d161754a4892493b8f32f158d3"
+    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_select594e3407467844ecab50839e52ece26d"
           class="anim-state">
-      <input type="radio" name="state" value="once" id="_anim_radio1_710c48d161754a4892493b8f32f158d3"
+      <input type="radio" name="state" value="once" id="_anim_radio1_594e3407467844ecab50839e52ece26d"
              checked>
-      <label for="_anim_radio1_710c48d161754a4892493b8f32f158d3">Once</label>
-      <input type="radio" name="state" value="loop" id="_anim_radio2_710c48d161754a4892493b8f32f158d3"
+      <label for="_anim_radio1_594e3407467844ecab50839e52ece26d">Once</label>
+      <input type="radio" name="state" value="loop" id="_anim_radio2_594e3407467844ecab50839e52ece26d"
              >
-      <label for="_anim_radio2_710c48d161754a4892493b8f32f158d3">Loop</label>
-      <input type="radio" name="state" value="reflect" id="_anim_radio3_710c48d161754a4892493b8f32f158d3"
+      <label for="_anim_radio2_594e3407467844ecab50839e52ece26d">Loop</label>
+      <input type="radio" name="state" value="reflect" id="_anim_radio3_594e3407467844ecab50839e52ece26d"
              >
-      <label for="_anim_radio3_710c48d161754a4892493b8f32f158d3">Reflect</label>
+      <label for="_anim_radio3_594e3407467844ecab50839e52ece26d">Reflect</label>
     </form>
   </div>
 </div>
@@ -1061,9 +1059,9 @@ input[type=range].anim-slider {
   /* Instantiate the Animation class. */
   /* The IDs given should match those used in the template above. */
   (function() {
-    var img_id = "_anim_img710c48d161754a4892493b8f32f158d3";
-    var slider_id = "_anim_slider710c48d161754a4892493b8f32f158d3";
-    var loop_select_id = "_anim_loop_select710c48d161754a4892493b8f32f158d3";
+    var img_id = "_anim_img594e3407467844ecab50839e52ece26d";
+    var slider_id = "_anim_slider594e3407467844ecab50839e52ece26d";
+    var loop_select_id = "_anim_loop_select594e3407467844ecab50839e52ece26d";
     var frames = new Array(0);
     
 
@@ -1071,7 +1069,7 @@ input[type=range].anim-slider {
     /* set a timeout to make sure all the above elements are created before
        the object is initialized. */
     setTimeout(function() {
-        anim710c48d161754a4892493b8f32f158d3 = new Animation(frames, img_id, slider_id, 200.0,
+        anim594e3407467844ecab50839e52ece26d = new Animation(frames, img_id, slider_id, 200.0,
                                  loop_select_id);
     }, 0);
   })()

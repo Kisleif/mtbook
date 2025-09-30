@@ -184,8 +184,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">✍️ Vorlesung</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="1_Einf%C3%BChrung%20in%20die%20Messtechnik.html">Intro</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="V1.html">Grundlagen</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="V1.html">Einführung in die Messtechnik und Einheiten</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_Einf%C3%BChrung%20in%20die%20Messtechnik.html">Messkette</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Einheiten.html">Einheiten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Kalibrieren.html">Kalibrieren und Eichen</a></li>
 </ul>
@@ -204,7 +204,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="V3.html">Kurvenanpassung</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="1_Kurvenanpassung.html">Regressionsrechnung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Kurvenanpassung.html">Modellanpassung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Interpol_Approx.html">Interpolation vs. Regression</a></li>
 </ul>
 </li>
@@ -265,12 +265,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">🐍 Jupyter Notebooks</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="T_Schwerependel.html">Messunsicherheiten beim Schwerependel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T_Plotten.html">Klimadaten auswerten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T_FitmitFehlerbalken.html">Lineare Regression mit Fehlerbalken</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Fehlerfortpflanzung.html">Fehlerfortpflanzung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Log.html">Logarithmische Darstellung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="T_Plotten.html">Daten plotten und fitten</a></li>
-<li class="toctree-l1"><a class="reference internal" href="T_LinReg.html">Verschiedene Fit-Funktionen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="T_FitmitFehlerbalken.html">Lineare Regression mit Fehlerbalken</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Spektralanalyse_Audio.html">Fourier-Transformation und Filter</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Übungen</span></p>
@@ -612,17 +610,17 @@ document.write(`
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Benötigte Libraries:</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span> 
-<span class="kn">import</span> <span class="nn">scipy.integrate</span> <span class="k">as</span> <span class="nn">spi</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">plotly.offline</span> <span class="k">as</span> <span class="nn">py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">signal</span> 
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">spi</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.offline</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">py</span>
 <span class="n">py</span><span class="o">.</span><span class="n">init_notebook_mode</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">plotly.graph_objs</span> <span class="k">as</span> <span class="nn">go</span>
-<span class="kn">import</span> <span class="nn">plotly.tools</span> <span class="k">as</span> <span class="nn">tls</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objs</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.tools</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tls</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 
 <span class="c1"># MatplotLib Settings:</span>
@@ -639,7 +637,7 @@ document.write(`
 <span class="n">y_true</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">t_range</span><span class="p">)</span>
 
 <span class="c1">#function that computes the real fourier couples of coefficients (a0, 0), (a1, b1)...(aN, bN)</span>
-<span class="k">def</span> <span class="nf">compute_real_fourier_coeffs</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_real_fourier_coeffs</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
     <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
         <span class="n">an</span> <span class="o">=</span> <span class="p">(</span><span class="mf">2.</span><span class="o">/</span><span class="n">T</span><span class="p">)</span> <span class="o">*</span> <span class="n">spi</span><span class="o">.</span><span class="n">quad</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">func</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">n</span> <span class="o">*</span> <span class="n">t</span> <span class="o">/</span> <span class="n">T</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="n">T</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
@@ -648,7 +646,7 @@ document.write(`
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 
 <span class="c1">#function that computes the real form Fourier series using an and bn coefficients</span>
-<span class="k">def</span> <span class="nf">fit_func_by_fourier_series_with_real_coeffs</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">AB</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">fit_func_by_fourier_series_with_real_coeffs</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">AB</span><span class="p">):</span>
     <span class="n">result</span> <span class="o">=</span> <span class="mf">0.</span>
     <span class="n">A</span> <span class="o">=</span> <span class="n">AB</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">B</span> <span class="o">=</span> <span class="n">AB</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
@@ -691,7 +689,7 @@ document.write(`
         require.undef("plotly");
         requirejs.config({
             paths: {
-                'plotly': ['https://cdn.plot.ly/plotly-2.12.1.min']
+                'plotly': ['https://cdn.plot.ly/plotly-2.35.2.min']
             }
         });
         require(['plotly'], function(Plotly) {
@@ -699,7 +697,7 @@ document.write(`
         });
         }
         </script>
-        </div><img alt="../_images/def0c5cc4cb31a6995afb382fe289c3049f186f0a5e55071105dbe9f684d7573.png" src="../_images/def0c5cc4cb31a6995afb382fe289c3049f186f0a5e55071105dbe9f684d7573.png" />
+        </div><img alt="../_images/397970959f26a7f641e80791e91720a04d1035d3fd7c9430efaecd3ea4e6c720.png" src="../_images/397970959f26a7f641e80791e91720a04d1035d3fd7c9430efaecd3ea4e6c720.png" />
 </div>
 </div>
 <p>Im folgenden Bild seht ihr einen Rechteckpuls und die zugehörige Fourierreihe unter Einbeziehung verschiedener Anzahl von Sinus- bzw. Cosinusfunktionen. Je mehr Sinusfunktionen bei ganzzahligen Vielfachen der Grundfrequenz des Rechteckpulses miteinbezogen werden, desto genauer können Rechtecksignale rekonstruiert werden.</p>
@@ -711,17 +709,17 @@ document.write(`
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Benötigte Libraries:</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span> 
-<span class="kn">import</span> <span class="nn">scipy.integrate</span> <span class="k">as</span> <span class="nn">spi</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">plotly.offline</span> <span class="k">as</span> <span class="nn">py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">signal</span> 
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">spi</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.offline</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">py</span>
 <span class="n">py</span><span class="o">.</span><span class="n">init_notebook_mode</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">plotly.graph_objs</span> <span class="k">as</span> <span class="nn">go</span>
-<span class="kn">import</span> <span class="nn">plotly.tools</span> <span class="k">as</span> <span class="nn">tls</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objs</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.tools</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tls</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 
 <span class="c1"># MatplotLib Settings:</span>
@@ -739,7 +737,7 @@ document.write(`
 <span class="n">y_true</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">t_range</span><span class="p">)</span>
 
 <span class="c1">#function that computes the real fourier couples of coefficients (a0, 0), (a1, b1)...(aN, bN)</span>
-<span class="k">def</span> <span class="nf">compute_real_fourier_coeffs</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_real_fourier_coeffs</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
     <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
         <span class="n">an</span> <span class="o">=</span> <span class="p">(</span><span class="mf">2.</span><span class="o">/</span><span class="n">T</span><span class="p">)</span> <span class="o">*</span> <span class="n">spi</span><span class="o">.</span><span class="n">quad</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">func</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">n</span> <span class="o">*</span> <span class="n">t</span> <span class="o">/</span> <span class="n">T</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="n">T</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
@@ -748,7 +746,7 @@ document.write(`
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 
 <span class="c1">#function that computes the real form Fourier series using an and bn coefficients</span>
-<span class="k">def</span> <span class="nf">fit_func_by_fourier_series_with_real_coeffs</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">AB</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">fit_func_by_fourier_series_with_real_coeffs</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">AB</span><span class="p">):</span>
     <span class="n">result</span> <span class="o">=</span> <span class="mf">0.</span>
     <span class="n">A</span> <span class="o">=</span> <span class="n">AB</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">B</span> <span class="o">=</span> <span class="n">AB</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
@@ -794,7 +792,7 @@ document.write(`
         require.undef("plotly");
         requirejs.config({
             paths: {
-                'plotly': ['https://cdn.plot.ly/plotly-2.12.1.min']
+                'plotly': ['https://cdn.plot.ly/plotly-2.35.2.min']
             }
         });
         require(['plotly'], function(Plotly) {
@@ -802,7 +800,7 @@ document.write(`
         });
         }
         </script>
-        </div><img alt="../_images/54449d115cc3355ce1a741b8a53a58de531b76d1a48c623faaf272cf9cd0f1f4.png" src="../_images/54449d115cc3355ce1a741b8a53a58de531b76d1a48c623faaf272cf9cd0f1f4.png" />
+        </div><img alt="../_images/25870ac4d296f019020ba5e792c3ca7a779744be5ffbb5033334c7f2a57d68b3.png" src="../_images/25870ac4d296f019020ba5e792c3ca7a779744be5ffbb5033334c7f2a57d68b3.png" />
 </div>
 </div>
 <section id="reelle-fourierreihe">
@@ -872,7 +870,7 @@ Die <strong>reelle Darstellung der Fourierreihe</strong> für eine Funktion <spa
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/1bba6cb882b648c1df5a01d3cf8b4437f1a72acc96ff20b33e72beed61ce6b47.png" src="../_images/1bba6cb882b648c1df5a01d3cf8b4437f1a72acc96ff20b33e72beed61ce6b47.png" />
+<img alt="../_images/af4b63e0a0ab642efbb988a9d8ee9732e151c13e6230e2004d3d01ce594fc3a7.png" src="../_images/af4b63e0a0ab642efbb988a9d8ee9732e151c13e6230e2004d3d01ce594fc3a7.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -928,7 +926,7 @@ Die <strong>reelle Darstellung der Fourierreihe</strong> für eine Funktion <spa
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/0e2fcb601f308c17db3a6c25d4cb1683819965c342fb9da1bf7b9ca415701834.png" src="../_images/0e2fcb601f308c17db3a6c25d4cb1683819965c342fb9da1bf7b9ca415701834.png" />
+<img alt="../_images/855c242534aebfc81c854b703c2c65536228a5409315065030e95e3bdd0793dc.png" src="../_images/855c242534aebfc81c854b703c2c65536228a5409315065030e95e3bdd0793dc.png" />
 </div>
 </div>
 <div class="tip admonition">
@@ -1028,7 +1026,7 @@ Die <strong>reelle Darstellung der Fourierreihe</strong> für eine Funktion <spa
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/61351f404eae0fc4c96f24a0e01a018635815f2ba764f7efdc84abad1c796f48.png" src="../_images/61351f404eae0fc4c96f24a0e01a018635815f2ba764f7efdc84abad1c796f48.png" />
+<img alt="../_images/b889cff8b9e41a6738f9ca287bdaf5d6803506aee5d007f8bf0a88391d47509a.png" src="../_images/b889cff8b9e41a6738f9ca287bdaf5d6803506aee5d007f8bf0a88391d47509a.png" />
 </div>
 </div>
 </section>
@@ -1054,7 +1052,7 @@ Die <strong>reelle Darstellung der Fourierreihe</strong> für eine Funktion <spa
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">IPython.display</span> <span class="k">as</span> <span class="nn">ipd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ipd</span>
 <span class="n">ipd</span><span class="o">.</span><span class="n">Audio</span><span class="p">(</span><span class="s1">&#39;CantinaBand3.wav&#39;</span><span class="p">)</span> <span class="c1"># load a local WAV file</span>
 </pre></div>
 </div>
@@ -1075,10 +1073,10 @@ Die <strong>reelle Darstellung der Fourierreihe</strong> für eine Funktion <spa
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.fft</span> <span class="kn">import</span> <span class="n">rfft</span><span class="p">,</span> <span class="n">rfftfreq</span>
-<span class="kn">from</span> <span class="nn">scipy.io.wavfile</span> <span class="kn">import</span> <span class="n">read</span> <span class="c1">#import the required function from the module</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.fft</span><span class="w"> </span><span class="kn">import</span> <span class="n">rfft</span><span class="p">,</span> <span class="n">rfftfreq</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.io.wavfile</span><span class="w"> </span><span class="kn">import</span> <span class="n">read</span> <span class="c1">#import the required function from the module</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="n">samplerate</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s1">&#39;CantinaBand3.wav&#39;</span><span class="p">)</span>
 <span class="n">duration</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="n">samplerate</span>
 <span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">duration</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="n">samplerate</span><span class="p">)</span> <span class="c1">#time vector</span>
@@ -1112,7 +1110,7 @@ Die <strong>reelle Darstellung der Fourierreihe</strong> für eine Funktion <spa
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/238ba4a1b1f46e29a277af526f51e8833d522416de433bb630d43abccd213b52.png" src="../_images/238ba4a1b1f46e29a277af526f51e8833d522416de433bb630d43abccd213b52.png" />
+<img alt="../_images/6d62f48b7d79d1a074395d940bb180c0770188c7bcdb077ee8674261b4bea181.png" src="../_images/6d62f48b7d79d1a074395d940bb180c0770188c7bcdb077ee8674261b4bea181.png" />
 </div>
 </div>
 <p>Das Bild links zeigt das aperiodische Zeitsignal, das Bild rechts das Signal nach der Fourier-Transformation. Jeder Frequenz entlang der x-Achse ist eine Leistung zugeordnet, wodurch das Spektrum entsteht.</p>
@@ -1228,7 +1226,7 @@ H(\omega) &amp;= \int_{-\infty}^{\infty} h(t)  \mathrm e^{-j \omega t} dt = \int
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/1789867846ba262cd5a6871f5ba066cda6045c12be09f4a7bec6da8abeeb2b0e.png" src="../_images/1789867846ba262cd5a6871f5ba066cda6045c12be09f4a7bec6da8abeeb2b0e.png" />
+<img alt="../_images/8ebd91b1cb7cb3649ba4bebdab60f12bd13a20d7ede8848521b8b8ca0e79fd16.png" src="../_images/8ebd91b1cb7cb3649ba4bebdab60f12bd13a20d7ede8848521b8b8ca0e79fd16.png" />
 </div>
 </div>
 <section id="dirac-delta-impuls">
@@ -1304,7 +1302,7 @@ H(\omega) &amp;= \frac{2}{2\tau} \frac{\sin{\omega \tau}}{\omega} = \frac{\sin{\
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/9abd5945c1aa7f6ea7cf927cf650fdec3c051237379f691745eabd382d051c20.png" src="../_images/9abd5945c1aa7f6ea7cf927cf650fdec3c051237379f691745eabd382d051c20.png" />
+<img alt="../_images/44a4d744ad6e585f0f1a3a56a9a5c8d80bd2ea671111efc2c5680b15abb0191d.png" src="../_images/44a4d744ad6e585f0f1a3a56a9a5c8d80bd2ea671111efc2c5680b15abb0191d.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1352,7 +1350,7 @@ H(\omega) &amp;= \frac{2}{2\tau} \frac{\sin{\omega \tau}}{\omega} = \frac{\sin{\
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/2459798d4438dfe23a6a3e10e91d4254a43f81fadaaec1a68ee8cb48886470f7.png" src="../_images/2459798d4438dfe23a6a3e10e91d4254a43f81fadaaec1a68ee8cb48886470f7.png" />
+<img alt="../_images/4e291cb213677fbe031843699a547280e9fe964b3c00edbe163e4bbc994760f2.png" src="../_images/4e291cb213677fbe031843699a547280e9fe964b3c00edbe163e4bbc994760f2.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1362,13 +1360,13 @@ H(\omega) &amp;= \frac{2}{2\tau} \frac{\sin{\omega \tau}}{\omega} = \frac{\sin{\
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.fft</span> <span class="kn">import</span> <span class="n">fft</span><span class="p">,</span> <span class="n">fftfreq</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.fft</span><span class="w"> </span><span class="kn">import</span> <span class="n">fft</span><span class="p">,</span> <span class="n">fftfreq</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="c1"># Matplotlib Style wählen</span>
 <span class="c1">#plt.xkcd()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1"># Schriftgröße</span>
 
-<span class="k">def</span> <span class="nf">ddf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">sig</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">ddf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">sig</span><span class="p">):</span>
     <span class="n">val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="n">val</span><span class="p">[(</span><span class="o">-</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sig</span><span class="p">))</span><span class="o">&lt;=</span><span class="n">x</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">x</span><span class="o">&lt;=</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sig</span><span class="p">)))]</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="k">return</span> <span class="n">val</span>
@@ -1399,7 +1397,7 @@ H(\omega) &amp;= \frac{2}{2\tau} \frac{\sin{\omega \tau}}{\omega} = \frac{\sin{\
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/7819faa5347a0aaaaccc1d1665e71b9744423b9de84827890d4fa7ee2b2429d2.png" src="../_images/7819faa5347a0aaaaccc1d1665e71b9744423b9de84827890d4fa7ee2b2429d2.png" />
+<img alt="../_images/d1a9b218e98aa905358e9b87f500e747cf3d8762dee40fd7eeb14d64be6a0c29.png" src="../_images/d1a9b218e98aa905358e9b87f500e747cf3d8762dee40fd7eeb14d64be6a0c29.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1446,7 +1444,7 @@ H(\omega) &amp;= \frac{2}{2\tau} \frac{\sin{\omega \tau}}{\omega} = \frac{\sin{\
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/d8dc74035e8ee9e23b5d8eab9fc671206fc4e04f7699e381da1896c528efefe2.png" src="../_images/d8dc74035e8ee9e23b5d8eab9fc671206fc4e04f7699e381da1896c528efefe2.png" />
+<img alt="../_images/7a14e45054c754e276508437d0c489dc7b97446f106bc1575352ce2b6429069e.png" src="../_images/7a14e45054c754e276508437d0c489dc7b97446f106bc1575352ce2b6429069e.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1490,7 +1488,7 @@ H(\omega) &amp;= \frac{2}{2\tau} \frac{\sin{\omega \tau}}{\omega} = \frac{\sin{\
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/671e91b650a78d5818c478868688b3012190e9bfc50cde083abcc392bf31d88b.png" src="../_images/671e91b650a78d5818c478868688b3012190e9bfc50cde083abcc392bf31d88b.png" />
+<img alt="../_images/af7bbefeeb25442a774783275c127f8a7f8f4515e9ad323b54bd48ec7b4141f7.png" src="../_images/af7bbefeeb25442a774783275c127f8a7f8f4515e9ad323b54bd48ec7b4141f7.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1544,7 +1542,7 @@ H(\omega) &amp;= \frac{2}{2\tau} \frac{\sin{\omega \tau}}{\omega} = \frac{\sin{\
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/5e49d38ec0369e93601596ffc37756e81914ce6d63bed9e3cccb42944a8881e0.png" src="../_images/5e49d38ec0369e93601596ffc37756e81914ce6d63bed9e3cccb42944a8881e0.png" />
+<img alt="../_images/e434a1235fa32d734ea9412fd1563dfcf3deb3002c6ecbcb6c8752828488b96f.png" src="../_images/e434a1235fa32d734ea9412fd1563dfcf3deb3002c6ecbcb6c8752828488b96f.png" />
 </div>
 </div>
 </section>

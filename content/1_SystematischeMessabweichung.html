@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Typ B: Systematische Messabweichung &#8212; Metrology Lecture Book</title>
+    <title>Systematische Messabweichung &#8212; Metrology Lecture Book</title>
   
   
   
@@ -196,7 +196,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <li class="toctree-l2"><a class="reference internal" href="1_StatistischeMessunsicherheit.html">Statistik und zufällige Messunsicherheit</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Typ B: Systematische Messabweichung</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Systematische Messabweichung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Fehlerfortpflanzung.html">Fehlerfortpflanzung</a></li>
 </ul>
 </li>
@@ -538,7 +538,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Typ B: Systematische Messabweichung</h1>
+    <h1>Systematische Messabweichung</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -561,8 +561,20 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="typ-b-systematische-messabweichung">
-<h1>Typ B: Systematische Messabweichung<a class="headerlink" href="#typ-b-systematische-messabweichung" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="systematische-messabweichung">
+<h1>Systematische Messabweichung<a class="headerlink" href="#systematische-messabweichung" title="Permalink to this heading">#</a></h1>
+<p>Ein zentrales Ziel des GUM (Guide to the Expression of Uncertainty in Measurement) ist es, auch solche nicht erfassten systematischen Messabweichungen, die nicht korrigiert werden können, in das Gesamtmaß der Messunsicherheit einzubeziehen.
+Damit soll ein möglichst realistisches und vollständiges Genauigkeitsmaß einer Messung beschrieben werden.</p>
+<p>In diesem Kapitel beschäftigen wir uns mit den Quellen systematischer Messabweichungen und diskutieren, wie sich deren Größenordnungen unter verschiedenen Messbedingungen abschätzen lassen.</p>
+<p>Ganz allgemein versteht man unter einer systematischen Messabweichung eine einseitige Abweichung eines Messwertes von seinem wahren Wert, deren Ursache prinzipiell bekannt, jedoch nicht exakt quantifizierbar ist.
+Systematische Effekte wirken also in der Regel konstant oder reproduzierbar in dieselbe Richtung und führen zu einer Verschiebung der Messergebnisse.</p>
+<p>Im Gegensatz zu zufälligen Messunsicherheiten, die sich durch Wiederholmessungen statistisch reduzieren lassen,
+können systematische Abweichungen nicht durch Mittelung verringert werden.
+Sie lassen sich meist nur identifizieren oder korrigieren, indem</p>
+<ul class="simple">
+<li><p>andere Messverfahren mit unterschiedlichen physikalischen Prinzipien eingesetzt oder</p></li>
+<li><p>die äußeren Bedingungen (z. B. Temperatur, Lage, Druck, elektromagnetische Umgebung) gezielt verändert werden.</p></li>
+</ul>
 <section id="anzeigefehler-von-messgeraten">
 <h2>Anzeigefehler von Messgeräten<a class="headerlink" href="#anzeigefehler-von-messgeraten" title="Permalink to this heading">#</a></h2>
 <p>Messgeräte werden anhand ihrer Genauigkeit in Klassen eingruppiert.</p>
@@ -611,22 +623,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
-<p>Die Klasse entspricht der relativen Messabweichung. Präzisionsmessgeräte besitzen somit Abweichungen die zwischen 0,001% und 0,05% liegen. Die Genauigkeitsklasse K 2,5 (Angabe auf der Messskala nach DIN EN 60051) bedeutet: Ist der Endwert des eingestellten Messbereichs <span class="math notranslate nohighlight">\(U_\mathrm{end}\)</span>, dann beträgt die Typ B-Unsicherheit über den gesamten Messbereich <span class="math notranslate nohighlight">\(u(U) = 0{,}0025\cdot U_\mathrm{end}\)</span>. Für <span class="math notranslate nohighlight">\(U_\mathrm{end} = 15\,\mathrm V\)</span> erhält man also:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">U_end</span> <span class="o">=</span> <span class="mi">15</span>
-<span class="n">u</span> <span class="o">=</span> <span class="mf">0.0025</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;eine absolute Unsicherheit von &#39;</span><span class="p">,</span> <span class="n">u</span><span class="o">*</span><span class="n">U_end</span><span class="p">,</span> <span class="s1">&#39;V&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eine absolute Unsicherheit von  0.0375 V
-</pre></div>
-</div>
-</div>
-</div>
-<p>Dieser Wert von 0,0375V gilt unabhängig davon, wie groß der Zeigerausschlag beim Messgerät ist. Um die relative Unsicherheit gering zu halten, sollte der Messbereich möglichst so gewählt werden, dass der Messwert am Skalen<em>ende</em> abgelesen wird.</p>
+<p>Die Klasse entspricht der relativen Messabweichung. Präzisionsmessgeräte besitzen somit Abweichungen die zwischen 0,001% und 0,05% liegen. Die Genauigkeitsklasse K 2,5 (Angabe auf der Messskala nach DIN EN 60051) bedeutet: Ist der Endwert des eingestellten Messbereichs <span class="math notranslate nohighlight">\(U_\mathrm{end}\)</span>, dann beträgt die Messabweichung über den gesamten Messbereich <span class="math notranslate nohighlight">\(u(U) = 0{,}0025\cdot U_\mathrm{end}\)</span>. Für <span class="math notranslate nohighlight">\(U_\mathrm{end} = 15\,\mathrm V\)</span> erhält man also <span class="math notranslate nohighlight">\(0{,}0375\,\mathrm V\)</span>. Dieser Wert gilt unabhängig davon, wie groß der Zeigerausschlag beim Messgerät ist. Um die relative Unsicherheit gering zu halten, sollte der Messbereich möglichst so gewählt werden, dass der Messwert am Skalen<em>ende</em> abgelesen wird.</p>
 </section>
 <section id="digitalstellenfehler">
 <h2>Digitalstellenfehler<a class="headerlink" href="#digitalstellenfehler" title="Permalink to this heading">#</a></h2>
@@ -639,7 +636,7 @@ document.write(`
 <p>Das Gerät im Bild zeigt den Messwert 5,847V an. Laut Hersteller ist die Maximalabweichung (unter Referenzbedingungen) <span class="math notranslate nohighlight">\(a = \pm\)</span> (0,5% vom <em>Messwert</em> + 9 Digit). Die Anzahl der Nachkommastellen (also der Digits) ist in diesem Falle 3, also 0,001V. Genauer kann das Messgerät keine Spannung angeben. Die Messabweichung setzt sich also wiefolgt zusammen (zwei signifikante Stellen reichen hierbei, da der Messwert selber nicht genauer angezeigt wird):</p>
 <div class="math notranslate nohighlight">
 \[a = \pm (0{,}5\% \cdot 5{,}847\,\mathrm{V} + 9 \cdot 0{,}001\,\mathrm V) \approx \pm 0{,}038\,\mathrm V = \pm 38{,}235\,\mathrm{mV}\]</div>
-<p>Innerhalb dieses <span class="math notranslate nohighlight">\(\pm\)</span> Bereiches der Breite <span class="math notranslate nohighlight">\(2a\)</span> unterstellt man eine Gleichverteilung der Messwerte und bekommt damit die Standardunsicherheit:</p>
+<p>Innerhalb dieses <span class="math notranslate nohighlight">\(\pm\)</span> Bereiches der Breite <span class="math notranslate nohighlight">\(2a\)</span> nimmt man eine Gleichverteilung der Messwerte und bekommt damit die Standardunsicherheit:</p>
 <div class="math notranslate nohighlight">
 \[u(U) = \frac{a}{\sqrt{3}} = \frac{38{,}235\,\mathrm{mV}}{\sqrt{3}} \approx 22\,\mathrm{mV}\]</div>
 <p>Ist nichts weiter bekannt, schätzt man die Unsicherheit über einen Mindestfehler von a = 1 Digit ab.</p>

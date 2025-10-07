@@ -71,7 +71,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/1_StatistischeMessunsicherheit';</script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="Typ B: Systematische Messabweichung" href="1_SystematischeMessabweichung.html" />
+    <link rel="next" title="Systematische Messabweichung" href="1_SystematischeMessabweichung.html" />
     <link rel="prev" title="Beispiel" href="1_Messunsicherheiten.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
@@ -196,7 +196,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Statistik und zufällige Messunsicherheit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="1_SystematischeMessabweichung.html">Typ B: Systematische Messabweichung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_SystematischeMessabweichung.html">Systematische Messabweichung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Fehlerfortpflanzung.html">Fehlerfortpflanzung</a></li>
 </ul>
 </li>
@@ -567,7 +567,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#student-t-kleine-stichproben">Student-t (kleine Stichproben)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gleichverteilung-rechteck">Gleichverteilung (Rechteck)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dreieckverteilung">Dreieckverteilung</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zweidimensionale-zufallsvariablen">Zweidimensionale Zufallsvariablen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zweidimensionale-bivariate-zufallsvariablen">Zweidimensionale (Bivariate) Zufallsvariablen</a></li>
 </ul>
             </nav>
         </div>
@@ -582,7 +582,7 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="statistik-und-zufallige-messunsicherheit">
 <h1>Statistik und zufällige Messunsicherheit<a class="headerlink" href="#statistik-und-zufallige-messunsicherheit" title="Permalink to this heading">#</a></h1>
 <p>Das Ergebnis eines Experimentes wird nicht ausschließlich durch die <strong>experimentellen Vorschriften</strong> oder den <strong>Messaufbau</strong> bestimmt, sondern auch durch <strong>zufällige Einflüsse</strong>.<br />
-Das heißt alle unsere Experimente, die wir mittels der Messtechnik durchführen, sind <strong>Zufallsexperimente</strong>.</p>
+Das heißt alle unsere Experimente sind <strong>Zufallsexperimente</strong>.</p>
 <p>Das <strong>Ergebnis eines Zufallsexperiments</strong> (oder unserer Messung) ist daher nicht deterministisch, sondern eine <strong>Zufallsgröße</strong> (oder Zufallsvariable). Diese kann bei identischen Versuchsbedingungen unterschiedliche Werte annehmen, da sie vom Zufall abhängt.</p>
 <p>Je nach Anzahl der beteiligten Größen unterscheidet man:</p>
 <ul class="simple">
@@ -603,8 +603,8 @@ Das <strong>GUM</strong> (<em>Guide to the Expression of Uncertainty in Measurem
 Ziel ist es, die Streuung der Messwerte mathematisch zu beschreiben, um daraus <strong>statistische Unsicherheiten (Typ A)</strong> abzuleiten und die <strong>Wahrscheinlichkeit</strong> anzugeben, mit der ein Messergebnis innerhalb eines bestimmten Intervalls um den <em>wahren Wert</em> liegt, inkl. der <strong>systematischen Unsicherheiten (Typ B)</strong>.</p>
 <section id="messreihe-als-zufallsexperiment">
 <h2>Messreihe als Zufallsexperiment<a class="headerlink" href="#messreihe-als-zufallsexperiment" title="Permalink to this heading">#</a></h2>
-<p>Statistische, oder zufällige, Einflüsse auf einen Messwert lassen sich leider nicht korrigieren, dennoch können durch <strong>wiederholte</strong> Messungen der eigentliche Messwert bestimmt werden. Wiederholte Messungen sind auch als <strong>Messreihe oder Stichprobe</strong> bekannt. Hierbei wird eine Anzahl von <span class="math notranslate nohighlight">\(m\)</span> Messungen für ein und denselben Messwert durchgeführt. Die einzelnen Messwerte <span class="math notranslate nohighlight">\(x_j = [x_1, x_2, ... x_m]\)</span> unterscheiden sich voneinander.</p>
-<p>Bei genügend vielen Wiederholungen der Messung kann in vielen Fällen beobachtet werden, dass sich die Messwerte <span class="math notranslate nohighlight">\(x_j\)</span> um einen zentralen Wert, <span class="math notranslate nohighlight">\(\overline x\)</span> scharen. Die Häufigkeit, einen Messwert in einem bestimmten Abstand zu diesem zentralen Wert zu finden, <span class="math notranslate nohighlight">\(|x_j - \overline x|\)</span>, ist umso kleiner, je größer der Abstand ist. Man spricht hierbei von einer Häufigkeitsverteilung der <span class="math notranslate nohighlight">\(x_j\)</span>. Die grafische Darstellung einer solchen Messreihe erfolgt in einem <strong>Histogramm</strong>. Wenn die Messreihe genügend groß ist (großes <span class="math notranslate nohighlight">\(m\)</span>, also viele Messwerte <span class="math notranslate nohighlight">\(x_j\)</span>), kann man die zugrundeliegende Verteilung der Messwerte und die ungefähre Lage und Streuung erkennen. Außerdem können <em>Ausreißer</em>, also Messwerte die viel zu weit von den anderen Messwerten entfernt liegen, identifiziert werden.</p>
+<p>Statistische, oder zufällige, Einflüsse auf einen Messwert lassen sich leider nicht korrigieren, dennoch können durch <strong>wiederholte</strong> Messungen der eigentliche Messwert bestimmt werden und die Messunsicherheit sogar reduziert werden, da diese mit der Wurzel der Wiederholungen abnimmt. Wiederholte Messungen sind auch als <strong>Messreihe oder Stichprobe</strong> bekannt. Hierbei wird eine Anzahl von <span class="math notranslate nohighlight">\(m\)</span> Messungen für ein und denselben Messwert durchgeführt. Die einzelnen Messwerte <span class="math notranslate nohighlight">\(x_j = [x_1, x_2, ... x_m]\)</span> unterscheiden sich voneinander.</p>
+<p>Bei genügend vielen Wiederholungen der Messung kann in vielen Fällen beobachtet werden, dass sich die Messwerte <span class="math notranslate nohighlight">\(x_j\)</span> um einen zentralen Wert, den wir mit <span class="math notranslate nohighlight">\(\overline x\)</span> bezeichnen, scharen. Die Häufigkeit, einen Messwert in einem bestimmten Abstand zu diesem zentralen Wert zu finden, <span class="math notranslate nohighlight">\(|x_j - \overline x|\)</span>, ist umso kleiner, je größer der Abstand ist. Man spricht hierbei von einer Häufigkeitsverteilung der <span class="math notranslate nohighlight">\(x_j\)</span>. Die grafische Darstellung einer solchen Messreihe erfolgt in einem <strong>Histogramm</strong>.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
@@ -667,7 +667,7 @@ Ziel ist es, die Streuung der Messwerte mathematisch zu beschreiben, um daraus <
 <img alt="../_images/9e00f80ba9f01b4503a79d40f1fdb2437c0ed24d3ba918d287d33fddfa589e89.png" src="../_images/9e00f80ba9f01b4503a79d40f1fdb2437c0ed24d3ba918d287d33fddfa589e89.png" />
 </div>
 </div>
-<p>Im Diagramm ist die absolute Häufigkeit der Messreihe dargestellt. In der ersten Klasse ganz links befinden sich die Messwerte mit Zahlenwerten zwischen 1,3-1,34.</p>
+<p>Im Diagramm ist die absolute Häufigkeit der Messreihe dargestellt. In der ersten Klasse ganz links befinden sich die Messwerte mit Zahlenwerten zwischen 1,3-1,34. <em>Ausreißer</em>, also Messwerte die viel zu weit von den anderen Messwerten entfernt liegen, können mithilfe von Histogrammen leicht identifiziert und bei Bedarf entfernt werden.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -705,8 +705,8 @@ Ziel ist es, die Streuung der Messwerte mathematisch zu beschreiben, um daraus <
 <p>Anhand der Histogrammdarstellung kann man bereits erkennen, dass der <em>richtige</em> Wert unseres Experiments vermutlich im Bereich zwischen <strong>1,38</strong> und <strong>1,41</strong> liegt – dort treten die meisten Messungen auf.<br />
 Man möchte nun eine <strong>Kennzahl</strong> finden, die den <em>richtigen</em> (bzw. <em>wahren</em>) Wert möglichst gut beschreibt.</p>
 <p>Eine solche Kennzahl ist der <strong>Stichprobenmittelwert</strong> (oder empirische Mittelwert).<br />
-Er entspricht demjenigen Wert, um den sich die Messwerte im Mittel am wenigsten quadratisch unterscheiden.</p>
-<p>Gesucht ist also ein Wert <span class="math notranslate nohighlight">\(\overline{x}\)</span>, der die <strong>Summe der quadratischen Abweichungen</strong> der einzelnen Messwerte <span class="math notranslate nohighlight">\(x_j\)</span> minimiert:</p>
+Er entspricht demjenigen Wert, um den sich die Messwerte im Mittel am wenigsten quadratisch unterscheiden.
+Gesucht ist also ein Wert <span class="math notranslate nohighlight">\(\overline{x}\)</span>, der die <strong>Summe der quadratischen Abweichungen</strong> der einzelnen Messwerte <span class="math notranslate nohighlight">\(x_j\)</span> minimiert:</p>
 <div class="math notranslate nohighlight">
 \[
 S(\overline{x}) = \sum_{j=1}^{m} (x_j - \overline{x})^2
@@ -726,7 +726,7 @@ S(\overline{x}) = \sum_{j=1}^{m} (x_j - \overline{x})^2
 \[
 \overline{x} = \frac{1}{m} \sum_{j=1}^{m} x_j
 \]</div>
-<p>Damit ist gezeigt, dass der Mittelwert diejenige Schätzgröße ist, die den <em>wahren Wert</em> einer Messgröße am besten beschreibt</p>
+<p>Damit ist gezeigt, dass der Mittelwert diejenige Schätzgröße ist, die den <em>wahren Wert</em> einer Messgröße am besten beschreibt.</p>
 <p>Ein Maß für die Abweichung der Einzelmessungen von dieser <em>besten Schätzgröße</em>, dem Mittelwert, sind wiederum die quadratischen Abweichungen und werden als <strong>empirische Varianz</strong> <span class="math notranslate nohighlight">\(s^2(x)\)</span> bezeichnet, ein Maß für die Streuung der Messwerte:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -746,7 +746,12 @@ Eine kleine Standardabweichung weist auf eine hohe <strong>Präzision</strong> d
 <p>Auch dort sucht man nach einer Funktion — etwa einer Geraden oder Polynomfunktion —, die die gegebenen Messpunkte <strong>im Sinne der kleinsten Quadrate</strong> möglichst gut beschreibt.<br />
 Das zugrunde liegende <strong>Kriterium der kleinsten Quadrate</strong> lautet, die Summe der quadratischen Abweichungen zwischen Messwerten <span class="math notranslate nohighlight">\(y_j\)</span> und den durch das Modell vorhergesagten Werten <span class="math notranslate nohighlight">\(\hat{y}_j\)</span> zu minimieren. Die <strong>Residuen</strong>, bzw. die Summe der quadrierten Resiuen, haben uns auch in diesem Falle die <strong>Abweichung der Regression</strong> geliefert.</p>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Matplotlib settings</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span>
@@ -782,6 +787,7 @@ Das zugrunde liegende <strong>Kriterium der kleinsten Quadrate</strong> lautet, 
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="../_images/a2191fafdd2a9578a723031df7bffffdbfee211dbbfd84c81330ce28eb8052c7.png" src="../_images/a2191fafdd2a9578a723031df7bffffdbfee211dbbfd84c81330ce28eb8052c7.png" />
 </div>
@@ -797,10 +803,10 @@ h_i = \frac{n_i}{m \, \Delta x_i}
 <p>mit</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(n_i\)</span> = Anzahl der Messwerte in Klasse <span class="math notranslate nohighlight">\(i\)</span> (absolute Häufigkeit),</p></li>
-<li><p><span class="math notranslate nohighlight">\(m\)</span> = Gesamtzahl aller Messwerte,</p></li>
+<li><p><span class="math notranslate nohighlight">\(m\)</span> = Gesamtzahl aller Messwerte (= Stichprobengröße),</p></li>
 <li><p><span class="math notranslate nohighlight">\(\Delta x_i\)</span> = Klassenbreite.</p></li>
 </ul>
-<p>Die Häufigkeitsdichte gibt bei einem Histogramm die Höhe des Rechtecks an (Die Fläche der Balken gibt dann die relative Häufigkeit an). Mit ihr kann man den Vergleich verschiedener Klassen erst vornehmen. Anders ausgedrückt heißt dass, dass die Häufigkeitsdichte einer Klasse das Verhältnis der absoluten oder der relativen Häufigkeit einer Klasse zur entsprechenden Klassenbreite ist.</p>
+<p>Die Häufigkeitsdichte gibt bei einem Histogramm die Höhe des Rechtecks an (Die Fläche der Balken gibt dann die relative Häufigkeit an). Mit ihr kann man den Vergleich verschiedener Klassen erst vornehmen. Anders ausgedrückt heißt das, dass die Häufigkeitsdichte einer Klasse das Verhältnis der absoluten oder der relativen Häufigkeit einer Klasse zur entsprechenden Klassenbreite ist.</p>
 <p>Das Integral über die relative Häufigkeitsdichte ist immer auf 1 (100%) normiert.
 Im nachstehenden Code-Block wird die relative Häufigkeitsdichte für die obenstehende Messreihe dargestellt.</p>
 <div class="cell tag_hide-input docutils container">
@@ -883,7 +889,7 @@ Der <strong>Erwartungswert</strong> <span class="math notranslate nohighlight">\
 <p>Die <strong>Varianz</strong> <span class="math notranslate nohighlight">\(\sigma^2\)</span> beschreibt die mittlere quadratische Abweichung der Werte von ihrem Erwartungswert:</p>
 <div class="math notranslate nohighlight">
 \[
-\sigma^2 = \mathrm{Var}(X) = E\!\left[(X - \mu)^2\right]
+\sigma^2 = \mathrm{Var}(X) = E\left[(X - \mu)^2\right]
 \]</div>
 <p>oder in Integralschreibweise:</p>
 <div class="math notranslate nohighlight">
@@ -898,10 +904,8 @@ Der <strong>Erwartungswert</strong> <span class="math notranslate nohighlight">\
 <p>Sie gibt an, wie stark die Werte einer <em>Grundgesamtheit</em> typischerweise um den Erwartungswert streuen.</p>
 <section id="normalverteilung">
 <h3>Normalverteilung<a class="headerlink" href="#normalverteilung" title="Permalink to this heading">#</a></h3>
-<p>Die <strong>Normalverteilung</strong> – auch <strong>Gaußverteilung</strong> genannt – spielt in der Messtechnik und Statistik eine zentrale Rolle.<br />
-Sie beschreibt viele reale Prozesse in <strong>Natur</strong>, <strong>Wirtschaft</strong> und <strong>Ingenieurwissenschaften</strong>, da diese häufig zufälligen Schwankungen unterliegen.<br />
-In der Regel kann man davon ausgehen, dass <strong>Messungen einer physikalischen Größe</strong> normalverteilt sind.</p>
-<p>Die Dichtefunktion basiert auf dem <strong>zentralen Grenzwertsatz</strong>, der besagt:</p>
+<p>Die <strong>Normalverteilung</strong> – auch <strong>Gaußverteilung</strong> genannt – spielt in der Messtechnik und Statistik eine zentrale Rolle. Sie beschreibt viele reale Prozesse in <strong>Natur</strong>, <strong>Wirtschaft</strong> und <strong>Ingenieurwissenschaften</strong>, da diese häufig zufälligen Schwankungen unterliegen. In der Regel kann man davon ausgehen, dass <strong>Messungen einer physikalischen Größe</strong> normalverteilt sind.</p>
+<p>Die Normalverteilung basiert auf dem <strong>zentralen Grenzwertsatz</strong>, der besagt:</p>
 <blockquote>
 <div><p>Die Summe vieler unabhängiger Zufallsvariablen – auch mit unterschiedlichen Verteilungen – nähert sich einer <strong>Normalverteilung</strong>.</p>
 </div></blockquote>
@@ -911,7 +915,7 @@ In der Regel kann man davon ausgehen, dass <strong>Messungen einer physikalische
 \[
 h(x) = \frac{1}{\sigma \sqrt{2\pi}} \, e^{-\frac{1}{2}\left(\frac{x - \mu}{\sigma}\right)^2}
 \]</div>
-<p>Die <strong>Kennzahlen</strong> der Normalverteilung sind der <strong>Erwartungswert</strong> <span class="math notranslate nohighlight">\(\mu\)</span> und die <strong>Standardabweichung</strong> <span class="math notranslate nohighlight">\(\sigma\)</span>:</p>
+<p>Die <strong>Kennzahlen</strong> der Normalverteilung sind der <strong>Erwartungswert</strong> <span class="math notranslate nohighlight">\(\mu\)</span> und die <strong>Standardabweichung</strong> <span class="math notranslate nohighlight">\(\sigma\)</span>, welche mit den obigen Formeln berechnet werden können:</p>
 <div class="math notranslate nohighlight">
 \[
 \mu = \frac{1}{m}\sum_{j=1}^m x_j = E(x) = \langle x \rangle
@@ -924,10 +928,7 @@ h(x) = \frac{1}{\sigma \sqrt{2\pi}} \, e^{-\frac{1}{2}\left(\frac{x - \mu}{\sigm
 \[
 \sigma = \sqrt{\frac{1}{m}\sum_{j=1}^m (x_j - \mu)^2}
 \]</div>
-<p>Das Intervall <span class="math notranslate nohighlight">\(\pm \sigma\)</span> entspricht exakt dem Intervall zwischen den beiden Wendepunkten der Dichtefunktion</p>
-<p>Das nachfolgende Diagramm zeigt für unterschiedliche Standardabweichungen <span class="math notranslate nohighlight">\(\sigma\)</span> die zugehörigen <strong>Dichtefunktionen</strong>.<br />
-Man erkennt deutlich:  Je <strong>schmaler</strong> die Dichtefunktion, desto <strong>kleiner</strong> ist die zugehörige Standardabweichung.<br />
-Das Intervall <span class="math notranslate nohighlight">\(\pm \sigma\)</span> entspricht genau dem <strong>Abstand zwischen den Wendepunkten</strong> der Dichtefunktion (also dem Bereich, in dem etwa <strong>68,3 %</strong> aller Werte liegen wie wir später sehen werden).</p>
+<p>Das nachfolgende Diagramm zeigt für unterschiedliche Standardabweichungen <span class="math notranslate nohighlight">\(\sigma\)</span> die zugehörigen <strong>Dichtefunktionen</strong>. Man erkennt deutlich:  Je <strong>schmaler</strong> die Dichtefunktion, desto <strong>kleiner</strong> ist die zugehörige Standardabweichung. Das Intervall <span class="math notranslate nohighlight">\(\pm \sigma\)</span> entspricht genau dem <strong>Abstand zwischen den Wendepunkten</strong> der Dichtefunktion (also dem Bereich, in dem etwa <strong>68,3 %</strong> aller Werte liegen wie wir später sehen werden).</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1035,9 +1036,8 @@ Das Intervall <span class="math notranslate nohighlight">\(\pm \sigma\)</span> e
 <img alt="../_images/65259a3952ff72063e51efcbc331795001d98847f1e3eb9fed4b94038f130013.png" src="../_images/65259a3952ff72063e51efcbc331795001d98847f1e3eb9fed4b94038f130013.png" />
 </div>
 </div>
-<p>Man erkennt außerdem an den obigen Formeln die enge <strong>Verwandtschaft zu den empirischen Kennzahlen der Stichprobe</strong>.<br />
-Die Größen <span class="math notranslate nohighlight">\(\sigma\)</span> (Standardabweichung der Grundgesamtheit) und <span class="math notranslate nohighlight">\(s\)</span> (empirische Standardabweichung der Stichprobe) unterscheiden sich aufgrund von <span class="math notranslate nohighlight">\(m \rightarrow m-1\)</span>! Je weniger Messwerte <span class="math notranslate nohighlight">\(m\)</span>, desto signifikanter ist der Unterschied!
-Grund für diesen Unterschied ist, dass man in der Statistik in Falle der Normalverteilung nicht mehr von einer <em>Schätzung</em> spricht, sondern von den <strong>exakten Parametern</strong> der Verteilung, die den gesamten Datensatz (die <strong>Grundgesamtheit</strong>) vollständig beschreiben (<em>Allwissenheit</em>).<br />
+<p>Man erkennt außerdem an den obigen Kennzahlen die enge <strong>Verwandtschaft zu den empirischen Kennzahlen der Stichprobe</strong>. Die Größen <span class="math notranslate nohighlight">\(\sigma\)</span> (Standardabweichung der Grundgesamtheit) und <span class="math notranslate nohighlight">\(s\)</span> (empirische Standardabweichung der Stichprobe) unterscheiden sich lediglich aufgrund von <span class="math notranslate nohighlight">\(m \rightarrow m-1\)</span>! Je weniger Messwerte <span class="math notranslate nohighlight">\(m\)</span>, desto signifikanter ist der Unterschied!
+Grund für diesen Unterschied ist, dass man in der Statistik im Falle der Normalverteilung nicht mehr von einer <em>Schätzung</em> spricht, sondern von den <strong>exakten Parametern</strong> der Verteilung, die den gesamten Datensatz (die <strong>Grundgesamtheit</strong>) vollständig beschreiben (<em>Allwissenheit</em>, der <em>wahre</em> Wert ist der Erwartungswert).<br />
 Während also die empirischen Größen <span class="math notranslate nohighlight">\(\overline{x}\)</span> und <span class="math notranslate nohighlight">\(s\)</span> nur auf einer <strong>endlichen Stichprobe</strong> beruhen und damit <strong>Schätzwerte</strong> für <span class="math notranslate nohighlight">\(\mu\)</span> und <span class="math notranslate nohighlight">\(\sigma\)</span> sind, gelten <span class="math notranslate nohighlight">\(\mu\)</span> und <span class="math notranslate nohighlight">\(\sigma\)</span> selbst als <strong>wahre Kennzahlen der zugrunde liegenden Grundgesamtheit</strong>.</p>
 <div class="admonition-s-oder-sigma admonition">
 <p class="admonition-title"><span class="math notranslate nohighlight">\(s\)</span> oder <span class="math notranslate nohighlight">\(\sigma\)</span>?</p>
@@ -1047,7 +1047,7 @@ Während also die empirischen Größen <span class="math notranslate nohighlight
 <p class="admonition-title">Warnung</p>
 <p>Im Folgenden benutzen wir häufig <span class="math notranslate nohighlight">\(\sigma\)</span> synonym für empirische und theoretische Standardabweichung. Da später noch die Variable <span class="math notranslate nohighlight">\(s\)</span> als Freiheitsgrad definiert wird sollen hiermit Missverständnisse soweit wie möglich reduziert werden.</p>
 </div>
-<p>Folgender Python-Code berechnet die Unterschiede zwischen theoretischer und empirischer Standardabweichung:</p>
+<p>Folgender Python-Code berechnet die Unterschiede zwischen theoretischer und empirischer Standardabweichung für unsere Messreihe von oben:</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1119,20 +1119,33 @@ Während also die empirischen Größen <span class="math notranslate nohighlight
 </section>
 <section id="standardabweichung-des-mittelwertes">
 <h2>Standardabweichung des Mittelwertes<a class="headerlink" href="#standardabweichung-des-mittelwertes" title="Permalink to this heading">#</a></h2>
-<p>Als Messergebnis benutzen wir den Mittelwert. Wie berechnet sich jedoch die Unsicherheit des Mittelwertes? Die oben berechneten Standardabweichungen geben nämlich lediglich die Unsicherheit eines Messwertes <span class="math notranslate nohighlight">\(x_j\)</span> an, aber nicht die des Mittelwertes <span class="math notranslate nohighlight">\(\overline x\)</span>!</p>
+<p>Als Messergebnis einer Messreihe benutzen wir den Mittelwert, er ist immerhin unser bester Schätzwert für den <em>wahren</em> oder <em>richtigen</em> Wert. Wie berechnet sich jedoch die Unsicherheit des Mittelwertes? Die oben berechneten Standardabweichungen geben nämlich lediglich die Unsicherheit eines Messwertes <span class="math notranslate nohighlight">\(x_j\)</span> (einer Einzelmessung) an, aber nicht die des Mittelwertes <span class="math notranslate nohighlight">\(\overline x\)</span>!</p>
 <p>Dank des sogenannten Grenzwertsatzes können wir dies einfach herleiten.</p>
-<div class="dropdown admonition">
+<div class="admonition-zentraler-grenzwertsatz-der-wahrscheinlichkeitstheorie admonition">
 <p class="admonition-title">Zentraler Grenzwertsatz der Wahrscheinlichkeitstheorie</p>
 <p>Der <strong>Durchschnitt</strong> einer großen Anzahl unabhängiger Zufallsvariablen, die aus derselben Verteilung stammen, ist <strong>annähernd normalverteilt</strong> – unabhängig von der Form der ursprünglichen Verteilungsfunktion.</p>
 </div>
-<p>Der Grenzwertsatz sagt im Prinzip aus, wenn man eine ausreichend große Stichprobe aus einer <em>Grundgesamtheit</em> nimmt, so wird der <strong>Mittelwert der Stichprobe</strong> näherungsweise dem <strong>Mittelwert der Grundgesamtheit</strong> entsprechen und sich somit dem <em>wahren</em> Wert annähern.</p>
-<p>Angenommen, wir nehmen viele (<span class="math notranslate nohighlight">\(k\)</span>) Stichproben (mit jeweils <span class="math notranslate nohighlight">\(j\)</span> Messwerten) auf und berechnen jedes mal den Mittelwert (dann haben wir insgesamt eine neue Messreihe bestehend aus <span class="math notranslate nohighlight">\(k\)</span> Mittelwerten). Dann sind laut <em>Grenzwertsatz</em> diese <span class="math notranslate nohighlight">\(k\)</span> Mittelwerte wieder normalverteilt und wir können alle Regeln von oben anwenden!</p>
+<p>Der Grenzwertsatz sagt im Prinzip aus, dass wenn man eine ausreichend große Stichprobe aus einer <em>Grundgesamtheit</em> nimmt, so wird der <strong>Mittelwert der Stichprobe</strong> näherungsweise dem <strong>Mittelwert der Grundgesamtheit</strong> entsprechen und sich somit dem <em>wahren</em> Wert annähern.</p>
+<p>Angenommen, wir nehmen viele (<span class="math notranslate nohighlight">\(k\)</span>) Stichproben (mit jeweils <span class="math notranslate nohighlight">\(j\)</span> Messwerten) auf. Dann haben wir <span class="math notranslate nohighlight">\(k\)</span> Messreihen (oder wir teilen eine super große Messreihe in mehrere kleine auf). Für jede dieser Messreihen berechnen wir den Mittelwert. Dadurch erhalten wir eine neue Messreihe, die aus <span class="math notranslate nohighlight">\(k\)</span> Mittelwerten besteht. Dann sind laut <em>Grenzwertsatz</em> diese <span class="math notranslate nohighlight">\(k\)</span> Mittelwerte wieder normalverteilt und wir können alle Regeln von oben anwenden und die <strong>Varianz des Mittelwertes</strong> berechnen:</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma(\overline x)^2 = \mathrm{Var}(\overline{x})
+= \mathrm{Var}\left( \frac{1}{m} \sum_{j=1}^{m} x_j \right)
+\]</div>
+<p>Da alle <span class="math notranslate nohighlight">\(x_j\)</span> unabhängig und gleich verteilt sind, addieren sich die Varianzen, und Konstanten ziehen quadratisch heraus (<span class="math notranslate nohighlight">\(\sigma(\overline x)^2 = \int_{-\infty}^{+\infty} (x - \overline x)^2 \cdot h(x) \, dx\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{Var}(\overline{x})
+= \frac{1}{m^2} \sum_{j=1}^{m} \mathrm{Var}(x_j)
+= \frac{1}{m^2} \cdot m \sigma^2
+= \frac{\sigma^2}{m}
+\]</div>
 <p>Das heißt aus den <span class="math notranslate nohighlight">\(k\)</span> Mittelwerten könnte wir wieder einen Mittelwert berechnen und folglich auch die <strong>Standardabweichung der Mittelwerte</strong>:</p>
 <div class="math notranslate nohighlight">
-\[s(\overline x) = \frac{s}{\sqrt{m}} = \sqrt{\frac{1}{m(m-1)} \sum_{j=1}^m (x_j - \overline x)^2}\]</div>
+\[\sigma(\overline x) = \frac{\sigma}{\sqrt{m}} = \sqrt{\frac{1}{m(m-1)} \sum_{j=1}^m (x_j - \overline x)^2}\]</div>
 <div class="admonition warning">
 <p class="admonition-title">Warnung</p>
-<p>Die <strong>Standardabweichung des Mittelwertes <span class="math notranslate nohighlight">\(s(\overline x)\)</span></strong> einer Messreihe ist gegenüber der Abweichung der Einzelmessungen <span class="math notranslate nohighlight">\(s(x)\)</span> um den Faktor <span class="math notranslate nohighlight">\(\sqrt{m}\)</span> reduziert. Der Grund dafür ist, dass sich statistisch ermittelte Unsicherheiten teilweise herausmitteln.</p>
+<p>Die <strong>Standardabweichung des Mittelwertes <span class="math notranslate nohighlight">\(\sigma(\overline x)\)</span></strong> einer Messreihe ist gegenüber der Abweichung der Einzelmessungen <span class="math notranslate nohighlight">\(\sigma(x)\)</span> um den Faktor <span class="math notranslate nohighlight">\(\sqrt{m}\)</span> reduziert. Der Grund dafür ist, dass sich statistisch ermittelte Unsicherheiten teilweise herausmitteln.</p>
 </div>
 <div class="tip admonition">
 <p class="admonition-title">Standardabweichung des Mittelwertes</p>
@@ -1140,7 +1153,7 @@ Während also die empirischen Größen <span class="math notranslate nohighlight
 <div class="math notranslate nohighlight">
 \[u_{\overline x} = \frac{s}{\sqrt{m}} = \frac{0,0433}{\sqrt{22}} = 0,009\]</div>
 </div>
-<p>Bei einer großen Anzahl Messungen (&gt;30) liegen etwa 68% der <strong>Einzel</strong>-Messungen im Intervall <span class="math notranslate nohighlight">\(\pm 1\cdot s(x)\)</span> <strong>um den Mittelwert</strong> der Messreihe herum. Würden man den wahren Wert kennen, könnte man weiter herausfinden, dass etwa 68% der <strong>Mittelwerte</strong> im Intervall <span class="math notranslate nohighlight">\(\pm s(\overline x)\)</span> <strong>um den wahren</strong> Wert lägen. Doch wie kommt man auf diese Wahrscheinlichkeiten? Für einen konkreten Messwert kann keine Wahrscheinlichkeit, sondern immer nur ein Intervall zweier Messwertgrenzen angegeben werden. Zur Berechnung der Wahrscheinlichkeit muss zwischen Grenzen <span class="math notranslate nohighlight">\(x_1\)</span> und <span class="math notranslate nohighlight">\(x_2\)</span> integriert werden:</p>
+<p>Bei einer großen Anzahl Messungen (&gt;30) liegen etwa 68% der <strong>Einzel</strong>-Messungen im Intervall <span class="math notranslate nohighlight">\(\pm 1\cdot \sigma(x)\)</span> <strong>um den Mittelwert</strong> der Messreihe herum. Würden man den wahren Wert kennen, könnte man weiter herausfinden, dass etwa 68% der <strong>Mittelwerte</strong> im Intervall <span class="math notranslate nohighlight">\(\pm s(\overline x)\)</span> <strong>um den wahren</strong> Wert lägen. Doch wie kommt man auf diese Wahrscheinlichkeiten? Für einen konkreten Messwert kann keine Wahrscheinlichkeit, sondern immer nur ein Intervall zweier Messwertgrenzen angegeben werden. Zur Berechnung der Wahrscheinlichkeit muss zwischen Grenzen <span class="math notranslate nohighlight">\(x_1\)</span> und <span class="math notranslate nohighlight">\(x_2\)</span> integriert werden:</p>
 <div class="math notranslate nohighlight">
 \[
 P(x_1 &lt; x &lt; x_2)= \int_{x_1}^{x_2} h(x) dx = \frac{1}{\sigma \sqrt{2\pi}}\int_{x1}^{x2}\mathrm e^{-\frac{(x-\mu)^2}{2\sigma ^2}} dx
@@ -1219,7 +1232,7 @@ P(x_1 &lt; x &lt; x_2)= \int_{x_1}^{x_2} h(x) dx = \frac{1}{\sigma \sqrt{2\pi}}\
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/722cca22c03ea4c00e19ba0b33b95d7edcb05b5a5a9bd7ee63df628a79c24e49.png" src="../_images/722cca22c03ea4c00e19ba0b33b95d7edcb05b5a5a9bd7ee63df628a79c24e49.png" />
+<img alt="../_images/b972ab154d9ef2200acf4a0dd476cb9bf39048b74d0fd695e2ee2e83970b860b.png" src="../_images/b972ab154d9ef2200acf4a0dd476cb9bf39048b74d0fd695e2ee2e83970b860b.png" />
 </div>
 </div>
 </section>
@@ -1851,8 +1864,8 @@ G = \frac{1}{6}
 <p>und muss später entsprechend im Messunsicherheitsbudget berücksichtigt werden, wenn verschiedene Messunsicherheiten zu einer kombiniert werden.</p>
 <p>Neben den hier dargestellten Verteilungen gibt es natürlich noch diverse andere Verteilungen (Trapez, U, Poisson, …) die in dieser Vorlesung erst mal nicht weiter von Interesse sind. Mit den hier dargestellten Methoden und Konzepten von GUM sollte es jedoch möglich sein, für jede Verteilung eine Messunsicherheit herleiten zu können.</p>
 </section>
-<section id="zweidimensionale-zufallsvariablen">
-<h2>Zweidimensionale Zufallsvariablen<a class="headerlink" href="#zweidimensionale-zufallsvariablen" title="Permalink to this heading">#</a></h2>
+<section id="zweidimensionale-bivariate-zufallsvariablen">
+<h2>Zweidimensionale (Bivariate) Zufallsvariablen<a class="headerlink" href="#zweidimensionale-bivariate-zufallsvariablen" title="Permalink to this heading">#</a></h2>
 <p>Bisher haben wir eindimensionale Zufallsvariablen und ihre zugehörigen Verteilungen betrachtet.
 Diese Konzepte lassen sich auf beliebig viele Zufallsvariablen erweitern.
 Die einfachste Erweiterung ist die zweidimensionale, normalverteilte Wahrscheinlichkeitsdichte:</p>
@@ -1964,6 +1977,42 @@ h(x, y) =
 \]</div>
 <p>Diese Verteilung ist rotationssymmetrisch,
 d. h. die Isolinien sind Kreise um den Ursprung <span class="math notranslate nohighlight">\((0, 0)\)</span>.</p>
+<p>Wie bereits oben erwähnt, kann ein Ergebnis auch von mehreren Größen gleichzeitig beeinflusst werden, dann spricht man von mehrdimensionalen (multivariaten) Zufallsvariablen.</p>
+<p>Für mehrdimensionale Zufallsvariablen gibt es die <strong>Kovarianz</strong>. Sie ist eine Maßzahl für den Zusammenhang zwischen zwei Variablen <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span> und kennen wir bereits für zwei-dimensionale Systeme aus der Kurvenanpassung:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{cov(x,y)} = \frac{1}{m} \sum_{j = 1}^m (x_j - \overline x)(y_j - \overline y)
+\]</div>
+<p>bzw.</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{cov(x,y)} = \frac{1}{m-1} \sum_{j = 1}^m (x_j - \overline x)(y_j - \overline y)
+\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(\overline x\)</span> und <span class="math notranslate nohighlight">\(\overline y\)</span> die jeweiligen Mittelwerte sind.
+Die Kovarianz ist positiv, wenn <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span> tendenziell einen gleichgerichteten linearen Zusammenhang aufweisen. Sie ist negativ, wenn ein entgegerichteter linearer Zusammenhang zwischen den beiden Größen existiert.
+Ist die Kovarianz Null, so besteht kein <em>linearer</em> Zusammenhang, es kann aber ein nicht-linearer Zusammenhang existieren (z.B. u-förmig, also quadratisch). Häufig wird die Kovarianz in Matrix Form angegeben:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\Sigma =
+\begin{pmatrix}
+\sigma_1^2 &amp; \rho\,\sigma_1\sigma_2 \\
+\rho\,\sigma_1\sigma_2 &amp; \sigma_2^2
+\end{pmatrix}
+\end{split}\]</div>
+<p>oder für vollständig unkorrelierte Zuvallsvariablen:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix}
+\sigma_1^2 &amp; 0 \\
+0 &amp; \sigma_2^2
+\end{pmatrix}
+\end{split}\]</div>
+<p>Kovarianzen hängen von den Einheiten ab. Um Zusammenhänge vergleichbar zu machen, muss die Kovarianz normiert werden, was den <strong>Korrelationskoeffizienten</strong> liefert, den wir ebenfalls bereits kennen:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{corr(x,y)} = \rho_{x,y} = \frac{\mathrm{cov}(x,y)}{\sigma(x)\sigma(y)}
+\]</div>
+<p>Der Korrelationskoeffizient kann nur Werte zwischen -1 und +1 annehmen.</p>
 </section>
 </section>
 
@@ -2011,7 +2060,7 @@ d. h. die Isolinien sind Kreise um den Ursprung <span class="math notranslate no
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title">Typ B: Systematische Messabweichung</p>
+        <p class="prev-next-title">Systematische Messabweichung</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -2049,7 +2098,7 @@ d. h. die Isolinien sind Kreise um den Ursprung <span class="math notranslate no
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#student-t-kleine-stichproben">Student-t (kleine Stichproben)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gleichverteilung-rechteck">Gleichverteilung (Rechteck)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dreieckverteilung">Dreieckverteilung</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zweidimensionale-zufallsvariablen">Zweidimensionale Zufallsvariablen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zweidimensionale-bivariate-zufallsvariablen">Zweidimensionale (Bivariate) Zufallsvariablen</a></li>
 </ul>
   </nav></div>
 

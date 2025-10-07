@@ -556,7 +556,7 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standardabweichung-des-mittelwertes">Standardabweichung des Mittelwertes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normierte-normalverteilung">Normierte Normalverteilung</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#konfidenzintervall-vertrauensintervall">Konfidenzintervall (Vertrauensintervall)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vertrauensintervall">Vertrauensintervall</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#guteklassen-von-messgeraten">Güteklassen von Messgeräten</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#angabe-der-messunsicherheit">Angabe der Messunsicherheit</a></li>
 </ul>
@@ -1210,7 +1210,7 @@ Während also die empirischen Größen <span class="math notranslate nohighlight
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/270eacb8e31e87030dcbe5f44718eaab50da652058b55d69995077551a24af4f.png" src="../_images/270eacb8e31e87030dcbe5f44718eaab50da652058b55d69995077551a24af4f.png" />
+<img alt="../_images/1707cc96381fb8eabb4994d06a9d7022a9b45f66ce43505fcc698144aa5001f0.png" src="../_images/1707cc96381fb8eabb4994d06a9d7022a9b45f66ce43505fcc698144aa5001f0.png" />
 </div>
 </div>
 <p>Das heißt aus den <span class="math notranslate nohighlight">\(k\)</span> Mittelwerten könnte wir wieder einen Mittelwert berechnen und folglich auch die <strong>Standardabweichung der Mittelwerte</strong>:</p>
@@ -1549,9 +1549,9 @@ Aus Kalibrierungen ist bekannt, dass die Messwerte des Messsystems der Abfüllan
 </div>
 </details>
 </div>
-<section id="konfidenzintervall-vertrauensintervall">
-<h3>Konfidenzintervall (Vertrauensintervall)<a class="headerlink" href="#konfidenzintervall-vertrauensintervall" title="Permalink to this heading">#</a></h3>
-<p>Mit <span class="math notranslate nohighlight">\(x_1 = \mu - t\cdot \sigma\)</span> und <span class="math notranslate nohighlight">\(x_2 = \mu + t\cdot \sigma\)</span> können nun sogenannten Vertrauensintervalle oder Vertrausnbereiche berechnet werden. Hierfür berechnet man <span class="math notranslate nohighlight">\(P(\mu-t\cdot\sigma \leq x \leq \mu+t\cdot\sigma)\)</span>, also die Wahrscheinlichkeit, mit welcher ein Messwert innerhalb einer <span class="math notranslate nohighlight">\(t\cdot\sigma\)</span>-Umgebung um den Mittelwert liegt.</p>
+<section id="vertrauensintervall">
+<h3>Vertrauensintervall<a class="headerlink" href="#vertrauensintervall" title="Permalink to this heading">#</a></h3>
+<p>Mit <span class="math notranslate nohighlight">\(x_1 = \mu - t\cdot \sigma\)</span> und <span class="math notranslate nohighlight">\(x_2 = \mu + t\cdot \sigma\)</span> können nun sogenannten Vertrauensintervalle oder Vertrauensbereiche (auch Konfidenzintervall genannt) berechnet werden. Hierfür berechnet man <span class="math notranslate nohighlight">\(P(\mu-t\cdot\sigma \leq x \leq \mu+t\cdot\sigma)\)</span>, also die Wahrscheinlichkeit, mit welcher ein Messwert innerhalb einer <span class="math notranslate nohighlight">\(t\cdot\sigma\)</span>-Umgebung um den Mittelwert liegt.</p>
 <p>68% der Messwerte liegen beispielsweise innerhalb des Intervalls <span class="math notranslate nohighlight">\(\pm \sigma(x)\)</span> (also <span class="math notranslate nohighlight">\(t=1\)</span>).</p>
 <div class="admonition-weitere-sigma-umbegbungen-die-man-kennen-sollte admonition">
 <p class="admonition-title">Weitere Sigma-Umbegbungen, die man kennen sollte:</p>
@@ -1564,34 +1564,11 @@ Aus Kalibrierungen ist bekannt, dass die Messwerte des Messsystems der Abfüllan
 <li><p>Die Normalverteilung reicht von <span class="math notranslate nohighlight">\(-\infty\)</span> bis <span class="math notranslate nohighlight">\(+\infty\)</span></p></li>
 </ul>
 </div>
-<div class="tip admonition">
-<p class="admonition-title">Beispiel: Konfidenzintervall für den Mittelwert</p>
-<p>An einer repräsentativen Stichprobe von 100 Personen wird ein Test zur Ermittlung der Koordinationsfähigkeit durchgeführt.
-Die Testergebnisse haben einen Mittelwert von <span class="math notranslate nohighlight">\(\overline{x} = 80\)</span> und die Populationsvarianz wird auf <span class="math notranslate nohighlight">\(\sigma^2 = 400\)</span> geschätzt.</p>
-<p>Nun soll ermittelt werden, in welchem Bereich der wahre Mittelwert <span class="math notranslate nohighlight">\(\mu\)</span> mit einer Wahrscheinlichkeit von 95 % liegt.</p>
-<p>Zunächst bestimmen wir den z-Wert an der oberen Intervallgrenze.
-Da wir ein 95 %-Konfidenzintervall berechnen, interessiert uns der Quantilwert der Standardnormalverteilung bei <span class="math notranslate nohighlight">\(1 - \frac{\alpha}{2} = 0{,}975\)</span>.
-Aus der Tabelle der Normalverteilung ergibt sich dafür:</p>
+<p>Das zweiseitige Vertrauensintervall oder Konfidenzintervall wird im Allgemeinen wiefolgt geschrieben:</p>
 <div class="math notranslate nohighlight">
 \[
-z_{0{,}975} = 1{,}96
+(\overline x - t \cdot \sigma_{\overline x} \leq \mu \leq \overline x + t \cdot \sigma_{\overline x} )
 \]</div>
-<p>Der Standardfehler des Mittelwertes berechnet sich zu:</p>
-<div class="math notranslate nohighlight">
-\[
-s_{\overline{x}} = \frac{\sigma}{\sqrt{n}} = \frac{20}{\sqrt{100}} = 2
-\]</div>
-<p>Damit ergibt sich das 95 %-Konfidenzintervall zu:</p>
-<div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned}
-\mu \in
-\left[
-\overline{x} - z_{0{,}975}, s_{\overline{x}}, ;
-\overline{x} + z_{0{,}975}, s_{\overline{x}}
-\right]\\[,80 - 1{,}96 \cdot 2, ; 80 + 1{,}96 \cdot 2,]\\[,76{,}08, ; 83{,}92,]
-\end{aligned}\end{align} \]</div>
-<p>Mit einer Wahrscheinlichkeit von 95 % liegt der wahre Mittelwert <span class="math notranslate nohighlight">\(\mu\)</span> also im Bereich 76,08 – 83,92.</p>
-</div>
 </section>
 <section id="guteklassen-von-messgeraten">
 <h3>Güteklassen von Messgeräten<a class="headerlink" href="#guteklassen-von-messgeraten" title="Permalink to this heading">#</a></h3>
@@ -2113,7 +2090,7 @@ Ist die Kovarianz Null, so besteht kein <em>linearer</em> Zusammenhang, es kann 
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standardabweichung-des-mittelwertes">Standardabweichung des Mittelwertes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normierte-normalverteilung">Normierte Normalverteilung</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#konfidenzintervall-vertrauensintervall">Konfidenzintervall (Vertrauensintervall)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vertrauensintervall">Vertrauensintervall</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#guteklassen-von-messgeraten">Güteklassen von Messgeräten</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#angabe-der-messunsicherheit">Angabe der Messunsicherheit</a></li>
 </ul>

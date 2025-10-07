@@ -72,7 +72,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
     <link rel="next" title="Systematische Messabweichung" href="1_SystematischeMessabweichung.html" />
-    <link rel="prev" title="Beispiel" href="1_Messunsicherheiten.html" />
+    <link rel="prev" title="Einführung" href="1_Messunsicherheiten.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
   </head>
@@ -191,10 +191,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="V2.html">Messabweichungen</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="1_Messunsicherheiten.html">Beispiel</a></li>
-
-
-
+<li class="toctree-l2"><a class="reference internal" href="1_Messunsicherheiten.html">Einführung</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Statistik und zufällige Messunsicherheit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_SystematischeMessabweichung.html">Systematische Messabweichung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Fehlerfortpflanzung.html">Fehlerfortpflanzung</a></li>
@@ -564,7 +561,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#angabe-der-messunsicherheit">Angabe der Messunsicherheit</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#student-t-kleine-stichproben">Student-t (kleine Stichproben)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#student-t-kleine-stichproben">Student-t (kleine Stichproben)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#umrechnung-von-vertrauensintervallen">Umrechnung von Vertrauensintervallen</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gleichverteilung-rechteck">Gleichverteilung (Rechteck)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dreieckverteilung">Dreieckverteilung</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zweidimensionale-bivariate-zufallsvariablen">Zweidimensionale (Bivariate) Zufallsvariablen</a></li>
@@ -590,6 +590,7 @@ Das heißt alle unsere Experimente sind <strong>Zufallsexperimente</strong>.</p>
 <li><p><strong>Zweidimensionale (bivariate) Zufallsvariablen:</strong> Das Ergebnis hängt von <strong>zwei Größen</strong> ab, z. B. Temperatur und Druck, deren gemeinsames Verhalten untersucht wird.</p></li>
 <li><p><strong>Mehrdimensionale (multivariate) Zufallsvariablen:</strong> Das Ergebnis wird von <strong>mehreren Größen gleichzeitig</strong> beeinflusst, etwa in komplexen Messsystemen mit vielen Einflussparametern.</p></li>
 </ul>
+<p>Mehr dazu am Ende dieses Kapitels.</p>
 <p>Zufällige Einflüsse führen dazu, dass Messergebnisse <strong>streuen</strong>. Diese Streuung kann durch <strong>statistische Methoden</strong> beschrieben werden.<br />
 Das <strong>GUM</strong> (<em>Guide to the Expression of Uncertainty in Measurement</em>) verwendet dazu unterschiedliche <strong>Wahrscheinlichkeitsdichtefunktionen</strong> und <strong>Verteilungen</strong>, um <strong>Messunsicherheiten</strong> zu modellieren und zu quantifizieren.</p>
 <p>Beispiele für häufig verwendete Verteilungen:</p>
@@ -905,11 +906,7 @@ Der <strong>Erwartungswert</strong> <span class="math notranslate nohighlight">\
 <section id="normalverteilung">
 <h3>Normalverteilung<a class="headerlink" href="#normalverteilung" title="Permalink to this heading">#</a></h3>
 <p>Die <strong>Normalverteilung</strong> – auch <strong>Gaußverteilung</strong> genannt – spielt in der Messtechnik und Statistik eine zentrale Rolle. Sie beschreibt viele reale Prozesse in <strong>Natur</strong>, <strong>Wirtschaft</strong> und <strong>Ingenieurwissenschaften</strong>, da diese häufig zufälligen Schwankungen unterliegen. In der Regel kann man davon ausgehen, dass <strong>Messungen einer physikalischen Größe</strong> normalverteilt sind.</p>
-<p>Die Normalverteilung basiert auf dem <strong>zentralen Grenzwertsatz</strong>, der besagt:</p>
-<blockquote>
-<div><p>Die Summe vieler unabhängiger Zufallsvariablen – auch mit unterschiedlichen Verteilungen – nähert sich einer <strong>Normalverteilung</strong>.</p>
-</div></blockquote>
-<p>Diese Eigenschaft macht die Normalverteilung zu einem <strong>fundamentalen Modell der Messtechnik</strong>.</p>
+<p>Die Normalverteilung basiert auf dem <strong>zentralen Grenzwertsatz</strong>, der besagt, dass die Summe vieler unabhängiger Zufallsvariablen – auch mit unterschiedlichen Verteilungen – sich wieder einer <strong>Normalverteilung</strong> annähert. Diese Eigenschaft macht die Normalverteilung zu einem <strong>fundamentalen Modell der Messtechnik</strong>.</p>
 <p>Die <strong>Dichtefunktion</strong> der Normalverteilung lautet:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1140,25 +1137,6 @@ Während also die empirischen Größen <span class="math notranslate nohighlight
 = \frac{1}{m^2} \cdot m \sigma^2
 = \frac{\sigma^2}{m}
 \]</div>
-<p>Das heißt aus den <span class="math notranslate nohighlight">\(k\)</span> Mittelwerten könnte wir wieder einen Mittelwert berechnen und folglich auch die <strong>Standardabweichung der Mittelwerte</strong>:</p>
-<div class="math notranslate nohighlight">
-\[\sigma(\overline x) = \frac{\sigma}{\sqrt{m}} = \sqrt{\frac{1}{m(m-1)} \sum_{j=1}^m (x_j - \overline x)^2}\]</div>
-<div class="admonition warning">
-<p class="admonition-title">Warnung</p>
-<p>Die <strong>Standardabweichung des Mittelwertes <span class="math notranslate nohighlight">\(\sigma(\overline x)\)</span></strong> einer Messreihe ist gegenüber der Abweichung der Einzelmessungen <span class="math notranslate nohighlight">\(\sigma(x)\)</span> um den Faktor <span class="math notranslate nohighlight">\(\sqrt{m}\)</span> reduziert. Der Grund dafür ist, dass sich statistisch ermittelte Unsicherheiten teilweise herausmitteln.</p>
-</div>
-<div class="tip admonition">
-<p class="admonition-title">Standardabweichung des Mittelwertes</p>
-<p>Für die Standardabweichung des Mittelwertes der obigen Messreihe erhalten wir dadurch</p>
-<div class="math notranslate nohighlight">
-\[u_{\overline x} = \frac{s}{\sqrt{m}} = \frac{0,0433}{\sqrt{22}} = 0,009\]</div>
-</div>
-<p>Bei einer großen Anzahl Messungen (&gt;30) liegen etwa 68% der <strong>Einzel</strong>-Messungen im Intervall <span class="math notranslate nohighlight">\(\pm 1\cdot \sigma(x)\)</span> <strong>um den Mittelwert</strong> der Messreihe herum. Würden man den wahren Wert kennen, könnte man weiter herausfinden, dass etwa 68% der <strong>Mittelwerte</strong> im Intervall <span class="math notranslate nohighlight">\(\pm s(\overline x)\)</span> <strong>um den wahren</strong> Wert lägen. Doch wie kommt man auf diese Wahrscheinlichkeiten? Für einen konkreten Messwert kann keine Wahrscheinlichkeit, sondern immer nur ein Intervall zweier Messwertgrenzen angegeben werden. Zur Berechnung der Wahrscheinlichkeit muss zwischen Grenzen <span class="math notranslate nohighlight">\(x_1\)</span> und <span class="math notranslate nohighlight">\(x_2\)</span> integriert werden:</p>
-<div class="math notranslate nohighlight">
-\[
-P(x_1 &lt; x &lt; x_2)= \int_{x_1}^{x_2} h(x) dx = \frac{1}{\sigma \sqrt{2\pi}}\int_{x1}^{x2}\mathrm e^{-\frac{(x-\mu)^2}{2\sigma ^2}} dx
-\]</div>
-<p>Dies kann nicht auf eine elementare Stammfunktion zurückgeführt werden, weshalb die normierte Normalverteilung eingeführt wurde.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1232,9 +1210,28 @@ P(x_1 &lt; x &lt; x_2)= \int_{x_1}^{x_2} h(x) dx = \frac{1}{\sigma \sqrt{2\pi}}\
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/b972ab154d9ef2200acf4a0dd476cb9bf39048b74d0fd695e2ee2e83970b860b.png" src="../_images/b972ab154d9ef2200acf4a0dd476cb9bf39048b74d0fd695e2ee2e83970b860b.png" />
+<img alt="../_images/639a02c1a611696c6566973f34c10924183407464c9695781ff9b7170b82a0f0.png" src="../_images/639a02c1a611696c6566973f34c10924183407464c9695781ff9b7170b82a0f0.png" />
 </div>
 </div>
+<p>Das heißt aus den <span class="math notranslate nohighlight">\(k\)</span> Mittelwerten könnte wir wieder einen Mittelwert berechnen und folglich auch die <strong>Standardabweichung der Mittelwerte</strong>:</p>
+<div class="math notranslate nohighlight">
+\[\sigma(\overline x) = \frac{\sigma}{\sqrt{m}} = \sqrt{\frac{1}{m(m-1)} \sum_{j=1}^m (x_j - \overline x)^2}\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warnung</p>
+<p>Die <strong>Standardabweichung des Mittelwertes <span class="math notranslate nohighlight">\(\sigma(\overline x)\)</span></strong> einer Messreihe ist gegenüber der Abweichung der Einzelmessungen <span class="math notranslate nohighlight">\(\sigma(x)\)</span> um den Faktor <span class="math notranslate nohighlight">\(\sqrt{m}\)</span> reduziert. Der Grund dafür ist, dass sich statistisch ermittelte Unsicherheiten teilweise herausmitteln. Die Mittelwerte streuen weniger als die Einzelmessungen, was die Normalverteilung extrem schlank macht.</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Standardabweichung des Mittelwertes</p>
+<p>Für die Standardabweichung des Mittelwertes der obigen Messreihe erhalten wir dadurch</p>
+<div class="math notranslate nohighlight">
+\[u_{\overline x} = \frac{s}{\sqrt{m}} = \frac{0{,}0433}{\sqrt{22}} = 0{,}009\]</div>
+</div>
+<p>Bei einer großen Anzahl Messungen (&gt;30) liegen etwa 68% der <strong>Einzel</strong>-Messungen im Intervall <span class="math notranslate nohighlight">\(\pm 1\cdot \sigma(x)\)</span> <strong>um den Mittelwert</strong> der Messreihe herum. Würden man den wahren Wert kennen, könnte man weiter herausfinden, dass etwa 68% der <strong>Mittelwerte</strong> im Intervall <span class="math notranslate nohighlight">\(\pm s(\overline x)\)</span> <strong>um den wahren</strong> Wert lägen. Doch wie kommt man auf diese Wahrscheinlichkeiten? Für einen konkreten Messwert kann keine Wahrscheinlichkeit, sondern immer nur ein Intervall zweier Messwertgrenzen angegeben werden. Zur Berechnung der Wahrscheinlichkeit muss zwischen Grenzen <span class="math notranslate nohighlight">\(x_1\)</span> und <span class="math notranslate nohighlight">\(x_2\)</span> integriert werden:</p>
+<div class="math notranslate nohighlight">
+\[
+P(x_1 &lt; x &lt; x_2)= \int_{x_1}^{x_2} h(x) dx = \frac{1}{\sigma \sqrt{2\pi}}\int_{x1}^{x2}\mathrm e^{-\frac{(x-\mu)^2}{2\sigma ^2}} dx
+\]</div>
+<p>Dies kann nicht auf eine elementare Stammfunktion zurückgeführt werden, weshalb die normierte Normalverteilung eingeführt wurde.</p>
 </section>
 <section id="normierte-normalverteilung">
 <h2>Normierte Normalverteilung<a class="headerlink" href="#normierte-normalverteilung" title="Permalink to this heading">#</a></h2>
@@ -1415,10 +1412,8 @@ Das folgende Beispiel zeigt, wie man verschiedene Wahrscheinlichkeiten berechnet
 </div>
 <div class="tip admonition">
 <p class="admonition-title"><strong>Aufgabe:</strong> Wahrscheinlichkeit im Intervall <span class="math notranslate nohighlight">\(P(x_1 &lt; x &lt; x_2)\)</span> berechnen</p>
-<p>Es soll im Folgenden ein Messsystem einer Abfüllanlage überprüft werden.<br />
-Die Flaschen sind jeweils mit <strong>0,7 l Saftgetränk</strong> befüllt.</p>
-<p>Aus Kalibrierungen ist bekannt, dass die Messwerte des Messsystems der Abfüllanlage <strong>normalverteilt</strong> sind mit einem<br />
-Erwartungswert <span class="math notranslate nohighlight">\(\mu = 0{,}7\,\mathrm{l}\)</span> und einer Standardabweichung <span class="math notranslate nohighlight">\(\sigma = 5\,\mathrm{ml} = 0{,}005\,\mathrm{l}\)</span>.</p>
+<p>Es soll im Folgenden ein Messsystem einer Abfüllanlage überprüft werden.  Die Flaschen sind jeweils mit <strong>0,7 l Saftgetränk</strong> befüllt.<br />
+Aus Kalibrierungen ist bekannt, dass die Messwerte des Messsystems der Abfüllanlage <strong>normalverteilt</strong> sind mit einem Erwartungswert <span class="math notranslate nohighlight">\(\mu = 0{,}7\,\mathrm{l}\)</span> und einer Standardabweichung <span class="math notranslate nohighlight">\(\sigma = 5\,\mathrm{ml} = 0{,}005\,\mathrm{l}\)</span>.</p>
 <p>Wie groß ist die Wahrscheinlichkeit, dass die Saftflaschen mit einem Inhalt zwischen <strong>0,69 l und 0,71 l</strong> befüllt werden?</p>
 </div>
 <div class="tip dropdown admonition">
@@ -1629,19 +1624,19 @@ Der Messtechniker kann somit mit der gegebenen Wahrscheinlichkeit abschätzen, o
 Als Messergebnis einer Messreihe dient der beste Schätzwert, also wie oben bereits erwähnt der empirisch ermittelte Mittelwert <span class="math notranslate nohighlight">\(\overline x\)</span>.
 Die empirische ermittelte Standardabweichung des Mittelwertes</p>
 <div class="math notranslate nohighlight">
-\[s(\overline x) = \frac{s}{\sqrt{m}} = \sqrt{\frac{1}{m(m-1)} \sum_{j=1}^m (x_j - \overline x)^2}\]</div>
+\[\sigma(\overline x) = \frac{\sigma}{\sqrt{m}} = \sqrt{\frac{1}{m(m-1)} \sum_{j=1}^m (x_j - \overline x)^2}\]</div>
 <p>(oder Standardunsicherheit <span class="math notranslate nohighlight">\(\sigma\)</span>) muss bei der Berechnung der Messunsicherheit für den Mittelwert <span class="math notranslate nohighlight">\(\overline x\)</span> benutzt werden.
 Die Standardabweichung wird als sogenannte <strong>Halbbreite <span class="math notranslate nohighlight">\(a\)</span></strong> in die Messunsicherheitsbewertung eingeführt.
 Außerdem muss der sogenannte <strong>Gewichtsfaktor <span class="math notranslate nohighlight">\(G\)</span></strong>  (welcher später im Messunsicherheitsbudget noch mal wichtig wird) berücksichtigt werden. Dieser hängt von der Verteilungsfunktion ab und ist für die Normalverteilung <span class="math notranslate nohighlight">\(G=1\)</span>. Für andere Verteilungen ergeben sich andere Gewichtsfaktoren.</p>
 <p>Für Messergebnis <span class="math notranslate nohighlight">\(\overline x\)</span> ist die Messunsicherheit folglich:</p>
 <div class="math notranslate nohighlight">
-\[u(\overline x) = \sqrt{G} \cdot a = \sqrt{1} \cdot s(\overline x)\]</div>
+\[u(\overline x) = \sqrt{G} \cdot a = \sqrt{1} \cdot \sigma(\overline x)\]</div>
 <p>in einem Vertrauensbereich von 68%. Wählt man statt der <span class="math notranslate nohighlight">\(1\cdot \sigma\)</span>-Umgebung die in der Messtechnik übliche <span class="math notranslate nohighlight">\(1\cdot \sigma\)</span>-Umgebung, so lautet die <strong>erweiterte Messunsicherheit</strong> für einen Vertrauensbereich von 95,45%:</p>
 <div class="math notranslate nohighlight">
-\[u_{95\%}(\overline x) = \sqrt{G} \cdot 2 \cdot a = \sqrt{1}\cdot 2\cdot s(\overline x)\]</div>
+\[u_{95\%}(\overline x) = \sqrt{G} \cdot 2 \cdot a = \sqrt{1}\cdot 2\cdot \sigma(\overline x)\]</div>
 <p>Allgmein gilt:</p>
 <div class="math notranslate nohighlight">
-\[u_{t}(\overline x) = \sqrt{G} \cdot t \cdot a = \sqrt{1}\cdot t\cdot s(\overline x)\]</div>
+\[u_{t}(\overline x) = \sqrt{G} \cdot t \cdot a = \sqrt{1}\cdot t\cdot \sigma(\overline x)\]</div>
 <p>wobei <span class="math notranslate nohighlight">\(t\)</span> der Erweiterungsfaktor ist.</p>
 </section>
 </section>
@@ -1728,13 +1723,20 @@ h(x) = \frac{\Gamma\left(\frac{s + 1}{2}\right)}{\sqrt{s \pi} \cdot \Gamma\left(
 \[ t_{s,p}  =  t_{m-1,1-\alpha/2} =  t_{11, 0{,}995} = 3{,}106  \]</div>
 <p>Die erweitere Messunsicherheit berechnet sich folglich:</p>
 <div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned}u_{99\%}(\overline x) = \sqrt{G} \cdot 3,106\cdot a = 3,106\cdot s(\overline x)§§\\Auch bei der Student-Verteilung wird bei der Berechnung der Messunsicherheit nach GUM Einflussgrößen vom Typ A bewertet. Wie schon bei der Normalverteilung beträgt der Gewichtsfaktor $G = 1$. \\
-:::{admonition} Beispiel zur Berechnung der Messabweichung einer Messreihe mittels Student-t Verteilung
-:class: tip, dropdown\\Für die Zeitmessreihe aus dem oben aufgeführten Beispiel waren folgende Parameter gegeben:
-* Anzahl der Messwerte $m=22$
-* Mittelwert: $\overline x = 1{,}40227\,\mathrm{s}$
-* Standardabweichung der Einzelmessung: $s = 0{,}0433\,\mathrm{s}$
-* Standardabweichung des Mittelwertes: $u_{\overline x} = \frac{s}{\sqrt{m}} = \frac{0{,}0433\,\mathrm s}{\sqrt{22}} = 0{,}009\,\mathrm s$\\Oben hatten wir das Ergebnis, in dem 95% der Messwerte zu finden sind, wiefolgt angegeben ($2\sigma$-Vertrauensbereich benutzen):\\$$x = (1{,}402 \pm 2\cdot 0{,}009)\,\mathrm s = (1{,}402 \pm 0{,}018)\,\mathrm s \quad (95\%)\end{aligned}\end{align} \]</div>
+\[u_{99\%}(\overline x) = \sqrt{G} \cdot 3,106\cdot a = 3,106\cdot s(\overline x)\]</div>
+<p>Auch bei der Student-Verteilung wird bei der Berechnung der Messunsicherheit nach GUM Einflussgrößen vom Typ A bewertet. Wie schon bei der Normalverteilung beträgt der Gewichtsfaktor <span class="math notranslate nohighlight">\(G = 1\)</span>.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Beispiel zur Berechnung der Messabweichung einer Messreihe mittels Student-t Verteilung</p>
+<p>Für die Zeitmessreihe aus dem oben aufgeführten Beispiel waren folgende Parameter gegeben:</p>
+<ul class="simple">
+<li><p>Anzahl der Messwerte <span class="math notranslate nohighlight">\(m=22\)</span></p></li>
+<li><p>Mittelwert: <span class="math notranslate nohighlight">\(\overline x = 1{,}40227\,\mathrm{s}\)</span></p></li>
+<li><p>Standardabweichung der Einzelmessung: <span class="math notranslate nohighlight">\(s = 0{,}0433\,\mathrm{s}\)</span></p></li>
+<li><p>Standardabweichung des Mittelwertes: <span class="math notranslate nohighlight">\(u_{\overline x} = \frac{s}{\sqrt{m}} = \frac{0{,}0433\,\mathrm s}{\sqrt{22}} = 0{,}009\,\mathrm s\)</span></p></li>
+</ul>
+<p>Oben hatten wir das Ergebnis, in dem 95% der Messwerte zu finden sind, wiefolgt angegeben (<span class="math notranslate nohighlight">\(2\sigma\)</span>-Vertrauensbereich benutzen):</p>
+<div class="math notranslate nohighlight">
+\[x = (1{,}402 \pm 2\cdot 0{,}009)\,\mathrm s = (1{,}402 \pm 0{,}018)\,\mathrm s \quad (95\%)\]</div>
 <p>In Anbetracht der sehr kleinen Stichprobe von lediglich <span class="math notranslate nohighlight">\(m=22\)</span> Messwerten sollte jedoch die Student-t Verteilung hinzugezogen werden und der Vertrauensbereich für 95% korrigiert werden. Es gilt also:</p>
 <blockquote>
 <div><p><span class="math notranslate nohighlight">\(P = 1-\alpha = 0{,}95\)</span>. Daraus folgt:</p>
@@ -1758,37 +1760,28 @@ h(x) = \frac{\Gamma\left(\frac{s + 1}{2}\right)}{\sqrt{s \pi} \cdot \Gamma\left(
 <div class="math notranslate nohighlight">
 \[x = (1{,}402 \pm 2{,}080\cdot 0{,}009)\,\mathrm s = (1{,}402 \pm 0{,}0187)\,\mathrm s \quad (95\% \textrm{ t-Verteilung})\]</div>
 <p>Der Unterschied zum Vertrauensbereich, der aus der Normalverteilung hervorgeht, ist ein über 4% höherer Fehler.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-
-### Umrechnung von Vertrauensintervallen
-
-Vertrauensbereiche unterschiedlicher Wahrscheinlichkeiten können ineinander umgerechnet werden:
-
-
-$$\frac{u_{\alpha 1}}{t_{m-1; 1-\frac{\alpha_1}{2}}} =  \frac{u_{\alpha 2}}{t_{m-1; 1-\frac{\alpha_2}{2}}}$$
-
-
-Hierbei ist $\alpha$ das zweiseitige Signifikanzniveau, also die Irrtumswahrscheinlichkeit $\alpha = 1-P$, wobei $P$ die Wahrscheinlichkeit bzw. die geforderte statistische Sicherheit ist. Der halbseitige (einseitige) Vertrauensbereich wird in manchen Tabellen gewählt und lautet $p = 1-\alpha/2$.
-
-
-:::{admonition} Beispiel zur Umrechnung von Vertrauensbereichen
-:class: tip, dropdown
-
-Die Umrechnung des Vertrauensbereich 95% aus dem letzten Beispiel sollen in einen Vertrauensbereich mit einem anderen Vertrauensniveau, von 99% erfolgen. Die Ergebnisse für 95% sind bekannt. Nun muss das Quantil für 99% (also $\alpha = $1%) bestimmt werden. Analog werden die $s = m-1 = 21$ und $p = 1-\alpha/2 = 1-0{,}005 = 0{,}995$ Quantile bestimmt und der $t$-Wert aus der Tabelle abgelesen: 
-
-$$t_{s;p} = t_{m-1; 1-\alpha/2} = t_{21; 0,995} = 2{,}831$$
-
-Hieraus kann nun nach obiger Gleichung der Vertrauensbereich für 99% berechnet werden:
-
-$$\frac{u_{\alpha 1}}{t_{m-1; 1-\frac{\alpha_1}{2}}} =  \frac{u_{\alpha 2}}{t_{m-1; 1-\frac{\alpha_2}{2}}}$$
-
-$$\Rightarrow u_{\alpha 2} = u_{\alpha 1} \cdot \frac{t_{m-1; 1-\frac{\alpha_2}{2}}}{t_{m-1; 1-\frac{\alpha_1}{2}}} = 0{,}0187\,\mathrm s \cdot 2{,}831 / 2{,}080 = 0{,}025\,\mathrm s$$
-
-Die Angabe des Messergebnisses lautet somit:
-
-$$x = (1{,}402 \pm 0{,}025)\,\mathrm s \quad (99\%)$$
-</pre></div>
 </div>
+<section id="umrechnung-von-vertrauensintervallen">
+<h3>Umrechnung von Vertrauensintervallen<a class="headerlink" href="#umrechnung-von-vertrauensintervallen" title="Permalink to this heading">#</a></h3>
+<p>Vertrauensbereiche unterschiedlicher Wahrscheinlichkeiten können ineinander umgerechnet werden:</p>
+<div class="math notranslate nohighlight">
+\[\frac{u_{\alpha 1}}{t_{m-1; 1-\frac{\alpha_1}{2}}} =  \frac{u_{\alpha 2}}{t_{m-1; 1-\frac{\alpha_2}{2}}}\]</div>
+<p>Hierbei ist <span class="math notranslate nohighlight">\(\alpha\)</span> das zweiseitige Signifikanzniveau, also die Irrtumswahrscheinlichkeit <span class="math notranslate nohighlight">\(\alpha = 1-P\)</span>, wobei <span class="math notranslate nohighlight">\(P\)</span> die Wahrscheinlichkeit bzw. die geforderte statistische Sicherheit ist. Der halbseitige (einseitige) Vertrauensbereich wird in manchen Tabellen gewählt und lautet <span class="math notranslate nohighlight">\(p = 1-\alpha/2\)</span>.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Beispiel zur Umrechnung von Vertrauensbereichen</p>
+<p>Die Umrechnung des Vertrauensbereich 95% aus dem letzten Beispiel sollen in einen Vertrauensbereich mit einem anderen Vertrauensniveau, von 99% erfolgen. Die Ergebnisse für 95% sind bekannt. Nun muss das Quantil für 99% (also <span class="math notranslate nohighlight">\(\alpha = \)</span>1%) bestimmt werden. Analog werden die <span class="math notranslate nohighlight">\(s = m-1 = 21\)</span> und <span class="math notranslate nohighlight">\(p = 1-\alpha/2 = 1-0{,}005 = 0{,}995\)</span> Quantile bestimmt und der <span class="math notranslate nohighlight">\(t\)</span>-Wert aus der Tabelle abgelesen:</p>
+<div class="math notranslate nohighlight">
+\[t_{s;p} = t_{m-1; 1-\alpha/2} = t_{21; 0,995} = 2{,}831\]</div>
+<p>Hieraus kann nun nach obiger Gleichung der Vertrauensbereich für 99% berechnet werden:</p>
+<div class="math notranslate nohighlight">
+\[\frac{u_{\alpha 1}}{t_{m-1; 1-\frac{\alpha_1}{2}}} =  \frac{u_{\alpha 2}}{t_{m-1; 1-\frac{\alpha_2}{2}}}\]</div>
+<div class="math notranslate nohighlight">
+\[\Rightarrow u_{\alpha 2} = u_{\alpha 1} \cdot \frac{t_{m-1; 1-\frac{\alpha_2}{2}}}{t_{m-1; 1-\frac{\alpha_1}{2}}} = 0{,}0187\,\mathrm s \cdot 2{,}831 / 2{,}080 = 0{,}025\,\mathrm s\]</div>
+<p>Die Angabe des Messergebnisses lautet somit:</p>
+<div class="math notranslate nohighlight">
+\[x = (1{,}402 \pm 0{,}025)\,\mathrm s \quad (99\%)\]</div>
+</div>
+</section>
 </section>
 <section id="gleichverteilung-rechteck">
 <h2>Gleichverteilung (Rechteck)<a class="headerlink" href="#gleichverteilung-rechteck" title="Permalink to this heading">#</a></h2>
@@ -2052,7 +2045,7 @@ Ist die Kovarianz Null, so besteht kein <em>linearer</em> Zusammenhang, es kann 
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">zurück</p>
-        <p class="prev-next-title">Beispiel</p>
+        <p class="prev-next-title">Einführung</p>
       </div>
     </a>
     <a class="right-next"
@@ -2095,7 +2088,10 @@ Ist die Kovarianz Null, so besteht kein <em>linearer</em> Zusammenhang, es kann 
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#angabe-der-messunsicherheit">Angabe der Messunsicherheit</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#student-t-kleine-stichproben">Student-t (kleine Stichproben)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#student-t-kleine-stichproben">Student-t (kleine Stichproben)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#umrechnung-von-vertrauensintervallen">Umrechnung von Vertrauensintervallen</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gleichverteilung-rechteck">Gleichverteilung (Rechteck)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dreieckverteilung">Dreieckverteilung</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zweidimensionale-bivariate-zufallsvariablen">Zweidimensionale (Bivariate) Zufallsvariablen</a></li>

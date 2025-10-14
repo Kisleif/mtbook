@@ -617,14 +617,21 @@ Anschließend sind die resultierenden Wahrscheinlichkeitsverteilungen grafisch d
 <span class="n">data_normal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1200</span><span class="p">)</span>
 
 <span class="c1"># (B) </span>
-<span class="n">delta</span> <span class="o">=</span> <span class="mf">0.5</span>  <span class="c1"># Auflösung des Encoders</span>
+<span class="n">delta</span> <span class="o">=</span> <span class="mf">1.0</span>    <span class="c1"># maximaler Messbereich um den wahren Wert (±0.25°)</span>
 <span class="n">true_angle</span> <span class="o">=</span> <span class="mf">12.3</span>
+<span class="n">resolution</span> <span class="o">=</span> <span class="mf">0.01</span>  <span class="c1"># Encoder-Auflösung in Grad</span>
+
+<span class="c1"># Erzeuge gleichverteilte Zufallswerte innerhalb ±delta/2 um true_angle</span>
 <span class="n">data_rect</span> <span class="o">=</span> <span class="n">true_angle</span> <span class="o">+</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1200</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="n">delta</span>
 
-<span class="c1"># (C) </span>
-<span class="n">u1</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1200</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="n">delta</span>
-<span class="n">u2</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1200</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="n">delta</span>
-<span class="n">data_tri</span> <span class="o">=</span> <span class="n">true_angle</span> <span class="o">+</span> <span class="p">(</span><span class="n">u1</span> <span class="o">+</span> <span class="n">u2</span><span class="p">)</span>
+<span class="c1"># Quantisierung auf 0.1°-Schritte entsprechend der Encoderauflösung</span>
+<span class="n">data_rect</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">data_rect</span> <span class="o">/</span> <span class="n">resolution</span><span class="p">)</span> <span class="o">*</span> <span class="n">resolution</span>
+
+<span class="c1"># (C)</span>
+<span class="n">data_rect2</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">true_angle</span> <span class="o">+</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1200</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="n">delta</span> 
+<span class="n">u1</span> <span class="o">=</span> <span class="n">data_rect</span>
+<span class="n">u2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">data_rect2</span> <span class="o">/</span> <span class="n">resolution</span><span class="p">)</span> <span class="o">*</span> <span class="n">resolution</span>
+<span class="n">data_tri</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">u1</span> <span class="o">+</span> <span class="n">u2</span><span class="p">)</span>
 
 <span class="c1"># Speicherung der Datensätze (optional)</span>
 <span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s2">&quot;1_beschleunigungsmessung.csv&quot;</span><span class="p">,</span> <span class="n">data_normal</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
@@ -681,7 +688,7 @@ Anschließend sind die resultierenden Wahrscheinlichkeitsverteilungen grafisch d
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e74a81b070519f2e9668db9523810da2d7fb0e6a1d3b6a67d5886de41a750eeb.png" src="../_images/e74a81b070519f2e9668db9523810da2d7fb0e6a1d3b6a67d5886de41a750eeb.png" />
+<img alt="../_images/1a98c8e26d0d696a0e4d36515d1e05c6fac4296c7fb2346a11ec465e2332a945.png" src="../_images/1a98c8e26d0d696a0e4d36515d1e05c6fac4296c7fb2346a11ec465e2332a945.png" />
 </div>
 </div>
 <p>Sollten Sie sich unsicher sein, welche Verteilung vorliegt, kann man in Python schnell mittels Shapiro–Wilk-Tests überprüfen, ob eine Stichprobe normalverteilt ist.
@@ -732,7 +739,7 @@ Shapiro–Wilk-Test: Statistik=0.9555, p=0.0000
 → Daten weichen signifikant von Normalverteilung ab.
 
 ---- Messreihe 3 --------------------------------
-Shapiro–Wilk-Test: Statistik=0.9913, p=0.0000
+Shapiro–Wilk-Test: Statistik=0.9923, p=0.0000
 → Daten weichen signifikant von Normalverteilung ab.
 </pre></div>
 </div>
@@ -780,8 +787,8 @@ Für die vorliegende Aufgabenstellung ist es jedoch ausreichend, zwischen einer 
         <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">pdf</span><span class="p">,</span> <span class="s2">&quot;r-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Rechteckverteilung&quot;</span><span class="p">)</span>
     
     <span class="k">elif</span> <span class="s2">&quot;Dreiecks&quot;</span> <span class="ow">in</span> <span class="n">title</span><span class="p">:</span>
-        <span class="n">a</span> <span class="o">=</span> <span class="n">true_angle</span> <span class="o">-</span> <span class="n">delta</span>
-        <span class="n">b</span> <span class="o">=</span> <span class="n">true_angle</span> <span class="o">+</span> <span class="n">delta</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">true_angle</span><span class="o">+</span><span class="mf">0.5</span><span class="o">*</span><span class="n">true_angle</span><span class="p">)</span> <span class="o">-</span> <span class="n">delta</span><span class="o">/</span><span class="mi">2</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">true_angle</span><span class="o">+</span><span class="mf">0.5</span><span class="o">*</span><span class="n">true_angle</span><span class="p">)</span> <span class="o">+</span> <span class="n">delta</span><span class="o">/</span><span class="mi">2</span>
         <span class="n">c</span> <span class="o">=</span> <span class="mf">0.5</span>  <span class="c1"># Symmetrische Dreiecksverteilung</span>
         <span class="n">pdf</span> <span class="o">=</span> <span class="n">triang</span><span class="o">.</span><span class="n">pdf</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">),</span> <span class="n">c</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">pdf</span><span class="p">,</span> <span class="s2">&quot;r-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Dreiecksverteilung&quot;</span><span class="p">)</span>
@@ -800,7 +807,7 @@ Für die vorliegende Aufgabenstellung ist es jedoch ausreichend, zwischen einer 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b7b64a15bfc1a0fd238dd829684398bf544bc8b7340b0390ceedb3767f282b59.png" src="../_images/b7b64a15bfc1a0fd238dd829684398bf544bc8b7340b0390ceedb3767f282b59.png" />
+<img alt="../_images/cd6e920e16fb81d39fd5fb3b73939716cf9ded1abc8248d94c77286c1d96ce75.png" src="../_images/cd6e920e16fb81d39fd5fb3b73939716cf9ded1abc8248d94c77286c1d96ce75.png" />
 </div>
 </div>
 </section>
@@ -841,11 +848,11 @@ Für die vorliegende Aufgabenstellung ist es jedoch ausreichend, zwischen einer 
   Mittelwert        = 0.00077
   Standardabweichung = 0.01977
 Messreihe B – Rechteckverteilung
-  Mittelwert        = 12.29867
-  Standardabweichung = 0.14428
+  Mittelwert        = 12.29736
+  Standardabweichung = 0.28859
 Messreihe C – Dreiecksverteilung
-  Mittelwert        = 12.29506
-  Standardabweichung = 0.20265
+  Mittelwert        = 9.22318
+  Standardabweichung = 0.20465
 </pre></div>
 </div>
 </div>
@@ -894,8 +901,8 @@ Die Standardabweichung quantifiziert die Streuung der Messwerte um diesen Mittel
         <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">pdf</span><span class="p">,</span> <span class="s2">&quot;r-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Rechteckverteilung&quot;</span><span class="p">)</span>
     
     <span class="k">elif</span> <span class="s2">&quot;Dreiecks&quot;</span> <span class="ow">in</span> <span class="n">title</span><span class="p">:</span>
-        <span class="n">a</span> <span class="o">=</span> <span class="n">true_angle</span> <span class="o">-</span> <span class="n">delta</span>
-        <span class="n">b</span> <span class="o">=</span> <span class="n">true_angle</span> <span class="o">+</span> <span class="n">delta</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">true_angle</span><span class="o">+</span><span class="mf">0.5</span><span class="o">*</span><span class="n">true_angle</span><span class="p">)</span> <span class="o">-</span> <span class="n">delta</span><span class="o">/</span><span class="mi">2</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">true_angle</span><span class="o">+</span><span class="mf">0.5</span><span class="o">*</span><span class="n">true_angle</span><span class="p">)</span> <span class="o">+</span> <span class="n">delta</span><span class="o">/</span><span class="mi">2</span>
         <span class="n">c</span> <span class="o">=</span> <span class="mf">0.5</span>  <span class="c1"># Symmetrische Dreiecksverteilung</span>
         <span class="n">pdf</span> <span class="o">=</span> <span class="n">triang</span><span class="o">.</span><span class="n">pdf</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">),</span> <span class="n">c</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">pdf</span><span class="p">,</span> <span class="s2">&quot;r-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Dreiecksverteilung&quot;</span><span class="p">)</span>
@@ -919,7 +926,7 @@ Die Standardabweichung quantifiziert die Streuung der Messwerte um diesen Mittel
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/331feb9432475375ec9a52271363d7ff0794e89fa6a376f5a3b7f1a8766b95cb.png" src="../_images/331feb9432475375ec9a52271363d7ff0794e89fa6a376f5a3b7f1a8766b95cb.png" />
+<img alt="../_images/6c8908a3d9e1813901f30aaea7112e7b8ff02345b70eb82d5cd34ce12a3bf3ad.png" src="../_images/6c8908a3d9e1813901f30aaea7112e7b8ff02345b70eb82d5cd34ce12a3bf3ad.png" />
 </div>
 </div>
 </section>
@@ -989,8 +996,8 @@ Dabei wird der <strong>Verteilungsfaktor <span class="math notranslate nohighlig
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Berechnete Standardunsicherheiten für den Mittelwert:
   u_normal   = 0.00057
-  u_rechteck = 0.00240 
-  u_dreieck  = 0.00239 
+  u_rechteck = 0.00481 
+  u_dreieck  = 0.00241 
 </pre></div>
 </div>
 </div>
@@ -1031,10 +1038,10 @@ Experiment A – Normalverteilung (Sensorrauschen)
 x̄ = 0.00077 ± 0.00057  [Einheit]
 
 Experiment B – Rechteckverteilung (Encoder)
-x̄ = 12.29867 ± 0.00240  [Einheit]
+x̄ = 12.29736 ± 0.00481  [Einheit]
 
 Experiment C – Dreiecksverteilung (zwei Quantisierungen)
-x̄ = 12.29506 ± 0.00239  [Einheit]
+x̄ = 9.22318 ± 0.00241  [Einheit]
 
 Hinweis: Die angegebenen Unsicherheiten entsprechen den Standardunsicherheiten (1σ-Niveau).
 </pre></div>

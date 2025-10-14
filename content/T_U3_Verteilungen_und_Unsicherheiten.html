@@ -549,10 +549,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histogram-darstellung">Histogram-Darstellung</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diskussion-der-verteilungen">Diskussion der Verteilungen</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistische-auswertung">Statistische Auswertung</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#berechnung-der-messunsicherheit-des-mittelwertes">Berechnung der Messunsicherheit des Mittelwertes</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verteilungsabhangige-erweiterung-bewertung-der-messunsicherheit">Verteilungsabhängige Erweiterung (Bewertung der Messunsicherheit)</a></li>
-</ul>
-</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#angabe-der-messergebnisse">Angabe der Messergebnisse</a></li>
 </ul>
             </nav>
@@ -569,8 +565,8 @@ document.write(`
 <h1>Drei Messreihen - Drei Verteilungen<a class="headerlink" href="#drei-messreihen-drei-verteilungen" title="Permalink to this heading">#</a></h1>
 <p>Drei Experimente wurden durchgeführt, zu denen jeweils eine Messreihe mit repräsentativen Werten vorliegt.</p>
 <p>Im ersten Experiment wurde die Beschleunigung eines Sensors im Ruhezustand gemessen.</p>
-<p>Im zweiten Experiment wurde der Ausschlagwinkel eines ballistischen Pendels mit einem digitalen Winkelencoder mit einer Auflösung von 0,5 Grad erfasst.</p>
-<p>Das dritte Experiment kombiniert die Signale von zwei digitalen Sensoren mit gleicher Auflösung.</p>
+<p>Im zweiten Experiment wurde der Ausschlagwinkel eines ballistischen Pendels mit einem digitalen Winkelencoder mit einer Auflösung von 0,01 Grad erfasst.</p>
+<p>Das dritte Experiment kombiniert die Signale von zwei digitalen Sensoren mit gleicher Auflösung von 0,01.</p>
 <p>In allen drei Fällen sollen die jeweiligen Messwerte statistisch ausgewertet werden. Dazu sind für jede Messreihe der Mittelwert, die Standardabweichung sowie die Standard- und erweiterte Messunsicherheit zu bestimmen.
 Anschließend sind die resultierenden Wahrscheinlichkeitsverteilungen grafisch darzustellen, der Mittelwert und die Grenzen der ±1σ-Streuung im Diagramm zu markieren und die Ergebnisse physikalisch zu interpretieren.</p>
 <div class="cell docutils container">
@@ -930,27 +926,16 @@ Die Standardabweichung quantifiziert die Streuung der Messwerte um diesen Mittel
 </div>
 </div>
 </section>
-<section id="berechnung-der-messunsicherheit-des-mittelwertes">
-<h2>Berechnung der Messunsicherheit des Mittelwertes<a class="headerlink" href="#berechnung-der-messunsicherheit-des-mittelwertes" title="Permalink to this heading">#</a></h2>
-<p>Aus der Streuung der Einzelmesswerte lässt sich die <strong>Messunsicherheit des Mittelwertes</strong> ableiten.<br />
+<section id="angabe-der-messergebnisse">
+<h2>Angabe der Messergebnisse<a class="headerlink" href="#angabe-der-messergebnisse" title="Permalink to this heading">#</a></h2>
+<p>Aus der Standardabweichung der Einzelmesswerte lässt sich die <strong>Messunsicherheit des Mittelwertes</strong> ableiten.<br />
 Während die Standardabweichung <span class="math notranslate nohighlight">\(s\)</span> die Schwankung der einzelnen Messwerte um den Mittelwert beschreibt, gibt die <strong>Standardunsicherheit des Mittelwertes</strong> <span class="math notranslate nohighlight">\(u_{\bar{x}}\)</span> an, mit welcher Genauigkeit der Mittelwert selbst bestimmt ist.</p>
-<p>Da der Mittelwert mit wachsender Anzahl an Messungen stabiler wird, verringert sich seine Unsicherheit mit der Wurzel aus der Stichprobengröße <span class="math notranslate nohighlight">\(n\)</span>:</p>
+<p>Da der Mittelwert mit wachsender Anzahl an Messungen stabiler wird, verringert sich seine Unsicherheit mit der Wurzel aus der Stichprobengröße <span class="math notranslate nohighlight">\(m\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
-u(\bar{x}) = \frac{s}{\sqrt{n}}
+u = \sqrt{G} \cdot \frac{s}{\sqrt{m}}
 \]</div>
-<p>Hierbei gilt:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(s\)</span> – empirische Standardabweichung der Stichprobe</p></li>
-<li><p><span class="math notranslate nohighlight">\(n\)</span> – Anzahl der unabhängigen Messwerte</p></li>
-</ul>
-<p>Die Unsicherheit des Mittelwertes ist somit ein Maß für die <strong>statistische Präzision</strong> der Schätzung des Erwartungswertes.<br />
-Je größer die Anzahl der Messungen, desto kleiner wird <span class="math notranslate nohighlight">\(u_{\bar{x}}\)</span>, während die Streuung der Einzelwerte (Standardabweichung) selbst davon unabhängig bleibt.</p>
-<hr class="docutils" />
-<section id="verteilungsabhangige-erweiterung-bewertung-der-messunsicherheit">
-<h3>Verteilungsabhängige Erweiterung (Bewertung der Messunsicherheit)<a class="headerlink" href="#verteilungsabhangige-erweiterung-bewertung-der-messunsicherheit" title="Permalink to this heading">#</a></h3>
-<p>Für die Berechnung der <strong>Standardunsicherheit einer Einzelmessung</strong> wird die zugrunde liegende Wahrscheinlichkeitsverteilung berücksichtigt.<br />
-Dabei wird der <strong>Verteilungsfaktor <span class="math notranslate nohighlight">\(G\)</span></strong> verwendet, der die Form der Verteilung beschreibt:</p>
+<p>wobei <span class="math notranslate nohighlight">\(G\)</span> der <strong>Verteilungsfaktor</strong> ist, welcher von der Verteilung abhängt</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Verteilung</p></th>
@@ -973,10 +958,6 @@ Dabei wird der <strong>Verteilungsfaktor <span class="math notranslate nohighlig
 </tr>
 </tbody>
 </table>
-<p>Der Verteilungsfaktor <span class="math notranslate nohighlight">\(G\)</span> wird somit abhängig vom zugrunde liegenden Fehlerverhalten gewählt.</p>
-<p>Allgemein gilt zur Berechnung der Messunsicherheit des Mittelwertes also:</p>
-<div class="math notranslate nohighlight">
-\[u = \sqrt{G} \cdot \frac{s}{\sqrt{n}}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --------------------------------------------</span>
@@ -1002,18 +983,12 @@ Dabei wird der <strong>Verteilungsfaktor <span class="math notranslate nohighlig
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="angabe-der-messergebnisse">
-<h2>Angabe der Messergebnisse<a class="headerlink" href="#angabe-der-messergebnisse" title="Permalink to this heading">#</a></h2>
 <p>Das jeweilige Messergebnis für die drei Messreihen lautet also:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --------------------------------------------------------------</span>
 <span class="c1"># 6. Ausgabe der Messergebnisse</span>
 <span class="c1"># --------------------------------------------------------------</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;## Messergebnisse der drei Experimente</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="c1"># Experiment A – Normalverteilung</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Experiment A – Normalverteilung (Sensorrauschen)&quot;</span><span class="p">)</span>
@@ -1032,9 +1007,7 @@ Dabei wird der <strong>Verteilungsfaktor <span class="math notranslate nohighlig
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>## Messergebnisse der drei Experimente
-
-Experiment A – Normalverteilung (Sensorrauschen)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Experiment A – Normalverteilung (Sensorrauschen)
 x̄ = 0.00077 ± 0.00057  [Einheit]
 
 Experiment B – Rechteckverteilung (Encoder)
@@ -1048,6 +1021,11 @@ Hinweis: Die angegebenen Unsicherheiten entsprechen den Standardunsicherheiten (
 </div>
 </div>
 </div>
+<ul class="simple">
+<li><p><strong>A</strong>: Die Unsicherheit für den Ruhezustand des Beschleunigungssensors ist verglichen zum Messwert recht hoch und beträgt 74%, welche ausschließlich auf zufällige
+Messunsicherheiten zurückzuführen sind, da der Mittelwert nah an 0,0 (Ruhezustand) liegt. Ein Offset oder systematischer Fehler ist nicht zu beobachten.</p></li>
+<li><p><strong>B und CC</strong>: Die begrenzte Auflösung von 0,01 Einheiten hat zur Folge, dass nicht beliebig hoch-aufgelöste Messwerte zur Verfügung stehen (sondern in 0,01er Schritten). Doch trotzdem konnte eine Messunsicherheit in beiden Experimenten erreicht werden, welche einen Faktor 2 bzw. 4 unterhalb der Messgeräte-Auflösung liegt. Das liegt daran, dass aufgrund zufälliger Schwankungen (Rauschen) die Messwerte zwischen benachbarten Quantisierungsstufen (Auflösungsstufen) immer hin und her springen. Wird über viele Messungen gemittelt, ergibt sich ein Mittelwert zwischen diesen Stufen und die effektive Auflösung steigt. Dieser Effekt entspricht dem Prinzip des <em>Dithering</em>, bei dem zufällige Schwankungen gezielt genutzt werden, um Quantisierungsfehler zu mitteln und die Genauigkeit digitaler Messsysteme zu erhöhen.</p></li>
+</ul>
 </section>
 </section>
 
@@ -1117,10 +1095,6 @@ Hinweis: Die angegebenen Unsicherheiten entsprechen den Standardunsicherheiten (
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histogram-darstellung">Histogram-Darstellung</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diskussion-der-verteilungen">Diskussion der Verteilungen</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistische-auswertung">Statistische Auswertung</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#berechnung-der-messunsicherheit-des-mittelwertes">Berechnung der Messunsicherheit des Mittelwertes</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verteilungsabhangige-erweiterung-bewertung-der-messunsicherheit">Verteilungsabhängige Erweiterung (Bewertung der Messunsicherheit)</a></li>
-</ul>
-</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#angabe-der-messergebnisse">Angabe der Messergebnisse</a></li>
 </ul>
   </nav></div>

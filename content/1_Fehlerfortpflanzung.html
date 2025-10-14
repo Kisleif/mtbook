@@ -1061,7 +1061,7 @@ dR =  5.418216235738347
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/0502d8885a0fd5ec2e70aa99136e8465f77cfe55f1446e426988817a09778e3f.png" src="../_images/0502d8885a0fd5ec2e70aa99136e8465f77cfe55f1446e426988817a09778e3f.png" />
+<img alt="../_images/7c963ee57a56892d62a5949a4335bc74f541c917f5145d8bac54b7af6b33c0fe.png" src="../_images/7c963ee57a56892d62a5949a4335bc74f541c917f5145d8bac54b7af6b33c0fe.png" />
 </div>
 </div>
 <p>Die Berechnung des Korrelationskoeffizienten zwischen zwei Variablen, <span class="math notranslate nohighlight">\(x_1\)</span> und <span class="math notranslate nohighlight">\(x_2\)</span>, kann auf zwei verschiedene Arten erfolgen:</p>
@@ -1135,8 +1135,8 @@ dR =  5.418216235738347
 y = 0{,}5 \cdot (x_1 - x_2)
 \]</div>
 <p>wie folgt allgemein bestimmen:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b7a41068-1da1-43a8-bca0-8f1db25a4f4f">
-<span class="eqno">(1)<a class="headerlink" href="#equation-b7a41068-1da1-43a8-bca0-8f1db25a4f4f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-191d6e0c-d43a-4423-b045-59930294a03f">
+<span class="eqno">(1)<a class="headerlink" href="#equation-191d6e0c-d43a-4423-b045-59930294a03f" title="Permalink to this equation">#</a></span>\[\begin{align}
 u_y &amp;= \sqrt{\underbrace{\sum_{i=1}^n\left(\frac{\partial y}{\partial x_i}\, u_i\right)^2}_{\mathrm{wie~oben}} 
       + 2\,\underbrace{\sum_{i=1}^{n-1}\sum_{k=i+1}^n 
       \frac{\partial y}{\partial x_i}\,\frac{\partial y}{\partial x_k}\,\mathrm{cov}(x_i,x_k)}_{\mathrm{Korrelationsterme}}}\\
@@ -1149,8 +1149,8 @@ u_y &amp;= \sqrt{\underbrace{\sum_{i=1}^n\left(\frac{\partial y}{\partial x_i}\,
 \frac{\partial y}{\partial x_2} = -0{,}5
 \]</div>
 <p>Eingesetzt in die obige Gleichung folgt:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-52bc8717-3b6f-47db-8ede-9c23c575c36d">
-<span class="eqno">(2)<a class="headerlink" href="#equation-52bc8717-3b6f-47db-8ede-9c23c575c36d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d9be9a33-b650-4216-82d9-be7924afa44f">
+<span class="eqno">(2)<a class="headerlink" href="#equation-d9be9a33-b650-4216-82d9-be7924afa44f" title="Permalink to this equation">#</a></span>\[\begin{align}
 u_y &amp;= \sqrt{(0{,}5)^2 u_1^2 + (-0{,}5)^2 u_2^2 + 2 (0{,}5)(-0{,}5) \, \mathrm{cov}(x_1, x_2)} \\
 &amp;= \sqrt{\tfrac{1}{4} \left( u_1^2 + u_2^2 - 2 \, \mathrm{cov}(x_1, x_2) \right)} \\
 &amp;= \tfrac{1}{2} \sqrt{u_1^2 + u_2^2 - 2 \, \mathrm{cov}(x_1, x_2)}
@@ -1169,25 +1169,17 @@ r = \frac{\mathrm{cov}_{x_1x_2}}{s_{x_1} \cdot s_{x_2}}
 \[
 u_y = \tfrac{1}{2} \sqrt{u_1^2 + u_2^2 - 2 r \, u_1 u_2}
 \]</div>
-<p>Für vollständig unkorrelierte Größen (<span class="math notranslate nohighlight">\(r = 0\)</span>) gilt also:</p>
-<div class="math notranslate nohighlight">
-\[
-u_y = \tfrac{1}{2} \sqrt{u_1^2 + u_2^2}
-\]</div>
-<p>Für vollständig korrelierte Größen:</p>
-<div class="math notranslate nohighlight">
-\[
-\rho = +1: \quad u_y = \tfrac{1}{2} |u_1 - u_2|, \qquad
-\]</div>
 <p>Im Spezialfall identischer Unsicherheiten <span class="math notranslate nohighlight">\(u_1 = u_2 = u\)</span> folgt:</p>
-<div class="math notranslate nohighlight">
-\[
-\rho = 0: \quad u_y = \tfrac{u}{\sqrt{2}}, \qquad
-\rho = +1: \quad u_y = 0, \qquad
-\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-e5e35473-bd5b-4c22-bb66-126f2de3d32f">
+<span class="eqno">(3)<a class="headerlink" href="#equation-e5e35473-bd5b-4c22-bb66-126f2de3d32f" title="Permalink to this equation">#</a></span>\[\begin{align}
+u_y &amp;= \tfrac{1}{2} \sqrt{u^2 + u^2 - 2 r \, u^2} \\
+&amp;= \tfrac{1}{2} u \cdot \sqrt{2 - 2 r } \\
+&amp;=  \tfrac{\sqrt{2}}{2} u \cdot \sqrt{1-r} \\
+&amp;=  \tfrac{u}{\sqrt{2}} \cdot \sqrt{1-r} 
+\end{align}\]</div>
 </div>
 <ul class="simple">
-<li><p>Das Ergebnis für <span class="math notranslate nohighlight">\(r = 0\)</span>, d.h. <strong>unabhängige</strong> Messwerte, der kombinierten Messunsicherheit für <span class="math notranslate nohighlight">\(y\)</span> beträgt <span class="math notranslate nohighlight">\(u_y = 0{,}35\)</span></p></li>
+<li><p>Das Ergebnis für <span class="math notranslate nohighlight">\(r = 0\)</span>, d.h. <strong>unabhängige</strong> Messwerte, der kombinierten Messunsicherheit für <span class="math notranslate nohighlight">\(y\)</span> beträgt <span class="math notranslate nohighlight">\(u_y = u/\sqrt{2} = 0{,}35\)</span></p></li>
 <li><p>Das Ergebnis für <span class="math notranslate nohighlight">\(r = 1\)</span>, d.h. <strong>korrelierte</strong> Messwerte, der kombinierten Messunsicherheit für <span class="math notranslate nohighlight">\(y\)</span> beträgt <span class="math notranslate nohighlight">\(u_y = 0{,}0\)</span></p></li>
 </ul>
 </section>

@@ -261,6 +261,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="T_Plotten.html">Klimadaten auswerten</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_FitmitFehlerbalken.html">Lineare Regression mit Fehlerbalken</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T_U3_Verteilungen_und_Unsicherheiten.html">Drei Messreihen - Drei Verteilungen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Fehlerfortpflanzung.html">Fehlerfortpflanzung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Log.html">Logarithmische Darstellung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Spektralanalyse_Audio.html">Fourier-Transformation und Filter</a></li>
@@ -627,7 +628,7 @@ document.write(`
 <p>Die Messgrößen <span class="math notranslate nohighlight">\(x_i\)</span> werden häufig mehrmals gemessen. Wir wissen bereits, dass es bei so einer Messreihe immer leicht unterschiedliche Werte heraus kommen und wir diese mit Methoden aus der <a class="reference internal" href="1_StatistischeMessunsicherheit.html"><span class="doc std std-doc">Statistik</span></a> analysieren können. Wir wissen:</p>
 <ul class="simple">
 <li><p>als Messergebnisse kann man die jeweiligen Mittelwerte <span class="math notranslate nohighlight">\(\bar x_i\)</span> einer Messreihe verwenden</p></li>
-<li><p>als Messunsicherheit dient die Standardabweichung <span class="math notranslate nohighlight">\(s(\bar x_i)\)</span> der Mittelwerte, häufig erweitert mit <span class="math notranslate nohighlight">\(t\)</span> zur Messunsicherheit <span class="math notranslate nohighlight">\(u(\bar x_1) = t \cdot s(\bar x_i) = t \cdot s(x_i)/\sqrt{m}\)</span></p></li>
+<li><p>als Messunsicherheit dient die Standardabweichung <span class="math notranslate nohighlight">\(s(\bar x_i)\)</span> der Mittelwerte, häufig erweitert mit Student-t-Faktor <span class="math notranslate nohighlight">\(t\)</span> oder <span class="math notranslate nohighlight">\(k\)</span> der Normalverteilung zur Messunsicherheit <span class="math notranslate nohighlight">\(u(\bar x_1) = t \cdot s(\bar x_i) = t \cdot s(x_i)/\sqrt{m}\)</span></p></li>
 </ul>
 <p>Um die gesucht Größe <span class="math notranslate nohighlight">\(y\)</span> zu erhalten, kann man nun mit den Mittelwerten <span class="math notranslate nohighlight">\(\bar x_i\)</span> weiterrechnen und zusätzlich die Unsicherheit, <span class="math notranslate nohighlight">\(\Delta y\)</span>, angeben:</p>
 <div class="math notranslate nohighlight">
@@ -1059,7 +1060,7 @@ dR =  5.418216235738347
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/a4758b283f5095e749de3855ee3c859c6f6e2c6825f40103097fc7e48b1cdcdb.png" src="../_images/a4758b283f5095e749de3855ee3c859c6f6e2c6825f40103097fc7e48b1cdcdb.png" />
+<img alt="../_images/19e0059a4963e6289bde0b6041329eedf1a83511352c7ed6bf63d082ddb11746.png" src="../_images/19e0059a4963e6289bde0b6041329eedf1a83511352c7ed6bf63d082ddb11746.png" />
 </div>
 </div>
 <p>Die Berechnung des Korrelationskoeffizienten zwischen zwei Variablen, <span class="math notranslate nohighlight">\(x_1\)</span> und <span class="math notranslate nohighlight">\(x_2\)</span>, kann auf zwei verschiedene Arten erfolgen:</p>
@@ -1122,7 +1123,7 @@ dR =  5.418216235738347
 </div>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Beispiel: Differentielle Datenübertragung </p>
-<p>Man nehme zwei Messwerte <span class="math notranslate nohighlight">\(x_1\)</span> und <span class="math notranslate nohighlight">\(x_2\)</span> deren Erwartungswerte und Unsicherheiten jeweils identisch sind, z.B. <span class="math notranslate nohighlight">\(\bar x_1 = \bar x_2 = 10\)</span> mit <span class="math notranslate nohighlight">\(u_1 = u_2 = 1\)</span>. Die zu ermittelnde Messgröße wird über folgende Relation berechnet: <span class="math notranslate nohighlight">\(y = \bar x_1 - \bar x_2\)</span></p>
+<p>Man nehme zwei Messwerte <span class="math notranslate nohighlight">\(x_1\)</span> und <span class="math notranslate nohighlight">\(x_2\)</span> deren Erwartungswerte und Unsicherheiten jeweils identisch sind, z.B. <span class="math notranslate nohighlight">\(\bar x_1 = -\bar x_2 = 10\)</span> mit <span class="math notranslate nohighlight">\(u_1 = u_2 = 1\)</span>. Die zu ermittelnde Messgröße wird über folgende Relation berechnet: <span class="math notranslate nohighlight">\(y = \bar x_1 - \bar x_2\)</span></p>
 <ul class="simple">
 <li><p>Das Ergebnis für <span class="math notranslate nohighlight">\(r = 0\)</span>, d.h. <strong>unabhängige</strong> Messwerte, der kombinierten Messunsicherheit für <span class="math notranslate nohighlight">\(y\)</span> beträgt <span class="math notranslate nohighlight">\(u_y = 1{,}4\)</span></p></li>
 <li><p>Das Ergebnis für <span class="math notranslate nohighlight">\(r = 1\)</span>, d.h. <strong>korrelierte</strong> Messwerte, der kombinierten Messunsicherheit für <span class="math notranslate nohighlight">\(y\)</span> beträgt <span class="math notranslate nohighlight">\(u_y = 0{,}0\)</span></p></li>

@@ -191,10 +191,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="V2.html">Messabweichungen</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="1_Messunsicherheiten.html">Beispiel</a></li>
-
-
-
+<li class="toctree-l2"><a class="reference internal" href="1_Messunsicherheiten.html">Einführung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_StatistischeMessunsicherheit.html">Statistik und zufällige Messunsicherheit</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Systematische Messabweichung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_Fehlerfortpflanzung.html">Fehlerfortpflanzung</a></li>
@@ -548,8 +545,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anzeigefehler-von-messgeraten">Anzeigefehler von Messgeräten</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digitalstellenfehler">Digitalstellenfehler</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#messgerateabweichung">Messgeräteabweichung</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#genauigkeitsklassen">Genauigkeitsklassen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#digitalstellenfehler">Digitalstellenfehler</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#systematische-einflussgroszen-beim-gps">Systematische Einflussgrößen beim GPS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atmospharische-korrektur-bei-der-elektrooptischen-distanzmessung">Atmosphärische Korrektur bei der elektrooptischen Distanzmessung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ishikawa-diagramm-ursache-wirkungs-diagramm">Ishikawa-Diagramm (Ursache-Wirkungs-Diagramm)</a></li>
 </ul>
             </nav>
         </div>
@@ -568,16 +571,18 @@ Damit soll ein möglichst realistisches und vollständiges Genauigkeitsmaß eine
 <p>In diesem Kapitel beschäftigen wir uns mit den Quellen systematischer Messabweichungen und diskutieren, wie sich deren Größenordnungen unter verschiedenen Messbedingungen abschätzen lassen.</p>
 <p>Ganz allgemein versteht man unter einer systematischen Messabweichung eine einseitige Abweichung eines Messwertes von seinem wahren Wert, deren Ursache prinzipiell bekannt, jedoch nicht exakt quantifizierbar ist.
 Systematische Effekte wirken also in der Regel konstant oder reproduzierbar in dieselbe Richtung und führen zu einer Verschiebung der Messergebnisse.</p>
-<p>Im Gegensatz zu zufälligen Messunsicherheiten, die sich durch Wiederholmessungen statistisch reduzieren lassen,
-können systematische Abweichungen nicht durch Mittelung verringert werden.
+<p>Im Gegensatz zu zufälligen Messunsicherheiten, die sich durch Wiederholmessungen statistisch reduzieren lassen, können systematische Abweichungen nicht durch Mittelung verringert werden.
 Sie lassen sich meist nur identifizieren oder korrigieren, indem</p>
 <ul class="simple">
 <li><p>andere Messverfahren mit unterschiedlichen physikalischen Prinzipien eingesetzt oder</p></li>
 <li><p>die äußeren Bedingungen (z. B. Temperatur, Lage, Druck, elektromagnetische Umgebung) gezielt verändert werden.</p></li>
 </ul>
-<section id="anzeigefehler-von-messgeraten">
-<h2>Anzeigefehler von Messgeräten<a class="headerlink" href="#anzeigefehler-von-messgeraten" title="Permalink to this heading">#</a></h2>
-<p>Messgeräte werden anhand ihrer Genauigkeit in Klassen eingruppiert.</p>
+<p>So könnte man beispielsweise durch den Einsatz verschiender Messverfahren und Änderungen der Messbedingungen vor Ort systematische Abweichungen aufdecken.</p>
+<section id="messgerateabweichung">
+<h2>Messgeräteabweichung<a class="headerlink" href="#messgerateabweichung" title="Permalink to this heading">#</a></h2>
+<section id="genauigkeitsklassen">
+<h3>Genauigkeitsklassen<a class="headerlink" href="#genauigkeitsklassen" title="Permalink to this heading">#</a></h3>
+<p>Messgeräte werden anhand ihrer Genauigkeit in Klassen eingruppiert:</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-left"><p>Messgeräte-Kategorie</p></th>
@@ -623,10 +628,10 @@ Sie lassen sich meist nur identifizieren oder korrigieren, indem</p>
 </tr>
 </tbody>
 </table>
-<p>Die Klasse entspricht der relativen Messabweichung. Präzisionsmessgeräte besitzen somit Abweichungen die zwischen 0,001% und 0,05% liegen. Die Genauigkeitsklasse K 2,5 (Angabe auf der Messskala nach DIN EN 60051) bedeutet: Ist der Endwert des eingestellten Messbereichs <span class="math notranslate nohighlight">\(U_\mathrm{end}\)</span>, dann beträgt die Messabweichung über den gesamten Messbereich <span class="math notranslate nohighlight">\(u(U) = 0{,}0025\cdot U_\mathrm{end}\)</span>. Für <span class="math notranslate nohighlight">\(U_\mathrm{end} = 15\,\mathrm V\)</span> erhält man also <span class="math notranslate nohighlight">\(0{,}0375\,\mathrm V\)</span>. Dieser Wert gilt unabhängig davon, wie groß der Zeigerausschlag beim Messgerät ist. Um die relative Unsicherheit gering zu halten, sollte der Messbereich möglichst so gewählt werden, dass der Messwert am Skalen<em>ende</em> abgelesen wird.</p>
+<p>Die Klasse entspricht der relativen Messabweichung. Präzisionsmessgeräte besitzen somit Abweichungen die zwischen 0,001% und 0,05% liegen. Die Genauigkeitsklasse K 2,5 (Angabe auf der Messskala nach DIN EN 60051) bedeutet: Ist der Endwert des eingestellten Messbereichs <span class="math notranslate nohighlight">\(U_\mathrm{end}\)</span>, dann beträgt die Messabweichung über den gesamten Messbereich <span class="math notranslate nohighlight">\(a = 0{,}0025\cdot U_\mathrm{end}\)</span>. Für <span class="math notranslate nohighlight">\(U_\mathrm{end} = 15\,\mathrm V\)</span> erhält man also <span class="math notranslate nohighlight">\(0{,}0375\,\mathrm V\)</span>. Dieser Wert gilt unabhängig davon, wie groß der Zeigerausschlag beim Messgerät ist. Um die relative Abweichung gering zu halten, sollte der Messbereich möglichst so gewählt werden, dass der Messwert am Skalen<em>ende</em> abgelesen wird.</p>
 </section>
 <section id="digitalstellenfehler">
-<h2>Digitalstellenfehler<a class="headerlink" href="#digitalstellenfehler" title="Permalink to this heading">#</a></h2>
+<h3>Digitalstellenfehler<a class="headerlink" href="#digitalstellenfehler" title="Permalink to this heading">#</a></h3>
 <figure class="align-default" id="voltmeter">
 <a class="reference internal image-reference" href="../_images/voltmeter.jpg"><img alt="voltmeter" src="../_images/voltmeter.jpg" style="width: 175px;" /></a>
 <figcaption>
@@ -666,6 +671,119 @@ Die Unsicherheit beträgt: +- 0.02207 V = +- 22.07499 mV
 </div>
 </details>
 </div>
+</section>
+</section>
+<section id="systematische-einflussgroszen-beim-gps">
+<h2>Systematische Einflussgrößen beim GPS<a class="headerlink" href="#systematische-einflussgroszen-beim-gps" title="Permalink to this heading">#</a></h2>
+<p>Das Global Positioning System (GPS) bestimmt die Position eines Empfängers durch Laufzeitmessungen von Radiosignalen mehrerer Satelliten.
+Jeder Satellit sendet ein codiertes Zeitsignal aus, das die Sendezeit und die Satellitenposition enthält.
+Der Empfänger misst die Ankunftszeit dieses Signals und berechnet daraus die Entfernung zum jeweiligen Satelliten.</p>
+<p>Aus den Entfernungen zu mindestens vier Satelliten werden die drei Raumkoordinaten (Breite, Länge, Höhe) sowie der Uhrenfehler des Empfängers bestimmt.
+Die Positionsbestimmung basiert damit auf der Schnittpunktberechnung mehrerer Kugeloberflächen (Trilateration).</p>
+<figure class="align-default" id="gps-funktionprinzip">
+<a class="reference internal image-reference" href="../_images/gps_function.png"><img alt="gps_funktionprinzip" src="../_images/gps_function.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Abb. 22 </span><span class="caption-text">Prinzip der GPS-Positionsbestimmung. Vier Satelliten senden Zeitsignale aus, aus deren Laufzeiten der Empfänger auf der Erde seine räumliche Position (Breite, Länge, Höhe) und den Uhrenfehler bestimmt.</span><a class="headerlink" href="#gps-funktionprinzip" title="Link zu diesem Bild">#</a></p>
+</figcaption>
+</figure>
+<p>Systematische Messabweichungen entstehen durch physikalische oder technische Einflüsse, die sich regelmäßig und vorhersagbar auf das Messergebnis auswirken. Bei GPS-Messungen lassen sich beispielsweise folgende Hauptursachen unterscheiden:</p>
+<ul class="simple">
+<li><p><strong>Laufbahneffekte (Orbitfehler)</strong>: Unvollständige oder ungenaue theoretische Modelle der Satellitenbahnen führen zu Abweichungen in der berechneten Satellitenposition. Diese Fehler wirken sich direkt auf die Positionsbestimmung des Empfängers aus.</p></li>
+<li><p><strong>Atmosphärische Störungen</strong>:
+– Die <em>Ionosphäre</em> enthält geladene Teilchen (Ionen und Elektronen), die die Ausbreitungsgeschwindigkeit von Radiowellen beeinflussen. Dadurch entstehen Laufzeit- und Phasenfehler, die orts-, zeit- und frequenzabhängig sind.
+– In der <em>Troposphäre</em> verursachen meteorologische Einflüsse wie Druck, Temperatur und Feuchte eine zusätzliche Laufzeitverzögerung des Signals. Diese Effekte können modelliert, aber nicht vollständig eliminiert werden.</p></li>
+<li><p><strong>Mehrwegausbreitung (Multipath)</strong>:
+GPS-Signale können durch Reflexionen an Gebäuden, Wasseroberflächen oder anderen Strukturen mehrfach zum Empfänger gelangen. Dadurch entstehen Phasenfehler und Interferenzen, die die Positionsbestimmung verfälschen.</p></li>
+<li><p><strong>Empfängerbedingte Abweichungen</strong>:
+– Das <em>Signal-zu-Rausch-Verhältnis</em> (SNR) beeinflusst die Präzision der Laufzeitmessung.
+– <em>Uhrenfehler</em>: GPS-Empfänger verwenden Quarzoszillatoren, deren Genauigkeit begrenzt ist. Eine Abweichung von etwa 60 ns entspricht einem Positionsfehler von
+- ca. 18m auf Satellitenseite und
+- bis zu 6000km bezogen auf den GPS-Empfänger.</p></li>
+</ul>
+</section>
+<section id="atmospharische-korrektur-bei-der-elektrooptischen-distanzmessung">
+<h2>Atmosphärische Korrektur bei der elektrooptischen Distanzmessung<a class="headerlink" href="#atmospharische-korrektur-bei-der-elektrooptischen-distanzmessung" title="Permalink to this heading">#</a></h2>
+<p>Bei der elektrooptischen Distanzmessung wird die Laufzeit oder Phasenverschiebung einer elektromagnetischen Welle (z. B. Laserlicht beim Laserscanning) gemessen, um die Entfernung zu bestimmen.</p>
+<figure class="align-default" id="eod">
+<a class="reference internal image-reference" href="../_images/eod.png"><img alt="eod" src="../_images/eod.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Abb. 23 </span><span class="caption-text">Bei der elektrooptischen Distanzmessung wird die Ausbreitungsgeschwindigkeit der Trägerwelle gemessen.</span><a class="headerlink" href="#eod" title="Link zu diesem Bild">#</a></p>
+</figcaption>
+</figure>
+<p>Die gemessene Ausbreitungsgeschwindigkeit hängt hierbei von Lufttemperatur, Luftdruck und Luftfeuchte ab, weshalb atmosphärische Korrekturen erforderlich sind.</p>
+<p>Für die atmosphärische Korrektur werden Parameter wie <strong>Lufttemperatur, Luftdruck und Luftfeuchte</strong> in der Regel <strong>punktuell am Standort des Messgerätes</strong> erfasst.<br />
+Diese Messwerte sind jedoch <strong>nicht repräsentativ für die gesamte Messstrecke</strong>, da sich die atmosphärischen Bedingungen entlang der <em>Visurlinie</em> ändern können.</p>
+<p>Eine <strong>Abweichung der integralen Lufttemperatur</strong> (also der mittleren Temperatur über die gesamte Strecke) von der lokal gemessenen Temperatur führt zu einer <strong>systematischen Messabweichung</strong> der elektrooptischen Distanzmessung.</p>
+<p>Der <strong>Beobachter</strong> muss daher abschätzen, wie groß die <strong>maximale Abweichung</strong> zwischen der Punktmessung und der tatsächlichen mittleren Lufttemperatur sein könnte.<br />
+Da über die Verteilung dieser Abweichung <strong>keine weiteren Informationen</strong> vorliegen, wird eine <strong>Rechteck- (Gleich-) Verteilung</strong> angenommen.</p>
+<p><strong>Beispiel:</strong> Angenommen, für eine Distanz von <strong>600 m</strong> wird eine maximale Temperaturabweichung von<br />
+<span class="math notranslate nohighlight">\(\Delta T = \pm 5~\mathrm{K}\)</span> geschätzt.<br />
+Bekannt ist, dass sich der <strong>Korrekturwert</strong> der Distanzmessung um <strong>1 ppm pro 1 K</strong> ändert, also 1 mm pro km (1 ppm = part per million, international übliche Angabe für den Faktor <span class="math notranslate nohighlight">\(10^{-6}\)</span>).</p>
+<p>Die <strong>Halbbreite</strong> der Rechteckverteilung beträgt somit:</p>
+<div class="math notranslate nohighlight">
+\[
+a = 5~\mathrm{ppm} \cdot 0{,}6~\mathrm{km} \cdot 1{,}0~\mathrm{mm/km/K}= 3~\mathrm{mm}
+\]</div>
+<p>Die zugehörige <strong>Standardunsicherheit</strong> ergibt sich für eine Rechteckverteilung zu:</p>
+<div class="math notranslate nohighlight">
+\[
+u = \frac{a}{\sqrt{3}} = \pm \frac{3~\mathrm{mm}}{\sqrt{3}} = \pm 1{,}7~\mathrm{mm}
+\]</div>
+<p>Damit beträgt die Standardunsicherheit infolge der geschätzten Temperaturabweichung etwa <strong>1,7 mm</strong> für eine Messstrecke von 600 m.</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delta_T</span> <span class="o">=</span> <span class="mi">5</span>     <span class="c1"># maximale Temperaturabweichung in K</span>
+<span class="n">delta_z</span> <span class="o">=</span> <span class="mf">1.0</span>   <span class="c1"># Korrekturwert pro Kelvin in mm/km</span>
+<span class="n">distanz</span> <span class="o">=</span> <span class="mf">0.6</span>   <span class="c1"># Distanzmessung in km</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">delta_T</span> <span class="o">*</span> <span class="n">distanz</span> <span class="o">*</span> <span class="n">delta_z</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die Halbbreite bzw. systematische Messabweichung beträgt:</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="s1">&#39; mm&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Die systematische Messunsicherheit (Gleichverteilung) beträgt:</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">a</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="s1">&#39; mm&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Halbbreite bzw. systematische Messabweichung beträgt:	 3.0  mm
+Die systematische Messunsicherheit (Gleichverteilung) beträgt:	 1.7320508075688774  mm
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>Neben atmosphärischen Effekten wirken sich auch weitere systematische Einflüsse auf die Genauigkeit elektrooptischer Distanzmessungen aus.</p>
+<ul class="simple">
+<li><p><strong>Brechungsindexänderungen</strong> infolge von Luftdichtevariationen entlang der Visurlinie führen zu einer Krümmung des Laserstrahls und damit zu einer Verlängerung der effektiven Laufstrecke. Diese Strahlkrümmung kann insbesondere bei Messungen über große Distanzen oder bei starkem Temperaturgradienten signifikant werden.</p></li>
+<li><p><strong>Kalibrierfehler</strong> entstehen beispielsweise dann, wenn bei der Prüfung von Messsystemen auf einem Komparator die beiden verwendeten Prüfnormale nicht exakt auf einer Geraden liegen. Damit wird das Abbesche Komparatorprinzip verletzt, was zu systematischen Abweichungen in der gemessenen Distanz führt.</p></li>
+<li><p>Auch <strong>analoge Sensorsignale</strong>, die teilweise über große Strecken elektrisch übertragen werden, können durch Umwelteinflüsse wie Temperaturänderungen, elektromagnetische Felder oder Spannungsabfälle verzerrt oder gedämpft werden. Diese Effekte führen zu Übertragungsfehlern und beeinflussen die Genauigkeit der gemessenen Werte (siehe Abschnitt Signalübertragung).</p></li>
+<li><p>Zudem können <strong>Vibrationen</strong> am Messort lokale Neigungs- oder Richtungsmessungen stören, was insbesondere bei Präzisionsinstrumenten mit optischen oder interferometrischen Komponenten zu fehlerhaften Ergebnissen führen kann.</p></li>
+<li><p>und weitere…</p></li>
+</ul>
+</section>
+<section id="ishikawa-diagramm-ursache-wirkungs-diagramm">
+<h2>Ishikawa-Diagramm (Ursache-Wirkungs-Diagramm)<a class="headerlink" href="#ishikawa-diagramm-ursache-wirkungs-diagramm" title="Permalink to this heading">#</a></h2>
+<p>Bei der Analyse der relevanten <strong>Einflussparameter</strong> einer Messaufgabe kann das <strong>Ishikawa-Diagramm</strong> eine hilfreiche Unterstützung bieten. Es dient als <strong>Ursache-Wirkungs-Diagramm</strong>, mit dem sich potenzielle Fehlerquellen und Einflussfaktoren systematisch erfassen lassen. Ziel ist es, den Zusammenhang zwischen möglichen Ursachen und einer beobachteten Wirkung – beispielsweise einer Messabweichung – übersichtlich darzustellen und eine <strong>Prüfung auf Vollständigkeit</strong> der betrachteten Einflussgrößen zu ermöglichen.</p>
+<figure class="align-default" id="ishikawa">
+<a class="reference internal image-reference" href="../_images/ishikawa.png"><img alt="Ishikawa" src="../_images/ishikawa.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Abb. 24 </span><span class="caption-text">Bild entnommen aus <a class="reference external" href="https://www.gik.kit.edu/downloads/%5BSCHW20%5DGUM_AVN_Teil1.pdf">https://www.gik.kit.edu/downloads/[SCHW20]GUM_AVN_Teil1.pdf</a>.</span><a class="headerlink" href="#ishikawa" title="Link zu diesem Bild">#</a></p>
+</figcaption>
+</figure>
+<p>Das Diagramm wurde von <strong>Kaoru Ishikawa</strong> entwickelt und wird aufgrund seiner Form auch als <strong>Fischgräten-Diagramm</strong> bezeichnet. In der Mitte steht der <strong>Effekt</strong> bzw. das zu erklärende <strong>Problem</strong>, während die Ursachen entlang der „Gräten“ in Haupt- und Unterkategorien gegliedert werden. Typische Hauptkategorien umfassen etwa:</p>
+<ul class="simple">
+<li><p><strong>Mensch</strong> (Bedienfehler, Erfahrung, Aufmerksamkeit)</p></li>
+<li><p><strong>Methode</strong> (Messstrategie, Kalibrierverfahren)</p></li>
+<li><p><strong>Material</strong> (Messobjekt, Prüfmittel, Oberflächenbeschaffenheit)</p></li>
+<li><p><strong>Maschine</strong> (Instrumentengenauigkeit, Drift, Justage)</p></li>
+<li><p><strong>Milieu / Umgebung</strong> (Temperatur, Luftdruck, Vibrationen)</p></li>
+<li><p><strong>Messgröße / Medium</strong> (Signalqualität, Rauschen, Übertragungsfehler)</p></li>
+</ul>
+<p>Das Ishikawa-Diagramm liefert jedoch <strong>keine vollständige Systematisierung aller Einflüsse</strong>, sondern dient vielmehr als <strong>strukturierte Denkhilfe</strong>, um potenzielle Ursachen zu identifizieren und zu diskutieren. Es muss daher stets <strong>an die jeweilige Messaufgabe angepasst</strong> werden – beispielsweise im Fall einer <strong>elektrooptischen Distanzmessung</strong>, bei der sowohl atmosphärische Parameter als auch optische, mechanische und elektronische Einflüsse berücksichtigt werden sollten.</p>
+<p>In der messtechnischen Praxis hilft das Ishikawa-Diagramm, <strong>systematische und zufällige Fehlerquellen zu unterscheiden</strong>, die <strong>Relevanz einzelner Einflussgrößen zu bewerten</strong> und Messprozesse gezielt zu verbessern. Es unterstützt damit nicht nur die Fehleranalyse, sondern auch die <strong>Qualitätssicherung und Unsicherheitsbewertung</strong> in modernen Messsystemen.</p>
 </section>
 </section>
 
@@ -732,8 +850,14 @@ Die Unsicherheit beträgt: +- 0.02207 V = +- 22.07499 mV
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anzeigefehler-von-messgeraten">Anzeigefehler von Messgeräten</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digitalstellenfehler">Digitalstellenfehler</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#messgerateabweichung">Messgeräteabweichung</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#genauigkeitsklassen">Genauigkeitsklassen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#digitalstellenfehler">Digitalstellenfehler</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#systematische-einflussgroszen-beim-gps">Systematische Einflussgrößen beim GPS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atmospharische-korrektur-bei-der-elektrooptischen-distanzmessung">Atmosphärische Korrektur bei der elektrooptischen Distanzmessung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ishikawa-diagramm-ursache-wirkungs-diagramm">Ishikawa-Diagramm (Ursache-Wirkungs-Diagramm)</a></li>
 </ul>
   </nav></div>
 

@@ -560,6 +560,7 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#kovarianz">Kovarianz</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#differentialle-datenubertragung">Differentialle Datenübertragung</a></li>
 </ul>
 </li>
 </ul>
@@ -1060,7 +1061,7 @@ dR =  5.418216235738347
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/11d90e92166fa896d47dafbaecdfcdea1fc30fee1ffdd239c339548035489547.png" src="../_images/11d90e92166fa896d47dafbaecdfcdea1fc30fee1ffdd239c339548035489547.png" />
+<img alt="../_images/0502d8885a0fd5ec2e70aa99136e8465f77cfe55f1446e426988817a09778e3f.png" src="../_images/0502d8885a0fd5ec2e70aa99136e8465f77cfe55f1446e426988817a09778e3f.png" />
 </div>
 </div>
 <p>Die Berechnung des Korrelationskoeffizienten zwischen zwei Variablen, <span class="math notranslate nohighlight">\(x_1\)</span> und <span class="math notranslate nohighlight">\(x_2\)</span>, kann auf zwei verschiedene Arten erfolgen:</p>
@@ -1121,16 +1122,74 @@ dR =  5.418216235738347
 \[u_{y}= \displaystyle \sum_{i=1}^n
  \left| \frac{\partial y}{\partial x_i} \right| u_{i}\]</div>
 </div>
+</section>
+</section>
+<section id="differentialle-datenubertragung">
+<h3>Differentialle Datenübertragung<a class="headerlink" href="#differentialle-datenubertragung" title="Permalink to this heading">#</a></h3>
+<p>Dieses Beispiel findet häufig Anwendung im Bereich der Signalübertragung und ist unter der Bezeichnung <strong>differentielle Signalübertragung</strong> bekannt. Neben dem eigentlichen Signal, <span class="math notranslate nohighlight">\(x_1\)</span> wird hierbei ein zweites, invertiertes Signal mitübertragen, <span class="math notranslate nohighlight">\(x_2 = -x_1\)</span>. Da alle Störungen innerhalb der gleichen Übertragungsstrecke fast vollständig korreliert sind, heben sich diese am Ende auf. Das Nutzsignal erhält man zurück, indem man folgende Signalkombination berechnet: <span class="math notranslate nohighlight">\(y = 0{,}5\cdot (x_1 - x_2)\)</span>. Aufgrund des hohen Korrelationsgrades der einzelnen Signalkomponenten ist die Unsicherheit des extrahierten Signal sehr klein: <span class="math notranslate nohighlight">\(u_y \simeq 0\)</span>.</p>
 <div class="tip dropdown admonition">
-<p class="admonition-title">Beispiel: Differentielle Datenübertragung </p>
-<p>Man nehme zwei Messwerte <span class="math notranslate nohighlight">\(x_1\)</span> und <span class="math notranslate nohighlight">\(x_2\)</span> deren Erwartungswerte und Unsicherheiten jeweils identisch sind, z.B. <span class="math notranslate nohighlight">\(\bar x_1 = -\bar x_2 = 10\)</span> mit <span class="math notranslate nohighlight">\(u_1 = u_2 = 1\)</span>. Die zu ermittelnde Messgröße wird über folgende Relation berechnet: <span class="math notranslate nohighlight">\(y = \bar x_1 - \bar x_2\)</span></p>
+<p class="admonition-title">Vollständige Herleitung</p>
+<p>Mittels Gauß’scher Fehlerfortpflanzung lässt sich die Messunsicherheit für</p>
+<div class="math notranslate nohighlight">
+\[
+y = 0{,}5 \cdot (x_1 - x_2)
+\]</div>
+<p>wie folgt allgemein bestimmen:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-b7a41068-1da1-43a8-bca0-8f1db25a4f4f">
+<span class="eqno">(1)<a class="headerlink" href="#equation-b7a41068-1da1-43a8-bca0-8f1db25a4f4f" title="Permalink to this equation">#</a></span>\[\begin{align}
+u_y &amp;= \sqrt{\underbrace{\sum_{i=1}^n\left(\frac{\partial y}{\partial x_i}\, u_i\right)^2}_{\mathrm{wie~oben}} 
+      + 2\,\underbrace{\sum_{i=1}^{n-1}\sum_{k=i+1}^n 
+      \frac{\partial y}{\partial x_i}\,\frac{\partial y}{\partial x_k}\,\mathrm{cov}(x_i,x_k)}_{\mathrm{Korrelationsterme}}}\\
+      &amp;= \sqrt{\underbrace{\left(\frac{\partial y}{\partial x_1} \cdot u_1\right)^2 + \left(\frac{\partial y}{\partial x_2} \cdot u_2\right)^2}_{\mathrm{wie~oben}} + \underbrace{2 \frac{\partial y}{\partial x_1} \frac{\partial y}{\partial x_2} \mathrm{cov}(x_a, x_2)}_{Korrelationsterm} }
+\end{align}\]</div>
+<p>Die Sensitivitätskoeffizienten sind:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial y}{\partial x_1} = 0{,}5, \qquad
+\frac{\partial y}{\partial x_2} = -0{,}5
+\]</div>
+<p>Eingesetzt in die obige Gleichung folgt:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-52bc8717-3b6f-47db-8ede-9c23c575c36d">
+<span class="eqno">(2)<a class="headerlink" href="#equation-52bc8717-3b6f-47db-8ede-9c23c575c36d" title="Permalink to this equation">#</a></span>\[\begin{align}
+u_y &amp;= \sqrt{(0{,}5)^2 u_1^2 + (-0{,}5)^2 u_2^2 + 2 (0{,}5)(-0{,}5) \, \mathrm{cov}(x_1, x_2)} \\
+&amp;= \sqrt{\tfrac{1}{4} \left( u_1^2 + u_2^2 - 2 \, \mathrm{cov}(x_1, x_2) \right)} \\
+&amp;= \tfrac{1}{2} \sqrt{u_1^2 + u_2^2 - 2 \, \mathrm{cov}(x_1, x_2)}
+\end{align}\]</div>
+<p>Mit dem Korrelationskoeffizienten</p>
+<div class="math notranslate nohighlight">
+\[
+r = \frac{\mathrm{cov}_{x_1x_2}}{s_{x_1} \cdot s_{x_2}}
+\]</div>
+<p>lässt sich die Kovarianz durch <span class="math notranslate nohighlight">\(r\)</span> ausdrücken:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{cov}(x_1,x_2) = r \cdot u_1 \cdot u_2
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+u_y = \tfrac{1}{2} \sqrt{u_1^2 + u_2^2 - 2 r \, u_1 u_2}
+\]</div>
+<p>Für vollständig unkorrelierte Größen (<span class="math notranslate nohighlight">\(r = 0\)</span>) gilt also:</p>
+<div class="math notranslate nohighlight">
+\[
+u_y = \tfrac{1}{2} \sqrt{u_1^2 + u_2^2}
+\]</div>
+<p>Für vollständig korrelierte Größen:</p>
+<div class="math notranslate nohighlight">
+\[
+\rho = +1: \quad u_y = \tfrac{1}{2} |u_1 - u_2|, \qquad
+\]</div>
+<p>Im Spezialfall identischer Unsicherheiten <span class="math notranslate nohighlight">\(u_1 = u_2 = u\)</span> folgt:</p>
+<div class="math notranslate nohighlight">
+\[
+\rho = 0: \quad u_y = \tfrac{u}{\sqrt{2}}, \qquad
+\rho = +1: \quad u_y = 0, \qquad
+\]</div>
+</div>
 <ul class="simple">
-<li><p>Das Ergebnis für <span class="math notranslate nohighlight">\(r = 0\)</span>, d.h. <strong>unabhängige</strong> Messwerte, der kombinierten Messunsicherheit für <span class="math notranslate nohighlight">\(y\)</span> beträgt <span class="math notranslate nohighlight">\(u_y = 1{,}4\)</span></p></li>
+<li><p>Das Ergebnis für <span class="math notranslate nohighlight">\(r = 0\)</span>, d.h. <strong>unabhängige</strong> Messwerte, der kombinierten Messunsicherheit für <span class="math notranslate nohighlight">\(y\)</span> beträgt <span class="math notranslate nohighlight">\(u_y = 0{,}35\)</span></p></li>
 <li><p>Das Ergebnis für <span class="math notranslate nohighlight">\(r = 1\)</span>, d.h. <strong>korrelierte</strong> Messwerte, der kombinierten Messunsicherheit für <span class="math notranslate nohighlight">\(y\)</span> beträgt <span class="math notranslate nohighlight">\(u_y = 0{,}0\)</span></p></li>
 </ul>
-<p>Dieses Beispiel findet häufig Anwendung im Bereich der Signalübertragung und ist unter der Bezeichnung <strong>differentielle Signalübertragung</strong> bekannt. Neben dem eigentlichen Signal, <span class="math notranslate nohighlight">\(x_1\)</span> wird hierbei ein zweites, invertiertes Signal mitübertragen, <span class="math notranslate nohighlight">\(x_2 = -x_1\)</span>. Da alle Störungen innerhalb der gleichen Übertragungsstrecke fast vollständig korreliert sind, heben sich diese am Ende auf. Das Nutzsignal erhält man zurück, indem man folgende Signalkombination berechnet: <span class="math notranslate nohighlight">\(y = 0{,}5\cdot (x_1 - x_2)\)</span>. Aufgrund des hohen Korrelationsgrades der einzelnen Signalkomponenten ist die Unsicherheit des extrahierten Signal sehr klein: <span class="math notranslate nohighlight">\(u_y \simeq 0\)</span>.</p>
-</div>
-</section>
 </section>
 </section>
 </section>
@@ -1212,6 +1271,7 @@ dR =  5.418216235738347
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#kovarianz">Kovarianz</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#differentialle-datenubertragung">Differentialle Datenübertragung</a></li>
 </ul>
 </li>
 </ul>

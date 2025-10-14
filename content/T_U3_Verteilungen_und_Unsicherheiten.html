@@ -546,7 +546,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#darstellung">Darstellung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histogram-darstellung">Histogram-Darstellung</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diskussion-der-verteilungen">Diskussion der Verteilungen</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistische-auswertung">Statistische Auswertung</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#berechnung-der-messunsicherheit-des-mittelwertes">Berechnung der Messunsicherheit des Mittelwertes</a><ul class="nav section-nav flex-column">
@@ -582,8 +582,8 @@ Anschließend sind die resultierenden Wahrscheinlichkeitsverteilungen grafisch d
 </div>
 </div>
 </div>
-<section id="darstellung">
-<h2>Darstellung<a class="headerlink" href="#darstellung" title="Permalink to this heading">#</a></h2>
+<section id="histogram-darstellung">
+<h2>Histogram-Darstellung<a class="headerlink" href="#histogram-darstellung" title="Permalink to this heading">#</a></h2>
 <p>Lesen Sie die Messdaten ein und erstellen Sie für alle drei Datensätze Histogramme der Messwerte um die zugrundeliegende Verteilung zu visualisieren.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -591,9 +591,9 @@ Anschließend sind die resultierenden Wahrscheinlichkeitsverteilungen grafisch d
 <span class="c1"># 1. Messdaten einladen</span>
 <span class="c1"># --------------------------------------------</span>
 <span class="c1"># CSV-Dateien laden</span>
-<span class="n">data_normal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;beschleunigungsmessung.csv&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
-<span class="n">data_rect</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;pendelausschlag.csv&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
-<span class="n">data_tri</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;zweiDigitalsensoren.csv&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+<span class="n">data_normal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;1_beschleunigungsmessung.csv&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+<span class="n">data_rect</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;2_pendelausschlag.csv&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+<span class="n">data_tri</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;3_zweiDigitalsensoren.csv&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Datensätze wurden eingelesen.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
@@ -627,9 +627,9 @@ Anschließend sind die resultierenden Wahrscheinlichkeitsverteilungen grafisch d
 <span class="n">data_tri</span> <span class="o">=</span> <span class="n">true_angle</span> <span class="o">+</span> <span class="p">(</span><span class="n">u1</span> <span class="o">+</span> <span class="n">u2</span><span class="p">)</span>
 
 <span class="c1"># Speicherung der Datensätze (optional)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s2">&quot;beschleunigungsmessung.csv&quot;</span><span class="p">,</span> <span class="n">data_normal</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s2">&quot;pendelausschlag.csv&quot;</span><span class="p">,</span> <span class="n">data_rect</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s2">&quot;zweiDigitalsensoren.csv&quot;</span><span class="p">,</span> <span class="n">data_tri</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s2">&quot;1_beschleunigungsmessung.csv&quot;</span><span class="p">,</span> <span class="n">data_normal</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s2">&quot;2_pendelausschlag.csv&quot;</span><span class="p">,</span> <span class="n">data_rect</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s2">&quot;3_zweiDigitalsensoren.csv&quot;</span><span class="p">,</span> <span class="n">data_tri</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Datensätze wurden erzeugt und gespeichert.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
@@ -647,12 +647,12 @@ Anschließend sind die resultierenden Wahrscheinlichkeitsverteilungen grafisch d
 <span class="c1"># 2. Visualisierung</span>
 <span class="c1"># --------------------------------------------------------------</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="n">datasets</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">(</span><span class="n">data_normal</span><span class="p">,</span> <span class="s2">&quot;Messreihe A – Normalverteilung (Rauschmessung)&quot;</span><span class="p">),</span>
-    <span class="p">(</span><span class="n">data_rect</span><span class="p">,</span>   <span class="s2">&quot;Messreihe B – Rechteckverteilung (Encoder)&quot;</span><span class="p">),</span>
-    <span class="p">(</span><span class="n">data_tri</span><span class="p">,</span>    <span class="s2">&quot;Messreihe C – Dreiecksverteilung (zwei Quantisierungen)&quot;</span><span class="p">)</span>
+    <span class="p">(</span><span class="n">data_normal</span><span class="p">,</span> <span class="s2">&quot;Messreihe A – (Beschleunigung)&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="n">data_rect</span><span class="p">,</span>   <span class="s2">&quot;Messreihe B – (Winkelmessung)&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="n">data_tri</span><span class="p">,</span>    <span class="s2">&quot;Messreihe C – (zwei Digitalsensoren)&quot;</span><span class="p">),</span>
 <span class="p">]</span>
 
 <span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">title</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="n">datasets</span><span class="p">):</span>
@@ -681,7 +681,7 @@ Anschließend sind die resultierenden Wahrscheinlichkeitsverteilungen grafisch d
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/420f2533635a510c44b1cd4c31ce35bcd40b57ddf32b30aefef4a9a8edaa1d05.png" src="../_images/420f2533635a510c44b1cd4c31ce35bcd40b57ddf32b30aefef4a9a8edaa1d05.png" />
+<img alt="../_images/e74a81b070519f2e9668db9523810da2d7fb0e6a1d3b6a67d5886de41a750eeb.png" src="../_images/e74a81b070519f2e9668db9523810da2d7fb0e6a1d3b6a67d5886de41a750eeb.png" />
 </div>
 </div>
 <p>Sollten Sie sich unsicher sein, welche Verteilung vorliegt, kann man in Python schnell mittels Shapiro–Wilk-Tests überprüfen, ob eine Stichprobe normalverteilt ist.
@@ -739,14 +739,19 @@ Shapiro–Wilk-Test: Statistik=0.9913, p=0.0000
 </div>
 </div>
 <p>Neben dem Shapiro–Wilk-Test, der ausschließlich auf Normalverteilung prüft, existieren auch weitere statistische Verfahren, mit denen Daten auf andere Verteilungsformen getestet werden können.
-Für die vorliegende Aufgabenstellung ist es jedoch ausreichend, zwischen einer Normalverteilung und einer Dreiecksverteilung sicher unterscheiden zu können, da diese beiden Verteilungen die charakteristischen Grenzfälle der betrachteten Messsituationen darstellen.</p>
+Für die vorliegende Aufgabenstellung ist es jedoch ausreichend, zwischen einer Normalverteilung und einer Dreiecksverteilung sicher unterscheiden zu können, da diese beiden Verteilungen die charakteristischen Grenzfälle der betrachteten Messsituationen darstellen. Den einzelnen Messreihen können also folgende Verteilungen zugeordnet werden:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --------------------------------------------------------------</span>
 <span class="c1"># 2. Visualisierung mit Theorie</span>
 <span class="c1"># --------------------------------------------------------------</span>
+<span class="n">datasets</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="n">data_normal</span><span class="p">,</span> <span class="s2">&quot;Messreihe A – Normalverteilung&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="n">data_rect</span><span class="p">,</span>   <span class="s2">&quot;Messreihe B – Rechteckverteilung&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="n">data_tri</span><span class="p">,</span>    <span class="s2">&quot;Messreihe C – Dreiecksverteilung&quot;</span><span class="p">),</span>
+<span class="p">]</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">title</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="n">datasets</span><span class="p">):</span>
     <span class="c1"># Histogramm der Messdaten</span>
@@ -795,7 +800,7 @@ Für die vorliegende Aufgabenstellung ist es jedoch ausreichend, zwischen einer 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/50dee972173193d2d85fe4217f8e2152975dd3afba0e0fa36952631b6b3d8f79.png" src="../_images/50dee972173193d2d85fe4217f8e2152975dd3afba0e0fa36952631b6b3d8f79.png" />
+<img alt="../_images/b7b64a15bfc1a0fd238dd829684398bf544bc8b7340b0390ceedb3767f282b59.png" src="../_images/b7b64a15bfc1a0fd238dd829684398bf544bc8b7340b0390ceedb3767f282b59.png" />
 </div>
 </div>
 </section>
@@ -853,7 +858,7 @@ Die Standardabweichung quantifiziert die Streuung der Messwerte um diesen Mittel
 <span class="c1"># 2. Visualisierung mit Theorie, Mittelwert und Standardabweichung</span>
 <span class="c1"># --------------------------------------------------------------</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="c1"># Mittelwerte und Standardabweichungen aus der Statistik</span>
 <span class="n">stats</span> <span class="o">=</span> <span class="p">[</span>
@@ -914,7 +919,7 @@ Die Standardabweichung quantifiziert die Streuung der Messwerte um diesen Mittel
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/dfa8d49b6d2c6de0d2b8c0c6af82a52dd1d568163545e66f3effa4aeda043a14.png" src="../_images/dfa8d49b6d2c6de0d2b8c0c6af82a52dd1d568163545e66f3effa4aeda043a14.png" />
+<img alt="../_images/331feb9432475375ec9a52271363d7ff0794e89fa6a376f5a3b7f1a8766b95cb.png" src="../_images/331feb9432475375ec9a52271363d7ff0794e89fa6a376f5a3b7f1a8766b95cb.png" />
 </div>
 </div>
 </section>
@@ -962,8 +967,9 @@ Dabei wird der <strong>Verteilungsfaktor <span class="math notranslate nohighlig
 </tbody>
 </table>
 <p>Der Verteilungsfaktor <span class="math notranslate nohighlight">\(G\)</span> wird somit abhängig vom zugrunde liegenden Fehlerverhalten gewählt.</p>
-<p>Allgemein gilt zur Berechnung der Messunsicherheit des Mittelwertes also:
-$<span class="math notranslate nohighlight">\(u = \sqrt{G} \cdot \frac{s}{\sqrt{n}}\)</span>$</p>
+<p>Allgemein gilt zur Berechnung der Messunsicherheit des Mittelwertes also:</p>
+<div class="math notranslate nohighlight">
+\[u = \sqrt{G} \cdot \frac{s}{\sqrt{n}}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --------------------------------------------</span>
@@ -1101,7 +1107,7 @@ Hinweis: Die angegebenen Unsicherheiten entsprechen den Standardunsicherheiten (
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#darstellung">Darstellung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histogram-darstellung">Histogram-Darstellung</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diskussion-der-verteilungen">Diskussion der Verteilungen</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistische-auswertung">Statistische Auswertung</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#berechnung-der-messunsicherheit-des-mittelwertes">Berechnung der Messunsicherheit des Mittelwertes</a><ul class="nav section-nav flex-column">

@@ -261,6 +261,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="T_Plotten.html">Klimadaten auswerten</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_FitmitFehlerbalken.html">Lineare Regression mit Fehlerbalken</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T_U3_Verteilungen_und_Unsicherheiten.html">Drei Messreihen - Drei Verteilungen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Fehlerfortpflanzung.html">Fehlerfortpflanzung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Log.html">Logarithmische Darstellung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="T_Spektralanalyse_Audio.html">Fourier-Transformation und Filter</a></li>
@@ -614,25 +615,25 @@ Dadurch können differentielle Weglängenunterschiede zwischen den zwei Interfer
 \[E_2 = A_2 \cos(\omega_0 t + \varphi)\]</div>
 <p>wobei wir die Amplitude mit <span class="math notranslate nohighlight">\(A\)</span> bezeichnen und <span class="math notranslate nohighlight">\(\omega_0\)</span> die Laserfrequenz ist (im Bereichen von einigen Hundert THz). Weiterhin nehmen wir an, dass der Interferometerarm 1 seine Länge nicht ändert und wir im 2. Laserarm die Phase <span class="math notranslate nohighlight">\(\varphi\)</span> messen, die die zu messende Information beinhaltet (z.B. die Bewegung eines Spiegels).</p>
 <p>Diese beiden Strahlen werden an einem halbdurchlässigen Spiegel miteinander überlagert. Deren Leistung wird mittels einer Photodiode gemessen, die die einfallene Strahlungsleistung in einen Photostrom umwandelt. Die eintreffende Intensität lässt sich wiefolgt aus den beiden elektromagnetischen Feldern berechnen:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d9409c34-9f1e-45f9-807f-dfe68e6619bf">
-<span class="eqno">(2)<a class="headerlink" href="#equation-d9409c34-9f1e-45f9-807f-dfe68e6619bf" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-db641120-82de-4e01-b798-96738272be21">
+<span class="eqno">(2)<a class="headerlink" href="#equation-db641120-82de-4e01-b798-96738272be21" title="Permalink to this equation">#</a></span>\[\begin{align}
 I &amp;\propto |E_1 + E_2|^2 = |A_1 \cos(\omega_0 t) + A_2 \cos(\omega_0 t + \varphi)|^2 \\
 &amp;= A_1^2 \cos(\omega_0 t)^2 +  2 A_1 A_2 \cos(\omega_0 t)  \cos(\omega_0 t + \varphi) + A_2^2 \cos(\omega_0 t + \varphi)^2
 \end{align}\]</div>
 <p>Mittels Additionstheoremen</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9dcc181c-18a4-4a96-ba5a-fce8f4ffaac6">
-<span class="eqno">(3)<a class="headerlink" href="#equation-9dcc181c-18a4-4a96-ba5a-fce8f4ffaac6" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d2a76152-7e6a-4ac3-a539-213ce3f61ec3">
+<span class="eqno">(3)<a class="headerlink" href="#equation-d2a76152-7e6a-4ac3-a539-213ce3f61ec3" title="Permalink to this equation">#</a></span>\[\begin{align}
 \cos^2x &amp;= \frac{1}{2}\left(1+ \cos(2x) \right) \\
 \cos x \cos y &amp;= \frac{1}{2}\left(\cos(x-y) + \cos(x+y) \right) 
 \end{align}\]</div>
 <p>lässt sich die Gleichung weiter umschreiben zu:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-54777276-a959-495c-86a1-1ca49f19b953">
-<span class="eqno">(4)<a class="headerlink" href="#equation-54777276-a959-495c-86a1-1ca49f19b953" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ec1c412a-8cc9-45d4-ac8a-a318e51d8882">
+<span class="eqno">(4)<a class="headerlink" href="#equation-ec1c412a-8cc9-45d4-ac8a-a318e51d8882" title="Permalink to this equation">#</a></span>\[\begin{align}
 I &amp;\propto \frac{A_1^2}{2} + \frac{A_1^2}{2}\cos(2\omega_0 t) + A_1 A_2 \left( \cos(-\varphi) + \cos(2\omega_0 t + \varphi) \right) + \frac{A_2^2}{2} + \frac{A_2^2}{2}\cos(2\omega_0 t + 2 \varphi)
 \end{align}\]</div>
 <p>Da es sich bei der Laserfrequenz um eine sehr hoch frequente Schwingung handelt, die bist zu <span class="math notranslate nohighlight">\(10^14\)</span> mal pro Sekunde oszilliert (z.B. 280 THz für infrarotes Licht), agiert die Photodiode selbst als Tiefpassfilter, da sie so hohe Frequenzen nicht mehr auflösen kann. Daher können wir im Folgenden alle Cosinus-Terme der Frequenz <span class="math notranslate nohighlight">\(2\omega_0\)</span> vernachlässigen:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-38da47cc-5bc3-4835-837d-2e2efd89f2cb">
-<span class="eqno">(5)<a class="headerlink" href="#equation-38da47cc-5bc3-4835-837d-2e2efd89f2cb" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1c162938-57d4-4121-a731-7e6b55452965">
+<span class="eqno">(5)<a class="headerlink" href="#equation-1c162938-57d4-4121-a731-7e6b55452965" title="Permalink to this equation">#</a></span>\[\begin{align}
 I &amp;\propto \frac{A_1^2}{2} + A_1 A_2 \left( \cos(-\varphi) \right) + \frac{A_2^2}{2} \\
 &amp;= \frac{A_1^2}{2} + \frac{A_2^2}{2} + A_1 A_2 \cos(-\varphi) 
 \end{align}\]</div>
@@ -898,42 +899,42 @@ input[type=range].anim-slider {
 </style>
 
 <div class="animation">
-  <img id="_anim_imgb272d9e4ab654367ab25f022eef369fd">
+  <img id="_anim_imgf35d4d9bd61d444386d9c8adc18c1162">
   <div class="anim-controls">
-    <input id="_anim_sliderb272d9e4ab654367ab25f022eef369fd" type="range" class="anim-slider"
+    <input id="_anim_sliderf35d4d9bd61d444386d9c8adc18c1162" type="range" class="anim-slider"
            name="points" min="0" max="1" step="1" value="0"
-           oninput="animb272d9e4ab654367ab25f022eef369fd.set_frame(parseInt(this.value));">
+           oninput="animf35d4d9bd61d444386d9c8adc18c1162.set_frame(parseInt(this.value));">
     <div class="anim-buttons">
-      <button title="Decrease speed" aria-label="Decrease speed" onclick="animb272d9e4ab654367ab25f022eef369fd.slower()">
+      <button title="Decrease speed" aria-label="Decrease speed" onclick="animf35d4d9bd61d444386d9c8adc18c1162.slower()">
           <i class="fa fa-minus"></i></button>
-      <button title="First frame" aria-label="First frame" onclick="animb272d9e4ab654367ab25f022eef369fd.first_frame()">
+      <button title="First frame" aria-label="First frame" onclick="animf35d4d9bd61d444386d9c8adc18c1162.first_frame()">
         <i class="fa fa-fast-backward"></i></button>
-      <button title="Previous frame" aria-label="Previous frame" onclick="animb272d9e4ab654367ab25f022eef369fd.previous_frame()">
+      <button title="Previous frame" aria-label="Previous frame" onclick="animf35d4d9bd61d444386d9c8adc18c1162.previous_frame()">
           <i class="fa fa-step-backward"></i></button>
-      <button title="Play backwards" aria-label="Play backwards" onclick="animb272d9e4ab654367ab25f022eef369fd.reverse_animation()">
+      <button title="Play backwards" aria-label="Play backwards" onclick="animf35d4d9bd61d444386d9c8adc18c1162.reverse_animation()">
           <i class="fa fa-play fa-flip-horizontal"></i></button>
-      <button title="Pause" aria-label="Pause" onclick="animb272d9e4ab654367ab25f022eef369fd.pause_animation()">
+      <button title="Pause" aria-label="Pause" onclick="animf35d4d9bd61d444386d9c8adc18c1162.pause_animation()">
           <i class="fa fa-pause"></i></button>
-      <button title="Play" aria-label="Play" onclick="animb272d9e4ab654367ab25f022eef369fd.play_animation()">
+      <button title="Play" aria-label="Play" onclick="animf35d4d9bd61d444386d9c8adc18c1162.play_animation()">
           <i class="fa fa-play"></i></button>
-      <button title="Next frame" aria-label="Next frame" onclick="animb272d9e4ab654367ab25f022eef369fd.next_frame()">
+      <button title="Next frame" aria-label="Next frame" onclick="animf35d4d9bd61d444386d9c8adc18c1162.next_frame()">
           <i class="fa fa-step-forward"></i></button>
-      <button title="Last frame" aria-label="Last frame" onclick="animb272d9e4ab654367ab25f022eef369fd.last_frame()">
+      <button title="Last frame" aria-label="Last frame" onclick="animf35d4d9bd61d444386d9c8adc18c1162.last_frame()">
           <i class="fa fa-fast-forward"></i></button>
-      <button title="Increase speed" aria-label="Increase speed" onclick="animb272d9e4ab654367ab25f022eef369fd.faster()">
+      <button title="Increase speed" aria-label="Increase speed" onclick="animf35d4d9bd61d444386d9c8adc18c1162.faster()">
           <i class="fa fa-plus"></i></button>
     </div>
-    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_selectb272d9e4ab654367ab25f022eef369fd"
+    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_selectf35d4d9bd61d444386d9c8adc18c1162"
           class="anim-state">
-      <input type="radio" name="state" value="once" id="_anim_radio1_b272d9e4ab654367ab25f022eef369fd"
+      <input type="radio" name="state" value="once" id="_anim_radio1_f35d4d9bd61d444386d9c8adc18c1162"
              >
-      <label for="_anim_radio1_b272d9e4ab654367ab25f022eef369fd">Once</label>
-      <input type="radio" name="state" value="loop" id="_anim_radio2_b272d9e4ab654367ab25f022eef369fd"
+      <label for="_anim_radio1_f35d4d9bd61d444386d9c8adc18c1162">Once</label>
+      <input type="radio" name="state" value="loop" id="_anim_radio2_f35d4d9bd61d444386d9c8adc18c1162"
              checked>
-      <label for="_anim_radio2_b272d9e4ab654367ab25f022eef369fd">Loop</label>
-      <input type="radio" name="state" value="reflect" id="_anim_radio3_b272d9e4ab654367ab25f022eef369fd"
+      <label for="_anim_radio2_f35d4d9bd61d444386d9c8adc18c1162">Loop</label>
+      <input type="radio" name="state" value="reflect" id="_anim_radio3_f35d4d9bd61d444386d9c8adc18c1162"
              >
-      <label for="_anim_radio3_b272d9e4ab654367ab25f022eef369fd">Reflect</label>
+      <label for="_anim_radio3_f35d4d9bd61d444386d9c8adc18c1162">Reflect</label>
     </form>
   </div>
 </div>
@@ -943,9 +944,9 @@ input[type=range].anim-slider {
   /* Instantiate the Animation class. */
   /* The IDs given should match those used in the template above. */
   (function() {
-    var img_id = "_anim_imgb272d9e4ab654367ab25f022eef369fd";
-    var slider_id = "_anim_sliderb272d9e4ab654367ab25f022eef369fd";
-    var loop_select_id = "_anim_loop_selectb272d9e4ab654367ab25f022eef369fd";
+    var img_id = "_anim_imgf35d4d9bd61d444386d9c8adc18c1162";
+    var slider_id = "_anim_sliderf35d4d9bd61d444386d9c8adc18c1162";
+    var loop_select_id = "_anim_loop_selectf35d4d9bd61d444386d9c8adc18c1162";
     var frames = new Array(51);
     
   frames[0] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAEsCAYAAAAhNGCdAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
@@ -26039,7 +26040,7 @@ CCGEEL1GCS8hhBBCCNFrlPASQgghhBC9RgkvIYQQQgjRa/8PbWPQx1aW0ysAAAAASUVORK5CYII=\
     /* set a timeout to make sure all the above elements are created before
        the object is initialized. */
     setTimeout(function() {
-        animb272d9e4ab654367ab25f022eef369fd = new Animation(frames, img_id, slider_id, 20.0,
+        animf35d4d9bd61d444386d9c8adc18c1162 = new Animation(frames, img_id, slider_id, 20.0,
                                  loop_select_id);
     }, 0);
   })()
@@ -26058,21 +26059,21 @@ CCGEEL1GCS8hhBBCCNFrlPASQgghhBC9RgkvIYQQQgjRa/8PbWPQx1aW0ysAAAAASUVORK5CYII=\
 \[E_2 = A_2 \cos(\omega_2 t + \varphi)\]</div>
 <p>Wir nehmen wieder der Einfachheithalber an, dass der eine Interferometerarm stabil ist und sich lediglich die Phasenlage im zweiten Interferometerarm mit <span class="math notranslate nohighlight">\(\varphi\)</span> ändert.
 Wieder berechnen wir die Intensität auf der Photodiode mittels:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1bf20cf9-e182-45fc-88fb-871ae0dfaf59">
-<span class="eqno">(6)<a class="headerlink" href="#equation-1bf20cf9-e182-45fc-88fb-871ae0dfaf59" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-72ad2b13-6c4d-4b21-97a9-255cae447c7a">
+<span class="eqno">(6)<a class="headerlink" href="#equation-72ad2b13-6c4d-4b21-97a9-255cae447c7a" title="Permalink to this equation">#</a></span>\[\begin{align}
 I &amp;\propto |E_1 + E_2|^2 = |A_1 \cos(\omega_1 t) + A_2 \cos(\omega_2 t + \varphi)|^2 \\
 &amp;= A_1^2 \cos(\omega_1 t)^2 +  2 A_1 A_2 \cos(\omega_1 t)  \cos(\omega_2 t + \varphi) + A_2^2 \cos(\omega_2 t + \varphi)^2
 \end{align}\]</div>
 <p>und wieder können wir die Gleichung mittels Additionstheoremen von oben vereinfachen zu:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6ef98213-1f28-4d74-9f77-b418a1127e77">
-<span class="eqno">(7)<a class="headerlink" href="#equation-6ef98213-1f28-4d74-9f77-b418a1127e77" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-39261e26-dcae-499a-b8eb-871921611d1c">
+<span class="eqno">(7)<a class="headerlink" href="#equation-39261e26-dcae-499a-b8eb-871921611d1c" title="Permalink to this equation">#</a></span>\[\begin{align}
 I &amp;\propto \frac{A_1^2}{2} + \frac{A_1^2}{2}\cos([\omega_1+\omega_2] t) \\ 
 &amp;+ A_1 A_2 \left( \cos([\omega_1-\omega_2]t-\varphi) + \cos([\omega_1+\omega_2] t + \varphi) \right) \\
 &amp; + \frac{A_2^2}{2} + \frac{A_2^2}{2}\cos([\omega_1+\omega_2] t + 2 \varphi)
 \end{align}\]</div>
 <p>Wieder können wir annehmen, dass hohe Frequenzanteile aufgrund der Tiefpassverhaltens der Photodiode nicht mehr aufgenommen werden und wir können die Terme mit <span class="math notranslate nohighlight">\(\omega_1 + \omega_2\)</span> vernachlässigen:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4f487bca-dab5-4eda-9f5a-696ebd7f2534">
-<span class="eqno">(8)<a class="headerlink" href="#equation-4f487bca-dab5-4eda-9f5a-696ebd7f2534" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6c089888-6371-48d9-86f9-8aac70160d86">
+<span class="eqno">(8)<a class="headerlink" href="#equation-6c089888-6371-48d9-86f9-8aac70160d86" title="Permalink to this equation">#</a></span>\[\begin{align}
 I &amp;\propto \frac{A_1^2}{2} + A_1 A_2 \cos([\omega_1-\omega_2]t-\varphi) + \frac{A_2^2}{2} \\
 &amp;= \frac{A_1^2}{2} + \frac{A_2^2}{2} + A_1 A_2 \cos([\omega_1-\omega_2]t-\varphi)
 \end{align}\]</div>
@@ -26329,42 +26330,42 @@ input[type=range].anim-slider {
 </style>
 
 <div class="animation">
-  <img id="_anim_img5edb8a1648394872a8b6f8287841e6e0">
+  <img id="_anim_img6cb3f1bee40a4bf28d632f08b547a2ff">
   <div class="anim-controls">
-    <input id="_anim_slider5edb8a1648394872a8b6f8287841e6e0" type="range" class="anim-slider"
+    <input id="_anim_slider6cb3f1bee40a4bf28d632f08b547a2ff" type="range" class="anim-slider"
            name="points" min="0" max="1" step="1" value="0"
-           oninput="anim5edb8a1648394872a8b6f8287841e6e0.set_frame(parseInt(this.value));">
+           oninput="anim6cb3f1bee40a4bf28d632f08b547a2ff.set_frame(parseInt(this.value));">
     <div class="anim-buttons">
-      <button title="Decrease speed" aria-label="Decrease speed" onclick="anim5edb8a1648394872a8b6f8287841e6e0.slower()">
+      <button title="Decrease speed" aria-label="Decrease speed" onclick="anim6cb3f1bee40a4bf28d632f08b547a2ff.slower()">
           <i class="fa fa-minus"></i></button>
-      <button title="First frame" aria-label="First frame" onclick="anim5edb8a1648394872a8b6f8287841e6e0.first_frame()">
+      <button title="First frame" aria-label="First frame" onclick="anim6cb3f1bee40a4bf28d632f08b547a2ff.first_frame()">
         <i class="fa fa-fast-backward"></i></button>
-      <button title="Previous frame" aria-label="Previous frame" onclick="anim5edb8a1648394872a8b6f8287841e6e0.previous_frame()">
+      <button title="Previous frame" aria-label="Previous frame" onclick="anim6cb3f1bee40a4bf28d632f08b547a2ff.previous_frame()">
           <i class="fa fa-step-backward"></i></button>
-      <button title="Play backwards" aria-label="Play backwards" onclick="anim5edb8a1648394872a8b6f8287841e6e0.reverse_animation()">
+      <button title="Play backwards" aria-label="Play backwards" onclick="anim6cb3f1bee40a4bf28d632f08b547a2ff.reverse_animation()">
           <i class="fa fa-play fa-flip-horizontal"></i></button>
-      <button title="Pause" aria-label="Pause" onclick="anim5edb8a1648394872a8b6f8287841e6e0.pause_animation()">
+      <button title="Pause" aria-label="Pause" onclick="anim6cb3f1bee40a4bf28d632f08b547a2ff.pause_animation()">
           <i class="fa fa-pause"></i></button>
-      <button title="Play" aria-label="Play" onclick="anim5edb8a1648394872a8b6f8287841e6e0.play_animation()">
+      <button title="Play" aria-label="Play" onclick="anim6cb3f1bee40a4bf28d632f08b547a2ff.play_animation()">
           <i class="fa fa-play"></i></button>
-      <button title="Next frame" aria-label="Next frame" onclick="anim5edb8a1648394872a8b6f8287841e6e0.next_frame()">
+      <button title="Next frame" aria-label="Next frame" onclick="anim6cb3f1bee40a4bf28d632f08b547a2ff.next_frame()">
           <i class="fa fa-step-forward"></i></button>
-      <button title="Last frame" aria-label="Last frame" onclick="anim5edb8a1648394872a8b6f8287841e6e0.last_frame()">
+      <button title="Last frame" aria-label="Last frame" onclick="anim6cb3f1bee40a4bf28d632f08b547a2ff.last_frame()">
           <i class="fa fa-fast-forward"></i></button>
-      <button title="Increase speed" aria-label="Increase speed" onclick="anim5edb8a1648394872a8b6f8287841e6e0.faster()">
+      <button title="Increase speed" aria-label="Increase speed" onclick="anim6cb3f1bee40a4bf28d632f08b547a2ff.faster()">
           <i class="fa fa-plus"></i></button>
     </div>
-    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_select5edb8a1648394872a8b6f8287841e6e0"
+    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_select6cb3f1bee40a4bf28d632f08b547a2ff"
           class="anim-state">
-      <input type="radio" name="state" value="once" id="_anim_radio1_5edb8a1648394872a8b6f8287841e6e0"
+      <input type="radio" name="state" value="once" id="_anim_radio1_6cb3f1bee40a4bf28d632f08b547a2ff"
              >
-      <label for="_anim_radio1_5edb8a1648394872a8b6f8287841e6e0">Once</label>
-      <input type="radio" name="state" value="loop" id="_anim_radio2_5edb8a1648394872a8b6f8287841e6e0"
+      <label for="_anim_radio1_6cb3f1bee40a4bf28d632f08b547a2ff">Once</label>
+      <input type="radio" name="state" value="loop" id="_anim_radio2_6cb3f1bee40a4bf28d632f08b547a2ff"
              checked>
-      <label for="_anim_radio2_5edb8a1648394872a8b6f8287841e6e0">Loop</label>
-      <input type="radio" name="state" value="reflect" id="_anim_radio3_5edb8a1648394872a8b6f8287841e6e0"
+      <label for="_anim_radio2_6cb3f1bee40a4bf28d632f08b547a2ff">Loop</label>
+      <input type="radio" name="state" value="reflect" id="_anim_radio3_6cb3f1bee40a4bf28d632f08b547a2ff"
              >
-      <label for="_anim_radio3_5edb8a1648394872a8b6f8287841e6e0">Reflect</label>
+      <label for="_anim_radio3_6cb3f1bee40a4bf28d632f08b547a2ff">Reflect</label>
     </form>
   </div>
 </div>
@@ -26374,9 +26375,9 @@ input[type=range].anim-slider {
   /* Instantiate the Animation class. */
   /* The IDs given should match those used in the template above. */
   (function() {
-    var img_id = "_anim_img5edb8a1648394872a8b6f8287841e6e0";
-    var slider_id = "_anim_slider5edb8a1648394872a8b6f8287841e6e0";
-    var loop_select_id = "_anim_loop_select5edb8a1648394872a8b6f8287841e6e0";
+    var img_id = "_anim_img6cb3f1bee40a4bf28d632f08b547a2ff";
+    var slider_id = "_anim_slider6cb3f1bee40a4bf28d632f08b547a2ff";
+    var loop_select_id = "_anim_loop_select6cb3f1bee40a4bf28d632f08b547a2ff";
     var frames = new Array(51);
     
   frames[0] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAAEsCAYAAAA1u0HIAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
@@ -49508,7 +49509,7 @@ TkSuQmCC\
     /* set a timeout to make sure all the above elements are created before
        the object is initialized. */
     setTimeout(function() {
-        anim5edb8a1648394872a8b6f8287841e6e0 = new Animation(frames, img_id, slider_id, 40.0,
+        anim6cb3f1bee40a4bf28d632f08b547a2ff = new Animation(frames, img_id, slider_id, 40.0,
                                  loop_select_id);
     }, 0);
   })()
@@ -49526,8 +49527,8 @@ TkSuQmCC\
 <ul class="simple">
 <li><p>Im ersten Weg wird die Demodulation mit der originalen Phasenlage (<em>in-phase</em>) durchgeführt und man erhält die <strong>I-Quadratur</strong>:</p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-63cc2c5d-d535-496a-80cb-4c5d174af9d7">
-<span class="eqno">(9)<a class="headerlink" href="#equation-63cc2c5d-d535-496a-80cb-4c5d174af9d7" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6ca7f899-ecfa-445b-819e-1e4e7e1b0f00">
+<span class="eqno">(9)<a class="headerlink" href="#equation-6ca7f899-ecfa-445b-819e-1e4e7e1b0f00" title="Permalink to this equation">#</a></span>\[\begin{align}
 I &amp;= A(t) \cdot \cos(\omega_\mathrm{het}t) \\
 &amp;= A_0 \cos(\omega_\mathrm{het}t-\varphi) \cdot \cos(\omega_\mathrm{het}t) \\
 &amp;= \frac{A_0}{2} \cdot \left( \cos(-\varphi) + \cos(2\omega_\mathrm{het}t-\varphi) \right) \\
@@ -49536,8 +49537,8 @@ I &amp;= A(t) \cdot \cos(\omega_\mathrm{het}t) \\
 <ul class="simple">
 <li><p>Der zweite Weg wird mit Referenzfrequenz demoduliert, die um 90° gegenüber dem ersten Weg verschoben ist, was die <strong>Q-Quadratur</strong> ergibt:</p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-2280b7c9-bf46-4209-8b9d-6a6e016f8abe">
-<span class="eqno">(10)<a class="headerlink" href="#equation-2280b7c9-bf46-4209-8b9d-6a6e016f8abe" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-bc0ed52d-7069-4e37-a422-248dc40d3425">
+<span class="eqno">(10)<a class="headerlink" href="#equation-bc0ed52d-7069-4e37-a422-248dc40d3425" title="Permalink to this equation">#</a></span>\[\begin{align}
 Q &amp;= A(t) \cdot \sin(\omega_\mathrm{het}t) \\
 &amp;= A_0 \cos(\omega_\mathrm{het}t-\varphi) \cdot \sin(\omega_\mathrm{het}t) \\
 &amp;= \frac{A_0}{2} \cdot \left( \sin(\varphi) + \sin(2\omega_\mathrm{het}t-\varphi) \right) \\

@@ -562,10 +562,9 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kovarianzmatrix">Kovarianzmatrix</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#praktische-methode-der-kleinsten-quadrate-least-squares-verfahren">Praktische Methode der kleinsten Quadrate (Least-Squares-Verfahren)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrixform-des-least-squares-verfahrens">Matrixform des Least-Squares-Verfahrens</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrixform-des-linearen-modells">Matrixform des linearen Modells</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#das-minimierungsproblem">Das Minimierungsproblem</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#losung-uber-die-pseudoinverse">Lösung über die Pseudoinverse</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#erweiterungen">Erweiterungen</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fehlerabschatzung-der-parameter">Fehlerabschätzung der Parameter</a></li>
 </ul>
@@ -643,7 +642,68 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/bbccaa8f1f833ca3b2f3a392c0aede0535e92a616895ec7e8cdff7b53f3f6db6.png" src="../_images/bbccaa8f1f833ca3b2f3a392c0aede0535e92a616895ec7e8cdff7b53f3f6db6.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">curve_fit</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">interpolate</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">108</span><span class="p">,</span> <span class="mi">120</span><span class="p">]</span> 
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">optimize</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">435</span>
+<span class="g g-Whitespace">    </span><span class="mi">431</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._constraints</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">NonlinearConstraint</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">432</span>                            <span class="n">LinearConstraint</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">433</span>                            <span class="n">Bounds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">434</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._hessian_update_strategy</span><span class="w"> </span><span class="kn">import</span> <span class="n">HessianUpdateStrategy</span><span class="p">,</span> <span class="n">BFGS</span><span class="p">,</span> <span class="n">SR1</span>
+<span class="ne">--&gt; </span><span class="mi">435</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._shgo</span><span class="w"> </span><span class="kn">import</span> <span class="n">shgo</span>
+<span class="g g-Whitespace">    </span><span class="mi">436</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._dual_annealing</span><span class="w"> </span><span class="kn">import</span> <span class="n">dual_annealing</span>
+<span class="g g-Whitespace">    </span><span class="mi">437</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._qap</span><span class="w"> </span><span class="kn">import</span> <span class="n">quadratic_assignment</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">optimize</span><span class="o">/</span><span class="n">_shgo</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">10</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="ne">---&gt; </span><span class="mi">10</span> <span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">spatial</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">OptimizeResult</span><span class="p">,</span> <span class="n">minimize</span><span class="p">,</span> <span class="n">Bounds</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize._optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">MemoizeJac</span>
+
+<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1055,</span> in <span class="ni">_handle_fromlist</span><span class="nt">(module, fromlist, import_, recursive)</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.9/site-packages/scipy/__init__.py:134,</span> in <span class="ni">__getattr__</span><span class="nt">(name)</span>
+<span class="g g-Whitespace">    </span><span class="mi">132</span> <span class="k">def</span><span class="w"> </span><span class="fm">__getattr__</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">133</span>     <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">submodules</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">134</span>         <span class="k">return</span> <span class="n">_importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;scipy.</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">135</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">136</span>         <span class="k">try</span><span class="p">:</span>
+
+<span class="nn">File ~/opt/anaconda3/lib/python3.9/importlib/__init__.py:127,</span> in <span class="ni">import_module</span><span class="nt">(name, package)</span>
+<span class="g g-Whitespace">    </span><span class="mi">125</span>             <span class="k">break</span>
+<span class="g g-Whitespace">    </span><span class="mi">126</span>         <span class="n">level</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="ne">--&gt; </span><span class="mi">127</span> <span class="k">return</span> <span class="n">_bootstrap</span><span class="o">.</span><span class="n">_gcd_import</span><span class="p">(</span><span class="n">name</span><span class="p">[</span><span class="n">level</span><span class="p">:],</span> <span class="n">package</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">spatial</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">123</span>
+<span class="g g-Whitespace">    </span><span class="mi">119</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">ckdtree</span><span class="p">,</span> <span class="n">kdtree</span><span class="p">,</span> <span class="n">qhull</span>
+<span class="g g-Whitespace">    </span><span class="mi">121</span> <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">()</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">s</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)]</span>
+<span class="ne">--&gt; </span><span class="mi">123</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">distance</span><span class="p">,</span> <span class="n">transform</span>
+<span class="g g-Whitespace">    </span><span class="mi">125</span> <span class="n">__all__</span> <span class="o">+=</span> <span class="p">[</span><span class="s1">&#39;distance&#39;</span><span class="p">,</span> <span class="s1">&#39;transform&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">127</span> <span class="kn">from</span><span class="w"> </span><span class="nn">scipy._lib._testutils</span><span class="w"> </span><span class="kn">import</span> <span class="n">PytestTester</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">spatial</span><span class="o">/</span><span class="n">transform</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">19</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="sd"> Spatial Transformations (:mod:`scipy.spatial.transform`)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd"> ========================================================</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span><span class="sd">    RotationSpline</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="ne">---&gt; </span><span class="mi">19</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._rotation</span><span class="w"> </span><span class="kn">import</span> <span class="n">Rotation</span><span class="p">,</span> <span class="n">Slerp</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="kn">from</span><span class="w"> </span><span class="nn">._rotation_spline</span><span class="w"> </span><span class="kn">import</span> <span class="n">RotationSpline</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="c1"># Deprecated namespaces, to be removed in v2.0.0</span>
+
+<span class="nn">File &lt;frozen importlib._bootstrap&gt;:398,</span> in <span class="ni">parent</span><span class="nt">(self)</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
 </div>
 </div>
 <p>Um die optimale Gerade zu bestimmen, führen wir eine <strong>lineare Regression</strong> durch, um die Daten anzunähern. Die optimale Gerade hat im Idealfall die Form:</p>
@@ -1542,18 +1602,43 @@ D.h. die Unsicherheiten der beiden Parameter sind nicht unabhängig. Ignoriert m
 </div>
 </section>
 </section>
-<section id="praktische-methode-der-kleinsten-quadrate-least-squares-verfahren">
-<h2>Praktische Methode der kleinsten Quadrate (Least-Squares-Verfahren)<a class="headerlink" href="#praktische-methode-der-kleinsten-quadrate-least-squares-verfahren" title="Permalink to this heading">#</a></h2>
+<section id="matrixform-des-least-squares-verfahrens">
+<h2>Matrixform des Least-Squares-Verfahrens<a class="headerlink" href="#matrixform-des-least-squares-verfahrens" title="Permalink to this heading">#</a></h2>
 <p>Im Folgenden soll das Verfahren erläutert werden, wie Parameter mittels Matrixform berechnet werden können.
 Es seien die <strong>Messpunkte</strong> <span class="math notranslate nohighlight">\((x_i, y_i)\)</span> gegeben, die durch ein theoretisches Modell <span class="math notranslate nohighlight">\(f(x, \mathbf{b})\)</span> beschrieben werden sollen.</p>
+<p><span class="math notranslate nohighlight">\(n\)</span> Wertepaare <span class="math notranslate nohighlight">\((x_i, y_i)\)</span> sind die sogenannten <strong>Stützstellen</strong> und damit die experimentellen Punkte, an denen du das Modell überprüfst.</p>
+<div class="tip admonition">
+<p class="admonition-title">Beispiel für 3 Stützstellen</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p><span class="math notranslate nohighlight">\(i\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(x_i\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(y_i\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>1</p></td>
+<td class="text-center"><p>1.0</p></td>
+<td class="text-center"><p>2.1</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>2</p></td>
+<td class="text-center"><p>2.0</p></td>
+<td class="text-center"><p>2.9</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>3</p></td>
+<td class="text-center"><p>3.0</p></td>
+<td class="text-center"><p>4.2</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 <p>Da Messdaten unvermeidbar <strong>Messfehler</strong> enthalten, gilt im Allgemeinen nicht exakt <span class="math notranslate nohighlight">\(y_i = f(x_i, \mathbf{b})\)</span>, sondern</p>
 <div class="math notranslate nohighlight">
 \[
 y_i = f(x_i, \mathbf{b}) + \varepsilon_i,
 \]</div>
 <p>wobei <span class="math notranslate nohighlight">\(\varepsilon_i\)</span> die zufälligen Messabweichungen darstellen.</p>
-<p>Das Ziel ist es, die Parameter <span class="math notranslate nohighlight">\(\mathbf{b}\)</span> des Modells so zu bestimmen, dass die theoretische Funktion die Messdaten <strong>im Mittel bestmöglich beschreibt</strong>.</p>
-<p>Gesucht wird der Parametersatz <span class="math notranslate nohighlight">\(\mathbf{b}\)</span>, der die <strong>Summe der quadrierten Abweichungen</strong> zwischen den gemessenen und berechneten Werten minimiert:</p>
+<p>Das Ziel ist es, die Parameter <span class="math notranslate nohighlight">\(\mathbf{b}\)</span> des Modells so zu bestimmen, dass die theoretische Funktion die Messdaten <strong>im Mittel bestmöglich beschreibt</strong>, d.h. so dass die <strong>Summe der quadrierten Abweichungen</strong> zwischen den gemessenen und berechneten Werten minimiert wird:</p>
 <div class="math notranslate nohighlight">
 \[
 S(\mathbf{b}) = \sum_{i=1}^n \left( y_i - f(x_i, \mathbf{b}) \right)^2 \quad \longrightarrow \quad \min.
@@ -1564,6 +1649,14 @@ S(\mathbf{b}) = \sum_{i=1}^n \left( y_i - f(x_i, \mathbf{b}) \right)^2 \quad \lo
 f(x_i, \mathbf{b}) = a_1 \phi_1(x_i) + a_2 \phi_2(x_i) + \dots + a_m \phi_m(x_i),
 \]</div>
 <p>wobei <span class="math notranslate nohighlight">\(\phi_j(x)\)</span> die <strong>Basisfunktionen</strong> sind und <span class="math notranslate nohighlight">\(a_j\)</span> die zu bestimmenden Parameter.</p>
+<div class="tip admonition">
+<p class="admonition-title">Basisfunktion-Beispiel für lineares Modell</p>
+<p>Das Modell für die beispielhaften Messwerte könnte z.B. eine Gerade mit dem Parametern <span class="math notranslate nohighlight">\(a_1\)</span> und <span class="math notranslate nohighlight">\(a_2\)</span> sein:</p>
+<div class="math notranslate nohighlight">
+\[
+f(x, \mathbf{b}) = a_1 + a_2 x.
+\]</div>
+</div>
 <section id="matrixform-des-linearen-modells">
 <h3>Matrixform des linearen Modells<a class="headerlink" href="#matrixform-des-linearen-modells" title="Permalink to this heading">#</a></h3>
 <p>Alle Messpunkte können in <strong>Matrix-Vektor-Schreibweise</strong> zusammengefasst werden:</p>
@@ -1589,6 +1682,48 @@ f(x_i, \mathbf{b}) = a_1 \phi_1(x_i) + a_2 \phi_2(x_i) + \dots + a_m \phi_m(x_i)
 \phi_1(x_n) &amp; \phi_2(x_n) &amp; \dots &amp; \phi_m(x_n)
 \end{bmatrix}.
 \end{split}\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Beispiel für 3 Stützstellen von oben:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{A} =
+\begin{bmatrix}
+1 &amp; x_1 \\
+1 &amp; x_2 \\
+1 &amp; x_3
+\end{bmatrix}, \quad
+\mathbf{y} =
+\begin{bmatrix}
+y_1 \\ y_2 \\ y_3
+\end{bmatrix}.
+\end{split}\]</div>
+<p>und</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{b} =
+\begin{bmatrix}
+a_1 \\ a_2 
+\end{bmatrix}.
+\end{split}\]</div>
+<p>Man kann einfach zeigen, dass diese Matrixmultiplikation eine vereinfachte Schreibweise für das lineare Gleichungssystem mit in diesem Fall 3 Stützstellen ist:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{A} \mathbf{b} =   \begin{bmatrix}
+1 &amp; x_1 \\
+1 &amp; x_2 \\
+1 &amp; x_3
+\end{bmatrix} \cdot \begin{bmatrix}
+a_1 \\ a_2 
+\end{bmatrix} = \mathbf{y}
+\end{split}\]</div>
+<p>Durch ausmultiplizieren erhält man:</p>
+<div class="math notranslate nohighlight">
+\[y_1 = a_1 + a_2 x_1\]</div>
+<div class="math notranslate nohighlight">
+\[y_2 = a_1 + a_2 x_2\]</div>
+<div class="math notranslate nohighlight">
+\[y_3 = a_1 + a_2 x_3\]</div>
+</div>
 </section>
 <section id="das-minimierungsproblem">
 <h3>Das Minimierungsproblem<a class="headerlink" href="#das-minimierungsproblem" title="Permalink to this heading">#</a></h3>
@@ -1607,9 +1742,6 @@ S(\mathbf{b}) = (\mathbf{y} - \mathbf{A}\mathbf{b})^\top (\mathbf{y} - \mathbf{A
 \[
 \mathbf{A}^\top \mathbf{A}\,\mathbf{b} = \mathbf{A}^\top \mathbf{y}.
 \]</div>
-</section>
-<section id="losung-uber-die-pseudoinverse">
-<h3>Lösung über die Pseudoinverse<a class="headerlink" href="#losung-uber-die-pseudoinverse" title="Permalink to this heading">#</a></h3>
 <p>Falls <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> <strong>mehr Zeilen als Spalten</strong> besitzt (<span class="math notranslate nohighlight">\(n &gt; m\)</span>), ist das System überbestimmt und nicht direkt lösbar. In diesem Fall verwendet man die <strong>Pseudoinverse</strong> <span class="math notranslate nohighlight">\(\mathbf{A}^+\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1626,6 +1758,19 @@ S(\mathbf{b}) = (\mathbf{y} - \mathbf{A}\mathbf{b})^\top (\mathbf{y} - \mathbf{A
 <li><p>Die Lösung minimiert den euklidischen Abstand zwischen dem Messvektor <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>
 und dem durch <span class="math notranslate nohighlight">\(\mathbf{A}\mathbf{b}\)</span> beschriebenen Modellraum.</p></li>
 </ul>
+<div class="tip admonition">
+<p class="admonition-title">Vorgehen in der Praxis:</p>
+<p>Für unseren Fall würde man prakisch wiefolgt vorgehen:</p>
+<ol class="arabic simple">
+<li><p>Transponiere: <span class="math notranslate nohighlight">\(\mathbf{A}^\top\)</span></p></li>
+<li><p>Multipliziere: <span class="math notranslate nohighlight">\(\mathbf{A}^\top \mathbf{A}\)</span> und <span class="math notranslate nohighlight">\(\mathbf{A}^\top \mathbf{y}\)</span></p></li>
+<li><p>Löse nach <span class="math notranslate nohighlight">\(\mathbf{b}\)</span>:
+$<span class="math notranslate nohighlight">\(
+\mathbf{b} = (\mathbf{A}^\top \mathbf{A})^{-1}\mathbf{A}^\top \mathbf{y}.
+\)</span>$</p></li>
+</ol>
+<p>Das Ergebnis <span class="math notranslate nohighlight">\(\mathbf{b} = [a, b]^\top\)</span> liefert die <strong>Steigung</strong> und den <strong>Achsenabschnitt</strong> deiner Ausgleichsgeraden.</p>
+</div>
 </section>
 <section id="erweiterungen">
 <h3>Erweiterungen<a class="headerlink" href="#erweiterungen" title="Permalink to this heading">#</a></h3>
@@ -1756,10 +1901,9 @@ u_{b_i} = \sqrt{\mathrm{Cov}(\mathbf{b})_{ii}}.
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kovarianzmatrix">Kovarianzmatrix</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#praktische-methode-der-kleinsten-quadrate-least-squares-verfahren">Praktische Methode der kleinsten Quadrate (Least-Squares-Verfahren)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrixform-des-least-squares-verfahrens">Matrixform des Least-Squares-Verfahrens</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrixform-des-linearen-modells">Matrixform des linearen Modells</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#das-minimierungsproblem">Das Minimierungsproblem</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#losung-uber-die-pseudoinverse">Lösung über die Pseudoinverse</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#erweiterungen">Erweiterungen</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fehlerabschatzung-der-parameter">Fehlerabschätzung der Parameter</a></li>
 </ul>

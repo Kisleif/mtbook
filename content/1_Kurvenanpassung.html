@@ -562,6 +562,14 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kovarianzmatrix">Kovarianzmatrix</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#praktische-methode-der-kleinsten-quadrate-least-squares-verfahren">Praktische Methode der kleinsten Quadrate (Least-Squares-Verfahren)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrixform-des-linearen-modells">Matrixform des linearen Modells</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#das-minimierungsproblem">Das Minimierungsproblem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#losung-uber-die-pseudoinverse">Lösung über die Pseudoinverse</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#erweiterungen">Erweiterungen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fehlerabschatzung-der-parameter">Fehlerabschätzung der Parameter</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -1529,6 +1537,138 @@ D.h. die Unsicherheiten der beiden Parameter sind nicht unabhängig. Ignoriert m
 </div>
 </section>
 </section>
+<section id="praktische-methode-der-kleinsten-quadrate-least-squares-verfahren">
+<h2>Praktische Methode der kleinsten Quadrate (Least-Squares-Verfahren)<a class="headerlink" href="#praktische-methode-der-kleinsten-quadrate-least-squares-verfahren" title="Permalink to this heading">#</a></h2>
+<p>Im Folgenden i
+In der Messtechnik und Datenanalyse liegt oft eine Menge von <strong>Messpunkten</strong> <span class="math notranslate nohighlight">\((x_i, y_i)\)</span> vor, die durch ein theoretisches Modell <span class="math notranslate nohighlight">\(f(x, \mathbf{b})\)</span> beschrieben werden sollen.</p>
+<p>Da Messdaten unvermeidbar <strong>Messfehler</strong> enthalten, gilt im Allgemeinen nicht exakt <span class="math notranslate nohighlight">\(y_i = f(x_i, \mathbf{b})\)</span>, sondern</p>
+<div class="math notranslate nohighlight">
+\[
+y_i = f(x_i, \mathbf{b}) + \varepsilon_i,
+\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(\varepsilon_i\)</span> die zufälligen Messabweichungen darstellen.</p>
+<p>Das Ziel ist es, die Parameter <span class="math notranslate nohighlight">\(\mathbf{b}\)</span> des Modells so zu bestimmen, dass die theoretische Funktion die Messdaten <strong>im Mittel bestmöglich beschreibt</strong>.</p>
+<p>Gesucht wird der Parametersatz <span class="math notranslate nohighlight">\(\mathbf{b}\)</span>, der die <strong>Summe der quadrierten Abweichungen</strong> zwischen den gemessenen und berechneten Werten minimiert:</p>
+<div class="math notranslate nohighlight">
+\[
+S(\mathbf{b}) = \sum_{i=1}^n \left( y_i - f(x_i, \mathbf{b}) \right)^2 \quad \longrightarrow \quad \min.
+\]</div>
+<p>Im einfachsten Fall ist das Modell <strong>linear in den Parametern</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+f(x_i, \mathbf{b}) = a_1 \phi_1(x_i) + a_2 \phi_2(x_i) + \dots + a_m \phi_m(x_i),
+\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(\phi_j(x)\)</span> die <strong>Basisfunktionen</strong> sind und <span class="math notranslate nohighlight">\(a_j\)</span> die zu bestimmenden Parameter.</p>
+<section id="matrixform-des-linearen-modells">
+<h3>Matrixform des linearen Modells<a class="headerlink" href="#matrixform-des-linearen-modells" title="Permalink to this heading">#</a></h3>
+<p>Alle Messpunkte können in <strong>Matrix-Vektor-Schreibweise</strong> zusammengefasst werden:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{y} = \mathbf{A}\mathbf{b} + \boldsymbol{\varepsilon},
+\]</div>
+<p>mit:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbf{y} \in \mathbb{R}^n\)</span>: Vektor der Messwerte</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{A} \in \mathbb{R}^{n\times m}\)</span>: Funktionsmatrix (Designmatrix)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{b} \in \mathbb{R}^m\)</span>: Vektor der unbekannten Parameter</p></li>
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{\varepsilon} \in \mathbb{R}^n\)</span>: Fehlervektor</p></li>
+</ul>
+<p>Beispielhaft:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{A} =
+\begin{bmatrix}
+\phi_1(x_1) &amp; \phi_2(x_1) &amp; \dots &amp; \phi_m(x_1) \\
+\phi_1(x_2) &amp; \phi_2(x_2) &amp; \dots &amp; \phi_m(x_2) \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+\phi_1(x_n) &amp; \phi_2(x_n) &amp; \dots &amp; \phi_m(x_n)
+\end{bmatrix}.
+\end{split}\]</div>
+</section>
+<section id="das-minimierungsproblem">
+<h3>Das Minimierungsproblem<a class="headerlink" href="#das-minimierungsproblem" title="Permalink to this heading">#</a></h3>
+<p>Wir suchen den Parametervektor <span class="math notranslate nohighlight">\(\mathbf{b}\)</span>, der die Quadratsumme der Abweichungen minimiert:</p>
+<div class="math notranslate nohighlight">
+\[
+S(\mathbf{b}) = (\mathbf{y} - \mathbf{A}\mathbf{b})^\top (\mathbf{y} - \mathbf{A}\mathbf{b}).
+\]</div>
+<p>Die Bedingung für das Minimum lautet:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial S(\mathbf{b})}{\partial \mathbf{b}} = 0.
+\]</div>
+<p>Durch Ableiten und Umformen erhält man die <strong>Normalgleichungen</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{A}^\top \mathbf{A}\,\mathbf{b} = \mathbf{A}^\top \mathbf{y}.
+\]</div>
+</section>
+<section id="losung-uber-die-pseudoinverse">
+<h3>Lösung über die Pseudoinverse<a class="headerlink" href="#losung-uber-die-pseudoinverse" title="Permalink to this heading">#</a></h3>
+<p>Falls <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> <strong>mehr Zeilen als Spalten</strong> besitzt (<span class="math notranslate nohighlight">\(n &gt; m\)</span>), ist das System überbestimmt und nicht direkt lösbar. In diesem Fall verwendet man die <strong>Pseudoinverse</strong> <span class="math notranslate nohighlight">\(\mathbf{A}^+\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{A}^+ = (\mathbf{A}^\top \mathbf{A})^{-1} \mathbf{A}^\top.
+\]</div>
+<p>Damit ergibt sich die <strong>Least-Squares-Lösung</strong> zu:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{b} = \mathbf{A}^+ \mathbf{y} = (\mathbf{A}^\top \mathbf{A})^{-1} \mathbf{A}^\top \mathbf{y}.
+\]</div>
+<ul class="simple">
+<li><p>Die Matrix <span class="math notranslate nohighlight">\(\mathbf{A}^\top \mathbf{A}\)</span> ist eine <strong>quadratische Symmetriematrix</strong> (<span class="math notranslate nohighlight">\(m \times m\)</span>).</p></li>
+<li><p>Ihre Inverse gewichtet die Korrelationen zwischen den Basisfunktionen.</p></li>
+<li><p>Die Lösung minimiert den euklidischen Abstand zwischen dem Messvektor <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>
+und dem durch <span class="math notranslate nohighlight">\(\mathbf{A}\mathbf{b}\)</span> beschriebenen Modellraum.</p></li>
+</ul>
+</section>
+<section id="erweiterungen">
+<h3>Erweiterungen<a class="headerlink" href="#erweiterungen" title="Permalink to this heading">#</a></h3>
+<p>Gewichtete Ausgleichsrechnung: Falls die Messpunkte unterschiedliche Unsicherheiten <span class="math notranslate nohighlight">\(\sigma_i\)</span> besitzen, wird die Minimierung gewichtet:</p>
+<div class="math notranslate nohighlight">
+\[
+S(\mathbf{b}) = (\mathbf{y} - \mathbf{A}\mathbf{b})^\top \mathbf{W} (\mathbf{y} - \mathbf{A}\mathbf{b}),
+\]</div>
+<p>mit der <strong>Gewichtungsmatrix</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{W} = \mathrm{diag}\!\left(\frac{1}{\sigma_1^2}, \frac{1}{\sigma_2^2}, \dots, \frac{1}{\sigma_n^2}\right).
+\]</div>
+<p>Die Lösung lautet dann:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{b} = (\mathbf{A}^\top \mathbf{W} \mathbf{A})^{-1} \mathbf{A}^\top \mathbf{W} \mathbf{y}.
+\]</div>
+<p>Ist das Modell <em>nicht linear</em> in den Parametern <span class="math notranslate nohighlight">\(\mathbf{b}\)</span>, kann man es lokal linearisieren:</p>
+<div class="math notranslate nohighlight">
+\[
+f(x, \mathbf{b}) \approx f(x, \mathbf{b}_0) + \mathbf{J}(\mathbf{b} - \mathbf{b}_0),
+\]</div>
+<p>mit der <strong>Jacobi-Matrix</strong> <span class="math notranslate nohighlight">\(\mathbf{J} = \frac{\partial f}{\partial \mathbf{b}}\)</span>.<br />
+Darauf wird erneut das Least-Squares-Verfahren angewandt (iterativ, z. B. nach <strong>Gauss–Newton</strong>).</p>
+</section>
+<section id="fehlerabschatzung-der-parameter">
+<h3>Fehlerabschätzung der Parameter<a class="headerlink" href="#fehlerabschatzung-der-parameter" title="Permalink to this heading">#</a></h3>
+<p>Wenn die Standardabweichung der Residuen <span class="math notranslate nohighlight">\(\sigma\)</span> bekannt oder aus den Daten geschätzt ist,  lässt sich die <strong>Kovarianzmatrix</strong> der Parameter angeben:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{Cov}(\mathbf{b}) = \sigma^2 (\mathbf{A}^\top \mathbf{A})^{-1}.
+\]</div>
+<p>Die Diagonalelemente liefern die <strong>Varianzen</strong> der geschätzten Parameter:</p>
+<div class="math notranslate nohighlight">
+\[
+u_{b_i} = \sqrt{\mathrm{Cov}(\mathbf{b})_{ii}}.
+\]</div>
+<ul class="simple">
+<li><p>Das Least-Squares-Verfahren in Matrixform liefert die <strong>optimale lineare Schätzung</strong> der Modellparameter, wenn die Messfehler zufällig und unkorreliert sind.</p></li>
+<li><p>Die Lösung<br />
+$<span class="math notranslate nohighlight">\(
+\mathbf{b} = (\mathbf{A}^\top \mathbf{A})^{-1} \mathbf{A}^\top \mathbf{y}
+\)</span>$
+minimiert die Summe der quadratischen Abweichungen zwischen Modell und Messdaten.</p></li>
+</ul>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1608,6 +1748,14 @@ D.h. die Unsicherheiten der beiden Parameter sind nicht unabhängig. Ignoriert m
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unsicherheiten-der-modellparameter">Unsicherheiten der Modellparameter</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manuelle-berechnung-lineare-regression">Manuelle Berechnung (lineare Regression)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kovarianzmatrix">Kovarianzmatrix</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#praktische-methode-der-kleinsten-quadrate-least-squares-verfahren">Praktische Methode der kleinsten Quadrate (Least-Squares-Verfahren)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrixform-des-linearen-modells">Matrixform des linearen Modells</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#das-minimierungsproblem">Das Minimierungsproblem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#losung-uber-die-pseudoinverse">Lösung über die Pseudoinverse</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#erweiterungen">Erweiterungen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fehlerabschatzung-der-parameter">Fehlerabschätzung der Parameter</a></li>
 </ul>
 </li>
 </ul>
